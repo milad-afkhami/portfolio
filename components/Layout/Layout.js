@@ -13,6 +13,7 @@ export const Layout = (props = {}) => {
       position="relative"
       id={APP_WRAPPER_ELEMENT_ID}
       mh="100vh"
+      container
     >
       <Div id="more-menu__list" />
       <Div id="modal__wrapper" />

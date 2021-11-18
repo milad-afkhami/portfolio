@@ -1,11 +1,11 @@
 const fonts = {
   default: {
-    link: "./fonts/IRANYekan/css/fontiran.css",
-    name: "iranyekan",
-  },
-  en: {
     link: "https://fonts.googleapis.com/css?family=Montserrat",
     name: "Montserrat",
+  },
+  fa: {
+    link: "./fonts/IRANYekan/css/fontiran.css",
+    name: "iranyekan",
   },
 };
 

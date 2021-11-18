@@ -11,15 +11,9 @@ const Home = (props) => {
   return (
     <>
       <Head canonical="/" />
-      <Div
-        width="100%"
-        mx="0"
-        py="4"
-        px="3"
-        responsive={{ md: { px: 4 } }}
-        container
-      >
+      <Div width="100%" mx="0" py="4" px="3" responsive={{ md: { px: 4 } }}>
         <ResumeProfile />
+        <FeaturedPosts />
         {/* <CheckBox
           label="i am ok"
           checked={state}

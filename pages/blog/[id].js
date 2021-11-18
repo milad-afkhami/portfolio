@@ -34,7 +34,7 @@ export default function ProductPage(props) {
   return (
     <>
       <Head title={blog.name} description={""} canonical={`/blog/${idc}`} />
-      <Div width="100%" px="3" container>
+      <Div width="100%" px="3">
         <Breadcrumb
           routes={[
             { title: "home.home", link: "/", href: "/" },

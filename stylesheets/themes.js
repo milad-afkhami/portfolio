@@ -7,7 +7,7 @@ export const themes = {
   [THEMES.LIGHT]: {
     brand: new Color("#3EA055"),
     bg: {
-      primary: new Color("#FFFFFF"),
+      primary: new Color("#F5F5F5"),
       secondary: new Color("#F8F6F2"),
       tertiary: new Color("#FBFAF7"),
       disabled: new Color("#656668"),

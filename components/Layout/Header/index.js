@@ -13,7 +13,6 @@ export function Header(props) {
         : {})}
       height="var(--layout-header-height)"
       width="100%"
-      container
     >
       <Div flex={["center", "between"]} matchParent>
         <Div width="35%" flex={[, "start"]}>

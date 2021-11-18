@@ -7,7 +7,7 @@ export function ResumeProfile(props) {
     <Div flex width="100%">
       <Div width="100%">
         <Div mb="2">
-          <Text size="h-lg" tag="h1">
+          <Text size="h-lg-b" tag="h1">
             resume.profile.name
           </Text>
         </Div>

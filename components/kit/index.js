@@ -15,6 +15,5 @@ export * from "./Tabs";
 export * from "./Modal";
 export * from "./BottomSheet";
 export * from "./Logo";
-export * from "./CodeInput";
 export * from "./Checkbox";
 export * from "./Breadcrumb";

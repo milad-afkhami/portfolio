@@ -33,8 +33,8 @@
     "yup": "^0.32.9"
   },
   "scripts": {
-    "start": "cross-env PORT=6400 NODE_OPTIONS='--inspect' next dev",
-    "start-prod": "PORT=6400 next start",
+    "start": "cross-env PORT=4000 NODE_OPTIONS='--inspect' next dev",
+    "start-prod": "PORT=4000 next start",
     "build": "GENERATE_SOURCEMAP=false next build",
     "test": "jest test"
   },
