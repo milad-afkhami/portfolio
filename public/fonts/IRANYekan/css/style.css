@@ -1,0 +1,22 @@
+﻿@import url(fontiran.css); /* لینک فایلی که وظیفه بارگذاری فونت ها را برعهده دارد */
+body {
+  font-family: iranyekan !important;
+  /* direction: rtl; */
+  margin: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+textarea {
+  font-family: iranyekan !important;
+}
+h1 {
+  font-weight: bold;
+}
+.ltr {
+  direction: ltr;
+}

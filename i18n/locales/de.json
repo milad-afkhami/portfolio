@@ -1,0 +1,45 @@
+{
+  "de": {
+    "app": {
+      "title": "Mili Totoro",
+      "username": "@Mili",
+      "description": "My personal website",
+      "name": "Mili Totoro"
+    },
+    "seo": {
+      "title": {
+        "default": "Mili Totoro",
+        "template": "",
+        "templateAppend": "",
+        "home": "Home"
+      },
+      "description": {
+        "default": "My personal webiste"
+      }
+    },
+    "layout": {
+      "header": {
+        "defaultTitle": "Milad Afkhami"
+      },
+      "footer": {},
+      "navItems": {},
+      "alert": {
+        "error": {
+          "connection": "Please check your connection!",
+          "server": "Couldn't reach server"
+        }
+      }
+    },
+    "form": {
+      "message": {
+        "required": "this field is required",
+        "checkYourInput": "check your input"
+      }
+    },
+    "error": {
+      "pageNotFound": "page not found",
+      "goBack": "Go Back",
+      "noItemFound": "No Item Found"
+    }
+  }
+}

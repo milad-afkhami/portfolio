@@ -1,0 +1,160 @@
+@font-face {
+  font-family: "Lapert-icon";
+  src: url("fonts/Lapert-icon.eot?exe77f");
+  src: url("fonts/Lapert-icon.eot?exe77f#iefix") format("embedded-opentype"),
+    url("fonts/Lapert-icon.ttf?exe77f") format("truetype"),
+    url("fonts/Lapert-icon.woff?exe77f") format("woff"),
+    url("fonts/Lapert-icon.svg?exe77f#Lapert-icon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="lp-"],
+[class*=" lp-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "Lapert-icon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.lp-Arrows-left:before {
+  content: "\e904";
+}
+.lp-Arrows-right:before {
+  content: "\e905";
+}
+.lp-tike:before {
+  content: "\e91a";
+}
+.lp-check-double-line:before {
+  content: "\e918";
+}
+.lp-question-line:before {
+  content: "\e919";
+}
+.lp-notification-bell:before {
+  content: "\e928";
+}
+.lp-accont-1:before {
+  content: "\e900";
+}
+.lp-accont:before {
+  content: "\e901";
+}
+.lp-arrow-left-s-line-left:before {
+  content: "\e902";
+}
+.lp-arrow-left-s-line-right:before {
+  content: "\e903";
+}
+.lp-bank-card-fill:before {
+  content: "\e906";
+}
+.lp-close-line:before {
+  content: "\e907";
+}
+.lp-close:before {
+  content: "\e908";
+}
+.lp-delete:before {
+  content: "\e909";
+}
+.lp-dislike:before {
+  content: "\e90a";
+}
+.lp-edit:before {
+  content: "\e90b";
+}
+.lp-eye-2-line:before {
+  content: "\e90c";
+}
+.lp-eye-close-line:before {
+  content: "\e90d";
+}
+.lp-Favourites---fill:before {
+  content: "\e90e";
+}
+.lp-Favourites---Line:before {
+  content: "\e90f";
+}
+.lp-Filter:before {
+  content: "\e910";
+}
+.lp-In-person-payment---fill:before {
+  content: "\e911";
+}
+.lp-instagram:before {
+  content: "\e912";
+}
+.lp-like:before {
+  content: "\e913";
+}
+.lp-linkdin:before {
+  content: "\e914";
+}
+.lp-location:before {
+  content: "\e915";
+}
+.lp-Negative:before {
+  content: "\e916";
+}
+.lp-Next-shopping-list:before {
+  content: "\e917";
+}
+.lp-order-history:before {
+  content: "\e91b";
+}
+.lp-play-circle:before {
+  content: "\e91c";
+}
+.lp-Positive:before {
+  content: "\e91d";
+}
+.lp-recent-visite:before {
+  content: "\e91e";
+}
+.lp-referral-request:before {
+  content: "\e91f";
+}
+.lp-Restore:before {
+  content: "\e920";
+}
+.lp-search:before {
+  content: "\e921";
+}
+.lp-service:before {
+  content: "\e922";
+}
+.lp-share-line:before {
+  content: "\e923";
+}
+.lp-shopping-bag:before {
+  content: "\e924";
+}
+.lp-star-half-s-line:before {
+  content: "\e925";
+}
+.lp-star-s-fill:before {
+  content: "\e926";
+}
+.lp-star-s-line:before {
+  content: "\e927";
+}
+.lp-Truck:before {
+  content: "\e929";
+}
+.lp-twitter:before {
+  content: "\e92a";
+}
+.lp-youtube:before {
+  content: "\e92b";
+}

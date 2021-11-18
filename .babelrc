@@ -1,0 +1,10 @@
+{
+  "presets": ["@babel/preset-flow", "next/babel", "@babel/env", "@babel/react"],
+  "plugins": [
+    [
+      "styled-components",
+      { "ssr": true, "displayName": true, "preprocess": false }
+    ],
+    "@babel/plugin-transform-runtime"
+  ]
+}

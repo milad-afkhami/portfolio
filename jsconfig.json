@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "allowSyntheticDefaultImports": false,
+    "baseUrl": "./",
+    "moduleResolution": "node",
+    "paths": {
+      "@kits": ["./components/kit/index"],
+      "@kits/*": ["./components/kit/*"],
+      "@components/*": ["./components/*"],
+      "@validators": ["./validators/index"],
+      "@utils": ["./utils/index"],
+      "@models": ["./models/index"],
+      "@models/*": ["./models/*"],
+      "@services": ["./services/index"],
+      "@constants": ["./constants/index"],
+      "@constants/*": ["./constants/*"],
+      "@stylesheets": ["./stylesheets/index"],
+      "@stylesheets/*": ["./stylesheets/*"],
+      "@helpers": ["./helpers/index"],
+      "@helpers/*": ["./helpers/*"],
+      "@localReducers": ["./localReducers/index"],
+      "@hooks": ["./hooks/index"],
+      "@i18n": ["./i18n/index"],
+      "@config": ["./config"],
+      "@contexts/*": ["./contexts/*"],
+      "@contexts/Audio": ["./contexts/Audio/index"],
+      "@contexts/ArtActions": ["./contexts/ArtActions/index"],
+      "@images": ["./public/images/index"]
+    }
+  },
+  "exclude": ["node_modules", "dist", ".next"]
+}
