@@ -42,7 +42,8 @@
         "name": "Milad Afkhami",
         "job": "Head of Front-End Development Team at Arsh Co.",
         "jobDescription": "Working as a Front-End developer and helping other members in their problems."
-      }
+      },
+      "posts": { "title": "Featured Posts" }
     },
     "form": {
       "message": {

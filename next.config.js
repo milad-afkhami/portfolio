@@ -20,6 +20,6 @@ module.exports = {
     craCompat: true,
   },
   images: {
-    domains: ["apis.lapertwear.com", "tpi.uneed.ir"],
+    domains: ["s3-us-west-2.amazonaws.com"],
   },
 };

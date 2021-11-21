@@ -1,12 +1,18 @@
 import React from "react";
 import { Div, Text } from "@kits";
-import { useState, useDispatch, useSelector } from "@hooks";
+import { FeaturedPostCard } from "./Card";
 
 export const FeaturedPosts = (props) => {
-  const { posts } = props || {};
-  const [state, setState] = useState(null);
+  const { posts = [] } = props || {};
 
-  return <Div>
-      
-  </Div>;
+  return (
+    <Div my="5">
+      <Div>
+        <Text size="h-md">resume.posts.title</Text>
+      </Div>
+      {posts.map((post, i) => (
+        <FeaturedPostCard key={i} {...post} />
+      ))}
+    </Div>
+  );
 };
