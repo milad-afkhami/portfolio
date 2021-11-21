@@ -1,21 +1,18 @@
 import React, { ComponentType } from "react";
-// import { LazyImage } from "react-lazy-images";
 import { Props } from "./ImageProps";
 import { Div } from "@kits";
 import NextImage from "next/image";
-import { ImageHelper } from "@helpers";
+import { useIsomorphicPortal, useToggle } from "@hooks";
 
 export const Image: ComponentType<Props> = ({
   fit,
   src,
-  hash,
   alt = "",
   placeholder,
   blurDataURL,
   loader,
   quality = 75,
   width,
-  serverQuality = "original",
   height,
   priority = false,
   unoptimized = false,
@@ -23,34 +20,84 @@ export const Image: ComponentType<Props> = ({
   withShimmer,
   layout,
   css = {},
+  maximizable,
+  onClick,
+  cursor,
   ...rest
 }) => {
+  const [maximized, toggleMaximized] = useToggle(false);
+
   return (
-    <Div
-      as={NextImage}
-      src={hash ? ImageHelper.getImage(hash, serverQuality) : src}
-      alt={alt}
-      quality={quality}
-      priority={priority}
-      loader={loader}
-      unoptimized={unoptimized}
-      objectPosition={objectPosition}
-      placeholder={placeholder}
-      width={width}
-      height={height}
-      layout={layout}
-      blurDataURL={
-        placeholder === "blur" && withShimmer
-          ? `data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`
-          : blurDataURL
-      }
-      css={{
-        userSelect: css.userSelect || "none",
-        "-webkit-user-drag": "none",
-        objectFit: fit || "unset",
-      }}
-      {...rest}
-    />
+    <>
+      <Div
+        as={NextImage}
+        src={src}
+        alt={alt}
+        quality={quality}
+        priority={priority}
+        loader={loader}
+        unoptimized={unoptimized}
+        objectPosition={objectPosition}
+        placeholder={placeholder}
+        width={width}
+        height={height}
+        layout={layout}
+        blurDataURL={
+          placeholder === "blur" && withShimmer
+            ? `data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`
+            : blurDataURL
+        }
+        css={{
+          userSelect: css.userSelect || "none",
+          "-webkit-user-drag": "none",
+          objectFit: fit || "unset",
+        }}
+        onClick={(...args) => {
+          (maximizable && toggleMaximized)?.();
+          return onClick?.(...args);
+        }}
+        cursor={cursor ?? (maximizable ? "zoom-in" : undefined)}
+        {...rest}
+      />
+      {maximizable && maximized
+        ? useIsomorphicPortal(
+            <Div
+              width="100%"
+              height="100%"
+              blurBg
+              dimensions={{ top: 0, left: 0, right: 0, bottom: 0 }}
+              zIndex="var(--overlay-z-index)"
+              pace="xFast"
+              flex={["center", "center"]}
+              position="absolute"
+              onClick={toggleMaximized}
+              cursor="zoom-out"
+            >
+              <Div
+                height="min(600px, 80vmin)"
+                width="min(600px, 80vmin)"
+                position="relative"
+                cursor="default"
+                opacity="1"
+                pace="xFast"
+              >
+                {maximized && (
+                  <Image
+                    curve="sm"
+                    onClick={toggleMaximized}
+                    quality="100"
+                    layout="fill"
+                    priority
+                    // blurDataURL={}
+                    // placeholder={"blur"}
+                  />
+                )}
+              </Div>
+            </Div>,
+            "body"
+          )
+        : null}
+    </>
   );
 };
 
