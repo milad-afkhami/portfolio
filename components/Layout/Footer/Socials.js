@@ -13,7 +13,7 @@ export function FooterSocials(props) {
   return (
     <Div row flex={["center"]}>
       {__map(socials, ({ name, icon, link }, social) => (
-        <Div mx="3" flex={["center", "center"]}>
+        <Div mx="3" flex={["center", "center"]} key={social}>
           <Icon
             name={icon}
             size="20"

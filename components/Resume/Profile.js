@@ -1,16 +1,18 @@
 import React from "react";
 import { Div, Icon, Text } from "@kits";
+import { NameSvg } from "./NameSvg";
 
 export function ResumeProfile(props) {
   const {} = props || {};
   return (
-    <Div flex width="100%">
+    <Div flex width="100%" my="4">
       <Div width="100%">
-        <Div mb="2">
+        {/* <Div mb="2">
           <Text size="h-lg-b" tag="h1">
             resume.profile.name
           </Text>
-        </Div>
+        </Div> */}
+        <NameSvg />
         <Div mb="3">
           <Text size="md" tag="h2">
             resume.profile.job

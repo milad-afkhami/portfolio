@@ -5,6 +5,7 @@
   "dependencies": {
     "@hookform/resolvers": "^2.6.0",
     "@material/react-text-field": "^0.15.0",
+    "animejs": "^3.2.1",
     "axios": "0.24.0",
     "cookies": "^0.8.0",
     "http-proxy": "^1.18.1",
