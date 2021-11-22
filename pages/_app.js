@@ -11,8 +11,10 @@ import { nProgress, enhanceStringPrototype, LanguageHelper } from "@helpers";
 import { useEffect, useT } from "@hooks";
 import { ToastContainer, Slide } from "react-toastify";
 import "@material/react-text-field/dist/text-field.css";
+// import "swiper/css";
+// import "swiper/css/grid"
+
 import "react-toastify/dist/ReactToastify.min.css";
-// import "swiper/swiper.min.css";
 import { SWRConfig } from "swr";
 
 function MyApp({ Component, pageProps, ...rest }) {
