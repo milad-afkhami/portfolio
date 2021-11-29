@@ -1,6 +1,7 @@
 import React from "react";
-import { Div, Icon, Text } from "@kits";
+import { Div, Icon, Image, Text } from "@kits";
 import { NameSvg } from "./NameSvg";
+import { logoLg } from "@images";
 
 export function ResumeProfile(props) {
   const {} = props || {};
@@ -25,7 +26,16 @@ export function ResumeProfile(props) {
         </Div>
       </Div>
       <Div>
-        <Div width="9rem" height="9rem" curve="circle" bg="brand" />
+        <Div
+          width="11rem"
+          height="11rem"
+          curve="circle"
+          bg="brand"
+          position="relative"
+          overflow="hidden"
+        >
+          <Image src={logoLg} layout="fill" fit="cover" />
+        </Div>
       </Div>
     </Div>
   );

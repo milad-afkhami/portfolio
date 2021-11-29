@@ -25,10 +25,22 @@
           "articles": "Articles",
           "packages": "Packages",
           "projects": "Projects",
-          "gists": "Gists"
+          "gists": "Gists",
+          "favourites": "Favourites"
         }
       },
-      "footer": {},
+      "footer": {
+        "artists": "Artists",
+        "playlists": "Playlists",
+        "poems": "Poems",
+        "poets": "Poets",
+        "movies": "Movies",
+        "series": "Series",
+        "anime": "Anime",
+        "favoriteSongs": "Favorite Songs",
+        "favoritePoems": "Favorite Poems",
+        "favoriteShows": "Favorite Shows"
+      },
       "navItems": {},
       "alert": {
         "error": {
@@ -43,7 +55,13 @@
         "job": "Head of Front-End Development Team at Arsh Co.",
         "jobDescription": "Working as a Front-End developer and helping other members in their problems."
       },
-      "posts": { "title": "Featured Posts" }
+      "posts": { "title": "Featured Posts", "seeMore": "See More" },
+      "contact": {
+        "email": "Email",
+        "phone": "Phone",
+        "instagram": "Instagram",
+        "telegram": "Telegram"
+      }
     },
     "form": {
       "message": {

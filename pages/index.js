@@ -3,7 +3,11 @@ import { useHome } from "@hooks";
 import { Div } from "@kits";
 // import { ExploreView } from "@components/Explore";
 import { Head } from "@components/SEO";
-import { ResumeProfile } from "@components/Resume";
+import {
+  ResumeContact,
+  ResumeProfile,
+  ResumeProjects,
+} from "@components/Resume";
 import { posts } from "mock";
 import dynamic from "next/dynamic";
 
@@ -20,6 +24,8 @@ const Home = (props) => {
       <Div width="100%" mx="0" py="4" px="3" responsive={{ md: { px: 4 } }}>
         <ResumeProfile />
         <FeaturedPosts posts={posts} />
+        <ResumeProjects />
+        <ResumeContact />
       </Div>
     </>
   );
