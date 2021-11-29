@@ -133,6 +133,7 @@ export interface Props extends HTMLAttributes {
   pt?: String;
   pb?: String;
   flex?: FlexProps | Boolean;
+  flexPortion?: String | Number;
   display?: String;
   col?: { xs: Number, sm: Number, md: Number, lg: Number, xl: Number };
   overflow?: "hidden" | "scroll" | "auto" | "visible";
