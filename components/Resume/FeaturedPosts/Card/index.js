@@ -1,6 +1,6 @@
 import React from "react";
 import { Div, Text, Image, Link } from "@kits";
-import styled from "styled-components";
+import { FeaturedPostCardCategory } from "./Category";
 
 export const FeaturedPostCard = (props) => {
   const {
@@ -18,52 +18,38 @@ export const FeaturedPostCard = (props) => {
   } = props || {};
 
   return (
-    <StyledLink
+    <Link
       href={`/blog/${slug}`}
-      width="480px"
-      height="200px"
-      flex
+      height="420px"
+      flex={[, , "column"]}
       curve="sm"
-      position="relative"
       overflow="hidden"
-      // mb="3"
       bg="bg-secondary"
-      hover={{
-        "& > last-child": {
-          width: "100%",
-        },
-      }}
+      hoverBg="bg-secondary-hover"
     >
-      <Div height="100%" width="160px" mw="160px" position="relative">
-        <Image src={image} layout="fill" fit="cover" />
+      <Div height="100%" flexPortion="1" position="relative">
+        <Image
+          src={image}
+          placeholder="blur"
+          blurDataURL={image}
+          layout="fill"
+          fit="cover"
+        />
+        <FeaturedPostCardCategory category={category} />
       </Div>
-      <Div
-        p="3"
-        position="absolute"
-        height="100%"
-        dimensions={{ right: 0 }}
-        width="calc(100% - 160px)"
-        pace="fast"
-        bg="bg-secondary-pale"
-      >
+      <Div p="3" flexPortion="1">
         <Div flex={["start", "between", "column"]} height="100%">
-          <Div
-            border="border-light"
-            borderSide="bottom"
-            color="text-secondary"
-            pb="2"
-          >
-            {category}
-          </Div>
           <Div>
             <Div mb="2">
-              <Text size="h-sm-b">{title}</Text>
+              <Text size="md-b" css={{ lineHeight: "1.5" }}>
+                {title}
+              </Text>
             </Div>
-            <Div>
+            {/* <Div>
               <Text color="text-secondary">
                 {summary.slice(0, 70) + (summary.length > 70 ? " ..." : "")}
               </Text>
-            </Div>
+            </Div> */}
           </Div>
           <Div
             flex={["center", "between"]}
@@ -73,10 +59,12 @@ export const FeaturedPostCard = (props) => {
             borderSide="top"
           >
             <Div>
-              <Text color="text-secondary">{publishedAt}</Text>
+              <Text color="text-secondary" size="xsm">
+                {publishedAt}
+              </Text>
             </Div>
             <Div>
-              <Text mx="1" color="text-secondary">
+              <Text mx="1" color="text-secondary" size="xsm">
                 {minutesToRead}
               </Text>
               {/* <Image src="/images/icons/time.svg" width="10px" height="10px" /> */}
@@ -84,12 +72,6 @@ export const FeaturedPostCard = (props) => {
           </Div>
         </Div>
       </Div>
-    </StyledLink>
+    </Link>
   );
 };
-
-const StyledLink = styled(Link)`
-  &:hover > :nth-child(2) {
-    width: 100%;
-  }
-`;
