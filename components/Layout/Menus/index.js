@@ -26,6 +26,11 @@ export function HeaderMenus(props) {
           layout.header.menu.projects
         </Text>
       </Link>
+      <Link href="/favourites" mx="3">
+        <Text size="md-b" tag="p" zoomOnHover hoverColor="text-secondary">
+          layout.header.menu.favourites
+        </Text>
+      </Link>
       <Link href="/gists" mx="3">
         <Text size="md-b" tag="p" zoomOnHover hoverColor="text-secondary">
           layout.header.menu.gists
