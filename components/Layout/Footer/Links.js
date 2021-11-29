@@ -3,23 +3,27 @@ import { Div, Link, Text } from "@kits";
 import { __map } from "@utils";
 
 const footerLinks = {
-  shopGuide: [
-    { label: "submitOrderGuide", link: "/submit-order-guide" },
+  favoriteSongs: [
+    { label: "artists", link: "/favorites/artists" },
     {
-      label: "deliveryProcessGuide",
-      link: "/delivery-process-guide",
+      label: "playlists",
+      link: "/favorites/playlists",
     },
-    { label: "paymentMethods", link: "/payment-methods" },
   ],
-  company: [
-    { label: "aboutUs", link: "/about-us" },
-    { label: "founder", link: "/founder" },
+  favoritePoems: [
+    { label: "poems", link: "/favorites/poems" },
+    { label: "poets", link: "/favorites/poets" },
+  ],
+  favoriteShows: [
+    { label: "movies", link: "/favorites/movies" },
+    { label: "series", link: "/favorites/series" },
+    { label: "anime", link: "/favorites/anime" },
   ],
 };
 
 export function FooterLinks(props) {
   return (
-    <Div flex={["start", "start"]}>
+    <Div flex={["start", "between"]}>
       {__map(footerLinks, (links, group) => (
         <Div
           flex={["start", "start", "column"]}
@@ -30,7 +34,10 @@ export function FooterLinks(props) {
           </Div>
           {links.map(({ label, link }) => (
             <Link href={link} mb="3">
-              <Text size="md">{`layout.footer.${label}`}</Text>
+              <Text
+                hoverColor="text-secondary"
+                size="md"
+              >{`layout.footer.${label}`}</Text>
             </Link>
           ))}
         </Div>
