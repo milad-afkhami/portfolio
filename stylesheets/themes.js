@@ -8,7 +8,7 @@ export const themes = {
     brand: new Color("#3EA055"),
     bg: {
       primary: new Color("#F5F5F5"),
-      secondary: new Color("#F8F6F2"),
+      secondary: new Color("#EBEBEB"),
       tertiary: new Color("#FBFAF7"),
       disabled: new Color("#656668"),
     },
@@ -30,10 +30,27 @@ export const themes = {
     },
   },
   [THEMES.DARK]: {
-    brand: new Color("#3EA055"),
+    brand: new Color(
+      "#edb98a",
+      "#E3944F",
+      "#F1CAA7",
+      "#F4D4B8",
+      "",
+      "",
+      "",
+      "#E3944F"
+    ),
     bg: {
       primary: new Color("#141416", "", "", "", "", "#141416B2"),
-      secondary: new Color("#232228", "", "", "", "", "#232228B2", "#23222866"),
+      secondary: new Color(
+        "#232228",
+        "#1c1b20",
+        "",
+        "",
+        "",
+        "#232228B2",
+        "#23222866"
+      ),
       tertiary: new Color("#33313A"),
       disabled: new Color("#656668"),
     },
