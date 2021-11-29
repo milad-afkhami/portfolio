@@ -1,4 +1,4 @@
-import logoSm from "./logo-sm.png";
+import logoLg from "./logo-lg.png";
 import spinner from "./spinner.svg";
 
-export { logoSm, spinner };
+export { logoLg, spinner };
