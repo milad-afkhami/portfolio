@@ -4,5 +4,7 @@ import { Div, Icon, Text } from "@kits";
 export function ResumeProjects(props) {
   const {} = props || {};
 
-  return <Div></Div>;
+  return <Div>
+    
+  </Div>;
 }
