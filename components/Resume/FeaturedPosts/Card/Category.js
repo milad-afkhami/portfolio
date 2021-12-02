@@ -12,7 +12,7 @@ export const FeaturedPostCardCategory = (props) => {
       flex={["center", "center"]}
       bg="bg-secondary-pale"
       curve="xsm"
-      color="text-secondary"
+      color="text-primary"
     >
       <Text size="xxsm-b">{category}</Text>
     </Div>
