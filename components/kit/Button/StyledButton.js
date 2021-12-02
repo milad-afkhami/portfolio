@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { setDimensions } from "./setDimensions";
 import { setStyle } from "./setStyle";
-import { c, curves, setTextTypography, typography } from "@stylesheets";
+import { c, curves, setTextTypography } from "@stylesheets";
 import { Div } from "@kits";
 
 const StyledButton = styled(Div).attrs((attrs) => ({ as: "button" }))(
@@ -26,11 +26,11 @@ const StyledButton = styled(Div).attrs((attrs) => ({ as: "button" }))(
       ...setStyle({ variant, disabled }),
       "&, & *": {
         ...setTextTypography("md"),
-        transition: "all 0.1s ease, background-color 0.3s",
+        transition: "all 0.1s ease, background-color 1s",
       },
       [firstChild]: { transition: "margin-top 0.3s ease" },
       display: "block",
-      borderRadius: 0,
+      borderRadius: curves.xlg,
       overflow: "hidden",
       ":focus": { outline: "none" },
       // color: c("text-primary"),

@@ -6,7 +6,7 @@ export * from "./Loading/Loading";
 export * from "./Loading/Spinner";
 export { StyledLink as Link } from "./Link/Link";
 export * from "./Icon";
-export * from "./Button/Button";
+export * from "./Button";
 export * from "./HR";
 export * from "./MoreMenu";
 export * from "./Divider";

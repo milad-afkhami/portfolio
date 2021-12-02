@@ -3,27 +3,28 @@ import { c } from "@stylesheets";
 export const setStyle = ({ variant, disabled }) => {
   if (variant === "primary") {
     return {
-      color: c("bg-primary"),
-      backgroundColor: c(disabled ? "bg-disabled" : "text-primary"),
+      color: c("text-primary"),
+      backgroundColor: c(disabled ? "bg-disabled" : "brand"),
       border: "none",
-      ...(!disabled
-        ? { ":hover": { backgroundColor: c("text-secondary") } }
-        : {}),
+      ...(!disabled ? { ":hover": { backgroundColor: c("brand-hover") } } : {}),
     };
   } else if (variant === "outlined") {
     return {
       color: c(disabled ? "text-tertiary" : "text-primary"),
       backgroundColor: "transparent",
-      border: `1px solid ${c(disabled ? "border-dark" : "brand")}`,
+      border: `1px solid ${c(disabled ? "border" : "brand")}`,
       ...(!disabled ? { ":hover": { borderColor: c("brand-dark") } } : {}),
     };
   } else if (variant === "link") {
     return {
-      color: c(disabled ? "text-tertiary" : "brand"),
+      color: c(disabled ? "text-tertiary" : "text-primary"),
       backgroundColor: "transparent",
       border: "none",
       ...(!disabled
-        ? { ":hover": { color: c("brand") }, ":active": { color: c("brand") } }
+        ? {
+            ":hover": { color: c("brand") },
+            ":active": { color: c("brand-dark") },
+          }
         : {}),
     };
   }
