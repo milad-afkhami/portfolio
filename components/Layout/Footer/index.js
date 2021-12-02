@@ -5,8 +5,8 @@ import { FooterSocials } from "./Socials";
 
 export function Footer(props) {
   return (
-    <Div py="4" mw="100%">
-      <Div mt="5" row>
+    <Div mt="5" py="5" mw="100%" border="border-light" borderSide="top">
+      <Div row>
         <Div col={{ xs: 12, lg: 8 }}>
           <FooterLinks />
         </Div>

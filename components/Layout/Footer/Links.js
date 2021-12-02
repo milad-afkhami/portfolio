@@ -3,21 +3,21 @@ import { Div, Link, Text } from "@kits";
 import { __map } from "@utils";
 
 const footerLinks = {
-  favoriteSongs: [
-    { label: "artists", link: "/favorites/artists" },
+  favouriteSongs: [
     {
       label: "playlists",
-      link: "/favorites/playlists",
+      link: "/favourites/playlists",
     },
+    { label: "artists", link: "/favourites/artists" },
   ],
-  favoritePoems: [
-    { label: "poems", link: "/favorites/poems" },
-    { label: "poets", link: "/favorites/poets" },
+  favouritePoems: [
+    { label: "poems", link: "/favourites/poems" },
+    { label: "poets", link: "/favourites/poets" },
   ],
-  favoriteShows: [
-    { label: "movies", link: "/favorites/movies" },
-    { label: "series", link: "/favorites/series" },
-    { label: "anime", link: "/favorites/anime" },
+  favouriteShows: [
+    { label: "movies", link: "/favourites/movies" },
+    { label: "series", link: "/favourites/series" },
+    { label: "anime", link: "/favourites/anime" },
   ],
 };
 
@@ -28,6 +28,7 @@ export function FooterLinks(props) {
         <Div
           flex={["start", "start", "column"]}
           responsive={{ lg: { mEnd: "6" } }}
+          key={group}
         >
           <Div mb="4">
             <Text size="md-b">{`layout.footer.${group}`}</Text>
@@ -36,7 +37,7 @@ export function FooterLinks(props) {
             <Link href={link} mb="3">
               <Text
                 hoverColor="text-secondary"
-                size="md"
+                size="sm-b"
               >{`layout.footer.${label}`}</Text>
             </Link>
           ))}
