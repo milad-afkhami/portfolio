@@ -36,4 +36,5 @@ export {
   lowerCase as __lowerCase,
   toArray as __toArray,
   reverse as __reverse,
+  chunk as __chunk,
 } from "lodash";
