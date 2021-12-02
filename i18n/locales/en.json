@@ -37,9 +37,9 @@
         "movies": "Movies",
         "series": "Series",
         "anime": "Anime",
-        "favoriteSongs": "Favorite Songs",
-        "favoritePoems": "Favorite Poems",
-        "favoriteShows": "Favorite Shows"
+        "favouriteSongs": "Favourite Songs",
+        "favouritePoems": "Favourite Poems",
+        "favouriteShows": "Favourite Shows"
       },
       "navItems": {},
       "alert": {
@@ -62,6 +62,13 @@
         "instagram": "Instagram",
         "telegram": "Telegram"
       }
+    },
+    "favourites": {
+      "artists": "Favourite Artists",
+      "playlists": "Favourite Playlists",
+      "listenNow": "Listen Now",
+      "expand": "Expand",
+      "collapse": "Collapse"
     },
     "form": {
       "message": {
