@@ -1,10 +1,10 @@
-import { useCallback, useDebugValue, useRef } from "react";
+import { useState, useCallback, useDebugValue, useRef } from "react";
 
 type ISetState = [any, () => void];
 
-export function useState(initialState): ISetState {
-  const [state, setState] = React.useState(initialState);
-  const [prevState, setPrevState] = React.useState();
+export function useEnhancedState(initialState): ISetState {
+  const [state, setState] = useState(initialState);
+  const [prevState, setPrevState] = useState();
   const stateRef = useRef();
 
   useDebugValue({ state, prevState });
