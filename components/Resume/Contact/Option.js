@@ -10,8 +10,8 @@ export function ResumeContactOption(props) {
         bg="brand"
         hoverBg="brand-hover"
         curve="circle"
-        width="150px"
-        height="150px"
+        width="100px"
+        height="100px"
         flex={["center", "center"]}
         position="relative"
         cursor="pointer"
