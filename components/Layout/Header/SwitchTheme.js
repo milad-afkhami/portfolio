@@ -13,48 +13,35 @@ export function HeaderSwitchTheme(props) {
     setTheme(theme === THEMES.DARK ? THEMES.LIGHT : THEMES.DARK);
   };
   return (
-    <StyledSwich>
-      <input type="checkbox" id="theme-switch" onChange={onChangeTheme} />
-      <label for="theme-switch" class="label">
-        <i class="fas fa-moon"></i>
-        <i class="fas fa-sun"></i>
-        <div class="ball" />
-      </label>
-    </StyledSwich>
+    <Div cursor="pointer" flex={["center", "center"]}>
+      <Div
+        as="svg"
+        cursor="pointer"
+        width="2rem"
+        height="2rem"
+        onClick={onChangeTheme}
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        stroke="currentColor"
+      >
+        {theme === THEMES.DARK && (
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+          />
+        )}
+        {theme === THEMES.LIGHT && (
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+          />
+        )}
+      </Div>
+    </Div>
   );
 }
-
-const StyledSwich = styled.div`
-  input[type="checkbox"] {
-    opacity: 0;
-    position: absolute;
-  }
-
-  label {
-    cursor: pointer;
-    width: 3rem;
-    height: 1.5rem;
-    background-color: var(--color-text-primary);
-    display: flex;
-    border-radius: 1.5rem;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-    margin: 0;
-  }
-
-  .ball {
-    width: 1.3rem;
-    height: 1.3rem;
-    background-color: var(--color-bg-primary);
-    position: absolute;
-    top: 0.1rem;
-    left: 0.1rem;
-    border-radius: 50%;
-    transition: transform 0.2s linear;
-  }
-
-  input[type="checkbox"]:checked + label .ball {
-    transform: translateX(24px);
-  }
-`;
