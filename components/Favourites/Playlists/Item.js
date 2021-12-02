@@ -1,11 +1,12 @@
 import React from "react";
 import { Button, Div, Image, Text } from "@kits";
 import { useToggle } from "@hooks";
+import { FavouritePlaylistTracks } from "./Tracks";
 
 export const FavouritePlaylist = (props) => {
   const { name, image, tracks } = props || {};
 
-  const [showTracks, toggleTracks] = useToggle(false);
+  const [tracksOpen, toggleTracks] = useToggle(false);
 
   return (
     <Div width="100%" border="border-light" px="3" mb="3" curve="xsm">
@@ -35,14 +36,14 @@ export const FavouritePlaylist = (props) => {
           <Div my="2">
             <Button
               variant="link"
-              text={showTracks ? "favourites.collapse" : "favourites.expand"}
+              text={tracksOpen ? "favourites.collapse" : "favourites.expand"}
               size="sm"
               onClick={toggleTracks}
             />
           </Div>
         </Div>
       </Div>
-      {/* tracks here, when isOpen */}
+      <FavouritePlaylistTracks open={tracksOpen} tracks={tracks} />
     </Div>
   );
 };

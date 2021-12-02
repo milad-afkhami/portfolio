@@ -130,9 +130,21 @@ export const favouritePlaylists = [
     slug: "soen",
     image: "/images/favourites/soen.png",
     tracks: [
-      { name: "Soen", image: "/images/favourites/soen.png" },
-      { name: "Soen", image: "/images/favourites/soen.png" },
-      { name: "Soen", image: "/images/favourites/soen.png" },
+      {
+        track: "Lotus",
+        artist: "Soen",
+        image: "/images/favourites/soen.png",
+      },
+      {
+        track: "Lotus",
+        artist: "Soen",
+        image: "/images/favourites/soen.png",
+      },
+      {
+        track: "Lotus",
+        artist: "Soen",
+        image: "/images/favourites/soen.png",
+      },
     ],
   },
   {
@@ -140,9 +152,21 @@ export const favouritePlaylists = [
     slug: "muse",
     image: "/images/favourites/muse.png",
     tracks: [
-      { name: "Muse", image: "/images/favourites/muse.png" },
-      { name: "Muse", image: "/images/favourites/muse.png" },
-      { name: "Muse", image: "/images/favourites/muse.png" },
+      {
+        name: "Citizen Erased",
+        artist: "Muse",
+        image: "/images/favourites/muse.png",
+      },
+      {
+        name: "Citizen Erased",
+        artist: "Muse",
+        image: "/images/favourites/muse.png",
+      },
+      {
+        name: "Citizen Erased",
+        artist: "Muse",
+        image: "/images/favourites/muse.png",
+      },
     ],
   },
   {
@@ -150,9 +174,21 @@ export const favouritePlaylists = [
     slug: "radiohead",
     image: "/images/favourites/radiohead.jpeg",
     tracks: [
-      { name: "Radiohead", image: "/images/favourites/radiohead.jpeg" },
-      { name: "Radiohead", image: "/images/favourites/radiohead.jpeg" },
-      { name: "Radiohead", image: "/images/favourites/radiohead.jpeg" },
+      {
+        name: "Creep",
+        artist: "Radiohead",
+        image: "/images/favourites/radiohead.jpeg",
+      },
+      {
+        name: "Creep",
+        artist: "Radiohead",
+        image: "/images/favourites/radiohead.jpeg",
+      },
+      {
+        name: "Creep",
+        artist: "Radiohead",
+        image: "/images/favourites/radiohead.jpeg",
+      },
     ],
   },
   {
@@ -161,15 +197,18 @@ export const favouritePlaylists = [
     image: "/images/favourites/marilyn-manson.jpg",
     tracks: [
       {
-        name: "Marilyn Manson",
+        name: "Lamb of God",
+        artist: "Marilyn Manson",
         image: "/images/favourites/marilyn-manson.jpg",
       },
       {
-        name: "Marilyn Manson",
+        name: "Lamb of God",
+        artist: "Marilyn Manson",
         image: "/images/favourites/marilyn-manson.jpg",
       },
       {
-        name: "Marilyn Manson",
+        name: "Lamb of God",
+        artist: "Marilyn Manson",
         image: "/images/favourites/marilyn-manson.jpg",
       },
     ],
@@ -179,9 +218,21 @@ export const favouritePlaylists = [
     slug: "metallica",
     image: "/images/favourites/metallica.png",
     tracks: [
-      { name: "Metallica", image: "/images/favourites/metallica.png" },
-      { name: "Metallica", image: "/images/favourites/metallica.png" },
-      { name: "Metallica", image: "/images/favourites/metallica.png" },
+      {
+        name: "Mama Said",
+        artist: "Metallica",
+        image: "/images/favourites/metallica.png",
+      },
+      {
+        name: "Mama Said",
+        artist: "Metallica",
+        image: "/images/favourites/metallica.png",
+      },
+      {
+        name: "Mama Said",
+        artist: "Metallica",
+        image: "/images/favourites/metallica.png",
+      },
     ],
   },
   {
@@ -190,7 +241,18 @@ export const favouritePlaylists = [
     image: "/images/favourites/mohsen-chavoshi.jpeg",
     tracks: [
       {
-        name: "Mohsen Chavoshi",
+        name: "Rahe Doshvar",
+        artist: "Mohsen Chavoshi",
+        image: "/images/favourites/mohsen-chavoshi.jpeg",
+      },
+      {
+        name: "Rahe Doshvar",
+        artist: "Mohsen Chavoshi",
+        image: "/images/favourites/mohsen-chavoshi.jpeg",
+      },
+      {
+        name: "Rahe Doshvar",
+        artist: "Mohsen Chavoshi",
         image: "/images/favourites/mohsen-chavoshi.jpeg",
       },
     ],
