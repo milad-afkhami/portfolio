@@ -21,7 +21,7 @@ const Home = (props) => {
   return (
     <>
       <Head canonical="/" />
-      <Div width="100%" mx="0" py="4" px="3" responsive={{ md: { px: 4 } }}>
+      <Div width="100%" py="3">
         <ResumeProfile />
         <FeaturedPosts posts={posts} />
         <ResumeProjects />
