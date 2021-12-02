@@ -5,7 +5,16 @@ export const defaultTheme = THEMES.DARK;
 
 export const themes = {
   [THEMES.LIGHT]: {
-    brand: new Color("#3EA055"),
+    brand: new Color(
+      "#edb98a",
+      "#E3944F",
+      "#F1CAA7",
+      "#F4D4B8",
+      "",
+      "",
+      "",
+      "#E3944F"
+    ),
     bg: {
       primary: new Color("#F5F5F5"),
       secondary: new Color("#EBEBEB"),
