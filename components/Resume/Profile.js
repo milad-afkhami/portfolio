@@ -20,7 +20,13 @@ export function ResumeProfile(props) {
           </Text>
         </Div>
         <Div>
-          <Text size="md" color="text-secondary" tag="h3">
+          <Text
+            size="md"
+            color="text-secondary"
+            tag="h3"
+            css={{ whiteSpace: "pre-line", lineHeight: 2 }}
+            Mw="600px"
+          >
             resume.profile.jobDescription
           </Text>
         </Div>
