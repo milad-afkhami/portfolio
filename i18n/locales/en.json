@@ -77,6 +77,12 @@
     "blog": {
       "title": "Blog"
     },
+    "projects": {
+      "title": "Projects",
+      "points": "Points",
+      "gallery": "Gallery",
+      "nthImage": "Image {{n}}"
+    },
     "form": {
       "message": {
         "required": "this field is required",
