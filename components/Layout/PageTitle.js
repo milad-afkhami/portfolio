@@ -12,7 +12,9 @@ export const PageTitle = (props) => {
         border="border-light"
         borderSide="bottom"
       >
-        <Text size="h-md">{title}</Text>
+        <Text size="h-md-b" as="h1">
+          {title}
+        </Text>
       </Div>
     </Div>
   );
