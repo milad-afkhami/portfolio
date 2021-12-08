@@ -6,10 +6,7 @@ export const FavouriteArtists = (props) => {
   const { artists } = props || {};
 
   return (
-    <Div
-      grid={["repeat(3, 1fr)", , "3rem", "4rem"]}
-      css={{ gridAutoFlow: "row" }}
-    >
+    <Div grid={["repeat(3, 1fr)", , 5, "4rem"]} css={{ gridAutoFlow: "row" }}>
       {artists.map((artist) => (
         <FavouriteArtistCard {...artist} />
       ))}
