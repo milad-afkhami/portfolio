@@ -1,12 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "@hooks";
 import { Div, Icon, Logo } from "@kits";
-import { HeaderMenus } from "../Menus";
+import { HeaderMenus } from "./Menus";
 import { HeaderSwitchTheme } from "./SwitchTheme";
 import { HeaderChangeLanguage } from "./LanguagePicker";
 
 export function Header(props) {
   const { transparent } = props || {};
+
   return (
     <Div
       {...(!transparent

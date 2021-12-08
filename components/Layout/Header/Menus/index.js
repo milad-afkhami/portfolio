@@ -6,14 +6,19 @@ import { c } from "@stylesheets";
 export function HeaderMenus(props) {
   return (
     <Div display="flex" mx="-3">
+      <Link href="/" mx="3">
+        <Text size="md-b" tag="p" zoomOnHover hoverColor="text-secondary">
+          layout.header.menu.home
+        </Text>
+      </Link>
       <Link href="/courses" mx="3">
         <Text size="md-b" tag="p" zoomOnHover hoverColor="text-secondary">
           layout.header.menu.courses
         </Text>
       </Link>
-      <Link href="/articles" mx="3">
+      <Link href="/blog" mx="3">
         <Text size="md-b" tag="p" zoomOnHover hoverColor="text-secondary">
-          layout.header.menu.articles
+          layout.header.menu.blog
         </Text>
       </Link>
       <Link href="/packages" mx="3">

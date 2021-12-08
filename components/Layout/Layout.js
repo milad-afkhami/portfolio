@@ -9,7 +9,7 @@ export const Layout = (props = {}) => {
 
   return (
     <Div
-      px={"0".imp()}
+      // px={"0".imp()}
       position="relative"
       id={APP_WRAPPER_ELEMENT_ID}
       mh="100vh"
