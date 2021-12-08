@@ -2,6 +2,7 @@ import i18n from "@i18n";
 import { PageAttr } from "@helpers";
 import { Cookies } from "@utils";
 import { languages, LOCALE_COOKIE_KEY } from "@constants";
+import Router from "next/router";
 
 export class LanguageHelper {
   static getDefaultLocale = () => {
@@ -24,10 +25,15 @@ export class LanguageHelper {
     const language = languages[locale];
     if (!locale || !language) throw new Error("locale not found");
 
-    i18n.changeLanguage(language.name).then(() => {
+    return i18n.changeLanguage(language.name).then(() => {
       PageAttr.setDirection(language.direction);
       PageAttr.setLanguage(language.name);
       Cookies.set(null, LOCALE_COOKIE_KEY, locale);
+
+      const path =
+        (locale === Router.defaultLocale ? "" : `/${locale}`) + Router.asPath;
+
+      Router.replace(path, undefined, { locale });
     });
   }
 }
