@@ -258,3 +258,186 @@ export const favouritePlaylists = [
     ],
   },
 ];
+
+export const blogs = [
+  {
+    _id: 1,
+    title:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos officiis totam dicta molestiae quibusdam",
+    views: "100",
+    image: "/images/posts/office-computer-keyboard.jpg",
+    body: "",
+    publishedAt: "2021-11-11",
+    readingTime: "",
+    slug: "slug-1",
+    category: "Styling",
+    minutesToRead: 10,
+    summary:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos officiis totam dicta molestiae quibusdam omnis eaque doloribus eos incidunt deserunt!",
+  },
+  {
+    _id: 2,
+    title:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos officiis totam dicta molestiae quibusdam",
+    views: "100",
+    image: "/images/posts/blog-2.jpg",
+    body: "",
+    publishedAt: "",
+    readingTime: "",
+    slug: "slug-2",
+    category: "Styling",
+    minutesToRead: 12,
+    summary:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos officiis totam dicta molestiae quibusdam omnis eaque doloribus eos incidunt deserunt!",
+  },
+  {
+    _id: 3,
+    title:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos officiis totam dicta molestiae quibusdam",
+    views: "100",
+    image: "/images/posts/blog-1.jpeg",
+    body: "",
+    publishedAt: "",
+    readingTime: "",
+    slug: "slug-3",
+    category: "Styling",
+    minutesToRead: 12,
+    summary:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos officiis totam dicta molestiae quibusdam omnis eaque doloribus eos incidunt deserunt!",
+  },
+  {
+    _id: 4,
+    title:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos officiis totam dicta molestiae quibusdam",
+    views: "100",
+    image: "/images/posts/digital-tablet.jpg",
+    body: "",
+    publishedAt: "",
+    readingTime: "",
+    slug: "slug-4",
+    category: "Styling",
+    minutesToRead: 12,
+    summary:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos officiis totam dicta molestiae quibusdam omnis eaque doloribus eos incidunt deserunt!",
+  },
+  {
+    _id: 5,
+    title:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos officiis totam dicta molestiae quibusdam",
+    views: "100",
+    image: "/images/posts/blog-3.jfif",
+    body: "",
+    publishedAt: "",
+    readingTime: "",
+    slug: "slug-5",
+    category: "Styling",
+    minutesToRead: 12,
+    summary:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos officiis totam dicta molestiae quibusdam omnis eaque doloribus eos incidunt deserunt!",
+  },
+  {
+    _id: 6,
+    title:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos officiis totam dicta molestiae quibusdam",
+    views: "100",
+    image: "/images/posts/blog-4.jpeg",
+    body: "",
+    publishedAt: "",
+    readingTime: "",
+    slug: "slug-6",
+    category: "Styling",
+    minutesToRead: 12,
+    summary:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos officiis totam dicta molestiae quibusdam omnis eaque doloribus eos incidunt deserunt!",
+  },
+  {
+    _id: 7,
+    title:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos officiis totam dicta molestiae quibusdam",
+    views: "100",
+    image: "/images/posts/office-computer-keyboard.jpg",
+    body: "",
+    publishedAt: "2021-11-11",
+    readingTime: "",
+    slug: "slug-7",
+    category: "Styling",
+    minutesToRead: 10,
+    summary:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos officiis totam dicta molestiae quibusdam omnis eaque doloribus eos incidunt deserunt!",
+  },
+  {
+    _id: 8,
+    title:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos officiis totam dicta molestiae quibusdam",
+    views: "100",
+    image: "/images/posts/blog-2.jpg",
+    body: "",
+    publishedAt: "",
+    readingTime: "",
+    slug: "slug-8",
+    category: "Styling",
+    minutesToRead: 12,
+    summary:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos officiis totam dicta molestiae quibusdam omnis eaque doloribus eos incidunt deserunt!",
+  },
+  {
+    _id: 9,
+    title:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos officiis totam dicta molestiae quibusdam",
+    views: "100",
+    image: "/images/posts/blog-1.jpeg",
+    body: "",
+    publishedAt: "",
+    readingTime: "",
+    slug: "slug-9",
+    category: "Styling",
+    minutesToRead: 12,
+    summary:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos officiis totam dicta molestiae quibusdam omnis eaque doloribus eos incidunt deserunt!",
+  },
+  {
+    _id: 10,
+    title:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos officiis totam dicta molestiae quibusdam",
+    views: "100",
+    image: "/images/posts/digital-tablet.jpg",
+    body: "",
+    publishedAt: "",
+    readingTime: "",
+    slug: "slug-10",
+    category: "Styling",
+    minutesToRead: 12,
+    summary:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos officiis totam dicta molestiae quibusdam omnis eaque doloribus eos incidunt deserunt!",
+  },
+  {
+    _id: 11,
+    title:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos officiis totam dicta molestiae quibusdam",
+    views: "100",
+    image: "/images/posts/blog-3.jfif",
+    body: "",
+    publishedAt: "",
+    readingTime: "",
+    slug: "slug-11",
+    category: "Styling",
+    minutesToRead: 12,
+    summary:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos officiis totam dicta molestiae quibusdam omnis eaque doloribus eos incidunt deserunt!",
+  },
+  {
+    _id: 12,
+    title:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos officiis totam dicta molestiae quibusdam",
+    views: "100",
+    image: "/images/posts/blog-4.jpeg",
+    body: "",
+    publishedAt: "",
+    readingTime: "",
+    slug: "slug-12",
+    category: "Styling",
+    minutesToRead: 12,
+    summary:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos officiis totam dicta molestiae quibusdam omnis eaque doloribus eos incidunt deserunt!",
+  },
+];

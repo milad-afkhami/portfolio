@@ -17,12 +17,14 @@
         "default": "My personal webiste"
       }
     },
+    "home": "Home",
     "layout": {
       "header": {
         "defaultTitle": "Milad Afkhami",
         "menu": {
+          "home": "Home",
           "courses": "Courses",
-          "articles": "Articles",
+          "blog": "blogs",
           "packages": "Packages",
           "projects": "Projects",
           "gists": "Gists",
@@ -71,6 +73,9 @@
       "listenNow": "Listen Now",
       "expand": "Expand",
       "collapse": "Collapse"
+    },
+    "blog": {
+      "title": "Blog"
     },
     "form": {
       "message": {

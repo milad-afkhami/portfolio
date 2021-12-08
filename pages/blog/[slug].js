@@ -3,20 +3,20 @@ import { Breadcrumb, Div, Icon } from "@kits";
 import { useEffect, useToggle, useRouter, useBlog } from "@hooks";
 import { Head } from "@components/SEO";
 import { __get, __omit, __pick } from "@utils";
-import {} from "@components/Product";
 import Error from "../_error";
 import { BlogServices } from "@services";
+import { INTERVALS } from "@constants";
 
-export default function ProductPage(props) {
+export default function BlogPage(props) {
   const router = useRouter();
 
-  const id = router.query.id;
+  const slug = router.query.slug;
 
   const {
     data: { blog },
     error,
   } = useBlog({
-    id,
+    slug,
     fallbackData: { blog: props.blog },
   });
 
@@ -33,35 +33,34 @@ export default function ProductPage(props) {
 
   return (
     <>
-      <Head title={blog.name} description={""} canonical={`/blog/${idc}`} />
-      <Div width="100%" px="3">
+      <Head title={blog.title} description={""} canonical={`/blog/${slug}`} />
+      <Div width="100%" py="3">
         <Breadcrumb
           routes={[
-            { title: "home.home", link: "/", href: "/" },
-            {
-              title: blog.name,
-              link: `/blog/${id}`,
-              href: `/blog/[slug]`,
-            },
+            { title: "home", link: "/" },
+            { title: "blog.title", link: "/blog" },
+            { title: blog.title, link: `/blog/${slug}` },
           ]}
         />
+        <Div props></Div>
       </Div>
     </>
   );
 }
 
 export const getStaticProps = async ({ params, ...rest }) => {
-  const response = await BlogServices.getDetail(params.idc, {
+  const response = await BlogServices.getDetail(params.slug, {
     resolveAnyway: true,
     serializableError: true,
   });
-  return { props: response, revalidate: 10 };
+  console.log({ response });
+  return { props: response, revalidate: INTERVALS.A_DAY };
 };
 
 export const getStaticPaths = async ({ defaultLocale, locales }) => {
-  const blogs = await BlogServices.getPriors(100);
+  const blogs = await BlogServices.getPriors();
   return {
-    paths: blogs.map((blog) => ({ params: { idc: blog } })),
-    fallback: "blocking",
+    paths: blogs.map((blog) => ({ params: { slug: blog } })),
+    fallback: false,
   };
 };
