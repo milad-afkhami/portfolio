@@ -1,10 +1,11 @@
 import { Http } from "@utils";
+import { blogs } from "mock";
 
-export async function getPriorProducts(count): Promise {
+export async function getPriorBlogs(count): Promise {
   try {
     // const response = await Http.get(`/product/getPriors?count=${count}`);
     // return response.result;
-    return [];
+    return blogs.map((b) => b.slug);
   } catch (e) {
     throw error;
   }

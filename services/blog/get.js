@@ -1,17 +1,17 @@
 import { Http } from "@utils";
 import { serializeError } from "@helpers";
-import { ServiceOptions } from "../servicesTypes";
 import { endpoints } from "@constants";
+import { blogs } from "mock";
 
-export async function getBlogDetail(id, options: ServiceOptions): Promise {
+export async function getBlogDetail(slug): Promise {
   try {
-    const response = await Http.get({
-      url: endpoints.blog,
-      params: { id },
-    });
-    const result = response?.result?.blog;
+    // const response = await Http.get({
+    //   url: endpoints.blog,
+    //   params: { id },
+    // });
+    // const result = response?.result?.blog;
 
-    return { blog: result };
+    return { blog: blogs.find((b) => b.slug === slug) };
   } catch (e) {
     const error = options.serializableError ? serializeError(e) : e;
     if (options.resolveAnyway) return { error };
