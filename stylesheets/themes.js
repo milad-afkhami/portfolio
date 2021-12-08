@@ -17,7 +17,7 @@ export const themes = {
     ),
     bg: {
       primary: new Color("#F5F5F5"),
-      secondary: new Color("#EBEBEB"),
+      secondary: new Color("#EBEBEB", "#e1e1e1", "", "", "", "#EBEBEB87"),
       tertiary: new Color("#FBFAF7"),
       disabled: new Color("#656668"),
     },
