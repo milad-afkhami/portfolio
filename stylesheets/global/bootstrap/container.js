@@ -4,7 +4,7 @@ import { containerStyle } from "@stylesheets/predefined";
 import { __reduce } from "@utils";
 
 const containers = {
-  xl: "992px",
+  xl: "1200px",
   lg: "unset",
   md: "unset",
   sm: "unset",
