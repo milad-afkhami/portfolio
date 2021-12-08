@@ -19,15 +19,14 @@ export function BreadcrumbLink(props: Props) {
   );
 
   return (
-    <Div>
+    <Div my="3">
       {route.link && !lastItem ? (
-        <Link href={route.href || "/b/[idc]"} as={route.link || ""}>
-          <a>{genTitle(route.title, lastItem)}</a>
-        </Link>
+        <Link href={route.link}>{genTitle(route.title, lastItem)}</Link>
       ) : (
         genTitle(route.title, lastItem)
       )}
-      {lastItem ? null : <Icon name="arrows_right" size="10" multiDirection />}
+      {/* {lastItem ? null : <Icon name="arrows_right" size="10" multiDirection />} */}
+      {lastItem ? null : ">"}
     </Div>
   );
 }
