@@ -122,7 +122,9 @@ export function convertPropsToStyles(props: Props) {
     ...(display || flex ? { display: display || "flex" } : {}),
     ...(flexPortion ? { flex: flexPortion } : {}),
     ...(flex && flex.length ? flexer(flex[0], flex[1], flex[2], flex[3]) : ""),
-    ...(grid && grid.length ? grider(grid[0], grid[1], grid[2], grid[3]) : ""),
+    ...(grid && grid.length
+      ? grider(grid[0], grid[1], grid[2], grid[3], grid[4], grid[5], grid[6])
+      : ""),
     ...(blurBg ? { backdropFilter: "blur(15px)" } : {}),
     ...(css || {}),
     ...(animation

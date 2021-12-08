@@ -43,11 +43,15 @@ type FlexProps = [
   FlexDirValues,
   FlexWrapValues
 ];
+
 type GridProps = [
   GridTemplateColumnsValues,
   GridTemplateRowsValues,
   Spacings | String | Number,
-  Spacings | String | Number
+  Spacings | String | Number,
+  "row" | "column" | "dense" | "row dense" | "column dense",
+  FlexAlignValues,
+  FlexJustifyValues
 ];
 
 interface Animation {
@@ -153,6 +157,15 @@ export interface Props extends HTMLAttributes {
   dimensions?: Dimensions;
   zIndex?: String;
   order?: Number | String;
+  /**
+   * @param {string} 0: css "grid-template-columns" property
+   * @param {string} 1: css "grid-template-rows" property
+   * @param {string} 2: css "column-gap" property
+   * @param {string} 3: css "row-gap" property
+   * @param {string} 4: css "grid-auto-flow" property
+   * @param {string} 5: css "align-content" property
+   * @param {string} 6: css "justify-content" property
+   */
   grid?: GridProps;
   after?: Props;
   before?: Props;
