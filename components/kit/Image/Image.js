@@ -62,14 +62,14 @@ export const Image: ComponentType<Props> = ({
       {maximizable && maximized
         ? useIsomorphicPortal(
             <Div
-              width="100%"
-              height="100%"
+              width="calc(100vw - var(--scrollbar-width))"
+              height="100vh"
               blurBg
               dimensions={{ top: 0, left: 0, right: 0, bottom: 0 }}
               zIndex="var(--overlay-z-index)"
               pace="xFast"
               flex={["center", "center"]}
-              position="absolute"
+              position="fixed"
               onClick={toggleMaximized}
               cursor="zoom-out"
             >
@@ -88,6 +88,9 @@ export const Image: ComponentType<Props> = ({
                     quality="100"
                     layout="fill"
                     priority
+                    src={src}
+                    withShimmer
+                    placeholder="blur"
                     // blurDataURL={}
                     // placeholder={"blur"}
                   />
