@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Div, Image, Text } from "@kits";
+import { Button, Div, Image, Link, Text } from "@kits";
 import { useToggle } from "@hooks";
 import { FavouritePlaylistTracks } from "./Tracks";
 
@@ -25,14 +25,18 @@ export const FavouritePlaylist = (props) => {
           </Div>
         </Div>
         <Div flex={[, , "column"]} mx="2">
-          <Div my="2">
+          <Link
+            my="2"
+            outerLink
+            href="https://music.youtube.com/playlist?list=PL-yYaCE5uT3at0d8wyhnQht15miQcMAj5"
+          >
             <Button
               variant="outlined"
               text="favourites.listenNow"
               size="sm"
               onClick={() => {}}
             />
-          </Div>
+          </Link>
           <Div my="2">
             <Button
               variant="link"

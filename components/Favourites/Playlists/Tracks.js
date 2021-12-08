@@ -17,24 +17,47 @@ export const FavouritePlaylistTracks = (props) => {
       overflow="hidden"
       mb={open ? "3" : "0"}
     >
-      <Div height="100%" width="100%" border="border-light" curve="xsm" row>
-        {columns.map((columnTracks) => (
-          <Div col={{ xs: 12, md: 6 }}>
-            {columnTracks.map((track) => (
-              <Div flex={["center", "start"]} height="70px">
-                {/* <Div flex={["center", "center"]}>
-                  <Text size="md" noTranslation>{`${i + 1}. `}</Text>
-                </Div> */}
-                <Div props>
-                  <Image src={track.image} height="50px" width="50px" />
+      <Div
+        height="100%"
+        width="100%"
+        border="border-light"
+        curve="xsm"
+        row
+        mx="-2"
+      >
+        {columns.map((columnTracks, j) => (
+          <Div col={{ xs: 12, md: 6 }} my="-1" px="2">
+            {columnTracks.map((track, i) => (
+              <Div
+                flex={["center", "start"]}
+                height="62px"
+                // bg="bg-secondary"
+                hoverBg="bg-secondary"
+                px="3"
+                curve="sm"
+                my="2"
+                cursor="pointer"
+              >
+                <Div flex={["center", "center"]}>
+                  <Text size="md" noTranslation>{`${
+                    i + 1 + j * pivot
+                  }. `}</Text>
                 </Div>
-                <Div props>
-                  <Div props>
-                    <Text size="sm" noTranslation>
+                <Div mx="2">
+                  {/* <Image
+                    src={track.image}
+                    height="50px"
+                    width="50px"
+                    curve="circle"
+                  /> */}
+                </Div>
+                <Div>
+                  <Div>
+                    <Text size="xsm" color="text-secondary" noTranslation>
                       {track.artist}
                     </Text>
                   </Div>
-                  <Div props>
+                  <Div>
                     <Text size="sm" noTranslation>
                       {track.name}
                     </Text>
