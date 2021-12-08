@@ -13,7 +13,7 @@ export const DropDownItem = (props) => {
       cursor="pointer"
       hoverBg="bg-tertiary"
       px="1"
-      onClick={() => onClick(id)}
+      onClick={onClick}
     >
       <DropDownImage src={image} />
       <DropDownLabel label={text} />

@@ -23,7 +23,13 @@ export const DropDown = (props: DropDownProps) => {
   const selectedItem = items.find(({ id }) => selected === id);
 
   return (
-    <Div mx="3" flex={["center", "center"]} ref={ref} position="relative">
+    <Div
+      mx="3"
+      flex={["center", "center"]}
+      ref={ref}
+      position="relative"
+      zIndex="1"
+    >
       <Div
         border="border-dark"
         curve="xsm"
@@ -49,7 +55,13 @@ export const DropDown = (props: DropDownProps) => {
         curve="xsm"
       >
         {items.map((item) => (
-          <DropDownItem {...item} onClick={onChange} />
+          <DropDownItem
+            {...item}
+            onClick={(e) => {
+              setIsOpen(false);
+              onChange(item.id);
+            }}
+          />
         ))}
       </Div>
     </Div>
