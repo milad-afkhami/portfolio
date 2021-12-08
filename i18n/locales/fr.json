@@ -1,0 +1,98 @@
+{
+  "fr": {
+    "app": {
+      "title": "Mili Totoro",
+      "username": "@Mili",
+      "description": "Mon site personnel",
+      "name": "Mili Totoro"
+    },
+    "seo": {
+      "title": {
+        "default": "Mili Totoro",
+        "template": "",
+        "templateAppend": "",
+        "home": "domicile"
+      },
+      "description": {
+        "default": "Mon site personnel"
+      }
+    },
+    "home": "domicile",
+    "layout": {
+      "header": {
+        "defaultTitle": "Milad Afkhami",
+        "menu": {
+          "home": "domicile",
+          "courses": "Cours",
+          "blog": "les blogs",
+          "packages": "Paquets",
+          "projects": "Projets",
+          "gists": "Gists",
+          "favourites": "Favoris"
+        }
+      },
+      "footer": {
+        "artists": "Artistes",
+        "playlists": "Listes de lecture",
+        "poems": "Poèmes",
+        "poets": "Poètes",
+        "movies": "Films",
+        "series": "Séries",
+        "anime": "Anime",
+        "favouriteSongs": "Chansons préférées",
+        "favouritePoems": "Poèmes préférés",
+        "favouriteShows": "Émissions préférées"
+      },
+      "navItems": {},
+      "alert": {
+        "error": {
+          "connection": "Veuillez vérifier votre connexion !",
+          "server": "Impossible d'atteindre le serveur"
+        }
+      }
+    },
+    "resume": {
+      "profile": {
+        "name": "Milad Afkhami",
+        "job": "Chef de l'équipe de développement front-end chez Arsh Co.",
+        "jobDescription0": "More than 4 years of experience in front-end development",
+        "jobDescription-1": "Working as a Front-End developer and helping other members in their problems.",
+        "jobDescription": "Un ingénieur logiciel qualifié  avec une capacité éprouvée à analyser, concevoir, développer et maintenir des solutions logicielles à grande échelle qui répondent aux exigences de l'entreprise ainsi qu'aux indices de performance et de qualité."
+      },
+      "posts": { "title": "Postes en vedette", "seeMore": "Voir plus" },
+      "contact": {
+        "email": "E-mail",
+        "phone": "Téléphone",
+        "instagram": "Instagram",
+        "telegram": "Télégramme"
+      }
+    },
+    "favourites": {
+      "artists": "Artistes préférés",
+      "playlists": "Listes de lecture préférées",
+      "listenNow": "Écoute maintenant",
+      "expand": "Développer",
+      "collapse": "Effondrer"
+    },
+    "blog": {
+      "title": "Blog"
+    },
+    "projects": {
+      "title": "Projets",
+      "points": "Points",
+      "gallery": "Galerie",
+      "nthImage": "Image {{n}}"
+    },
+    "form": {
+      "message": {
+        "required": "Ce champ est obligatoire",
+        "checkYourInput": "vérifie ta saisie"
+      }
+    },
+    "error": {
+      "pageNotFound": "Page non trouvée",
+      "goBack": "Retourner",
+      "noItemFound": "Aucun élément trouvé"
+    }
+  }
+}

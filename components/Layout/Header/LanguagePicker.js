@@ -3,7 +3,6 @@ import { useState, useEffect, useMemo } from "@hooks";
 import { Div, DropDown } from "@kits";
 import { languages as languagesList } from "@constants";
 import { __map } from "@utils";
-import i18n from "@i18n";
 import { LanguageHelper } from "@helpers";
 
 export function HeaderChangeLanguage(props) {
