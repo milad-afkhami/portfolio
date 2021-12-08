@@ -19,10 +19,10 @@ export const GlobalTypographies = createGlobalStyle((props) => {
       };
 
       return {
-        ...accumulatedStyles,
-        ...(typography === "default"
+        ...(breakpoint === "default"
           ? variables
-          : { [`@media(min-width: ${breakpoint}px)`]: variables }),
+          : { [`@media (min-width: ${breakpoint}px)`]: variables }),
+        ...accumulatedStyles,
       };
     },
     {}
