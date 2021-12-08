@@ -62,3 +62,18 @@ export const StyledLink = ({
     </Link>
   );
 };
+
+// const AnchorTag = (props) => {
+//   const hover = {
+//     ...(props?.hover || {}),
+//     css: {
+//       ...(props?.hover?.css || {}),
+//       ...(props?.underline ? { textDecoration: "underline" } : {}),
+//     },
+//   };
+//   return (
+//     <Div as="a" {...props} hover={hover}>
+//       {props.children}
+//     </Div>
+//   );
+// };
