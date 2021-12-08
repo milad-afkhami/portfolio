@@ -24,8 +24,10 @@ export class LanguageHelper {
     const language = languages[locale];
     if (!locale || !language) throw new Error("locale not found");
 
-    PageAttr.setDirection(language.direction);
-    PageAttr.setLanguage(language.name);
-    i18n.changeLanguage(language.name);
+    i18n.changeLanguage(language.name).then(() => {
+      PageAttr.setDirection(language.direction);
+      PageAttr.setLanguage(language.name);
+      Cookies.set(null, LOCALE_COOKIE_KEY, locale);
+    });
   }
 }
