@@ -1,5 +1,5 @@
 import en from "./en.json";
-import fa from "./fa.json";
+import fr from "./fr.json";
 import de from "./de.json";
 
-export { en, fa, de };
+export { en, fr, de };

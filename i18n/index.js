@@ -1,7 +1,7 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
-import { fa, en, de } from "./locales";
+import { fr, en, de } from "./locales";
 
 const options = {
   debug: true,
@@ -11,7 +11,7 @@ const options = {
   resources: {
     en: { common: en.en },
     de: { common: de.de },
-    fa: { common: fa.fa },
+    fr: { common: fr.fr },
   },
 
   fallbackLng: "en",

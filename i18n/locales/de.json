@@ -1,45 +1,98 @@
 {
   "de": {
     "app": {
-      "title": "Mili Totoro",
+      "title": "Mili",
       "username": "@Mili",
-      "description": "My personal website",
-      "name": "Mili Totoro"
+      "description": "Meine persönliche Website",
+      "name": "Mili"
     },
     "seo": {
       "title": {
-        "default": "Mili Totoro",
-        "template": "",
+        "default": "Mili",
+        "Vorlage": "",
         "templateAppend": "",
-        "home": "Home"
+        "home": "Hause"
       },
       "description": {
-        "default": "My personal webiste"
+        "default": "Meine persönliche Website"
       }
     },
+    "home": "Hause",
     "layout": {
-      "header": {
-        "defaultTitle": "Milad Afkhami"
+      "Header": {
+        "defaultTitle": "Milad Afkhami",
+        "menu": {
+          "home": "Hause",
+          "courses": "Kurse",
+          "blog": "blogs",
+          "packages": "Pakete",
+          "projects": "Projekte",
+          "gists": "Wesen",
+          "favourites": "Favoriten"
+        }
       },
-      "footer": {},
+      "footer": {
+        "artists": "Künstler",
+        "playlists": "Wiedergabelisten",
+        "poems": "Gedichte",
+        "poets": "Dichter",
+        "movies": "Filme",
+        "series": "Serie",
+        "anime": "Anime",
+        "favouriteSongs": "Lieblingslieder",
+        "favouritePoems": "Lieblingsgedichte",
+        "favouriteShows": "Lieblingssendungen"
+      },
       "navItems": {},
       "alert": {
         "error": {
-          "connection": "Please check your connection!",
-          "server": "Couldn't reach server"
+          "connection": "Bitte überprüfen Sie Ihre Verbindung!",
+          "server": "Server konnte nicht erreicht werden"
         }
       }
     },
+    "resume": {
+      "profile": {
+        "name": "Milad Afkhami",
+        "job": "Leiter des Front-End-Entwicklungsteams bei Arsh Co.",
+        "jobDescription0": "Mehr als 4 Jahre Erfahrung in der Frontend-Entwicklung",
+        "jobDescription-1": "Als Front-End-Entwickler arbeiten und anderen Mitgliedern bei ihren Problemen helfen.",
+        "jobDescription": "Ein qualifizierter Softwareingenieur \nmit nachgewiesener Fähigkeit, umfangreiche Softwarelösungen zu analysieren, zu entwerfen, zu entwickeln und zu warten, die Geschäftsanforderungen sowie Leistungs- und Qualitätsindizes erfüllen."
+      },
+      "posts": { "title": "Beliebte Beiträge", "seeMore": "Mehr sehen" },
+      "contact": {
+        "email": "Email",
+        "phone": "Telefon",
+        "instagram": "instagram",
+        "telegram": "Telegramm"
+      }
+    },
+    "favourites": {
+      "artists": "Lieblingskünstler",
+      "playlists": "Lieblings-Playlists",
+      "listenNow": "Jetzt hören",
+      "expand": "Erweitern",
+      "collapse": "collapse"
+    },
+    "blog": {
+      "title": "Blog"
+    },
+    "projects": {
+      "title": "Projekte",
+      "points": "Punkte",
+      "gallery": "Galerie",
+      "nthImage": "Bild {{n}}"
+    },
     "form": {
       "message": {
-        "required": "this field is required",
-        "checkYourInput": "check your input"
+        "required": "dieses Feld ist erforderlich",
+        "checkYourInput": "Überprüfe deine Eingabe"
       }
     },
     "error": {
-      "pageNotFound": "page not found",
-      "goBack": "Go Back",
-      "noItemFound": "No Item Found"
+      "pageNotFound": "Seite nicht gefunden",
+      "goBack": "Gehe zurück",
+      "noItemFound": "Kein Artikel gefunden"
     }
   }
 }
