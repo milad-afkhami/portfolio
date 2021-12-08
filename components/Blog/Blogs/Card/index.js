@@ -27,7 +27,7 @@ export const BlogCard = (props) => {
       bg="bg-secondary"
       hoverBg="bg-secondary-hover"
     >
-      <Div height="100%" flexPortion="1" position="relative">
+      <Div height="100%" flexPortion="3" position="relative">
         <Image
           src={image}
           placeholder="blur"
@@ -37,7 +37,7 @@ export const BlogCard = (props) => {
         />
         <BlogCardCategory category={category} />
       </Div>
-      <Div p="3" flexPortion="1">
+      <Div p="3" flexPortion="2">
         <Div flex={["start", "between", "column"]} height="100%">
           <Div>
             <Div mb="2">
