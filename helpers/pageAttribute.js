@@ -1,10 +1,10 @@
 const fonts = {
   default: {
-    link: "https://fonts.googleapis.com/css?family=Montserrat",
+    link: "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap",
     name: "Montserrat",
   },
   en: {
-    link: "https://fonts.googleapis.com/css?family=Montserrat",
+    link: "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap",
     name: "Montserrat",
   },
   fa: {
