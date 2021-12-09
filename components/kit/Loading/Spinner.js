@@ -1,7 +1,6 @@
 import React from "react";
 import { Div, Text, Image } from "@kits";
 import { spinner } from "@images";
-import { isDesktopBuild } from "@config";
 
 type SpinnerProps = {
   size: "xsm" | "sm" | "md" | "lg",
@@ -17,8 +16,8 @@ export const Spinner = (props: SpinnerProps) => {
   return (
     <Image
       src={spinner}
-      height={height || sizes[size] * (isDesktopBuild ? 1 : 0.7)}
-      width={width || sizes[size] * (isDesktopBuild ? 1 : 0.7)}
+      height={height || sizes[size]}
+      width={width || sizes[size]}
       priority
     />
   );

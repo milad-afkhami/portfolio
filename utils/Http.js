@@ -1,5 +1,5 @@
 import axios from "axios";
-import { apiBaseURL, externalApiBaseURL, isDesktopBuild } from "@config";
+import { apiBaseURL, externalApiBaseURL } from "@config";
 import { formData } from "@utils";
 
 interface FetchOptions {
@@ -46,7 +46,6 @@ export class Http {
     const _headers = {
       Accept: "application/json",
       ...(isFormData ? { "content-type": "multipart/*" } : {}),
-      platform: isDesktopBuild ? 3 : 4,
       ...headers,
     };
 

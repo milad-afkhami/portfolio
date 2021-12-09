@@ -3,7 +3,6 @@ import { Div } from "@kits";
 import styled from "styled-components";
 import { setTextTypography } from "@stylesheets";
 import { Props as DivProps } from "@kits/Div/DivProps";
-import { isDesktopBuild } from "@config";
 import { useTranslation } from "@hooks";
 
 export const Icon: ComponentType<IconProps> = styled(Div).attrs(
@@ -14,7 +13,7 @@ export const Icon: ComponentType<IconProps> = styled(Div).attrs(
     className = "",
     size = "md",
     cursor = "pointer",
-    hoverColor = isDesktopBuild ? "text-secondary" : "",
+    hoverColor = "text-secondary",
     title,
   }) => {
     const t = useTranslation().t;

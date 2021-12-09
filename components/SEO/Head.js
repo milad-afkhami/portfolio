@@ -1,5 +1,5 @@
 import React from "react";
-import { appBaseURL, isDesktopBuild } from "@config";
+import { appBaseURL } from "@config";
 import { NextSeo, NextSeoProps } from "@components/SEO";
 import { useRouter, useT, useTranslation } from "@hooks";
 
@@ -24,12 +24,7 @@ export const Head = ({
 
   const mobileDomain = _canonical.replace("www.", "www.m.");
 
-  const mobileAlternate = isDesktopBuild
-    ? {
-        media: "only screen and (max-width: 720px)",
-        href: mobileDomain,
-      }
-    : {};
+  // const mobileAlternate = { media: "only screen and (max-width: 720px)", href: mobileDomain };
 
   const languageAlternates = [
     { hreflang: "x-default", href: _canonical },
@@ -63,7 +58,7 @@ export const Head = ({
         ...additionalMetaTags,
         ...(keywords?.length ? [{ name: "keyword", content: keywords }] : []),
       ]}
-      {...mobileAlternate}
+      // {...mobileAlternate}
       {...languageAlternates}
       {...restProps}
     />
