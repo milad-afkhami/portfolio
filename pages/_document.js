@@ -33,7 +33,8 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang="fa" dir="rtl">
+      // lang="en" dir="ltr"
+      <Html>
         <Head>
           <meta charSet="utf-8" />
           <link rel="icon" href="/favicons/favicon.ico" />
