@@ -4,7 +4,7 @@
       "title": "Mili",
       "username": "@Mili",
       "description": "Meine persönliche Website",
-      "name": "Mili"
+      "name": "Mili Totoro"
     },
     "seo": {
       "title": {
@@ -19,15 +19,14 @@
     },
     "home": "Hause",
     "layout": {
-      "Header": {
+      "header": {
         "defaultTitle": "Milad Afkhami",
         "menu": {
-          "home": "Hause",
           "courses": "Kurse",
-          "blog": "blogs",
+          "articles": "Artikel",
           "packages": "Pakete",
           "projects": "Projekte",
-          "gists": "Wesen",
+          "gists": "Wesentliches",
           "favourites": "Favoriten"
         }
       },
@@ -35,19 +34,19 @@
         "artists": "Künstler",
         "playlists": "Wiedergabelisten",
         "poems": "Gedichte",
-        "poets": "Dichter",
+        "poets": "Dichter|Dichterinnen",
         "movies": "Filme",
         "series": "Serie",
         "anime": "Anime",
         "favouriteSongs": "Lieblingslieder",
         "favouritePoems": "Lieblingsgedichte",
-        "favouriteShows": "Lieblingssendungen"
+        "favouriteShows": "Lieblingssendungen "
       },
       "navItems": {},
       "alert": {
         "error": {
           "connection": "Bitte überprüfen Sie Ihre Verbindung!",
-          "server": "Server konnte nicht erreicht werden"
+          "server": "Server nicht erreichbar"
         }
       }
     },
@@ -55,24 +54,24 @@
       "profile": {
         "name": "Milad Afkhami",
         "job": "Leiter des Front-End-Entwicklungsteams bei Arsh Co.",
-        "jobDescription0": "Mehr als 4 Jahre Erfahrung in der Frontend-Entwicklung",
-        "jobDescription-1": "Als Front-End-Entwickler arbeiten und anderen Mitgliedern bei ihren Problemen helfen.",
+        "jobDescription0": "More than 4 years of experience in front-end development",
+        "jobDescription-1": "Working as a Front-End developer and helping other members in their problems.",
         "jobDescription": "Ein qualifizierter Softwareingenieur \nmit nachgewiesener Fähigkeit, umfangreiche Softwarelösungen zu analysieren, zu entwerfen, zu entwickeln und zu warten, die Geschäftsanforderungen sowie Leistungs- und Qualitätsindizes erfüllen."
       },
       "posts": { "title": "Beliebte Beiträge", "seeMore": "Mehr sehen" },
       "contact": {
         "email": "Email",
         "phone": "Telefon",
-        "instagram": "instagram",
+        "instagram": "Instagram",
         "telegram": "Telegramm"
       }
     },
     "favourites": {
       "artists": "Lieblingskünstler",
       "playlists": "Lieblings-Playlists",
-      "listenNow": "Jetzt hören",
-      "expand": "Erweitern",
-      "collapse": "collapse"
+      "listenNow": "Hör jetzt zu",
+      "expand": "Expandieren",
+      "collapse": "Zusammenbruch"
     },
     "blog": {
       "title": "Blog"
@@ -85,13 +84,13 @@
     },
     "form": {
       "message": {
-        "required": "dieses Feld ist erforderlich",
-        "checkYourInput": "Überprüfe deine Eingabe"
+        "required": "Dieses Feld wird benötigt",
+        "checkYourInput": "überprüfe deine Eingaben"
       }
     },
     "error": {
       "pageNotFound": "Seite nicht gefunden",
-      "goBack": "Gehe zurück",
+      "goBack": "Geh zurück",
       "noItemFound": "Kein Artikel gefunden"
     }
   }

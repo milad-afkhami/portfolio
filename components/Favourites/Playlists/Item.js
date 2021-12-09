@@ -26,9 +26,9 @@ export const FavouritePlaylist = (props) => {
         </Div>
         <Div flex={[, , "column"]} mx="2">
           <Link
-            my="2"
             outerLink
             href="https://music.youtube.com/playlist?list=PL-yYaCE5uT3at0d8wyhnQht15miQcMAj5"
+            my="2"
           >
             <Button
               variant="outlined"

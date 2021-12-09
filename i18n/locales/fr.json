@@ -1,98 +1,98 @@
 {
-  "en": {
+  "fr": {
     "app": {
-      "title": "Mili",
+      "title": "Mili Totoro",
       "username": "@Mili",
-      "description": "My personal website",
-      "name": "Mili"
+      "description": "Mon site personnel",
+      "name": "Mili Totoro"
     },
     "seo": {
       "title": {
-        "default": "Mili",
+        "default": "Mili Totoro",
         "template": "",
         "templateAppend": "",
-        "home": "Home"
+        "home": "domicile"
       },
       "description": {
-        "default": "My personal webiste"
+        "default": "Mon site personnel"
       }
     },
-    "home": "Home",
+    "home": "domicile",
     "layout": {
       "header": {
         "defaultTitle": "Milad Afkhami",
         "menu": {
-          "home": "Home",
-          "courses": "Courses",
-          "blog": "blogs",
-          "packages": "Packages",
-          "projects": "Projects",
+          "home": "domicile",
+          "courses": "Cours",
+          "blog": "les blogs",
+          "packages": "Paquets",
+          "projects": "Projets",
           "gists": "Gists",
-          "favourites": "Favourites"
+          "favourites": "Favoris"
         }
       },
       "footer": {
-        "artists": "Artists",
-        "playlists": "Playlists",
-        "poems": "Poems",
-        "poets": "Poets",
-        "movies": "Movies",
-        "series": "Series",
+        "artists": "Artistes",
+        "playlists": "Listes de lecture",
+        "poems": "Poèmes",
+        "poets": "Poètes",
+        "movies": "Films",
+        "series": "Séries",
         "anime": "Anime",
-        "favouriteSongs": "Favourite Songs",
-        "favouritePoems": "Favourite Poems",
-        "favouriteShows": "Favourite Shows"
+        "favouriteSongs": "Chansons préférées",
+        "favouritePoems": "Poèmes préférés",
+        "favouriteShows": "Émissions préférées"
       },
       "navItems": {},
       "alert": {
         "error": {
-          "connection": "Please check your connection!",
-          "server": "Couldn't reach server"
+          "connection": "Veuillez vérifier votre connexion !",
+          "server": "Impossible d'atteindre le serveur"
         }
       }
     },
     "resume": {
       "profile": {
         "name": "Milad Afkhami",
-        "job": "Head of Front-End Development Team at Arsh Co.",
+        "job": "Chef de l'équipe de développement front-end chez Arsh Co.",
         "jobDescription0": "More than 4 years of experience in front-end development",
         "jobDescription-1": "Working as a Front-End developer and helping other members in their problems.",
-        "jobDescription": "A skilled software Engineer \nwith proven ability to analyze, design, develop, and maintain large scale software solutions that meet business requirements as well as performance and quality indexes."
+        "jobDescription": "Un ingénieur logiciel qualifié  avec une capacité éprouvée à analyser, concevoir, développer et maintenir des solutions logicielles à grande échelle qui répondent aux exigences de l'entreprise ainsi qu'aux indices de performance et de qualité."
       },
-      "posts": { "title": "Featured Posts", "seeMore": "See More" },
+      "posts": { "title": "Postes en vedette", "seeMore": "Voir plus" },
       "contact": {
-        "email": "Email",
-        "phone": "Phone",
+        "email": "E-mail",
+        "phone": "Téléphone",
         "instagram": "Instagram",
-        "telegram": "Telegram"
+        "telegram": "Télégramme"
       }
     },
     "favourites": {
-      "artists": "Favourite Artists",
-      "playlists": "Favourite Playlists",
-      "listenNow": "Listen Now",
-      "expand": "Expand",
-      "collapse": "Collapse"
+      "artists": "Artistes préférés",
+      "playlists": "Listes de lecture préférées",
+      "listenNow": "Écoute maintenant",
+      "expand": "Développer",
+      "collapse": "Effondrer"
     },
     "blog": {
       "title": "Blog"
     },
     "projects": {
-      "title": "Projects",
+      "title": "Projets",
       "points": "Points",
-      "gallery": "Gallery",
+      "gallery": "Galerie",
       "nthImage": "Image {{n}}"
     },
     "form": {
       "message": {
-        "required": "this field is required",
-        "checkYourInput": "check your input"
+        "required": "Ce champ est obligatoire",
+        "checkYourInput": "vérifie ta saisie"
       }
     },
     "error": {
-      "pageNotFound": "page not found",
-      "goBack": "Go Back",
-      "noItemFound": "No Item Found"
+      "pageNotFound": "Page non trouvée",
+      "goBack": "Retourner",
+      "noItemFound": "Aucun élément trouvé"
     }
   }
 }

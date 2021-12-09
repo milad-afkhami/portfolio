@@ -33,8 +33,8 @@ export function FooterLinks(props) {
           <Div mb="4">
             <Text size="md-b">{`layout.footer.${group}`}</Text>
           </Div>
-          {links.map(({ label, link }) => (
-            <Link href={link} mb="3">
+          {links.map(({ label, link }, i) => (
+            <Link href={link} mb="3" key={i}>
               <Text
                 hoverColor="text-secondary"
                 size="sm-b"

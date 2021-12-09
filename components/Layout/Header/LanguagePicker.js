@@ -3,7 +3,7 @@ import { useState, useEffect, useMemo } from "@hooks";
 import { Div, DropDown } from "@kits";
 import { languages as languagesList } from "@constants";
 import { __map } from "@utils";
-import i18n from "@i18n";
+import { LanguageHelper } from "@helpers";
 
 export function HeaderChangeLanguage(props) {
   const { initialSelectedLanguage } = props || {};
@@ -15,9 +15,8 @@ export function HeaderChangeLanguage(props) {
   }, [initialSelectedLanguage]);
 
   const onChangeLanguage = (id) => {
-    console.log({ id });
     setSelectedLanguage(id);
-    i18n.changeLanguage(id);
+    LanguageHelper.changeLanguage(id);
   };
 
   const dropDownItems = useMemo(

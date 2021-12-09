@@ -13,14 +13,13 @@ module.exports = {
     ignoreDuringBuilds: true,
   },
   i18n: {
-    locales: ["en"],
-    // locales: ["en", "fa"],
+    locales: ["en", "de", "fr"],
     defaultLocale: "en",
   },
   experimental: {
     craCompat: true,
   },
-  images: {
-    domains: ["s3-us-west-2.amazonaws.com"],
-  },
+  // images: {
+  //   domains: [],
+  // },
 };
