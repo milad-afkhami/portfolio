@@ -75,7 +75,17 @@
       "collapse": "Collapse"
     },
     "blog": {
-      "title": "Blog"
+      "title": "Blog",
+      "category": {
+        "styling": "Styling"
+      },
+      "notFound": "Blog Not Found!",
+      "meta": {
+        "category": "category",
+        "timeToReadLabel": "time to read",
+        "timeToReadValue": "{{time}} min",
+        "publishedAt": "published at"
+      }
     },
     "projects": {
       "title": "Projects",
