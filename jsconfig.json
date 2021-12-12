@@ -5,6 +5,7 @@
     "baseUrl": "./",
     "moduleResolution": "node",
     "paths": {
+      "@api/*": ["./pages/api/*"],
       "@kits": ["./components/kit/index"],
       "@kits/*": ["./components/kit/*"],
       "@components/*": ["./components/*"],
