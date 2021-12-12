@@ -14,7 +14,7 @@ export const BlogCardCategory = (props) => {
       curve="xsm"
       color="text-primary"
     >
-      <Text size="xxsm-b">{category}</Text>
+      <Text size="xxsm-b">{`blog.category.${category}`}</Text>
     </Div>
   );
 };

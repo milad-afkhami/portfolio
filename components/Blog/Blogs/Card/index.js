@@ -41,7 +41,7 @@ export const BlogCard = (props) => {
         <Div flex={["start", "between", "column"]} height="100%">
           <Div>
             <Div mb="2">
-              <Text size="md-b" css={{ lineHeight: "1.5" }}>
+              <Text size="md-b" lineHeight="1.5">
                 {title}
               </Text>
             </Div>

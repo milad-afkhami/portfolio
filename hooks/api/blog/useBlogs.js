@@ -1,20 +1,22 @@
 import useSWR from "swr";
 import { endpoints } from "@constants";
-import { useState, useSWRImmutable } from "@hooks";
-
-import { blogs } from "mock";
+import { useDebugValue, useSWRImmutable } from "@hooks";
+import { Http } from "@utils";
 
 export function useBlogs() {
-  const swr = useSWRImmutable(endpoints.blogs);
+  const swr = useSWRImmutable(endpoints.blogs, async (url) => {
+    try {
+      const response = await Http.request({ proxyLayer: false, url });
 
-  const [state, setState] = useState(null);
+      return response;
+    } catch (err) {
+      return err;
+    }
+  });
 
-  setTimeout(() => {
-    setState(blogs);
-  }, 3000);
+  useDebugValue(swr.data);
 
   return {
-    data: { blogs: state },
-    isValidating: false,
+    ...swr,
   };
 }

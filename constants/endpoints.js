@@ -1,4 +1,4 @@
 export const endpoints = {
   blog: "/blog/get",
-  blogs: "/blog/list",
+  blogs: "/api/blog/list",
 };

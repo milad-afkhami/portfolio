@@ -1,66 +1,73 @@
 import React from "react";
-import { Breadcrumb, Div, Icon } from "@kits";
-import { useEffect, useToggle, useRouter, useBlog } from "@hooks";
+import { Breadcrumb, Div, Text } from "@kits";
+import { useRouter } from "@hooks";
 import { Head } from "@components/SEO";
-import { __get, __omit, __pick } from "@utils";
-import Error from "../_error";
-import { BlogServices } from "@services";
-import { INTERVALS } from "@constants";
+import { MDXRemote } from "next-mdx-remote";
+import dynamic from "next/dynamic";
+import { BlogMeta, BlogSummary, BlogTitle } from "@components/Blog";
+
+const components = {
+  Image: dynamic(() => import("@kits").then((module) => module.Image)),
+  Div,
+  Text,
+};
 
 export default function BlogPage(props) {
   const router = useRouter();
-
   const slug = router.query.slug;
-
-  const {
-    data: { blog },
-    error,
-  } = useBlog({
-    slug,
-    fallbackData: { blog: props.blog },
-  });
-
-  if (error || props.error) {
-    const _error = error || props.error;
-    return (
-      <Error
-        {..._error}
-        statusCode={_error?.data?.code}
-        title={_error?.data?.message}
-      />
-    );
-  }
+  const { title, summary, publishedAt, readingTime, category } =
+    props?.blog?.frontMatter || {};
+  const source = props?.blog?.source || {};
 
   return (
     <>
-      <Head title={blog.title} description={""} canonical={`/blog/${slug}`} />
+      <Head title={title} description={summary} canonical={`/blog/${slug}`} />
       <Div width="100%" py="3">
         <Breadcrumb
           routes={[
             { title: "home", link: "/" },
             { title: "blog.title", link: "/blog" },
-            { title: blog.title, link: `/blog/${slug}` },
+            { title, link: `/blog/${slug}` },
           ]}
         />
-        <Div props></Div>
+        <Div>
+          <BlogTitle title={title} />
+          <BlogSummary summary={summary} />
+          <BlogMeta
+            category={category}
+            readingTime={readingTime}
+            publishedAt={publishedAt}
+          />
+          <MDXRemote {...source} components={components} />
+        </Div>
       </Div>
     </>
   );
 }
 
-export const getStaticProps = async ({ params, ...rest }) => {
-  const response = await BlogServices.getDetail(params.slug, {
-    resolveAnyway: true,
-    serializableError: true,
-  });
-  console.log({ response });
-  return { props: response, revalidate: INTERVALS.A_DAY };
+export const getStaticProps = async ({ params }) => {
+  const getBlogDetail = require("@api/blog/get").default;
+
+  const result = await getBlogDetail(params);
+
+  return {
+    props: {
+      blog: result.blog,
+    },
+  };
 };
 
-export const getStaticPaths = async ({ defaultLocale, locales }) => {
-  const blogs = await BlogServices.getPriors();
+export const getStaticPaths = async () => {
+  const blogsList = require("@api/blog/list").default;
+
+  // #todo change data/blog directory folder structure to [blog-slug]/[locale].mdx in order to translate blogs.
+
+  const result = await blogsList();
+
+  const paths = result.blogs.map(({ slug }) => ({ params: { slug } }));
+
   return {
-    paths: blogs.map((blog) => ({ params: { slug: blog } })),
+    paths,
     fallback: false,
   };
 };
