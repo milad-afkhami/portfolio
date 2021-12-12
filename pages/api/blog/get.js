@@ -1,10 +1,10 @@
-import fs from "fs";
-import path from "path";
+import * as fs from "fs";
+import * as path from "path";
 import matter from "gray-matter";
 import { serialize } from "next-mdx-remote/serialize";
 
 export default async function getBlogDetail(param1, res) {
-  const blogsPath = path.join(process.cwd(), "data", "blog");
+  const blogsPath = path.join(__dirname, "data", "blog");
 
   const slug = param1?.query?.slug || param1.slug;
 

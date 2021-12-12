@@ -1,9 +1,11 @@
-import fs from "fs";
-import path from "path";
+import * as fs from "fs";
+import * as path from "path";
 import matter from "gray-matter";
 
 export default async function blogsList(req, res) {
-  const blogsPath = path.join(process.cwd(), "data", "blog");
+  const blogsPath = path.join(__dirname, "data", "blog");
+
+  console.log({ __dirname, blogsPath });
 
   const blogsFilePaths = fs
     .readdirSync(blogsPath)
