@@ -39,6 +39,7 @@ export const Text: ComponentType<Props> = styled.span.attrs(
     align,
     hoverColor,
     zoomOnHover,
+    lineHeight,
     ...restProps
   }) => ({
     ...(color ? { color: c(color) } : {}),
@@ -56,6 +57,7 @@ export const Text: ComponentType<Props> = styled.span.attrs(
     ...(mh ? { minHeight: mh } : {}),
     ...(Mh ? { maxHeight: Mh } : {}),
     ...(align ? { textAlign: align } : {}),
+    lineHeight: lineHeight || 1.5,
     ...(css || {}),
     ...(truncate
       ? { textOverflow: "ellipsis", overflow: "hidden", whiteSpace: "nowrap" }

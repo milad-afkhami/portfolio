@@ -10,6 +10,7 @@ export interface Props extends DivProps {
   Trans?: Object;
   i18nKey?: String;
   noTranslation?: Boolean;
+  lineHeight: String | Number;
   align?:
     | "start"
     | "end"
