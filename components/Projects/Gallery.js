@@ -99,30 +99,6 @@ export const ProjectGallery = (props) => {
                     </Text>
                   </Div>
                 ),
-                View2: (props) => {
-                  const { caption, src, srcset } = props.currentView;
-
-                  return (
-                    <Div
-                      position="relative"
-                      css={{ textAlign: "center", lineHeight: "0" }}
-                      height="auto"
-                      Mh="100vh"
-                      Mw="100%"
-                    >
-                      <Image
-                        src={src}
-                        alt={caption}
-                        height="100%"
-                        width="100%"
-                        layout="fill"
-                        // placeholder="blur"
-                        // blurDataURL={src}
-                        curve="sm"
-                      />
-                    </Div>
-                  );
-                },
               }}
               currentIndex={currentImage}
               views={medias.map((x) => ({
