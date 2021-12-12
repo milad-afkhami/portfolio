@@ -2,7 +2,6 @@ export * from "./pageAttribute";
 export * from "./setInputNumberValue";
 export * from "./enhanceStringPrototype";
 export * from "./shouldForwardProp";
-export * from "./image";
 export * from "./Time";
 export * from "./Persian";
 export * from "./nProgress";

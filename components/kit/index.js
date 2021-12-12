@@ -10,7 +10,6 @@ export * from "./Button";
 export * from "./HR";
 export * from "./MoreMenu";
 export * from "./Divider";
-export * from "./Countdown";
 export * from "./Tabs";
 export * from "./Modal";
 export * from "./BottomSheet";

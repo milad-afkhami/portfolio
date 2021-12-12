@@ -1,5 +1,4 @@
 import { Props as DivProps } from "@kits/Div/DivProps";
-import { ImageQuality } from "@helpers/image";
 
 type layoutTypes = "intrinsic" | "fixed" | "responsive" | "fill";
 type srcTypes =
@@ -18,7 +17,7 @@ export interface Props extends DivProps {
   src: srcTypes;
   hash: String;
   alt?: String;
-  serverQuality?: ImageQuality;
+  serverQuality?: String;
   placeholder?: placeholderTypes;
   blurDataURL?: String;
   quality?: Number;
