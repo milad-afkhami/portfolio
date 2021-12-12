@@ -8,11 +8,6 @@ export function ResumeProfile(props) {
   return (
     <Div flex width="100%" my="4">
       <Div width="100%">
-        {/* <Div mb="2">
-          <Text size="h-lg-b" tag="h1">
-            resume.profile.name
-          </Text>
-        </Div> */}
         <NameSvg />
         <Div mb="3">
           <Text size="md" tag="h2">
@@ -24,7 +19,8 @@ export function ResumeProfile(props) {
             size="md"
             color="text-secondary"
             tag="h3"
-            css={{ whiteSpace: "pre-line", lineHeight: 2 }}
+            lineHeight="2"
+            css={{ whiteSpace: "pre-line" }}
             Mw="600px"
           >
             resume.profile.jobDescription
@@ -40,7 +36,7 @@ export function ResumeProfile(props) {
           position="relative"
           overflow="hidden"
         >
-          <Image src={logoLg} layout="fill" fit="cover" />
+          {/* <Image src={logoLg} layout="fill" fit="cover" /> */}
         </Div>
       </Div>
     </Div>
