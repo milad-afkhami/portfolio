@@ -1,21 +1,16 @@
 import React from "react";
-import { useState, useEffect, useMemo } from "@hooks";
+import { useRouter, useMemo } from "@hooks";
 import { Div, DropDown } from "@kits";
 import { languages as languagesList } from "@constants";
 import { __map } from "@utils";
 import { LanguageHelper } from "@helpers";
 
 export function HeaderChangeLanguage(props) {
-  const { initialSelectedLanguage } = props || {};
+  const {} = props || {};
 
-  const [selectedLanguage, setSelectedLanguage] = useState("en");
-
-  useEffect(() => {
-    initialSelectedLanguage && setSelectedLanguage(initialSelectedLanguage);
-  }, [initialSelectedLanguage]);
+  const router = useRouter();
 
   const onChangeLanguage = (id) => {
-    setSelectedLanguage(id);
     LanguageHelper.changeLanguage(id);
   };
 
@@ -33,7 +28,7 @@ export function HeaderChangeLanguage(props) {
     <Div>
       <DropDown
         items={dropDownItems}
-        selected={selectedLanguage}
+        selected={router.locale}
         onChange={onChangeLanguage}
       />
     </Div>
