@@ -11,9 +11,15 @@ export default async function blogsList(req, res) {
 
   // console.log({ __dirname, "process.cwd": process.cwd(), blogsPath });
 
-  const path1 = fs.readdir(blogsPath, { withFileTypes: true }, console.log);
+  const path1 = fs.readdir(blogsPath, { withFileTypes: true }, (...result) => {
+    console.log(result);
+    return result;
+  });
 
-  const path2 = fs.readdir(blogsPath2, { withFileTypes: true }, console.log);
+  const path2 = fs.readdir(blogsPath2, { withFileTypes: true }, (...result) => {
+    console.log(result);
+    return result;
+  });
 
   Promise.allSettled([path1, path2]).finally((...res) => {
     console.log("blogsList2", { res, path1, path2 });
