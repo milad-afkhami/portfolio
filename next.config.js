@@ -18,7 +18,6 @@ module.exports = {
   },
   experimental: {
     craCompat: true,
-    outputFileTracing: true,
   },
   // images: {
   //   domains: [],
