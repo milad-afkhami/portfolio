@@ -6,6 +6,5 @@ export function useBlog({ slug, fallbackData }: IApiHook) {
     fallbackData,
   });
 
-  console.log(swr);
   return { data: fallbackData };
 }

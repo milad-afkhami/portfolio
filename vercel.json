@@ -1,4 +1,10 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "api/blog/list.js": {
+    "includeFiles": "data/blog/**"
+  },
+  "api/blog/get.js": {
+    "includeFiles": "data/**"
+  }
 }

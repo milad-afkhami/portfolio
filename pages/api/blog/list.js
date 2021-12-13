@@ -3,9 +3,13 @@ import * as path from "path";
 import matter from "gray-matter";
 
 export default async function blogsList(req, res) {
-  const blogsPath = path.join(__dirname, "..", "..", "..", "data", "blog");
+  // console.log("blogsList", req);
+  const blogsPath = path.join(__dirname, "data", "blog");
+  const blogsPath2 = path.join(__dirname, "blog");
 
-  console.log({ __dirname, "process.cwd": process.cwd(), blogsPath });
+  console.log("blogsList", { blogsPath, blogsPath2 });
+
+  // console.log({ __dirname, "process.cwd": process.cwd(), blogsPath });
 
   const blogsFilePaths = fs
     .readdirSync(blogsPath)
