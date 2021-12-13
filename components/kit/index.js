@@ -8,7 +8,6 @@ export { StyledLink as Link } from "./Link/Link";
 export * from "./Icon";
 export * from "./Button";
 export * from "./HR";
-export * from "./MoreMenu";
 export * from "./Divider";
 export * from "./Tabs";
 export * from "./Modal";
