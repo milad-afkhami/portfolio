@@ -5,6 +5,7 @@ import matter from "gray-matter";
 export default async function blogsList(req, res) {
   const blogsPath = path.join(process.cwd(), "data", "blog");
 
+  const directory = path.resolve(process.cwd());
   const dataDirectory = path.resolve(process.cwd(), "data");
   const dataDirectory2 = path.join(process.cwd(), "data");
 
@@ -19,6 +20,10 @@ export default async function blogsList(req, res) {
 
   fs.readdir(blogsPath, (...result) => {
     console.log("blogsPath", { blogsPath, result });
+  });
+
+  fs.readdir(directory, (...result) => {
+    console.log("directory", { directory, result });
   });
 
   fs.readdir(dataDirectory, (...result) => {
