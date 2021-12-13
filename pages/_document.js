@@ -42,7 +42,11 @@ class MyDocument extends Document {
           <link rel="apple-touch-icon" href="/favicons/logo192.png" />
           <link rel="manifest" href="/manifest.json" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+          <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="true"
+          />
           <noscript>You need to enable JavaScript to run this app.</noscript>
         </Head>
         <body>

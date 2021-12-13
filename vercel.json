@@ -3,7 +3,7 @@
   "trailingSlash": false,
   "functions": {
     "pages/api/blog/list.js": {
-      "includeFiles": "data/blog/**"
+      "includeFiles": "data/**"
     },
     "pages/api/blog/get.js": {
       "includeFiles": "data/**"
