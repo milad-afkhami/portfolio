@@ -8,9 +8,17 @@ export default async function getBlogDetail(param1, res) {
   // const blogsPath = path.join(process.cwd(), "data", "blog");
 
   const blogsPath = path.join(__dirname, "data", "blog");
-  const blogsPath2 = path.join(__dirname, "blog");
+  const blogsPath2 = path.join(__dirname, "data");
 
   console.log("getBlogDetail", { blogsPath, blogsPath2 });
+
+  const path1 = fs.readdir(blogsPath, { withFileTypes: true });
+
+  const path2 = fs.readdir(blogsPath2, { withFileTypes: true });
+
+  Promise.allSettled([path1, path2]).finally((...res) => {
+    console.log("getBlogDetail2", { res, path1, path2 });
+  });
 
   const slug = param1?.query?.slug || param1.slug;
 
