@@ -28,13 +28,15 @@ export const BlogCard = (props) => {
       hoverBg="bg-secondary-hover"
     >
       <Div height="100%" flexPortion="3" position="relative">
-        <Image
-          src={image}
-          placeholder="blur"
-          blurDataURL={image}
-          layout="fill"
-          fit="cover"
-        />
+        {image && (
+          <Image
+            src={image}
+            placeholder="blur"
+            blurDataURL={image}
+            layout="fill"
+            fit="cover"
+          />
+        )}
         <BlogCardCategory category={category} />
       </Div>
       <Div p="3" flexPortion="2">

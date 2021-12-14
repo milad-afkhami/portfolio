@@ -5,6 +5,10 @@ import { Head } from "@components/SEO";
 import { MDXRemote } from "next-mdx-remote";
 import dynamic from "next/dynamic";
 import { BlogMeta, BlogSummary, BlogTitle } from "@components/Blog";
+import matter from "gray-matter";
+import * as fs from "fs";
+import * as path from "path";
+import { serialize } from "next-mdx-remote/serialize";
 
 const components = {
   Image: dynamic(() => import("@kits").then((module) => module.Image)),
@@ -46,25 +50,43 @@ export default function BlogPage(props) {
 }
 
 export const getStaticProps = async ({ params }) => {
-  const getBlogDetail = require("@api/blog/get").default;
+  const BLOGS_PATH = path.join(process.cwd(), "data", "blog");
 
-  const result = await getBlogDetail(params);
+  const blogFilePath = path.join(BLOGS_PATH, `${params.slug}.mdx`);
+  const source = fs.readFileSync(blogFilePath);
+
+  const { content, data } = matter(source);
+
+  const mdxSource = await serialize(content, {
+    // Optionally pass remark/rehype plugins
+    mdxOptions: {
+      remarkPlugins: [],
+      rehypePlugins: [],
+    },
+    scope: data,
+  });
 
   return {
     props: {
-      blog: result.blog,
+      blog: {
+        source: mdxSource,
+        frontMatter: data,
+      },
     },
   };
 };
 
 export const getStaticPaths = async () => {
-  const blogsList = require("@api/blog/list").default;
+  const BLOGS_PATH = path.join(process.cwd(), "data", "blog");
 
-  // #todo change data/blog directory folder structure to [blog-slug]/[locale].mdx in order to translate blogs.
+  const blogFilePaths = fs
+    .readdirSync(BLOGS_PATH)
+    // Only include md(x) files
+    .filter((path) => /\.mdx?$/.test(path));
 
-  const result = await blogsList();
-
-  const paths = result.blogs.map(({ slug }) => ({ params: { slug } }));
+  const paths = blogFilePaths
+    .map((path) => path.replace(/\.mdx?$/, ""))
+    .map((slug) => ({ params: { slug } }));
 
   return {
     paths,
