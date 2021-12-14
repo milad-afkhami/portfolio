@@ -2,7 +2,7 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "functions": {
-    "api/blogget.js": {
+    "pages/api/blogget.js": {
       "includeFiles": "_files/**"
     }
   }
