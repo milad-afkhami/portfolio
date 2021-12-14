@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Breadcrumb, Div, Text } from "@kits";
 import { useRouter } from "@hooks";
 import { Head } from "@components/SEO";
