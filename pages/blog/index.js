@@ -3,10 +3,8 @@ import { Div } from "@kits";
 import { Head } from "@components/SEO";
 import { PageTitle } from "@components/Layout";
 import { Blogs } from "@components/Blog";
-// import { useBlogs } from "@hooks";
-import * as fs from "fs";
-import * as path from "path";
-import matter from "gray-matter";
+// server imports
+import { BlogServices } from "@services";
 
 export default function BlogPage(props) {
   // const { data, isValidating, mutate, error } = useBlogs();
@@ -22,26 +20,8 @@ export default function BlogPage(props) {
   );
 }
 
-export function getStaticProps() {
-  const BLOGS_PATH = path.join(process.cwd(), "data", "blog");
-
-  const blogFilePaths = fs
-    .readdirSync(BLOGS_PATH)
-    .filter((path) => /\.mdx?$/.test(path));
-
-  const blogs = blogFilePaths.map((filePath) => {
-    const source = fs.readFileSync(path.join(BLOGS_PATH, filePath));
-    const {
-      // content,
-      data,
-    } = matter(source);
-
-    return {
-      // content,
-      ...data,
-      slug: filePath.replace(/\.mdx?$/, ""),
-    };
-  });
+export async function getStaticProps() {
+  const blogs = await BlogServices.getList();
 
   return { props: { blogs } };
 }
