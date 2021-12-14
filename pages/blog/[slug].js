@@ -38,7 +38,7 @@ export default function BlogPage(props) {
             readingTime={readingTime}
             publishedAt={publishedAt}
           />
-          <MDXRemote {...source} components={components} />
+          {/* <MDXRemote {...source} components={components} /> */}
         </Div>
       </Div>
     </>
@@ -46,7 +46,7 @@ export default function BlogPage(props) {
 }
 
 export const getStaticProps = async ({ params }) => {
-  const getBlogDetail = require("@api/blog/get").default;
+  const getBlogDetail = require("@api/blogget").default;
 
   const result = await getBlogDetail(params);
 
@@ -58,16 +58,16 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const blogsList = require("@api/blog/list").default;
+  // const blogsList = require("@api/bloglist").default;
 
   // #todo change data/blog directory folder structure to [blog-slug]/[locale].mdx in order to translate blogs.
 
-  const result = await blogsList();
+  // const result = await blogsList();
 
-  const paths = result.blogs.map(({ slug }) => ({ params: { slug } }));
+  // const paths = result.blogs.map(({ slug }) => ({ params: { slug } }));
 
   return {
-    paths,
+    paths: [{ params: { slug: "hello-world" } }],
     fallback: false,
   };
 };
