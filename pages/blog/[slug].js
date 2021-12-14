@@ -58,16 +58,16 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const blogsList = require("@api/bloglist").default;
+  // const blogsList = require("@api/bloglist").default;
 
   // #todo change data/blog directory folder structure to [blog-slug]/[locale].mdx in order to translate blogs.
 
-  const result = await blogsList();
+  // const result = await blogsList();
 
-  const paths = result.blogs.map(({ slug }) => ({ params: { slug } }));
+  // const paths = result.blogs.map(({ slug }) => ({ params: { slug } }));
 
   return {
-    paths,
+    paths: [{ params: { slug: "hello-world" } }],
     fallback: false,
   };
 };
