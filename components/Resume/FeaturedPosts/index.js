@@ -5,14 +5,14 @@ import { blogs } from "mock";
 import { useBlogs } from "@hooks";
 
 export const FeaturedPosts = (props) => {
-  const {} = props || {};
+  const { posts } = props || {};
 
-  const { data, isValidating, mutate, error } = useBlogs();
+  // const { data, isValidating, mutate, error } = useBlogs();
 
   return (
     <Div my="5">
       <Blogs
-        items={data?.blogs?.slice?.(0, 6)}
+        items={posts?.slice?.(0, 6)}
         title="resume.posts.title"
         moreLink="/blog"
       />

@@ -8,11 +8,8 @@ import {
   ResumeProjects,
   ResumeContact,
 } from "@components/Resume";
-import { posts } from "mock";
 import dynamic from "next/dynamic";
-import * as fs from "fs";
-import * as path from "path";
-import matter from "gray-matter";
+import { BlogServices } from "@services";
 
 export default function Home(props) {
   const { data, isValidating, mutate, error } = useHome();
@@ -30,23 +27,8 @@ export default function Home(props) {
   );
 }
 
-export function getStaticProps() {
-  const BLOGS_PATH = path.join(process.cwd(), "data", "blog");
-
-  const blogFilePaths = fs
-    .readdirSync(BLOGS_PATH)
-    .filter((path) => /\.mdx?$/.test(path));
-
-  const blogs = blogFilePaths.map((filePath) => {
-    const source = fs.readFileSync(path.join(BLOGS_PATH, filePath));
-    const { content, data } = matter(source);
-
-    return {
-      content,
-      data,
-      filePath,
-    };
-  });
+export async function getStaticProps() {
+  const blogs = await BlogServices.getList();
 
   return { props: { blogs } };
 }
