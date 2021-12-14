@@ -4,7 +4,7 @@ import matter from "gray-matter";
 import { serialize } from "next-mdx-remote/serialize";
 
 export default async function getBlogDetail(param1, res) {
-  const blogsPath = path.join(__dirname, "_files", "hello-world.mdx");
+  // const blogsPath = path.join(__dirname, "_files", "hello-world.mdx");
 
   console.log(
     fs.readdir(__dirname, (...res) => {
@@ -41,7 +41,7 @@ export default async function getBlogDetail(param1, res) {
   const slug = param1?.query?.slug || param1.slug;
 
   //   const postFilePath = path.join(blogsPath, `${slug}.mdx`);
-  const source = fs.readFileSync(blogsPath, "utf8");
+  /*const source = fs.readFileSync(blogsPath, "utf8");
 
   if (!source) {
     if (res) res.status(404).json({ message: "blog.notFound" });
@@ -55,8 +55,8 @@ export default async function getBlogDetail(param1, res) {
     scope: data,
   });
 
-  const blog = { source: mdxSource, frontMatter: data };
+  const blog = { source: mdxSource, frontMatter: data };*/
 
-  if (res) res.status(200).json({ blog });
-  else return { blog };
+  if (res) res.status(200).json({ blog: { source: "", frontMatter: {} } });
+  else return { blog: { source: "", frontMatter: {} } };
 }
