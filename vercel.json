@@ -1,9 +1,4 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false,
-  "functions": {
-    "pages/api/blogget.js": {
-      "includeFiles": "_files/**"
-    }
-  }
+  "trailingSlash": false
 }
