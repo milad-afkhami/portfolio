@@ -2,9 +2,13 @@ import React from "react";
 import { Breadcrumb, Div, Text } from "@kits";
 import { useRouter } from "@hooks";
 import { Head } from "@components/SEO";
+import components from "components/MDXComponents";
 import { MDXRemote } from "next-mdx-remote";
 import dynamic from "next/dynamic";
 import { BlogMeta, BlogSummary, BlogTitle } from "@components/Blog";
+
+import { useMDXComponent } from "next-contentlayer/hooks";
+import { allBlogs } from ".contentlayer/data";
 
 const components = {
   Image: dynamic(() => import("@kits").then((module) => module.Image)),
@@ -18,6 +22,8 @@ export default function BlogPage(props) {
   const { title, summary, publishedAt, readingTime, category } =
     props?.blog?.frontMatter || {};
   const source = props?.blog?.source || {};
+
+  const Component = useMDXComponent(blog.body.code);
 
   return (
     <>
@@ -46,25 +52,17 @@ export default function BlogPage(props) {
 }
 
 export const getStaticProps = async ({ params }) => {
-  const getBlogDetail = require("@api/blog/get").default;
-
-  const result = await getBlogDetail(params);
+  const blog = allBlogs.find((blog) => blog.slug === params.slug);
 
   return {
     props: {
-      blog: result.blog,
+      blog,
     },
   };
 };
 
 export const getStaticPaths = async () => {
-  const blogsList = require("@api/blog/list").default;
-
-  // #todo change data/blog directory folder structure to [blog-slug]/[locale].mdx in order to translate blogs.
-
-  const result = await blogsList();
-
-  const paths = result.blogs.map(({ slug }) => ({ params: { slug } }));
+  const paths = allBlogs.map((p) => ({ params: { slug: p.slug } }));
 
   return {
     paths,

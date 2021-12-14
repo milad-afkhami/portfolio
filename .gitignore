@@ -53,3 +53,7 @@ package-lock.json
 .env.production.local
 # vercel
 .vercel
+
+
+# Contentlayer
+.contentlayer
