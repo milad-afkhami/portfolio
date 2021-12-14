@@ -46,7 +46,7 @@ export default function BlogPage(props) {
 }
 
 export const getStaticProps = async ({ params }) => {
-  const getBlogDetail = require("@api/blog/get").default;
+  const getBlogDetail = require("@api/blogget").default;
 
   const result = await getBlogDetail(params);
 
@@ -58,7 +58,7 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const blogsList = require("@api/blog/list").default;
+  const blogsList = require("@api/bloglist").default;
 
   // #todo change data/blog directory folder structure to [blog-slug]/[locale].mdx in order to translate blogs.
 
