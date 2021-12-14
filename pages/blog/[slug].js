@@ -5,6 +5,7 @@ import { Head } from "@components/SEO";
 import { MDXRemote } from "next-mdx-remote";
 import dynamic from "next/dynamic";
 import { BlogMeta, BlogSummary, BlogTitle } from "@components/Blog";
+import { Http } from "@utils";
 
 const components = {
   Image: dynamic(() => import("@kits").then((module) => module.Image)),
@@ -18,6 +19,11 @@ export default function BlogPage(props) {
   const { title, summary, publishedAt, readingTime, category } =
     props?.blog?.frontMatter || {};
   const source = props?.blog?.source || {};
+
+  useEffect(() => {
+    Http.get("/api/blogget");
+    Http.get("/blogget");
+  }, []);
 
   return (
     <>
@@ -45,29 +51,29 @@ export default function BlogPage(props) {
   );
 }
 
-export const getStaticProps = async ({ params }) => {
-  const getBlogDetail = require("@api/blogget").default;
+// export const getStaticProps = async ({ params }) => {
+//   const getBlogDetail = require("@api/blogget").default;
 
-  const result = await getBlogDetail(params);
+//   const result = await getBlogDetail(params);
 
-  return {
-    props: {
-      blog: result.blog,
-    },
-  };
-};
+//   return {
+//     props: {
+//       blog: result.blog,
+//     },
+//   };
+// };
 
-export const getStaticPaths = async () => {
-  // const blogsList = require("@api/bloglist").default;
+// export const getStaticPaths = async () => {
+//   // const blogsList = require("@api/bloglist").default;
 
-  // #todo change data/blog directory folder structure to [blog-slug]/[locale].mdx in order to translate blogs.
+//   // #todo change data/blog directory folder structure to [blog-slug]/[locale].mdx in order to translate blogs.
 
-  // const result = await blogsList();
+//   // const result = await blogsList();
 
-  // const paths = result.blogs.map(({ slug }) => ({ params: { slug } }));
+//   // const paths = result.blogs.map(({ slug }) => ({ params: { slug } }));
 
-  return {
-    paths: [{ params: { slug: "hello-world" } }],
-    fallback: false,
-  };
-};
+//   return {
+//     paths: [{ params: { slug: "hello-world" } }],
+//     fallback: false,
+//   };
+// };
