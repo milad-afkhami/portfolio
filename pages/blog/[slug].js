@@ -21,8 +21,8 @@ export default function BlogPage(props) {
   const source = props?.blog?.source || {};
 
   useEffect(() => {
-    Http.get("/api/blogget");
-    Http.get("/blogget");
+    Http.get({ url: "/api/blogget", proxyLayer: false });
+    Http.get({ url: "/blogget", proxyLayer: false });
   }, []);
 
   return (
