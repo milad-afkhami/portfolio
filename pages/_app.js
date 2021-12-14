@@ -7,13 +7,10 @@ import { defaultTheme, GlobalStyles } from "@stylesheets";
 import { THEMES } from "@constants";
 import { swrFetcher, __pick, __values } from "@utils";
 import { DefaultSeo } from "@components/SEO";
-import { nProgress, enhanceStringPrototype, LanguageHelper } from "@helpers";
+import { enhanceStringPrototype, LanguageHelper } from "@helpers";
 import { useEffect, useT } from "@hooks";
 import { ToastContainer, Slide } from "react-toastify";
 import "@material/react-text-field/dist/text-field.css";
-// import "swiper/css";
-// import "swiper/css/grid"
-
 import "react-toastify/dist/ReactToastify.min.css";
 import { SWRConfig } from "swr";
 
@@ -23,15 +20,11 @@ function MyApp({ Component, pageProps, ...rest }) {
   enhanceStringPrototype();
 
   useEffect(() => {
-    // calling session start for the first and only time.
-    // session.mutate();
-    // .then(() => AnalyticsServices.viewPage(router.asPath));
-
     LanguageHelper.initialLanguageSetup();
 
-    router.events.on("routeChangeStart", nProgress.start);
-    router.events.on("routeChangeComplete", nProgress.done);
-    router.events.on("routeChangeError", nProgress.done);
+    // router.events.on("routeChangeStart", nProgress.start);
+    // router.events.on("routeChangeComplete", nProgress.done);
+    // router.events.on("routeChangeError", nProgress.done);
   }, []);
 
   return (
@@ -82,5 +75,4 @@ function MyApp({ Component, pageProps, ...rest }) {
   );
 }
 
-// https://nextjs.org/docs/advanced-features/custom-app
 export default MyApp;

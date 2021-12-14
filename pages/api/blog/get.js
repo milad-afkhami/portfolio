@@ -4,13 +4,7 @@ import matter from "gray-matter";
 import { serialize } from "next-mdx-remote/serialize";
 
 export default async function getBlogDetail(param1, res) {
-  // const blogsPath = path.join(__dirname, "..", "..", "..", "data", "blog");
-  // const blogsPath = path.join(process.cwd(), "data", "blog");
-
-  const blogsPath = path.join(__dirname, "data", "blog");
-  const blogsPath2 = path.join(__dirname, "blog");
-
-  console.log("getBlogDetail", { blogsPath, blogsPath2 });
+  const blogsPath = path.join(process.cwd(), "data", "blog");
 
   const slug = param1?.query?.slug || param1.slug;
 
