@@ -2,11 +2,11 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "functions": {
-    "pages/api/blog.js": {
-      "includeFiles": "_files/**"
+    "pages/api/blog/list.js": {
+      "includeFiles": "data/blog/**"
     },
-    "pages/api/blogget.js": {
-      "includeFiles": "_files/**"
+    "pages/api/blog/get.js": {
+      "includeFiles": "data/blog/**"
     }
   }
 }
