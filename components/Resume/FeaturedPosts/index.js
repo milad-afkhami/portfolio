@@ -3,6 +3,7 @@ import { Div, Link, Text } from "@kits";
 import { Blogs, FeaturedPostCard } from "@components/Blog";
 import { blogs } from "mock";
 import { useBlogs } from "@hooks";
+import { ORIENTATION } from "@constants";
 
 export const FeaturedPosts = (props) => {
   const { posts } = props || {};
@@ -12,7 +13,8 @@ export const FeaturedPosts = (props) => {
   return (
     <Div my="5">
       <Blogs
-        items={posts?.slice?.(0, 3)}
+        orientation={ORIENTATION.HORIZONTAL}
+        items={posts?.slice?.(0, 6)}
         title="resume.posts.title"
         moreLink="/blog"
       />
