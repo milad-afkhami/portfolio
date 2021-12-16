@@ -16,6 +16,7 @@ export function ResumeContactOption(props) {
         position="relative"
         cursor="pointer"
         mb="3"
+        // responsive={{ md: { width: "100px", height: "100px" } }}
       >
         <Image
           {...(type === "telegram"
