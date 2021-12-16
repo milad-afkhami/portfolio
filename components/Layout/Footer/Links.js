@@ -23,12 +23,14 @@ const footerLinks = {
 
 export function FooterLinks(props) {
   return (
-    <Div flex={["start", "between"]}>
+    <Div flex={["start", "start", "row"]} mx="-3">
       {__map(footerLinks, (links, group) => (
         <Div
           flex={["start", "start", "column"]}
-          responsive={{ lg: { mEnd: "6" } }}
+          mx="3"
+          // responsive={{ sm: { mx: 5 }, lg: { mx: 6 } }}
           key={group}
+          mb="3"
         >
           <Div mb="4">
             <Text size="md-b">{`layout.footer.${group}`}</Text>
