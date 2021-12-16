@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "@hooks";
 import { Div, Icon, Logo } from "@kits";
-import { HeaderMenus } from "./Menus";
+import { HeaderNav } from "./Nav";
 import { HeaderSwitchTheme } from "./SwitchTheme";
 import { HeaderChangeLanguage } from "./LanguagePicker";
 
@@ -17,8 +17,8 @@ export function Header(props) {
       width="100%"
     >
       <Div flex={["center", "between"]} matchParent>
-        <Div width="35%" flex={[, "start"]}>
-          <HeaderMenus />
+        <Div flex={[, "start"]}>
+          <HeaderNav />
         </Div>
         <Div width="auto">{/* <Logo /> */}</Div>
         <Div width="35%" flex={[, "end"]}>

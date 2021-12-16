@@ -29,3 +29,4 @@ export * from "./useDeviceDetect";
 export { default as useSwr } from "swr";
 export { default as useSWRImmutable } from "swr/immutable";
 export { useMediaQuery } from "react-responsive";
+export { default as useDelayedRender } from "use-delayed-render";
