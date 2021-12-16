@@ -41,8 +41,8 @@ export const Project = (props) => {
       <Div mb="4">
         <Text size="md">{description}</Text>
       </Div>
-      <ProjectPoints points={points} />
-      <ProjectGallery medias={medias} />
+      {points && <ProjectPoints points={points} />}
+      {medias && <ProjectGallery medias={medias} />}
     </Div>
   );
 };

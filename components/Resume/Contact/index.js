@@ -12,7 +12,7 @@ export function ResumeContact(props) {
       <ResumeContactOption type="email" value="milad@gmail.com" />
       <ResumeContactOption type="phone" value="+98 939 284 0749" />
       <ResumeContactOption type="email" value="milad@gmail.com" />
-      {/* <ResumeContactOption type="telegram" value="t.me/mrs2i" /> */}
+      {/* telegram, linkedin, skype */}
     </Div>
   );
 }
