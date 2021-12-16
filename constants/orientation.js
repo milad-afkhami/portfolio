@@ -1,0 +1,4 @@
+export const ORIENTATION = {
+  HORIZONTAL: "HORIZONTAL",
+  VERTICAL: "VERTICAL",
+};

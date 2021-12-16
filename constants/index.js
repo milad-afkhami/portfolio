@@ -7,4 +7,5 @@ export * from "./alert";
 export * from "./faDigits";
 export * from "./cookies";
 export * from "./languages";
+export * from "./orientation";
 export * from "./favourites";
