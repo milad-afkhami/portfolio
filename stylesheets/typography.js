@@ -19,7 +19,7 @@ export const typographyVariants = {
     xxsm: { fontSize: 9, fontWeight: "normal" },
     "xxsm-b": { fontSize: 9, fontWeight: "bold" },
   },
-  [breakpoints.md]: {
+  [breakpoints.lg]: {
     "h-lg": { fontSize: 32, fontWeight: "normal" },
     "h-lg-b": { fontSize: 32, fontWeight: "bold" },
     "h-md": { fontSize: 22, fontWeight: "normal" },
