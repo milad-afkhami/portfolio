@@ -91,8 +91,8 @@ export const Image: ComponentType<Props> = ({
                     src={src}
                     withShimmer
                     placeholder="blur"
-                    // blurDataURL={}
-                    // placeholder={"blur"}
+                    // withShimmer={!blurDataURL}
+                    // {...(blurDataURL ? { blurDataURL } : {})}
                   />
                 )}
               </Div>
