@@ -3,6 +3,7 @@ import { Div, Link, Text } from "@kits";
 import { BlogCard } from "./Card";
 import { __range } from "@utils";
 import { BlogCardLoadings } from "./Loading";
+import { ORIENTATION } from "@constants";
 
 export const Blogs = (props) => {
   const {
@@ -12,6 +13,7 @@ export const Blogs = (props) => {
     moreLink,
     onClickMore,
     loadingCount = 9,
+    orientation = ORIENTATION.VERTICAL,
     ...rest
   } = props || {};
 

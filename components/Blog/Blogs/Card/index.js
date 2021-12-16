@@ -20,14 +20,20 @@ export const BlogCard = (props) => {
   return (
     <Link
       href={`/blog/${slug}`}
-      height="420px"
-      flex={[, , "column"]}
+      height="180px"
+      flex={[, , "row"]}
       curve="sm"
       overflow="hidden"
       bg="bg-secondary"
       hoverBg="bg-secondary-hover"
+      responsive={{ md: { flex: [, , "column"], height: "420px" } }}
     >
-      <Div height="100%" flexPortion="3" position="relative">
+      <Div
+        height="100%"
+        flexPortion="1"
+        responsive={{ md: { flexPortion: 3 } }}
+        position="relative"
+      >
         {image && (
           <Image
             src={image}
@@ -39,7 +45,7 @@ export const BlogCard = (props) => {
         )}
         <BlogCardCategory category={category} />
       </Div>
-      <Div p="3" flexPortion="2">
+      <Div p="3" flexPortion="1" responsive={{ md: { flexPortion: 2 } }}>
         <Div flex={["start", "between", "column"]} height="100%">
           <Div>
             <Div mb="2">
