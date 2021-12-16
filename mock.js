@@ -772,8 +772,6 @@ export const projectsData = [
       { src: "/images/projects/bityon/desktop/5.png", title: "image 5" },
       { src: "/images/projects/bityon/desktop/6.png", title: "image 6" },
       { src: "/images/projects/bityon/desktop/7.png", title: "image 7" },
-      { src: "/images/projects/bityon/desktop/8.png", title: "image 8" },
-      { src: "/images/projects/bityon/desktop/9.png", title: "image 9" },
       { src: "/images/projects/bityon/mobile/1.png", title: "image 1" },
       { src: "/images/projects/bityon/mobile/2.png", title: "image 2" },
       { src: "/images/projects/bityon/mobile/3.png", title: "image 3" },

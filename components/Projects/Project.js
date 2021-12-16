@@ -1,7 +1,9 @@
 import React from "react";
-import { Div, Image, Link, Text } from "@kits";
+import { Div } from "@kits";
 import { ProjectGallery } from "./Gallery";
 import { ProjectPoints } from "./Points";
+import { ProjectHeading } from "./Heading";
+import { ProjectDescription } from "./Description";
 
 export const Project = (props) => {
   const {
@@ -19,28 +21,8 @@ export const Project = (props) => {
 
   return (
     <Div mb="6">
-      <Div
-        flex={["center", "between"]}
-        py="3"
-        mb="4"
-        border="border-light"
-        borderSide="bottom"
-      >
-        <Div flex={["end", "start"]}>
-          <Text size="h-lg-b">{`${index}.`}</Text>
-          <Text size="h-md-b" mx="2" as="h2">
-            {name}
-          </Text>
-        </Div>
-        <Link href={link} outerLink underline>
-          <Text size="sm">
-            {link.replace("https://", "").replace("www.", "")}
-          </Text>
-        </Link>
-      </Div>
-      <Div mb="4">
-        <Text size="md">{description}</Text>
-      </Div>
+      <ProjectHeading {...props} />
+      <ProjectDescription description={description} />
       {points && <ProjectPoints points={points} />}
       {medias && <ProjectGallery medias={medias} />}
     </Div>
