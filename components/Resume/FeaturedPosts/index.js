@@ -12,7 +12,7 @@ export const FeaturedPosts = (props) => {
   return (
     <Div my="5">
       <Blogs
-        items={posts?.slice?.(0, 6)}
+        items={posts?.slice?.(0, 3)}
         title="resume.posts.title"
         moreLink="/blog"
       />
