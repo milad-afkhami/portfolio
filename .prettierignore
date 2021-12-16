@@ -2,3 +2,7 @@
 node_modules
 build
 coverage
+.next
+.vercel
+yarn.lock
+package-lock.json
