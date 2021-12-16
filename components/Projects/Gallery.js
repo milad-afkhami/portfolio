@@ -21,7 +21,7 @@ export const ProjectGallery = (props) => {
   };
 
   return (
-    <Div>
+    <Div mb="4">
       <Div mb="3">
         <Text size="md-b">projects.gallery</Text>
       </Div>

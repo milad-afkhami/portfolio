@@ -23,8 +23,8 @@ export const Project = (props) => {
     <Div mb="6">
       <ProjectHeading {...props} />
       <ProjectDescription description={description} />
-      {points && <ProjectPoints points={points} />}
       {medias && <ProjectGallery medias={medias} />}
+      {points && <ProjectPoints points={points} />}
     </Div>
   );
 };

@@ -10,7 +10,9 @@ export const ProjectPoints = (props) => {
       <Div mb="3">
         <Text size="lg-b">projects.points</Text>
       </Div>
-      <ProjectPointsList points={points} />
+      <Div mx="-4">
+        <ProjectPointsList points={points} />
+      </Div>
     </Div>
   );
 };
