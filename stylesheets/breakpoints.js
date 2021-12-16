@@ -20,4 +20,18 @@ export const mediaFeatures = {
   xl: `(min-width: ${bp.xl}px)`,
 };
 
+export type MediaFeatures =
+  | "xs_only"
+  | "sm"
+  | "sm_only"
+  | "md"
+  | "md_only"
+  | "lg"
+  | "lg_only"
+  | "xl"
+  | "xl_only"
+  | "xxl"
+  | "xxl_only"
+  | "xxxl";
+
 export default bp;
