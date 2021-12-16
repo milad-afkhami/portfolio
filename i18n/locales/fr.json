@@ -75,7 +75,17 @@
       "collapse": "Effondrer"
     },
     "blog": {
-      "title": "Blog"
+      "title": "Les blogs",
+      "category": {
+        "styling": "Coiffant"
+      },
+      "notFound": "Blog introuvable!",
+      "meta": {
+        "category": "Catégorie",
+        "timeToReadLabel": "il est temps de lire",
+        "timeToReadValue": "{{time}} min",
+        "publishedAt": "publié à"
+      }
     },
     "projects": {
       "title": "Projets",

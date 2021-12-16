@@ -23,8 +23,9 @@
         "defaultTitle": "Milad Afkhami",
         "menu": {
           "home": "Home",
+          "about": "About",
           "courses": "Courses",
-          "blog": "blogs",
+          "blog": "Blogs",
           "packages": "Packages",
           "projects": "Projects",
           "gists": "Gists",
