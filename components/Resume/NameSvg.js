@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect } from "@hooks";
+import { useEffect, useRef } from "@hooks";
 import styled from "styled-components";
 import dynamic from "next/dynamic";
 import { Div } from "@kits";
@@ -7,11 +7,13 @@ import { Div } from "@kits";
 // const anime = dynamic(() => import("animejs/lib/anime.es.js"), { ssr: false });
 
 export function NameSvg() {
+  const animeRef = useRef();
+
   useEffect(() => {
     const anime = require("animejs/lib/anime.js");
 
     // #todo reverse it so in first paint the name is shown
-    var nameAnimation = anime({
+    animeRef.current = anime({
       targets: "#name-animation path",
       strokeDashoffset: [anime.setDashoffset, 0],
       easing: "easeInOutQuad",
@@ -22,15 +24,19 @@ export function NameSvg() {
       loop: true,
     });
 
-    console.log(nameAnimation);
     setTimeout(() => {
-      nameAnimation?.play?.();
-      nameAnimation?.reverse?.();
+      animeRef.current?.play?.();
+      animeRef.current?.reverse?.();
     }, 1000);
   }, []);
 
   return (
-    <Div id="name-animation" mb="3">
+    <Div
+      id="name-animation"
+      mb="3"
+      onClick={() => animeRef.current?.restart?.()}
+      cursor="pointer"
+    >
       <svg
         width="500"
         style={{ maxWidth: "100%" }}

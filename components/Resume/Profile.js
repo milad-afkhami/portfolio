@@ -4,7 +4,6 @@ import { NameSvg } from "./NameSvg";
 import { logoLg } from "@images";
 
 export function ResumeProfile(props) {
-  const {} = props || {};
   return (
     <Div
       flex={[, , "column-reverse"]}
@@ -12,16 +11,23 @@ export function ResumeProfile(props) {
       width="100%"
       my="4"
     >
-      <Div width="100%">
+      <Div
+        width="100%"
+        flex={["center", , "column"]}
+        responsive={{ md: { display: "block" } }}
+      >
         <NameSvg />
         <Div mb="3">
-          <Text size="md" tag="h2">
+          <Text size="xlg-b" tag="h2">
             resume.profile.job
           </Text>
         </Div>
-        <Div>
+        <Div
+          css={{ textAlign: "center" }}
+          responsive={{ md: { css: { textAlign: "start".imp() } } }}
+        >
           <Text
-            size="md"
+            size="lg"
             color="text-secondary"
             tag="h3"
             lineHeight="2"
@@ -40,8 +46,9 @@ export function ResumeProfile(props) {
           bg="brand"
           position="relative"
           overflow="hidden"
+          mb="3"
         >
-          {/* <Image src={logoLg} layout="fill" fit="cover" /> */}
+          <Image src={logoLg} layout="fill" fit="cover" maximizable />
         </Div>
       </Div>
     </Div>
