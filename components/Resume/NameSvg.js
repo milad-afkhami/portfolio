@@ -10,18 +10,23 @@ export function NameSvg() {
   useEffect(() => {
     const anime = require("animejs/lib/anime.js");
 
+    // #todo reverse it so in first paint the name is shown
     var nameAnimation = anime({
       targets: "#name-animation path",
       strokeDashoffset: [anime.setDashoffset, 0],
       easing: "easeInOutQuad",
-      duration: 5000,
+      duration: 10000,
       delay: 0,
-      direction: "alternate",
+      direction: "reverse",
       autoplay: false,
       loop: true,
     });
 
-    setTimeout(() => nameAnimation?.play?.(), 1000);
+    console.log(nameAnimation);
+    setTimeout(() => {
+      nameAnimation?.play?.();
+      nameAnimation?.reverse?.();
+    }, 1000);
   }, []);
 
   return (
