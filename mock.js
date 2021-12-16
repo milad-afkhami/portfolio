@@ -1,3 +1,5 @@
+import { FAVOURITE_TYPES } from "@constants";
+
 export const posts = [
   {
     _id: 1,
@@ -429,6 +431,11 @@ export const favouritePlaylists = [
     ],
   },
 ];
+
+export const favourites = {
+  [FAVOURITE_TYPES.MUSIC.ARTIST]: favouriteArtists,
+  [FAVOURITE_TYPES.MUSIC.PLAYLISTS]: favouritePlaylists,
+};
 
 export const blogs = [
   {
