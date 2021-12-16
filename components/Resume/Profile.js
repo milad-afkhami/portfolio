@@ -6,7 +6,12 @@ import { logoLg } from "@images";
 export function ResumeProfile(props) {
   const {} = props || {};
   return (
-    <Div flex width="100%" my="4">
+    <Div
+      flex={[, , "column-reverse"]}
+      responsive={{ md: { css: { flexDirection: "row" } } }}
+      width="100%"
+      my="4"
+    >
       <Div width="100%">
         <NameSvg />
         <Div mb="3">
@@ -27,7 +32,7 @@ export function ResumeProfile(props) {
           </Text>
         </Div>
       </Div>
-      <Div>
+      <Div flex={[, "center"]}>
         <Div
           width="11rem"
           height="11rem"

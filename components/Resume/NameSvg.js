@@ -33,6 +33,7 @@ export function NameSvg() {
     <Div id="name-animation" mb="3">
       <svg
         width="500"
+        style={{ maxWidth: "100%" }}
         height="100"
         viewBox="0 0 670.9 76.401"
         xmlns="http://www.w3.org/2000/svg"
@@ -43,11 +44,11 @@ export function NameSvg() {
           fillRule="evenodd"
           fontSize="9pt"
           stroke="var(--color-brand)"
-          strokeWidth="0.5mm"
+          strokeWidth="0.75mm"
           fill="none"
           style={{
             stroke: "var(--color-brand)",
-            strokeWidth: "0.5mm",
+            strokeWidth: "0.75mm",
             fill: "none",
           }}
         >
