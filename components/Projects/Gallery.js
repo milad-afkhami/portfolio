@@ -26,7 +26,15 @@ export const ProjectGallery = (props) => {
         <Text size="md-b">projects.gallery</Text>
       </Div>
       <Div
-        grid={[, "repeat(2, 1fr)", "3", "3", "column", , "start"]}
+        grid={[
+          ,
+          `repeat(${medias?.length <= 10 ? 1 : 2}, 1fr)`,
+          "3",
+          "3",
+          "column",
+          ,
+          "start",
+        ]}
         overflowX="auto"
         pb="3"
       >

@@ -12,17 +12,38 @@ export const ProjectHeading = (props) => {
       border="border-light"
       borderSide="bottom"
     >
-      <Div flex={["end", "start"]}>
+      <Div flex={["center", "start"]}>
         <Text size="h-lg-b">{`${index}.`}</Text>
         <Text size="h-md-b" mx="2" as="h2">
           {name}
         </Text>
       </Div>
-      <Link href={link} outerLink underline>
-        <Text size="sm">
-          {link.replace("https://", "").replace("www.", "")}
-        </Text>
-      </Link>
+      {Array.isArray(link) ? (
+        <Div flex={["center", "end"]}>
+          {link.map((item, i) => (
+            <>
+              <Link href={item} outerLink underline>
+                <Text size="sm">
+                  {item.replace("https://", "").replace("www.", "")}
+                </Text>
+              </Link>
+              {link[i + 1] ? (
+                <Div mx="1">
+                  <Text size="md" noTranslation>
+                    ,
+                  </Text>
+                </Div>
+              ) : null}
+            </>
+          ))}
+        </Div>
+      ) : (
+        <Link href={link} outerLink underline>
+          <Text size="sm">
+            {link.replace("https://", "").replace("www.", "")}
+          </Text>
+        </Link>
+      )}
     </Div>
   );
 };
