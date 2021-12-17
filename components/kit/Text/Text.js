@@ -9,15 +9,17 @@ import {
 } from "@stylesheets";
 import { Trans, withTranslation } from "react-i18next";
 // import { Trans, withTranslation } from "node_modules/react-i18next/index";
-import { useT } from "@hooks";
+import { useTranslation } from "@hooks";
 import { Props } from "./TextProps";
 
 export const Text: ComponentType<Props> = styled.span.attrs(
   ({ i18n, children, direction, tag, noTranslation, ...rest }) => {
     // const dir = direction || (i18n.language === "fa" ? "rtl" : "ltr");
+    const t = useTranslation().t;
+
     return {
       ...(tag ? { as: tag } : {}),
-      children: noTranslation ? children : useT(children),
+      children: noTranslation ? children : t(children),
       ...rest,
     };
   }
@@ -57,7 +59,7 @@ export const Text: ComponentType<Props> = styled.span.attrs(
     ...(mh ? { minHeight: mh } : {}),
     ...(Mh ? { maxHeight: Mh } : {}),
     ...(align ? { textAlign: align } : {}),
-    lineHeight: lineHeight || 1.5,
+    ...(lineHeight ? { lineHeight } : {}),
     ...(css || {}),
     ...(truncate
       ? { textOverflow: "ellipsis", overflow: "hidden", whiteSpace: "nowrap" }

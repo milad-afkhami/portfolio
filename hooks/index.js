@@ -11,7 +11,6 @@ export {
 } from "react";
 export { useRouter } from "next/router";
 export { default as useDeepEffect } from "use-deep-compare-effect";
-export { useTranslation as useT } from "./useTranslation";
 export { useTranslation } from "react-i18next";
 export * from "next-themes";
 export * from "./usePrevious";

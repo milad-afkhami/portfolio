@@ -7,9 +7,11 @@ import { InputProps } from "./InputProps";
 import { c } from "@stylesheets";
 import { __cloneDeep } from "@utils";
 import { setInputNumberValue } from "@helpers";
-import { useState, useEffect, usePrevious, useT } from "@hooks";
+import { useState, useEffect, usePrevious, useTranslation } from "@hooks";
 
 const TextField: ComponentType<InputProps> = React.forwardRef((props, ref) => {
+  const t = useTranslation().t;
+
   const {
     element = "input",
     type = "text",
@@ -83,8 +85,8 @@ const TextField: ComponentType<InputProps> = React.forwardRef((props, ref) => {
         ) : null}
         <StyledInput
           leadingIcon={leadingIcon}
-          label={useT(label || "")}
-          placeholder={useT(placeholder || "")}
+          label={t(label || "")}
+          placeholder={t(placeholder || "")}
           variant="filled"
           className={`${className} material-text-field`}
           color="text-secondary"
