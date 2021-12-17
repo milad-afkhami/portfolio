@@ -40,10 +40,9 @@
     "yup": "^0.32.9"
   },
   "scripts": {
-    "start": "PORT=4000 NODE_OPTIONS='--inspect' next dev",
-    "start-win": "cross-env PORT=4000 NODE_OPTIONS='--inspect' next dev",
-    "start-prod": "PORT=4000 next start",
-    "build": "GENERATE_SOURCEMAP=false next build",
+    "start": "cross-env PORT=4000 NODE_OPTIONS='--inspect' next dev",
+    "start-prod": "cross-env PORT=4000 next start",
+    "build": "cross-env GENERATE_SOURCEMAP=false next build",
     "prettier": "prettier --write .",
     "test": "jest test"
   },
