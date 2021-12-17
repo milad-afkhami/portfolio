@@ -7,13 +7,19 @@ export function ResumeContact(props) {
 
   const options = [
     { type: "email", value: "milad@gmail.com" },
-    { type: "phone", value: "+98 939 284 0749" },
-    { type: "email", value: "milad@gmail.com" },
-    { type: "phone", value: "+98 939 284 0749" },
-    { type: "email", value: "milad@gmail.com" },
+    { type: "whatsapp", label: "+98 939 284 0749", value: "+989392840749" },
+    {
+      type: "skype",
+      label: "join.skype.com/invite/pRe4UIXrDeTj",
+      value: "https://join.skype.com/invite/pRe4UIXrDeTj",
+    },
+    { type: "telegram", label: "mili_u", value: "telegram.me/mili_u" },
+    {
+      type: "linkedin",
+      label: "milad-afkhami-pour-71b86a18b/",
+      value: "https://www.linkedin.com/in/milad-afkhami-pour-71b86a18b/",
+    },
   ];
-
-  /* telegram, linkedin, skype */
 
   return (
     <Div
