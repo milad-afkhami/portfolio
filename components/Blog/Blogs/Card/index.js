@@ -20,6 +20,7 @@ export const BlogCard = (props) => {
   return (
     <Link
       href={`/blog/${slug}`}
+      prefetch={false}
       height="180px"
       flex={[, , "row"]}
       curve="sm"
