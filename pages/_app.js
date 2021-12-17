@@ -8,7 +8,7 @@ import { THEMES } from "@constants";
 import { swrFetcher, __pick, __values } from "@utils";
 import { DefaultSeo } from "@components/SEO";
 import { enhanceStringPrototype, LanguageHelper } from "@helpers";
-import { useEffect, useT } from "@hooks";
+import { useEffect, useTranslation } from "@hooks";
 import { ToastContainer, Slide } from "react-toastify";
 import "@material/react-text-field/dist/text-field.css";
 import "react-toastify/dist/ReactToastify.min.css";
@@ -16,6 +16,7 @@ import { SWRConfig } from "swr";
 
 function MyApp({ Component, pageProps, ...rest }) {
   const router = useRouter();
+  const t = useTranslation().t;
 
   enhanceStringPrototype();
 
@@ -46,13 +47,13 @@ function MyApp({ Component, pageProps, ...rest }) {
         enableSystem={false}
       >
         <DefaultSeo
-          defaultTitle={useT("app.title")}
-          description={useT("app.description")}
+          defaultTitle={t("app.title")}
+          description={t("app.description")}
           openGraph={{
             type: "website",
             locale: router.locale,
             url: "https://www.url.ie/",
-            site_name: useT("app.name"),
+            site_name: t("app.name"),
           }}
           twitter={{
             // handle: "@handle",
