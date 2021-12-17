@@ -18,11 +18,11 @@ export const GlobalToastifyVariables = createGlobalStyle`
     --toastify-font-family: inherit;
     --toastify-z-index: calc(var(--overlay-z-index) + 1);
     --toastify-text-color-light: ${c("text-secondary")};
-    --toastify-text-color-dark: ${c("bg-primary")};
-    --toastify-text-color-info: ${c("bg-primary")};
-    --toastify-text-color-success: ${c("bg-primary")};
-    --toastify-text-color-warning: ${c("bg-primary")};
-    --toastify-text-color-error: ${c("bg-primary")};
+    --toastify-text-color-dark: ${c("text-primary")};
+    --toastify-text-color-info: ${c("text-primary")};
+    --toastify-text-color-success: ${c("text-primary")};
+    --toastify-text-color-warning: ${c("text-primary")};
+    --toastify-text-color-error: ${c("text-primary")};
     --toastify-color-progress-dark: ${c("brand")};
     /* --toastify-color-progress-info: var(--toastify-color-info);
     --toastify-color-progress-success: var(--toastify-color-success);
