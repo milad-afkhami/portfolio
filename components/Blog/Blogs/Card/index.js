@@ -54,11 +54,7 @@ export const BlogCard = (props) => {
                 {title}
               </Text>
             </Div>
-            {/* <Div>
-              <Text color="text-secondary">
-                {summary.slice(0, 70) + (summary.length > 70 ? " ..." : "")}
-              </Text>
-            </Div> */}
+            {/* <Div><Text color="text-secondary">{summary.slice(0, 70) + (summary.length > 70 ? " ..." : "")}</Text></Div> */}
           </Div>
           <Div
             flex={["center", "between"]}
