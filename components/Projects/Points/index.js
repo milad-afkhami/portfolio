@@ -10,7 +10,7 @@ export const ProjectPoints = (props) => {
       <Div mb="3">
         <Text size="lg-b">projects.points</Text>
       </Div>
-      <Div mx="-4">
+      <Div mx="-4" Mw="100%">
         <ProjectPointsList points={points} />
       </Div>
     </Div>

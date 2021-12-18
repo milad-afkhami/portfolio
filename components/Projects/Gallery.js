@@ -55,6 +55,7 @@ export const ProjectGallery = (props) => {
               alt={media.title}
               title={media.title}
               layout="fill"
+              quality="10"
               fit="cover"
               onClick={(e) => openLightbox(e, { index })}
               curve="sm"

@@ -104,3 +104,24 @@ const StyledWrapper = styled.div`
     display: none;
   }
 `;
+
+/*
+  as="details"
+  css={
+    point?.points
+      ? {
+          transition: `all ${paces.fast}`,
+          height: "40px",
+          ["&[open]"]: {
+            height: `calc(${
+              point.points.length +
+              (point.points
+                .map((pp) => pp?.points?.length || 0)
+                .reduce((acc, a) => acc + a, 0) || 0) +
+              1
+            } * 40px)`,
+          },
+        }
+      : {}
+  }
+*/
