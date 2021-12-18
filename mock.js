@@ -792,7 +792,7 @@ export const projectsData = {
         { src: "/images/projects/tarinoo/11.png", title: "image 11" },
       ],
       date: "2020",
-      slug: "uneed",
+      slug: "tarinoo",
       techs: [
         { name: "React", link: "www.npmjs.com/package/next-seo" },
         { name: "Next.js", link: "www.npmjs.com/package/next-seo" },
@@ -813,7 +813,7 @@ export const projectsData = {
       _id: 3,
       name: "Bityon",
       link: "",
-      logo: "/images/projects/bityon/logo.svg",
+      logo: "/images/projects/bityon/logo.png",
       medias: [
         { src: "/images/projects/bityon/desktop/1.png", title: "image 1" },
         { src: "/images/projects/bityon/desktop/2.png", title: "image 2" },
@@ -862,7 +862,7 @@ export const projectsData = {
         { src: "/images/projects/crm/4.png", title: "image 4" },
       ],
       date: "",
-      slug: "crm",
+      slug: "biz",
       techs: [
         { name: "React", link: "www.npmjs.com/package/next-seo" },
         { name: "socket.io-client", link: "www.npmjs.com/package/next-seo" },

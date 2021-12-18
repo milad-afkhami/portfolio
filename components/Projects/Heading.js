@@ -1,8 +1,8 @@
 import React from "react";
-import { Div, Link, Text } from "@kits";
+import { Div, Image, Link, Text } from "@kits";
 
 export const ProjectHeading = (props) => {
-  const { name, link = "", index } = props || {};
+  const { logo, name, link = "", index } = props || {};
 
   return (
     <Div
@@ -14,9 +14,21 @@ export const ProjectHeading = (props) => {
     >
       <Div flex={["center", "start"]}>
         <Text size="h-lg-b">{`${index}.`}</Text>
-        <Text size="h-md-b" mx="2" as="h2">
-          {name}
-        </Text>
+        <Div mx="2">
+          <Text size="h-md-b" as="h2">
+            {name}
+          </Text>
+        </Div>
+        <Div flex={["center", "center"]}>
+          <Image
+            src={logo}
+            width="32px"
+            height="32px"
+            curve="circle"
+            placeholder="blur"
+            blurDataURL={logo}
+          />
+        </Div>
       </Div>
       {Array.isArray(link) ? (
         <Div flex={["center", "end"]}>
