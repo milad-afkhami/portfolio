@@ -48,7 +48,7 @@ export function ResumeProfile(props) {
           overflow="hidden"
           mb="3"
         >
-          <Image src={logoLg} layout="fill" fit="cover" maximizable />
+          {/* <Image src={logoLg} layout="fill" fit="cover" maximizable /> */}
         </Div>
       </Div>
     </Div>

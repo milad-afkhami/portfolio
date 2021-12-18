@@ -16,7 +16,8 @@ export function NameSvg() {
     animeRef.current = anime({
       targets: "#name-animation path",
       strokeDashoffset: [anime.setDashoffset, 0],
-      easing: "easeInOutQuad",
+      // easing: "easeInOutQuad",
+      easing: "easeInOutSine",
       duration: 10000,
       delay: 0,
       direction: "reverse",
