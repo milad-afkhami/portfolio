@@ -1,2 +1,3 @@
 export * from "./Layout";
-export * from "./PageTitle";
+export * from "./Title/PageTitle";
+export * from "./Title/SectionTitle";
