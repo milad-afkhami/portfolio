@@ -2,7 +2,7 @@ import React from "react";
 import { Div, Image, Text } from "@kits";
 import { useState, useCallback, useTranslation } from "@hooks";
 import Carousel, { Modal, ModalGateway } from "react-images";
-import { ProjectSectionTitle } from "./SectionTitle";
+import { SectionTitle } from "@components/Layout";
 
 export const ProjectGallery = (props) => {
   const { medias } = props || {};
@@ -23,7 +23,7 @@ export const ProjectGallery = (props) => {
 
   return (
     <Div mb="5">
-      <ProjectSectionTitle icon="gallery-3" title="projects.gallery" />
+      <SectionTitle icon="gallery-3" title="projects.gallery" />
       <Div
         grid={[
           ,
