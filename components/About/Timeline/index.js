@@ -2,6 +2,7 @@ import React from "react";
 import { Div, Text } from "@kits";
 import { __map } from "@utils";
 import { AboutTimelineSection } from "./Section";
+import { SectionTitle } from "@components/Layout";
 
 export const AboutTimeLine = (props) => {
   const section = {
@@ -18,7 +19,8 @@ export const AboutTimeLine = (props) => {
   };
 
   return (
-    <Div>
+    <Div my="5">
+      <SectionTitle icon="timeline-2" title="about.timeline.title" />
       {__map(section, (items, year) => (
         <AboutTimelineSection title={year} items={items} />
       ))}

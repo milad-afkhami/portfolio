@@ -12,6 +12,7 @@ export const WhoAmI = (props) => {
   return (
     <Div
       flex={["center", , "column"]}
+      my="4"
       responsive={{ md: { flex: ["start", "between", "row-reverse"] } }}
     >
       <Div col={{ xs: 12, md: 4 }}>
