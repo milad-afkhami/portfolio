@@ -942,7 +942,6 @@ export const projectsData = {
         { name: "React-native", link: "www.npmjs.com/package/next-seo" },
         { name: "Angular", link: "www.npmjs.com/package/next-seo" },
         { name: "wordpress", link: "www.npmjs.com/package/next-seo" },
-        { name: "Next.js", link: "www.npmjs.com/package/next-seo" },
       ],
     },
   ],

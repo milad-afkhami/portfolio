@@ -1,5 +1,6 @@
-import jMoment from "moment-jalaali";
 import { FaHelper } from "@helpers";
+
+const jMoment = () => {};
 
 export class TimeHelper {
   static toJMoment = (date) => jMoment(date || undefined);

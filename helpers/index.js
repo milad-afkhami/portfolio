@@ -4,7 +4,6 @@ export * from "./enhanceStringPrototype";
 export * from "./shouldForwardProp";
 export * from "./Time";
 export * from "./Persian";
-export * from "./nProgress";
 export * from "./errors";
 export * from "./language";
 export * from "./auth";
