@@ -1,29 +1,38 @@
 import React from "react";
-import { Div, Text } from "@kits";
-import { __map } from "@utils";
+import { Div } from "@kits";
 import { AboutTimelineSection } from "./Section";
 import { SectionTitle } from "@components/Layout";
 
 export const AboutTimeLine = (props) => {
-  const section = {
-    1998: ["born"],
-    2003: ["earlySchool"],
-    2004: ["startingSchool"],
-    2008: ["firstComputer"],
-    2014: ["choosingNEAPath"],
-    2018: ["university", "tookCoupleOfSemestersOff"],
-    2019: ["changingField", "firstDayAtWork"],
-    2020: ["growingMyHair", "leftMyFirstJob", "startingAtAppTech"],
-    2021: ["startingAtArshCo", "becomingTeamLead"],
-    2022: ["ielts"],
-  };
+  const sections = [
+    { year: 2022, items: ["ielts"] },
+    { year: 2021, items: ["startingAtArshCo", "becomingTeamLead"] },
+    {
+      year: 2020,
+      items: ["growingMyHair", "leftMyFirstJob", "startingAtAppTech"],
+    },
+    { year: 2019, items: ["changingField", "firstDayAtWork"] },
+    { year: 2018, items: ["university", "tookCoupleOfSemestersOff"] },
+    { year: 2014, items: ["choosingNEAPath"] },
+    { year: 2008, items: ["firstComputer"] },
+    { year: 2004, items: ["startingSchool"] },
+    { year: 2003, items: ["earlySchool"] },
+    { year: 1998, items: ["born"] },
+  ];
 
   return (
     <Div my="5">
-      <SectionTitle icon="timeline-2" title="about.timeline.title" />
-      {__map(section, (items, year) => (
-        <AboutTimelineSection title={year} items={items} />
-      ))}
+      <SectionTitle icon="timeline" title="about.timeline.title" />
+      <Div ml="5">
+        {sections.map(({ items, year }, i) => (
+          <AboutTimelineSection
+            key={year}
+            title={year}
+            items={items}
+            last={i === sections.length - 1}
+          />
+        ))}
+      </Div>
     </Div>
   );
 };

@@ -13,15 +13,16 @@ export const WhoAmI = (props) => {
     <Div
       flex={["center", , "column"]}
       my="4"
+      row
       responsive={{ md: { flex: ["start", "between", "row-reverse"] } }}
     >
-      <Div col={{ xs: 12, md: 4 }}>
+      <Div col={{ xs: 12, md: 3 }}>
         <AboutAvatar />
       </Div>
-      <Div col={{ xs: 12, md: 8 }}>
+      <Div col={{ xs: 12, md: 9 }}>
         {__range(paragraphsCount).map((i) => (
-          <Div key={i} mb="1">
-            <Text size="lg">{`about.p${i + 1}`}</Text>
+          <Div key={i} mb="2">
+            <Text size="lg" tag="p" align="justify">{`about.p${i + 1}`}</Text>
           </Div>
         ))}
       </Div>
