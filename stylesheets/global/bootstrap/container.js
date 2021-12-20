@@ -33,8 +33,8 @@ export const GlobalContainerStyle = createGlobalStyle`
   }
   .container {
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 1rem;
+    padding-left: 1rem;
     margin-right: auto;
     margin-left: auto;
   }
