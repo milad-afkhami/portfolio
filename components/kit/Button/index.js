@@ -1,5 +1,5 @@
 import React from "react";
-import { Div, Text, Icon, Spinner } from "@kits";
+import { Div, Text, Icon } from "@kits";
 import { IconProps } from "@kits/Icon";
 import { useEffect, usePrevious, useToggle } from "@hooks";
 import { StyledButton } from "./StyledButton";
@@ -86,13 +86,13 @@ const Button = function ({
           />
         ) : null}
       </Div>
-      <Div
+      {/* <Div
         height="100%"
         flex={["center", "center"]}
         css={{ transitionDelay: `${paces.fast}` }}
       >
         <Spinner size="xsm" />
-      </Div>
+      </Div> */}
       {hasSuccessState && (
         <Div height="100%" flex={["center", "center"]}>
           <Icon name="checkmark" size="30" />
