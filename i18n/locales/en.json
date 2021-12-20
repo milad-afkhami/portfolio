@@ -99,7 +99,7 @@
     },
     "about": {
       "title": "About Me",
-      "p1": "Hey, I'm Milad. I'm a developer, student, kind of a teacher, and at late nights writer!",
+      "p1": "Hey, I'm Milad. I'm a developer, student, mentor, and at late nights writer!",
       "p2": "I work at Arsh Co. as head of front-end development team.",
       "p3": "I grew up in Shahr-e-Rey a district in south of Tehran state.",
       "p4": "After spending my elementary and middle school and I got accepted for NODET and spent my high school in there.",
@@ -139,6 +139,9 @@
         "ielts": "IELTS",
         "ielts_desc": "I passed my IELTS exam with 7 score."
       }
+    },
+    "gists": {
+      "title": "Gists"
     },
     "form": {
       "message": {
