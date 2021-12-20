@@ -85,7 +85,7 @@ export const Image: ComponentType<Props> = ({
                   <Image
                     curve="sm"
                     onClick={toggleMaximized}
-                    quality="100"
+                    quality={100}
                     layout="fill"
                     priority
                     src={src}
