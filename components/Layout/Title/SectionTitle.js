@@ -10,19 +10,18 @@ export const SectionTitle = (props) => {
       {icon && (
         <Div flex={["center", "center"]}>
           <Image
+            priority
             src={`/images/icons/${icon}.png`}
-            width="24px"
-            height="24px"
+            width="32px"
+            height="32px"
             css={{
-              [`[data-theme="${THEMES.DARK}"] &`]: {
-                filter: "invert(1)",
-              },
+              [`[data-theme="${THEMES.DARK}"] &`]: { filter: "invert(1)" },
             }}
           />
         </Div>
       )}
       <Div mx="2">
-        <Text size="lg-b" as="h3">
+        <Text size="h-sm-b" as="h3">
           {title}
         </Text>
       </Div>
