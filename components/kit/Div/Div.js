@@ -29,7 +29,7 @@ export const Div: ComponentType<Props> = styled.div
         (col ? getCol(col) : "") +
         (row ? " row" : "") +
         (hiddenScrollbar ? " hidden-scrollbar" : ""),
-      ...(row || col ? prepareRowAndColSpacings({ responsive, row, col }) : {}),
+      // ...(row || col ? prepareRowAndColSpacings({ responsive, row, col }) : {}),
       ...(hover && !pace ? { pace: paces.fast } : {}),
     })
   )((props: Props) => {
