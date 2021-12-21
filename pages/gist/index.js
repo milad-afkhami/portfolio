@@ -4,6 +4,7 @@ import { Head } from "@components/SEO";
 import dynamic from "next/dynamic";
 import { PageTitle } from "@components/Layout";
 import { Gists } from "@components/Gists";
+import { GistServices } from "@services";
 
 export default function GistsPage(props) {
   return (
@@ -11,8 +12,14 @@ export default function GistsPage(props) {
       <Head canonical="/gists" />
       <Div width="100%" py="3">
         <PageTitle title="gists.title" />
-        <Gists />
+        <Gists items={props?.gists} loading={!props?.gists} />
       </Div>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const gists = await GistServices.getList();
+
+  return { props: { gists } };
 }

@@ -141,7 +141,10 @@
       }
     },
     "gists": {
-      "title": "Gists"
+      "title": "Gists",
+      "category": {
+        "styling": "Design System"
+      }
     },
     "form": {
       "message": {
