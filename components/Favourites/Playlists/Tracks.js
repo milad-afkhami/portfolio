@@ -40,7 +40,7 @@ export const FavouritePlaylistTracks = (props) => {
               >
                 <Div flex={["center", "center"]}>
                   <Text size="md" noTranslation>{`${
-                    i === 0 ? j + 1 : pivot + j + 1
+                    j === 0 ? i + 1 : pivot + i + 1
                   }. `}</Text>
                 </Div>
                 <Div mx="2">
