@@ -73,10 +73,15 @@ export function convertPropsToStyles(props: Props) {
     ...(zIndex ? { zIndex } : {}),
     ...(dimensions ? prepareDimensions(dimensions) : {}),
     ...(curve
-      ? { borderRadius: curves[curve === true ? "sm" : curve] || curve }
+      ? {
+          borderRadius: `var(--curve-${
+            curve === true ? "sm" : curve
+          }, ${curve})`,
+        }
       : {}),
     ...(shadow ? { boxShadow: shadows[shadow] || shadow } : {}),
-    ...(pace ? { transition: `all ${paces[pace || "fast"] || pace}` } : {}),
+    ...(pace ? { transition: `all var(--pace-${pace}, ${pace})` } : {}),
+    // ...(pace ? { transition: `all ${paces[pace || "fast"] || pace}` } : {}),
     ...(border
       ? {
           ["border" + borderSide.capitalize()]: `${borderW}px solid ${c(
@@ -92,7 +97,7 @@ export function convertPropsToStyles(props: Props) {
     ...(order ? { order } : {}),
     ...(cursor ? { cursor } : {}),
     ...(!isNullish(opacity) ? { opacity } : {}),
-    ...(color ? { color: c(color.unImp(), color.includes("!important")) } : {}),
+    ...(color ? { color: c(color) } : {}),
     // Array.from will convert "$" to ["$"] and will have no effect on ["$", ...]
     ...(m !== undefined && m.length
       ? {
@@ -108,7 +113,7 @@ export function convertPropsToStyles(props: Props) {
     ...getOtherSpacings(restProps),
     ...(hover || hoverBg || hoverColor || hoverShadow || zoomOnHover
       ? {
-          ...(!pace ? { transition: `all ${paces.fast}` } : {}),
+          ...(!pace ? { transition: `all var(--pace-fast)` } : {}),
           ":hover": {
             ...(hoverBg ? { background: c(hoverBg) } : {}),
             ...(hoverColor ? { "& ,& *": { color: c(hoverColor) } } : {}),
@@ -130,7 +135,7 @@ export function convertPropsToStyles(props: Props) {
     ...(animation
       ? {
           animation: keyframes(animation.keyframes),
-          animationDuration: animation.duration || paces.xSlow,
+          animationDuration: animation.duration || "var(--pace-x-slow)",
           ...(animation.iterationCount
             ? { animationIterationCount: animation.iterationCount }
             : {}),

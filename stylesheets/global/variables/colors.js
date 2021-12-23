@@ -1,6 +1,5 @@
 import { createGlobalStyle } from "styled-components";
 import { color } from "@stylesheets";
-import { THEMES } from "@constants";
 import { themes, defaultTheme } from "@stylesheets";
 import { __reduce, __values } from "@utils";
 import { Color } from "@models";

@@ -2,9 +2,8 @@ import { ComponentType } from "react";
 import styled, { keyframes } from "styled-components";
 import { Props } from "./DivProps";
 import { responsiveProps, getCol, paces } from "@stylesheets";
-import { isFull, __map, __reduce, __get } from "@utils";
+import { __reduce } from "@utils";
 import { convertPropsToStyles } from "./convertPropsToStyles";
-import { prepareRowAndColSpacings } from "./prepareRowAndColSpacings";
 import { shouldForwardProp } from "@helpers";
 
 /**
@@ -29,8 +28,7 @@ export const Div: ComponentType<Props> = styled.div
         (col ? getCol(col) : "") +
         (row ? " row" : "") +
         (hiddenScrollbar ? " hidden-scrollbar" : ""),
-      // ...(row || col ? prepareRowAndColSpacings({ responsive, row, col }) : {}),
-      ...(hover && !pace ? { pace: paces.fast } : {}),
+      ...(hover && !pace ? { pace: `var(--pace-fast)` } : {}),
     })
   )((props: Props) => {
   const { responsive, after, before, hover, ...restProps } = props;

@@ -6,10 +6,7 @@ export const GlobalCurves = createGlobalStyle((props) => {
   return {
     ":root": __reduce(
       curves,
-      (acc, cv, key) => {
-        acc[`--curve-${key}`] = cv;
-        return acc;
-      },
+      (acc, cv, key) => ({ ...acc, [`--curve-${key}`]: cv }),
       {}
     ),
   };
