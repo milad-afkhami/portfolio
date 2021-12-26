@@ -6,7 +6,7 @@ import { MDXRemote } from "next-mdx-remote";
 import dynamic from "next/dynamic";
 import { GistServices } from "@services";
 import { GlobalBSTableStyle } from "@stylesheets";
-import { MarkdownWrapper } from "@components/Layout/Markdown";
+import { MarkdownWrapper, MarkdownVariables } from "@components/Markdown";
 
 const components = {
   Image: dynamic(() => import("@kits").then((module) => module.Image)),
@@ -26,14 +26,14 @@ export default function GistPage(props) {
 
   return (
     <>
-      <Head title={title} description={summary} canonical={`/gist/${slug}`} />
+      <Head title={title} description={summary} canonical={`/gists/${slug}`} />
       <GlobalBSTableStyle />
       <Div width="100%" py="3">
         <Breadcrumb
           routes={[
             { title: "home", link: "/" },
-            { title: "gists.title", link: "/gist" },
-            { title, link: `/gist/${slug}` },
+            { title: "gists.title", link: "/gists" },
+            { title, link: `/gists/${slug}` },
           ]}
         />
         <Div>
@@ -44,6 +44,7 @@ export default function GistPage(props) {
           </Div>
           <MarkdownWrapper>
             <MDXRemote {...source} components={components} />
+            <MarkdownVariables />
           </MarkdownWrapper>
         </Div>
       </Div>

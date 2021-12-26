@@ -6,7 +6,7 @@ export const GistCardCategory = (props) => {
 
   return (
     <Link
-      href={{ pathname: "/gist", query: { category } }}
+      href={{ pathname: "/gists", query: { category } }}
       hover={{ css: { filter: "brightness(0.7)" } }}
       curve="circle"
       overflow="hidden"

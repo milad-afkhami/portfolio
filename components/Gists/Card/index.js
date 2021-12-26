@@ -16,7 +16,7 @@ export const GistCard = (props) => {
 
   return (
     <Link
-      href={`/gist/${slug}`}
+      href={`/gists/${slug}`}
       prefetch={false}
       height="200px"
       curve="sm"
