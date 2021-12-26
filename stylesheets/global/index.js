@@ -7,6 +7,7 @@ import { GlobalToastifyVariables } from "./toast";
 import { GlobalSpacings } from "./variables/spacing";
 import { GlobalCurves } from "./variables/curves";
 import { GlobalPaces } from "./variables/paces";
+import { GlobalShadows } from "./variables/shadows";
 
 export { GlobalBSTableStyle } from "./bootstrap/table";
 
@@ -21,6 +22,7 @@ export const GlobalStyles: ComponentType = memo(() => {
       <GlobalSpacings />
       <GlobalCurves />
       <GlobalPaces />
+      <GlobalShadows />
     </>
   );
 });
