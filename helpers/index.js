@@ -7,3 +7,4 @@ export * from "./Persian";
 export * from "./errors";
 export * from "./language";
 export * from "./auth";
+export * from "./layout";
