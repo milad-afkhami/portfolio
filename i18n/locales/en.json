@@ -17,7 +17,20 @@
         "default": "My personal webiste"
       }
     },
-    "home": "Home",
+    "home": {
+      "title": "Home",
+      "posts": { "title": "Featured Posts", "seeMore": "See More" },
+      "profile": {
+        "name": "Milad Afkhami",
+        "job": "Head of Front-End Development Team at Arsh Co.",
+        "jobDescription0": "More than 4 years of experience in front-end development",
+        "jobDescription-1": "Working as a Front-End developer and helping other members in their problems.",
+        "jobDescription": "A skilled software engineer \nwith a proven ability to analyze, design, develop and maintain large scale software solutions that meet business requirements as well as performance and quality indexes."
+      },
+      "projects": {
+        "seeMore": "See Details & More"
+      }
+    },
     "layout": {
       "header": {
         "defaultTitle": "Milad Afkhami",
@@ -36,40 +49,50 @@
         "artists": "Artists",
         "playlists": "Playlists",
         "poems": "Poems",
+        "books": "Books",
+        "writers": "Writers",
         "poets": "Poets",
         "movies": "Movies",
         "series": "Series",
         "anime": "Anime",
         "favouriteSongs": "Favourite Songs",
+        "favouriteMusics": "Favourite Songs",
         "favouritePoems": "Favourite Poems",
+        "favouriteBooks": "Favourite Books",
+        "favouriteWriters": "Favourite Writers",
         "favouriteShows": "Favourite Shows"
       },
       "navItems": {},
       "message": {
         "error": {
           "connection": "Please check your connection!",
-          "server": "Couldn't reach server"
+          "server": "Couldn't reach server",
+          "something": "Something went wrong"
         },
-        "textCopied": "Copied to clipboard"
+        "textCopied": "Copied to clipboard",
+        "codeCopied": "Code copied to clipboard"
       }
     },
-    "resume": {
-      "profile": {
-        "name": "Milad Afkhami",
-        "job": "Head of Front-End Development Team at Arsh Co.",
-        "jobDescription0": "More than 4 years of experience in front-end development",
-        "jobDescription-1": "Working as a Front-End developer and helping other members in their problems.",
-        "jobDescription": "A skilled software engineer \nwith a proven ability to analyze, design, develop and maintain large scale software solutions that meet business requirements as well as performance and quality indexes."
-      },
-      "posts": { "title": "Featured Posts", "seeMore": "See More" },
-      "contact": {
-        "email": "Email",
-        "phone": "Phone",
-        "whatsapp": "whatsapp",
-        "telegram": "Telegram",
-        "linkedin": "linkedin",
-        "skype": "skype"
+    "markdown": {
+      "variables": {
+        "title": "Markdown Variables",
+        "colors": "Colors",
+        "curves": "Curves",
+        "paces": "Paces",
+        "spacings": "Spacings",
+        "typography": "Typography",
+        "shadows": "shadows"
       }
+    },
+    "resume": {},
+    "contact": {
+      "title": "Contacts",
+      "email": "Email",
+      "phone": "Phone",
+      "whatsapp": "whatsapp",
+      "telegram": "Telegram",
+      "linkedin": "linkedin",
+      "skype": "skype"
     },
     "favourites": {
       "artists": "Favourite Artists",
@@ -145,6 +168,9 @@
       "category": {
         "styling": "Design System"
       }
+    },
+    "packages": {
+      "title": "Packages"
     },
     "form": {
       "message": {
