@@ -4,13 +4,16 @@ import { toast } from "@utils";
 import { useTranslation } from "@hooks";
 import { THEMES } from "@constants";
 
-export function ResumeContactOption(props) {
+export function ContactOption(props) {
   const { type, label, value } = props || {};
 
   const t = useTranslation().t;
 
   const onClickContactWay = () => {
-    toast("layout.message.textCopied", { type: "info" });
+    navigator.clipboard
+      .writeText(value)
+      .then(() => toast("layout.message.textCopied", { type: "success" }))
+      .catch(() => toast("layout.message.error.something", { type: "error" }));
   };
 
   return (
@@ -35,6 +38,7 @@ export function ResumeContactOption(props) {
         <Image
           src={`/images/icons/contact/${type}.png`}
           css={{
+            filter: "invert(0.1)",
             [`[data-theme="${THEMES.LIGHT}"] &`]: {
               filter: "invert(1)",
             },
@@ -46,7 +50,7 @@ export function ResumeContactOption(props) {
       </Div>
       <Div mb="2">
         <Text color="brand" size="lg-b" css={{ textTransform: "capitalize" }}>
-          {`resume.contact.${type}`}
+          {`contact.${type}`}
         </Text>
       </Div>
       <Div
