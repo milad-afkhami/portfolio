@@ -79,7 +79,8 @@ export function convertPropsToStyles(props: Props) {
           }, ${curve})`,
         }
       : {}),
-    ...(shadow ? { boxShadow: shadows[shadow] || shadow } : {}),
+    ...(shadow ? { boxShadow: `var(--shadow-${shadow}, ${shadow})` } : {}),
+    // ...(shadow ? { boxShadow: shadows[shadow] || shadow } : {}),
     ...(pace ? { transition: `all var(--pace-${pace}, ${pace})` } : {}),
     // ...(pace ? { transition: `all ${paces[pace || "fast"] || pace}` } : {}),
     ...(border
@@ -118,7 +119,7 @@ export function convertPropsToStyles(props: Props) {
             ...(hoverBg ? { background: c(hoverBg) } : {}),
             ...(hoverColor ? { "& ,& *": { color: c(hoverColor) } } : {}),
             ...(hoverShadow
-              ? { boxShadow: shadows[hoverShadow] || hoverShadow }
+              ? { boxShadow: `var(--shadow-${hoverShadow}, ${hoverShadow})` }
               : {}),
             ...(zoomOnHover ? { transform: "scale(1.01)" } : {}),
           },
