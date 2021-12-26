@@ -1,13 +1,14 @@
 export const FAVOURITE_TYPES = {
-  MUSIC: {
-    ARTIST: "ARTIST",
+  SONG: {
     PLAYLISTS: "PLAYLISTS",
+    ARTISTS: "ARTISTS",
   },
-  POEM: {
+  BOOK: {
+    BOOKS: "BOOKS",
     POEMS: "POEMS",
-    POETS: "POETS",
+    WRITERS: "WRITERS",
   },
-  SHOWS: {
+  SHOW: {
     MOVIES: "MOVIES",
     SERIES: "SERIES",
     ANIME: "ANIME",

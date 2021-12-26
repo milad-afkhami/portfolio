@@ -16,7 +16,7 @@ export const FavouriteEntityCard = (props) => {
         width="100%"
         height="300px"
       >
-        {favourites[FAVOURITE_TYPES.MUSIC.ARTIST]
+        {favourites[FAVOURITE_TYPES.SONG.ARTISTS]
           .slice(0, 4)
           .map((fav) => fav.image)
           .map((image) => (
