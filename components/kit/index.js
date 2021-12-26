@@ -10,3 +10,4 @@ export * from "./Logo";
 export * from "./Breadcrumb";
 export * from "./DropDown";
 export * from "./Code";
+export * from "./Tree";
