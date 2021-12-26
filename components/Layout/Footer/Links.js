@@ -1,37 +1,15 @@
 import React from "react";
 import { Div, Link, Text } from "@kits";
-import { __map } from "@utils";
-
-const footerLinks = {
-  favouriteSongs: [
-    {
-      label: "playlists",
-      link: "/favourites/playlists",
-    },
-    { label: "artists", link: "/favourites/artists" },
-  ],
-  favouritePoems: [
-    { label: "poems", link: "/favourites/poems" },
-    { label: "poets", link: "/favourites/poets" },
-  ],
-  favouriteShows: [
-    { label: "movies", link: "/favourites/movies" },
-    { label: "series", link: "/favourites/series" },
-    { label: "anime", link: "/favourites/anime" },
-  ],
-};
+import { useMemo } from "@hooks";
+import { LayoutHelper } from "@helpers";
 
 export function FooterLinks(props) {
+  const footerLinks = useMemo(LayoutHelper.getFooterLinks, []);
+
   return (
     <Div flex={["start", "start", "row"]} mx="-3">
-      {__map(footerLinks, (links, group) => (
-        <Div
-          flex={["start", "start", "column"]}
-          mx="3"
-          // responsive={{ sm: { mx: 5 }, lg: { mx: 6 } }}
-          key={group}
-          mb="3"
-        >
+      {footerLinks.map(({ links, group }) => (
+        <Div key={group} flex={["start", "start", "column"]} mx="3" mb="3">
           <Div mb="4">
             <Text size="md-b">{`layout.footer.${group}`}</Text>
           </Div>
