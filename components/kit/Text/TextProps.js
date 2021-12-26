@@ -8,7 +8,8 @@ export interface Props extends DivProps {
   size: Typography;
   direction: String;
   Trans?: Object;
-  i18nKey?: String;
+  translationOptions?: Object;
+  translationVariables?: Object;
   noTranslation?: Boolean;
   lineHeight: String | Number;
   align?:
