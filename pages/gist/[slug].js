@@ -1,5 +1,5 @@
 import React from "react";
-import { Breadcrumb, Div, Text } from "@kits";
+import { Breadcrumb, Code, Div, Text } from "@kits";
 import { useRouter } from "@hooks";
 import { Head } from "@components/SEO";
 import { MDXRemote } from "next-mdx-remote";
@@ -12,6 +12,9 @@ const components = {
   Image: dynamic(() => import("@kits").then((module) => module.Image)),
   Div,
   Text,
+  Code: dynamic(() => import("@kits").then((module) => module.Code), {
+    ssr: false,
+  }),
 };
 
 export default function GistPage(props) {

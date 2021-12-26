@@ -1,7 +1,8 @@
 ---
 title: "Div Component"
 category: "styling"
-summary: "The Div component is a high level CSS-in-JS solution that serves as a wrapper component for most of the CSS utility needs without using any separate CSS files."
+summary: "A high level CSS-in-JS solution that serves as a wrapper component for most of the CSS utility needs."
+description: "The Div component is a high level CSS-in-JS solution that serves as a wrapper component for most of the CSS utility needs without using any separate CSS files."
 ---
 
 ### _renders a custom div component with needed stylesheets._
@@ -56,8 +57,11 @@ summary: "The Div component is a high level CSS-in-JS solution that serves as a 
 
 </Div>
 
-```JSX
-<Div
+## Example
+
+<Code
+  language="jsx"
+  code={`<Div 
   className="CLASS_NAME"
   container
   row
@@ -74,26 +78,25 @@ summary: "The Div component is a high level CSS-in-JS solution that serves as a 
   color="primary | secondary | ... | #333 | rgba(...) | ..."
   hoverBg="primary | secondary | ... | #333 | rgba(...) | ..."
   hoverColor="primary | secondary | ... | #333 | rgba(...) | ..."
-  m="3" // spacing[3]
-  m="2,3" // spacing[2] spacing[3]
+  m="3"
+  m="2,3"
   mx="2"
   position="unset"
   display="flex"
   flex={["start", "between", "column", "wrap"]}
   col={{ xs: 12, sm: 11, md: 10, lg: 9 }}
-  grid={[`repeat(4, 1fr)`, '1fr', '3', '3']}
+  grid={['repeat(4, 1fr)', '1fr', '3', '3']}
   overflow="auto"
   overflowX="auto"
   overflowY="auto"
   cursor="pointer"
-  dimensions={{ top: 1, bottom: 2, right: 3, left: 4, insetInlineEnd: 1, insetInlineStart: 1, }}
-  // => dimensions={{ top: spacing[1], bottom: spacing[2], right: spacing[3], left: spacing[4], insetInlineEnd: spacings[1], insetInlineStart: spacings[1] }}
+  dimensions={{ top: 1, bottom: 2, right: 3, left: 4, insetInlineEnd: 1, insetInlineStart: 1 }}
+  // dimensions={{ top: spacing[1], bottom: spacing[2], right: spacing[3], left: spacing[4], insetInlineEnd: spacings[1], insetInlineStart: spacings[1] }}
   zIndex="3"
   order="-1"
   after={{ content: "*", color: "primary", position: "absolute", flex: "center,center" }}
   before={{ content: "*", color: "primary", position: "absolute", flex: "center,center" }}
-  responsive={{ xs: { mx: 2 }, md: { pl: "2".imp() } }} // see (breakpoints.js)[] => mediaFeatures
-  // => (min-width: ${bp.md}px) { padding-left: `${spacing[2]} !important` }
+  responsive={{ xs: { mx: 2 }, md: { pl: 2 } }} // see (breakpoints.js)[] => mediaFeatures
   css={{ lineHeight: "normal" }}
+/>`}
 />
-```

@@ -7,6 +7,7 @@ export const GistCard = (props) => {
     _id = "",
     title = "",
     summary = "",
+    description = "",
     image = "",
     body = "",
     slug = "",
@@ -25,7 +26,7 @@ export const GistCard = (props) => {
       position="relative"
       p="3"
     >
-      <Div height="3rem" flex={["center", "between"]} mb="2">
+      <Div height="3rem" flex={["center", "between"]} mb="3">
         <Div>
           <Text size="h-sm-b">{title}</Text>
         </Div>
