@@ -3,7 +3,7 @@ import { Div, Image, Text } from "@kits";
 import { THEMES } from "@constants";
 
 export const SectionTitle = (props) => {
-  const { icon, title } = props || {};
+  const { icon, title, tag = "h3" } = props || {};
 
   return (
     <Div flex={["center", "start"]} mb="2">
@@ -20,8 +20,11 @@ export const SectionTitle = (props) => {
           />
         </Div>
       )}
-      <Div mx="2">
-        <Text size="h-sm-b" as="h3">
+      <Div mx={icon && "2"}>
+        <Text
+          size={tag === "h3" ? "h-sm-b" : tag === "h4" ? "lg-b" : ""}
+          as={tag}
+        >
           {title}
         </Text>
       </Div>

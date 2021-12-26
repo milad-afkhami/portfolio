@@ -8,7 +8,7 @@ export const PageTitle = (props) => {
     <Div mb="4">
       <Div
         flex={["center", "start"]}
-        py="4"
+        py="3"
         border="border-light"
         borderSide="bottom"
       >
