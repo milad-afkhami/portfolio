@@ -26,7 +26,7 @@ export default function BlogPage(props) {
       <Div width="100%" py="3">
         <Breadcrumb
           routes={[
-            { title: "home", link: "/" },
+            { title: "home.title", link: "/" },
             { title: "blog.title", link: "/blog" },
             { title, link: `/blog/${slug}` },
           ]}

@@ -31,7 +31,7 @@ export default function PackagePage(props) {
       <Div width="100%" py="3">
         <Breadcrumb
           routes={[
-            { title: "home", link: "/" },
+            { title: "home.title", link: "/" },
             { title: "ss.title", link: "/gists" },
             { title, link: `/gists/${slug}` },
           ]}
