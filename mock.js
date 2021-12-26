@@ -433,8 +433,8 @@ export const favouritePlaylists = [
 ];
 
 export const favourites = {
-  [FAVOURITE_TYPES.MUSIC.ARTIST]: favouriteArtists,
-  [FAVOURITE_TYPES.MUSIC.PLAYLISTS]: favouritePlaylists,
+  [FAVOURITE_TYPES.SONG.ARTISTS]: favouriteArtists,
+  [FAVOURITE_TYPES.SONG.PLAYLISTS]: favouritePlaylists,
 };
 
 export const blogs = [
@@ -691,7 +691,7 @@ export const projectsData = {
             "This way accessing token is a lot harder for malicious users (not impossible ofcourse)",
             {
               title:
-                "This method makes it possible to do more interesting and useful stuffs like ",
+                "This method makes it possible to do more interesting and useful stuffs like : ",
               points: [
                 "Hiding An IP Address",
                 "Filtering Requests",

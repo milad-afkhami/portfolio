@@ -2,12 +2,8 @@ import React from "react";
 import { useHome } from "@hooks";
 import { Div } from "@kits";
 import { Head } from "@components/SEO";
-import {
-  ResumeProfile,
-  FeaturedPosts,
-  ResumeProjects,
-  ResumeContact,
-} from "@components/Resume";
+import { Profile, FeaturedPosts, Projects } from "@components/Home";
+import { Contact } from "@components/Contact";
 import dynamic from "next/dynamic";
 import { BlogServices } from "@services";
 
@@ -18,10 +14,10 @@ export default function Home(props) {
     <>
       <Head canonical="/" />
       <Div width="100%" py="3">
-        <ResumeProfile />
+        <Profile />
         <FeaturedPosts posts={props.blogs} />
-        <ResumeProjects />
-        <ResumeContact />
+        <Projects />
+        <Contact />
       </Div>
     </>
   );
