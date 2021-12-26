@@ -20,7 +20,7 @@ export const Project = (props) => {
   } = props || {};
 
   return (
-    <Div mb="6">
+    <Div mb="6" id={`project-${slug}`}>
       <ProjectHeading {...props} />
       <ProjectDescription description={description} />
       {medias && <ProjectGallery medias={medias} />}

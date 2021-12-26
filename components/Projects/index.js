@@ -4,6 +4,8 @@ import { useState, useRouter } from "@hooks";
 import { projectsData } from "mock";
 import { Project } from "./Project";
 
+export { ProjectsList } from "./List";
+
 export const Projects = (props) => {
   const {} = props || {};
   const [state, setState] = useState(null);
