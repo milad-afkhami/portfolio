@@ -8,7 +8,7 @@ export const BlogCardCategory = (props) => {
     <Div
       position="absolute"
       dimensions={{ top: "0.25rem", left: "0.25rem" }}
-      p="1"
+      px="1"
       flex={["center", "center"]}
       bg="bg-secondary-pale"
       curve="xsm"

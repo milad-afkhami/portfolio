@@ -25,8 +25,8 @@ export const BlogMeta = (props) => {
             <Text color="text-secondary">blog.meta.timeToReadLabel</Text>
           </Div>
           <Div>
-            <Text size="md-b" noTranslation>
-              {t("blog.meta.timeToReadValue", { time: readingTime })}
+            <Text size="md-b" translationVariables={{ time: readingTime }}>
+              blog.meta.timeToReadValue
             </Text>
           </Div>
         </Div>
