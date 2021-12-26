@@ -21,6 +21,7 @@ export const getGistsList = async () => {
       slug: filePath.replace(/\.mdx?$/, ""),
     };
   });
+  // .sort((a, b) => a.value - b.value);
 
   return gists;
 };
