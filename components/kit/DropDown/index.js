@@ -33,7 +33,9 @@ export const DropDown = (props: DropDownProps) => {
       <Div
         border="border-dark"
         curve="xsm"
-        width="8rem"
+        width={"7rem"}
+        pace="fast"
+        responsive={{ md: { width: "8rem" } }}
         height="2.5rem"
         flex={["center", "start"]}
         cursor="pointer"
