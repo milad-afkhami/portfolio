@@ -15,7 +15,7 @@ const navLinks = [
   { link: "/packages", label: "packages" },
   { link: "/projects", label: "projects" },
   { link: "/favourites", label: "favourites" },
-  { link: "/gist", label: "gists" },
+  { link: "/gists", label: "gists" },
 ];
 
 export {
