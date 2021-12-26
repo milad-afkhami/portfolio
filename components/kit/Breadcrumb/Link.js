@@ -10,8 +10,9 @@ export function BreadcrumbLink(props: Props) {
     <Text
       cursor={lastItem ? "default" : "pointer"}
       px="2"
+      truncate
       hoverColor={!lastItem ? "brand" : ""}
-      size={lastItem ? "sm-b" : "sm"}
+      size="sm-b"
       color="text-secondary"
     >
       {title}

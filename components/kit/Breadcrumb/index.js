@@ -33,7 +33,7 @@ export function Breadcrumb(props: Props) {
   return (
     <>
       <BreadcrumbJsonLd itemListElements={itemListElements} />
-      <Div flex={["center"]} className={className}>
+      <Div flex={["center"]} className={className} overflowX="hidden">
         {routes.map((route, index) => {
           const lastItem = index + 1 === routes.length;
           return (
