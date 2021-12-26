@@ -1,12 +1,14 @@
 import React from "react";
-import { Div } from "@kits";
-import { NameSvg } from "./NameSvg";
-import { ResumeProfileAvatar } from "./Avatar";
-import { ResumeProfileJob } from "./Job";
+import { Div, Link } from "@kits";
+import { ProfileNameSvg } from "./NameSvg";
+import { ProfileAvatar } from "./Avatar";
+import { ProfileJob } from "./Job";
 
-export function ResumeProfile(props) {
+export function Profile(props) {
   return (
     <Div
+      // href="/about"
+      // prefetch={false}
       flex={[, , "column-reverse"]}
       responsive={{ md: { css: { flexDirection: "row" } } }}
       width="100%"
@@ -17,10 +19,10 @@ export function ResumeProfile(props) {
         flex={["center", , "column"]}
         responsive={{ md: { display: "block" } }}
       >
-        <NameSvg />
-        <ResumeProfileJob />
+        <ProfileNameSvg />
+        <ProfileJob />
       </Div>
-      <ResumeProfileAvatar />
+      <ProfileAvatar />
     </Div>
   );
 }

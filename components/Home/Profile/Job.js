@@ -1,12 +1,12 @@
 import React from "react";
 import { Div, Text } from "@kits";
 
-export function ResumeProfileJob(props) {
+export function ProfileJob(props) {
   return (
     <Div>
       <Div mb="3">
         <Text size="xlg-b" tag="h2">
-          resume.profile.job
+          home.profile.job
         </Text>
       </Div>
       <Div
@@ -21,7 +21,7 @@ export function ResumeProfileJob(props) {
           css={{ whiteSpace: "pre-line" }}
           Mw="600px"
         >
-          resume.profile.jobDescription
+          home.profile.jobDescription
         </Text>
       </Div>
     </Div>

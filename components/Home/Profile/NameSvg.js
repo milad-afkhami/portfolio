@@ -1,12 +1,10 @@
 import React from "react";
 import { useEffect, useRef } from "@hooks";
-import styled from "styled-components";
-import dynamic from "next/dynamic";
 import { Div } from "@kits";
 
 // const anime = dynamic(() => import("animejs/lib/anime.es.js"), { ssr: false });
 
-export function NameSvg() {
+export function ProfileNameSvg() {
   const animeRef = useRef();
 
   useEffect(() => {
@@ -35,7 +33,11 @@ export function NameSvg() {
     <Div
       id="name-animation"
       mb="3"
-      onClick={() => animeRef.current?.restart?.()}
+      onClick={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        animeRef.current?.restart?.();
+      }}
       cursor="pointer"
     >
       <svg

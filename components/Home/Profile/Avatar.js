@@ -2,7 +2,7 @@ import React from "react";
 import { Div, Image } from "@kits";
 import { logoLg } from "@images";
 
-export function ResumeProfileAvatar(props) {
+export function ProfileAvatar(props) {
   return (
     <Div flex={[, "center"]}>
       <Div
@@ -14,7 +14,7 @@ export function ResumeProfileAvatar(props) {
         overflow="hidden"
         mb="3"
       >
-        {/* <Image src={logoLg} layout="fill" fit="cover" maximizable /> */}
+        <Image src={logoLg} layout="fill" fit="cover" maximizable />
       </Div>
     </Div>
   );
