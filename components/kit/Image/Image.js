@@ -52,9 +52,13 @@ export const Image: ComponentType<Props> = ({
           "-webkit-user-drag": "none",
           objectFit: fit || "unset",
         }}
-        onClick={(...args) => {
-          (maximizable && toggleMaximized)?.();
-          return onClick?.(...args);
+        onClick={(e) => {
+          if (maximizable) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleMaximized?.();
+          }
+          return onClick?.(e);
         }}
         cursor={cursor ?? (maximizable ? "zoom-in" : undefined)}
         {...rest}
