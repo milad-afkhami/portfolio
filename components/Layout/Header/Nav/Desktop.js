@@ -6,8 +6,8 @@ import { navLinks } from "@config";
 export default function HeaderMenu(props) {
   return (
     <Div display="flex" mx="-3">
-      {navLinks.map((menu) => (
-        <HeaderMenuItem {...menu} />
+      {navLinks.map((menu, i) => (
+        <HeaderMenuItem key={i} {...menu} />
       ))}
     </Div>
   );
