@@ -9,7 +9,8 @@ export const ProjectsList = (props) => {
   const { ...rest } = props || {};
   const router = useRouter();
 
-  const projects = projectsData[router.locale];
+  const projects =
+    projectsData[router.locale] || projectsData[router.defaultLocale];
   const items = [projects[0], projects[1], projects[4]];
 
   return (
