@@ -46,7 +46,12 @@ export const BlogCard = (props) => {
         )}
         <BlogCardCategory category={category} />
       </Div>
-      <Div p="3" flexPortion="1" responsive={{ md: { flexPortion: 2 } }}>
+      <Div
+        px="3"
+        py="2"
+        flexPortion="1"
+        responsive={{ md: { flexPortion: 2, py: 3 } }}
+      >
         <Div flex={["start", "between", "column"]} height="100%">
           <Div>
             <Div mb="2">
@@ -59,7 +64,8 @@ export const BlogCard = (props) => {
           <Div
             flex={["center", "between"]}
             width="100%"
-            pt="3"
+            pt="2"
+            responsive={{ md: { pt: 3 } }}
             border="border-light"
             borderSide="top"
           >

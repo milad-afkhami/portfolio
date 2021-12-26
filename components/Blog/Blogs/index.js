@@ -4,6 +4,7 @@ import { BlogCard } from "./Card";
 import { __range } from "@utils";
 import { BlogCardLoadings } from "./Loading";
 import { ORIENTATION } from "@constants";
+import { PageTitle } from "@components/Layout";
 
 export const Blogs = (props) => {
   const {
@@ -19,11 +20,7 @@ export const Blogs = (props) => {
 
   return (
     <Div my="3" {...rest}>
-      {title && (
-        <Div mb="4">
-          <Text size="h-md-b">{title}</Text>
-        </Div>
-      )}
+      {title && <PageTitle title={title} />}
       {items?.length ? (
         <Div
           grid={["repeat(1, 1fr)", , "1rem", "1rem"]}
@@ -52,7 +49,7 @@ export const Blogs = (props) => {
               hoverBg="bg-secondary-hover"
               curve="sm"
             >
-              <Text>resume.posts.seeMore</Text>
+              <Text>home.posts.seeMore</Text>
             </Link>
           ) : onClickMore ? (
             <Div
@@ -64,7 +61,7 @@ export const Blogs = (props) => {
               hoverBg="bg-secondary-hover"
               curve="sm"
             >
-              <Text>resume.posts.seeMore</Text>
+              <Text>home.posts.seeMore</Text>
             </Div>
           ) : null}
         </Div>
