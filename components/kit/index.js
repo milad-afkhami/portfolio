@@ -9,3 +9,4 @@ export * from "./Divider";
 export * from "./Logo";
 export * from "./Breadcrumb";
 export * from "./DropDown";
+export * from "./Code";
