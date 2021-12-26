@@ -8,10 +8,9 @@ export function HeaderSwitchTheme(props) {
   const {} = props || {};
   const { theme, setTheme } = useTheme();
 
-  const onChangeTheme = () => {
-    console.log(theme);
+  const onChangeTheme = () =>
     setTheme(theme === THEMES.DARK ? THEMES.LIGHT : THEMES.DARK);
-  };
+
   return (
     <Div cursor="pointer" flex={["center", "center"]}>
       <Div
