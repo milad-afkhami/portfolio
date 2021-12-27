@@ -1,7 +1,7 @@
 import { Props as DivProps } from "@kits/Div/DivProps";
 
-type layoutTypes = "intrinsic" | "fixed" | "responsive" | "fill";
-type srcTypes =
+type Layout = "intrinsic" | "fixed" | "responsive" | "fill";
+type Src =
   | String
   | {
       blurDataURL: String,
@@ -9,22 +9,22 @@ type srcTypes =
       height: Number,
       width: Number,
     };
-type placeholderTypes = "blur" | "empty";
+type Placeholder = "blur" | "empty";
 
 // just for intellisense
 export interface Props extends DivProps {
   fit?: String;
-  src: srcTypes;
+  src: Src;
   hash: String;
   alt?: String;
   serverQuality?: String;
-  placeholder?: placeholderTypes;
+  placeholder?: Placeholder;
   blurDataURL?: String;
   quality?: Number;
   priority?: Boolean;
   unoptimized?: Boolean;
   objectPosition?: String;
-  layout?: layoutTypes;
+  layout?: Layout;
   loader?: Function;
   withShimmer?: Boolean;
 }
