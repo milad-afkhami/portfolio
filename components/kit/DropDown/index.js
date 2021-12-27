@@ -56,8 +56,9 @@ export const DropDown = (props: DropDownProps) => {
         overflow="hidden"
         curve="xsm"
       >
-        {items.map((item) => (
+        {items.map((item, i) => (
           <DropDownItem
+            key={i}
             {...item}
             onClick={(e) => {
               setIsOpen(false);
