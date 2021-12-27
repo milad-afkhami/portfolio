@@ -1,0 +1,52 @@
+---
+title: "useEnhancedState"
+category: "hook"
+summary: "An enhanced react state hook"
+description: "An enhanced react state hook that gives us a more practical way to deal with state in react functional components."
+---
+
+### _An enhanced react state hook that gives us a more practical way to deal with state in react functional components._
+
+### API
+
+<Code
+  language="javascript"
+  code={`type StateHook = (initialState: any) => [any, () => void, any, MutableRefObject];`}
+/>
+
+### Source
+
+<Code
+  language="javascript"
+  code={`import { useState, useCallback, useDebugValue, useRef, MutableRefObject } from "react";
+type StateHook = [any, () => void, any, MutableRefObject];
+export function useEnhancedState(initialState): StateHook {
+  const [state, setState] = useState(initialState);
+  const [prevState, setPrevState] = useState();
+  const stateRef = useRef();
+  
+  useDebugValue({ state, prevState });
+  
+  const handleSetState = useCallback(
+    (payload) => 
+      setState((prevState) => {
+        setPrevState(prevState);
+        const isFunctionalUpdate = typeof payload === "function";
+        const newState = isFunctionalUpdate ? payload(prevState) : payload;
+        stateRef.current = state;
+        return newState;
+      }),
+    []
+  );
+  
+  return [state, handleSetState, prevState, stateRef];
+}
+`}
+/>
+
+### Example
+
+<Code
+  language="javascript"
+  code={`const [state, setState, prevState, stateRef] = useEnhancedState({ products: [] });`}
+/>

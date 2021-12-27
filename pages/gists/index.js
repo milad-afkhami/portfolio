@@ -9,7 +9,7 @@ import { GistServices } from "@services";
 export default function GistsPage(props) {
   return (
     <>
-      <Head canonical="/gists" />
+      <Head canonical="/gists" page="gists" />
       <Div width="100%" py="3">
         <PageTitle title="gists.title" />
         <Gists items={props?.gists} loading={!props?.gists} />

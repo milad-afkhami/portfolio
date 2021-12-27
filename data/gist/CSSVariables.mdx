@@ -1,0 +1,43 @@
+---
+title: "CSS Variables"
+category: "util"
+summary: "a util class to work with css variables in javascript."
+description: "a util class to work with css variables in javascript."
+---
+
+### _a util class to work with css variables in javascript._
+
+### API
+
+<Code
+  language="javascript"
+  code={`type MethodOptions = { numeric: Boolean, rgb: Boolean };`}
+/>
+
+### Source
+
+<Code
+  language="javascript"
+  code={`class CSSVariables {
+  static get = (name, options: MethodOptions) => {
+    const { numeric = false, rgb = false } = options || {};
+    
+    if (!process.browser) return null;
+    
+    let value = getComputedStyle(document.documentElement).getPropertyValue(name);
+    
+    if (numeric && value) value = Number(value.replace("px", ""));
+    
+    return value;
+  };
+  
+  static set = ({ name, value }) => {
+    if (!process.browser) return null;
+    
+    document.documentElement.style.setProperty(name, value);
+    
+    return this.get(name);
+  };
+}
+`}
+/>

@@ -15,6 +15,7 @@ const components = {
   Code: dynamic(() => import("@kits").then((module) => module.Code), {
     ssr: false,
   }),
+  Variables: MarkdownVariables,
 };
 
 export default function GistPage(props) {
@@ -44,7 +45,6 @@ export default function GistPage(props) {
           </Div>
           <MarkdownWrapper>
             <MDXRemote {...source} components={components} />
-            <MarkdownVariables />
           </MarkdownWrapper>
         </Div>
       </Div>
