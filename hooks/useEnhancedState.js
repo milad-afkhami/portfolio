@@ -1,8 +1,14 @@
-import { useState, useCallback, useDebugValue, useRef } from "react";
+import {
+  useState,
+  useCallback,
+  useDebugValue,
+  useRef,
+  MutableRefObject,
+} from "react";
 
-type ISetState = [any, () => void];
+type StateHook = [any, () => void, any, MutableRefObject];
 
-export function useEnhancedState(initialState): ISetState {
+export function useEnhancedState(initialState): StateHook {
   const [state, setState] = useState(initialState);
   const [prevState, setPrevState] = useState();
   const stateRef = useRef();
