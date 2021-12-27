@@ -12,7 +12,7 @@ import {
 } from "@stylesheets";
 import { matchParent } from "@stylesheets/predefined";
 import { keyframes } from "styled-components";
-import { isNullish } from "@utils";
+import { isNullish, __kebabCase } from "@utils";
 
 export function convertPropsToStyles(props: Props) {
   const {
@@ -81,7 +81,9 @@ export function convertPropsToStyles(props: Props) {
       : {}),
     ...(shadow ? { boxShadow: `var(--shadow-${shadow}, ${shadow})` } : {}),
     // ...(shadow ? { boxShadow: shadows[shadow] || shadow } : {}),
-    ...(pace ? { transition: `all var(--pace-${pace}, ${pace})` } : {}),
+    ...(pace
+      ? { transition: `all var(--pace-${__kebabCase(pace)}, ${pace})` }
+      : {}),
     // ...(pace ? { transition: `all ${paces[pace || "fast"] || pace}` } : {}),
     ...(border
       ? {
