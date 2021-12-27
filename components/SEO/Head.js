@@ -11,6 +11,7 @@ export const Head = ({
   canonical = "",
   keywords = "",
   additionalMetaTags = [],
+  page,
   title,
   description,
   openGraph = {},
@@ -22,24 +23,36 @@ export const Head = ({
 
   const t = useTranslation().t;
 
-  const mobileDomain = _canonical.replace("www.", "www.m.");
-
+  // const mobileDomain = _canonical.replace("www.", "www.m.");
   // const mobileAlternate = { media: "only screen and (max-width: 720px)", href: mobileDomain };
+  // const languageAlternates = [
+  //   { hreflang: "x-default", href: _canonical },
+  //   { hreflang: "fa", href: _canonical.replace("www.", "www.fa.") },
+  // ];
 
-  const languageAlternates = [
-    { hreflang: "x-default", href: _canonical },
-    { hreflang: "fa", href: _canonical.replace("www.", "www.fa.") },
-  ];
+  const _title = t(title || `seo.title.${page}`, { defaultValue: "" });
+  const _description = t(description || `seo.description.${page}`, {
+    defaultValue: "",
+  });
 
   return (
     <NextSeo
-      title={t(title)}
-      description={t(description)}
-      // titleTemplate="Lapert | %s"
-      // defaultTitle="Lapert"
+      title={_title}
+      description={_description}
+      titleTemplate={t("seo.title.template")}
+      // defaultTitle="seo.title.default"
       openGraph={{
-        title,
-        description,
+        title: _title,
+        description: _description,
+        images: [
+          {
+            url: "/images/logo-lg.png",
+            width: 400,
+            height: 400,
+            alt: t("app.title"),
+            type: "image/png",
+          },
+        ],
         url: _canonical,
         type: "website",
         locale: router.locale,
@@ -59,7 +72,7 @@ export const Head = ({
         ...(keywords?.length ? [{ name: "keyword", content: keywords }] : []),
       ]}
       // {...mobileAlternate}
-      {...languageAlternates}
+      // {...languageAlternates}
       {...restProps}
     />
   );

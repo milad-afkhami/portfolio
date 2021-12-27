@@ -8,9 +8,8 @@
     },
     "seo": {
       "title": {
-        "default": "Mili",
-        "template": "",
-        "templateAppend": "",
+        "default": "Milad Afkhami Portfolio",
+        "template": "%s | Milad Afkhami Portfolio",
         "home": "Home"
       },
       "description": {

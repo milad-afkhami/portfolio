@@ -47,8 +47,8 @@ function MyApp({ Component, pageProps, ...rest }) {
         enableSystem={false}
       >
         <DefaultSeo
-          defaultTitle={t("app.title")}
-          description={t("app.description")}
+          defaultTitle={t("seo.title.default")}
+          description={t("seo.description.default")}
           openGraph={{
             type: "website",
             locale: router.locale,
