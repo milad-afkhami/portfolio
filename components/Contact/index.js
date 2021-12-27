@@ -47,8 +47,8 @@ export function Contact(props) {
           md: { grid: [`repeat(${options.length}, 1fr)`, "1fr", , , "column"] },
         }}
       >
-        {options.map((option) => (
-          <ContactOption {...option} />
+        {options.map((option, i) => (
+          <ContactOption key={i} {...option} />
         ))}
       </Div>
     </Div>
