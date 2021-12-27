@@ -10,9 +10,9 @@ const proxyBasePathRegExp = /^\/api\/proxy/;
 const navLinks = [
   { link: "/", label: "home" },
   { link: "/about", label: "about" },
-  { link: "/courses", label: "courses" },
+  // { link: "/courses", label: "courses" },
   { link: "/blog", label: "blog" },
-  { link: "/packages", label: "packages" },
+  // { link: "/packages", label: "packages" },
   { link: "/projects", label: "projects" },
   { link: "/favourites", label: "favourites" },
   { link: "/gists", label: "gists" },
