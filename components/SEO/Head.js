@@ -30,10 +30,12 @@ export const Head = ({
   //   { hreflang: "fa", href: _canonical.replace("www.", "www.fa.") },
   // ];
 
-  const _title = t(title || `seo.title.${page}`, { defaultValue: "" });
-  const _description = t(description || `seo.description.${page}`, {
-    defaultValue: "",
-  });
+  const _title = title || t(`seo.title.${page}`, { defaultValue: "" });
+  const _description =
+    description ||
+    t(`seo.description.${page}`, {
+      defaultValue: "",
+    });
 
   return (
     <NextSeo
@@ -60,7 +62,7 @@ export const Head = ({
         ...openGraph,
       }}
       twitter={{
-        cardType: "summary_large_image",
+        cardType: "summary",
         // summary, summary_large_image, app, or player
         // handle: t("app.username"),
         site: t("app.username"),

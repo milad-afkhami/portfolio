@@ -10,7 +10,7 @@ import { PageTitle } from "@components/Layout";
 const ProjectsPage = (props) => {
   return (
     <>
-      <Head canonical="/" />
+      <Head canonical="/" page="projects" />
       <Div width="100%" py="3">
         <PageTitle title="projects.title" />
         <Projects />

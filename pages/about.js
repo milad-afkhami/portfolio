@@ -8,7 +8,7 @@ import { WhoAmI, AboutTimeLine } from "@components/About";
 export default function AboutPage(props) {
   return (
     <>
-      <Head canonical="/" />
+      <Head canonical="/" page="about" />
       <Div width="100%" py="3">
         <PageTitle title="about.title" />
         <WhoAmI />
