@@ -4,14 +4,7 @@ import { BreadcrumbJsonLd } from "@components/SEO";
 import { BreadcrumbLink } from "./Link";
 import { useTranslation } from "@hooks";
 
-type Props = {
-  routes: Array,
-  lastItemBold?: Boolean,
-  className?: String,
-  itemClassName?: String,
-};
-
-export function Breadcrumb(props: Props) {
+export function Breadcrumb(props) {
   const {
     routes,
     lastItemBold = true,
