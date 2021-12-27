@@ -3,14 +3,20 @@
     "app": {
       "title": "Mili",
       "username": "@Mili",
-      "description": "My personal website",
+      "description": "Hi! I'm Milad Afkhami and this is my portfolio website.",
       "name": "Mili"
     },
     "seo": {
       "title": {
         "default": "Milad Afkhami | Portfolio",
         "template": "%s | Milad Afkhami Portfolio",
-        "home": "Home"
+        "home": "Home",
+        "about": "About Me",
+        "projects": "My Projects",
+        "gists": "Gists",
+        "favourites": "Favourites",
+        "favouriteArtists": "Favourite Artists",
+        "favouritePlaylists": "Favourite Playlists"
       },
       "description": {
         "default": "Hi! I'm Milad Afkhami and this is my portfolio website."
@@ -121,7 +127,7 @@
     },
     "about": {
       "title": "About Me",
-      "p1": "Hey, I'm Milad. I'm a developer, student, mentor, and at late nights writer!",
+      "p1": "Hey, I'm Milad. I'm a 23 y.o. developer, student, mentor, and at late nights writer!",
       "p2": "I work at Arsh Co. as head of front-end development team.",
       "p3": "I grew up in Shahr-e-Rey a district in south of Tehran state.",
       "p4": "After spending my elementary and middle school and I got accepted for NODET and spent my high school in there.",
@@ -165,7 +171,9 @@
     "gists": {
       "title": "Gists",
       "category": {
-        "styling": "Design System"
+        "styling": "Design System",
+        "hook": "Hook",
+        "util": "Util"
       }
     },
     "packages": {
