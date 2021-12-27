@@ -6,7 +6,7 @@ import { spacings } from "@stylesheets";
 
 export const SpacingVariables = (props) => {
   return (
-    <Div id="colors" my="3">
+    <Div id="spacings" my="3">
       <SectionTitle title="markdown.variables.spacings" tag="h4" />
       <Tree
         branches={Object.keys(spacings).filter((a) => !a.includes("".imp()))}

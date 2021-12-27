@@ -6,7 +6,7 @@ import { paces } from "@stylesheets";
 
 export const PaceVariables = (props) => {
   return (
-    <Div id="colors" my="3">
+    <Div id="paces" my="3">
       <SectionTitle title="markdown.variables.paces" tag="h4" />
       <Tree branches={Object.keys(paces)} defaultOpen={false} />
     </Div>
