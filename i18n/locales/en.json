@@ -8,12 +8,12 @@
     },
     "seo": {
       "title": {
-        "default": "Milad Afkhami Portfolio",
+        "default": "Milad Afkhami | Portfolio",
         "template": "%s | Milad Afkhami Portfolio",
         "home": "Home"
       },
       "description": {
-        "default": "My personal webiste"
+        "default": "Hi! I'm Milad Afkhami and this is my portfolio website."
       }
     },
     "home": {
