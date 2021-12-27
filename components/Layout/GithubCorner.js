@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { mediaFeatures, paces } from "@stylesheets";
+import { breakpoints, mediaFeatures, paces } from "@stylesheets";
 
 export const GithubCorner = (props) => {
   return (
@@ -24,14 +24,14 @@ export const GithubCorner = (props) => {
 
 const StyledAnchor = styled.a`
   display: none;
+  position: fixed;
+  top: 0;
+  border: 0;
+  right: 0;
   svg {
     transition: all ${paces.fast};
     fill: var(--color-text-primary);
     color: var(--color-bg-primary);
-    position: fixed;
-    top: 0;
-    border: 0;
-    right: 0;
   }
   .octo-arm {
     transform-origin: 130px 106px;
@@ -53,7 +53,7 @@ const StyledAnchor = styled.a`
       transform: rotate(10deg);
     }
   }
-  @media ${mediaFeatures.xl} {
+  @media (min-width: ${breakpoints.xl + 160 - 16}px) {
     /* &:hover .octo-arm { animation: none; } & .octo-arm { animation: octocat-wave 560ms ease-in-out; } */
     display: block;
   }
