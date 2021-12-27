@@ -13,7 +13,9 @@ export function CopyCode(props) {
       flex={["center", "center"]}
       cursor="copy"
       onClick={props.onClick}
-      css={{ display: "none" }}
+      // css={{ display: "none" }}
+      pace="xFast"
+      opacity="0"
     >
       <Image src="/images/icons/copy.png" width="20px" height="20px" />
     </Div>

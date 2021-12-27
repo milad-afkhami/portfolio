@@ -10,7 +10,8 @@ export const Wrapper = styled.pre`
   }
 
   &:hover #copy-code {
-    display: flex !important;
+    /* display: flex !important; */
+    opacity: 1;
   }
 
   /* .token.class-name {
