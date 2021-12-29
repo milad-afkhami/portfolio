@@ -23,8 +23,7 @@ export const Blogs = (props) => {
       {title && <PageTitle title={title} />}
       {items?.length ? (
         <Div
-          grid={["repeat(1, 1fr)", , "1rem", "1rem"]}
-          css={{ gridAutoFlow: "row" }}
+          grid={["repeat(1, 1fr)", , "1rem", "1rem", "row"]}
           responsive={{
             sm: { css: { gridTemplateColumns: "repeat(2, 1fr)" } },
             lg: { css: { gridTemplateColumns: "repeat(3, 1fr)" } },
