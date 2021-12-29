@@ -6,7 +6,7 @@ export const MenuToggler = (props) => {
   const { open, toggle } = props || {};
 
   return (
-    <StyledDiv open={open} onClick={toggle}>
+    <StyledDiv open={open} onClick={!open ? toggle : () => {}}>
       <span></span>
       <span></span>
       <span></span>

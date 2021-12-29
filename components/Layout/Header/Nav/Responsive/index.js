@@ -13,8 +13,13 @@ export default function HeaderResponsiveMenu(props) {
 
   return (
     <Div display="flex">
-      <MenuToggler open={menuOpen} toggle={toggleMenu} />
-      {isMenuMounted && <HeaderResponsiveMenuList rendered={isMenuRendered} />}
+      <MenuToggler open={isMenuMounted} toggle={toggleMenu} />
+      {isMenuMounted && (
+        <HeaderResponsiveMenuList
+          rendered={isMenuRendered}
+          onRequestClose={toggleMenu}
+        />
+      )}
     </Div>
   );
 }
