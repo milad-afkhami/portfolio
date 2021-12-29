@@ -1,9 +1,6 @@
 import { Props } from "./DivProps";
 import {
   prepareDimensions,
-  curves,
-  shadows,
-  paces,
   prepareSpacing,
   getOtherSpacings,
   flexer,
