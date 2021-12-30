@@ -33,7 +33,7 @@ export const FavouritePlaylistTracks = (props) => {
                 height="62px"
                 // bg="bg-secondary"
                 hoverBg="bg-secondary"
-                px="3"
+                responsive={{ sm: { px: "3" } }}
                 curve="sm"
                 my="2"
                 cursor="pointer"
