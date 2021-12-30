@@ -15,17 +15,18 @@ export const Code = (props) => {
 
   useEffect(highlightAll, []);
 
-  const onClickCopy = () => {
+  const onClickCopy = () =>
     navigator.clipboard
       .writeText(code)
       .then(() => toast("layout.message.codeCopied", { type: "success" }))
       .catch(() => toast("layout.message.error.something", { type: "error" }));
-  };
 
   return (
     <Wrapper>
-      <CopyCode onClick={onClickCopy} />
-      <code className={`language-${language}`}>{code || children}</code>
+      <pre className={`language-${language}`}>
+        <CopyCode onClick={onClickCopy} />
+        <code className={`language-${language}`}>{code || children}</code>
+      </pre>
     </Wrapper>
   );
 };

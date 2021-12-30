@@ -2,14 +2,14 @@ import { THEMES } from "@constants";
 import styled from "styled-components";
 
 // import styles here
-export const Wrapper = styled.pre`
+export const Wrapper = styled.div`
   position: relative;
   /* background: var(--color-bg-secondary) !important; */
-  [data-theme="${THEMES.DARK}"] & {
+  [data-theme="${THEMES.DARK}"] pre {
     background: var(--color-bg-secondary) !important;
   }
 
-  &:hover #copy-code {
+  & pre:hover #copy-code {
     /* display: flex !important; */
     opacity: 1;
   }
