@@ -36,3 +36,4 @@ export { default as __reverse } from "lodash/reverse";
 export { default as __concat } from "lodash/concat";
 export { default as __forEach } from "lodash/forEach";
 export { default as __tap } from "lodash/tap";
+export { default as __chunk } from "lodash/chunk";
