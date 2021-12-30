@@ -2,6 +2,8 @@ import { breakpoints } from "@stylesheets";
 
 export const typographyVariants = {
   default: {
+    "h-xl": { fontSize: 32, fontWeight: "normal" },
+    "h-xl-b": { fontSize: 32, fontWeight: "bold" },
     "h-lg": { fontSize: 24, fontWeight: "normal" },
     "h-lg-b": { fontSize: 24, fontWeight: "bold" },
     "h-md": { fontSize: 20, fontWeight: "normal" },
@@ -20,6 +22,8 @@ export const typographyVariants = {
     "xxsm-b": { fontSize: 9, fontWeight: "bold" },
   },
   [breakpoints.lg]: {
+    "h-xl": { fontSize: 40, fontWeight: "normal" },
+    "h-xl-b": { fontSize: 40, fontWeight: "bold" },
     "h-lg": { fontSize: 32, fontWeight: "normal" },
     "h-lg-b": { fontSize: 32, fontWeight: "bold" },
     "h-md": { fontSize: 22, fontWeight: "normal" },

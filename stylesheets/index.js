@@ -4,7 +4,6 @@ export * from "./predefined";
 export * from "./typography";
 export * from "./utils/color";
 export * from "./utils/getCol";
-export * from "./utils/getGrid";
 export * from "./utils/gradient";
 export * from "./utils/supports";
 export * from "./constants/paces";
