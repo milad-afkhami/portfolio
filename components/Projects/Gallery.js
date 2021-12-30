@@ -38,20 +38,22 @@ export const ProjectGallery = (props) => {
         grid={[
           ,
           `repeat(${medias?.length <= 10 ? 1 : 2}, 1fr)`,
-          "3",
-          "3",
+          "2",
+          "2",
           "column",
           ,
           "start",
         ]}
+        responsive={{ sm: { css: { gap: "var(--spacing-3)" } } }}
         overflowX="auto"
         pb="3"
       >
         {medias.map((media, index) => (
           <Div
             zoomOnHover
-            width="150px"
-            height="150px"
+            width="100px"
+            height="100px"
+            responsive={{ sm: { width: "150px", height: "150px" } }}
             position="relative"
             cursor="zoom-in"
             border="border-dark"

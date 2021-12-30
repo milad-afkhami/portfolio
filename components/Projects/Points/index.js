@@ -8,7 +8,8 @@ export const ProjectPoints = (props) => {
   return (
     <Div mb="4">
       <SectionTitle icon="list" title="projects.points" />
-      <Div mx="-4" Mw="100%">
+      {/* mx="-4" */}
+      <Div Mw="100%">
         <Tree branches={points} branchesAccessor="points" defaultOpen />
       </Div>
     </Div>

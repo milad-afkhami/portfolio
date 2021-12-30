@@ -20,17 +20,19 @@ export const ProjectsList = (props) => {
         <Div
           grid={["repeat(1, 1fr)", , "1rem", "1rem"]}
           css={{ gridAutoFlow: "row" }}
+          overflowX="auto"
           responsive={{
-            sm: { css: { gridTemplateColumns: "repeat(2, 1fr)" } },
+            sm: { css: { gridTemplateColumns: "repeat(3, 1fr)" } },
             lg: { css: { gridTemplateColumns: "repeat(3, 1fr)" } },
           }}
+          pb="2"
         >
           {items.map((data, i) => (
             <ProjectCard key={i} {...data} />
           ))}
         </Div>
       ) : null}
-      <Div mt="3">
+      <Div mt="2">
         <Link
           href="/projects"
           width="100%"

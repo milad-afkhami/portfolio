@@ -18,15 +18,14 @@ export const ProjectCard = (props) => {
       curve="sm"
       overflow="hidden"
       bg="bg-secondary"
+      mw="min(330px, 100%)"
       hoverBg="bg-secondary-hover"
     >
       <Div
         height="100%"
         flex={["center", "center"]}
-        // flexPortion="1"
         mw={`calc(${height}px - 1rem)`}
         position="relative"
-        // bg="text-primary"
       >
         <Div
           position="relative"
