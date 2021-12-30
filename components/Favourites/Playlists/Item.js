@@ -9,14 +9,22 @@ export const FavouritePlaylist = (props) => {
   const [tracksOpen, toggleTracks] = useToggle(false);
 
   return (
-    <Div width="100%" border="border-light" px="3" mb="3" curve="xsm">
+    <Div
+      width="100%"
+      border="border-light"
+      p="2"
+      responsive={{ sm: { p: "3" } }}
+      mb="3"
+      curve="xsm"
+    >
       <Div
         width="100%"
-        height="150px"
-        flex={["center", "between"]}
+        height="175px"
+        flex={["center", "between", "column"]}
+        responsive={{ sm: { css: { flexDirection: "row", height: "150px" } } }}
         cursor="pointer"
       >
-        <Div flex={["center", "start"]}>
+        <Div flex={["center", "start"]} width="100%">
           <Div flex={["center", "center"]} curve="circle" overflow="hidden">
             <Image src={image} height="100px" width="100px" fit="cover" />
           </Div>
@@ -24,11 +32,15 @@ export const FavouritePlaylist = (props) => {
             <Text size="lg-b">{name}</Text>
           </Div>
         </Div>
-        <Div flex={[, , "column"]} mx="2">
+        <Div
+          flex={[, "between", "row-reverse"]}
+          width="100%"
+          responsive={{ sm: { flex: [, "between", "column"], width: "auto" } }}
+        >
           <Link
             outerLink
             href="https://music.youtube.com/playlist?list=PL-yYaCE5uT3at0d8wyhnQht15miQcMAj5"
-            my="2"
+            m="2"
           >
             <Button
               variant="outlined"
@@ -37,7 +49,7 @@ export const FavouritePlaylist = (props) => {
               onClick={() => {}}
             />
           </Link>
-          <Div my="2">
+          <Div m="2">
             <Button
               variant="link"
               text={tracksOpen ? "favourites.collapse" : "favourites.expand"}

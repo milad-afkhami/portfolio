@@ -1,7 +1,6 @@
 import React from "react";
 import { Div } from "@kits";
 import { Head } from "@components/SEO";
-import dynamic from "next/dynamic";
 import { PageTitle } from "@components/Layout";
 import { WhoAmI, AboutTimeLine } from "@components/About";
 

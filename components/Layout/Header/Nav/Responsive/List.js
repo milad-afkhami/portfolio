@@ -1,15 +1,23 @@
 import React from "react";
 import { Div } from "@kits";
+import { useRef, useOnClickOutside, useEventListener } from "@hooks";
 import { HeaderMenuItem } from "../Item";
 import { navLinks } from "@config";
+import { noop } from "@utils";
 
 export function HeaderResponsiveMenuList(props) {
-  const { rendered } = props || {};
+  const { rendered, onRequestClose } = props || {};
+
+  const ref = useRef();
+  useOnClickOutside(ref, rendered ? onRequestClose : noop);
+
+  useEventListener("scroll", onRequestClose);
 
   return (
     <Div
       position="absolute"
       width="100vw"
+      ref={ref}
       dimensions={{
         left: 0,
         right: 0,
@@ -21,8 +29,8 @@ export function HeaderResponsiveMenuList(props) {
       opacity={rendered ? 1 : 0}
       pace="fast"
     >
-      {navLinks.map((menu) => (
-        <HeaderMenuItem {...menu} />
+      {navLinks.map((menu, i) => (
+        <HeaderMenuItem key={i} onClick={onRequestClose} {...menu} />
       ))}
     </Div>
   );

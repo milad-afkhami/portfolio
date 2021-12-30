@@ -3,7 +3,7 @@ import { Link, Text } from "@kits";
 
 export function HeaderMenuItem(props) {
   return (
-    <Link href={props.link} mx="3">
+    <Link href={props.link} mx="3" onClick={props.onClick}>
       <Text
         size="md-b"
         tag="p"

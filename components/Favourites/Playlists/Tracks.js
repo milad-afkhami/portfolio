@@ -15,18 +15,18 @@ export const FavouritePlaylistTracks = (props) => {
       height={`calc(${open ? pivot : 0} * 70px)`}
       pace="fast"
       overflow="hidden"
-      mb={open ? "3" : "0"}
+      my={open ? "3" : "0"}
+      css={{ sm: { mt: 0 } }}
     >
       <Div
         height="100%"
         width="100%"
         border="border-light"
         curve="xsm"
-        row
-        mx="-2"
+        flex={[, , "row"]}
       >
         {columns.map((columnTracks, j) => (
-          <Div col={{ xs: 12, md: 6 }} my="-1" px="2">
+          <Div col={{ xs: 6, md: 6 }} my="-1" px="2">
             {columnTracks.map((track, i) => (
               <Div
                 flex={["center", "start"]}
@@ -58,7 +58,7 @@ export const FavouritePlaylistTracks = (props) => {
                     </Text>
                   </Div>
                   <Div>
-                    <Text size="sm" noTranslation>
+                    <Text size="sm" noTranslation truncate Mw="100%">
                       {track.name}
                     </Text>
                   </Div>
