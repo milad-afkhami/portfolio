@@ -13,6 +13,10 @@
 
   --text-line-height: 1.7;
 }
+.thin-scrollbar {
+  --scrollbar-width: 2px;
+  --scrollbar-height: 2px;
+}
 /* #endregion */
 
 /* MoreMenu bottom sheet styles */
