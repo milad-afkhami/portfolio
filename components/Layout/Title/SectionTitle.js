@@ -12,8 +12,9 @@ export const SectionTitle = (props) => {
           <Image
             priority
             src={`/images/icons/${icon}.png`}
-            width="32px"
-            height="32px"
+            width="24px"
+            height="24px"
+            responsive={{ width: "32px", height: "32px" }}
             css={{
               [`[data-theme="${THEMES.DARK}"] &`]: { filter: "invert(1)" },
             }}
