@@ -23,7 +23,7 @@ export const Tree = (props) => {
           <details
             className={`tree-nav__item ${
               branch?.[branchesAccessor] ? "is-expandable" : ""
-            }`}
+            } hidden-scrollbar`}
             open={defaultOpen}
           >
             <summary className="tree-nav__item-title">

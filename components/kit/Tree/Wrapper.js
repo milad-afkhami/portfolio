@@ -1,7 +1,20 @@
+import { mediaFeatures } from "@stylesheets";
 import styled from "styled-components";
 
 export const TreeWrapper = styled.div`
-  margin: 0 1.5rem;
+  & > details {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  .tree-nav__item details {
+    /* overflow-x: unset; */
+    width: fit-content;
+
+    overflow: inherit;
+    &.is-expandable {
+    }
+  }
+
   font-size: var(--font-size-md-b);
   summary {
     cursor: default;
@@ -30,7 +43,8 @@ export const TreeWrapper = styled.div`
     height: calc(100% - 4rem);
   }
   .tree-nav__item .tree-nav__item {
-    margin-left: 2rem;
+    padding-left: 1rem;
+    /* .tree-nav__item-title { background: var(--color-bg-secondary-paler); } */
   }
   .tree-nav__item.is-expandable[open] > .tree-nav__item-title::before {
     transform: rotate(90deg);
@@ -45,9 +59,9 @@ export const TreeWrapper = styled.div`
     transition: transform 300ms ease;
     font-family: "auto";
     color: var(--color-text-primary);
-    font-size: 2.5rem;
+    font-size: var(--font-size-h-xl);
     font-weight: bold;
-    line-height: 0.9;
+    line-height: 1.2;
     content: "›";
     display: inline-block;
     /* left: 4px; */
@@ -76,5 +90,19 @@ export const TreeWrapper = styled.div`
   }
   .tree-nav__item-title::-webkit-details-marker {
     display: none;
+  }
+
+  @media ${mediaFeatures.sm} {
+    /* margin: 0 1rem; */
+
+    /* .tree-nav__item .tree-nav__item .tree-nav__item-title { background: none; } */
+
+    .tree-nav__item .tree-nav__item {
+      padding-left: 1.5rem;
+    }
+
+    .tree-nav__item.is-expandable > .tree-nav__item-title::before {
+      line-height: 0.9;
+    }
   }
 `;
