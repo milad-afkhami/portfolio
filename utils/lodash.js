@@ -1,40 +1,38 @@
-export {
-  at as __at,
-  tail as __tail,
-  uniq as __uniq,
-  uniqBy as __uniqBy,
-  last as __last,
-  range as __range,
-  floor as __floor,
-  reduce as __reduce,
-  filter as __filter,
-  isEmpty as __isEmpty,
-  isEqual as __isEqual,
-  groupBy as __groupBy,
-  cloneDeep as __cloneDeep,
-  sortedUniq as __sortedUniq,
-  sortBy as __sortBy,
-  pick as __pick,
-  pickBy as __pickBy,
-  partial as __partial,
-  partialRight as __partialRight,
-  compact as __compact,
-  without as __without,
-  // keys as __keys,
-  // values as __values,
-  map as __map,
-  debounce as __debounce,
-  remove as __remove,
-  flattenDeep as __flattenDeep,
-  omit as __omit,
-  uniqueId as __uniqueId,
-  shuffle as __shuffle,
-  random as __random,
-  camelCase as __camelCase,
-  capitalize as __capitalize,
-  kebabCase as __kebabCase,
-  lowerCase as __lowerCase,
-  toArray as __toArray,
-  reverse as __reverse,
-  chunk as __chunk,
-} from "lodash";
+export { default as __at } from "lodash/at";
+export { default as __tail } from "lodash/tail";
+export { default as __uniq } from "lodash/uniq";
+export { default as __uniqBy } from "lodash/uniqBy";
+export { default as __last } from "lodash/last";
+export { default as __range } from "lodash/range";
+export { default as __floor } from "lodash/floor";
+export { default as __reduce } from "lodash/reduce";
+export { default as __filter } from "lodash/filter";
+export { default as __isEmpty } from "lodash/isEmpty";
+export { default as __isEqual } from "lodash/isEqual";
+export { default as __groupBy } from "lodash/groupBy";
+export { default as __cloneDeep } from "lodash/cloneDeep";
+export { default as __sortedUniq } from "lodash/sortedUniq";
+export { default as __sortBy } from "lodash/sortBy";
+export { default as __pick } from "lodash/pick";
+export { default as __pickBy } from "lodash/pickBy";
+export { default as __partial } from "lodash/partial";
+export { default as __partialRight } from "lodash/partialRight";
+export { default as __compact } from "lodash/compact";
+export { default as __without } from "lodash/without";
+export { default as __map } from "lodash/map";
+export { default as __debounce } from "lodash/debounce";
+export { default as __remove } from "lodash/remove";
+export { default as __flattenDeep } from "lodash/flattenDeep";
+export { default as __omit } from "lodash/omit";
+export { default as __uniqueId } from "lodash/uniqueId";
+export { default as __shuffle } from "lodash/shuffle";
+export { default as __random } from "lodash/random";
+export { default as __camelCase } from "lodash/camelCase";
+export { default as __capitalize } from "lodash/capitalize";
+export { default as __kebabCase } from "lodash/kebabCase";
+export { default as __lowerCase } from "lodash/lowerCase";
+export { default as __toArray } from "lodash/toArray";
+export { default as __reverse } from "lodash/reverse";
+export { default as __concat } from "lodash/concat";
+export { default as __forEach } from "lodash/forEach";
+export { default as __tap } from "lodash/tap";
