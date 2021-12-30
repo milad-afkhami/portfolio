@@ -12,7 +12,7 @@ description: "A customizable useState hook to deal with binary states."
 <Code
   language="javascript"
   code={`import { useState, useCallback, useDebugValue, useMemo } from "react";
-export function useDisclosure(name = "", defaultOpen: Boolean = false) {
+function useDisclosure(name = "", defaultOpen: Boolean = false) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
   useDebugValue({ ["is" + capitalName + "Open"]: isOpen });
   

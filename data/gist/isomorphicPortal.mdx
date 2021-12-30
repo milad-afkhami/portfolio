@@ -13,7 +13,7 @@ description: "gives us a better API to deal with react portal in ssr apps."
   language="javascript"
   code={`import { createPortal } from "react-dom";
   
-export function isomorphicPortal(children, selector) {
+function isomorphicPortal(children, selector) {
   const isClient = !!(typeof window !== "undefined" && window.document && window.document.createElement);
   if (!isClient) return null;
   

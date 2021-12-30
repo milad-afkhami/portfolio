@@ -71,13 +71,13 @@ description: "The Div component is a high level CSS-in-JS solution that serves a
   curve="xlg | lg | md | sm | xsm | xxsm | 1rem"
   shadow="sm | md | 1rem 1rem black"
   pace="slow | normal | fast | 1s"
-  border="primary | secondary | ... | #333 | rgba(...) | ..."
+  border="dark | light | ... | #333 | rgba(...) | ..."
   borderW="2px"
-  bg="primary | secondary | ... | #333 | rgba(...) | linear-gradient(...)"
+  bg="bg-primary | bg-secondary | ... | #333 | rgba(...) | linear-gradient(...)"
   bgImage="url(...)"
-  color="primary | secondary | ... | #333 | rgba(...) | ..."
-  hoverBg="primary | secondary | ... | #333 | rgba(...) | ..."
-  hoverColor="primary | secondary | ... | #333 | rgba(...) | ..."
+  color="bg-primary | bg-secondary | ... | #333 | rgba(...) | ..."
+  hoverBg="bg-primary | bg-secondary | ... | #333 | rgba(...) | ..."
+  hoverColor="bg-primary | bg-secondary | ... | #333 | rgba(...) | ..."
   m="3"
   m="2,3"
   mx="2"
@@ -94,8 +94,8 @@ description: "The Div component is a high level CSS-in-JS solution that serves a
   // dimensions={{ top: spacing[1], bottom: spacing[2], right: spacing[3], left: spacing[4], insetInlineEnd: spacings[1], insetInlineStart: spacings[1] }}
   zIndex="3"
   order="-1"
-  after={{ content: "*", color: "primary", position: "absolute", flex: "center,center" }}
-  before={{ content: "*", color: "primary", position: "absolute", flex: "center,center" }}
+  after={{ content: "*", color: "bg-primary", position: "absolute", flex: "center,center" }}
+  before={{ content: "*", color: "bg-primary", position: "absolute", flex: "center,center" }}
   responsive={{ xs: { mx: 2 }, md: { pl: 2 } }} // see (breakpoints.js)[] => mediaFeatures
   css={{ lineHeight: "normal" }}
 />`}
