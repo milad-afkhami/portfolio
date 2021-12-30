@@ -8,7 +8,7 @@ export function Contact(props) {
 
   const options = [
     { type: "email", value: "milad@gmail.com" },
-    { type: "whatsapp", label: "+98 939 284 0749", value: "+989392840749" },
+    // { type: "whatsapp", label: "+98 939 284 0749", value: "+989392840749" },
     {
       type: "linkedin",
       label: "milad-afkhami-pour-71b86a18b",
@@ -26,25 +26,10 @@ export function Contact(props) {
     <Div>
       <PageTitle title="contact.title" />
       <Div
-        mt="5"
-        grid={[
-          ,
-          `repeat(${Math.ceil(options.length / 2)}, 1fr)`,
-          "3",
-          "3",
-          "column",
-        ]}
+        mt="4"
+        grid={[`repeat(${Math.ceil(options.length / 2)}, 1fr)`, , "3", "3"]}
         responsive={{
-          sm: {
-            grid: [
-              ,
-              `repeat(${Math.ceil(options.length / 3)}, 1fr)`,
-              "3",
-              "3",
-              "column",
-            ],
-          },
-          md: { grid: [`repeat(${options.length}, 1fr)`, "1fr", , , "column"] },
+          sm: { grid: [`repeat(${Math.ceil(options.length)}, 1fr)`], mt: "5" },
         }}
       >
         {options.map((option, i) => (
