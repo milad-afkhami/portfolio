@@ -27,12 +27,16 @@ export const BlogCard = (props) => {
       overflow="hidden"
       bg="bg-secondary"
       hoverBg="bg-secondary-hover"
-      responsive={{ md: { flex: [, , "column"], height: "420px" } }}
+      mw="260px"
+      responsive={{
+        sm: { flex: [, , "column"], height: "330px" },
+        lg: { height: "420px" },
+      }}
     >
       <Div
         height="100%"
         flexPortion="1"
-        responsive={{ md: { flexPortion: 3 } }}
+        responsive={{ sm: { flexPortion: 2 } }}
         position="relative"
       >
         {image && (
@@ -50,7 +54,7 @@ export const BlogCard = (props) => {
         px="3"
         py="2"
         flexPortion="1"
-        responsive={{ md: { flexPortion: 2, py: 3 } }}
+        responsive={{ sm: { flexPortion: 2, py: 3 } }}
       >
         <Div flex={["start", "between", "column"]} height="100%">
           <Div>

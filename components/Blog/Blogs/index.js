@@ -25,9 +25,10 @@ export const Blogs = (props) => {
         <Div
           grid={["repeat(1, 1fr)", , "1rem", "1rem", "row"]}
           responsive={{
-            sm: { css: { gridTemplateColumns: "repeat(2, 1fr)" } },
-            lg: { css: { gridTemplateColumns: "repeat(3, 1fr)" } },
+            sm: { css: { gridTemplateColumns: "repeat(3, 1fr)" } }, // md: { css: { gridTemplateColumns: "repeat(3, 1fr)" } },
           }}
+          overflowX="auto"
+          pb="2"
         >
           {items.map((post, i) => (
             <BlogCard key={i} {...post} />
@@ -37,7 +38,7 @@ export const Blogs = (props) => {
         <BlogCardLoadings count={loadingCount} />
       )}
       {items?.length && (moreLink || onClickMore) ? (
-        <Div mt="3">
+        <Div mt="2">
           {moreLink ? (
             <Link
               href={moreLink}
