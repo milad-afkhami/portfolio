@@ -43,21 +43,13 @@ export const FavouritePlaylistTracks = (props) => {
                     j === 0 ? i + 1 : pivot + i + 1
                   }. `}</Text>
                 </Div>
-                <Div mx="2">
-                  {/* <Image
-                    src={track.image}
-                    height="50px"
-                    width="50px"
-                    curve="circle"
-                  /> */}
-                </Div>
-                <Div>
+                <Div mx="3" Mw="-webkit-fill-available">
                   <Div>
                     <Text size="xsm" color="text-secondary" noTranslation>
                       {track.artist}
                     </Text>
                   </Div>
-                  <Div>
+                  <Div flex>
                     <Text size="sm" noTranslation truncate Mw="100%">
                       {track.name}
                     </Text>

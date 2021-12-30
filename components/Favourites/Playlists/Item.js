@@ -16,20 +16,47 @@ export const FavouritePlaylist = (props) => {
       responsive={{ sm: { p: "3" } }}
       mb="3"
       curve="xsm"
+      position="relative"
+      overflow="hidden"
     >
       <Div
+        position="absolute"
+        dimensions={{ left: 0, top: 0 }}
+        height="100%"
         width="100%"
-        height="175px"
+        css={{ filter: "blur(10px)" }}
+        opacity="0.3"
+        zIndex="-1"
+        // responsive={{ sm: { display: "none" } }}
+      >
+        <Image src={image} layout="fill" fit="cover" quality={1} />
+      </Div>
+      <Div
+        width="100%"
+        height="140px"
         flex={["center", "between", "column"]}
         responsive={{ sm: { css: { flexDirection: "row", height: "150px" } } }}
         cursor="pointer"
       >
-        <Div flex={["center", "start"]} width="100%">
-          <Div flex={["center", "center"]} curve="circle" overflow="hidden">
+        <Div
+          flex={["center", "center"]}
+          width="100%"
+          height="100%"
+          responsive={{ sm: { css: { justifyContent: "flex-start" } } }}
+        >
+          <Div
+            display="none"
+            curve="circle"
+            overflow="hidden"
+            mw="100px"
+            responsive={{ sm: { flex: ["center", "center"] } }}
+          >
             <Image src={image} height="100px" width="100px" fit="cover" />
           </Div>
-          <Div mx="4">
-            <Text size="lg-b">{name}</Text>
+          <Div mx="3" responsive={{ sm: { mx: "4" } }}>
+            <Text size="lg-b" Mw="100%" truncate>
+              {name}
+            </Text>
           </Div>
         </Div>
         <Div
