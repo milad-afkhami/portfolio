@@ -6,7 +6,7 @@ export const BlogSummary = (props) => {
 
   return (
     <Div my="3" bg="bg-secondary" p="3" curve="sm">
-      <Text size="md" as="p" lineHeight={2}>
+      <Text size="lg" as="p" lineHeight={2}>
         {summary}
       </Text>
     </Div>

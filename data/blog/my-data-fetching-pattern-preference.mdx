@@ -1,0 +1,58 @@
+---
+title: "My Data-fetching preference in next.js"
+publishedAt: "2021-11-11"
+image: "/images/blog/server-client-communication-banner.jpeg"
+readingTime: "20"
+category: "data-fetching"
+summary: "I want to describe the way I like to implement server client communication in my next.js apps."
+---
+
+<Div
+  position="relative"
+  height="600px"
+  width="100%"
+  curve="sm"
+  overflow="hidden"
+  my="4"
+>
+  <Image
+    alt="lgbt+ banner"
+    src="/images/blog/server-client-communication-banner.jpeg"
+    layout="fill"
+    fit="cover"
+    placeholder="blur"
+    blurDataURL="/images/blog/server-client-communication-banner.jpeg"
+    priority
+  />
+</Div>
+
+Screw those time consuming intros, let's cut the crap and go straight to the answer.
+
+When it comes to data fetching and server state management, there are so many different approaches to take. some of them are just better approaches but in some cases you gotta just pick the one you like.
+
+Here I want to show you the way I like to implement my projects data-fetching and server state management.
+
+[Next.js](https://nextjs.org/docs/basic-features/data-fetching) has some interesting approaches, I consider that you already know what they offer.
+
+Well tbh most of the times you have to adapt yourself and your approaches to business requirements but there will be always a right way to choose.
+
+## Data fetching strategies in next.js app
+
+### server side rendering
+
+An important point that you should consider is that you are not limited to client-side coding anymore and decisions you make will directly affect your server performance.
+My point is that you can use server-side rendering but you should strongly avoid using it until you have to
+
+- some of the downsides of server side rendering are:
+  - Much more <abbr title="first contentful paint">FCP</abbr>
+  - So many pressure on server to render the page everytime a user visits
+  - More <abbr title="time to interactive">TTI</abbr> which isn't a good thing for end users.
+  - ...
+
+### client side rendering
+
+A lot of programmers when writing <abbr title="server side rendering">SSR</abbr> forget that they have another options to call API's which is client side data fetching.
+Most of the time you don't need to show a page full of data to end user immediately.
+It has a faster time to load
+
+There is some factors that you need to clarify when it comes to

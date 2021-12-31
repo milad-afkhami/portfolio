@@ -1,34 +1,53 @@
 import React from "react";
-import { Breadcrumb, Div, Text } from "@kits";
-import { useRouter } from "@hooks";
-import { Head } from "@components/SEO";
+import { Breadcrumb, Code, Div, Text } from "@kits";
+import { useRouter, useTranslation } from "@hooks";
+import { BlogJsonLd, Head } from "@components/SEO";
 import { MDXRemote } from "next-mdx-remote";
 import dynamic from "next/dynamic";
 import { BlogMeta, BlogSummary, BlogTitle } from "@components/Blog";
 import { BlogServices } from "@services";
+import { MarkdownWrapper } from "@components/Markdown";
 
 const components = {
   Image: dynamic(() => import("@kits").then((module) => module.Image)),
   Div,
   Text,
+  Code,
 };
 
 export default function BlogPage(props) {
   const router = useRouter();
   const slug = router.query.slug;
-  const { title, summary, publishedAt, readingTime, category } =
+  const { title, summary, image, publishedAt, readingTime, category } =
     props?.blog?.frontMatter || {};
   const source = props?.blog?.source || {};
 
+  const t = useTranslation().t;
+
+  const canonical = `/blog/${slug}`;
   return (
     <>
-      <Head title={title} description={summary} canonical={`/blog/${slug}`} />
+      <Head
+        title={title}
+        description={summary}
+        openGraph={{ images: [image] }}
+        canonical={canonical}
+      />
+      <BlogJsonLd
+        url={canonical}
+        title={title}
+        description={summary}
+        images={[image]}
+        datePublished={publishedAt}
+        // dateModified={publishedAt}
+        authorName={t("home.profile.name")}
+      />
       <Div width="100%" py="3">
         <Breadcrumb
           routes={[
             { title: "home.title", link: "/" },
             { title: "blog.title", link: "/blog" },
-            { title, link: `/blog/${slug}` },
+            { title, link: canonical },
           ]}
         />
         <Div>
@@ -39,7 +58,9 @@ export default function BlogPage(props) {
             readingTime={readingTime}
             publishedAt={publishedAt}
           />
-          <MDXRemote {...source} components={components} />
+          <MarkdownWrapper>
+            <MDXRemote {...source} components={components} />
+          </MarkdownWrapper>
         </Div>
       </Div>
     </>

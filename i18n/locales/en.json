@@ -109,7 +109,8 @@
     "blog": {
       "title": "Blog",
       "category": {
-        "styling": "Styling"
+        "styling": "Styling",
+        "awareness": "Awareness"
       },
       "notFound": "Blog Not Found!",
       "meta": {
