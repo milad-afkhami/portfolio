@@ -1,9 +1,10 @@
 import React from "react";
-import { Div, Link, Text } from "@kits";
+import { Div } from "@kits";
 import { projectsData } from "mock";
 import { useRouter } from "@hooks";
 import { PageTitle } from "@components/Layout";
 import { ProjectCard } from "./Card";
+import { ProjectsMoreLink } from "./MoreLink";
 
 export const ProjectsList = (props) => {
   const { ...rest } = props || {};
@@ -32,19 +33,7 @@ export const ProjectsList = (props) => {
           ))}
         </Div>
       ) : null}
-      <Div mt="2">
-        <Link
-          href="/projects"
-          width="100%"
-          height="3rem"
-          flex={["center", "center"]}
-          bg="bg-secondary"
-          hoverBg="bg-secondary-hover"
-          curve="sm"
-        >
-          <Text>home.projects.seeMore</Text>
-        </Link>
-      </Div>
+      <ProjectsMoreLink />
     </Div>
   );
 };

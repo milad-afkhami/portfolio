@@ -4,7 +4,6 @@ import { Div } from "@kits";
 import { Head } from "@components/SEO";
 import { Profile, FeaturedPosts, Projects } from "@components/Home";
 import { Contact } from "@components/Contact";
-import dynamic from "next/dynamic";
 import { BlogServices } from "@services";
 
 export default function Home(props) {
