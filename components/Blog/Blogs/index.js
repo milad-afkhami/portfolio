@@ -1,10 +1,10 @@
 import React from "react";
-import { Div, Link, Text } from "@kits";
+import { Div } from "@kits";
 import { BlogCard } from "./Card";
-import { __range } from "@utils";
 import { BlogCardLoadings } from "./Loading";
 import { ORIENTATION } from "@constants";
 import { PageTitle } from "@components/Layout";
+import { BlogsMoreLink } from "./MoreLink";
 
 export const Blogs = (props) => {
   const {
@@ -12,7 +12,6 @@ export const Blogs = (props) => {
     loading,
     title,
     moreLink,
-    onClickMore,
     loadingCount = 9,
     orientation = ORIENTATION.VERTICAL,
     ...rest
@@ -37,35 +36,7 @@ export const Blogs = (props) => {
       ) : (
         <BlogCardLoadings count={loadingCount} />
       )}
-      {items?.length && (moreLink || onClickMore) ? (
-        <Div mt="2">
-          {moreLink ? (
-            <Link
-              href={moreLink}
-              width="100%"
-              height="3rem"
-              flex={["center", "center"]}
-              bg="bg-secondary"
-              hoverBg="bg-secondary-hover"
-              curve="sm"
-            >
-              <Text>home.posts.seeMore</Text>
-            </Link>
-          ) : onClickMore ? (
-            <Div
-              onClick={onClickMore}
-              width="100%"
-              height="3rem"
-              flex={["center", "center"]}
-              bg="bg-secondary"
-              hoverBg="bg-secondary-hover"
-              curve="sm"
-            >
-              <Text>home.posts.seeMore</Text>
-            </Div>
-          ) : null}
-        </Div>
-      ) : null}
+      {items?.length && moreLink ? <BlogsMoreLink link={moreLink} /> : null}
     </Div>
   );
 };
