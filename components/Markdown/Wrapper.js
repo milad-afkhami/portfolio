@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 export const MarkdownWrapper = styled.div`
+  font-size: var(--font-size-lg);
+
   & a {
     color: var(--color-brand);
     :hover: {
@@ -15,5 +17,14 @@ export const MarkdownWrapper = styled.div`
     border-radius: 4px;
     color: var(--color-bg-tertiary);
     font-weight: bold;
+  }
+
+  ul {
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    ul {
+      margin-left: 2rem;
+      margin-bottom: 0.5rem;
+    }
   }
 `;
