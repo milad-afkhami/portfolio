@@ -31,6 +31,16 @@ div[data-rsbs-overlay="true"][role="dialog"] {
   z-index: 5;
 }
 
+h2 {
+  font-size: var(--font-size-h-sm);
+  font-weight: bold;
+}
+
+h3 {
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+}
+
 * {
   margin: 0;
   padding: 0;
