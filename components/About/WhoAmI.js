@@ -1,6 +1,5 @@
 import React from "react";
 import { Div, Text } from "@kits";
-import { useState } from "@hooks";
 import { __range } from "@utils";
 import { AboutAvatar } from "./Avatar";
 
