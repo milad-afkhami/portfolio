@@ -1,19 +1,10 @@
-import { typographyVariants } from "@stylesheets";
-
 export const setTextTypography = (size = "md", options) => {
   const importance = options?.important ? " !important" : "";
   const bold = options?.bold;
-  const isValidTypography = !!typographyVariants.default[size];
 
-  const fontSize = isValidTypography
-    ? `var(--font-size-${size})`
-    : `${`${size || ""}`.replace("px", "")}px`;
+  const fontSize = `var(--font-size-${size}, ${size})`;
 
-  const fontWeight = bold
-    ? "bold"
-    : isValidTypography
-    ? `var(--font-weight-${size})`
-    : "";
+  const fontWeight = bold ? "bold" : `var(--font-weight-${size}, ${size})`;
 
   return {
     fontSize: fontSize + importance,
