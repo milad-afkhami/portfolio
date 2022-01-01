@@ -18,13 +18,14 @@ export const GistCard = (props) => {
     <Link
       href={`/gists/${slug}`}
       prefetch={false}
-      height="200px"
+      height="140px"
       curve="sm"
       overflow="hidden"
       bg="bg-secondary"
       hoverBg="bg-secondary-hover"
       position="relative"
       p="3"
+      responsive={{ sm: { height: "180px" } }}
     >
       <Div height="3rem" flex={["center", "between"]} mb="3">
         <Div>
