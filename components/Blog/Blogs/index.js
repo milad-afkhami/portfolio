@@ -17,12 +17,22 @@ export const Blogs = (props) => {
     ...rest
   } = props || {};
 
+  // #temp
+  const changeCardViewInResponsive = false;
+
   return (
     <Div my="3" {...rest}>
       {title && <PageTitle title={title} />}
       {items?.length ? (
         <Div
-          grid={["repeat(1, 1fr)", , "1rem", "1rem", "row"]}
+          grid={[
+            // changeCardViewInResponsive ? "repeat(1, 1fr)" : "repeat(3, 1fr)",
+            "repeat(1, 1fr)",
+            ,
+            "1rem",
+            "1rem",
+            "row",
+          ]}
           responsive={{
             sm: { css: { gridTemplateColumns: "repeat(3, 1fr)" } }, // md: { css: { gridTemplateColumns: "repeat(3, 1fr)" } },
           }}
@@ -30,7 +40,11 @@ export const Blogs = (props) => {
           pb="2"
         >
           {items.map((post, i) => (
-            <BlogCard key={i} {...post} />
+            <BlogCard
+              changeCardViewInResponsive={changeCardViewInResponsive}
+              key={i}
+              {...post}
+            />
           ))}
         </Div>
       ) : (

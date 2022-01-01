@@ -4,6 +4,8 @@ import { BlogCardCategory } from "./Category";
 
 export const BlogCard = (props) => {
   const {
+    changeCardViewInResponsive,
+
     _id = "",
     title = "",
     views = "",
@@ -21,22 +23,22 @@ export const BlogCard = (props) => {
     <Link
       href={`/blog/${slug}`}
       prefetch={false}
-      height="180px"
-      flex={[, , "row"]}
+      height={"300px"}
+      flex={[, , "column"]}
       curve="sm"
       overflow="hidden"
       bg="bg-secondary"
       hoverBg="bg-secondary-hover"
-      mw="260px"
+      mw="280px"
       responsive={{
-        sm: { flex: [, , "column"], height: "330px" },
-        lg: { height: "420px" },
+        sm: { flex: [, , "column"], height: "300px" },
+        lg: { height: "340px" },
       }}
     >
       <Div
         height="100%"
-        flexPortion="1"
-        responsive={{ sm: { flexPortion: 2 } }}
+        flexPortion={changeCardViewInResponsive ? 1 : 3}
+        responsive={{ sm: { flexPortion: changeCardViewInResponsive ? 2 : 3 } }}
         position="relative"
       >
         {image && (
@@ -53,17 +55,32 @@ export const BlogCard = (props) => {
       <Div
         px="3"
         py="2"
-        flexPortion="1"
+        flexPortion={changeCardViewInResponsive ? 1 : 2}
         responsive={{ sm: { flexPortion: 2, py: 3 } }}
       >
         <Div flex={["start", "between", "column"]} height="100%">
           <Div>
             <Div mb="2">
-              <Text size="md-b" lineHeight="1.5">
+              <Text
+                size={changeCardViewInResponsive ? "md-b" : "lg-b"}
+                lineHeight="1.5"
+              >
                 {title}
               </Text>
             </Div>
-            {/* <Div><Text color="text-secondary">{summary.slice(0, 70) + (summary.length > 70 ? " ..." : "")}</Text></Div> */}
+            {/* <Div>
+              <Text
+                color="text-secondary"
+                css={{
+                  display: "-webkit-box",
+                  WebkitLineClamp: 3,
+                  WebkitBoxOrient: "vertical",
+                  overflow: "hidden",
+                }}
+              >
+                {summary}
+              </Text>
+            </Div> */}
           </Div>
           <Div
             flex={["center", "between"]}

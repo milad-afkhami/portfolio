@@ -1,19 +1,19 @@
-import React from "react";
-import { Breadcrumb, Code, Div, Text } from "@kits";
+import React, { ComponentType } from "react";
+import { Div, Image, Text, Breadcrumb } from "@kits";
 import { useRouter, useTranslation } from "@hooks";
-import { BlogJsonLd, Head } from "@components/SEO";
+import { Head, BlogJsonLd } from "@components/SEO";
 import { MDXRemote } from "next-mdx-remote";
 import dynamic from "next/dynamic";
-import { BlogMeta, BlogSummary, BlogTitle } from "@components/Blog";
+import { BlogTitle, BlogSummary, BlogMeta } from "@components/Blog";
 import { BlogServices } from "@services";
 import { MarkdownWrapper } from "@components/Markdown";
 
-const components = {
-  Image: dynamic(() => import("@kits").then((module) => module.Image)),
-  Div,
-  Text,
-  Code,
-};
+const Code: ComponentType = dynamic(
+  () => import("@kits").then((module) => module.Code),
+  { ssr: false }
+);
+
+const components = { Image, Div, Text, Code };
 
 export default function BlogPage(props) {
   const router = useRouter();

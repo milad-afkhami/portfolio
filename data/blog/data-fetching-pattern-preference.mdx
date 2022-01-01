@@ -51,8 +51,13 @@ My point is that you can use server-side rendering but you should strongly avoid
 
 ### client side rendering
 
-A lot of programmers when writing <abbr title="server side rendering">SSR</abbr> forget that they have another options to call API's which is client side data fetching.
+A lot of programmers when the write <abbr title="server side rendering">SSR</abbr> applications, forget that they have another options to call API's which is client side data fetching.
 Most of the time you don't need to show a page full of data to end user immediately.
-It has a faster time to load
+Client side rendering has a faster time to first byte and only when you are dealing with SEO you have to somehow prepare content in first load. but there is no force for render other pages on server-side when you can very soon show a nice animated skeleton loading on first load and then fetch page data on client side. will it be a bad practice for SEO? ofcourse not, why should google robots give a shit about your homepage content.
 
-There is some factors that you need to clarify when it comes to
+There is only one factor that you need to clarify when to choose using client side data fetching
+`Does SEO matters for this page?`
+
+Only if there is some content in this page that you have to generate serve immediately on client you should avoid using client side data fetching
+for example if this is a product page that contains useful data for crawlers, or it is a blog page, faq page and ...
+otherwise you don't have to use any kind of server side rendering and decrease a huge amount of load on your servers.
