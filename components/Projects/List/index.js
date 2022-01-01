@@ -23,8 +23,7 @@ export const ProjectsList = (props) => {
           css={{ gridAutoFlow: "row" }}
           overflowX="auto"
           responsive={{
-            sm: { css: { gridTemplateColumns: "repeat(3, 1fr)" } },
-            lg: { css: { gridTemplateColumns: "repeat(3, 1fr)" } },
+            md: { css: { gridTemplateColumns: "repeat(3, 1fr)" } },
           }}
           pb="2"
         >
