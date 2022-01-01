@@ -1,8 +1,12 @@
 import React from "react";
-import { Div, Text } from "@kits";
+import { Div, ExpandableText, Text } from "@kits";
+import { useTranslation } from "@hooks";
 
 export const AboutTimelineSectionItem = (props) => {
   const { text } = props || {};
+
+  const t = useTranslation().t;
+  const description = t(`about.timeline.${text}_desc`);
 
   return (
     <Div mb="3">
@@ -16,9 +20,15 @@ export const AboutTimelineSectionItem = (props) => {
       >
         {`about.timeline.${text}`}
       </Text>
-      <Text tag="p" size="md" ml="3" color="text-secondary">
-        {`about.timeline.${text}_desc`}
-      </Text>
+      <ExpandableText
+        size="md"
+        ml="3"
+        color="text-secondary"
+        noTranslation
+        width="fit-content"
+      >
+        {description}
+      </ExpandableText>
     </Div>
   );
 };

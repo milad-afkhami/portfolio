@@ -15,7 +15,7 @@ export const WhoAmI = (props) => {
       row
       responsive={{ md: { flex: ["start", "between", "row-reverse"] } }}
     >
-      <Div col={{ xs: 12, md: 3 }}>
+      <Div col={{ xs: 12, md: 3 }} mb="4">
         <AboutAvatar />
       </Div>
       <Div col={{ xs: 12, md: 9 }}>

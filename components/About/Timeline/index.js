@@ -12,7 +12,7 @@ export const AboutTimeLine = (props) => {
         {sections.map(({ items, year }, i) => (
           <AboutTimelineSection
             key={year}
-            title={year}
+            year={year}
             items={items}
             last={i === sections.length - 1}
           />

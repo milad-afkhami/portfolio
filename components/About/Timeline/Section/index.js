@@ -1,9 +1,10 @@
 import React from "react";
 import { Div, Text } from "@kits";
 import { AboutTimelineSectionItem } from "./Item";
+import { AboutTimelineSectionYear } from "./Year";
 
 export const AboutTimelineSection = (props) => {
-  const { title, items, last } = props || {};
+  const { year, items, last } = props || {};
 
   return (
     <Div
@@ -36,19 +37,7 @@ export const AboutTimelineSection = (props) => {
         },
       }}
     >
-      <Div
-        height="2rem"
-        flex={["center"]}
-        position="absolute"
-        bg="bg-primary"
-        px="3"
-        curve="sm"
-        dimensions={{ top: "-1rem" }}
-      >
-        <Text tag="p" size="h-sm-b" color="assistive-success">
-          {title}
-        </Text>
-      </Div>
+      <AboutTimelineSectionYear year={year} />
       <Div ml="3">
         {items.map((item) => (
           <AboutTimelineSectionItem text={item} />
