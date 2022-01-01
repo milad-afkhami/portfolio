@@ -76,6 +76,10 @@
         },
         "textCopied": "Copied to clipboard",
         "codeCopied": "Code copied to clipboard"
+      },
+      "kits": {
+        "more": "More",
+        "less": "Less"
       }
     },
     "markdown": {

@@ -11,3 +11,4 @@ export * from "./Breadcrumb";
 export * from "./DropDown";
 export * from "./Code";
 export * from "./Tree";
+export * from "./ExpandableText";
