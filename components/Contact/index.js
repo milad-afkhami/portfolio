@@ -27,7 +27,7 @@ export function Contact(props) {
       <PageTitle title="contact.title" />
       <Div
         mt="4"
-        grid={[`repeat(${Math.ceil(options.length / 2)}, 1fr)`, , "3", "3"]}
+        grid={[`repeat(${Math.ceil(options.length / 2)}, 1fr)`, , "3", "4"]}
         responsive={{
           sm: { grid: [`repeat(${Math.ceil(options.length)}, 1fr)`], mt: "5" },
         }}
