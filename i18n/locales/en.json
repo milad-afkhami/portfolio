@@ -120,7 +120,7 @@
       "meta": {
         "category": "category",
         "timeToReadLabel": "time to read",
-        "timeToReadValue": "{{time}} min",
+        "timeToReadValue": "{{time}} min.",
         "publishedAt": "published at"
       }
     },
