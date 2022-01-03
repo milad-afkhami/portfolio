@@ -1,5 +1,5 @@
 import React from "react";
-import { Div, Image, Text } from "@kits";
+import { Div, Icon, Image, Text } from "@kits";
 import { THEMES } from "@constants";
 
 export const SectionTitle = (props) => {
@@ -9,16 +9,8 @@ export const SectionTitle = (props) => {
     <Div flex={["center", "start"]} mb="2">
       {icon && (
         <Div flex={["center", "center"]}>
-          <Image
-            priority
-            src={`/images/icons/${icon}.png`}
-            width="24px"
-            height="24px"
-            responsive={{ width: "32px", height: "32px" }}
-            css={{
-              [`[data-theme="${THEMES.DARK}"] &`]: { filter: "invert(1)" },
-            }}
-          />
+          {/* <Image priority src={`/images/icons/${icon}.png`} width="24px" height="24px" responsive={{ width: "32px", height: "32px" }} css={{ [`[data-theme="${THEMES.DARK}"] &`]: { filter: "invert(1)" } }} /> */}
+          <Icon name={icon} size="30px" hoverColor={null} cursor="default" />
         </Div>
       )}
       <Div mx={icon && "2"}>
