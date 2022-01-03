@@ -7,7 +7,7 @@ export function Contact(props) {
   const {} = props || {};
 
   const options = [
-    { type: "email", value: "milad@gmail.com" },
+    { type: "email", value: "miladmaps@gmail.com" },
     // { type: "whatsapp", label: "+98 939 284 0749", value: "+989392840749" },
     {
       type: "linkedin",
