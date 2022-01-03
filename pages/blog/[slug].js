@@ -4,7 +4,7 @@ import { useRouter, useTranslation } from "@hooks";
 import { Head, BlogJsonLd } from "@components/SEO";
 import { MDXRemote } from "next-mdx-remote";
 import dynamic from "next/dynamic";
-import { BlogTitle, BlogSummary, BlogMeta } from "@components/Blog";
+import { BlogTitle, BlogSummary, BlogMeta, BlogBanner } from "@components/Blog";
 import { BlogServices } from "@services";
 import { MarkdownWrapper } from "@components/Markdown";
 
@@ -18,7 +18,7 @@ const components = { Image, Div, Text, Code };
 export default function BlogPage(props) {
   const router = useRouter();
   const slug = router.query.slug;
-  const { title, summary, image, publishedAt, readingTime, category } =
+  const { title, summary, image, banner, publishedAt, readingTime, category } =
     props?.blog?.frontMatter || {};
   const source = props?.blog?.source || {};
 
@@ -58,6 +58,7 @@ export default function BlogPage(props) {
             readingTime={readingTime}
             publishedAt={publishedAt}
           />
+          <BlogBanner banner={banner || image} alt={title} />
           <MarkdownWrapper>
             <MDXRemote {...source} components={components} />
           </MarkdownWrapper>

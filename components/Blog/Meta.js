@@ -8,7 +8,11 @@ export const BlogMeta = (props) => {
   const t = useTranslation().t;
 
   return (
-    <Div curve="sm" grid={[`repeat(3, 1fr)`, undefined, "4", "3", "row"]}>
+    <Div
+      curve="sm"
+      grid={["repeat(1, 1fr)", , "4", "3", "row"]}
+      responsive={{ sm: { css: { gridTemplateColumns: "repeat(3, 1fr)" } } }}
+    >
       {category && (
         <Div flex={["center", "between"]} bg="bg-secondary" curve="sm" p="3">
           <Div>
