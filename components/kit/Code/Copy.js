@@ -1,4 +1,4 @@
-import { Div, Image } from "@kits";
+import { Div, Icon } from "@kits";
 
 export function CopyCode(props) {
   return (
@@ -11,13 +11,19 @@ export function CopyCode(props) {
       p="2"
       curve="xsm"
       flex={["center", "center"]}
-      cursor="copy"
+      cursor="pointer"
       onClick={props.onClick}
       // css={{ display: "none" }}
       pace="xFast"
       opacity="0"
     >
-      <Image src="/images/icons/copy.png" width="20px" height="20px" />
+      <Icon
+        name="copy-outline"
+        size="20px"
+        color="bg-secondary"
+        hoverColor={null}
+        bold
+      />
     </Div>
   );
 }
