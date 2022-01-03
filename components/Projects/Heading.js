@@ -19,14 +19,13 @@ export const ProjectHeading = (props) => {
             {name}
           </Text>
         </Div>
-        <Div flex={["center", "center"]}>
+        <Div flex={["center", "center"]} curve="circle" overflow="hidden">
           <Image
             src={logo}
             width="32px"
             height="32px"
-            curve="circle"
             placeholder="blur"
-            blurDataURL={logo}
+            withShimmer
           />
         </Div>
       </Div>
