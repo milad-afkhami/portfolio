@@ -13,7 +13,7 @@ export const MarkdownVariables = (props) => {
 
   return (
     <Div id="markdown-variables" my="4">
-      <SectionTitle title="markdown.variables.title" icon="variable-2" />
+      <SectionTitle title="markdown.variables.title" icon="variable" />
       <ColorVariables />
       <CurveVariables />
       <PaceVariables />

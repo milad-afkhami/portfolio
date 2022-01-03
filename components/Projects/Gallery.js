@@ -33,7 +33,7 @@ export const ProjectGallery = (props) => {
 
   return (
     <Div mb="5">
-      <SectionTitle icon="gallery-3" title="projects.gallery" />
+      <SectionTitle icon="gallery" title="projects.gallery" />
       <Div
         grid={[
           ,
