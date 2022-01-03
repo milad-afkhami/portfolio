@@ -19,7 +19,7 @@ export function HeaderSwitchTheme(props) {
     >
       <Icon
         name={
-          theme === THEMES.DARK ? "sun1" : theme === THEMES.LIGHT ? "moon" : ""
+          theme == THEMES.DARK ? "sun1" : theme == THEMES.LIGHT ? "moon" : ""
         }
         size="24px"
       />

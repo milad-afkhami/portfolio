@@ -2,8 +2,13 @@ import React from "react";
 import { useState, useEffect } from "@hooks";
 import { Div, Icon, Logo } from "@kits";
 import { HeaderNav } from "./Nav";
-import { HeaderSwitchTheme } from "./SwitchTheme";
 import { HeaderChangeLanguage } from "./LanguagePicker";
+import dynamic from "next/dynamic";
+
+const HeaderSwitchTheme = dynamic(
+  () => import("./SwitchTheme").then((module) => module.HeaderSwitchTheme),
+  { ssr: false }
+);
 
 export function Header(props) {
   const { transparent } = props || {};
