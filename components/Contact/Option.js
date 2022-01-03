@@ -1,5 +1,5 @@
 import React from "react";
-import { Div, Image, Text } from "@kits";
+import { Div, Icon, Image, Text } from "@kits";
 import { toast } from "@utils";
 import { useTranslation } from "@hooks";
 import { THEMES } from "@constants";
@@ -35,18 +35,8 @@ export function ContactOption(props) {
         mb="3"
         // responsive={{ md: { width: "100px", height: "100px" } }}
       >
-        <Image
-          src={`/images/icons/contact/${type}.png`}
-          css={{
-            filter: "invert(0.1)",
-            [`[data-theme="${THEMES.LIGHT}"] &`]: {
-              filter: "invert(1)",
-            },
-          }}
-          width="50px"
-          height="50px"
-          fit="contain"
-        />
+        {/* <Image src={`/images/icons/contact/${type}.png`} css={{ filter: "invert(0.1)", [`[data-theme="${THEMES.LIGHT}"] &`]: { filter: "invert(1)" } }} width="50px" height="50px" fit="contain" /> */}
+        <Icon name={type} size="2.5rem" />
       </Div>
       <Div mb="2">
         <Text color="brand" size="lg-b" css={{ textTransform: "capitalize" }}>
