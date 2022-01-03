@@ -57,10 +57,9 @@ export const Text: ComponentType<Props> = withTranslation()(
       ...restProps
     }) => ({
       ...(color ? { color: c(color) } : {}),
-      ...setTextTypography(size),
+      ...setTextTypography(size, { bold }),
       margin: 0,
       transition: paces.fast,
-      ...(bold ? { fontWeight: "bold" } : {}),
       ...(m && m.length ? { margin: prepareSpacing(Array.from(m)) } : {}),
       ...(p && p.length ? { padding: prepareSpacing(Array.from(p)) } : {}),
       ...getOtherSpacings(restProps),
