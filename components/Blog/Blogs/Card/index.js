@@ -1,5 +1,5 @@
 import React from "react";
-import { Div, Text, Image, Link } from "@kits";
+import { Div, Text, Image, Link, Icon } from "@kits";
 import { BlogCardCategory } from "./Category";
 
 export const BlogCard = (props) => {
@@ -68,19 +68,7 @@ export const BlogCard = (props) => {
                 {title}
               </Text>
             </Div>
-            {/* <Div>
-              <Text
-                color="text-secondary"
-                css={{
-                  display: "-webkit-box",
-                  WebkitLineClamp: 3,
-                  WebkitBoxOrient: "vertical",
-                  overflow: "hidden",
-                }}
-              >
-                {summary}
-              </Text>
-            </Div> */}
+            {/* <Div><Text color="text-secondary" css={{ display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden" }} >{summary}</Text></Div> */}
           </Div>
           <Div
             flex={["center", "between"]}
@@ -95,11 +83,12 @@ export const BlogCard = (props) => {
                 {publishedAt}
               </Text>
             </Div>
-            <Div>
-              <Text mx="1" color="text-secondary" size="xsm">
+            <Div flex={["center", "center"]}>
+              <Text mx="2" color="text-secondary" size="xsm">
                 {minutesToRead}
               </Text>
-              {/* <Image src="/images/icons/time.svg" width="10px" height="10px" /> */}
+              {/* <Text mx="2" color="text-secondary" size="xsm" translationVariables={{ time: minutesToRead }}>blog.meta.timeToReadValue</Text> */}
+              <Icon name="time" color="text-secondary" size="sm" />
             </Div>
           </Div>
         </Div>
