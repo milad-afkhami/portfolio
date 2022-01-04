@@ -59,12 +59,14 @@ export const TreeWrapper = styled.div`
     transition: transform 300ms ease;
     font-family: "auto";
     color: var(--color-text-primary);
-    font-size: var(--font-size-h-xl);
+    font-size: var(--font-size-lg);
     font-weight: bold;
     line-height: 1.2;
-    content: "›";
+    /* content: "›"; */
+    content: "\\e923";
+    font-family: "icomoon";
+    height: 100%;
     display: inline-block;
-    /* left: 4px; */
     right: -2rem;
     display: flex;
     justify-content: center;
