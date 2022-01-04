@@ -7,7 +7,7 @@ export const ProjectPoints = (props) => {
 
   return (
     <Div mb="4">
-      <SectionTitle icon="nested-list" title="projects.points" />
+      <SectionTitle icon="focus-center-2" title="projects.points" />
       {/* mx="-4" */}
       <Div Mw="100%">
         <Tree branches={points} branchesAccessor="points" defaultOpen />

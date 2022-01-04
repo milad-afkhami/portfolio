@@ -33,7 +33,7 @@ export const ProjectGallery = (props) => {
 
   return (
     <Div mb="5">
-      <SectionTitle icon="gallery-4" title="projects.gallery" />
+      <SectionTitle icon="gallery" title="projects.gallery" />
       <Div
         grid={[
           ,
@@ -50,6 +50,7 @@ export const ProjectGallery = (props) => {
       >
         {medias.map((media, index) => (
           <Div
+            key={index}
             zoomOnHover
             width="100px"
             height="100px"
@@ -72,6 +73,7 @@ export const ProjectGallery = (props) => {
                 setRenderViewer(true);
                 setTimeout(() => openLightbox(e, { index }), 100);
               }}
+              // bg="bg-secondary-paler"
               placeholder="blur"
               withShimmer
               // blurDataURL={media.src}
