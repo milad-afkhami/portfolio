@@ -24,7 +24,7 @@ export const ProjectHeading = (props) => {
             src={logo}
             width="32px"
             height="32px"
-            placeholder="blur"
+            // placeholder="blur"
             withShimmer
           />
         </Div>
