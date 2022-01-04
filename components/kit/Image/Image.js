@@ -2,7 +2,8 @@ import React, { ComponentType } from "react";
 import { Props } from "./ImageProps";
 import { Div } from "@kits";
 import NextImage from "next/image";
-import { useIsomorphicPortal, useToggle } from "@hooks";
+import { useToggle } from "@hooks";
+import { isomorphicPortal } from "@utils";
 
 export const Image: ComponentType<Props> = ({
   fit,
@@ -64,7 +65,7 @@ export const Image: ComponentType<Props> = ({
         {...rest}
       />
       {maximizable && maximized
-        ? useIsomorphicPortal(
+        ? isomorphicPortal(
             <Div
               width="calc(100vw - var(--scrollbar-width))"
               height="100vh"
@@ -100,8 +101,7 @@ export const Image: ComponentType<Props> = ({
                   />
                 )}
               </Div>
-            </Div>,
-            "body"
+            </Div>
           )
         : null}
     </>
