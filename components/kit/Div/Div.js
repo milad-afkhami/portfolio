@@ -22,12 +22,14 @@ export const Div: ComponentType<Props> = styled.div
       hover,
       pace,
       hiddenScrollbar,
+      thinScrollbar,
     }) => ({
       className:
         (container ? " container" : "") +
         (col ? getCol(col) : "") +
         (row ? " row" : "") +
-        (hiddenScrollbar ? " hidden-scrollbar" : ""),
+        (hiddenScrollbar ? " hidden-scrollbar" : "") +
+        (thinScrollbar ? " thin-scrollbar" : ""),
       ...(hover && !pace ? { pace: `var(--pace-fast)` } : {}),
     })
   )((props: Props) => {

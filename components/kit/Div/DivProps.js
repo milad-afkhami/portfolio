@@ -108,6 +108,7 @@ export interface Props extends HTMLAttributes {
   mh?: String;
   Mh?: String;
   hiddenScrollbar?: Boolean;
+  thinScrollbar?: Boolean;
   matchParent?: Boolean;
   curve?: CurveTypes;
   shadow?: ShadowTypes;
@@ -137,7 +138,7 @@ export interface Props extends HTMLAttributes {
   pt?: String;
   pb?: String;
   flex?: FlexProps | Boolean;
-  flexPortion?: String | Number;
+  flexPortion?: "auto" | String | Number;
   display?: String;
   col?: { xs: Number, sm: Number, md: Number, lg: Number, xl: Number };
   overflow?: "hidden" | "scroll" | "auto" | "visible";
