@@ -10,6 +10,7 @@ export const FavouriteEntity = (props) => {
     <Link
       href={link}
       mb="3"
+      prefetch={false}
       // flex={["center", , "column"]}
       bg="bg-secondary"
       hoverBg="bg-secondary-hover"
