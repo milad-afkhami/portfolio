@@ -6,8 +6,8 @@
   --layout-subscribe-newsletter-height: 350px;
   /* --layout-footer-height: 350px; */
 
-  --scrollbar-width: 3px;
-  --scrollbar-height: 3px;
+  --scrollbar-width: 4px;
+  --scrollbar-height: 4px;
 
   --overlay-z-index: 10000;
 
@@ -89,14 +89,14 @@ html[dir="rtl"] .icon-dir {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: var(--color-brand);
+  background: var(--color-brand-dark);
   border-radius: 10px;
   transition: all 0.3s;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-brand-dark);
+  background: var(--color-brand-variant);
   border-radius: 10px;
   transition: all 0.3s;
 }
