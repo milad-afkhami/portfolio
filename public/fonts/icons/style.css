@@ -1,19 +1,18 @@
 @font-face {
-  font-family: "icomoon";
-  src: url("fonts/icomoon.eot?3q97v");
-  src: url("fonts/icomoon.eot?3q97v#iefix") format("embedded-opentype"),
-    url("fonts/icomoon.ttf?3q97v") format("truetype"),
-    url("fonts/icomoon.woff?3q97v") format("woff"),
-    url("fonts/icomoon.svg?3q97v#icomoon") format("svg");
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?nennhy');
+  src:  url('fonts/icomoon.eot?nennhy#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?nennhy') format('truetype'),
+    url('fonts/icomoon.woff?nennhy') format('woff'),
+    url('fonts/icomoon.svg?nennhy#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
-[class^="mili-"],
-[class*=" mili-"] {
+[class^="mili-"], [class*=" mili-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: "icomoon" !important;
+  font-family: 'icomoon' !important;
   speak: never;
   font-style: normal;
   font-weight: normal;
@@ -26,44 +25,26 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.mili-stop-watch-filled-icon:before {
-  content: "\e900";
+.mili-music-2-icon:before {
+  content: "\e912";
 }
-.mili-stop-watch-outline-icon:before {
-  content: "\e901";
+.mili-song-2-icon:before {
+  content: "\e912";
 }
-.mili-moon-2-icon:before {
-  content: "\e929";
-}
-.mili-ruler-2-icon:before {
+.mili-ruler-icon:before {
   content: "\e902";
 }
 .mili-measure-2-icon:before {
   content: "\e902";
 }
-.mili-math-icon:before {
-  content: "\e902";
-}
 .mili-gallery-icon:before {
   content: "\e903";
-}
-.mili-gallery-2-icon:before {
-  content: "\e904";
-}
-.mili-gallery-3-icon:before {
-  content: "\e905";
 }
 .mili-tools-icon:before {
   content: "\e906";
 }
 .mili-measure-icon:before {
   content: "\e906";
-}
-.mili-gallery-4-icon:before {
-  content: "\e907";
-}
-.mili-linkedin-outline-icon:before {
-  content: "\e908";
 }
 .mili-moon-icon:before {
   content: "\e92a";
@@ -74,9 +55,6 @@
 .mili-nested-list-icon:before {
   content: "\e90a";
 }
-.mili-copy-fill-icon:before {
-  content: "\e90b";
-}
 .mili-clock-icon:before {
   content: "\e90c";
 }
@@ -89,80 +67,38 @@
 .mili-list-icon:before {
   content: "\e90d";
 }
-.mili-star-icon:before {
-  content: "\e90e";
-}
 .mili-info-icon:before {
   content: "\e90f";
 }
-.mili-skype-fill-icon:before {
-  content: "\e910";
+.mili-headphones-icon:before {
+  content: "\e913";
+}
+.mili-music-icon:before {
+  content: "\e913";
+}
+.mili-song-icon:before {
+  content: "\e913";
+}
+.mili-film-icon:before {
+  content: "\e918";
+}
+.mili-show-icon:before {
+  content: "\e918";
+}
+.mili-book-icon:before {
+  content: "\e927";
 }
 .mili-sun1-icon:before {
   content: "\e9d4";
-}
-.mili-list-2-icon:before {
-  content: "\e911";
-}
-.mili-copy-fill-icon:before {
-  content: "\e90b";
-}
-.mili-clock-icon:before {
-  content: "\e90c";
-}
-.mili-time-icon:before {
-  content: "\e90c";
-}
-.mili-history-icon:before {
-  content: "\e90c";
-}
-.mili-list-icon:before {
-  content: "\e90d";
-}
-.mili-star-icon:before {
-  content: "\e90e";
-}
-.mili-info-icon:before {
-  content: "\e90f";
-}
-.mili-skype-fill-icon:before {
-  content: "\e910";
-}
-.mili-sun1-icon:before {
-  content: "\e9d4";
-}
-.mili-list-2-icon:before {
-  content: "\e911";
-}
-.mili-chevron-circle-right-icon:before {
-  content: "\e922";
-}
-.mili-chevron-circle-right-icon:before {
-  content: "\e922";
 }
 .mili-chevron-right-icon:before {
   content: "\e923";
 }
-.mili-bullseye-icon:before {
-  content: "\e912";
-}
-.mili-eye-dropper-icon:before {
-  content: "\e913";
-}
-.mili-chevron-right-2-icon:before {
-  content: "\e924";
-}
-.mili-skype-outline-icon:before {
-  content: "\e914";
-}
 .mili-sun-icon:before {
   content: "\e92c";
 }
-.mili-double-chevrons-right-icon:before {
-  content: "\e925";
-}
-.mili-chevron-right-3-icon:before {
-  content: "\e926";
+.mili-sun-icon:before {
+  content: "\e92c";
 }
 .mili-copy-outline-icon:before {
   content: "\e915";
@@ -170,14 +106,8 @@
 .mili-mail-icon:before {
   content: "\e916";
 }
-.mili-nested-tree-icon:before {
-  content: "\e917";
-}
 .mili-focus-center-2-icon:before {
   content: "\e91a";
-}
-.mili-focus-center-3-icon:before {
-  content: "\e91b";
 }
 .mili-timeline-icon:before {
   content: "\e91c";
@@ -198,8 +128,7 @@
   content: "\e920";
   color: #0077b5;
 }
-.mili-gmail-icon:before,
-.mili-email-icon:before {
+.mili-gmail-icon:before {
   content: "\e921";
   color: #d14836;
 }
