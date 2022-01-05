@@ -4,8 +4,6 @@ import { BlogCardCategory } from "./Category";
 
 export const BlogCard = (props) => {
   const {
-    changeCardViewInResponsive,
-
     _id = "",
     title = "",
     views = "",
@@ -37,8 +35,8 @@ export const BlogCard = (props) => {
     >
       <Div
         height="100%"
-        flexPortion={changeCardViewInResponsive ? 1 : 3}
-        responsive={{ sm: { flexPortion: changeCardViewInResponsive ? 2 : 3 } }}
+        flexPortion={3}
+        responsive={{ sm: { flexPortion: 3 } }}
         position="relative"
       >
         {image && (
@@ -55,16 +53,13 @@ export const BlogCard = (props) => {
       <Div
         px="3"
         py="2"
-        flexPortion={changeCardViewInResponsive ? 1 : 2}
+        flexPortion={2}
         responsive={{ sm: { flexPortion: 2, py: 3 } }}
       >
         <Div flex={["start", "between", "column"]} height="100%">
           <Div>
             <Div mb="2">
-              <Text
-                size={changeCardViewInResponsive ? "md-b" : "lg-b"}
-                lineHeight="1.5"
-              >
+              <Text size="lg-b" lineHeight="1.5">
                 {title}
               </Text>
             </Div>

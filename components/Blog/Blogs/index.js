@@ -18,33 +18,22 @@ export const Blogs = (props) => {
   } = props || {};
 
   // #temp
-  const changeCardViewInResponsive = false;
 
   return (
     <Div my="3" {...rest}>
       {title && <PageTitle title={title} />}
       {items?.length ? (
         <Div
-          grid={[
-            // changeCardViewInResponsive ? "repeat(1, 1fr)" : "repeat(3, 1fr)",
-            "repeat(1, 1fr)",
-            ,
-            "1rem",
-            "1rem",
-            "row",
-          ]}
+          grid={["repeat(1, 1fr)", , "1rem", "1rem", "row"]}
           responsive={{
             sm: { css: { gridTemplateColumns: "repeat(3, 1fr)" } }, // md: { css: { gridTemplateColumns: "repeat(3, 1fr)" } },
           }}
           overflowX="auto"
+          thinScrollbar
           pb="2"
         >
           {items.map((post, i) => (
-            <BlogCard
-              changeCardViewInResponsive={changeCardViewInResponsive}
-              key={i}
-              {...post}
-            />
+            <BlogCard key={i} {...post} />
           ))}
         </Div>
       ) : (
