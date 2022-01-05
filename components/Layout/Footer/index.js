@@ -1,5 +1,5 @@
 import React from "react";
-import { Div, Link, Text } from "@kits";
+import { Div } from "@kits";
 import { FooterLinks } from "./Links";
 import { FooterSocials } from "./Socials";
 
