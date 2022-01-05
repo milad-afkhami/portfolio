@@ -3,4 +3,4 @@ export * from "./enhanceStringPrototype";
 export * from "./shouldForwardProp";
 export * from "./Time";
 export * from "./language";
-export * from "./layout";
+export * from "./favourites";

@@ -93,7 +93,6 @@
         "shadows": "shadows"
       }
     },
-    "resume": {},
     "contact": {
       "title": "Contacts",
       "email": "Email",
@@ -104,8 +103,20 @@
       "skype": "skype"
     },
     "favourites": {
+      "title": "Favourites",
+      "group": {
+        "song": "Songs",
+        "book": "Books",
+        "show": "Shows"
+      },
       "artists": "Favourite Artists",
       "playlists": "Favourite Playlists",
+      "books": "Favourite Books",
+      "poems": "Favourite Poems",
+      "writers": "Favourite Writers",
+      "movies": "Favourite Movies",
+      "series": "Favourite Series",
+      "anime": "Favourite Anime",
       "listenNow": "Listen Now",
       "expand": "Expand",
       "collapse": "Collapse"

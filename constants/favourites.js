@@ -6,7 +6,7 @@ export const FAVOURITE_TYPES = {
   BOOK: {
     BOOKS: "BOOKS",
     POEMS: "POEMS",
-    WRITERS: "WRITERS",
+    // WRITERS: "WRITERS",
   },
   SHOW: {
     MOVIES: "MOVIES",
