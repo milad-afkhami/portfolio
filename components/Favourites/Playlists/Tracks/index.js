@@ -11,6 +11,7 @@ export const FavouritePlaylistTracks = (props) => {
 
   const columns = useMemo(() => __chunk(tracks, pivot), [tracks.length]);
 
+  // #todo refactor with ListView Kit
   return (
     <Div
       height={`calc(${open ? pivot : 0} * 70px)`}

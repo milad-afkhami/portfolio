@@ -5,8 +5,8 @@ export const FavouriteArtistCard = (props) => {
   const { name, image, slug } = props || {};
 
   return (
-    <Link
-      href={`/${slug}`}
+    <Div
+      // href={`/${slug}`}
       flex={["center", "center", "column"]}
       hoverColor="text-secondary"
     >
@@ -14,7 +14,7 @@ export const FavouriteArtistCard = (props) => {
         flex
         curve="circle"
         height="250px"
-        width="250px"
+        width="min(250px, 100%)"
         position="relative"
         overflow="hidden"
         mb="3"
@@ -30,6 +30,6 @@ export const FavouriteArtistCard = (props) => {
       <Div>
         <Text size="lg-b">{name}</Text>
       </Div>
-    </Link>
+    </Div>
   );
 };

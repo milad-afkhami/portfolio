@@ -36,7 +36,6 @@ export const FavouritePlaylist = (props) => {
         height="140px"
         flex={["center", "between", "column"]}
         responsive={{ sm: { css: { flexDirection: "row", height: "150px" } } }}
-        cursor="pointer"
       >
         <Div
           flex={["center", "center"]}

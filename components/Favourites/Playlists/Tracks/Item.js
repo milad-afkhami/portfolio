@@ -9,7 +9,7 @@ export const FavouritePlaylistTracksItem = (props) => {
       flex={["center", "start"]}
       height="62px"
       // bg="bg-secondary"
-      hoverBg="bg-secondary"
+      hoverBg="bg-secondary-paler"
       responsive={{ sm: { px: "3" } }}
       curve="sm"
       my="2"
