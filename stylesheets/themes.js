@@ -3,16 +3,17 @@ import { THEMES } from "@constants";
 
 export const defaultTheme = THEMES.DARK;
 
+// generate pallette variants from http://mcg.mbitson.com/
 export const themes = {
   [THEMES.LIGHT]: {
     brand: new Color(
       "#edb98a",
-      "#E3944F",
-      "#F1CAA7",
-      "#F4D4B8",
-      "",
-      "",
-      "",
+      "#E8AA77",
+      "#F2CEAD",
+      "#FAEADC",
+      "#E5A26D",
+      "#edb98ab2",
+      "#edb98a66",
       "#E3944F"
     ),
     bg: {
@@ -28,10 +29,42 @@ export const themes = {
       disabled: new Color("#D0D0D0"),
     },
     assistive: {
-      success: new Color("#27AE60"),
-      error: new Color("#EB5757"),
-      info: new Color("#2D9CDB"),
-      warning: new Color("#F2C94C"),
+      success: new Color(
+        "#27AE60",
+        "#23A758",
+        "#47BA78",
+        "#93D7B0",
+        "#1D9D4E",
+        "#27AE60B2",
+        "#27AE6066"
+      ),
+      error: new Color(
+        "#EB5757",
+        "#E94F4F",
+        "#EE7070",
+        "#F5ABAB",
+        "#E54646",
+        "#EB5757B2",
+        "#EB575766"
+      ),
+      info: new Color(
+        "#2D9CDB",
+        "#2894D7",
+        "#4DABE0",
+        "#96CEED",
+        "#228AD2",
+        "#2D9CDBB2",
+        "#2D9CDB66"
+      ),
+      warning: new Color(
+        "#F2C94C",
+        "#F0C345",
+        "#F4D167",
+        "#F9E4A6",
+        "#ECB533",
+        "#F2C94CB2",
+        "#F2C94C66"
+      ),
     },
     border: {
       dark: new Color("#B2B2B2"),
@@ -41,26 +74,42 @@ export const themes = {
   [THEMES.DARK]: {
     brand: new Color(
       "#edb98a",
-      "#E3944F",
-      "#F1CAA7",
-      "#F4D4B8",
-      "",
-      "",
-      "",
+      "#E8AA77",
+      "#F2CEAD",
+      "#FAEADC",
+      "#E5A26D",
+      "#edb98ab2",
+      "#edb98a66",
       "#E3944F"
     ),
     bg: {
-      primary: new Color("#141416", "", "", "", "", "#141416B2"),
+      primary: new Color(
+        "#141416",
+        "#0B0B0C",
+        "#373739",
+        "#8A8A8B",
+        "#0B0B0C",
+        "#141416B2",
+        "#14141666"
+      ),
       secondary: new Color(
         "#232228",
-        "#1c1b20",
-        "",
-        "",
-        "",
+        "#1F1E24",
+        "#444348",
+        "#919194",
+        "#151418",
         "#232228B2",
         "#23222866"
       ),
-      tertiary: new Color("#33313A"),
+      tertiary: new Color(
+        "#33313A",
+        "#2E2C34",
+        "#525058",
+        "#706F75",
+        "#27252C",
+        "#33313AB2",
+        "#33313A66"
+      ),
       disabled: new Color("#656668"),
     },
     text: {
@@ -70,10 +119,42 @@ export const themes = {
       disabled: new Color("#3E3E3E"),
     },
     assistive: {
-      success: new Color("#27AE60"),
-      error: new Color("#EB5757"),
-      info: new Color("#2D9CDB"),
-      warning: new Color("#F2C94C"),
+      success: new Color(
+        "#27AE60",
+        "#23A758",
+        "#47BA78",
+        "#93D7B0",
+        "#1D9D4E",
+        "#27AE60B2",
+        "#27AE6066"
+      ),
+      error: new Color(
+        "#EB5757",
+        "#E94F4F",
+        "#EE7070",
+        "#F5ABAB",
+        "#E54646",
+        "#EB5757B2",
+        "#EB575766"
+      ),
+      info: new Color(
+        "#2D9CDB",
+        "#2894D7",
+        "#4DABE0",
+        "#96CEED",
+        "#228AD2",
+        "#2D9CDBB2",
+        "#2D9CDB66"
+      ),
+      warning: new Color(
+        "#F2C94C",
+        "#F0C345",
+        "#F4D167",
+        "#F9E4A6",
+        "#ECB533",
+        "#F2C94CB2",
+        "#F2C94C66"
+      ),
     },
     border: {
       dark: new Color("#30303166"),
