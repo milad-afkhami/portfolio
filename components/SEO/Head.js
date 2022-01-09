@@ -18,7 +18,7 @@ export const Head = ({
   twitter = {},
   ...restProps
 }: NextSeoProps) => {
-  const _canonical = "www." + appBaseURL + canonical;
+  const _canonical = appBaseURL + canonical;
   const router = useRouter();
 
   const t = useTranslation().t;
