@@ -64,14 +64,33 @@ export const Head = ({
       twitter={{
         cardType: "summary",
         // summary, summary_large_image, app, or player
-        // handle: t("app.username"),
-        site: t("app.username"),
+        handle: t("app.username"),
+        // site: t("app.username"),
+        url: _canonical,
         ...twitter,
       }}
       canonical={_canonical}
       additionalMetaTags={[
-        ...additionalMetaTags,
         ...(keywords?.length ? [{ name: "keyword", content: keywords }] : []),
+        { property: "twitter:title", content: _title },
+        { property: "twitter:description", content: _description },
+        ...(openGraph?.images?.[0]?.url
+          ? [
+              {
+                property: "twitter:image:src",
+                content: openGraph.images[0].url,
+              },
+              {
+                property: "twitter:image:width",
+                content: openGraph.images[0].width || "400",
+              },
+              {
+                property: "twitter:image:height",
+                content: openGraph.images[0].height || "400",
+              },
+            ]
+          : []),
+        ...additionalMetaTags,
       ]}
       // {...mobileAlternate}
       // {...languageAlternates}
