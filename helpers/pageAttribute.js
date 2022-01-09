@@ -1,16 +1,13 @@
 const fonts = {
+  // default: { link: "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap", name: "Montserrat" },
   default: {
-    link: "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap",
-    name: "Montserrat",
+    name: "IBM Plex Sans,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji",
   },
-  en: {
-    link: "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap",
-    name: "Montserrat",
-  },
-  fa: {
-    link: "./fonts/IRANYekan/css/fontiran.css",
-    name: "iranyekan",
-  },
+  // default: { name: "sans-serif" },
+  // en: {
+  //   link: "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap",
+  //   name: "Montserrat",
+  // },
 };
 
 export class PageAttr {
@@ -42,21 +39,25 @@ export class PageAttr {
     const lang = language.name;
     const font = fonts[lang] || fonts.default;
 
-    fontLinkElement.setAttribute("href", font.link);
-    const fontFamily = font.name;
+    if (font?.link) fontLinkElement.setAttribute("href", font.link);
 
     head.appendChild(fontLinkElement);
-    document.querySelector("html").style.fontFamily = fontFamily;
+
+    const fontFamily = font?.name;
+    if (fontFamily)
+      document.querySelector("html").style.fontFamily = fontFamily;
   };
 
   static setThemeColor = (newTheme) => {
     if (!process.browser) return;
+
     const appleStatusBar = document?.querySelector(
       'meta[name="apple-mobile-web-app-status-bar-style"]'
     );
     document
       .querySelector('meta[name="theme-color"]')
       .setAttribute("content", newTheme);
-    appleStatusBar && appleStatusBar.setAttribute("content", newTheme);
+
+    if (appleStatusBar) appleStatusBar.setAttribute("content", newTheme);
   };
 }
