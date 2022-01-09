@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?nennhy');
-  src:  url('fonts/icomoon.eot?nennhy#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?nennhy') format('truetype'),
-    url('fonts/icomoon.woff?nennhy') format('woff'),
-    url('fonts/icomoon.svg?nennhy#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?x147l4');
+  src:  url('fonts/icomoon.eot?x147l4#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?x147l4') format('truetype'),
+    url('fonts/icomoon.woff?x147l4') format('woff'),
+    url('fonts/icomoon.svg?x147l4#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -97,14 +97,8 @@
 .mili-sun-icon:before {
   content: "\e92c";
 }
-.mili-sun-icon:before {
-  content: "\e92c";
-}
 .mili-copy-outline-icon:before {
   content: "\e915";
-}
-.mili-mail-icon:before {
-  content: "\e916";
 }
 .mili-focus-center-2-icon:before {
   content: "\e91a";
@@ -128,7 +122,7 @@
   content: "\e920";
   color: #0077b5;
 }
-.mili-gmail-icon:before {
+.mili-email-icon:before {
   content: "\e921";
   color: #d14836;
 }
