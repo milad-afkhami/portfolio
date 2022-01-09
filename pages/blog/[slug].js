@@ -30,7 +30,7 @@ export default function BlogPage(props) {
       <Head
         title={title}
         description={summary}
-        openGraph={{ images: [image] }}
+        openGraph={{ images: [{ url: image, alt: title }] }}
         canonical={canonical}
       />
       <BlogJsonLd
