@@ -7,6 +7,7 @@ import dynamic from "next/dynamic";
 import { BlogTitle, BlogSummary, BlogMeta, BlogBanner } from "@components/Blog";
 import { BlogServices } from "@services";
 import { MarkdownWrapper } from "@components/Markdown";
+import { appBaseURL } from "@config";
 
 const Code: ComponentType = dynamic(
   () => import("@kits").then((module) => module.Code),
@@ -30,7 +31,15 @@ export default function BlogPage(props) {
       <Head
         title={title}
         description={summary}
-        openGraph={{ images: [{ url: image, alt: title, type: "image/jpeg" }] }}
+        openGraph={{
+          images: [
+            {
+              url: appBaseURL + image,
+              alt: title,
+              type: "image/jpeg",
+            },
+          ],
+        }}
         twitter={{
           cardType: "summary_large_image",
         }}
