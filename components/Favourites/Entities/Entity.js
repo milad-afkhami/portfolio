@@ -45,12 +45,12 @@ export const FavouriteEntity = (props) => {
         />
       </Div>
       <Div flex={["center"]}>
-        <Text size="lg-b">{`favourites.${label}`}</Text>
+        <Text size="lg-b">{`favourites.${label}.title`}</Text>
       </Div>
       {/* <Text
         hoverColor="text-secondary"
         size="sm-b"
-      >{`favourites.${label}`}</Text> */}
+      >{`favourites.${label}.title`}</Text> */}
     </Link>
   );
 };

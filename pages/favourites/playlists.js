@@ -12,7 +12,7 @@ const FavouritePlaylistsPage = (props) => {
     <>
       <Head canonical="/favourites/playlists" page="favouritePlaylists" />
       <Div width="100%" py="3">
-        <PageTitle title="favourites.playlists" />
+        <PageTitle title="favourites.playlists.title" />
         <FavouritePlaylists playlists={favouritePlaylists} />
       </Div>
     </>

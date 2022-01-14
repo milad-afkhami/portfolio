@@ -109,14 +109,66 @@
         "book": "Books",
         "show": "Shows"
       },
-      "artists": "Favourite Artists",
-      "playlists": "Favourite Playlists",
-      "books": "Favourite Books",
-      "poems": "Favourite Poems",
-      "writers": "Favourite Writers",
-      "movies": "Favourite Movies",
-      "series": "Favourite Series",
-      "anime": "Favourite Anime",
+      "artists": {
+        "title": "Favourite Artists"
+      },
+      "playlists": {
+        "title": "Favourite Playlists",
+        "soen": "Best "
+      },
+      "books": {
+        "title": "Favourite Books",
+        "list": {
+          "the-power-of-habit": {
+            "name": "The Power of Habit",
+            "fullName": "The Power of Habit: Why We Do What We Do in Life and Business",
+            "writer": "Charles Duhigg"
+          },
+          "the-unbearable-lightness-of-being": {
+            "name": "The Unbearable Lightness of Being",
+            "writer": "Milan Kundera"
+          },
+          "masnavi": {
+            "name": "Masnavi-ye-Ma'navi",
+            "writer": "Rumi"
+          },
+          "quran": {
+            "name": "Quran",
+            "writer": "Muhammad (revealed by allah)"
+          },
+          "golestan": {
+            "name": "Gulistan",
+            "writer": "Saadi Shirazi"
+          },
+          "nahj-al-balagha": {
+            "name": "Nahj al-Balagha",
+            "writer": "Ali ibn Abi Talib"
+          },
+          "tafsir-nemooneh": {
+            "name": "Tafsir Nemooneh",
+            "writer": "Naser Makarem Shirazi"
+          },
+          "republic": {
+            "name": "Republic",
+            "writer": "Plato"
+          }
+        }
+      },
+      "poems": {
+        "title": "Favourite Poems"
+      },
+      "writers": {
+        "title": "Favourite Writers"
+      },
+      "movies": {
+        "title": "Favourite Movies"
+      },
+      "series": {
+        "title": "Favourite Series"
+      },
+      "anime": {
+        "title": "Favourite Anime"
+      },
       "listenNow": "Listen Now",
       "expand": "Expand",
       "collapse": "Collapse"

@@ -392,6 +392,29 @@ export const favouritePlaylists = [
   },
 ];
 
+export const favouriteBooks = [
+  // name: "", fullName: "", image: "", writer: "Charles Duhigg",
+  "the-power-of-habit",
+  "the-unbearable-lightness-of-being",
+  "masnavi",
+  "quran",
+  "golestan",
+  "nahj-al-balagha",
+  "tafsir-nemooneh",
+  "republic",
+];
+
+export const favouriteMovies = [
+  "forrest-gump",
+  "santoori",
+  "the-shawshank-redemption",
+  "the-lord-of-the-rings",
+  "star-wars",
+  "toy-story",
+];
+
+export const favouriteAnime = ["spirited-away", "princess-mononoke"];
+
 export const favourites = {
   [FAVOURITE_TYPES.SONG.ARTISTS]: favouriteArtists,
   [FAVOURITE_TYPES.SONG.PLAYLISTS]: favouritePlaylists,
