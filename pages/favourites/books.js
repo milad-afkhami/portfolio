@@ -13,7 +13,7 @@ const FavouriteBooksPage = (props) => {
       <Head canonical="/favourites/books" page="favouriteBooks" />
       <Div width="100%" py="3">
         <PageTitle title="favourites.books.title" />
-        <FavouriteBooks Books={favouriteBooks} />
+        {/* <FavouriteBooks Books={favouriteBooks} /> */}
       </Div>
     </>
   );
