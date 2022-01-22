@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 export const MarkdownWrapper = styled.div`
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-md);
 
   & a {
     color: var(--color-brand);

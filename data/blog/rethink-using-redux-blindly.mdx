@@ -1,59 +1,42 @@
 ---
 title: "Why Do You Need to Rethink About Using Redux Blindly"
 publishedAt: "2021-11-11"
-image: "/images/blog/server-client-communication-banner.jpeg"
+image: "/images/blog/redux.jpeg"
 readingTime: "20"
-category: "data-fetching"
-summary: "I want to describe the way I like to implement server client communication in my next.js apps."
+category: "react"
+summary: "In this post I want to talk about why I dropped using redux in most of my projects and what did I do instead."
 ---
 
-In this post I want to tell you how not to be a jackass about <abbr title="Lesbian, Gay, Bisexual, Transgender, ...">LGBT+</abbr> family.
+اگر روی تعداد مشخصی از پروژه های ری اکت بیس کار کرده باشید متوجه هستید که اکثر افراد برای هندل کردن سرور استیت منیجمنت یا حتی یو آی استیت منیجمنت از ریداکس استفاده میکنند.
+استفاده از این روش اونقدر فراگیر هست که همه استفاده از اون رو یه نوع قرارداد و حکم نهایی میدونن و راه حل های جایگزین رو در نظر نمیگیرند
 
-First of all, it is 21st century fellows, the least thing you can do for people who are under a lot of pressure is not to be a jackass about them. It's anyone's right to choose the way they want to live weather it is something they born with or something that they became over time.
-Your responsibility as part of society you live in is to respect the differences weather you like them or not.
-there is no idea that worth shit to force people to believe in it.
-Bad culture and hyper religious people are making it hard enough for people to live their one and only lfe by the opinions they believe in, so please be different and rational about behaviours that will maybe ruin some peoples life
+## 1. Redux downsides
 
-If you just can do that, this is the part you can leave, but if you want to know more about something you probably will face in work, family or any other groups please consider reading the rest of this post.
+به نظر من انتخاب ریداکس به چند دلیل زیر باید با وسواس زیادی انجام بشه:
 
-## what does the term <abbr title="Lesbian, Gay, Bisexual, Transgender, ...">**LGBT**</abbr> mean ?
+### 1.1. Complexity
 
-The term LGBT technically stands for lesbian, gay, bisexual, and
-transgender. It includes both sexual orientation (LGB) and gender identity
-(T). Below, we break down a few basic terms and concepts. These are just some
-of the many terms that are used to define sexual orientation, as well as
-gender identity and expression. A word of caution: Be careful not to impose
-any of these terms onto others. Let others identify themselves in ways that
-make them feel safe and authentic to their true selves.
+Writing redux clean code is gods work, most of approaches you may have problems in their implementation and that's because redux code is complex and it doesn't worth it if it's not necessary.
 
-Let's start with basics.
+### 1.2. Too many approaches
 
-- Basics
-  - **Sex** : Genetic and physical body characteristics people are born with, labeled male or female.
-  - **Gender** : A social and cultural expression of sex; not the biological sex people are born with.
-  - **Intersex** : People who are born with reproductive or sexual anatomy that does not fit typical definitions of **male** or **female**.
-  - **Gender Identity** : An internal feeling of being male, female, or something else.
-  - **Gender Expression** : Ways of showing gender to others, such as through mannerisms, clothes, and personal interests.
-  - **Questioning** : Individuals who are unsure about their sexual orientation and/or gender identity.
-- Sexual orientation
-  - **Lesbian | Gay** : Individuals who are romantically, emotionally, and/or sexually attracted to the same sex/gender.
-  - **Bisexual** : Individuals who are romantically, emotionally, and/or sexually attracted to multiple sexes/genders.
-- Gender identity and expression
-  - **Cisgender** : Individuals whose gender identity/expressions is similar to that typically associated with their assigned sex at birth.
-  - **Transgender** : Individuals whose gender identity/expression is different from that typically associated with their assigned sex at birth. Make sure to use the correct pronouns for them (he/him for masculines and she/her for feminine ones )
-  - **Bigender** : A person who fluctuates between traditionally “male” and “female” gender-based behaviours and identities.
-  - **Agender | Non-binary | Gender Neutral** : Not having a gender or identifying with a gender. They may describe themselves as being gender neutral or genderless. the correct pronouns to refer to them is they/them as gender neutral pronouns or ze/hir as a more precise way.
-  - **Gender Fluid** : A mix of boy and girl. A person who is gender fluid may always feel like a mix of the two traditional genders, but may feel more man some days, and more woman other days.
-  - **...**
+As it is mentioned in [redux official docs](https://redux.js.org/redux-toolkit/overview#purpose)
 
-## Why is it important to respect people’s pronouns?
+> The Redux core library is deliberately unopinionated. It lets you decide how you want to handle everything, like store setup, what your state contains, and how you want to build your reducers.
 
-You can’t always know what someone’s pronouns are by looking at them. Asking and correctly using someone’s pronouns is one of the most basic ways to show your respect for their gender identity.
+This is a good thing because it gives you flexibility but that's not the point. The point here is because of that there is so many ways to implement redux so whenever you work on a project there is a strong chance you won't be able to understand what is going on in the code for a while.
+Add using different async middlewares like [redux-saga](https://redux-saga.js.org/), [redux-thunk](https://github.com/reduxjs/redux-thunk), [redux-observable](https://redux-observable.js.org/) or ...
 
-When someone is referred to with the wrong pronoun, it can make them feel disrespected, invalidated, dismissed, alienated, or dysphoric ( often all of the above.)
+### 1.3 Hard to maintain
 
-It is very important to respect peoples differences and also to know them in the way they want, not the way the others thrust to them.
+If you use redux to develop your application, even small changes in functionality require you to write excessive amounts of code. You either ought to do it or write dirty code.
 
-## Want to be an ally to these people ?
+### 1.4 Better alternatives
+DESCRIPTION
 
-Anyone, regardless of their sexual orientation and/or gender identity, can support lesbian, gay, bisexual, and transgender (LGBT) people. Deepening your understanding of LGBT-related issues, can help you support LGBT-identified people.
+
+## 2. When to use redux
+You can 
+
+
+## 3. alternatives

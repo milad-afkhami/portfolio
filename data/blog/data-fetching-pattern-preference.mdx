@@ -3,42 +3,189 @@ title: "My Data-fetching preference in next.js"
 publishedAt: "2021-11-11"
 image: "/images/blog/server-client-communication-banner.jpeg"
 readingTime: "20"
-category: "data-fetching"
+category: "next.js"
 summary: "I want to describe the way I like to implement server client communication in my next.js apps."
 ---
 
-Screw those time consuming intros, let's cut the crap and go straight to the answer.
+Front-end programming is getting more advanced every day, new solutions New solutions have entered the scene based on new needs, and we have to adapt our apps with performant solutions.
 
-When it comes to data fetching and server state management, there are so many different approaches to take. some of them are just better approaches but in some cases you gotta just pick the one you like.
+When it comes to data fetching and server state management, there are so many different approaches to choose. some of those are better than the others but in some cases you will just end up picking the one that its developer experience suits you better. TBH most of the times you have to adapt yourself and your approaches to business requirements but there will be always some right ways to choose.
+Here I want to show you the way I personally like to implement my projects data-fetching and server state management.
 
-Here I want to show you the way I like to implement my projects data-fetching and server state management.
+But first let have a quick overview about different ways of data fetching strategies in next.js apps. you can read more about those concepts [here](https://www.youtube.com/watch?v=eMwTEo6AjDc). you will need some basic react and next.js understanding to understand these concepts
 
-[Next.js](https://nextjs.org/docs/basic-features/data-fetching) has some interesting approaches, I consider that you already know what they offer.
+## Data Fetching Strategies in Next.js Apps
 
-Well tbh most of the times you have to adapt yourself and your approaches to business requirements but there will be always a right way to choose.
+### 1. Server Side Rendering ( SSR )
 
-## Data fetching strategies in next.js app
+With SSR you can generate entire page on demand for every user specifically and show a completely rendered page on first load, pretty convenient huh? not at all.
+An important point here is that you are no longer limited to client-side coding anymore as you were in react development. The decisions you make will directly affect your server performance.
+You can use SSR approach but you should strongly avoid using it until you have to do so( probably never ).
 
-### server side rendering
+- Benefits:
+  - A server-side rendered application enables pages to load faster, improving the user experience.
+  - Rendered content at first ready for search engines crawler robots which is ideal for SEO.
+  - slower <abbr title="time to first byte">TTFB</abbr>
 
-An important point that you should consider is that you are not limited to client-side coding anymore and decisions you make will directly affect your server performance.
-My point is that you can use server-side rendering but you should strongly avoid using it until you have to
+- Downsides:
+  - the site interactions are less.
+  - Slow page rendering.
+  - Full UI reloads.
+  - Frequent server requests.
+  - heavy load for server on more requests
 
-- some of the downsides of server side rendering are:
-  - Much more <abbr title="first contentful paint">FCP</abbr>
-  - So many pressure on server to render the page everytime a user visits
-  - More <abbr title="time to interactive">TTI</abbr> which isn't a good thing for end users.
-  - ...
+### 2. Client side rendering
 
-### client side rendering
+Client-side rendering is the way we coded in react projects. In this method, we fetch page needed data on client side and rendering process will take place in client's machine.
 
-A lot of programmers when the write <abbr title="server side rendering">SSR</abbr> applications, forget that they have another options to call API's which is client side data fetching.
-Most of the time you don't need to show a page full of data to end user immediately.
-Client side rendering has a faster time to first byte and only when you are dealing with SEO you have to somehow prepare content in first load. but there is no force for render other pages on server-side when you can very soon show a nice animated skeleton loading on first load and then fetch page data on client side. will it be a bad practice for SEO? ofcourse not, why should google robots give a shit about your homepage content.
+- Benefits:
+  - faster <abbr title="time to first byte">TTFB</abbr>
+  - lifting load from server and transferring it to client machine.
 
-There is only one factor that you need to clarify when to choose using client side data fetching
-`Does SEO matters for this page?`
+- Downsides:
+  - slower FCP
+  - heavier initial page load(loading framework)
+  - empty content for search engines crawler robots ( near zero SEO )
 
-Only if there is some content in this page that you have to generate serve immediately on client you should avoid using client side data fetching
-for example if this is a product page that contains useful data for crawlers, or it is a blog page, faq page and ...
-otherwise you don't have to use any kind of server side rendering and decrease a huge amount of load on your servers.
+### 3. Static Site Generation ( SSG )
+
+We already now about statically generated websites, It's not a new concept and we were using it since the beginning.
+This method lets you build your pages at build time instead of doing it on demand for every single request. But building rich web experiences wasn't something we could do easily before, tools like next.js, gatsby, nuxt, jekyll and ... introduced us better ways of building static-generated websites with more dynamic performance.
+
+- Benefits:
+  - Fast load times
+  - Rendered content at first, ready for search engines crawler robots to index which is ideal for SEO.
+
+- Downsides:
+  - builds will take longer to complete
+  - no user specific content
+  - once you build a page, there is no way to revalidate it's data
+
+### 4. Incremental Static Regeneration ( ISR )
+
+ISR is a new paradigm introduced by Next.js. It combines the advantages of SSG and SSR to build websites.
+
+- Benefits:
+  - all of SSG benefits
+  - fast <abbr title="time to first byte">TTFB</abbr> ( as most of the times we serve statically generated page )
+  - fresh content, as you can set the max stale time
+
+- Downsides:
+  - build will take longer to complete
+  - no user specific content
+  - slow <abbr title="time to first byte">TTFB</abbr> for pages that wasn't statically cached before.
+
+### 5. SSG/ISR + CSR
+
+This is my favourite, you can use ISR or SSG for building most of the important parts of a page at build time while you can get more fresh and user specific data on client side.
+For this approach, we need to separate our data to two different parts: shared between request and specific for every request. for example below you can see a payload of data for a product page of an e-commerce website
+
+<Code
+  language="json"
+  code={`{
+  product: {
+    name,
+    description,
+    id,
+    isLiked,
+    similars
+  }
+}`}
+/>
+
+`id` is something that will not change, name and description may get change sometimes, isLiked and similars is some parts of this response that will be different based on request.
+
+Best way to implement this page is to first get data at build time with help of ISR, removing it's dynamic parts( isLiked, similars ) and passing remains to page as props.
+
+<Code
+  language="javascript"
+  code={`export const getStaticProps = async ({ params }) => {
+    const result = await ProductServices.getDetail(params.slug);
+    return {
+      props: { product: result.product },
+    };
+  };
+}
+export const getStaticPaths = async ({ locales }) => {
+  const priorProducts = await ProductServices.getPriors(1000);
+  const paths = priorProducts.reduce((acc, { slug }) => {
+    locales.forEach((locale) => {
+      	acc.push({ params: { slug }, locale });
+    });
+    return acc;
+  }, []);
+  return {
+    paths,
+    fallback: false, *
+  };
+}`}
+/>
+
+\* You can do some interesting stuffs with fallback key, you can read more about it [here](https://nextjs.org/docs/api-reference/data-fetching/get-static-paths#fallback-false).
+
+On client-side I use <abbr title="Stale While Revalidate">[SWR](https://swr.vercel.app)</abbr> as a server state management tool, you can use [react-query](https://react-query.tanstack.com/installation) or any other tool that u like.
+
+<Code
+  language="javascript"
+  code={`// hooks/useProduct.js
+import { endpoints } from "@constants";
+import { useDebugValue } from "react";
+export useSWRImmutable from "swr/immutable";
+import { Http } from "@utils";
+export function useProduct(slug) {
+  const key = endpoints.product + "?slug=" + slug
+  const swr = useSWRImmutable(key, async (url) => {
+    try {
+      const response = await Http.request({ url });
+      return response;
+    } catch (err) {
+      return err;
+    }
+  });
+  useDebugValue(swr.data);
+  return swr;
+}`}
+/>
+
+<Code
+  language="javascript"
+  code={`// pages/product/[slug].js
+const router = useRouter();
+const product = useProduct(router.query.slug, { initialData: props.product });`}
+/>
+
+With this we can use `product.data` everywhere we want since we filled it at first render
+at first render some parts of product state isn't completed yet( dynamic parts ), but after all we did with ISR/SSG now we have most of our data so we can statically generate parts that are needed fo crawler robots to index our page and for end users to interact with it.
+To complete our amazing user experience, for other parts of our page we can use skeleton loading like this:
+
+<Code
+  language="jsx"
+  code={`return (
+    <>
+      <Head title={product.name} description={product.description} />
+      <ProductData {...product.data} />
+      <SimilarProducts loading={!product.data.similars} list={product.data.similars} />
+    <>
+  )`}
+/>
+
+Inside `SimilarProducts` component, we show a skeleton loading representing future UI until loading prop is true.
+
+In this method we have all the benefits of ISR and SSG without making user wait for a data that has no use for us on first render
+To prevent a flash on screen after loading data and also to make a better user experience we use skeleton loading, you can paint your own loading with svg or you can use third party packages like [react-content-loader](https://skeletonreact.com/).
+
+#### Important note
+
+Since on client-side we are calling same api we called at build time, we can lighten api response with using [GraphQL](https://graphql.org/) to just fetch parts of data that we want.
+
+## Conclusion
+
+As discussed choosing SSR blindly is no longer an option for web applications and alternative strategies with fixing issues and expanding limitations, has become more optimal ways for implementing web applications
+All the things said, now you can choose a better way to implement your pages based on your need.
+
+For pages that SEO does not matters for them, like user profile page, you need to use client side rendering( first strategy ) without hesitation, and since you are not using any SSR data fetching method here, next.js will statically generate some parts of this page like Layout, Head and ... for you
+If you have a shared api for all your pages e.g. list of all countries that you need everywhere in your app, you can mix it with 5th strategy and fetch it at build time.
+
+In cases that SEO does matters for your page you need to first distinguish different parts of your data.
+If needed data to render your page, is completely shared between different clients, you can choose between 3rd or 4th strategies based on required time for revalidation of your data.
+But if your data has dynamic parts that have different values for different users ( like isLiked and similars property in out first example of 5th strategy ), you should choose 5th strategy for your page.

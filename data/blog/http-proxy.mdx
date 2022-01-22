@@ -1,0 +1,71 @@
+---
+title: "How to write an http proxy middleware with help of serverless functions in next.js"
+publishedAt: "2021-11-11"
+image: "/images/blog/http-proxy.jpeg"
+readingTime: "20"
+category: "next.js"
+summary: ""
+---
+
+<Code 
+    language="javascript" 
+    code={`import * as HttpProxy from "http-proxy";
+import url from "url";
+import { INTERVALS, TOKEN_COOKIE_KEY } from "@constants";
+import {
+  externalApiBaseURL,
+  headerTokenKey,
+  proxyBasePath,
+  proxyBasePathRegExp,
+} from "@config";
+import * as Cookies from "cookies";
+const proxy = HttpProxy.createProxyServer();
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+};
+export default (req, res) => {
+  return new Promise((resolve, reject) => {
+    const pathname = url.parse(req.url).pathname;
+    const isAuth = pathname === proxyBasePath + "/auth/login";
+    // const isLogout = pathname === proxyBasePath + "/auth/logout";
+    const cookies = new Cookies(req, res);
+    const token = cookies.get(TOKEN_COOKIE_KEY);
+    req.url = req.url.replace(proxyBasePathRegExp, "");
+    req.headers.cookie = "";
+    if (token) req.headers[headerTokenKey] = token;
+    if (isAuth) proxy.once("proxyRes", interceptLoginResponse);
+    //  if (isLogout) { delete the token cookie }
+    proxy.once("error", reject);
+    proxy.web(req, res, {
+      target: externalApiBaseURL,
+      autoRewrite: false,
+      selfHandleResponse: isAuth,
+    });
+    function interceptLoginResponse(proxyRes, req, res) {
+      let apiResponseBody = "";
+      proxyRes.on("data", (chunk) => {
+        apiResponseBody += chunk;
+      });
+      proxyRes.on("end", () => {
+        try {
+          const response = JSON.parse(apiResponseBody);
+          const token = response?.result?.token;
+          const cookies = new Cookies(req, res);
+          cookies.set(TOKEN_COOKIE_KEY, token, {
+            maxAge: INTERVALS.A_MONTH * 1000,
+            httpOnly: true,
+            sameSite: "lax",
+          });
+          delete response?.result?.token;
+          res.status(200).json(response);
+          resolve(response);
+        } catch (err) {
+          reject(err);
+        }
+      });
+    }
+  });
+};`} 
+/>

@@ -164,7 +164,58 @@
         "title": "Favourite Movies"
       },
       "series": {
-        "title": "Favourite Series"
+        "title": "Favourite Series",
+        "the-office": {
+          "name": "The Office"
+        },
+        "the-big-bang-theory": {
+          "name": "the-big-bang-theory"
+        },
+        "friends": {
+          "name": "friends"
+        },
+        "vikings": {
+          "name": "vikings"
+        },
+        "mind-hunter": {
+          "name": "mind-hunter"
+        },
+        "avatar-the-last-airbender": {
+          "name": "avatar-the-last-airbender"
+        },
+        "the-leng-of-korra": {
+          "name": "the-lengend-of-korra"
+        },
+        "rick-and-morty": {
+          "name": "rick-and-morty"
+        },
+        "scenes-from-a-marriage": {
+          "name": "scenes-from-a-marriage"
+        },
+        "true-detective": {
+          "name": "true-detective"
+        },
+        "its-always-aunny-in-philadelphia": {
+          "name": "its-always-aunny-in-philadelphia"
+        },
+        "boJack-horseman": {
+          "name": "boJack-horseman"
+        },
+        "family-guy": {
+          "name": "family-guy"
+        },
+        "fleabag": {
+          "name": "fleabag"
+        },
+        "shameless": {
+          "name": "shameless"
+        },
+        "big-little-lies": {
+          "name": "big-little-lies"
+        },
+        "horace-and-pete": {
+          "name": "horace-and-pete"
+        }
       },
       "anime": {
         "title": "Favourite Anime"
@@ -177,7 +228,9 @@
       "title": "Blog",
       "category": {
         "styling": "Styling",
-        "awareness": "Awareness"
+        "awareness": "Awareness",
+        "react": "React",
+        "next.js": "Next.js"
       },
       "notFound": "Blog Not Found!",
       "meta": {
