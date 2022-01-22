@@ -5,7 +5,8 @@ import { initReactI18next } from "react-i18next";
 import { fr, en, de } from "./locales";
 
 const options = {
-  debug: isDevelopment,
+  // debug: isDevelopment,
+  debug: false,
 
   lng: "en",
 
