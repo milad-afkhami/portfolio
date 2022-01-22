@@ -413,7 +413,38 @@ export const favouriteMovies = [
   "toy-story",
 ];
 
-export const favouriteAnime = ["spirited-away", "princess-mononoke"];
+export const favouriteSeries = [
+  "the-office",
+  "the-big-bang-theory",
+  "friends",
+  "vikings",
+  "mind-hunter",
+  "avatar-the-last-airbender",
+  "the-leng-of-korra",
+  "rick-and-morty",
+  "scenes-from-a-marriage",
+  "true-detective",
+  "its-always-aunny-in-philadelphia",
+  "boJack-horseman",
+  "family-guy",
+  "fleabag",
+  "shameless",
+  "big-little-lies",
+  "horace-and-pete",
+];
+
+export const favouriteAnime = [
+  "spirited-away",
+  "princess-mononoke",
+  "fullmetal-alchemist-brotherhood",
+  "death-note",
+  "attack-on-titan",
+  "ghost-in-the-shell",
+  "hunter-x-hunter",
+  "steins-gate",
+  "berserk",
+  "demon-slayer",
+];
 
 export const favourites = {
   [FAVOURITE_TYPES.SONG.ARTISTS]: favouriteArtists,
