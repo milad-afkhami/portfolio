@@ -16,5 +16,5 @@ export const grid = (
   ...(rowGap ? { rowGap: spacings[rowGap] || rowGap } : {}),
   ...(autoFlow ? { gridAutoFlow: autoFlow } : {}),
   ...(align ? { alignContent: align } : {}),
-  ...(justify ? { justifyContent: justify } : {}),
+  ...(justify ? { justifyItems: justify } : {}),
 });
