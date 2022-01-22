@@ -1,4 +1,3 @@
-import { STATIC } from "@constants";
 import { imp } from "@stylesheets";
 
 export const enhanceStringPrototype = () => {
@@ -12,9 +11,5 @@ export const enhanceStringPrototype = () => {
 
   String.prototype.unImp = function () {
     return this.replace("".imp(), "");
-  };
-
-  String.prototype.static = function () {
-    return `${STATIC}(${this})`;
   };
 };
