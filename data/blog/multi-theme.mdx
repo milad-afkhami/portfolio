@@ -1,0 +1,194 @@
+---
+title: "How to create a multi theme application"
+publishedAt: "2021-11-11"
+image: "/images/blog/multi-theme-2.png"
+readingTime: "20"
+category: "styling"
+summary: "What is the best way to implement a multi theme application using best practices?"
+---
+
+In this blog I want to describe how I handle my projects theming. Weather it is multi theme or not, I like to keep things organized.
+A clear example of it is my portfolio that is open source and you can check it out [here](https://github.com/miladMAPS/portfolio)
+
+### 1. next-themes configs
+
+I use [next-themes](https://github.com/pacocoursey/next-themes) to handle theme attribute and cross tab theme changes,
+It requires us to wrap our app with a `ThemeProvider` like this:
+
+<Code
+  language="jsx"
+  code={`// _app.js
+import { ThemeProvider } from "next-themes";
+import __values from "lodash/values";
+import { THEMES, defaultTheme, GlobalColors } from "@stylesheets";
+// ...
+function MyApp({ ... }) {
+  // ...
+  return (
+    <ThemeProvider 
+      themes={__values(THEMES)}
+      defaultTheme={defaultTheme}
+      enableSystem={false}
+    >
+      <GlobalColors /> // *
+      ...
+    </ThemeProvider>
+  );
+}
+`}
+/>
+<small>
+  * We'll see what <strong>GlobalColors</strong> component does later.
+</small>
+
+<br />
+<br />
+
+### 2. Defining Color constructor function
+
+We need a constructor function to generate every color variants.
+
+<Code
+  language="javascript"
+  code={`// models/Color.js
+export function Color(main, hover, light, lighter, dark, pale, paler, variant) {
+  this.main = main;
+  this.hover = hover;
+  this.light = light;
+  this.lighter = lighter;
+  this.dark = dark;
+  this.pale = pale;
+  this.paler = paler;
+  this.variant = variant;
+}`}
+/>
+
+<br />
+<br />
+
+### 3. Defining color variants
+
+We define our color variants in a file named themes.js, I recommend defining it in stylesheets/themes.js destination.
+
+<Code
+  language="javascript"
+  code={`export const THEMES = {
+  DARK: "DARK",
+  LIGHT: "LIGHT",
+};
+\ 
+export const defaultTheme = THEMES.LIGHT;
+\ 
+export const themes = {
+  [THEMES.LIGHT]: {
+    brand: new Color("BRAND[-MAIN]", "BRAND-HOVER", "BRAND-LIGHT", "BRAND-LIGHTER", "BRAND-DARK", "BRAND-PALE", "BRAND-PALER", "BRAND-VARIANT"),
+    bg: {
+      primary: new Color("BG_PRIMARY[-MAIN]", "BG_PRIMARY-HOVER", "BG_PRIMARY-LIGHT", "BG_PRIMARY-LIGHTER", "BG_PRIMARY-DARK", "BG_PRIMARY-PALE", "BG_PRIMARY-PALER", "BG_PRIMARY-VARIANT"),
+      secondary: new Color("#232228", "#1C1B20", "", "", "", "#232228B2", "#23222866", ""),
+      tertiary: new Color(...),
+      disabled: new Color(...),
+    },
+    text: {
+      primary: new Color(...),
+      secondary: new Color(...),
+      tertiary: new Color(...),
+      disabled: new Color(...),
+    },
+    assistive: {
+      success: new Color(...),
+      error: new Color(...),
+      info: new Color(...),
+      warning: new Color(...),
+    },
+    border: {
+      dark: new Color(...),
+      light: new Color(...),
+    },
+  },
+  [THEMES.DARK]: {
+    // ...
+  },
+  [THEMES.OCEAN]: {
+    // ...
+  }
+};
+`}
+/>
+
+<small>
+  You can generate your color pallette variants with help of this{" "}
+  <a href="http://mcg.mbitson.com/">website</a>.
+</small>
+
+<br />
+<br />
+
+#### 4. Adding color variants to global stylesheets.
+
+After that we need to add those colors as global variables to use them everywhere.
+we do it with createGlobalStyle method from styled-components.
+
+<Code
+  language="javascript"
+  code={`import { createGlobalStyle } from "styled-components";
+import __reduce from "lodash/reduce";
+import __values from "lodash/values";
+\ 
+const prepareColorVars = (name, variants) => // *
+  variants instanceof Color
+    ? produceColorTypes(name, ...__values(variants))
+    : __reduce(
+        variants,
+        (acc, cv, key) => ({
+          ...acc,
+          ...prepareColorVars((name ? name + "-" : "") + key, cv),
+        }),
+        {}
+      );
+\ 
+export const GlobalColors = createGlobalStyle((props) => {  // **
+  return __reduce(
+    themes,
+    (acc, cv, key) => {
+      const themeColors = prepareColorVars("color", cv);
+      const scope = key === defaultTheme ? ":root" : ":root[data-theme='" + key + "}']";
+      return { ...acc, [scope]: themeColors };
+    },
+    {}
+  )});
+\ 
+const types = [ "", "-hover", "-light", "-lighter", "-dark", "-pale", "-paler", "-variant" ];
+//  producing css variables from different types of a single color
+function produceColorTypes(name, ...colors) {
+  return (colors || []).reduce((acc, cv, i) => {
+    if (cv) acc["--" + name + types[i]] = cv;
+    return acc;
+  }, {});
+}`}
+/>
+
+<small>
+  * Don't panic this complex objects are well tested, just copy and paste them
+  and you will be okay.
+</small>
+<br />
+<small>
+  ** We import <strong>GlobalColors</strong> component into our most top level
+  component.
+</small>
+
+<br />
+<br />
+
+### 5. Usage
+
+After doing all the hard work, we will be able to access those variables in our stylesheets
+from everywhere like this:
+
+<Code
+  language="css"
+  code={`.card {
+   background-color: var(--color-bg-secondary-hover);
+   color: var(--color-text-primary-dark);
+ }`}
+/>

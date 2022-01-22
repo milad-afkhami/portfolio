@@ -59,7 +59,19 @@ export const BlogCard = (props) => {
         <Div flex={["start", "between", "column"]} height="100%">
           <Div>
             <Div mb="2">
-              <Text size="lg-b" lineHeight="1.5">
+              <Text
+                tag="p"
+                size="lg-b"
+                lineHeight="1.5"
+                truncate
+                css={{
+                  whiteSpace: "pre-wrap",
+                  display: "-webkit-box",
+                  WebkitLineClamp: 3,
+                  lineClamp: 3,
+                  WebkitBoxOrient: "vertical",
+                }}
+              >
                 {title}
               </Text>
             </Div>
