@@ -79,8 +79,8 @@ export const Image: ComponentType<Props> = ({
               cursor="zoom-out"
             >
               <Div
-                height="min(600px, 80vmin)"
-                width="min(600px, 80vmin)"
+                height="min(1000px, 80vmin)"
+                width="min(1000px, 80vmin)"
                 position="relative"
                 cursor="default"
                 opacity="1"
@@ -92,6 +92,7 @@ export const Image: ComponentType<Props> = ({
                     onClick={toggleMaximized}
                     quality={100}
                     layout="fill"
+                    fit="contain"
                     priority
                     src={src}
                     withShimmer
