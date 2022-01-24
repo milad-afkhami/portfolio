@@ -16,7 +16,7 @@ export const ProjectsList = (props) => {
 
   return (
     <Div my="3" {...rest}>
-      <PageTitle title="projects.title" />
+      <PageTitle title="projects.title" tag="h2" />
       {items?.length ? (
         <Div
           grid={["repeat(1, 1fr)", , "1rem", "1rem"]}
