@@ -2,7 +2,7 @@ import React from "react";
 import { Div, Text } from "@kits";
 
 export const PageTitle = (props) => {
-  const { title } = props || {};
+  const { title, tag } = props || {};
 
   return (
     <Div mb="4">
@@ -12,7 +12,7 @@ export const PageTitle = (props) => {
         border="border-light"
         borderSide="bottom"
       >
-        <Text size="h-md-b" as="h1">
+        <Text size="h-md-b" as={tag || "h1"}>
           {title}
         </Text>
       </Div>
