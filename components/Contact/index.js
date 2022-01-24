@@ -24,7 +24,7 @@ export function Contact(props) {
 
   return (
     <Div>
-      <PageTitle title="contact.title" />
+      <PageTitle title="contact.title" tag="h2" />
       <Div
         mt="4"
         grid={[`repeat(${Math.ceil(options.length / 2)}, 1fr)`, , "3", "4"]}
