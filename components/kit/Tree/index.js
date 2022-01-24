@@ -1,3 +1,4 @@
+import { Text } from "@kits";
 import React from "react";
 import { TreeWrapper } from "./Wrapper";
 
@@ -26,9 +27,9 @@ export const Tree = (props) => {
             } hidden-scrollbar`}
             open={defaultOpen}
           >
-            <summary className="tree-nav__item-title">
+            <Text tag="summary" className="tree-nav__item-title">
               {typeof branch === "string" ? branch : branch.title}
-            </summary>
+            </Text>
             {branch?.[branchesAccessor]?.length ? (
               <Tree
                 branches={branch[branchesAccessor]}

@@ -7,7 +7,6 @@ export const TreeWrapper = styled.div`
     overflow-y: hidden;
   }
   .tree-nav__item details {
-    /* overflow-x: unset; */
     width: fit-content;
 
     overflow: inherit;
@@ -37,14 +36,12 @@ export const TreeWrapper = styled.div`
     left: 0.8rem;
     top: 2rem;
     height: calc(100% - 2rem);
-    /*  */
     left: 0;
     top: 3rem;
     height: calc(100% - 4rem);
   }
   .tree-nav__item .tree-nav__item {
     padding-left: 1rem;
-    /* .tree-nav__item-title { background: var(--color-bg-secondary-paler); } */
   }
   .tree-nav__item.is-expandable[open] > .tree-nav__item-title::before {
     transform: rotate(90deg);
@@ -56,7 +53,7 @@ export const TreeWrapper = styled.div`
   .tree-nav__item.is-expandable > .tree-nav__item-title::before {
     position: absolute;
     will-change: transform;
-    transition: transform 300ms ease;
+    transition: var(--pace-fast) ease;
     font-family: "auto";
     color: var(--color-text-primary);
     font-size: var(--font-size-lg);
@@ -81,13 +78,15 @@ export const TreeWrapper = styled.div`
     outline: 0;
     color: var(--color-text-primary);
     line-height: 2.5rem;
-    /* padding-left: 2rem; */
   }
   .is-expandable > .tree-nav__item-title {
     cursor: pointer;
-    transition: color 0.1s;
+    transition: color var(--pace-x-fast);
     :hover {
       color: var(--color-text-secondary);
+      :before {
+        color: var(--color-text-secondary);
+      }
     }
   }
   .tree-nav__item-title::-webkit-details-marker {
@@ -95,10 +94,6 @@ export const TreeWrapper = styled.div`
   }
 
   @media ${mediaFeatures.sm} {
-    /* margin: 0 1rem; */
-
-    /* .tree-nav__item .tree-nav__item .tree-nav__item-title { background: none; } */
-
     .tree-nav__item .tree-nav__item {
       padding-left: 1.5rem;
     }
