@@ -1,14 +1,14 @@
 import React from "react";
-import { Div, Text } from "@kits";
+import { Div } from "@kits";
 import { FavouritePlaylist } from "./Item";
-import { favouritePlaylists } from "mock";
+import { favouritePlaylistsData } from "@data";
 
 export const FavouritePlaylists = (props) => {
   const {} = props || {};
 
   return (
     <Div>
-      {favouritePlaylists.map((pl) => (
+      {favouritePlaylistsData.map((pl) => (
         <FavouritePlaylist {...pl} />
       ))}
     </Div>

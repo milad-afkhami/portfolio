@@ -2,7 +2,6 @@ import React from "react";
 import { Div } from "@kits";
 import { Head } from "@components/SEO";
 import { FavouriteSeries } from "@components/Favourites";
-import { favouriteSeries } from "mock";
 import { PageTitle } from "@components/Layout";
 
 const FavouriteSeriesPage = (props) => {

@@ -1,8 +1,7 @@
 import React from "react";
-import { Div, Link, Text } from "@kits";
+import { Div } from "@kits";
 import { Head } from "@components/SEO";
-import { FavouriteEntities, FavouriteEntityCard } from "@components/Favourites";
-import { FAVOURITE_TYPES } from "@constants";
+import { FavouriteEntities } from "@components/Favourites";
 
 const FavouritesPage = (props) => {
   return (
