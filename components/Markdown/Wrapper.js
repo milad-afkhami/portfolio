@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 export const MarkdownWrapper = styled.div`
   font-size: var(--font-size-lg);
+  font-weight: 300;
 
   & a {
     color: var(--color-brand);
