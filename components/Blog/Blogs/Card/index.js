@@ -45,6 +45,7 @@ export const BlogCard = (props) => {
             placeholder="blur"
             blurDataURL={image}
             layout="fill"
+            quality={20}
             fit="cover"
           />
         )}
