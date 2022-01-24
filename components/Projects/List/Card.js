@@ -36,6 +36,7 @@ export const ProjectCard = (props) => {
             src={logo}
             placeholder="blur"
             blurDataURL={logo}
+            quality={20}
             layout="fill"
             fit="contain"
           />
