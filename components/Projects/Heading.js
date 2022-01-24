@@ -2,7 +2,7 @@ import React from "react";
 import { Div, Image, Link, Text } from "@kits";
 
 export const ProjectHeading = (props) => {
-  const { logo, name, link = "", index } = props || {};
+  const { logo, link = "", slug, index } = props || {};
 
   return (
     <Div
@@ -16,7 +16,7 @@ export const ProjectHeading = (props) => {
         <Text size="h-lg-b">{`${index}.`}</Text>
         <Div mx="2">
           <Text size="h-md-b" as="h2">
-            {name}
+            {`projects.${slug}.name`}
           </Text>
         </Div>
         <Div flex={["center", "center"]} curve="circle" overflow="hidden">

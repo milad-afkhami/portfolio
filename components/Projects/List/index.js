@@ -12,7 +12,14 @@ export const ProjectsList = (props) => {
 
   const projects =
     projectsData[router.locale] || projectsData[router.defaultLocale];
-  const items = [projects[0], projects[1], projects[4]];
+  const items = [
+    projects[0],
+    projects[1],
+    projects[4],
+    projects[2],
+    projects[3],
+    projects[5],
+  ];
 
   return (
     <Div my="3" {...rest}>

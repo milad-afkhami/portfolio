@@ -37,7 +37,7 @@ export const ProjectGallery = (props) => {
       <Div
         grid={[
           ,
-          `repeat(${medias?.length <= 10 ? 1 : 2}, 1fr)`,
+          `repeat(${medias?.length < 12 ? 1 : 2}, 1fr)`,
           "2",
           "2",
           "column",
@@ -47,6 +47,8 @@ export const ProjectGallery = (props) => {
         responsive={{ sm: { css: { gap: "var(--spacing-3)" } } }}
         overflowX="auto"
         pb="3"
+        width="fit-content"
+        Mw="100%"
       >
         {medias.map((media, index) => (
           <Div
@@ -96,18 +98,18 @@ export const ProjectGallery = (props) => {
                         dimensions={{ left: 0, bottom: 0 }}
                         width="100%"
                         mh="1.5rem"
-                        py="4"
-                        px="3"
-                        flex={["center", "end"]}
+                        p="3"
+                        flex={["center", "start"]}
+                        bg="bg-secondary-paler"
                       >
-                        <FooterCaption {...props} />
                         <FooterCount {...props} />
+                        <FooterCaption {...props} />
                       </Div>
                     );
                   },
                   FooterCaption: ({ currentView: { caption } }) => (
                     <Div mx="2" flex={["center", "start"]}>
-                      <Text size="md" color="assistive-warning">
+                      <Text tag="p" size="lg-b" color="assistive-warning">
                         {caption}
                       </Text>
                     </Div>

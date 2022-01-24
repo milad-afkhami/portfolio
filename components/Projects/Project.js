@@ -1,30 +1,19 @@
 import React from "react";
 import { Div } from "@kits";
-import { ProjectGallery } from "./Gallery";
-import { ProjectPoints } from "./Points";
 import { ProjectHeading } from "./Heading";
 import { ProjectDescription } from "./Description";
+import { ProjectTechs } from "./Techs";
+import { ProjectGallery } from "./Gallery";
+import { ProjectPoints } from "./Points";
 
 export const Project = (props) => {
-  const {
-    _id,
-    name,
-    link = "",
-    medias,
-    date,
-    slug,
-    techs,
-    description,
-    points,
-    index,
-  } = props || {};
-
   return (
-    <Div mb="6" id={`project-${slug}`}>
+    <Div mb="6" id={`project-${props.slug}`}>
       <ProjectHeading {...props} />
-      <ProjectDescription description={description} />
-      {medias && <ProjectGallery medias={medias} />}
-      {points && <ProjectPoints points={points} />}
+      <ProjectDescription {...props} />
+      <ProjectTechs {...props} />
+      {props.medias && <ProjectGallery medias={props.medias} />}
+      {props.points && <ProjectPoints points={props.points} />}
     </Div>
   );
 };

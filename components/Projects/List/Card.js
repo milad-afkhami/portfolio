@@ -1,10 +1,8 @@
 import React from "react";
 import { Div, Image, Link, Text } from "@kits";
-import { projectsData } from "mock";
-import { useRouter } from "@hooks";
 
 export const ProjectCard = (props) => {
-  const { name, description, logo, medias, date, slug } = props || {};
+  const { logo, slug } = props || {};
 
   const height = 120;
 
@@ -47,7 +45,7 @@ export const ProjectCard = (props) => {
         <Div flex={["start", "start", "column"]} height="100%">
           <Div mb="2" height="1.5rem">
             <Text size="lg-b" css={{ textTransform: "uppercase" }}>
-              {name}
+              {`projects.${slug}.name`}
             </Text>
           </Div>
           <Div height="calc(100% - 2rem)">
@@ -61,7 +59,7 @@ export const ProjectCard = (props) => {
                 overflow: "hidden",
               }}
             >
-              {description}
+              {`projects.${slug}.description`}
             </Text>
           </Div>
         </Div>
