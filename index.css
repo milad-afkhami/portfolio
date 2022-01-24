@@ -12,6 +12,7 @@
   --overlay-z-index: 10000;
 
   --text-line-height: 1.7;
+  --text-letter-spacing: 1px;
 }
 .thin-scrollbar {
   --scrollbar-width: 2px;
@@ -182,6 +183,7 @@ body {
   font-size: var(--font-size-md);
   font-weight: var(--font-weight-md);
   line-height: var(--text-line-height);
+  letter-spacing: var(--text-letter-spacing);
   color: var(--color-text-primary);
   background-color: var(--color-bg-primary);
 }
