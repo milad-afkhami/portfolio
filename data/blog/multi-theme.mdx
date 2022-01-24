@@ -8,12 +8,12 @@ summary: "What is the best way to implement a multi theme application using best
 ---
 
 In this blog I want to describe how I handle my projects theming. Weather it is multi theme or not, I like to keep things organized.
-A clear example of it is my portfolio that is open source and you can check it out [here](https://github.com/miladMAPS/portfolio)
+A clear example of it is my portfolio that is open source and you can check it out [here](https://github.com/miladMAPS/portfolio).
 
-### 1. next-themes configs
+## 1. next-themes configs
 
 I use [next-themes](https://github.com/pacocoursey/next-themes) to handle theme attribute and cross tab theme changes,
-It requires us to wrap our app with a `ThemeProvider` like this:
+It requires us to wrap our app with a **ThemeProvider** like this:
 
 <Code
   language="jsx"
@@ -44,14 +44,14 @@ function MyApp({ ... }) {
 <br />
 <br />
 
-### 2. Defining Color constructor function
+## 2. Defining Color constructor function
 
 We need a constructor function to generate every color variants.
 
 <Code
   language="javascript"
   code={`// models/Color.js
-export function Color(main, hover, light, lighter, dark, pale, paler, variant) {
+export function Color(main, hover, light, lighter, dark, pale, paler, variant) { // *
   this.main = main;
   this.hover = hover;
   this.light = light;
@@ -62,11 +62,17 @@ export function Color(main, hover, light, lighter, dark, pale, paler, variant) {
   this.variant = variant;
 }`}
 />
-
+<small>
+  * You can pass any{" "}
+  <a href="https://www.w3schools.com/cssref/css_colors_legal.asp">
+    valid css color variable
+  </a>{" "}
+  to Color constructor.
+</small>
 <br />
 <br />
 
-### 3. Defining color variants
+## 3. Defining color variants
 
 We define our color variants in a file named themes.js, I recommend defining it in stylesheets/themes.js destination.
 
@@ -84,7 +90,7 @@ export const themes = {
     brand: new Color("BRAND[-MAIN]", "BRAND-HOVER", "BRAND-LIGHT", "BRAND-LIGHTER", "BRAND-DARK", "BRAND-PALE", "BRAND-PALER", "BRAND-VARIANT"),
     bg: {
       primary: new Color("BG_PRIMARY[-MAIN]", "BG_PRIMARY-HOVER", "BG_PRIMARY-LIGHT", "BG_PRIMARY-LIGHTER", "BG_PRIMARY-DARK", "BG_PRIMARY-PALE", "BG_PRIMARY-PALER", "BG_PRIMARY-VARIANT"),
-      secondary: new Color("#232228", "#1C1B20", "", "", "", "#232228B2", "#23222866", ""),
+      secondary: new Color("#EBEBEB", "#e1e1e1", "", "", "", "#EBEBEB87"),
       tertiary: new Color(...),
       disabled: new Color(...),
     },
@@ -123,9 +129,9 @@ export const themes = {
 <br />
 <br />
 
-#### 4. Adding color variants to global stylesheets.
+## 4. Adding color variants to global stylesheets.
 
-After that we need to add those colors as global variables to use them everywhere.
+After that we need to add those colors as global css variables to use them everywhere.
 we do it with createGlobalStyle method from styled-components.
 
 <Code
@@ -180,7 +186,7 @@ function produceColorTypes(name, ...colors) {
 <br />
 <br />
 
-### 5. Usage
+## 5. Usage
 
 After doing all the hard work, we will be able to access those variables in our stylesheets
 from everywhere like this:

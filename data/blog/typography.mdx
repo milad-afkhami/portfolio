@@ -1,0 +1,165 @@
+---
+title: "Defining global typography"
+publishedAt: "2021-11-11"
+image: "/images/blog/typography.png"
+readingTime: "20"
+category: "styling"
+summary: "How to implement global typography and responsive text sizes?"
+---
+
+In this blog I want to describe how I handle my projects typography.
+A clear example of it is my portfolio that is open source and you can check it out [here](https://github.com/miladMAPS/portfolio).
+
+## Why to use a global typography?
+
+Using global typography for text sizes for texts, increases readability and maintainability of code and helps you to design as clearly and efficiently as possible.
+
+- Benefits
+  - increasing maintainability
+    - we can easily change scale of our fonts at any time
+  - increasing code readability
+  - ability to have multiple typography for different screen dimensions
+  - ...
+
+## Implementing
+
+### 1. Defining Breakpoints
+
+First we need to set our breakpoint configs
+
+<Code
+  language="javascript"
+  code={`const breakpoints = { 
+  xs: 414, 
+  sm: 576, 
+  md: 768, 
+  lg: 992, 
+  xl: 1200 
+};`}
+/>
+
+### 2. Defining typography variants
+
+Then we need to define our typography variant in different breakpoints.
+In the below example the key default will be our typography in screens with max-size of **breakpoints.lg**
+
+<Code
+  language="javascript"
+  code={`const typographyVariants = {
+  default: {
+    "h-lg": { fontSize: 24, fontWeight: "normal" },
+    "h-lg-b": { fontSize: 24, fontWeight: "bold" },
+    "h-md": { fontSize: 20, fontWeight: "normal" },
+    "h-md-b": { fontSize: 20, fontWeight: "bold" },
+    "h-sm": { fontSize: 18, fontWeight: "normal" },
+    "h-sm-b": { fontSize: 18, fontWeight: "bold" },
+    lg: { fontSize: 16, fontWeight: "normal" },
+    "lg-b": { fontSize: 16, fontWeight: "bold" },
+    md: { fontSize: 13, fontWeight: "normal" },
+    "md-b": { fontSize: 13, fontWeight: "bold" },
+    sm: { fontSize: 11, fontWeight: "normal" },
+    "sm-b": { fontSize: 11, fontWeight: "bold" },
+    xsm: { fontSize: 10, fontWeight: "normal" },
+    "xsm-b": { fontSize: 10, fontWeight: "bold" },
+    xxsm: { fontSize: 9, fontWeight: "normal" },
+    "xxsm-b": { fontSize: 9, fontWeight: "bold" },
+  },
+  [breakpoints.lg]: {
+    // ...
+  }
+};`}
+/>
+
+### 3. Adding values as CSS variables.
+
+After that we need to add those typography variants as global CSS variables to use them everywhere.
+we do it with createGlobalStyle method from styled-components.
+
+This adds default typography variant variables under **:root** and adds other variants under corresponding media queries to override defaults.
+
+<Code
+  language="javascript"
+  code={`// adding values as CSS variables like : var(--font-size-sm) and var(--font-weight-sm)
+import { createGlobalStyle } from "styled-components";
+import { typographyVariants } from "@stylesheets";
+import __reduce from "lodash/reduce";
+\ 
+export const GlobalTypographies = createGlobalStyle((props) => {
+  return __reduce(
+    typographyVariants,
+    (accumulatedStyles, typography, breakpoint) => {
+      const variables = {
+        ":root": __reduce(
+          typography,
+          (acc, { fontSize, fontWeight }, key) => ({
+            ...acc,
+            ['--font-size-' + key]: fontSize,
+            ['--font-weight-' + key]: String(fontWeight),
+          }),
+          {}
+        ),
+      };
+      return {
+        ...(breakpoint === "default"
+          ? variables
+          : { ["@media (min-width:" + breakpoint + "px)"]: variables }),
+        ...accumulatedStyles,
+      };
+    },
+    {}
+  );
+});`}
+/>
+<small>
+  ** We need to import <strong>GlobalColors</strong> component into our most top
+  level component like _app.js.
+</small>
+
+<br />
+<br />
+
+### 4. Usage
+
+After doing all the hard work, we will be able to access those variables in our stylesheets
+from everywhere like this:
+
+<Code
+  language="css"
+  code={`.text {
+   font-size: var(--font-size-sm);
+   font-weight: var(--font-weight-sm);
+ }`}
+/>
+
+## Want A less verbose approach ?
+
+If you want a less verbose approach you have some solutions
+
+### 1. HOC component
+
+Create a Text component like what I described [here](https://portfolio-mili.vercel.app/gists/Text).
+
+### 2. CSS classes
+
+Create css classes in your stylesheets and use those classes in your markup to style texts.
+
+<Code
+  language="css"
+  code={`/* ... */
+.tpg--sm {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-sm);
+}
+.tpg--sm-b {
+  font-size: var(--font-size-sm-b);
+  font-weight: var(--font-weight-sm-b);
+}
+/* ... */`}
+/>
+<small>
+  ** If you find it hard to write it for all of typography keys you need to
+  automate it like what we did in previous section (3. Adding values as CSS
+  variables.)
+</small>
+
+###

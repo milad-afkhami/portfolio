@@ -23,6 +23,7 @@ export const BlogBanner = (props) => {
         placeholder="blur"
         blurDataURL={banner}
         priority
+        maximizable
       />
     </Div>
   );
