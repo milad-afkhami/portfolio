@@ -15,19 +15,16 @@
       "@models/*": ["./models/*"],
       "@services": ["./services/index"],
       "@constants": ["./constants/index"],
-      "@constants/*": ["./constants/*"],
       "@stylesheets": ["./stylesheets/index"],
       "@stylesheets/*": ["./stylesheets/*"],
       "@helpers": ["./helpers/index"],
-      "@helpers/*": ["./helpers/*"],
       "@localReducers": ["./localReducers/index"],
       "@hooks": ["./hooks/index"],
       "@i18n": ["./i18n/index"],
       "@config": ["./config"],
       "@contexts/*": ["./contexts/*"],
-      "@contexts/Audio": ["./contexts/Audio/index"],
-      "@contexts/ArtActions": ["./contexts/ArtActions/index"],
-      "@images": ["./public/images/index"]
+      "@images": ["./public/images/index"],
+      "@data": ["./data/index"]
     }
   },
   "exclude": ["node_modules", "dist", ".next"]
