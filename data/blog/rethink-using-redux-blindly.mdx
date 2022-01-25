@@ -63,6 +63,8 @@ There are some alternatives to redux. any of them have their own downsides and b
 
 ### 3.1 Context API
 
+You probably already know about Context API, on first glance it looks like a great first party way to handle server state management but it is not. It wasn't meant to be like that but with combination to react hooks, we can use it as a global state managing tool.
+The biggest reason it shouldn't be your first option is that it doesn't use smart memoization and a trigger in it's state will update entire components tree. even though there is some
 Using context API helps you manage server and UI states ...
 
 ### 3.2 MobX
