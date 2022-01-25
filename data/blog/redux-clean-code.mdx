@@ -1,13 +1,13 @@
 ---
-title: "Why Do You Need to Rethink About Using Redux Blindly"
+title: "How to Write DRY Redux Code"
 publishedAt: "2021-11-11"
-image: "/images/blog/redux-rethink.png"
+image: "/images/blog/redux.png"
 readingTime: "20"
 category: "react"
 summary: "In this post I want to talk about why I dropped using redux in most of my projects and what did I do instead."
 ---
 
-If you have worked on some react based projects, you know that most of people are using **redux** for handling server state management or even UI and form state management.
+If you have worked on some react based projects, you know that most of people are using **redux** for handling server state management or even UI state management.
 This is so common that using it is like a decisive convention and developers don't consider alternatives solutions.
 
 ## 1. Redux downsides
@@ -52,21 +52,8 @@ If you don't trust me lets take a look at [redux docs](https://redux.js.org/faq/
 >
 > - You need to see how that state is being updated over time
 
-- Are so many of your states needed in more than one places in your app?
-- Does these states changes frequently?
-
-If your answer to all those questions is yes, you can use redux, see [how to write redux clean code](https://portfolio-mili.vercel.app/blog/redux-clean-code), but otherwise I can't see a reason why.
+Are so many of your states needed in more than one places in your app?
+Does these states changes frequently?
+If your answer to all these questions is yes, you can use redux, see [how to write redux clean code]() but otherwise I can't see a reason why.
 
 ## 3. alternatives
-
-There are some alternatives to redux. any of them have their own downsides and benefits we will discuss about.
-
-### 3.1 Context API
-
-Using context API helps you manage server and UI states ...
-
-### 3.2 MobX
-
-### 3.3 SWR || React query
-
-### 3.4
