@@ -22,6 +22,7 @@ export const BlogBanner = (props) => {
         fit="cover"
         placeholder="blur"
         blurDataURL={banner}
+        quality={100}
         priority
         maximizable
       />

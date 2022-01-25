@@ -28,4 +28,22 @@ export const MarkdownWrapper = styled.div`
       margin-bottom: 0.5rem;
     }
   }
+
+  blockquote {
+    background: var(--color-bg-secondary);
+    border-left: 10px solid var(--color-border-dark);
+    margin: 1.5em 0 1.5rem 1rem;
+    padding: 1rem;
+  }
+  /* blockquote:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+  } */
+  blockquote p {
+    display: inline;
+  }
 `;
