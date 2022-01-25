@@ -10,7 +10,6 @@ import { DefaultSeo } from "@components/SEO";
 import { enhanceStringPrototype, LanguageHelper } from "@helpers";
 import { useEffect, useTranslation } from "@hooks";
 import { ToastContainer, Slide } from "react-toastify";
-import "@material/react-text-field/dist/text-field.css";
 import "react-toastify/dist/ReactToastify.min.css";
 import { SWRConfig } from "swr";
 

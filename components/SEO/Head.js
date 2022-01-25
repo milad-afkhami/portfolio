@@ -3,10 +3,6 @@ import { appBaseURL } from "@config";
 import { NextSeo, NextSeoProps } from "@components/SEO";
 import { useRouter, useTranslation } from "@hooks";
 
-interface Props extends NextSeoProps {
-  keywords: String;
-}
-
 export const Head = ({
   canonical = "",
   keywords = "",

@@ -1,8 +1,6 @@
 import { useEffect, useRef } from "@hooks";
 
-interface A extends HTMLElementEventMap {}
-
-export function useEventListener(eventName: A, handler, element = window) {
+export function useEventListener(eventName, handler, element = window) {
   const handlerRef = useRef();
 
   useEffect(() => {

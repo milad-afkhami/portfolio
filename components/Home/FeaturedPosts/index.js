@@ -1,8 +1,6 @@
 import React from "react";
-import { Div, Link, Text } from "@kits";
-import { Blogs, FeaturedPostCard } from "@components/Blog";
-import { blogs } from "mock";
-import { useBlogs } from "@hooks";
+import { Div } from "@kits";
+import { Blogs } from "@components/Blog";
 import { ORIENTATION } from "@constants";
 
 export const FeaturedPosts = (props) => {

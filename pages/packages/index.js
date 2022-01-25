@@ -13,7 +13,3 @@ export default function PackagesPage(props) {
     </>
   );
 }
-
-export async function getStaticProps() {
-  return { props: { packages: [] } };
-}

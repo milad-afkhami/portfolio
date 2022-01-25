@@ -1,4 +1,3 @@
-import useSWR from "swr";
 import { endpoints } from "@constants";
 import { useDebugValue, useSWRImmutable } from "@hooks";
 import { Http } from "@utils";

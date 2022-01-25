@@ -1,9 +1,6 @@
 import React from "react";
-import { useHome } from "@hooks";
 import { Div } from "@kits";
 import { Head } from "@components/SEO";
-import { posts } from "mock";
-import dynamic from "next/dynamic";
 import { Projects } from "@components/Projects";
 import { PageTitle } from "@components/Layout";
 
