@@ -20,7 +20,7 @@ Writing <abbr title="Don't repeat yourself">DRY</abbr>, <abbr title="single resp
 
 ### 1.2. Unopinionated
 
-As it is mentioned in [redux official docs](https://redux.js.org/redux-toolkit/overview#purpose):
+As it is mentioned in [redux official documentation](https://redux.js.org/redux-toolkit/overview#purpose):
 
 > The Redux core library is deliberately unopinionated. It lets you decide how you want to handle anything, including store setup, what your state contains, and how you want to build your reducers.
 
@@ -38,7 +38,7 @@ DESCRIPTION
 
 ## 2. When to use redux
 
-If you don't trust me lets take a look at [redux docs](https://redux.js.org/faq/general#when-should-i-use-redux) itself:
+If you don't trust me lets take a look at [redux documentation](https://redux.js.org/faq/general#when-should-i-use-redux) itself:
 
 > Redux is most useful when in cases when:
 >
@@ -64,11 +64,18 @@ There are some alternatives to redux. any of them have their own downsides and b
 ### 3.1 Context API
 
 You probably already know about Context API, on first glance it looks like a great first party way to handle server state management but it is not. It wasn't meant to be like that but with combination to react hooks, we can use it as a global state managing tool.
-The biggest reason it shouldn't be your first option is that it doesn't use smart memoization and a trigger in it's state will update entire components tree. even though there is some
-Using context API helps you manage server and UI states ...
+The biggest reason it shouldn't be your first option is that it doesn't use smart memoization and a trigger in it's state will update entire components tree.
 
-### 3.2 MobX
+Changes in a part of state will trigger rerender to all the subscriptions(with useContext), this issue is fixed in redux when we use useSelector to subscribe to a certain slice of an state. but it's still [an ongoing process for react](https://github.com/reactjs/rfcs/pull/119).
+But until react releases **_`useSelectedContext`_** hook, we can use [use-context-selector](https://www.npmjs.com/package/use-context-selector) library to subscribe to a certain slice of context. and prevent unnecessary rerenders and performance leaks.
 
-### 3.3 SWR || React query
+You can use Context Api for handling ui state and server states that doesn't change frequently but I think it's better to consider other alternatives.
 
-### 3.4
+### 3.2 SWR | React query
+
+SWR and react query are new ways to handle state management and other interesting stuffs.
+I think both of them are great alternatives and endgames.
+There is a table from [react query documentation](https://react-query.tanstack.com/comparison) that will help you to choose one over the other.
+
+I've used both of them and SWR more.
+[Here](http://localhost:4000/blog/data-fetching-pattern-preference) in 5th section I described the way I like to implement custom hooks with useSWR.
