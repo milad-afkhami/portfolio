@@ -10,11 +10,10 @@ export const BlogCard = (props) => {
     image = "",
     body = "",
     publishedAt = "",
-    readingTime = "",
     slug = "",
     category = "",
     summary = "",
-    minutesToRead = 0,
+    readingTime,
   } = props || {};
 
   return (
@@ -27,7 +26,7 @@ export const BlogCard = (props) => {
       overflow="hidden"
       bg="bg-secondary"
       hoverBg="bg-secondary-hover"
-      mw="280px"
+      // mw="280px"
       responsive={{
         sm: { flex: [, , "column"], height: "300px" },
         lg: { height: "340px" },
@@ -35,8 +34,8 @@ export const BlogCard = (props) => {
     >
       <Div
         height="100%"
-        flexPortion={3}
-        responsive={{ sm: { flexPortion: 3 } }}
+        flexPortion={5}
+        // responsive={{ sm: { flexPortion: 4 } }}
         position="relative"
       >
         {image && (
@@ -52,17 +51,17 @@ export const BlogCard = (props) => {
         <BlogCardCategory category={category} />
       </Div>
       <Div
-        px="3"
+        px="0.75rem"
         py="2"
-        flexPortion={2}
-        responsive={{ sm: { flexPortion: 2, py: 3 } }}
+        flexPortion={3}
+        responsive={{ sm: { /*flexPortion: 3,*/ py: "0.75rem" } }}
       >
         <Div flex={["start", "between", "column"]} height="100%">
           <Div>
             <Div mb="2">
               <Text
                 tag="p"
-                size="lg-b"
+                size="md-b"
                 lineHeight="1.5"
                 truncate
                 css={{
@@ -82,22 +81,30 @@ export const BlogCard = (props) => {
             flex={["center", "between"]}
             width="100%"
             pt="2"
-            responsive={{ md: { pt: 3 } }}
+            responsive={{ md: { pt: "0.75rem" } }}
             border="border-light"
             borderSide="top"
           >
             <Div>
-              <Text color="text-secondary" size="xsm">
+              <Text color="text-secondary" size="xsm" tag="time">
                 {publishedAt}
               </Text>
             </Div>
-            <Div flex={["center", "center"]}>
-              <Text mx="2" color="text-secondary" size="xsm">
-                {minutesToRead}
-              </Text>
-              {/* <Text mx="2" color="text-secondary" size="xsm" translationVariables={{ time: minutesToRead }}>blog.meta.timeToReadValue</Text> */}
-              <Icon name="time" color="text-secondary" size="sm" />
-            </Div>
+            {readingTime ? (
+              <Div flex={["center", "center"]}>
+                <Text
+                  mx="2"
+                  color="text-secondary"
+                  size="xsm"
+                  translationVariables={{ time: readingTime }}
+                  css={{ letterSpacing: "normal" }}
+                >
+                  blog.meta.timeToReadValueAbbr
+                </Text>
+                {/* <Text mx="2" color="text-secondary" size="xsm" translationVariables={{ time: readingTime }}>blog.meta.timeToReadValue</Text> */}
+                <Icon name="time" color="text-secondary" size="sm" />
+              </Div>
+            ) : null}
           </Div>
         </Div>
       </Div>

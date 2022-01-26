@@ -26,7 +26,8 @@ export const Blogs = (props) => {
         <Div
           grid={["repeat(1, 1fr)", , "1rem", "1rem", "row"]}
           responsive={{
-            sm: { css: { gridTemplateColumns: "repeat(3, 1fr)" } }, // md: { css: { gridTemplateColumns: "repeat(3, 1fr)" } },
+            sm: { css: { gridTemplateColumns: "repeat(2, 1fr)" } },
+            lg: { css: { gridTemplateColumns: "repeat(3, 1fr)" } },
           }}
           overflowX="auto"
           thinScrollbar

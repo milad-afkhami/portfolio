@@ -237,6 +237,7 @@
         "category": "category",
         "timeToReadLabel": "time to read",
         "timeToReadValue": "{{time}} min.",
+        "timeToReadValueAbbr": "{{time}} M.",
         "publishedAt": "published at"
       }
     },
