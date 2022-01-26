@@ -5,6 +5,10 @@ export const MarkdownWrapper = styled.div`
   font-size: var(--font-size-lg);
   font-weight: 300;
 
+  code {
+    font-family: monospace !important;
+  }
+
   & a {
     color: var(--color-brand);
     :hover: {
@@ -31,7 +35,7 @@ export const MarkdownWrapper = styled.div`
 
   blockquote {
     background: var(--color-bg-secondary);
-    border-left: 10px solid var(--color-border-dark);
+    border-left: 10px solid var(--color-border-light);
     margin: 1.5em 0 1.5rem 1rem;
     padding: 1rem;
   }
