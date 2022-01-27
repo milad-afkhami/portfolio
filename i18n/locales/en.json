@@ -234,11 +234,11 @@
       },
       "notFound": "Blog Not Found!",
       "meta": {
-        "category": "category",
-        "timeToReadLabel": "time to read",
+        "category": "Category",
+        "timeToReadLabel": "Time to read",
         "timeToReadValue": "{{time}} min.",
         "timeToReadValueAbbr": "{{time}} M.",
-        "publishedAt": "published at"
+        "publishedAt": "Published at"
       }
     },
     "projects": {
@@ -400,8 +400,8 @@
       }
     },
     "error": {
-      "pageNotFound": "page not found",
-      "goBack": "Go Back",
+      "pageNotFound": "Page not found :(",
+      "goBack": "Go back",
       "noItemFound": "No Item Found"
     }
   }
