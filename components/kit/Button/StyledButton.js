@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { setDimensions } from "./setDimensions";
 import { setStyle } from "./setStyle";
-import { c, curves, setTextTypography } from "@stylesheets";
+import { curves, setTextTypography } from "@stylesheets";
 import { Div } from "@kits";
 
-const StyledButton = styled(Div).attrs((attrs) => ({ as: "button" }))(
+export const StyledButton = styled(Div).attrs((attrs) => ({ as: "button" }))(
   ({
     text,
     loading,
@@ -33,7 +33,7 @@ const StyledButton = styled(Div).attrs((attrs) => ({ as: "button" }))(
       borderRadius: curves.xlg,
       overflow: "hidden",
       ":focus": { outline: "none" },
-      // color: c("text-primary"),
+      // color: "var(--color-text-primary)",
       ...(loading
         ? { [firstChild]: { marginTop: `-${dimensions.height}` } }
         : success
@@ -46,5 +46,3 @@ const StyledButton = styled(Div).attrs((attrs) => ({ as: "button" }))(
     };
   }
 );
-
-export { StyledButton };
