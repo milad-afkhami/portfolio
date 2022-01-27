@@ -1,7 +1,7 @@
 import React from "react";
 import { __range } from "@utils";
 import { StyledSvg } from "./StyledSvg";
-import { LinearGradient } from "./LinearGradient";
+import { LinearGradient } from "@components/Skeleton";
 
 export const BlogCardLoadings = (props) => {
   const {} = props || {};
@@ -37,7 +37,7 @@ export const BlogCardLoadings = (props) => {
             />
           ))}
         </clipPath>
-        <LinearGradient />
+        <LinearGradient id="fill" />
       </defs>
     </StyledSvg>
   );

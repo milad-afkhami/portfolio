@@ -17,8 +17,6 @@ export const Blogs = (props) => {
     ...rest
   } = props || {};
 
-  // #temp
-
   return (
     <Div my="3" {...rest}>
       {title && <PageTitle title={title} tag="h2" />}
