@@ -41,7 +41,7 @@ First we need to set our breakpoint configs
 ### 2. Defining typography variants
 
 Then we need to define our typography variant in different breakpoints.
-In the below example the key default will be our typography in screens with max-size of **breakpoints.lg**
+In the below example the key `default` will be our typography in screens with _min-width_ of **breakpoints.lg**.
 
 <Code
   language="javascript"
@@ -70,7 +70,7 @@ In the below example the key default will be our typography in screens with max-
 };`}
 />
 
-### 3. Adding values as CSS variables.
+### 3. Adding values as global CSS variables.
 
 After that we need to add those typography variants as global CSS variables to use them everywhere.
 we do it with createGlobalStyle method from styled-components.
@@ -112,7 +112,7 @@ export const GlobalTypographies = createGlobalStyle((props) => {
 />
 <small>
   ** We need to import <strong>GlobalColors</strong> component into our most top
-  level component like _app.js.
+  level component like App.js in react or _app.js in Next.js.
 </small>
 
 <br />
@@ -162,4 +162,38 @@ Create css classes in your stylesheets and use those classes in your markup to s
   variables.)
 </small>
 
-###
+<br />
+<br />
+
+To skip repetitive codes, you may want to automate generation process with sass loops with something like this:
+
+<Code
+  language="css"
+  code={`\/* _variables.scss */
+$font-sizes: (
+  h-xl: 32,
+  h-lg: 24,
+  h-md: 20,
+  h-sm: 18,
+  lg: 16,
+  md: 13,
+  sm: 11,
+  xsm: 10,
+  xxsm: 9,
+);
+\ 
+/* utilities.scss */
+.tpg {
+  @each $tpg, $fs in $font-sizes {
+    &--#{$tpg} {
+      font-size: $fs;
+    }
+    &--#{$tpg}-b {
+      font-size: $fs;
+      font-weight: bold;
+    }
+  }
+}`}
+/>
+
+There are so many interesting things you can do with sass more than just simple features, you can see a bunch of them [here](https://portfolio-mili.vercel.app/gists/sass).
