@@ -19,8 +19,6 @@ export const spacings = {
 };
 export type Spacings =
   | 0
-  | "0.5"
-  | "-0.5"
   | "1"
   | "-1"
   | "2"
