@@ -5,21 +5,17 @@ import { useEffect, usePrevious, useToggle } from "@hooks";
 import { StyledButton } from "./StyledButton";
 import { noop } from "@utils";
 
-type Props = {
-  size: "lg" | "md" | "sm",
-  variant: "primary" | "outlined" | "link",
-  type: "button" | "submit" | "reset",
-  text?: String,
-  loading?: Boolean,
-  hasSuccessState?: Boolean,
-  disabled?: Boolean,
-  onClick?: Function,
-  icon?: IconProps | String,
-  trailingIcon?: IconProps | String,
-  block?: Boolean,
-  width?: String,
-};
+/**
+ * @typedef {("lg"|"md")} Size
+ * @typedef {("button" | "submit" | "reset")} Type
+ * @typedef {("primary" | "outlined" | "link")} Variant
+ * @typedef {import('@kits/Icon/types').IconProps} Icon
+ */
 
+/**
+ * Renders a button element with needed styles and functionalities
+ * @param {{ size:Size, type:Type, variant:Variant, text:string, loading:boolean, hasSuccessState:boolean, disabled:boolean, onClick:Function, icon:Icon, trailingIcon:Icon, block:boolean, width:string }} props
+ */
 export const Button = function ({
   size,
   variant = "primary",
@@ -34,7 +30,7 @@ export const Button = function ({
   block,
   type,
   ...rest
-}: Props) {
+}) {
   const [success, setSuccess] = useToggle(false);
 
   const prevLoading = usePrevious(loading);
