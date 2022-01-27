@@ -1,20 +1,11 @@
 import React from "react";
-import { Div, Text, Image, Link, Icon } from "@kits";
+import { Div, Image, Link } from "@kits";
 import { BlogCardCategory } from "./Category";
+import { BlogCardBody } from "./Body";
+import { BlogCardFooter } from "./Footer";
 
 export const BlogCard = (props) => {
-  const {
-    _id = "",
-    title = "",
-    views = "",
-    image = "",
-    body = "",
-    publishedAt = "",
-    slug = "",
-    category = "",
-    summary = "",
-    readingTime,
-  } = props || {};
+  const { image = "", slug = "" } = props || {};
 
   return (
     <Link
@@ -48,7 +39,7 @@ export const BlogCard = (props) => {
             fit="cover"
           />
         )}
-        <BlogCardCategory category={category} />
+        <BlogCardCategory {...props} />
       </Div>
       <Div
         px="0.75rem"
@@ -57,55 +48,8 @@ export const BlogCard = (props) => {
         responsive={{ sm: { /*flexPortion: 3,*/ py: "0.75rem" } }}
       >
         <Div flex={["start", "between", "column"]} height="100%">
-          <Div>
-            <Div mb="2">
-              <Text
-                tag="p"
-                size="md-b"
-                lineHeight="1.5"
-                truncate
-                css={{
-                  whiteSpace: "pre-wrap",
-                  display: "-webkit-box",
-                  WebkitLineClamp: 3,
-                  lineClamp: 3,
-                  WebkitBoxOrient: "vertical",
-                }}
-              >
-                {title}
-              </Text>
-            </Div>
-            {/* <Div><Text color="text-secondary" css={{ display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden" }} >{summary}</Text></Div> */}
-          </Div>
-          <Div
-            flex={["center", "between"]}
-            width="100%"
-            pt="2"
-            responsive={{ md: { pt: "0.75rem" } }}
-            border="border-light"
-            borderSide="top"
-          >
-            <Div>
-              <Text color="text-secondary" size="xsm" tag="time">
-                {publishedAt}
-              </Text>
-            </Div>
-            {readingTime ? (
-              <Div flex={["center", "center"]}>
-                <Text
-                  mx="2"
-                  color="text-secondary"
-                  size="xsm"
-                  translationVariables={{ time: readingTime }}
-                  css={{ letterSpacing: "normal" }}
-                >
-                  blog.meta.timeToReadValueAbbr
-                </Text>
-                {/* <Text mx="2" color="text-secondary" size="xsm" translationVariables={{ time: readingTime }}>blog.meta.timeToReadValue</Text> */}
-                <Icon name="time" color="text-secondary" size="sm" />
-              </Div>
-            ) : null}
-          </Div>
+          <BlogCardBody {...props} />
+          <BlogCardFooter {...props} />
         </Div>
       </Div>
     </Link>

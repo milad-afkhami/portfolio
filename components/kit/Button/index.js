@@ -4,7 +4,6 @@ import { IconProps } from "@kits/Icon";
 import { useEffect, usePrevious, useToggle } from "@hooks";
 import { StyledButton } from "./StyledButton";
 import { noop } from "@utils";
-import { paces } from "@stylesheets";
 
 type Props = {
   size: "lg" | "md" | "sm",
@@ -21,7 +20,7 @@ type Props = {
   width?: String,
 };
 
-const Button = function ({
+export const Button = function ({
   size,
   variant = "primary",
   text = "",
@@ -40,7 +39,7 @@ const Button = function ({
 
   const prevLoading = usePrevious(loading);
   useEffect(() => {
-    // when loading was true and now it's not and we have no error
+    // when loading has changed from true to false and we have no error
     if (hasSuccessState && prevLoading & !loading && !error) {
       setSuccess();
       var to = setTimeout(setSuccess, 1500);
@@ -64,7 +63,7 @@ const Button = function ({
       <Div
         height="100%"
         flex={["center", "center"]}
-        css={{ transitionDelay: `${paces.fast}` }}
+        css={{ transitionDelay: "var(--pace-fast)" }}
       >
         {icon ? (
           typeof icon === "string" ? (
@@ -86,13 +85,7 @@ const Button = function ({
           />
         ) : null}
       </Div>
-      {/* <Div
-        height="100%"
-        flex={["center", "center"]}
-        css={{ transitionDelay: `${paces.fast}` }}
-      >
-        <Spinner size="xsm" />
-      </Div> */}
+      {/* <Div height="100%" flex={["center", "center"]} css={{ transitionDelay: "var(--pace-fast)" }}><Spinner size="xsm" /></Div> */}
       {hasSuccessState && (
         <Div height="100%" flex={["center", "center"]}>
           <Icon name="checkmark" size="30" />
@@ -101,5 +94,3 @@ const Button = function ({
     </StyledButton>
   );
 };
-
-export { Button };

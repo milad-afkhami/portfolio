@@ -1,5 +1,5 @@
 import React, { ComponentType } from "react";
-import { Div, Image, Text, Breadcrumb } from "@kits";
+import { Div, Image, Breadcrumb } from "@kits";
 import { useRouter, useTranslation } from "@hooks";
 import { Head, BlogJsonLd } from "@components/SEO";
 import { MDXRemote } from "next-mdx-remote";
@@ -14,7 +14,7 @@ const Code: ComponentType = dynamic(
   { ssr: false }
 );
 
-const components = { Image, Div, Text, Code };
+const components = { Image, Div, Code };
 
 export default function BlogPage(props) {
   const router = useRouter();
@@ -40,9 +40,7 @@ export default function BlogPage(props) {
             },
           ],
         }}
-        twitter={{
-          cardType: "summary_large_image",
-        }}
+        twitter={{ cardType: "summary_large_image" }}
         canonical={canonical}
       />
       <BlogJsonLd
