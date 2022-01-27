@@ -1,17 +1,20 @@
 import styled from "styled-components";
 import { Div } from "./Div/Div";
 
-type Props = {
-  type?: "light" | "dark",
-  borderStyle?: "dashed" | "dotted" | "double",
-  borderWidth?: Number | String,
-};
-
 export const HR = styled(Div).attrs(() => ({
   as: "hr",
-}))(({ type = "light", borderStyle, borderWidth = 1 }: Props) => ({
-  borderColor: `var(--color-border-${type})`,
-  borderStyle: borderStyle || "solid",
-  borderWidth: borderWidth + "px",
-  borderTop: "none",
-}));
+}))(
+  /**
+   *
+   * @typedef {("dashed"|"dotted"|"double"|"solid")} BorderStyle
+   * @typedef {("dashed"|"dotted"|"double"|"solid")} Type
+   *
+   * @param {{ type:Type, borderStyle:BorderStyle, borderWidth:number|string }} props
+   */
+  ({ type = "light", borderStyle = "solid", borderWidth = 1 }) => ({
+    borderColor: `var(--color-border-${type})`,
+    borderStyle: borderStyle,
+    borderWidth: borderWidth + "px",
+    borderTop: "none",
+  })
+);
