@@ -1,15 +1,14 @@
 import { createGlobalStyle } from "styled-components";
-import { c } from "../";
 
 // export const GlobalGridSystem = styled.a`
 export const GlobalToastifyVariables = createGlobalStyle`
   :root {
     --toastify-color-light: #fff;
     --toastify-color-dark: #121212;
-    --toastify-color-info: ${c("assistive-info")};
-    --toastify-color-success: ${c("assistive-success")};
-    --toastify-color-warning: ${c("assistive-warning")};
-    --toastify-color-error: ${c("assistive-error")};
+    --toastify-color-info: var(--color-assistive-info);
+    --toastify-color-success: var(--color-assistive-success);
+    --toastify-color-warning: var(--color-assistive-warning);
+    --toastify-color-error: var(--color-assistive-error);
     --toastify-color-transparent: hsla(0, 0%, 100%, 0.7);
     --toastify-toast-width: 320px;
     --toastify-toast-background: #fff;
@@ -17,13 +16,13 @@ export const GlobalToastifyVariables = createGlobalStyle`
     --toastify-toast-max-height: 800px;
     --toastify-font-family: inherit;
     --toastify-z-index: calc(var(--overlay-z-index) + 1);
-    --toastify-text-color-light: ${c("text-secondary")};
-    --toastify-text-color-dark: ${c("text-primary")};
-    --toastify-text-color-info: ${c("text-primary")};
-    --toastify-text-color-success: ${c("text-primary")};
-    --toastify-text-color-warning: ${c("text-primary")};
-    --toastify-text-color-error: ${c("text-primary")};
-    --toastify-color-progress-dark: ${c("brand")};
+    --toastify-text-color-light: var(--color-text-secondary);
+    --toastify-text-color-dark: var(--color-text-primary);
+    --toastify-text-color-info: var(--color-text-primary);
+    --toastify-text-color-success: var(--color-text-primary);
+    --toastify-text-color-warning: var(--color-text-primary);
+    --toastify-text-color-error: var(--color-text-primary);
+    --toastify-color-progress-dark: var(--color-brand);
     /* --toastify-color-progress-info: var(--toastify-color-info);
     --toastify-color-progress-success: var(--toastify-color-success);
     --toastify-color-progress-warning: var(--toastify-color-warning);
