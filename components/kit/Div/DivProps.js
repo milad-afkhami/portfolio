@@ -1,65 +1,48 @@
 import { HTMLAttributes } from "react";
 import { CSSProperties } from "styled-components";
 import { Colors } from "@stylesheets/themes";
-import { Spacings } from "@stylesheets/constants/spacing";
+// import { Spacings } from "@stylesheets/constants/spacing";
 
-type CurveTypes = "xlg" | "lg" | "md" | "sm" | "xsm" | "xxsm" | "circle";
-type ShadowTypes = "md" | "sm" | true | false;
-type PaceTypes = "xFast" | "fast" | "normal" | "slow" | "xSlow";
-type Dimensions = {
-  top?: String,
-  bottom?: String,
-  left?: String,
-  right?: String,
-  insetInlineStart?: String,
-  insetInlineEnd?: String,
-};
-type GridTemplateColumnsValues =
-  | "none"
-  | "auto"
-  | "max-content"
-  | "min-content"
-  | "length"
-  | "initial"
-  | "inherit"
-  | String;
-type GridTemplateRowsValues =
-  | "none"
-  | "auto"
-  | "max-content"
-  | "min-content"
-  | "length"
-  | "initial"
-  | "inherit"
-  | String;
-type FlexAlignValues = "center" | "end" | "start";
-type FlexJustifyValues = "center" | "end" | "start" | "around" | "between";
-type FlexDirValues = "column" | "row" | "row-reverse" | "column-reverse";
-type FlexWrapValues = "wrap" | "no-wrap";
+// imports
+/**
+ * @typedef {import('@stylesheets/constants/spacing').Spacings|number} Spacings
+ */
 
-type FlexProps = [
-  FlexAlignValues,
-  FlexJustifyValues,
-  FlexDirValues,
-  FlexWrapValues
-];
+/**
+ * @typedef {("xlg" | "lg" | "md" | "sm" | "xsm" | "xxsm" | "circle")} Curves
+ * @typedef {("md" | "sm" | true | false)} Shadows
+ * @typedef {("xFast" | "fast" | "normal" | "slow" | "xSlow")} Paces
+ * @typedef {("left"|"right"|"top"|"bottom"|"inlineStart"|"inlineEnd")} BorderSide
+ * @typedef {("pointer"|"copy"|"grab"|"grabbing"|"no-drop"|"none"|"not-allowed"|"zoom-in"|"default")} CursorValues
+ * @typedef {("hidden" | "scroll" | "auto" | "visible")} OverflowValues
+ * @typedef {("absolute"|"fixed"|"relative"|"sticky"|"unset")} PositionValues
+ * @typedef {{top:string|number, bottom:string|number, left:string|number, right:string|number, insetInlineStart:string|number, insetInlineEnd:string|number }} Dimensions
+ */
 
-type GridProps = [
-  GridTemplateColumnsValues,
-  GridTemplateRowsValues,
-  Spacings | String | Number,
-  Spacings | String | Number,
-  "row" | "column" | "dense" | "row dense" | "column dense",
-  FlexAlignValues,
-  FlexJustifyValues
-];
+// Flex/Grid
+/**
+ * @typedef {("none"|"auto"|"max-content"|"min-content"|"length"|"initial"|"inherit")} GridTemplateColumnsValues
+ * @typedef {("none"|"auto"|"max-content"|"min-content"|"length"|"initial"|"inherit")} GridTemplateRowsValues
+ * @typedef {("center"|"end"|"start")} FlexAlignValues
+ * @typedef {("center" | "end" | "start" | "around" | "between")} FlexJustifyValues
+ * @typedef {("column" | "row" | "row-reverse" | "column-reverse")} FlexDirValues
+ * @typedef {("wrap" | "no-wrap")} FlexWrapValues
+ * @typedef {("row" | "column" | "dense" | "row dense" | "column dense")} GridAutoFlowValues
+ *
+ * @typedef {[FlexAlignValues,FlexJustifyValues,FlexDirValues,FlexWrapValues]} FlexProps
+ *
+ * @typedef {[GridTemplateColumnsValues,GridTemplateRowsValues,Spacings,Spacings,GridAutoFlowValues,FlexAlignValues,FlexJustifyValues]} GridProps
+ *
+ * @typedef {{ xs:number, sm:number, md:number, lg:number, xl:number }} ColValues
+ */
+
+// animation
+/**
+ * @typedef {{ from: CSSProperties, to: CSSProperties, [key: string]: CSSProperties }} Keyframes
+ */
 
 interface Animation {
-  keyframes: {
-    from?: CSSProperties,
-    to?: CSSProperties,
-    [key: string | number]: CSSProperties,
-  };
+  keyframes: Keyframes;
   duration: String;
   iterationCount: "infinite" | "initial" | "inherit" | String | Number;
   direction: "normal" | "reverse" | "alternate" | "alternate-reverse";
@@ -87,14 +70,6 @@ interface Animation {
   playState: "paused" | "running" | "initial" | "inherit";
 }
 
-type BorderSide =
-  | "left"
-  | "right"
-  | "top"
-  | "bottom"
-  | "inlineStart"
-  | "inlineEnd";
-
 // just for intellisense
 export interface Props extends HTMLAttributes {
   as?: String;
@@ -110,9 +85,9 @@ export interface Props extends HTMLAttributes {
   hiddenScrollbar?: Boolean;
   thinScrollbar?: Boolean;
   matchParent?: Boolean;
-  curve?: CurveTypes;
-  shadow?: ShadowTypes;
-  pace?: PaceTypes;
+  curve?: Curves;
+  shadow?: Shadows;
+  pace?: Paces;
   border?: Colors | String;
   borderSide?: BorderSide;
   borderW?: String;
@@ -140,21 +115,12 @@ export interface Props extends HTMLAttributes {
   flex?: FlexProps | Boolean;
   flexPortion?: "auto" | String | Number;
   display?: String;
-  col?: { xs: Number, sm: Number, md: Number, lg: Number, xl: Number };
-  overflow?: "hidden" | "scroll" | "auto" | "visible";
-  overflowX?: "hidden" | "scroll" | "auto" | "visible";
-  overflowY?: "hidden" | "scroll" | "auto" | "visible";
-  cursor?:
-    | "pointer"
-    | "copy"
-    | "grab"
-    | "grabbing"
-    | "no-drop"
-    | "none"
-    | "not-allowed"
-    | "zoom-in"
-    | "default";
-  position?: "absolute" | "fixed" | "relative" | "sticky" | "unset";
+  col?: ColValues;
+  overflow?: OverflowValues;
+  overflowX?: OverflowValues;
+  overflowY?: OverflowValues;
+  cursor?: CursorValues;
+  position?: PositionValues;
   dimensions?: Dimensions;
   zIndex?: String;
   order?: Number | String;
