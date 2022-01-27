@@ -34,7 +34,6 @@ export const GlobalGridSystem2 = createGlobalStyle((props) => ({
   ),
 }));
 
-// export const GlobalGridSystem = styled.a`
 export const GlobalGridSystem = createGlobalStyle`
   .row {
     display: flex;
