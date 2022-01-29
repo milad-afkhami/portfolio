@@ -38,7 +38,7 @@ import { Colors } from "@stylesheets/themes";
 
 // animation
 /**
- * @typedef {{ from: CSSProperties, to: CSSProperties, [key: string]: CSSProperties }} Keyframes
+ * @typedef {{ from: import("styled-components").CSSProperties, to: import("styled-components").CSSProperties, [key: string]: import("styled-components").CSSProperties }} Keyframes
  */
 
 interface Animation {
