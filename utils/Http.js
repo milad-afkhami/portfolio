@@ -2,35 +2,60 @@ import axios from "axios";
 import { apiBaseURL, externalApiBaseURL } from "@config";
 import { formData } from "@utils";
 
-interface FetchOptions {
-  baseURL?: String;
-  url?: String;
-  method?: "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
-  headers?: Object;
-  data?: Object;
-  params?: Object;
-  type?: "formData" | null;
-  proxyLayer?: Boolean; // useful when we don't want our request to pass through the proxy layer, e.g. build time requests.
-}
+/**
+ * @typedef {("GET" | "POST" | "PUT" | "PATCH" | "DELETE")} Method
+ * @typedef {{baseURL:string, url:string, method:Method, headers:Object, params: Object, type: "formData"|null, proxyLayer: boolean}} FetchOptions
+ */
 
 export class Http {
-  static get = (options: FetchOptions | String) => {
+  /**
+   * Performs an HTTP options request
+   * @method
+   * @param {FetchOptions} options
+   * @returns {Promise}
+   */
+  static get = (options) => {
     const config = typeof options === "string" ? { url: options } : options;
 
     return this.request({ method: "GET", ...config });
   };
 
+  /**
+   * Performs an HTTP POST request
+   * @method
+   * @param {FetchOptions} options
+   * @returns {Promise}
+   */
   static post = (options: FetchOptions = {}) =>
     this.request({ method: "POST", ...options });
 
+  /**
+   * Performs an HTTP PATCH request
+   * @method
+   * @param {FetchOptions} options
+   * @returns {Promise}
+   */
   static patch = (options: FetchOptions = {}) =>
     this.request({ method: "PATCH", ...options });
 
+  /**
+   * Performs an HTTP DELETE request
+   * @method
+   * @param {FetchOptions} options
+   * @returns {Promise}
+   */
   static delete = (options: FetchOptions = {}) =>
     this.request({ method: "DELETE", ...options });
 
+  /**
+   * Performs an HTTP request
+   * @method
+   * @param {FetchOptions} options
+   * @returns {Promise}
+   */
   static request = async (options: FetchOptions) => {
     const {
+      // proxyLayer property is useful when we don't want our request to pass through the proxy layer, e.g. build time and server-side requests.
       proxyLayer = true,
       baseURL = proxyLayer ? apiBaseURL : externalApiBaseURL,
       url,
