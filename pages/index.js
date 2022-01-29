@@ -3,8 +3,13 @@ import { useHome } from "@hooks";
 import { Div } from "@kits";
 import { Head } from "@components/SEO";
 import { Profile, FeaturedPosts, Projects } from "@components/Home";
-import { Contact } from "@components/Contact";
 import { BlogServices } from "@services";
+import dynamic from "next/dynamic";
+
+const Contact = dynamic(
+  () => import("@components/Contact").then((module) => module.Contact),
+  { ssr: false }
+);
 
 export default function Home(props) {
   const { data, isValidating, mutate, error } = useHome();

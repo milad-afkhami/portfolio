@@ -2,11 +2,14 @@ import React from "react";
 import { Div } from "@kits";
 import { APP_WRAPPER_ELEMENT_ID } from "@config";
 import { Header } from "./Header";
-import { Footer } from "./Footer";
 import dynamic from "next/dynamic";
 
 const GithubCorner = dynamic(
   () => import("./GithubCorner").then((module) => module.GithubCorner),
+  { ssr: false }
+);
+const Footer = dynamic(
+  () => import("./Footer").then((module) => module.Footer),
   { ssr: false }
 );
 
