@@ -43,22 +43,6 @@ export const typographyVariants = {
   },
 };
 
-export type Typography =
-  | "h-lg"
-  | "h-lg-b"
-  | "h-md"
-  | "h-md-b"
-  | "h-sm"
-  | "h-sm-b"
-  | "lg"
-  | "lg-b"
-  | "md"
-  | "md-b"
-  | "sm"
-  | "sm-b"
-  | "xsm"
-  | "xsm-b"
-  | "xxsm"
-  | "xxsm-b"
-  | "xxxsm"
-  | "xxxsm-b";
+/**
+ * @typedef {("h-lg"|"h-lg-b"|"h-md"|"h-md-b"|"h-sm"|"h-sm-b"|"lg"|"lg-b"|"md"|"md-b"|"sm"|"sm-b"|"xsm"|"xsm-b"|"xxsm"|"xxsm-b"|"xxxsm"|"xxxsm-b")} Typography
+ */
