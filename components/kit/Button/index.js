@@ -1,6 +1,5 @@
 import React from "react";
 import { Div, Text, Icon } from "@kits";
-import { IconProps } from "@kits/Icon";
 import { useEffect, usePrevious, useToggle } from "@hooks";
 import { StyledButton } from "./StyledButton";
 import { noop } from "@utils";
@@ -9,12 +8,12 @@ import { noop } from "@utils";
  * @typedef {("lg"|"md")} Size
  * @typedef {("button" | "submit" | "reset")} Type
  * @typedef {("primary" | "outlined" | "link")} Variant
- * @typedef {import('@kits/Icon/types').IconProps} Icon
- */
-
-/**
+ * @typedef {import('@kits/Icon').IconProps} Icon
+ *
+ * @typedef {{ size:Size, type:Type, variant:Variant, text:string, loading:boolean, hasSuccessState:boolean, disabled:boolean, onClick:Function, icon:Icon, trailingIcon:Icon, block:boolean, width:string }} ButtonProps
+ *
  * Renders a button element with needed styles and functionalities
- * @param {{ size:Size, type:Type, variant:Variant, text:string, loading:boolean, hasSuccessState:boolean, disabled:boolean, onClick:Function, icon:Icon, trailingIcon:Icon, block:boolean, width:string }} props
+ * @param {ButtonProps} props
  */
 export const Button = function ({
   size,
