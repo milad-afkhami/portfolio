@@ -4,6 +4,8 @@ import { useEffect, useTheme } from "@hooks";
 import { Wrapper } from "./Wrapper";
 import { CopyCode } from "./Copy";
 import "prismjs/components/prism-jsx";
+import "prismjs/plugins/line-numbers/prism-line-numbers.js";
+import "prismjs/plugins/line-numbers/prism-line-numbers.css";
 
 // 1 : okaidia, solarizedlight, tomorrow
 // 2 : twilight, coy, dark, funky
@@ -23,7 +25,7 @@ export const Code = (props) => {
 
   return (
     <Wrapper>
-      <pre className={`language-${language}`}>
+      <pre className={`language-${language} line-numbers`}>
         <CopyCode onClick={onClickCopy} />
         <code className={`language-${language}`}>{code || children}</code>
       </pre>
