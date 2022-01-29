@@ -12,7 +12,8 @@ import { noop } from "@utils";
  *
  * @typedef {{ size:Size, type:Type, variant:Variant, text:string, loading:boolean, hasSuccessState:boolean, disabled:boolean, onClick:Function, icon:Icon, trailingIcon:Icon, block:boolean, width:string }} ButtonProps
  *
- * Renders a button element with needed styles and functionalities
+ * @component - Renders a button element with needed styles and functionalities
+ * @type {import("react").ComponentType<ButtonProps>}
  * @param {ButtonProps} props
  */
 export const Button = function ({
