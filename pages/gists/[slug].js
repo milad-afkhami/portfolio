@@ -21,8 +21,7 @@ const components = {
 export default function GistPage(props) {
   const router = useRouter();
   const slug = router.query.slug;
-  const { title, summary, publishedAt, readingTime, category } =
-    props?.gist?.frontMatter || {};
+  const { title, summary } = props?.gist?.frontMatter || {};
   const source = props?.gist?.source || {};
 
   return (
