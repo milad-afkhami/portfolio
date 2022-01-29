@@ -1,15 +1,15 @@
 ---
 title: "How to create an http proxy in next.js?"
 publishedAt: "2021-11-11"
-image: "/images/blog/http-proxy.jpeg"
+image: "/images/blog/http-proxy.jpg"
 readingTime: "20"
 category: "next.js"
 summary: "How to create an http proxy middleware with help of serverless functions in next.js"
 ---
 
-<Code 
-    language="javascript" 
-    code={`import * as HttpProxy from "http-proxy";
+<Code
+  language="javascript"
+  code={`import * as HttpProxy from "http-proxy";
 import url from "url";
 import { INTERVALS, TOKEN_COOKIE_KEY } from "@constants";
 import {
@@ -67,5 +67,5 @@ export default (req, res) => {
       });
     }
   });
-};`} 
+};`}
 />
