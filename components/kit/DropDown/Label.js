@@ -1,5 +1,5 @@
 import React from "react";
-import { Div, Image, Text } from "@kits";
+import { Div, Text } from "@kits";
 
 export const DropDownLabel = (props) => {
   const { label } = props || {};
