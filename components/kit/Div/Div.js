@@ -1,16 +1,16 @@
-import { ComponentType } from "react";
-import styled, { keyframes } from "styled-components";
-import { Props } from "./DivProps";
-import { responsiveProps, getCol, paces } from "@stylesheets";
+import styled from "styled-components";
+import { responsiveProps, getCol } from "@stylesheets";
 import { __reduce } from "@utils";
 import { convertPropsToStyles } from "./convertPropsToStyles";
 import { shouldForwardProp } from "@helpers";
 
 /**
  * renders a custom div component with needed stylesheets.
- * Read more about it in Documentation( {@link http://tpi.uneed.ir:8888/lapert/lapert-web/blob/master/docs/kits/Div.md} )
+ * Read more about it in Documentation( {@link https://portfolio-mili.vercel.app/gists/div} )
+ *
+ * @type {import("react").ComponentType<import("./DivProps").Props>}
  */
-export const Div: ComponentType<Props> = styled.div
+export const Div = styled.div
   .withConfig({ shouldForwardProp: shouldForwardProp("Div") })
   .attrs(
     ({
@@ -25,6 +25,7 @@ export const Div: ComponentType<Props> = styled.div
       thinScrollbar,
     }) => ({
       className:
+        className +
         (container ? " container" : "") +
         (col ? getCol(col) : "") +
         (row ? " row" : "") +
@@ -32,7 +33,7 @@ export const Div: ComponentType<Props> = styled.div
         (thinScrollbar ? " thin-scrollbar" : ""),
       ...(hover && !pace ? { pace: `var(--pace-fast)` } : {}),
     })
-  )((props: Props) => {
+  )((props) => {
   const { responsive, after, before, hover, ...restProps } = props;
   return {
     ...convertPropsToStyles(restProps),
