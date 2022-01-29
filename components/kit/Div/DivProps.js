@@ -38,37 +38,15 @@ import { Colors } from "@stylesheets/themes";
 
 // animation
 /**
- * @typedef {{ from: import("styled-components").CSSProperties, to: import("styled-components").CSSProperties, [key: string]: import("styled-components").CSSProperties }} Keyframes
+ * @typedef {{ from: import("styled-components").CSSProperties, to: import("styled-components").CSSProperties, [key: string]: import("styled-components").CSSProperties }} KeyframeValues
+ * @typedef {("infinite"|"initial"|"inherit"|number)} IterationCountValues
+ * @typedef {("normal"|"reverse"|"alternate"|"alternate-reverse")} AnimationDirectionValues
+ * @typedef {("linear"|"ease"|"ease-in"|"ease-out"|"ease-in-out"|"step-start"|"step-end"|"steps(int,start|end)"|"initial"|"inherit"|"cubic-bezier(n,n,n,n)")} TimingFunctionValues
+ * @typedef {("none"|"forwards"|"backwards"|"both"|"initial"|"inherit")} FillModeValues
+ * @typedef {("paused"|"running"|"initial"|"inherit")} PlayStateValues
+ *
+ * @typedef {{keyframes:KeyframeValues, duration:string, iterationCount:IterationCountValues, direction:AnimationDirectionValues, timingFunction:TimingFunctionValues, fillMode:FillModeValues, playState:PlayStateValues }} Animation
  */
-
-interface Animation {
-  keyframes: Keyframes;
-  duration: String;
-  iterationCount: "infinite" | "initial" | "inherit" | String | Number;
-  direction: "normal" | "reverse" | "alternate" | "alternate-reverse";
-  timingFunction:
-    | "linear"
-    | "ease"
-    | "ease-in"
-    | "ease-out"
-    | "ease-in-out"
-    | "step-start"
-    | "step-end"
-    | "steps(int,start|end)"
-    | "initial"
-    | "inherit"
-    | "cubic-bezier(n,n,n,n)"
-    | String; // https://www.w3schools.com/cssref/css3_pr_animation-timing-function.asp
-  fillMode:
-    | "none"
-    | "forwards"
-    | "backwards"
-    | "both"
-    | "initial"
-    | "inherit"
-    | String;
-  playState: "paused" | "running" | "initial" | "inherit";
-}
 
 // just for intellisense
 export interface Props extends HTMLAttributes {

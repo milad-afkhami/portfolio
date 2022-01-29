@@ -27,7 +27,7 @@ export const BlogCardFooter = (props) => {
             translationVariables={{ time: readingTime }}
             css={{ letterSpacing: "normal" }}
           >
-            blog.meta.timeToReadValueAbbr
+            blog.meta.timeToReadValue
           </Text>
           {/* <Text mx="2" color="text-secondary" size="xsm" translationVariables={{ time: readingTime }}>blog.meta.timeToReadValue</Text> */}
           <Icon name="time" color="text-secondary" size="sm" />

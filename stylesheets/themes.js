@@ -7,7 +7,7 @@ export const defaultTheme = THEMES.DARK;
 export const themes = {
   [THEMES.LIGHT]: {
     brand: new Color(
-      "#f2ae70",
+      "#f6be89",
       "#E8AA77",
       "#F2CEAD",
       "#FAEADC",
@@ -73,7 +73,7 @@ export const themes = {
   },
   [THEMES.DARK]: {
     brand: new Color(
-      "#f2ae70",
+      "#f6be89",
       "#E8AA77",
       "#F2CEAD",
       "#FAEADC",
