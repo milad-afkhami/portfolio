@@ -1,9 +1,16 @@
 import React from "react";
 import Link from "next/link";
 import { Div } from "@kits";
-import { Props } from "./LinkProps";
 import { useCallback } from "@hooks";
 
+/**
+ * @typedef {import('@kits/Div/DivProps').Props & import('next/link').LinkProps & {outerLink:boolean, underline: boolean}} LinkProps
+ *
+ * @component
+ * Renders an enhanced anchor tag with needed styles and functionalities
+ * @type {import("react").ComponentType<LinkProps>}
+ * @param {LinkProps} props
+ */
 export const StyledLink = ({
   href,
   as,
@@ -18,7 +25,7 @@ export const StyledLink = ({
   disabled,
   underline,
   ...rest
-}: Props) => {
+}) => {
   const onClick = useCallback(
     (e) => disabled && e.preventDefault(),
     [disabled]
