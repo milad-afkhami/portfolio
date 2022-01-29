@@ -4,7 +4,7 @@ import { DropDownImage } from "./Image";
 import { DropDownLabel } from "./Label";
 
 export const DropDownItem = (props) => {
-  const { image, text, id, onClick } = props || {};
+  const { image, text, onClick, ...rest } = props || {};
 
   return (
     <Div
@@ -14,6 +14,7 @@ export const DropDownItem = (props) => {
       hoverBg="bg-tertiary"
       px="1"
       onClick={onClick}
+      {...rest}
     >
       <DropDownImage src={image} />
       <DropDownLabel label={text} />

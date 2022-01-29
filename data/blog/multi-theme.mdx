@@ -19,14 +19,13 @@ It requires us to wrap our app with a **ThemeProvider** like this:
   language="jsx"
   code={`// _app.js
 import { ThemeProvider } from "next-themes";
-import __values from "lodash/values";
 import { THEMES, defaultTheme, GlobalColors } from "@stylesheets";
 // ...
 function MyApp({ ... }) {
   // ...
   return (
     <ThemeProvider 
-      themes={__values(THEMES)}
+      themes={Object.values(THEMES)}
       defaultTheme={defaultTheme}
       enableSystem={false}
     >
@@ -139,11 +138,10 @@ we do it with createGlobalStyle method from styled-components.
   language="javascript"
   code={`import { createGlobalStyle } from "styled-components";
 import __reduce from "lodash/reduce";
-import __values from "lodash/values";
 \ 
 const prepareColorVars = (name, variants) => // *
   variants instanceof Color
-    ? produceColorTypes(name, ...__values(variants))
+    ? produceColorTypes(name, ...Object.values(variants))
     : __reduce(
         variants,
         (acc, cv, key) => ({

@@ -1,12 +1,12 @@
 import { createGlobalStyle } from "styled-components";
 import { color } from "@stylesheets";
 import { themes, defaultTheme } from "@stylesheets";
-import { __reduce, __values } from "@utils";
+import { __reduce } from "@utils";
 import { Color } from "@models";
 
 const prepareColorVars = (name, variants) =>
   variants instanceof Color
-    ? color(name, ...__values(variants))
+    ? color(name, ...Object.values(variants))
     : __reduce(
         variants,
         (acc, cv, key) => ({

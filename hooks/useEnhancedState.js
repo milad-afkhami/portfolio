@@ -6,9 +6,13 @@ import {
   MutableRefObject,
 } from "react";
 
-type StateHook = [any, () => void, any, MutableRefObject];
+/**
+ * An enhanced version of react useState hook that gives us a more practical way to deal with state in functional components.
+ * @param {any} [initialState]
+ * @returns {[any, Function, any, MutableRefObject]}
+ */
 
-export function useEnhancedState(initialState): StateHook {
+export function useEnhancedState(initialState) {
   const [state, setState] = useState(initialState);
   const [prevState, setPrevState] = useState();
   const stateRef = useRef();

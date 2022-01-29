@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { ThemeProvider } from "next-themes";
 import { defaultTheme, GlobalStyles } from "@stylesheets";
 import { THEMES } from "@constants";
-import { swrFetcher, __pick, __values } from "@utils";
+import { swrFetcher, __pick } from "@utils";
 import { DefaultSeo } from "@components/SEO";
 import { enhanceStringPrototype, LanguageHelper } from "@helpers";
 import { useEffect, useTranslation } from "@hooks";
@@ -41,7 +41,7 @@ function MyApp({ Component, pageProps, ...rest }) {
         transition={Slide}
       />
       <ThemeProvider
-        themes={__values(THEMES)}
+        themes={Object.values(THEMES)}
         defaultTheme={defaultTheme}
         enableSystem={false}
       >

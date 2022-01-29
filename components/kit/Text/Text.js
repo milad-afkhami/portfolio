@@ -1,4 +1,4 @@
-import React, { ComponentType } from "react";
+import React from "react";
 import styled from "styled-components";
 import {
   prepareSpacing,
@@ -7,10 +7,16 @@ import {
   setTextTypography,
   paces,
 } from "@stylesheets";
-import { Trans, withTranslation } from "react-i18next";
-import { Props } from "./TextProps";
+import { withTranslation } from "react-i18next";
 
-export const Text: ComponentType<Props> = withTranslation()(
+/**
+ * @typedef {{ children:any, tag:string, size:import("@stylesheets").Typography, direction:string, translationOptions:Object, translationVariables:Object, noTranslation:boolean, lineHeight:string|number, align:"start"|"end"|"left"|"right"|"center"|"justify"|"initial"|"inherit" }} TextProps
+ * @typedef { import('@kits/Div/DivProps').Props & TextProps } Props
+ *
+ * @component - Renders a text component with default span element enhanced with needed styles and functionalities
+ * @type {import("react").ComponentType<Props>}
+ */
+export const Text = withTranslation()(
   styled.span.attrs(
     ({
       i18n,

@@ -1,17 +1,16 @@
 import React from "react";
-import { Div, Image, Text } from "@kits";
+import { Div } from "@kits";
 import { useOnClickOutside, useState, useRef } from "@hooks";
 import { DropDownItem } from "./Item";
 import { DropDownImage } from "./Image";
 import { DropDownLabel } from "./Label";
 
-interface DropDownProps {
-  items: Array<{ text: String, id: String | Number, image: String }>;
-  selected: String | Number;
-  onChange: Function;
-}
-
-export const DropDown = (props: DropDownProps) => {
+/**
+ * @typedef {Array<{text:string, id:string|number, image:string}>} DropDownItems
+ *
+ * @param {{ items:DropDownItems, selected:string|number, onChange: Function }} props
+ */
+export const DropDown = (props) => {
   const { items, selected, onChange } = props || {};
 
   const [isOpen, setIsOpen] = useState(false);
@@ -30,22 +29,15 @@ export const DropDown = (props: DropDownProps) => {
       position="relative"
       zIndex="2"
     >
-      <Div
+      <DropDownItem
+        {...(selectedItem || {})}
+        onClick={() => setIsOpen(!isOpen)}
         border="border-dark"
         curve="xsm"
-        width={"7rem"}
+        width="7rem"
         pace="fast"
         responsive={{ md: { width: "8rem" } }}
-        height="2.5rem"
-        flex={["center", "start"]}
-        cursor="pointer"
-        onClick={() => setIsOpen(!isOpen)}
-        px="1"
-        hoverBg="bg-secondary"
-      >
-        <DropDownImage src={selectedItem.image} />
-        <DropDownLabel label={selectedItem.text} />
-      </Div>
+      />
       <Div
         position="absolute"
         dimensions={{ top: "100%" }}

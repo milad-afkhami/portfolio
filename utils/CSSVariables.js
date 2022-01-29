@@ -1,10 +1,10 @@
-type MethodOptions = {
-  numeric: Boolean,
-  rgb: Boolean,
-};
-
 export class CSSVariables {
-  static get = (name, options: MethodOptions) => {
+  /**
+   * @param {string} name
+   * @param {{numeric:boolean, rgb:boolean}} options
+   * @returns {string|number}
+   */
+  static get = (name, options) => {
     const { numeric = false, rgb = false } = options || {};
     if (!process.browser) return null;
 

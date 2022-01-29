@@ -1,11 +1,18 @@
-import React, { ComponentType } from "react";
-import { Props } from "./ImageProps";
+import React from "react";
 import { Div } from "@kits";
 import NextImage from "next/image";
 import { useToggle } from "@hooks";
 import { isomorphicPortal } from "@utils";
 
-export const Image: ComponentType<Props> = ({
+/**
+ * @typedef {("intrinsic" | "fixed" | "responsive" | "fill")} Layout
+ * @typedef {("blur" | "empty")} Placeholder
+ * @typedef {{layout:Layout, fit:string, src:string, hash:string, alt:string, placeholder:Placeholder, blurDataURL:string, quality:number, priority:boolean, unoptimized:boolean, withShimmer:boolean, objectPosition:string, loader:Function}} ImageProps
+ *
+ * Renders an enhanced img element
+ * @param {import("@kits/Div/DivProps").Props & ImageProps} props
+ */
+export const Image = ({
   fit,
   src,
   alt = "",

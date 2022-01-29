@@ -38,7 +38,7 @@ import { Colors } from "@stylesheets/themes";
 
 // animation
 /**
- * @typedef {{ from: CSSProperties, to: CSSProperties, [key: string]: CSSProperties }} KeyframeValues
+ * @typedef {{ from: import("styled-components").CSSProperties, to: import("styled-components").CSSProperties, [key: string]: import("styled-components").CSSProperties }} KeyframeValues
  * @typedef {("infinite"|"initial"|"inherit"|number)} IterationCountValues
  * @typedef {("normal"|"reverse"|"alternate"|"alternate-reverse")} AnimationDirectionValues
  * @typedef {("linear"|"ease"|"ease-in"|"ease-out"|"ease-in-out"|"step-start"|"step-end"|"steps(int,start|end)"|"initial"|"inherit"|"cubic-bezier(n,n,n,n)")} TimingFunctionValues
