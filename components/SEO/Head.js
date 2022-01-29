@@ -3,6 +3,9 @@ import { appBaseURL } from "@config";
 import { NextSeo, NextSeoProps } from "@components/SEO";
 import { useRouter, useTranslation } from "@hooks";
 
+/**
+ * @type {import("react").ComponentType<NextSeoProps>}
+ */
 export const Head = ({
   canonical = "",
   keywords = "",
@@ -13,7 +16,7 @@ export const Head = ({
   openGraph = {},
   twitter = {},
   ...restProps
-}: NextSeoProps) => {
+}) => {
   const _canonical = appBaseURL + canonical;
   const router = useRouter();
 

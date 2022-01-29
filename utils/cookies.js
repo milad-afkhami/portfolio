@@ -15,7 +15,6 @@ export class Cookies {
 
   /**
    * Sets a cookie.
-   *
    * @param ctx NextJS page or API context, express context, null or undefined.
    * @param name The name of your cookie.
    * @param value The value of your cookie.
@@ -25,7 +24,7 @@ export class Cookies {
     ctx,
     name,
     value,
-    options: CookieSerializeOptions = { maxAge: INTERVALS.A_MONTH, path: "/" }
+    options = { maxAge: INTERVALS.A_MONTH, path: "/" }
   ) => setCookie(ctx, name, value, options);
 
   static remove = (ctx, key, options = { path: "/" }) =>

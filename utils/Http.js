@@ -26,8 +26,7 @@ export class Http {
    * @param {FetchOptions} options
    * @returns {Promise}
    */
-  static post = (options: FetchOptions = {}) =>
-    this.request({ method: "POST", ...options });
+  static post = (options = {}) => this.request({ method: "POST", ...options });
 
   /**
    * Performs an HTTP PATCH request
@@ -35,7 +34,7 @@ export class Http {
    * @param {FetchOptions} options
    * @returns {Promise}
    */
-  static patch = (options: FetchOptions = {}) =>
+  static patch = (options = {}) =>
     this.request({ method: "PATCH", ...options });
 
   /**
@@ -44,7 +43,7 @@ export class Http {
    * @param {FetchOptions} options
    * @returns {Promise}
    */
-  static delete = (options: FetchOptions = {}) =>
+  static delete = (options = {}) =>
     this.request({ method: "DELETE", ...options });
 
   /**
@@ -53,7 +52,7 @@ export class Http {
    * @param {FetchOptions} options
    * @returns {Promise}
    */
-  static request = async (options: FetchOptions) => {
+  static request = async (options) => {
     const {
       // proxyLayer property is useful when we don't want our request to pass through the proxy layer, e.g. build time and server-side requests.
       proxyLayer = true,

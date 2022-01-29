@@ -1,1 +1,1 @@
-export const createMarkup = (data: String) => ({ __html: data });
+export const createMarkup = (data) => ({ __html: data });

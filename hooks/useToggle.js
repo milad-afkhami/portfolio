@@ -5,7 +5,7 @@ import { useState, useCallback, useDebugValue } from "@hooks";
  * @param {boolean} [initialState=false]
  * @returns {[boolean, Function]}
  */
-export function useToggle(initialState: Boolean = false) {
+export function useToggle(initialState = false) {
   const [state, setState] = useState(initialState);
 
   const toggle = useCallback(() => setState((state) => !state), []);

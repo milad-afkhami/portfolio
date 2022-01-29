@@ -9,10 +9,9 @@ import { BlogServices } from "@services";
 import { MarkdownWrapper } from "@components/Markdown";
 import { appBaseURL } from "@config";
 
-const Code: ComponentType = dynamic(
-  () => import("@kits").then((module) => module.Code),
-  { ssr: false }
-);
+const Code = dynamic(() => import("@kits").then((module) => module.Code), {
+  ssr: false,
+});
 
 const components = { Image, Div, Code };
 

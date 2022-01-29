@@ -1,4 +1,3 @@
-import { Props } from "./DivProps";
 import {
   prepareDimensions,
   prepareSpacing,
@@ -11,7 +10,7 @@ import { matchParent } from "@stylesheets/predefined";
 import { keyframes } from "styled-components";
 import { isNullish, __kebabCase } from "@utils";
 
-export function convertPropsToStyles(props: Props) {
+export function convertPropsToStyles(props) {
   const {
     width,
     w,

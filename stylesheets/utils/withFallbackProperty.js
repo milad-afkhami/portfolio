@@ -1,8 +1,8 @@
 export function withFallbackProperty(
-  property: String,
-  value: String,
-  fallbackProperty: String | { ltr: String, rtl: String },
-  options: { templateLiterals: Boolean }
+  property,
+  value,
+  fallbackProperty
+  // options: { templateLiterals: Boolean }
 ) {
   // const { templateLiterals } = options || {};
 

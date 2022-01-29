@@ -14,7 +14,7 @@ module.exports = {
   },
   experimental: {
     craCompat: true,
-    // styledComponents: true
+    styledComponents: true,
   },
   // images: {
   //   domains: [],

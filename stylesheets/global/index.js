@@ -11,7 +11,10 @@ import { GlobalShadows } from "./variables/shadows";
 
 export { GlobalBSTableStyle } from "./bootstrap/table";
 
-export const GlobalStyles: ComponentType = memo(() => {
+/**
+ * @type {ComponentType}
+ */
+export const GlobalStyles = memo(() => {
   return (
     <>
       <GlobalColors />
