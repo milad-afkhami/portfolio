@@ -1,5 +1,3 @@
-import { FaHelper } from "@helpers";
-
 const jMoment = () => {};
 
 export class TimeHelper {
@@ -119,25 +117,22 @@ export class TimeHelper {
   };
 
   // displaying methods
-  static getCalendarHeaderText = (date) =>
-    FaHelper.toPersianNumber(date.format("jMMMM jYYYY"));
+  static getCalendarHeaderText = (date) => date.format("jMMMM jYYYY");
 
-  static getYearText = (date) => FaHelper.toPersianNumber(date.format("jYYYY"));
+  static getYearText = (date) => date.format("jYYYY");
 
   static getDatePickerHeaderText = (date, lang) =>
     lang === "fa"
-      ? FaHelper.toPersianNumber(this.toJMoment(date).format("ddd, jMMMM jD"))
+      ? this.toJMoment(date).format("ddd, jMMMM jD")
       : this.toJMoment(date).format("YYYY.MM.DD");
 
-  static getDateTimePickerHeaderText = (date) =>
-    FaHelper.toPersianNumber(date.format("jMMM jD"));
+  static getDateTimePickerHeaderText = (date) => date.format("jMMM jD");
 
-  static getDayText = (date) => FaHelper.toPersianNumber(date.format("jD"));
+  static getDayText = (date) => date.format("jD");
 
-  static getHourText = (date, ampm) =>
-    FaHelper.toPersianNumber(date.format(ampm ? "hh" : "HH"));
+  static getHourText = (date, ampm) => date.format(ampm ? "hh" : "HH");
 
-  static getMinuteText = (date) => FaHelper.toPersianNumber(date.format("mm"));
+  static getMinuteText = (date) => date.format("mm");
 
   static formatDurationInMMSS = (duration) => {
     if (!duration) return "00:00";
