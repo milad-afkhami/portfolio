@@ -2,6 +2,7 @@ const { PHASE_DEVELOPMENT_SERVER } = require("next/constants");
 
 const domain = process.env.REACT_APP_BASE_URL;
 
+/** @type {import("next").NextConfig} */
 module.exports = {
   env: {
     REACT_APP_BASE_URL: "https://portfolio-mili.vercel.app",
@@ -12,6 +13,7 @@ module.exports = {
     locales: ["en", "de", "fr"],
     defaultLocale: "en",
   },
+  swcMinify: true,
   experimental: {
     craCompat: true,
     styledComponents: true,
