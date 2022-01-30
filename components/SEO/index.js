@@ -2,7 +2,6 @@ export { Head } from "./Head";
 export {
   DefaultSeo,
   NextSeo,
-  NextSeoProps,
   ArticleJsonLd,
   BreadcrumbJsonLd,
   FAQPageJsonLd,
