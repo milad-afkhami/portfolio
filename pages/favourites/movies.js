@@ -1,21 +1,26 @@
 import React from "react";
 import { Div } from "@kits";
 import { Head } from "@components/SEO";
-import { FavouriteBooks } from "@components/Favourites";
+import { FavouriteCommonEntityList } from "@components/Favourites";
 import { PageTitle } from "@components/Layout";
+import { favouriteMoviesData } from "@data";
+import { FAVOURITE_TYPES } from "@constants";
 
-const FavouriteBooksPage = (props) => {
+const FavouriteMoviesPage = (props) => {
   // const { data, isValidating, mutate, error } = useHome();
 
   return (
     <>
-      <Head canonical="/favourites/books" page="favouriteBooks" />
+      <Head canonical="/favourites/movies" page="favouriteMovies" />
       <Div width="100%" py="3">
-        <PageTitle title="favourites.books.title" />
-        {/* <FavouriteBooks Books={favouriteBooks} /> */}
+        <PageTitle title="favourites.movies.title" />
+        <FavouriteCommonEntityList
+          items={favouriteMoviesData}
+          entityType={FAVOURITE_TYPES.SHOW.MOVIES}
+        />
       </Div>
     </>
   );
 };
 
-export default FavouriteBooksPage;
+export default FavouriteMoviesPage;

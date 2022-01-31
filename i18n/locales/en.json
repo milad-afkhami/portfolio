@@ -122,35 +122,35 @@
           "the-power-of-habit": {
             "name": "The Power of Habit",
             "fullName": "The Power of Habit: Why We Do What We Do in Life and Business",
-            "writer": "Charles Duhigg"
+            "meta": "Charles Duhigg"
           },
           "the-unbearable-lightness-of-being": {
             "name": "The Unbearable Lightness of Being",
-            "writer": "Milan Kundera"
+            "meta": "Milan Kundera"
           },
           "masnavi": {
             "name": "Masnavi-ye-Ma'navi",
-            "writer": "Rumi"
+            "meta": "Rumi"
           },
           "quran": {
             "name": "Quran",
-            "writer": "Muhammad (revealed by allah)"
+            "meta": "Muhammad (revealed by allah)"
           },
           "golestan": {
             "name": "Gulistan",
-            "writer": "Saadi Shirazi"
+            "meta": "Saadi Shirazi"
           },
           "nahj-al-balagha": {
             "name": "Nahj al-Balagha",
-            "writer": "Ali ibn Abi Talib"
+            "meta": "Ali ibn Abi Talib"
           },
           "tafsir-nemooneh": {
             "name": "Tafsir Nemooneh",
-            "writer": "Naser Makarem Shirazi"
+            "meta": "Naser Makarem Shirazi"
           },
           "republic": {
-            "name": "Republic",
-            "writer": "Plato"
+            "name": "The Republic",
+            "meta": "Plato"
           }
         }
       },
@@ -161,60 +161,109 @@
         "title": "Favourite Writers"
       },
       "movies": {
-        "title": "Favourite Movies"
+        "title": "Favourite Movies",
+        "list": {
+          "el-dorado": {
+            "name": "El Dorado"
+          },
+          "ratatouille": {
+            "name": "Ratatouille"
+          },
+          "garfield": {
+            "name": "Garfield"
+          },
+          "up": {
+            "name": "Up"
+          },
+          "beauty-and-the-beast": {
+            "name": "Beauty And The Beast"
+          },
+          "the-iron-giant": {
+            "name": "The Iron Giant"
+          },
+          "chicken-run": {
+            "name": "Chicken Run"
+          },
+          "toy-story": {
+            "name": "Toy Story"
+          },
+          "kung-fu-panda": {
+            "name": "Kung Fu Panda"
+          },
+          "finding-nemo": {
+            "name": "Finding Nemo"
+          },
+          "coraline": {
+            "name": "Coraline"
+          },
+          "cars": {
+            "name": "Cars"
+          },
+          "madagascar": {
+            "name": "Madagascar"
+          },
+          "shrek": {
+            "name": "Shrek"
+          },
+          "robots": {
+            "name": "Robots"
+          }
+        }
       },
       "series": {
         "title": "Favourite Series",
-        "the-office": {
-          "name": "The Office"
-        },
-        "the-big-bang-theory": {
-          "name": "the-big-bang-theory"
-        },
-        "friends": {
-          "name": "friends"
-        },
-        "vikings": {
-          "name": "vikings"
-        },
-        "mind-hunter": {
-          "name": "mind-hunter"
-        },
-        "avatar-the-last-airbender": {
-          "name": "avatar-the-last-airbender"
-        },
-        "the-leng-of-korra": {
-          "name": "the-lengend-of-korra"
-        },
-        "rick-and-morty": {
-          "name": "rick-and-morty"
-        },
-        "scenes-from-a-marriage": {
-          "name": "scenes-from-a-marriage"
-        },
-        "true-detective": {
-          "name": "true-detective"
-        },
-        "its-always-aunny-in-philadelphia": {
-          "name": "its-always-aunny-in-philadelphia"
-        },
-        "boJack-horseman": {
-          "name": "boJack-horseman"
-        },
-        "family-guy": {
-          "name": "family-guy"
-        },
-        "fleabag": {
-          "name": "fleabag"
-        },
-        "shameless": {
-          "name": "shameless"
-        },
-        "big-little-lies": {
-          "name": "big-little-lies"
-        },
-        "horace-and-pete": {
-          "name": "horace-and-pete"
+        "list": {
+          "the-office": {
+            "name": "The Office"
+          },
+          "the-big-bang-theory": {
+            "name": "The Big Bang Theory"
+          },
+          "friends": {
+            "name": "Friends"
+          },
+          "vikings": {
+            "name": "Vikings"
+          },
+          "mind-hunter": {
+            "name": "Mind Hunter"
+          },
+          "avatar-the-last-airbender": {
+            "name": "Avatar The Last Airbender"
+          },
+          "the-legend-of-korra": {
+            "name": "The Legend of Korra"
+          },
+          "rick-and-morty": {
+            "name": "Rick And Morty"
+          },
+          "scenes-from-a-marriage": {
+            "name": "Scenes From a Marriage"
+          },
+          "true-detective": {
+            "name": "True Detective"
+          },
+          "its-always-sunny-in-philadelphia": {
+            "name": "It's Always Sunny in Philadelphia"
+          },
+          "boJack-horseman": {
+            "name": "BoJack Horseman"
+          },
+          "family-guy": {
+            "name": "Family Guy"
+          },
+          "fleabag": {
+            "name": "Fleabag"
+          },
+          "shameless": {
+            "name": "Shameless"
+          },
+          "big-little-lies": {
+            "name": "Big Little Lies"
+          },
+          "horace-and-pete": {
+            "name": "Horace and Pete"
+          }
         }
       },
       "anime": {
@@ -343,10 +392,10 @@
       "title": "About Me",
       "p1": "Hey, I'm Milad. I'm a 23 y.o. developer, student, mentor, and at late nights writer!",
       "p2": "I work at Arsh Co. as head of front-end development team.",
-      "p3": "I grew up in Shahr-e-Rey a district in south of Tehran state.",
-      "p4": "After spending my elementary and middle school and I got accepted for NODET and spent my high school in there.",
-      "p5": "After I was ranked 697 at NEA (national entrance exam), I got accepted to study electrical engineering in Shahid Beheshti University",
-      "p6": "I really didn't felt being an electrical engineering and after couple of semesters, I changed my field to computer engineering and till then I am working as a developer and I'm enjoying it.",
+      "p3": "I grew up in Shahr-e-Rey, a district in south of Tehran state.",
+      "p4": "After spending my elementary and middle school, I got accepted for NODET and spent my high school in there.",
+      "p5": "After I was ranked 697 at National entrance exam, I got accepted to study electrical engineering in Shahid Beheshti University",
+      "p6": "I really didn't feel good about being an electrical engineer and after couple of semesters, I changed my field to computer engineering and till then I am working as a developer and I'm enjoying it.",
       "p7": "I spend my free time reading, listening to musics, watching tv shows and enjoying time with my close friends.",
       "timeline": {
         "title": "Timeline",
@@ -358,8 +407,8 @@
         "startingSchool_desc": "Nothing spacial to say about this, like every other iranian kid, I went to a school under a system that kill creativity and happiness of students.",
         "firstComputer": "First Computer",
         "firstComputer_desc": "My father bought a computer for my 10th birthday, Whoa!",
-        "choosingNEAPath": "Choosing NEA Path",
-        "choosingNEAPath_desc": "I was hopelessly in love with Mathematics, I always dreamed my 40 y.o. version to be a bald skinny not attractive professor who hates kids, but after putting all my efforts and love to learning it, I decided to concentrate on national entrance exam.",
+        "choosingNationalExamPath": "Choosing National entrance exam Path",
+        "choosingNationalExamPath_desc": "I was hopelessly in love with Mathematics, I always dreamed my 40 y.o. version to be a bald skinny not attractive professor who hates kids, but after putting all my efforts and love to learning it, I decided to concentrate on national entrance exam.",
         "university": "University",
         "university_desc": "Endeavor paid off! I got accepted to study electrical engineering at Shahid Beheshti university, couldn't be happier but ...",
         "tookCoupleOfSemestersOff": "Took Couple Semesters Off",
@@ -391,7 +440,7 @@
       }
     },
     "packages": {
-      "title": "Packages"
+      "title": "Packages ( In Progress ... )"
     },
     "form": {
       "message": {

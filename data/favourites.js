@@ -298,7 +298,7 @@ export const favouritePlaylistsData = [
 ];
 
 export const favouriteBooksData = [
-  // name: "", fullName: "", image: "", writer: "Charles Duhigg",
+  "republic",
   "the-power-of-habit",
   "the-unbearable-lightness-of-being",
   "masnavi",
@@ -306,36 +306,70 @@ export const favouriteBooksData = [
   "golestan",
   "nahj-al-balagha",
   "tafsir-nemooneh",
-  "republic",
 ];
 
 export const favouriteMoviesData = [
-  "forrest-gump",
-  "santoori",
-  "the-shawshank-redemption",
-  "the-lord-of-the-rings",
-  "star-wars",
+  "el-dorado",
+  "ratatouille",
+  "garfield",
+  "up",
+  "beauty-and-the-beast",
+
+  "the-iron-giant",
+  "chicken-run",
   "toy-story",
+  "kung-fu-panda",
+
+  "finding-nemo",
+
+  "coraline",
+  "cars",
+  "madagascar",
+  "shrek",
+  "robots",
+
+  // "forrest-gump",
+  // "santoori",
+  // "the-shawshank-redemption",
+  // "lotr",
+  // "star-wars",
+  // "brokeback-mountain",
+  // "call-me-by-your-name",
+  // "Eternal Sunshine Of The Spotless Mind",
 ];
 
 export const favouriteSeriesData = [
+  // drama
+  "true-detective",
+  "mind-hunter",
+  // "fleabag",
+  // "shameless",
+
+  // sitcoms
   "the-office",
   "the-big-bang-theory",
-  "friends",
-  "vikings",
-  "mind-hunter",
-  "avatar-the-last-airbender",
-  "the-leng-of-korra",
-  "rick-and-morty",
-  "scenes-from-a-marriage",
-  "true-detective",
-  "its-always-aunny-in-philadelphia",
-  "boJack-horseman",
+  // "its-always-sunny-in-philadelphia",
+  // "friends",
+  // "himym",
+
+  // "vikings",
+
+  // animations
   "family-guy",
-  "fleabag",
-  "shameless",
-  "big-little-lies",
-  "horace-and-pete",
+  "rick-and-morty",
+  "avatar-the-last-airbender",
+  // "shaun-the-sheep",
+  // "the-legend-of-korra",
+  // "boJack-horseman",
+  // "south-park"
+  // "sponge-bob"
+  // "gravity-falls"
+  // "teenage-mutant-ninja-turtles"
+  // ""
+
+  // "scenes-from-a-marriage",
+  // "big-little-lies",
+  // "horace-and-pete",
 ];
 
 export const favouriteAnimeData = [
