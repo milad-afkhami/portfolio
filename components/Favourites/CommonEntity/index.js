@@ -16,8 +16,9 @@ export const FavouriteCommonEntityList = (props) => {
         }}
         mb="6"
       >
-        {items.map((item) => (
+        {items.map((item, i) => (
           <FavouriteCommonEntityCard
+            key={i}
             slug={item}
             entityType={entityType?.toLowerCase?.()}
           />
