@@ -11,30 +11,6 @@ Front-end programming is getting more advanced every day, new solutions New
 solutions have entered the scene based on new needs, and we have to adapt our
 apps with performant solutions.
 
-<br />
-<br />
-
-```js
-function HighlightSomeText(highlight) {
-  if (highlight) {
-    // highlight-next-line
-    return "This text is highlighted!";
-  }
-  return "Nothing highlighted";
-}
-function HighlightMoreText(highlight) {
-  // highlight-start
-  if (highlight) {
-    return "This range is highlighted!";
-  }
-  // highlight-end
-  return "Nothing highlighted";
-}
-```
-
-<br />
-<br />
-
 When it comes to data fetching and server state management, there are so many different approaches to choose. some of those are better than the others but in some cases you will just end up picking the one that its developer experience suits you better. TBH most of the times you have to adapt yourself and your approaches to business requirements but there will be always some right ways to choose.
 Here I want to show you the way I personally like to implement my projects data-fetching and server state management.
 
@@ -48,13 +24,14 @@ With SSR you can generate entire page on demand for every user specifically and 
 An important point here is that you are no longer limited to client-side coding anymore as you were in react development. The decisions you make will directly affect your server performance.
 You can use SSR approach but you should strongly avoid using it until you have to do so( probably never ).
 
-- Benefits:
-
+- **_Benefits:_**
   - A server-side rendered application enables pages to load faster, improving the user experience.
   - Rendered content at first ready for search engines crawler robots which is ideal for SEO.
   - slower <abbr title="time to first byte">TTFB</abbr>
 
-- Downsides:
+<br />
+
+- **_Downsides:_**
   - the site interactions are less.
   - Slow page rendering.
   - Full UI reloads.
@@ -65,12 +42,13 @@ You can use SSR approach but you should strongly avoid using it until you have t
 
 Client-side rendering is the way we coded in react projects. In this method, we fetch page needed data on client side and rendering process will take place in client's machine.
 
-- Benefits:
-
+- **_Benefits:_**
   - faster <abbr title="time to first byte">TTFB</abbr>
   - lifting load from server and transferring it to client machine.
 
-- Downsides:
+<br />
+
+- **_Downsides:_**
   - slower FCP
   - heavier initial page load(loading framework)
   - empty content for search engines crawler robots ( near zero SEO )
@@ -80,12 +58,13 @@ Client-side rendering is the way we coded in react projects. In this method, we 
 We already now about statically generated websites, It's not a new concept and we were using it since the beginning.
 This method lets you build your pages at build time instead of doing it on demand for every single request. But building rich web experiences wasn't something we could do easily before, tools like next.js, gatsby, nuxt, jekyll and ... introduced us better ways of building static-generated websites with more dynamic performance.
 
-- Benefits:
-
+- **_Benefits:_**
   - Fast load times
   - Rendered content at first, ready for search engines crawler robots to index which is ideal for SEO.
 
-- Downsides:
+<br />
+
+- **_Downsides:_**
   - builds will take longer to complete
   - no user specific content
   - once you build a page, there is no way to revalidate it's data
@@ -94,13 +73,14 @@ This method lets you build your pages at build time instead of doing it on deman
 
 ISR is a new paradigm introduced by Next.js. It combines the advantages of SSG and SSR to build websites.
 
-- Benefits:
-
+- **_Benefits:_**
   - all of SSG benefits
   - fast <abbr title="time to first byte">TTFB</abbr> ( as most of the times we serve statically generated page )
   - fresh content, as you can set the max stale time
 
-- Downsides:
+<br />
+
+- **_Downsides:_**
   - build will take longer to complete
   - no user specific content
   - slow <abbr title="time to first byte">TTFB</abbr> for pages that wasn't statically cached before.
