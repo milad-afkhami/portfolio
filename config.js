@@ -19,7 +19,7 @@ const navLinks = [
 ];
 
 const aboutTimelineSections = [
-  { year: 2022, items: ["ielts"] },
+  // { year: 2022, items: ["ielts"] },
   { year: 2021, items: ["startingAtArshCo", "becomingTeamLead"] },
   {
     year: 2020,
@@ -27,7 +27,7 @@ const aboutTimelineSections = [
   },
   { year: 2019, items: ["changingField", "firstDayAtWork"] },
   { year: 2018, items: ["university", "tookCoupleOfSemestersOff"] },
-  { year: 2014, items: ["choosingNEAPath"] },
+  { year: 2014, items: ["choosingNationalExamPath"] },
   { year: 2008, items: ["firstComputer"] },
   { year: 2004, items: ["startingSchool"] },
   { year: 2003, items: ["earlySchool"] },
