@@ -7,7 +7,7 @@ export function ProfileJob(props) {
       <Div
         mb="3"
         css={{ textAlign: "center" }}
-        responsive={{ md: { css: { textAlign: "start".imp() } } }}
+        responsive={{ md: { css: { textAlign: "start" } } }}
       >
         <Text size="lg-b" tag="h2">
           home.profile.job
@@ -16,18 +16,13 @@ export function ProfileJob(props) {
       <Div
         css={{ textAlign: "center" }}
         responsive={{
-          md: {
-            css: {
-              textAlign: "start".imp(),
-              "*": { whiteSpace: "pre-line" },
-            },
-          },
+          md: { css: { textAlign: "start", "*": { whiteSpace: "pre-line" } } },
         }}
       >
         <Text
           size="lg"
           color="text-secondary"
-          tag="h3"
+          tag="p"
           lineHeight="2"
           Mw="600px"
         >
