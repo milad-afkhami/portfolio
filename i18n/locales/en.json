@@ -267,7 +267,42 @@
         }
       },
       "anime": {
-        "title": "Favourite Anime"
+        "title": "Favourite Anime",
+        "list": {
+          "spirited-away": {
+            "name": "Spirited Away"
+          },
+          "princess-mononoke": {
+            "name": "Princess Mononoke"
+          },
+          "fullmetal-alchemist-brotherhood": {
+            "name": "Fullmetal Alchemist: Brotherhood"
+          },
+          "death-note": {
+            "name": "Death Note"
+          },
+          "attack-on-titan": {
+            "name": "Attack on Titan"
+          },
+          "ghost-in-the-shell": {
+            "name": "Ghost in The Shell"
+          },
+          "hunter-x-hunter": {
+            "name": "Hunter x Hunter"
+          },
+          "steins-gate": {
+            "name": "Steins;Gate"
+          },
+          "berserk": {
+            "name": "Berserk"
+          },
+          "demon-slayer": {
+            "name": "Demon Slayer"
+          },
+          "silent-voice": {
+            "name": "Silent Voice"
+          }
+        }
       },
       "listenNow": "Listen Now",
       "expand": "Expand",

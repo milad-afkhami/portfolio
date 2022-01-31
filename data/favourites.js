@@ -371,10 +371,10 @@ export const favouriteSeriesData = [
 export const favouriteAnimeData = [
   "spirited-away",
   "princess-mononoke",
-  "fullmetal-alchemist-brotherhood",
-  "death-note",
   "attack-on-titan",
+  "death-note",
   "ghost-in-the-shell",
+  "fullmetal-alchemist-brotherhood",
   "hunter-x-hunter",
   "steins-gate",
   "berserk",
