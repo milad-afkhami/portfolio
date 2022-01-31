@@ -15,7 +15,7 @@ export const GistCardCategory = (props) => {
       position="relative"
     >
       <Image
-        src={`/images/gists/${category}.png`}
+        src={`/images/gists/${category}.jpg`}
         // alt={`gists.category.${category}`}
         layout="fill"
       />
