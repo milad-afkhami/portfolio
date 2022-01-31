@@ -9,7 +9,7 @@ export const FAVOURITE_TYPES = {
     // WRITERS: "WRITERS",
   },
   SHOW: {
-    MOVIES: "MOVIES",
+    ANIMATIONS: "ANIMATIONS",
     SERIES: "SERIES",
     ANIME: "ANIME",
   },

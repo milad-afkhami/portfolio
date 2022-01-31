@@ -308,26 +308,22 @@ export const favouriteBooksData = [
   "tafsir-nemooneh",
 ];
 
-export const favouriteMoviesData = [
+export const favouriteAnimationsData = [
   "el-dorado",
   "ratatouille",
-  "garfield",
   "up",
+  "garfield",
   "beauty-and-the-beast",
-
   "the-iron-giant",
   "chicken-run",
+  "madagascar",
   "toy-story",
   "kung-fu-panda",
-
   "finding-nemo",
-
   "coraline",
   "cars",
-  "madagascar",
   "shrek",
   "robots",
-
   // "forrest-gump",
   // "santoori",
   // "the-shawshank-redemption",

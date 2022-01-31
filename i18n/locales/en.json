@@ -57,7 +57,7 @@
         "books": "Books",
         "writers": "Writers",
         "poets": "Poets",
-        "movies": "Movies",
+        "animations": "Animations",
         "series": "Series",
         "anime": "Anime",
         "favouriteSongs": "Favourite Songs",
@@ -160,8 +160,8 @@
       "writers": {
         "title": "Favourite Writers"
       },
-      "movies": {
-        "title": "Favourite Movies",
+      "animations": {
+        "title": "Favourite Animations",
         "list": {
           "el-dorado": {
             "name": "El Dorado"
