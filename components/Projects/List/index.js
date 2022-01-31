@@ -17,6 +17,9 @@ export const ProjectsList = (props) => {
     projectsData[5],
   ];
 
+  // last n items to hide in responsive
+  const itemsToHide = 3;
+
   return (
     <Div my="3" {...props}>
       <PageTitle title="projects.title" tag="h2" />
@@ -25,8 +28,20 @@ export const ProjectsList = (props) => {
           grid={["repeat(1, 1fr)", , "1rem", "1rem"]}
           css={{ gridAutoFlow: "row" }}
           overflowX="auto"
+          css={{
+            [`& > *:nth-child(n+${6 - itemsToHide + 1})`]: {
+              display: "none",
+            },
+          }}
           responsive={{
-            md: { css: { gridTemplateColumns: "repeat(3, 1fr)" } },
+            md: {
+              css: {
+                gridTemplateColumns: "repeat(3, 1fr)",
+                [`& > *:nth-child(n+${6 - itemsToHide + 1})`]: {
+                  display: "flex",
+                },
+              },
+            },
           }}
           pb="2"
         >
