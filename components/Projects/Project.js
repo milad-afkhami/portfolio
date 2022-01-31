@@ -11,8 +11,8 @@ export const Project = (props) => {
     <Div mb="6" id={`project-${props.slug}`}>
       <ProjectHeading {...props} />
       <ProjectDescription {...props} />
-      <ProjectTechs {...props} />
       {props.medias && <ProjectGallery medias={props.medias} />}
+      {props.techs && <ProjectTechs {...props} />}
       {props.points && <ProjectPoints points={props.points} />}
     </Div>
   );

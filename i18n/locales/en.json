@@ -373,15 +373,16 @@
           "1": "Using Next.js framework for server-side rendering",
           "2": "Following Micro Frontend principles",
           "3": "Localization and Internationalization",
-          "4": "Using redux saga as a redux async middleware"
+          "4": "Using redux saga as a redux async middleware",
+          "5": "Combining socket.io and redux to create an sticky chat floating on bottom of layout and a chat page."
         }
       },
       "tarinoo": {
         "name": "Tarinoo",
         "description": "Another product of uneed infrastructure, built to sell fully customized websites to business-type users.",
         "points": {
-          "1": "writing code once and using it in other sites",
-          "2": "full control over products, banners, contents and ..."
+          "1": "Writing code once and using it in other sites with 4 different themes (till now)",
+          "2": "Full control over product details, banners, contents and ..., like WordPress or Joomla."
         }
       },
       "bityon": {
@@ -392,7 +393,9 @@
           "1-1": "SEO first multi language website",
           "1-2": "Multi directional server side rendered website",
           "1-3": "No flash theme change",
-          "1-4": "Define custom themes"
+          "1-4": "Define custom themes",
+          "2": "Using Context API for state management (for data that isn't changing frequently to cause performance issues)",
+          "3": "Replacing formik with react-hook-form for better performance."
         }
       },
       "biz": {
@@ -400,11 +403,11 @@
         "description": "The biggest iranian network marketing company.",
         "points": {
           "1": "Custom SSR implementation",
-          "2-1": "manual server-side rendering with express",
-          "2-2": "both server and client redux support with synced isomorphic redux state",
-          "2-3": "ssr data prefetching and passing it to pages as props",
-          "3": "caching requests with Redis key-value pair database",
-          "4": "notifications with firebase"
+          "2-1": "Manual server-side rendering with express",
+          "2-2": "Both server-side and client-side redux support with synced isomorphic redux state",
+          "2-3": "SSR data prefetching and passing it to pages as props",
+          "3": "Caching requests with Redis key-value pair database",
+          "4": "Notifications with firebase"
         }
       },
       "crm": {
@@ -412,10 +415,10 @@
         "description": "Customer relationship management panel that provides an all-in-one social media management tool.",
         "points": {
           "1": "Using socket.io for real-time communication with server",
-          "1-1": "using socket.io-client along with context api",
-          "1-2": "building a custom useChat hook for a cleaner way to connect components to communicate with realtime updating state",
-          "2": "writing simple end to end tests with cypress",
-          "3": "connecting to Telegram, WhatsApp, Instagram accounts"
+          "1-1": "Building a custom useChat hook for a cleaner way to connect components to communicate with realtime updating state",
+          "1-2": "Along with context API for state management",
+          "2": "Writing simple end to end tests with cypress",
+          "3": "Connecting to Telegram, WhatsApp and Instagram accounts"
         }
       },
       "etc": {
