@@ -17,13 +17,7 @@ export const Layout = (props = {}) => {
   const { children, hideHeader, hideFooter, transparentHeader } = props;
 
   return (
-    <Div
-      // px={"0".imp()}
-      position="relative"
-      id={APP_WRAPPER_ELEMENT_ID}
-      mh="100vh"
-      container
-    >
+    <Div position="relative" id={APP_WRAPPER_ELEMENT_ID} mh="100vh" container>
       <GithubCorner />
       <Div id="more-menu__list" />
       <Div id="modal__wrapper" />
