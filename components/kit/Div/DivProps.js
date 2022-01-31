@@ -99,7 +99,7 @@ import { HTMLAttributes } from "react";
  * @property {DivProps} hover
  * @property {boolean} zoomOnHover
  * @property {{xs_only?: DivProps, sm?: DivProps, sm_only?: DivProps, md?: DivProps, md_only?: DivProps, lg?: DivProps, lg_only?: DivProps, xl?: DivProps, xl_only?: DivProps, xxl?: DivProps, xxl_only?: DivProps, xxxl?: DivProps}} responsive
- * @property {import("styled-components").CSSProperties} responsive
+ * @property {import("styled-components").CSSProperties} css
  * @property {Animation} animation
  * @property {boolean} blurBg
  * @property {boolean} truncate
