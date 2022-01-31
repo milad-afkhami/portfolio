@@ -1,3 +1,5 @@
+import { HTMLAttributes } from "react";
+
 /**
  * @typedef {import('@stylesheets/constants/spacing').Spacings|number} Spacings
  * @typedef {("xlg"|"lg"|"md"|"sm"|"xsm"|"xxsm"|"circle")} Curves
@@ -104,5 +106,5 @@
  */
 
 /**
- * @typedef {import("react").HTMLAttributes|DivProps} Props
+ * @typedef {HTMLAttributes|DivProps} Props
  */
