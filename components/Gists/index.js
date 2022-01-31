@@ -3,6 +3,9 @@ import { Div } from "@kits";
 import { GistCard } from "./Card";
 import { SectionTitle } from "@components/Layout";
 
+export * from "./Title";
+export * from "./Summary";
+
 export const Gists = (props) => {
   const {
     items = [],

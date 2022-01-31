@@ -7,6 +7,7 @@ import dynamic from "next/dynamic";
 import { GistServices } from "@services";
 import { GlobalBSTableStyle } from "@stylesheets";
 import { MarkdownWrapper, MarkdownVariables } from "@components/Markdown";
+import { GistTitle, GistSummary } from "@components/Gists";
 
 const components = {
   Image: dynamic(() => import("@kits").then((module) => module.Image)),
@@ -34,11 +35,8 @@ export default function GistPage(props) {
           ]}
         />
         <Div>
-          <Div my="3">
-            <Text size="h-md-b" as="h1" lineHeight="1.8">
-              {title}
-            </Text>
-          </Div>
+          <GistTitle title={title} />
+          <GistSummary summary={summary} />
           <MarkdownWrapper>
             <MDXRemote {...source} components={components} />
           </MarkdownWrapper>
