@@ -9,29 +9,33 @@ description: "An enhanced version of react useState hook that gives us a more pr
 
 ### API
 
-<Code
-  language="javascript"
-  code={`/**
-* @param {any} [initialState]
-* @returns {[any, Function, any, MutableRefObject]}
-*/`}
-/>
+```javascript
+/**
+ * @param {any} [initialState]
+ * @returns {[any, Function, any, MutableRefObject]}
+ */
+```
 
 ### Source
 
-<Code
-  language="javascript"
-  code={`import { useState, useCallback, useDebugValue, useRef, MutableRefObject } from "react";
-  
+```javascript
+import {
+  useState,
+  useCallback,
+  useDebugValue,
+  useRef,
+  MutableRefObject,
+} from "react";
+
 function useEnhancedState(initialState) {
   const [state, setState] = useState(initialState);
   const [prevState, setPrevState] = useState();
   const stateRef = useRef();
-  
+
   useDebugValue({ state, prevState });
-  
+
   const handleSetState = useCallback(
-    (payload) => 
+    (payload) =>
       setState((prevState) => {
         setPrevState(prevState);
         const isFunctionalUpdate = typeof payload === "function";
@@ -41,15 +45,15 @@ function useEnhancedState(initialState) {
       }),
     []
   );
-  
+
   return [state, handleSetState, prevState, stateRef];
 }
-`}
-/>
+```
 
 ### Example
 
-<Code
-  language="javascript"
-  code={`const [state, setState, prevState, stateRef] = useEnhancedState({ products: [] });`}
-/>
+```javascript
+const [state, setState, prevState, stateRef] = useEnhancedState({
+  products: [],
+});
+```

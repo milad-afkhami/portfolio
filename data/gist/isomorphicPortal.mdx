@@ -9,23 +9,26 @@ description: "gives us a better API to deal with react portal in ssr apps."
 
 ### Source
 
-<Code
-  language="javascript"
-  code={`import { createPortal } from "react-dom";
-  
+```javascript
+import { createPortal } from "react-dom";
+
 function isomorphicPortal(children, selector) {
-  const isClient = !!(typeof window !== "undefined" && window.document && window.document.createElement);
+  const isClient = !!(
+    typeof window !== "undefined" &&
+    window.document &&
+    window.document.createElement
+  );
   if (!isClient) return null;
-  
+
   const destEl = selector ? document.querySelector(selector) : null;
   return createPortal(children, destEl || document.body);
 }
-`}
-/>
+```
+
+<br />
 
 ### Example
 
-<Code
-  language="javascript"
-  code={`isomorphicPortal(<Div />, "#modal__wrapper");`}
-/>
+```javascript
+isomorphicPortal(<Div />, "#modal__wrapper");
+```
