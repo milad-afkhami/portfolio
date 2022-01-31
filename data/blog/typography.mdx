@@ -27,25 +27,23 @@ Using global typography for text sizes for texts, increases readability and main
 
 First we need to set our breakpoint configs
 
-<Code
-  language="javascript"
-  code={`const breakpoints = { 
-  xs: 414, 
-  sm: 576, 
-  md: 768, 
-  lg: 992, 
-  xl: 1200 
-};`}
-/>
+```javascript
+const breakpoints = {
+  xs: 414,
+  sm: 576,
+  md: 768,
+  lg: 992,
+  xl: 1200,
+};
+```
 
 ### 2. Defining typography variants
 
 Then we need to define our typography variant in different breakpoints.
 In the below example the key `default` will be our typography in screens with _min-width_ of **breakpoints.lg**.
 
-<Code
-  language="javascript"
-  code={`const typographyVariants = {
+```javascript
+const typographyVariants = {
   default: {
     "h-lg": { fontSize: 24, fontWeight: "normal" },
     "h-lg-b": { fontSize: 24, fontWeight: "bold" },
@@ -66,9 +64,9 @@ In the below example the key `default` will be our typography in screens with _m
   },
   [breakpoints.lg]: {
     // ...
-  }
-};`}
-/>
+  },
+};
+```
 
 ### 3. Adding values as global CSS variables.
 
@@ -77,13 +75,12 @@ we do it with createGlobalStyle method from styled-components.
 
 This adds default typography variant variables under **:root** and adds other variants under corresponding media queries to override defaults.
 
-<Code
-  language="javascript"
-  code={`// adding values as CSS variables like : var(--font-size-sm) and var(--font-weight-sm)
+```javascript
+// adding values as CSS variables like : var(--font-size-sm) and var(--font-weight-sm)
 import { createGlobalStyle } from "styled-components";
 import { typographyVariants } from "@stylesheets";
 import __reduce from "lodash/reduce";
-\ 
+\
 export const GlobalTypographies = createGlobalStyle((props) => {
   return __reduce(
     typographyVariants,
@@ -108,8 +105,9 @@ export const GlobalTypographies = createGlobalStyle((props) => {
     },
     {}
   );
-});`}
-/>
+});
+```
+
 <small>
   ** We need to import <strong>GlobalColors</strong> component into our most top
   level component like App.js in react or _app.js in Next.js.
@@ -123,13 +121,12 @@ export const GlobalTypographies = createGlobalStyle((props) => {
 After doing all the hard work, we will be able to access those variables in our stylesheets
 from everywhere like this:
 
-<Code
-  language="css"
-  code={`.text {
-   font-size: var(--font-size-sm);
-   font-weight: var(--font-weight-sm);
- }`}
-/>
+```css
+.text {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-sm);
+}
+```
 
 ## Want A less verbose approach ?
 
@@ -143,9 +140,8 @@ Create a Text component like what I described [here](https://portfolio-mili.verc
 
 Create css classes in your stylesheets and use those classes in your markup to style texts.
 
-<Code
-  language="css"
-  code={`/* ... */
+```css
+/* ... */
 .tpg--sm {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-sm);
@@ -154,8 +150,9 @@ Create css classes in your stylesheets and use those classes in your markup to s
   font-size: var(--font-size-sm-b);
   font-weight: var(--font-weight-sm-b);
 }
-/* ... */`}
-/>
+/* ... */
+```
+
 <small>
   ** If you find it hard to write it for all of typography keys you need to
   automate it like what we did in previous section (3. Adding values as CSS
@@ -167,9 +164,8 @@ Create css classes in your stylesheets and use those classes in your markup to s
 
 To skip repetitive codes, you may want to automate generation process with sass loops with something like this:
 
-<Code
-  language="css"
-  code={`\/* _variables.scss */
+```css
+/* _variables.scss */
 $font-sizes: (
   h-xl: 32,
   h-lg: 24,
@@ -181,7 +177,7 @@ $font-sizes: (
   xsm: 10,
   xxsm: 9,
 );
-\ 
+
 /* utilities.scss */
 .tpg {
   @each $tpg, $fs in $font-sizes {
@@ -193,7 +189,7 @@ $font-sizes: (
       font-weight: bold;
     }
   }
-}`}
-/>
+}
+```
 
 There are so many interesting things you can do with sass more than just simple features, you can see a bunch of them [here](https://portfolio-mili.vercel.app/gists/sass).

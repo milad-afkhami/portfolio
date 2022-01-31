@@ -23,8 +23,8 @@ export const FavouriteEntities = (props) => {
             display="flex"
             css={{ columnGap: "var(--spacing-3)", flexDirection: "column" }}
             responsive={{
-              sm: { css: { flexDirection: "row".imp() } },
-              md: { css: { columnGap: "var(--spacing-4)".imp() } },
+              sm: { css: { flexDirection: "row" } },
+              md: { css: { columnGap: "var(--spacing-4)" } },
             }}
             width="100%"
             overflowX="auto"

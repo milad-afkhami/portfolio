@@ -3,7 +3,6 @@ import { Div } from "@kits";
 import { Head } from "@components/SEO";
 import { PageTitle } from "@components/Layout";
 import { Blogs } from "@components/Blog";
-// server imports
 import { BlogServices } from "@services";
 
 export default function BlogPage(props) {

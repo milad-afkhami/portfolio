@@ -32,9 +32,8 @@ So how to create an http proxy with next.js serverless functions?
 It's so simple,
 First you need two packages, [cookies](https://www.npmjs.com/package/cookies) and [http-proxy](https://www.npmjs.com/package/http-proxy).
 
-<Code
-  language="javascript"
-  code={`import * as HttpProxy from "http-proxy";
+```js
+import * as HttpProxy from "http-proxy";
 import url from "url";
 import { INTERVALS, TOKEN_COOKIE_KEY } from "@constants";
 import {
@@ -92,5 +91,5 @@ export default (req, res) => {
       });
     }
   });
-};`}
-/>
+};
+```

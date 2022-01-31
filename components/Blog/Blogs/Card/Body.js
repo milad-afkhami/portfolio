@@ -6,12 +6,11 @@ export const BlogCardBody = (props) => {
 
   return (
     <Div>
-      <Div mb="2">
+      <Div mb="2" overflow="hidden">
         <Text
           tag="p"
           size="md-b"
           lineHeight="1.5"
-          truncate
           css={{
             whiteSpace: "pre-wrap",
             display: "-webkit-box",

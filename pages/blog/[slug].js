@@ -9,11 +9,7 @@ import { BlogServices } from "@services";
 import { MarkdownWrapper } from "@components/Markdown";
 import { appBaseURL } from "@config";
 
-const Code = dynamic(() => import("@kits").then((module) => module.Code), {
-  ssr: false,
-});
-
-const components = { Image, Div, Code };
+const components = { Image, Div };
 
 export default function BlogPage(props) {
   const router = useRouter();
@@ -68,6 +64,7 @@ export default function BlogPage(props) {
             publishedAt={publishedAt}
           />
           <BlogBanner banner={banner || image} alt={title} />
+          {/* className=" line-numbers" */}
           <MarkdownWrapper>
             <MDXRemote {...source} components={components} />
           </MarkdownWrapper>
