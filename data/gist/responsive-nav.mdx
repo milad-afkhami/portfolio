@@ -1,5 +1,32 @@
 ---
 title: "Responsive Navbar"
 category: "javascript"
-summary: "Creating a responsive navbar without having to create and render multiple layouts and hide on of them."
+summary: "Creating a responsive navbar without having to create and render multiple components and hide one of them in each screen."
 ---
+
+See [here](https://github.com/miladMAPS/portfolio/blob/main/components/Layout/Header/Nav/index.js) for complete solution.
+
+```jsx
+import React from "react";
+import { Div } from "@kits";
+import dynamic from "next/dynamic";
+import { useMediaQuery } from "@hooks";
+import { breakpoints } from "@stylesheets";
+
+const HeaderMenu = dynamic(() => import("./Desktop"), { ssr: false });
+const HeaderResponsiveMenu = dynamic(() => import("./Responsive"), { ssr: false });
+
+export function HeaderNav(props) {
+  const isBigScreen = useMediaQuery({ minWidth: breakpoints.md });
+  const isResponsiveScreen = useMediaQuery({ maxWidth: breakpoints.md });
+
+  return (
+    <Div display="flex">
+      {isResponsiveScreen && <HeaderResponsiveMenu />}
+      {isBigScreen && <HeaderMenu />}
+    </Div>
+  );
+}
+```
+
+Read more about Div component [here](/gists/div).

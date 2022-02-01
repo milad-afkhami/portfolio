@@ -33,8 +33,19 @@ export const GistCard = (props) => {
         </Div>
         <GistCardCategory category={category} />
       </Div>
-      <Div>
-        <Text tag="p" size="md" color="text-secondary">
+      <Div overflow="hidden">
+        <Text
+          tag="p"
+          size="md"
+          color="text-secondary"
+          css={{
+            whiteSpace: "pre-wrap",
+            display: "-webkit-box",
+            WebkitLineClamp: 3,
+            lineClamp: 3,
+            WebkitBoxOrient: "vertical",
+          }}
+        >
           {summary}
         </Text>
       </Div>
