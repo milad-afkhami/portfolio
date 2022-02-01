@@ -2,110 +2,110 @@ export const favouriteArtistsData = [
   {
     name: "Soen",
     slug: "soen",
-    image: "/images/favourites/soen.png",
+    image: "/images/favourites/artists/soen.jpg",
     category: "rock-metal",
   },
   {
     name: "Muse",
     slug: "muse",
-    image: "/images/favourites/muse.png",
+    image: "/images/favourites/artists/muse.jpg",
     category: "rock-metal",
   },
   {
     name: "Radiohead",
     slug: "radiohead",
-    image: "/images/favourites/radiohead.jpeg",
+    image: "/images/favourites/artists/radiohead.jpg",
     category: "rock-metal",
   },
   {
     name: "Marilyn Manson",
     slug: "marilyn-manson",
-    image: "/images/favourites/marilyn-manson.jpg",
+    image: "/images/favourites/artists/marilyn-manson.jpg",
     category: "rock-metal",
   },
   {
     name: "Metallica",
     slug: "Metallica",
-    image: "/images/favourites/metallica.png",
+    image: "/images/favourites/artists/metallica.jpg",
     category: "rock-metal",
   },
   {
     name: "Mohsen Chavoshi",
     slug: "mohsen-chavoshi",
-    image: "/images/favourites/mohsen-chavoshi.jpeg",
+    image: "/images/favourites/artists/mohsen-chavoshi.jpg",
     category: "other",
   },
   {
     name: "Empyrium",
     slug: "empyrium",
-    image: "/images/favourites/empyrium.jpg",
+    image: "/images/favourites/artists/empyrium.jpg",
     category: "rock-metal",
   },
   {
     name: "Uaral",
     slug: "uaral",
-    image: "/images/favourites/uaral.jpg",
+    image: "/images/favourites/artists/uaral.jpg",
     category: "rock-metal",
   },
   {
     name: "Nirvana",
     slug: "nirvana",
-    image: "/images/favourites/nirvana.jpg",
+    image: "/images/favourites/artists/nirvana.jpg",
     category: "rock-metal",
   },
 
   {
     name: "Opeth",
     slug: "opeth",
-    image: "/images/favourites/opeth.jpg",
+    image: "/images/favourites/artists/opeth.jpg",
     category: "rock-metal",
   },
   {
     name: "Tool",
     slug: "tool",
-    image: "/images/favourites/tool.jpg",
+    image: "/images/favourites/artists/tool.jpg",
     category: "rock-metal",
   },
   {
     name: "Linkin Park",
     slug: "linkin-park",
-    image: "/images/favourites/linkin-park.jpg",
+    image: "/images/favourites/artists/linkin-park.jpg",
     category: "rock-metal",
   },
   {
     name: "Slipknot",
     slug: "slipknot",
-    image: "/images/favourites/slipknot.jpg",
+    image: "/images/favourites/artists/slipknot.jpg",
     category: "rock-metal",
   },
   {
     name: "System of A Down",
     slug: "system-of-a-down",
-    image: "/images/favourites/system-of-a-down.jpg",
+    image: "/images/favourites/artists/system-of-a-down.jpg",
     category: "rock-metal",
   },
   {
     name: "Avenged Sevenfold",
     slug: "avenged-sevenfold",
-    image: "/images/favourites/avenged-sevenfold.jpg",
+    image: "/images/favourites/artists/avenged-sevenfold.jpg",
     category: "rock-metal",
   },
   {
     name: "Cigarettes After Sex",
     slug: "cigarettes-after-sex",
-    image: "/images/favourites/cigarettes-after-sex.jpg",
+    image: "/images/favourites/artists/cigarettes-after-sex.jpg",
     category: "other",
   },
   {
     name: "Hozier",
     slug: "hozier",
-    image: "/images/favourites/hozier.jpg",
+    image: "/images/favourites/artists/hozier.jpg",
     category: "other",
   },
   {
     name: "Frank Ocean",
     slug: "frank-ocean",
-    image: "/images/favourites/frank-ocean.jpg",
+    image: "/images/favourites/artists/frank-ocean.jpg",
     category: "other",
   },
 ];
@@ -114,7 +114,7 @@ export const favouritePlaylistsData = [
   {
     name: "Best of Soen",
     slug: "soen",
-    image: "/images/favourites/soen.png",
+    image: "/images/favourites/artists/soen.jpg",
     tracks: [
       { name: "Martyrs", artist: "Soen" },
       { name: "Lotus", artist: "Soen" },
@@ -148,7 +148,7 @@ export const favouritePlaylistsData = [
   {
     name: "Best of Muse",
     slug: "muse",
-    image: "/images/favourites/muse.png",
+    image: "/images/favourites/artists/muse.jpg",
     tracks: [
       { name: "Hysteria", artist: "Muse" },
       { name: "Starlight", artist: "Muse" },
@@ -179,7 +179,7 @@ export const favouritePlaylistsData = [
   {
     name: "Best of Radiohead",
     slug: "radiohead",
-    image: "/images/favourites/radiohead.jpeg",
+    image: "/images/favourites/artists/radiohead.jpg",
     tracks: [
       { name: "Creep", artist: "Radiohead" },
       { name: "Nude", artist: "Radiohead" },
@@ -202,7 +202,7 @@ export const favouritePlaylistsData = [
   {
     name: "Best of Marilyn Manson",
     slug: "marilyn-manson",
-    image: "/images/favourites/marilyn-manson.jpg",
+    image: "/images/favourites/artists/marilyn-manson.jpg",
     tracks: [
       { name: "Running on the Edge of The World", artist: "Marilyn Manson" },
       { name: "Just A Car Crash Away", artist: "Marilyn Manson" },
@@ -232,7 +232,7 @@ export const favouritePlaylistsData = [
   // {
   //   name: "Best of Metallica",
   //   slug: "metallica",
-  //   image: "/images/favourites/metallica.png",
+  //   image: "/images/favourites/artists/metallica.jpg",
   //   tracks: [
   //     { name: "Mama Said", artist: "Metallica" },
   //     { name: "Mama Said", artist: "Metallica" },
@@ -242,7 +242,7 @@ export const favouritePlaylistsData = [
   {
     name: "Best of Mohsen Chavoshi",
     slug: "mohsen-chavoshi",
-    image: "/images/favourites/mohsen-chavoshi.jpeg",
+    image: "/images/favourites/artists/mohsen-chavoshi.jpg",
     tracks: [
       { name: "Sange Sabour", artist: "Mohsen Chavoshi" },
       { name: "Rahe Doshvar", artist: "Mohsen Chavoshi" },

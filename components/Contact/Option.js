@@ -35,7 +35,6 @@ export function ContactOption(props) {
         mb="3"
         // responsive={{ md: { width: "100px", height: "100px" } }}
       >
-        {/* <Image src={`/images/icons/contact/${type}.png`} css={{ filter: "invert(0.1)", [`[data-theme="${THEMES.LIGHT}"] &`]: { filter: "invert(1)" } }} width="50px" height="50px" fit="contain" /> */}
         <Icon name={type} size="2.5rem" />
       </Div>
       <Div mb="2">

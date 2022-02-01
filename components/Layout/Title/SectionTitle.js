@@ -9,7 +9,6 @@ export const SectionTitle = (props) => {
     <Div flex={["center", "start"]} mb="2">
       {icon && (
         <Div flex={["center", "center"]}>
-          {/* <Image priority src={`/images/icons/${icon}.png`} width="24px" height="24px" responsive={{ width: "32px", height: "32px" }} css={{ [`[data-theme="${THEMES.DARK}"] &`]: { filter: "invert(1)" } }} /> */}
           <Icon name={icon} size="h-lg" hoverColor={null} cursor="default" />
         </Div>
       )}

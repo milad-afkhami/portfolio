@@ -11,7 +11,7 @@ export const FavouriteCommonEntityCard = (props) => {
   const meta = t(`favourites.${entityType}.list.${slug}.meta`, {
     defaultValue: "",
   });
-  const image = `/images/favourites/${entityType}/${slug}.jpeg`;
+  const image = `/images/favourites/${entityType}/${slug}.jpg`;
 
   return (
     <Div

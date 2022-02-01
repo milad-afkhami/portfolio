@@ -25,7 +25,7 @@ export const ProjectGallery = (props) => {
   };
 
   return (
-    <Div mb="5">
+    <Div mb="4">
       <SectionTitle icon="gallery" title="projects.gallery" />
       <ProjectGalleryAlbum
         medias={medias}

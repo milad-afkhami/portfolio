@@ -36,7 +36,7 @@ export const FavouriteEntity = (props) => {
         mb="3"
       >
         <Image
-          src={`/images/favourites/entities/${label}.jpeg`}
+          src={`/images/favourites/entities/${label}.jpg`}
           placeholder="blur"
           quality={50}
           blurDataURL={`/images/favourites/entities/${label}`}
