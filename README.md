@@ -22,12 +22,12 @@ You can run this command `git ls-files | xargs wc -l | awk '$1 > 100'` in projec
 
 ## Analytic Reports 📐
 
-![gtmetrix grade for my portfolio](public/images/projects/portfolio/gtmetrix.png)
+![gtmetrix grade for my portfolio](public/images/projects/portfolio/gtmetrix.jpg)
 
 |                                                                   |                                                                   |
 | :---------------------------------------------------------------: | :---------------------------------------------------------------: |
-| ![FCP](public/images/projects/portfolio/vercel-analytics-FCP.png) | ![LCP](public/images/projects/portfolio/vercel-analytics-LCP.png) |
-| ![CLS](public/images/projects/portfolio/vercel-analytics-CLS.png) | ![FID](public/images/projects/portfolio/vercel-analytics-FID.png) |
+| ![FCP](public/images/projects/portfolio/vercel-analytics-FCP.jpg) | ![LCP](public/images/projects/portfolio/vercel-analytics-LCP.jpg) |
+| ![CLS](public/images/projects/portfolio/vercel-analytics-CLS.jpg) | ![FID](public/images/projects/portfolio/vercel-analytics-FID.jpg) |
 
 ---
 
