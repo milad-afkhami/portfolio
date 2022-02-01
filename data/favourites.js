@@ -115,6 +115,7 @@ export const favouritePlaylistsData = [
     name: "Best of Soen",
     slug: "soen",
     image: "/images/favourites/artists/soen.jpg",
+    link: "https://music.youtube.com/playlist?list=PL-yYaCE5uT3at0d8wyhnQht15miQcMAj5",
     tracks: [
       { name: "Martyrs", artist: "Soen" },
       { name: "Lotus", artist: "Soen" },
@@ -149,6 +150,7 @@ export const favouritePlaylistsData = [
     name: "Best of Muse",
     slug: "muse",
     image: "/images/favourites/artists/muse.jpg",
+    link: "https://music.youtube.com/playlist?list=PL-yYaCE5uT3a9naP2guYDSfZR4sVK7XP0",
     tracks: [
       { name: "Hysteria", artist: "Muse" },
       { name: "Starlight", artist: "Muse" },
@@ -180,6 +182,7 @@ export const favouritePlaylistsData = [
     name: "Best of Radiohead",
     slug: "radiohead",
     image: "/images/favourites/artists/radiohead.jpg",
+    link: "https://music.youtube.com/playlist?list=PL-yYaCE5uT3bSSatzRsw8OeB5B-dllHBj",
     tracks: [
       { name: "Creep", artist: "Radiohead" },
       { name: "Nude", artist: "Radiohead" },
@@ -203,6 +206,7 @@ export const favouritePlaylistsData = [
     name: "Best of Marilyn Manson",
     slug: "marilyn-manson",
     image: "/images/favourites/artists/marilyn-manson.jpg",
+    link: "https://music.youtube.com/playlist?list=PL-yYaCE5uT3ar-1PrsfNaJtjXlgCv6ukf",
     tracks: [
       { name: "Running on the Edge of The World", artist: "Marilyn Manson" },
       { name: "Just A Car Crash Away", artist: "Marilyn Manson" },

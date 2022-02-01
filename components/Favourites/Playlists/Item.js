@@ -4,7 +4,7 @@ import { useToggle } from "@hooks";
 import { FavouritePlaylistTracks } from "./Tracks";
 
 export const FavouritePlaylist = (props) => {
-  const { name, image, tracks } = props || {};
+  const { name, image, link, tracks } = props || {};
 
   const [tracksOpen, toggleTracks] = useToggle(false);
 
@@ -63,18 +63,16 @@ export const FavouritePlaylist = (props) => {
           width="100%"
           responsive={{ sm: { flex: [, "between", "column"], width: "auto" } }}
         >
-          <Link
-            outerLink
-            href="https://music.youtube.com/playlist?list=PL-yYaCE5uT3at0d8wyhnQht15miQcMAj5"
-            m="2"
-          >
-            <Button
-              variant="outlined"
-              text="favourites.listenNow"
-              size="sm"
-              onClick={() => {}}
-            />
-          </Link>
+          {link && (
+            <Link outerLink href={link} m="2">
+              <Button
+                variant="outlined"
+                text="favourites.listenNow"
+                size="sm"
+                onClick={() => {}}
+              />
+            </Link>
+          )}
           <Div m="2">
             <Button
               variant="link"
