@@ -19,9 +19,10 @@ export const Tree = (props) => {
 
   return (
     <TreeWrapper>
-      {branches.map((branch) =>
+      {branches.map((branch, i) =>
         branch ? (
           <details
+            key={i}
             className={`tree-nav__item ${
               branch?.[branchesAccessor] ? "is-expandable" : ""
             } hidden-scrollbar`}
