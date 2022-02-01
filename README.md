@@ -2,8 +2,6 @@
 
 ## My portfolio website
 
-![gtmetrix grade for my portfolio](public/images/projects/portfolio-gtmetrix.png)
-
 Made with [Next.js](https://nextjs.org/), [MDX](https://github.com/mdx-js/mdx), [styled-components](https://styled-components.com/) and deployed on [Vercel](https://vercel.com/)
 
 ## Features
@@ -17,6 +15,15 @@ You can run this command `git ls-files | xargs wc -l | awk '$1 > 100'` in projec
 ⚡️ Documented with [jsdoc](https://jsdoc.app/).
 
 <!-- #TODO Making courses on youtube, walking through this repository -->
+
+## Analytic Reports
+
+![gtmetrix grade for my portfolio](public/images/projects/portfolio/gtmetrix.png)
+
+|                                                                 |                                                                 |
+| :-------------------------------------------------------------: | :-------------------------------------------------------------: |
+| ![FCP](public/images/projects/portfolio/vercel-analytics-1.png) | ![LCP](public/images/projects/portfolio/vercel-analytics-2.png) |
+| ![CLS](public/images/projects/portfolio/vercel-analytics-3.png) | ![FID](public/images/projects/portfolio/vercel-analytics-4.png) |
 
 ## How To Use 🔧
 
