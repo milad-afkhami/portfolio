@@ -7,7 +7,10 @@ export const MarkdownWrapper = ({ children, ...rest }) => {
   useEffect(() => {
     // import("prismjs/themes/prism-tomorrow.css");
     // import("../../node_modules/prismjs/themes/prism-tomorrow.css");
+
     require("prismjs/prism").highlightAll();
+    require("prismjs/components/prism-jsx.js");
+    require("prismjs/components/prism-js-extras.js");
   }, []);
 
   return <StyledWrapper {...rest}>{children}</StyledWrapper>;
