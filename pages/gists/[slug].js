@@ -2,18 +2,11 @@ import React from "react";
 import { Breadcrumb, Div, Text } from "@kits";
 import { useRouter } from "@hooks";
 import { Head } from "@components/SEO";
-import { MDXRemote } from "next-mdx-remote";
+import { MDXRemote } from "@components/Markdown";
 import dynamic from "next/dynamic";
 import { GistServices } from "@services";
 import { GlobalBSTableStyle } from "@stylesheets";
 import { MarkdownWrapper, MarkdownVariables } from "@components/Markdown";
-
-const components = {
-  Image: dynamic(() => import("@kits").then((module) => module.Image)),
-  Div,
-  Text,
-  Variables: MarkdownVariables,
-};
 
 export default function GistPage(props) {
   const router = useRouter();
@@ -40,7 +33,10 @@ export default function GistPage(props) {
             </Text>
           </Div>
           <MarkdownWrapper>
-            <MDXRemote {...source} components={components} />
+            <MDXRemote
+              {...source}
+              components={{ Variables: MarkdownVariables }}
+            />
           </MarkdownWrapper>
         </Div>
       </Div>

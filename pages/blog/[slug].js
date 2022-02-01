@@ -2,14 +2,12 @@ import React, { ComponentType } from "react";
 import { Div, Image, Breadcrumb } from "@kits";
 import { useRouter, useTranslation } from "@hooks";
 import { Head, BlogJsonLd } from "@components/SEO";
-import { MDXRemote } from "next-mdx-remote";
+import { MDXRemote } from "@components/Markdown";
 import dynamic from "next/dynamic";
 import { BlogTitle, BlogSummary, BlogMeta, BlogBanner } from "@components/Blog";
 import { BlogServices } from "@services";
 import { MarkdownWrapper } from "@components/Markdown";
 import { appBaseURL } from "@config";
-
-const components = { Image, Div };
 
 export default function BlogPage(props) {
   const router = useRouter();
@@ -66,7 +64,7 @@ export default function BlogPage(props) {
           <BlogBanner banner={banner || image} alt={title} />
           {/* className=" line-numbers" */}
           <MarkdownWrapper>
-            <MDXRemote {...source} components={components} />
+            <MDXRemote {...source} />
           </MarkdownWrapper>
         </Div>
       </Div>
