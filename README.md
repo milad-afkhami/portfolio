@@ -4,7 +4,9 @@
 
 Made with [Next.js](https://nextjs.org/), [MDX](https://github.com/mdx-js/mdx), [styled-components](https://styled-components.com/) and deployed on [Vercel](https://vercel.com/)
 
-## Features
+---
+
+## Features 💪🏻
 
 ⚡️ No component with more than 100 lines of code except index.css with CSS reset principals.
 You can run this command `git ls-files | xargs wc -l | awk '$1 > 100'` in project repository to see it in action.\
@@ -16,14 +18,18 @@ You can run this command `git ls-files | xargs wc -l | awk '$1 > 100'` in projec
 
 <!-- #TODO Making courses on youtube, walking through this repository -->
 
-## Analytic Reports
+---
+
+## Analytic Reports 📐
 
 ![gtmetrix grade for my portfolio](public/images/projects/portfolio/gtmetrix.png)
 
-|                                                                 |                                                                 |
-| :-------------------------------------------------------------: | :-------------------------------------------------------------: |
-| ![FCP](public/images/projects/portfolio/vercel-analytics-1.png) | ![LCP](public/images/projects/portfolio/vercel-analytics-2.png) |
-| ![CLS](public/images/projects/portfolio/vercel-analytics-3.png) | ![FID](public/images/projects/portfolio/vercel-analytics-4.png) |
+|                                                                   |                                                                   |
+| :---------------------------------------------------------------: | :---------------------------------------------------------------: |
+| ![FCP](public/images/projects/portfolio/vercel-analytics-FCP.png) | ![LCP](public/images/projects/portfolio/vercel-analytics-LCP.png) |
+| ![CLS](public/images/projects/portfolio/vercel-analytics-CLS.png) | ![FID](public/images/projects/portfolio/vercel-analytics-FID.png) |
+
+---
 
 ## How To Use 🔧
 
@@ -42,6 +48,8 @@ You can run this command `git ls-files | xargs wc -l | awk '$1 > 100'` in projec
 5. \
    `yarn start`
 
-## Deployment
+## Deployment 🕹
+
+---
 
 I used [Vercel](https://vercel.com/) for deployments because it is highly featured and easily configurable with next.js.
