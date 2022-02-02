@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { c, setTextTypography } from "@stylesheets";
 
 /**
- * @typedef {("stop-watch-filled"|"stop-watch-outline"|"moon-2"|"ruler-2"|"measure-2"|"math"|"gallery"|"gallery-2"|"gallery-3"|"tools"|"measure"|"gallery-4"|"linkedin-outline"|"moon"|"hash"|"nested-list"|"copy-fill"|"clock"|"time"|"history"|"list"|"star"|"info"|"skype-fill"|"sun1"|"list-2"|"copy-fill"|"clock"|"time"|"history"|"list"|"star"|"info"|"skype-fill"|"sun1"|"list-2"|"chevron-circle-right"|"chevron-circle-right"|"chevron-right"|"bullseye"|"eye-dropper"|"chevron-right-2"|"skype-outline"|"sun"|"double-chevrons-right"|"chevron-right-3"|"copy-outline"|"mail"|"nested-tree"|"focus-center-2"|"focus-center-3"|"timeline"|"whatsapp"|"telegram"|"skype"|"linkedin"|"gmail")} IconName
+ * @typedef {("calendar"|"music-2"|"song-2"|"ruler"|"measure-2"|"gallery"|"tools"|"measure"|"moon"|"hash"|"nested-list"|"calendar1"|"clock"|"time"|"history"|"list"|"info"|"headphones"|"music"|"song"|"film"|"show"|"book"|"sun1"|"chevron-right"|"sun"|"copy-outline"|"focus-center-2"|"timeline"|"whatsapp"|"telegram"|"skype"|"linkedin"|"email")} IconName
  * @typedef {{name:IconName, color:import("@stylesheets").Colors, hoverColor:import("@stylesheets").Colors, size:import("@stylesheets").Typography, bold:boolean, multiDirection:boolean, cursor:string}} IconProps
  *
  * @type {import("react").ComponentType<IconProps>}
