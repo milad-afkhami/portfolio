@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?x147l4');
-  src:  url('fonts/icomoon.eot?x147l4#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?x147l4') format('truetype'),
-    url('fonts/icomoon.woff?x147l4') format('woff'),
-    url('fonts/icomoon.svg?x147l4#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?clvb5g');
+  src:  url('fonts/icomoon.eot?clvb5g#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?clvb5g') format('truetype'),
+    url('fonts/icomoon.woff?clvb5g') format('woff'),
+    url('fonts/icomoon.svg?clvb5g#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +25,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.mili-calendar-icon:before {
+  content: "\e900";
+}
 .mili-music-2-icon:before {
   content: "\e912";
 }
@@ -54,6 +57,9 @@
 }
 .mili-nested-list-icon:before {
   content: "\e90a";
+}
+.mili-calendar1-icon:before {
+  content: "\e901";
 }
 .mili-clock-icon:before {
   content: "\e90c";
