@@ -33,7 +33,7 @@ export class LanguageHelper {
       const path =
         (locale === Router.defaultLocale ? "" : `/${locale}`) + Router.asPath;
 
-      Router.replace(path, undefined, { locale });
+      return Router.replace(path, undefined, { locale });
     });
   }
 }
