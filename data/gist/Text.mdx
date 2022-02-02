@@ -7,6 +7,14 @@ description: "The Text component is a wrapper to render, style and translate tex
 
 ### _renders and translates a custom span element with needed stylesheets._
 
+## Usage
+
+```jsx
+<Text size="md-b" color="text-secondary" lineHeight="1.5" truncate>
+  a.b.c
+</Text>
+```
+
 ## Props
 
 <Div width="100%" overflowY="auto" mb="3">
@@ -46,46 +54,90 @@ description: "The Text component is a wrapper to render, style and translate tex
 
 </Div>
 
-```JSX
-<Div
-  className="CLASS_NAME"
-  container
-  row
-  width="1rem"
-  mw="1rem"
-  Mw="1rem"
-  curve="xlg | lg | md | sm | xsm | xxsm | 1rem"
-  shadow="sm | md | 1rem 1rem black"
-  pace="slow | normal | fast | 1s"
-  border="primary | secondary | ... | #333 | rgba(...) | ..."
-  borderW="2px"
-  bg="primary | secondary | ... | #333 | rgba(...) | linear-gradient(...)"
-  bgImage="url(...)"
-  color="primary | secondary | ... | #333 | rgba(...) | ..."
-  hoverBg="primary | secondary | ... | #333 | rgba(...) | ..."
-  hoverColor="primary | secondary | ... | #333 | rgba(...) | ..."
-  m="3" // spacing[3]
-  m="2,3" // spacing[2] spacing[3]
-  mx="2"
-  position="unset"
-  display="flex"
-  flex={["start", "between", "column", "wrap"]}
-  col={{ xs: 12, sm: 11, md: 10, lg: 9 }}
-  grid={[`repeat(4, 1fr)`, '1fr', '3', '3']}
-  overflow="auto"
-  overflowX="auto"
-  overflowY="auto"
-  cursor="pointer"
-  dimensions={{ top: 1, bottom: 2, right: 3, left: 4, insetInlineEnd: 1, insetInlineStart: 1, }}
-  // => dimensions={{ top: spacing[1], bottom: spacing[2], right: spacing[3], left: spacing[4], insetInlineEnd: spacings[1], insetInlineStart: spacings[1] }}
-  zIndex="3"
-  order="-1"
-  after={{ content: "*", color: "primary", position: "absolute", flex: "center,center" }}
-  before={{ content: "*", color: "primary", position: "absolute", flex: "center,center" }}
-  responsive={{ xs: { mx: 2 }, md: { pl: "2".imp() } }} // see (breakpoints.js)[] => mediaFeatures
-  // => (min-width: ${bp.md}px) { padding-left: `${spacing[2]} !important` }
-  css={{ lineHeight: "normal" }}
-/>
+## Source
+
+```jsx
+import React from "react";
+import styled from "styled-components";
+import { c, setTextTypography } from "@stylesheets";
+import { withTranslation } from "react-i18next";
+
+const Text = withTranslation()(
+  styled.span.attrs(
+    ({
+      i18n,
+      translationOptions = {},
+      translationVariables = {},
+      t,
+      children,
+      direction,
+      tag,
+      noTranslation,
+      ...rest
+    }) => {
+      // const dir = direction || (i18n.language === "fa" ? "rtl" : "ltr");
+      return {
+        ...(tag ? { as: tag } : {}),
+        children: noTranslation
+          ? children
+          : t(children, {
+              ...translationOptions,
+              ...translationVariables,
+            }),
+        ...rest,
+      };
+    }
+  )(
+    ({
+      color,
+      size,
+      bold,
+      m,
+      p,
+      css,
+      truncate,
+      width,
+      mw,
+      Mw,
+      height,
+      mh,
+      Mh,
+      align,
+      hoverColor,
+      zoomOnHover,
+      lineHeight,
+      ...restProps
+    }) => ({
+      ...(color ? { color: c(color) } : {}),
+      ...setTextTypography(size, { bold }),
+      margin: 0,
+      transition: "var(--pace-fast)",
+      ...(width ? { width } : {}),
+      ...(mw ? { minWidth: mw } : {}),
+      ...(Mw ? { maxWidth: Mw } : {}),
+      ...(height ? { height } : {}),
+      ...(mh ? { minHeight: mh } : {}),
+      ...(Mh ? { maxHeight: Mh } : {}),
+      ...(align ? { textAlign: align } : {}),
+      ...(lineHeight ? { lineHeight } : {}),
+      ...(css || {}),
+      ...(truncate
+        ? { textOverflow: "ellipsis", overflow: "hidden", whiteSpace: "nowrap" }
+        : {}),
+      ...(hoverColor
+        ? {
+            ":hover": {
+              ...(hoverColor ? { color: c(hoverColor) } : {}),
+              ...(zoomOnHover ? { transform: "scale(1.05)" } : {}),
+            },
+          }
+        : {}),
+      "-moz-font-feature-settings": '"ss02"',
+      "-webkit-font-feature-settings": '"ss02"',
+      "font-feature-settings": '"ss02"',
+    })
+  )
+);
 ```
 
 <Variables />
