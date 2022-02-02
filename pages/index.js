@@ -2,8 +2,8 @@ import React from "react";
 import { useHome } from "@hooks";
 import { Div } from "@kits";
 import { Head } from "@components/SEO";
-import { Profile, FeaturedPosts, Projects } from "@components/Home";
-import { BlogServices } from "@services";
+import { Profile, FeaturedPosts, Projects, Gists } from "@components/Home";
+import { BlogServices, GistServices } from "@services";
 import dynamic from "next/dynamic";
 
 const Contact = dynamic(
@@ -21,6 +21,7 @@ export default function Home(props) {
         <Profile />
         <FeaturedPosts posts={props.blogs} />
         <Projects />
+        <Gists items={props.gists} />
         <Contact />
       </Div>
     </>
@@ -29,6 +30,7 @@ export default function Home(props) {
 
 export async function getStaticProps() {
   const blogs = await BlogServices.getList();
+  const gists = await GistServices.getList();
 
-  return { props: { blogs } };
+  return { props: { blogs, gists } };
 }
