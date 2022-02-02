@@ -1,10 +1,11 @@
 import React from "react";
-import { Div } from "@kits";
+import { Div, Icon, Text } from "@kits";
 import { ProjectHeading } from "./Heading";
 import { ProjectDescription } from "./Description";
 import { ProjectTechs } from "./Techs";
 import { ProjectGallery } from "./Gallery";
 import { ProjectPoints } from "./Points";
+// import { ProjectDate } from "./Date";
 
 export const Project = (props) => {
   return (

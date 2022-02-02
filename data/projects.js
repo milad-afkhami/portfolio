@@ -32,7 +32,7 @@ export const projectsData = [
       { src: "/images/projects/octava/desktop/5-skeleton.jpg" },
       { src: "/images/projects/octava/pwa/1-skeleton.jpg" },
     ],
-    date: "",
+    date: "2021-2",
     slug: "octava",
     techs: [
       { name: "Next.js", link: "https://www.npmjs.com/package/next" },
@@ -124,7 +124,7 @@ export const projectsData = [
       { src: "/images/projects/uneed/desktop/9.jpg" },
       { src: "/images/projects/uneed/mobile/1.jpg" },
     ],
-    date: "2020",
+    date: "2020-1",
     slug: "uneed",
     techs: [
       { name: "Next.js", link: "https://www.npmjs.com/package/next" },
@@ -207,7 +207,7 @@ export const projectsData = [
         title: "projects.tarinoo.points.2",
       },
     ],
-    date: "2020",
+    date: "2020-1",
     slug: "tarinoo",
     techs: [
       { name: "Next.js", link: "https://www.npmjs.com/package/next" },
@@ -247,7 +247,7 @@ export const projectsData = [
       { src: "/images/projects/bityon/mobile/3.jpg" },
       { src: "/images/projects/bityon/mobile/4.jpg" },
     ],
-    date: "",
+    date: "2021",
     slug: "bityon",
     techs: [
       { name: "Next.js", link: "https://www.npmjs.com/package/next" },
@@ -294,7 +294,7 @@ export const projectsData = [
       { src: "/images/projects/biz/7.jpg" },
       { src: "/images/projects/biz/8.jpg" },
     ],
-    date: "",
+    date: "2019-20",
     slug: "biz",
     techs: [
       { name: "React", link: "https://www.npmjs.com/package/react" },
@@ -329,7 +329,7 @@ export const projectsData = [
       { src: "/images/projects/crm/3.jpg", title: "image 3" },
       { src: "/images/projects/crm/4.jpg", title: "image 4" },
     ],
-    date: "",
+    date: "2021",
     slug: "crm",
     techs: [
       { name: "React", link: "https://www.npmjs.com/package/react" },
@@ -356,7 +356,7 @@ export const projectsData = [
     _id: 6,
     name: "And so forth ...",
     logo: "/images/projects/etc.jpg",
-    data: "2018-present",
+    date: "2018-present",
     slug: "etc",
     techs: [
       { name: "React", link: "https://www.npmjs.com/package/react" },

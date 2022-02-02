@@ -2,7 +2,7 @@ import React from "react";
 import { Div, Image, Link, Text } from "@kits";
 
 export const ProjectHeading = (props) => {
-  const { logo, link = "", slug, index } = props || {};
+  const { logo, link = "", slug, index, date } = props || {};
 
   return (
     <Div
