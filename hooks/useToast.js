@@ -1,6 +1,6 @@
+import { ReactText } from "react";
+import { toast, ToastContent, ToastOptions } from "react-toastify";
 import { useTranslation } from "react-i18next";
-import { toast } from "react-toastify";
-import { ToastContent, ToastOptions } from "react-toastify";
 
 /**
  * `react-toastify` toast powered by i18n
@@ -11,7 +11,7 @@ export const useEnhancedToast = () => {
   /**
    * @param {ToastContent} content
    * @param {ToastOptions<{}>} options
-   * @returns {void}
+   * @returns {ReactText}
    */
   return function (content, options) {
     const toastContent = typeof content === "string" ? t(content) : content;
