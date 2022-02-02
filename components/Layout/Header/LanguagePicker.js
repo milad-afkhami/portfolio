@@ -1,5 +1,5 @@
 import React from "react";
-import { useRouter, useMemo } from "@hooks";
+import { useRouter, useMemo, useEnhancedToast } from "@hooks";
 import { Div, DropDown } from "@kits";
 import { languages as languagesList } from "@constants";
 import { __map } from "@utils";
@@ -9,10 +9,12 @@ export function HeaderChangeLanguage(props) {
   const {} = props || {};
 
   const router = useRouter();
+  const toast = useEnhancedToast();
 
-  const onChangeLanguage = (id) => {
-    LanguageHelper.changeLanguage(id);
-  };
+  const onChangeLanguage = (id) =>
+    LanguageHelper.changeLanguage(id).then(() =>
+      toast("error.sorryTranslation", { type: "info" })
+    );
 
   const dropDownItems = useMemo(
     () =>

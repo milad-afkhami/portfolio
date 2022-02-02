@@ -1,108 +1,496 @@
 {
   "fr": {
     "app": {
-      "title": "Mili Totoro",
+      "title": "Mili",
       "username": "@Mili",
-      "description": "Mon site personnel",
-      "name": "Mili Totoro"
+      "description": "Salut! Je suis Milad Afkhami et voici mon site web de portfolio.",
+      "name": "Mili"
     },
     "seo": {
       "title": {
-        "default": "Mili Totoro",
-        "template": "",
-        "templateAppend": "",
-        "home": "domicile"
+        "default": "Milad Afkhami / Portfolio",
+        "template": "Portefeuille %s | Milad Afkhami",
+        "home": "Accueil",
+        "about": "À propos de moi",
+        "projects": "Mes projets",
+        "gists": "Gists",
+        "favourites": "Favoris",
+        "favouriteArtists": "Artistes préférés",
+        "favouritePlaylists": "Listes de lecture préférées"
       },
       "description": {
-        "default": "Mon site personnel"
+        "default": "Salut! Je suis Milad Afkhami et voici mon site web de portfolio."
       }
     },
-    "home": "domicile",
+    "home": {
+      "title": "Accueil",
+      "posts": { "title": "Articles en vedette", "seeMore": "Voir plus" },
+      "profile": {
+        "name": "Milad Afkhami",
+        "job": "Responsable de l'équipe de développement Front-End chez Arsh Co.",
+        "jobDescription0": "Plus de 4 ans d'expérience dans le développement front-end",
+        "jobDescription-1": "Travailler en tant que développeur Front-End et aider les autres membres dans leurs problèmes.",
+        "jobDescription": "Un ingénieur logiciel qualifié avec une capacité éprouvée à analyser, concevoir, développer et maintenir des solutions logicielles à grande échelle qui répondent aux exigences de l'entreprise ainsi qu'aux indices de performance et de qualité."
+      },
+      "projects": {
+        "seeMore": "Voir plus en détails"
+      }
+    },
     "layout": {
       "header": {
         "defaultTitle": "Milad Afkhami",
         "menu": {
-          "home": "domicile",
+          "home": "Accueil",
+          "about": "À propos",
           "courses": "Cours",
-          "blog": "les blogs",
+          "blog": "Blogs",
           "packages": "Paquets",
           "projects": "Projets",
           "gists": "Gists",
           "favourites": "Favoris"
         }
       },
-      "footer": {
+      "footer de page": {
         "artists": "Artistes",
-        "playlists": "Listes de lecture",
+        "playlists": "Playlists",
         "poems": "Poèmes",
+        "books": "Livres",
+        "writers": "Écrivains",
         "poets": "Poètes",
-        "Animations": "Animations",
-        "series": "Séries",
+        "animations": "Animations",
+        "series": "Série",
         "anime": "Anime",
         "favouriteSongs": "Chansons préférées",
+        "favouriteMusics": "Chansons préférées",
         "favouritePoems": "Poèmes préférés",
+        "favouriteBooks": "Livres préférés",
+        "favouriteWriters": "Écrivains préférés",
         "favouriteShows": "Émissions préférées"
       },
       "navItems": {},
-      "alert": {
+      "message": {
         "error": {
-          "connection": "Veuillez vérifier votre connexion !",
-          "server": "Impossible d'atteindre le serveur"
-        }
+          "connection": "Veuillez vérifier votre connexion!",
+          "server": "Impossible d'atteindre le serveur",
+          "something": "Quelque chose s'est mal passé"
+        },
+        "textCopied": "Copié dans le presse-papiers",
+        "codeCopied": "Code copié dans le presse-papiers"
+      },
+      "kits": {
+        "more": "Plus",
+        "less": "Moins"
       }
     },
-    "resume": {
-      "profile": {
-        "name": "Milad Afkhami",
-        "job": "Chef de l'équipe de développement front-end chez Arsh Co.",
-        "jobDescription0": "More than 4 years of experience in front-end development",
-        "jobDescription-1": "Working as a Front-End developer and helping other members in their problems.",
-        "jobDescription": "Un ingénieur logiciel qualifié  avec une capacité éprouvée à analyser, concevoir, développer et maintenir des solutions logicielles à grande échelle qui répondent aux exigences de l'entreprise ainsi qu'aux indices de performance et de qualité."
-      },
-      "posts": { "title": "Postes en vedette", "seeMore": "Voir plus" },
-      "contact": {
-        "email": "E-mail",
-        "phone": "Téléphone",
-        "instagram": "Instagram",
-        "telegram": "Télégramme"
+    "markdown": {
+      "variables": {
+        "title": "Variables de démarcation",
+        "colors": "Couleurs",
+        "curves": "Courbes",
+        "paces": "Paces",
+        "spacings": "Espacements",
+        "typography": "Typographie",
+        "shadows": "ombres"
       }
+    },
+    "contact": {
+      "title": "Contacts",
+      "email": "Email",
+      "phone": "Téléphone",
+      "whatsapp": "whatsapp",
+      "telegram": "Télégramme",
+      "linkedin": "linkedin",
+      "skype": "skype"
     },
     "favourites": {
-      "artists": "Artistes préférés",
-      "playlists": "Listes de lecture préférées",
-      "listenNow": "Écoute maintenant",
-      "expand": "Développer",
-      "collapse": "Effondrer"
+      "title": "Favoris",
+      "group": {
+        "song": "Chansons",
+        "book": "Livres",
+        "show": "Spectacles"
+      },
+      "artists": {
+        "title": "Artistes préférés"
+      },
+      "playlists": {
+        "title": "Playlists favorites",
+        "soen": "Meilleur"
+      },
+      "books": {
+        "title": "Livres préférés",
+        "list": {
+          "the-power-of-habit": {
+            "name": "Le pouvoir de l'habitude",
+            "fullName": "Le Pouvoir de l'Habitude: Pourquoi Nous faisons Ce que Nous Faisons dans la Vie et les affaires",
+            "meta": "Charles Duhigg"
+          },
+          "the-unbearable-lightness-of-being": {
+            "name": "L'Insoutenable Légèreté de l'Être",
+            "meta": "Milan Kundera"
+          },
+          "masnavi": {
+            "name": "Masnavi-ye-Ma'navi",
+            "meta": "Rumi"
+          },
+          "quran": {
+            "name": "Coran",
+            "meta": "Muhammad (révélé par allah)"
+          },
+          "golestan": {
+            "name": "Gulistan",
+            "meta": "Saadi Shirazi"
+          },
+          "nahj-al-balagha": {
+            "name": "Nahj al-Balagha",
+            "meta": "Ali ibn Abi Talib"
+          },
+          "tafsir-nemooneh": {
+            "name": "Tafsir Nemooneh",
+            "meta": "Naser Makarem Shirazi"
+          },
+          "republic": {
+            "name": "La République",
+            "meta": "Platon"
+          }
+        }
+      },
+      "poems": {
+        "title": "Poèmes préférés"
+      },
+      "writers": {
+        "title": "Écrivains préférés"
+      },
+      "animations": {
+        "title": "Animations préférées",
+        "list": {
+          "el-dorado": {
+            "name": "El Dorado"
+          },
+          "ratatouille": {
+            "name": "Ratatouille"
+          },
+          "garfield": {
+            "name": "Garfield"
+          },
+          "up": {
+            "name": "En haut"
+          },
+          "beauty-and-the-beast": {
+            "name": "La Belle Et La Bête"
+          },
+          "the-iron-giant": {
+            "name": "Le Géant de Fer"
+          },
+          "chicken-run": {
+            "name": "Course de poulet"
+          },
+          "toy-story": {
+            "name": "Histoire de jouets"
+          },
+          "kung-fu-panda": {
+            "name": "Kung Fu Panda"
+          },
+          "finding-nemo": {
+            "name": "Trouver Nemo"
+          },
+          "coraline": {
+            "name": "Coraline"
+          },
+          "cars": {
+            "name": "Voitures"
+          },
+          "madagascar": {
+            "name": "Madagascar"
+          },
+          "shrek": {
+            "name": "Shrek"
+          },
+          "robots": {
+            "name": "Robots"
+          }
+        }
+      },
+      "series": {
+        "title": "Série préférée",
+        "list": {
+          "the-office": {
+            "name": "Le bureau"
+          },
+          "the-big-bang-theory": {
+            "name": "La théorie du Big Bang"
+          },
+          "friends": {
+            "name": "Amis"
+          },
+          "vikings": {
+            "name": "Vikings"
+          },
+          "mind-hunter": {
+            "name": "Chasseur d'esprit"
+          },
+          "avatar-the-last-airbender": {
+            "name": "Avatar Le Dernier Maître de l'air"
+          },
+          "the-legend-of-korra": {
+            "name": "La légende de Korra"
+          },
+          "rick-and-morty": {
+            "name": "Rick Et Morty"
+          },
+          "scenes-from-a-marriage": {
+            "name": "Scènes D'un Mariage"
+          },
+          "true-detective": {
+            "name": "True Detective"
+          },
+          "its-always-sunny-in-philadelphia": {
+            "name": "Il fait toujours beau à Philadelphie"
+          },
+          "boJack-horseman": {
+            "name": "Cavalier BoJack"
+          },
+          "family-guy": {
+            "name": "Gars de famille"
+          },
+          "fleabag": {
+            "name": "Fleabag"
+          },
+          "shameless": {
+            "name": "Sans vergogne"
+          },
+          "big-little-lies": {
+            "name": "Big Little Lies"
+          },
+          "horace-and-pete": {
+            "name": "Horace et Pete"
+          }
+        }
+      },
+      "anime": {
+        "title": "Anime préféré",
+        "list": {
+          "spirited-away": {
+            "name": "Fougueux"
+          },
+          "princess-mononoke": {
+            "name": "Princesse Mononoke"
+          },
+          "fullmetal-alchemist-brotherhood": {
+            "name": "Alchimiste Fullmetal: Fraternité"
+          },
+          "death-note": {
+            "name": "Note de mort"
+          },
+          "attack-on-titan": {
+            "name": "Attaque sur Titan"
+          },
+          "ghost-in-the-shell": {
+            "name": "Fantôme dans la Coquille"
+          },
+          "hunter-x-hunter": {
+            "name": "Chasseur x Chasseur"
+          },
+          "steins-gate": {
+            "name": "Steins; Porte"
+          },
+          "berserk": {
+            "name": "Berserk"
+          },
+          "demon-slayer": {
+            "name": "Tueur de démons"
+          },
+          "silent-voice": {
+            "name": "Voix silencieuse"
+          }
+        }
+      },
+      "listenNow": "Écoutez maintenant",
+      "expand": "Expand",
+      "collapse": "Collapse"
     },
     "blog": {
-      "title": "Les blogs",
+      "title": "Blog",
       "category": {
-        "styling": "Coiffant"
+        "styling": "Styling",
+        "awareness": "Sensibilisation",
+        "react": "Réagir",
+        "next.js": "Suivant.js"
       },
       "notFound": "Blog introuvable!",
       "meta": {
-        "category": "Catégorie",
-        "timeToReadLabel": "il est temps de lire",
-        "timeToReadValue": "{{time}} min",
-        "publishedAt": "publié à"
+        "category": "Category",
+        "timeToReadLabel": "Il est temps de lire",
+        "timeToReadValue": "{{time}} min.",
+        "timeToReadValueAbbr": "{{time}} M.",
+        "publishedAt": "Publié à"
       }
     },
     "projects": {
       "title": "Projets",
       "points": "Points",
       "gallery": "Galerie",
-      "nthImage": "Image {{n}}"
+      "nthImage": "Image {{n}}",
+      "octava": {
+        "name": "Octava",
+        "description": "Plateforme de streaming de musique persane",
+        "points": {
+          "1": "Chargement de page ultra rapide avec régénération statique incrémentale (ISR)",
+          "2": "Couche de transport client-serveur supplémentaire avec proxy http",
+          "2-1": "Enregistrement du jeton d'autorisation en tant que cookie http uniquement",
+          "2-2": "Passez chaque api via le proxy http et ajoutez un jeton à l'en-tête",
+          "2-3": "De cette façon, l'accès au jeton est beaucoup plus difficile pour les utilisateurs malveillants (pas impossible bien sûr)",
+          "2-4": "Cette méthode permet de faire des choses plus intéressantes et utiles comme:",
+          "2-4-1": "Masquer Une Adresse IP",
+          "2-4-2": "Filtrage des demandes",
+          "2-4-3": "Protection Et Sécurité",
+          "2-4-4": "etc.",
+          "3": "Infrastructure multilingue et thématique",
+          "3-1": "Premier site web multilingue SEO",
+          "3-2": "Site Web rendu côté serveur multidirectionnel",
+          "3-3": "Pas de changement de thème flash",
+          "3-4": "Définir des thèmes personnalisés",
+          "4": "Intervalles de revalidation des données côté client",
+          "5": "Considérer les meilleures pratiques de référencement",
+          "5-1": "Optimisation des balises meta",
+          "5-2": "Définir des balises canoniques pour éviter les doublons de contenu",
+          "5-3": "Ajout d'une balise de schéma (résultat riche) pour les médias, la chapelure, ...",
+          "6": "Mise en cache côté client",
+          "6-1": "Cache first - Stratégie de secours du réseau pour la mise en page, les polices, les logos, les avatars et d'autres données importantes",
+          "6-2": "Lecture des données importantes du cache et en cas d'échec du repli sur le réseau",
+          "6-3": "Rendu d'une connexion réseau sans connexion pour les cas de connexion réseau complètement désactivés",
+          "7": "Chargement d'image plus rapide et plus convivial avec la méthode d'optimisation d'image",
+          "7-1": "Charger des images en fonction des dimensions de l'image et économiser beaucoup de données et de temps",
+          "7-2": "Afficher une version floue de l'image au début pour rendre l'attente d'images plus grandes beaucoup plus agréable",
+          "7-3": "Affichage d'une animation scintillante pour des images inconnues qui ne peuvent pas être floues",
+          "8": " Codage sécurisé avec contrôles de sécurité frontaux",
+          "9": "Expérience utilisateur de l'application mobile pour les utilisateurs de PWA en utilisant des composants natifs mobiles tels que la feuille inférieure, le navigateur des onglets inférieurs et..."
+        }
+      },
+      "uneed": {
+        "name": "Uneed",
+        "description": "Une plate-forme de publication gratuite de publicités et de demandes de renseignements concernant l'achat et la vente de produits neufs et d'occasion.",
+        "points": {
+          "1": "Utiliser Ensuite.framework js pour le rendu côté serveur ",
+          "2": "Suivre les principes du Micro Frontend",
+          "3": "Localisation et internationalisation",
+          "4": "Utiliser redux saga comme middleware asynchrone redux",
+          "5": "Combinaison socket.io et redux pour créer un chat collant flottant en bas de la mise en page et une page de chat."
+        }
+      },
+      "tarinoo": {
+        "name": "Tarinoo",
+        "description": "Un autre produit de l'infrastructure uneed, conçu pour vendre des sites Web entièrement personnalisés aux utilisateurs de type entreprise.",
+        "points": {
+          "1": "Écrire du code une fois et l'utiliser dans d'autres sites avec 4 thèmes différents (jusqu'à présent)",
+          "2": "Contrôle total sur les détails du produit, les bannières, le contenu et..., comme WordPress ou Joomla."
+        }
+      },
+      "bityon": {
+        "name": "Bityon",
+        "description": "Une plate-forme sécurisée pour acheter et vendre du bitcoin et d'autres monnaies cryptographiques.",
+        "points": {
+          "1": "Infrastructure multilingue et thématique",
+          "1-1": "Premier site web multilingue SEO",
+          "1-2": "Site Web rendu côté serveur multidirectionnel",
+          "1-3": "Pas de changement de thème flash",
+          "1-4": "Définir des thèmes personnalisés",
+          "2": "Utilisation de l'API Contextuelle pour la gestion des états (pour les données qui ne changent pas fréquemment pour causer des problèmes de performances)",
+          "3": "Remplacer formik par react-hook-form pour de meilleures performances."
+        }
+      },
+      "biz": {
+        "name": "BIZ",
+        "description": "La plus grande société de marketing de réseau iranienne.",
+        "points": {
+          "1": "Implémentation SSR personnalisée",
+          "2-1": "Rendu manuel côté serveur avec express",
+          "2-2": "Prise en charge des redux côté serveur et côté client avec état redux isomorphe synchronisé",
+          "2-3": "Pré-extraction et transmission des données SSR aux pages en tant qu'accessoires",
+          "3": "Requêtes de mise en cache avec une base de données de paires clé-valeur Redis",
+          "4": "Notifications avec firebase"
+        }
+      },
+      "crm": {
+        "name": "Panneau CRM",
+        "description": "Panneau de gestion de la relation client qui fournit un outil de gestion des médias sociaux tout-en-un.",
+        "points": {
+          "1": "Utiliser socket.io pour une communication en temps réel avec le serveur",
+          "1-1": "Création d'un crochet useChat personnalisé pour une manière plus propre de connecter des composants pour communiquer avec l'état de mise à jour en temps réel",
+          "1-2": "Avec l'API contextuelle pour la gestion de l'état",
+          "2": "Écrire des tests simples de bout en bout avec cypress",
+          "3": "Connexion aux comptes Telegram, WhatsApp et Instagram"
+        }
+      },
+      "etc": {
+        "name": "Et ainsi de suite...",
+        "description": "Des projets dont je ne suis pas vraiment fier (^_^;)"
+      }
+    },
+    "about": {
+      "title": "À propos de moi",
+      "p1": "Hé, je suis Milad. Je suis développeur, étudiant, mentor et écrivain de 23 ans!",
+      "p2": "Je travaille chez Arsh Co. en tant que responsable de l'équipe de développement front-end.",
+      "p3": "J'ai grandi à Shahr-e-Rey, un district du sud de l'État de Téhéran.",
+      "p4": "Après avoir passé mon école primaire et secondaire, j'ai été accepté pour NODET et j'y ai passé mon lycée.",
+      "p5": "Après avoir été classé 697 à l'examen d'entrée national, j'ai été accepté pour étudier le génie électrique à l'Université Shahid Beheshti",
+      "p6": "Je ne me sentais vraiment pas bien d'être ingénieur électricien et après quelques semestres, j'ai changé de domaine pour le génie informatique et jusque-là, je travaille comme développeur et j'en profite.",
+      "p7": "Je passe mon temps libre à lire, écouter des musiques, regarder des émissions de télévision et passer du temps avec mes amis proches.",
+      "timeline": {
+        "title": "Chronologie",
+        "born": "né",
+        "born_desc": "Né et élevé comme un enfant unique... ",
+        "earlySchool": "École précoce",
+        "earlySchool_desc": "quand j'avais 4 ans, j'ai passé un test pour voir si je suis prêt pour l'école et je l'ai réussi! mais j'étais encore plus petit que les enfants de mon âge, alors mes parents ont décidé que je m'en tenais à la routine.",
+        "startingSchool": "Commencer l'école",
+        "startingSchool_desc": "Rien de spatial à dire à ce sujet, comme tous les autres enfants iraniens, je suis allé dans une école sous un système qui tue la créativité et le bonheur des élèves.",
+        "firstComputer": "Premier ordinateur",
+        "firstComputer_desc": "Mon père a acheté un ordinateur pour mes 10 ans, Whoa!",
+        "choosingNationalExamPath": "Choisir le chemin de l'examen d'entrée national",
+        "choosingNationalExamPath_desc": "J'étais désespérément amoureux des mathématiques, j'ai toujours rêvé que ma version de 40 ans soit un professeur maigre et chauve qui déteste les enfants, mais après avoir mis tous mes efforts et mon amour pour l'apprendre, j'ai décidé de me concentrer sur l'examen d'entrée national.",
+        "university": "Université",
+        "university_desc": "L'effort a porté ses fruits ! J'ai été accepté pour étudier le génie électrique à l'université Shahid Beheshti, je ne pouvais pas être plus heureux mais...",
+        "tookCoupleOfSemestersOff": "J'ai enlevé Quelques Semestres",
+        "tookCoupleOfSemestersOff_desc": "J'ai pris deux semestres de congé pour me concentrer sur l'étude de la programmation et aussi parce que je n'étais pas dans une situation mentale vraiment mauvaise.",
+        "changingField": "Changer de champ",
+        "changingField_desc": "Après un an de flip-flopping, j'ai décidé de changer de domaine d'études en génie informatique. Je ne peux pas oublier l'enfer que mes parents ont élevé à cause de la décision.",
+        "firstDayAtWork": "Premier Jour Au Travail",
+        "firstDayAtWork_desc": "En tant qu'oiseau de nuit, j'avais une raison ferme de détester ce jour et les jours à venir, mais mon amour pour l'apprentissage et la compétition m'a aidé à continuer.",
+        "growingMyHair": "C'est à ce moment que j'ai commencé à faire pousser mes cheveux :)",
+        "growingMyHair_desc": "",
+        "leftMyFirstJob": "J'Ai Quitté Mon Premier Emploi",
+        "leftMyFirstJob_desc": "Au fil du temps, j'ai réalisé que ce n'était vraiment rien à apprendre pour moi dans cette entreprise, alors j'ai officiellement quitté mon premier emploi",
+        "startingAtAppTech": "Commencer À AppTech",
+        "startingAtAppTech_desc": "J'ai trouvé une bonne entreprise pour relever de nouveaux défis. J'ai amélioré mes connaissances sur React là-dedans et j'ai appris React Native.",
+        "startingAtArshCo": "À Partir De Arsh Co.",
+        "startingAtArshCo_desc": "Après avoir acquis une bonne connaissance de React, j'ai décidé de relever un nouveau défi et de travailler sur des projets plus importants et j'ai choisi Arsh Company pour continuer. malgré mes derniers supérieurs, ils étaient vraiment gentils avec moi",
+        "becomingTeamLead": "Devenir Chef d'équipe",
+        "becomingTeamLead_desc": "J'ai fait mes preuves au siège dans mes défis et je suis devenu responsable de l'équipe de développement front-end.",
+        "ielts": "IELTS",
+        "ielts_desc": "J'ai réussi mon examen IELTS avec un score de 7."
+      }
+    },
+    "gists": {
+      "title": "Gists",
+      "category": {
+        "styling": "Système de conception",
+        "hook": "Crochet",
+        "util": "Util"
+      }
+    },
+    "packages": {
+      "title": "Paquets (En cours... )"
     },
     "form": {
       "message": {
-        "required": "Ce champ est obligatoire",
-        "checkYourInput": "vérifie ta saisie"
+        "required": "ce champ est obligatoire",
+        "checkYourInput": "vérifiez votre entrée"
       }
     },
     "error": {
-      "pageNotFound": "Page non trouvée",
-      "goBack": "Retourner",
-      "noItemFound": "Aucun élément trouvé"
+      "pageNotFound": "Page introuvable :(",
+      "goBack": "Retourne en arrière",
+      "noItemFound": "Aucun élément trouvé",
+      "sorryTranslation": "la traduction Deutsch est toujours en cours, désolé"
     }
   }
 }
