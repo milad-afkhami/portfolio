@@ -34,6 +34,10 @@
       },
       "projects": {
         "seeMore": "See More in Details"
+      },
+      "gists": {
+        "title": "Gists",
+        "seeMore": "See More"
       }
     },
     "layout": {
