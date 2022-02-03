@@ -10,6 +10,8 @@ summary: "In this post I want to talk about why I dropped using redux in most of
 If you have worked on some react-based projects, you know that most of people are using **redux** for handling server state management or even UI and form state management.
 This is so common that using it is like a decisive convention and developers don't consider alternatives solutions.
 
+Although I like redux personally and things that it offers, you can see how I like to use it in [how to write redux clean code](/blog/redux-clean-code) blog, but in most of the projects, using redux is just like a [Seppuku](https://en.wikipedia.org/wiki/Seppuku) but without honor!
+
 ## 1. Redux downsides
 
 IMO, choosing redux for handling server state management should be done obsessively for below reasons.
@@ -24,9 +26,9 @@ As it is mentioned in [redux official documentation](https://redux.js.org/redux-
 
 > The Redux core library is deliberately unopinionated. It lets you decide how you want to handle anything, including store setup, what your state contains, and how you want to build your reducers.
 
-This is a good thing sometimes, because it gives you flexibility but that's not the point here. The point here is because of that, there is so many ways to set up redux implementation, so whenever you work on a project there is a strong chance you won't be able to understand what is going on in the code for a while.
-Add using different async middlewares like [redux saga](https://redux-saga.js.org/), [redux thunk](https://github.com/reduxjs/redux-thunk), [redux observable](https://redux-observable.js.org/) or ... as multipliers to this problems.
-Ofcourse there is some packages to fix this issue like [redux toolkit](https://www.npmjs.com/package/@reduxjs/toolkit) but not everyone use it.
+This is a good thing sometimes, because it gives you flexibility but that's not the point here. The point here is because of that, there is so many ways to set up redux implementation, so whenever you work on a project, there is a strong chance you won't be able to understand what is going on in the code for a while.
+Add different middlewares like [redux saga](https://redux-saga.js.org/), [redux thunk](https://github.com/reduxjs/redux-thunk), [redux observable](https://redux-observable.js.org/) or ... as multipliers to this problems.
+Ofcourse there is some packages to fix this issue like [redux toolkit](https://www.npmjs.com/package/@reduxjs/toolkit) but not everyone uses it.
 
 ### 1.3 Hard to maintain
 
@@ -35,19 +37,17 @@ If you use redux to develop your application, even small changes in functionalit
 ### 1.4 Too many dependencies
 
 For a simple next.js app you will need all of these packages:
-[`redux`](https://redux.js.org/) [`react-redux`](https://react-redux.js.org/) [`redux-saga`](https://redux-saga.js.org/) [`redux-saga-routines`](https://www.npmjs.com/package/redux-saga-routines) [`next-redux-wrapper`](https://github.com/kirill-konshin/next-redux-wrapper) [`redux-devtools-extension`](https://www.npmjs.com/package/@redux-devtools/extension).
-
-It's just an overkill.
+[`redux`](https://redux.js.org/), [`react-redux`](https://react-redux.js.org/), [`redux-saga`](https://redux-saga.js.org/) or any other middleware to handle side effects, [`redux-devtools-extension`](https://www.npmjs.com/package/@redux-devtools/extension) for debugging and probably [`next-redux-wrapper`](https://github.com/kirill-konshin/next-redux-wrapper) for next.js applications. It's just an overkill.
 
 ### 1.5 Better alternatives
 
-DESCRIPTION
+As state management tools has evolved over time, now there are so many new approaches to consider that any of them are good for each usecase. I will talk about them in Alternatives part below.
 
 ## 2. When to use redux
 
-If you don't trust me lets take a look at [redux documentation](https://redux.js.org/faq/general#when-should-i-use-redux) itself:
+If you're not sure, let's take a look at [redux documentation](https://redux.js.org/faq/general#when-should-i-use-redux) itself:
 
-> Redux is most useful when in cases when:
+> Redux is most useful in cases when:
 >
 > - You have large amounts of application state that are needed in many places in the app
 >
@@ -61,31 +61,35 @@ If you don't trust me lets take a look at [redux documentation](https://redux.js
 
 - Are so many of your states needed in more than one places in your app?
 - Does these states changes frequently?
+- Is updating logic is that complex?
 
-If your answer to all those questions is yes, you can use redux, see [how to write redux clean code](https://portfolio-mili.vercel.app/blog/redux-clean-code), but otherwise I can't see a reason why.
+If your answer to **all** of those questions is yes, you can use redux freely, consider reading [how to write redux clean code](/blog/redux-clean-code) to know how, but otherwise I can't see a reason why.
 
 ## 3. alternatives
 
-There are some alternatives to redux. any of them have their own downsides and benefits we will discuss about.
+There are some alternatives to redux. any of them have their own downsides and benefits that we will discuss about but you can read more about them in their documentations.
 
 ### 3.1 Context API
 
-You probably already know about Context API, on first glance it looks like a great first party way to handle server state management but it is not. It wasn't meant to be like that but with combination to react hooks, we can use it as a global state managing tool.
-The biggest reason it shouldn't be your first option is that it doesn't use smart memoization and a trigger in it's state will update entire components tree.
+You probably already know about Context API, on first glance it looks like a great first party way to handle server state management, but it is not. It wasn't meant to be like that but with combination to react hooks, we can use it as a global state managing tool.
+The biggest reason it shouldn't be your first option is that it doesn't use smart memoization, even a small change in a part of it's state will trigger a rerender for all the subscriptions which causes entire descendant component tree to rerender, unless you memoize those components yourself.
 
-Changes in a part of state will trigger rerender to all the subscriptions(with useContext), this issue is fixed in redux when we use useSelector to subscribe to a certain slice of an state. but it's still [an ongoing process for react](https://github.com/reactjs/rfcs/pull/119).
-But until react releases **_`useSelectedContext`_** hook, we can use [use-context-selector](https://www.npmjs.com/package/use-context-selector) library to subscribe to a certain slice of context. and prevent unnecessary rerenders and performance leaks.
+This issue is fixed in redux when we use useSelector to subscribe to a certain slice of an state. but it's still [an ongoing process for react](https://github.com/reactjs/rfcs/pull/119). Until react releases **_`useSelectedContext`_** hook, we can use [use-context-selector](https://www.npmjs.com/package/use-context-selector) library to subscribe to a certain slice of context. and prevent unnecessary rerenders and performance leaks.
 
-You can use Context Api for handling ui state and server states that doesn't change frequently but I think it's better to consider other alternatives.
+You can use Context Api for handling UI state and server states that doesn't change frequently but I think it's better to consider other alternatives and leave context for UI states only.
 
-### 3.2 SWR | React query
+### 3.2 Jotai, Valtio
+
+Both of them are great alternatives for handling UI state, if you have a nice learning appetite. Soon I will write another [blog](/blog) or a [gist](/gists) to share my experience and my way of using those tools.
+
+### 3.3 SWR | React query
 
 SWR and react query are new ways to handle state management and other interesting stuffs.
 I think both of them are great alternatives and endgames.
 There is a table from [react query documentation](https://react-query.tanstack.com/comparison) that will help you to choose one over the other.
 
 I've used both of them and SWR more.
-[Here](http://localhost:4000/blog/data-fetching-pattern-preference) in 5th section I described the way I like to implement custom hooks with useSWR.
+[Here](/blog/data-fetching-pattern-preference) in 5th section, I've described the way I like to implement custom hooks with useSWR.
 
 ## Conclusion
 
