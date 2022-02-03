@@ -1,7 +1,7 @@
 ---
 title: "vscode"
-category: "javascript"
-summary: "Visual studio code shortcuts to code faster"
+category: "util"
+summary: "Visual studio code shortcuts to speed up your programming."
 ---
 
 Hit `ctrl+k ctrl+s` (⌘ in mac) to open Keyboard shortcuts Preferences,
@@ -25,3 +25,62 @@ You need to hold `ctrl`, click `k` and then click `t` without leaving `ctrl`.
 ```javascript
 ctrl + shift + b;
 ```
+
+---
+
+## Configure snippets
+
+hit `ctrl+shift+p` (⌘ in mac) and write _Configure User Snippets_. Then select **_javascript.json_** and open this file.
+Here you can add any snippet that you think will speed up your programming.
+
+These are some of my snippets:
+
+### 1. Log with green message
+
+Snippet: **`logGreen`**
+
+```javascript
+{
+  "console.log with green message": {
+    "prefix": ["logGreen", "green"],
+    "body": "console.log(`%c ${message} \\n`, 'color: green', data);",
+    "description": "logging green message to console"
+  },
+}
+```
+
+You can add other colors as well.
+
+### 2. React Functional Component
+
+Snippet: **`!func`**
+
+```javascript
+{
+  "React Functional Component": {
+    "prefix": "!func",
+    "body": "// #region imports\nimport React from \"react\";\nimport { Div, Text } from \"@kits\";\nimport { useState } from \"@hooks\";\n// #endregion\n\nexport const ${1:${TM_FILENAME_BASE}} = (props) => {\n  const {} = props || {};\n  const [state, setState] = useState(null)\n\n  return (\n    <Div>\n      ${1:${TM_FILENAME_BASE}}\n    </Div>\n  );\n}\n\n",
+    "description": "Creates a functional React component"
+  },
+}
+```
+
+`TM_FILENAME_BASE` is name of the file you are using snippet inside.
+This will generate this code block:
+
+```jsx
+// #region imports
+import React from "react";
+import { Div, Text } from "@kits";
+import { useState } from "@hooks";
+// #endregion
+
+export const TM_FILENAME_BASE = (props) => {
+  const {} = props || {};
+  const [state, setState] = useState(null);
+
+  return <Div>TM_FILENAME_BASE</Div>;
+};
+```
+
+[`Div`](/gists/div) and [`Text`](/gists/text) are my most used components so I'v added them here, you can replace it with yours

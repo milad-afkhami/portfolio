@@ -6,7 +6,7 @@ import { breakpoints } from "@stylesheets";
 import { PageTitle } from "@components/Layout";
 import { GistsMoreLink } from "./MoreLink";
 
-const homeGists = ["div", "useEnhancedState", "text"];
+const homeGists = ["div", "useEnhancedState", "vscode"];
 
 const HomeGists = (props) => {
   const isMediumScreen = useMediaQuery({

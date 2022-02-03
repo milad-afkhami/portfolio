@@ -1,12 +1,173 @@
 ---
 title: "Sass utility classes"
 category: "styling"
-summary: "Building a CSS framework full of utility classes generated with sass."
-description: ""
+summary: "Building a CSS framework full of utility classes generated with Sass."
 ---
 
-### _Building a CSS framework full of utility classes generated with sass._
+Back in days where I was using Sass to style my projects, I created a nice solution to create css util classes dynamically using [Sass At-rules](https://Sass-lang.com/documentation/at-rules).
+
+## 1. Colors
+
+### 1.1. Utility classes
 
 ```css
+/* .border-[...($border-colors)] */
+@each $key, $value in $border-colors {
+  .border-#{$key} {
+    border: 1px solid $value !important;
+  }
+}
 
+/* .bg-[...($bg-colors)] */
+@each $key, $value in $bg-colors {
+  .bg-#{$key} {
+    background-color: $value !important;
+  }
+}
+
+/* .text-[...($text-colors)] */
+@each $key, $value in $text-colors {
+  .text-#{$key} {
+    color: $value !important;
+  }
+}
+```
+
+### 1.2. Variables
+
+```css
+$brand: #BRAND_COLOR;
+$primary-bg: #PRIMARY_BG_COLOR;
+$secondary-bg: #SECONDARY_BG_COLOR;
+$tertiary-bg: #TERTIARY_BG_COLOR;
+$primary-text: #PRIMARY_TEXT_COLOR;
+$secondary-text: #SECONDARY_TEXT_COLOR;
+$tertiary-text: #TERTIARY_TEXT_COLOR;
+$success-assistive: #ASSISTIVE_SUCCESS_COLOR;
+$error-assistive: #ASSISTIVE_ERROR_COLOR;
+$warning-assistive: #ASSISTIVE_WARNING_COLOR;
+$info-assistive: #ASSISTIVE_INFO_COLOR;
+$light-border: #LIGHT_BORDER;
+$dark-border: #DARK_BORDER;
+/* ... */
+
+$text-colors: (
+  primary: $primary-text,
+  secondary: $secondary-text,
+  tertiary: $tertiary-text
+);
+$bg-colors: (
+  transparent: transparent,
+  brand: $brand,
+  primary: $primary-bg,
+  secondary: $secondary-bg,
+  success: $success-assistive,
+  error: $error-assistive,
+  warning: $warning-assistive,
+  info: $info-assistive
+);
+$border-colors: (
+  light: light-border,
+  dark: dark-border
+);
+```
+
+<br />
+
+## 2. Fonts
+
+### 2.1. Utility classes
+
+```css
+/* .font-[xxxlg, xxlg, xlg, lg, m, sm, xsm, xxsm] */
+@each $size, $value in $font-sizes {
+  .font-#{$size} {
+    font-size: 16px + $value !important;
+  }
+}
+```
+
+### 2.2. Variables
+
+```css
+$font-sizes: (
+  xxxlg: 16px,
+  xxlg: 6px,
+  xlg: 4px,
+  lg: 2px,
+  md: 0px,
+  sm: -2px,
+  xsm: -4px,
+  xxsm: -6px
+);
+```
+
+<br />
+
+## 3. Flex
+
+### 3.1. Utility classes
+
+```css
+/* .flex-[center, end, start]-[center, end, start, around, between] e.g. "flex-center-around" */
+@each $align, $align-value in $flex-align-values {
+  .flex-#{$align} {
+    display: flex;
+    align-items: $align-value;
+
+    @each $justify, $justify-value in $flex-justify-values {
+      &-#{$justify} {
+        display: flex;
+        align-items: $align-value;
+        justify-content: $justify-value;
+      }
+    }
+  }
+}
+```
+
+### 3.2. Variables
+
+```css
+$flex-align-values: (
+  center: center,
+  end: flex-end,
+  start: flex-start
+);
+$flex-justify-values: (
+  center: center,
+  end: flex-end,
+  start: flex-start,
+  around: space-around,
+  between: space-between
+);
+```
+
+<br />
+
+## 4. Curves
+
+### 4.1. Utility classes
+
+```css
+/* .radius-[xlg, lg, md, sm, xsm] */
+@each $key, $value in $border-radius-sizes {
+  .radius-#{$key} {
+    border-radius: $value !important;
+  }
+}
+```
+
+### 4.2. Variables
+
+```css
+$curve-sizes: (
+  xlg: 1.5rem,
+  lg: 1rem,
+  md: 0.5rem,
+  sm: 0.25rem,
+  xsm: 0.125rem,
+  circle: circle,
+  none: 0
+);
 ```
