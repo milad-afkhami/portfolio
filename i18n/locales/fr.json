@@ -299,8 +299,11 @@
           "demon-slayer": {
             "name": "Tueur de démons"
           },
-          "silent-voice": {
-            "name": "Voix silencieuse"
+          "a-silent-voice": {
+            "name": "une voix silencieuse"
+          },
+          "ponyo": {
+            "name": "Ponyo"
           }
         }
       },

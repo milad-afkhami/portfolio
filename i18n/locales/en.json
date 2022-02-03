@@ -306,8 +306,11 @@
           "demon-slayer": {
             "name": "Demon Slayer"
           },
-          "silent-voice": {
-            "name": "Silent Voice"
+          "a-silent-voice": {
+            "name": "A Silent Voice"
+          },
+          "ponyo": {
+            "name": "Ponyo"
           }
         }
       },

@@ -373,14 +373,16 @@ export const favouriteSeriesData = [
 ];
 
 export const favouriteAnimeData = [
-  "spirited-away",
-  "princess-mononoke",
   "attack-on-titan",
   "death-note",
-  "ghost-in-the-shell",
   "fullmetal-alchemist-brotherhood",
+  "ghost-in-the-shell",
+  "berserk",
+  "a-silent-voice",
+  "spirited-away",
+  "demon-slayer",
+  "princess-mononoke",
   "hunter-x-hunter",
   "steins-gate",
-  "berserk",
-  "demon-slayer",
+  "ponyo",
 ];
