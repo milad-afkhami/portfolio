@@ -83,7 +83,10 @@
       },
       "kits": {
         "more": "More",
-        "less": "Less"
+        "less": "Less",
+        "imageViewer": {
+          "nthImage": "Image {{n}}"
+        }
       }
     },
     "markdown": {
@@ -333,7 +336,6 @@
       "title": "Projects",
       "points": "Points",
       "gallery": "Gallery",
-      "nthImage": "Image {{n}}",
       "octava": {
         "name": "Octava",
         "description": "Persian music streaming platform",

@@ -3,7 +3,7 @@ import { Div, Text } from "@kits";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import { useTranslation } from "@hooks";
 
-export default function ProjectGalleryImageViewer(props) {
+export function ImageViewer(props) {
   const { isOpen, onClose, current, views } = props || {};
 
   const t = useTranslation().t;
@@ -47,8 +47,10 @@ export default function ProjectGalleryImageViewer(props) {
                   curve="sm"
                   mw="fit"
                 >
-                  <Text size="md">
-                    {t("projects.nthImage", { n: currentIndex + 1 })}
+                  <Text size="md" align="center">
+                    {t("layout.kits.imageViewer.nthImage", {
+                      n: currentIndex + 1,
+                    })}
                   </Text>
                 </Div>
               ),

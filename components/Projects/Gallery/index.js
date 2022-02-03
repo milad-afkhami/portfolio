@@ -5,7 +5,9 @@ import { SectionTitle } from "@components/Layout";
 import { ProjectGalleryAlbum } from "./Album";
 import dynamic from "next/dynamic";
 
-const ProjectGalleryImageViewer = dynamic(() => import("./ImageViewer"));
+const ImageViewer = dynamic(() =>
+  import("@kits").then((module) => module.ImageViewer)
+);
 
 export const ProjectGallery = (props) => {
   const { medias } = props || {};
@@ -35,7 +37,7 @@ export const ProjectGallery = (props) => {
         }}
       />
       {renderViewer && (
-        <ProjectGalleryImageViewer
+        <ImageViewer
           isOpen={viewerIsOpen}
           onClose={closeLightbox}
           current={currentImage}
