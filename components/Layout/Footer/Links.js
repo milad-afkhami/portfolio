@@ -8,7 +8,7 @@ export function FooterLinks(props) {
   const favouritesLinks = useMemo(FavouritesHelper.getLinks, []);
 
   return (
-    <Div flex={["start", "start", "row"]} mx="-3">
+    <Div flex={["start", "start", "row", "wrap"]} mx="-3">
       {favouritesLinks.map(({ links, group }, i) => (
         <Div key={i} flex={["start", "start", "column"]} mx="3" mb="3">
           <Div mb="4">
