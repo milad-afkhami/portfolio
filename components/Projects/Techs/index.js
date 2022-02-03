@@ -12,7 +12,7 @@ export const ProjectTechs = (props) => {
       mb="4"
     >
       {techs.map((tech, i) => (
-        <ProjectTech {...tech} />
+        <ProjectTech key={i} {...tech} />
       ))}
     </Div>
   );
