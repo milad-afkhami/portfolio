@@ -315,19 +315,23 @@ export const favouriteBooksData = [
 export const favouriteAnimationsData = [
   "el-dorado",
   "ratatouille",
-  "up",
+  "chicken-run",
   "garfield",
   "beauty-and-the-beast",
+  "up",
   "the-iron-giant",
-  "chicken-run",
   "madagascar",
   "toy-story",
   "kung-fu-panda",
-  "finding-nemo",
-  "coraline",
-  "cars",
   "shrek",
   "robots",
+
+  // "cars",
+  // "inside-out",
+
+  // "finding-nemo",
+  // "coraline",
+
   // "forrest-gump",
   // "santoori",
   // "the-shawshank-redemption",

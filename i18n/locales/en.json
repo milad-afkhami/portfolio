@@ -214,6 +214,9 @@
           },
           "robots": {
             "name": "Robots"
+          },
+          "inside-out": {
+            "name": "Inside Out"
           }
         }
       },

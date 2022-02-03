@@ -13,7 +13,7 @@ export const ProjectsMoreLink = (props) => {
         hoverBg="bg-secondary-hover"
         curve="sm"
       >
-        <Text>home.projects.seeMore</Text>
+        <Text size="md-b">home.projects.seeMore</Text>
       </Link>
     </Div>
   );
