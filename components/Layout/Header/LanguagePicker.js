@@ -12,9 +12,9 @@ export function HeaderChangeLanguage(props) {
   const toast = useEnhancedToast();
 
   const onChangeLanguage = (id) =>
-    LanguageHelper.changeLanguage(id).then(() =>
-      toast("error.sorryTranslation", { type: "info" })
-    );
+    LanguageHelper.changeLanguage(id).then(() => {
+      if (id !== "en") return toast("error.sorryTranslation", { type: "info" });
+    });
 
   const dropDownItems = useMemo(
     () =>

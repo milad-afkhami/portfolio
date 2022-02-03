@@ -1,10 +1,16 @@
-import { ReactText } from "react";
-import { toast, ToastContent, ToastOptions } from "react-toastify";
-import { useTranslation } from "react-i18next";
+---
+title: "useEnhancedToast"
+category: "hook"
+summary: '"react-toastify" toast method, powered by i18n'
+---
 
-/**
- * `react-toastify` toast powered by i18n
- */
+### Source
+
+```javascript
+import { ReactText } from "react";
+import { useTranslation } from "react-i18next";
+import { toast, ToastContent, ToastOptions } from "react-toastify";
+
 export const useEnhancedToast = () => {
   const t = useTranslation().t;
 
@@ -18,3 +24,11 @@ export const useEnhancedToast = () => {
     return toast(toastContent, options);
   };
 };
+```
+
+### Example
+
+```javascript
+const toast = useEnhancedToast();
+const toastId = toast("a.b", { type: "info" });
+```
