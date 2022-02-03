@@ -8,9 +8,9 @@ import { breakpoints } from "@stylesheets";
 const homeBlogs = [
   "data-fetching-pattern-preference",
   "rethink-using-redux",
-  "homophobia",
+  "redux-clean-code",
+  // "homophobia",
 
-  // "redux-clean-code",
   // "multi-theme",
   // "typography",
   // "http-proxy",

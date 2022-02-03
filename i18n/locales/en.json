@@ -24,7 +24,7 @@
     },
     "home": {
       "title": "Home",
-      "posts": { "title": "Featured Posts", "seeMore": "See More" },
+      "posts": { "title": "Featured Posts", "seeMore": "See More Blogs ..." },
       "profile": {
         "name": "Milad Afkhami",
         "job": "Head of Front-End Development Team at Arsh Co.",
