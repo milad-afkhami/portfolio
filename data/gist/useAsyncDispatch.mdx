@@ -1,0 +1,43 @@
+---
+title: "useAsyncDispatch"
+category: "styling"
+summary: "Async version of redux dispatch function"
+---
+
+## Usage
+
+```javascript
+const dispatch = useAsyncDispatch();
+
+dispatch(profileActions, { userId: "USER_ID" })
+  .then(() => {})
+  .catch(() => {})
+  .finally(() => {});
+```
+
+## Source
+
+```javascript
+import { useDispatch } from "react-redux";
+
+export const useAsyncDispatch = () => {
+  const dispatch = useDispatch();
+
+  return (action, payload) =>
+    new Promise((resolve, reject) =>
+      dispatch(action.trigger({ resolve, reject, ...payload }))
+    );
+};
+```
+
+You need to take care of settling this promise in your store.
+It should be something like this:
+
+```javascript
+try {
+  // ...
+  action?.payload?.resolve?.(result);
+} catch (error) {
+  action?.payload?.reject?.(error);
+}
+```
