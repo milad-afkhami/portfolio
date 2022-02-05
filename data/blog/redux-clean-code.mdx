@@ -16,7 +16,7 @@ Here I work on a next.js project, if you have a react project you can skip next.
 
 ## 0. Demo & Source Code
 
-I created a github repository for sharing this boilerplate with you, you can access it here: [Source](https://github.com/miladMAPS/redux-clean-code-boilerplate)
+I've created a github repository for sharing this boilerplate with you, you can access it here: [Source](https://github.com/miladMAPS/redux-clean-code-boilerplate)
 
 And there is a [demo here](https://redux-clean-code-boilerplate-mili.vercel.app/) deployed with [vercel](https://vercel.com/).
 
@@ -312,4 +312,43 @@ export default function () {
 export const getStaticProps = nextReduxWrapper.getStaticProps(
   (store) => () => {}
 );
+```
+
+Finally you need to create a worker for every slice of your store.
+In redux saga a worker is a generator function like this:
+
+```javascript
+import { call, put } from "redux-saga/effects";
+import { ReduxRoutines } from "@models";
+import { Http, __get } from "@utils";
+import handleSagaError from "@redux/handleSagaError";
+import { endpoints } from "@constants";
+
+const key = "home";
+
+const { actions, actionTypes, reducer } = new ReduxRoutines(key);
+
+export function* homeWorker(action) {
+  const { type, payload } = action;
+  try {
+    yield put(actions.request());
+    const response = yield call(Http.get, { url: endpoints[key] });
+    const result = response?.result?.explore?.items || [];
+    yield put(actions.success(result));
+    action?.payload?.resolve?.(result);
+  } catch (error) {
+    yield put(actions.failure(error));
+    yield handleSagaError(error);
+    action?.payload?.reject?.(error);
+  } finally {
+    yield put(actions.fulfill());
+  }
+}
+
+export {
+  actions as homeActions,
+  actionTypes as homeActionTypes,
+  reducer as homeReducer,
+  key as homeKey,
+};
 ```
