@@ -9,8 +9,6 @@ import { GlobalCurves } from "./variables/curves";
 import { GlobalPaces } from "./variables/paces";
 import { GlobalShadows } from "./variables/shadows";
 
-export { GlobalBSTableStyle } from "./bootstrap/table";
-
 /**
  * @type {ComponentType}
  */

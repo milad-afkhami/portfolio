@@ -5,7 +5,6 @@ import { Head } from "@components/SEO";
 import { MDXRemote } from "@components/Markdown";
 import dynamic from "next/dynamic";
 import { GistServices } from "@services";
-import { GlobalBSTableStyle } from "@stylesheets";
 import { MarkdownWrapper, MarkdownVariables } from "@components/Markdown";
 import { GistTitle, GistSummary } from "@components/Gists";
 
@@ -18,7 +17,6 @@ export default function GistPage(props) {
   return (
     <>
       <Head title={title} description={summary} canonical={`/gists/${slug}`} />
-      <GlobalBSTableStyle />
       <Div width="100%" py="3">
         <Breadcrumb
           routes={[
