@@ -37,7 +37,7 @@
     "start-prod": "cross-env PORT=4000 next start",
     "build": "cross-env GENERATE_SOURCEMAP=false next build",
     "prettier": "prettier --write .",
-    "test": "jest test"
+    "test": "jest --watch"
   },
   "eslintConfig": {
     "extends": [
@@ -58,8 +58,11 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/react": "^12.1.2",
     "cross-env": "^7.0.3",
     "eslint": "^8.5.0",
+    "jest": "^27.5.0",
     "prettier": "2.5.1"
   }
 }
