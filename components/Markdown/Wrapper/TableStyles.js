@@ -1,14 +1,12 @@
-import { createGlobalStyle } from "styled-components";
+import { css } from "styled-components";
 
-// styled.a
-// .table .table-bordered .table-dark .table-striped
-export const GlobalBSTableStyle = createGlobalStyle`
+export const TableStyles = css`
   table {
     width: max-content;
     margin-bottom: 0.5rem;
     color: var(--color-text-secondary);
     background-color: var(--color-bg-secondary);
-    
+
     /* .table-bordered */
     border: 1px solid var(--color-border-dark);
   }
