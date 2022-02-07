@@ -1,5 +1,5 @@
 import React from "react";
-import { Breadcrumb, Div, Text } from "@kits";
+import { Breadcrumb, Div } from "@kits";
 import { useRouter } from "@hooks";
 import { Head } from "@components/SEO";
 import { MDXRemote } from "@components/Markdown";
