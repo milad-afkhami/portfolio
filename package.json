@@ -37,6 +37,10 @@
     "start-prod": "cross-env PORT=4000 next start",
     "build": "cross-env GENERATE_SOURCEMAP=false next build",
     "prettier": "prettier --write .",
+    "cypress": "cypress open",
+    "cypress:headless": "cypress run",
+    "e2e": "start-server-and-test start http://localhost:4000 cypress",
+    "e2e:headless": "start-server-and-test start http://localhost:4000 cypress:headless",
     "test": "jest test"
   },
   "eslintConfig": {
@@ -59,7 +63,9 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
+    "cypress": "^9.4.1",
     "eslint": "^8.5.0",
-    "prettier": "2.5.1"
+    "prettier": "2.5.1",
+    "start-server-and-test": "^1.14.0"
   }
 }
