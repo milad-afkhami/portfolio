@@ -13,6 +13,8 @@
 
   --text-line-height: 1.7;
   --text-letter-spacing: 1px;
+
+  --list-view-item-height: 70px;
 }
 .thin-scrollbar {
   --scrollbar-width: 2px;
