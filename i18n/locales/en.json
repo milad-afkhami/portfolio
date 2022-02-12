@@ -479,6 +479,24 @@
         "becomingTeamLead_desc": "I proved myself to headquarters in my challenges and became head of front-end development team.",
         "ielts": "IELTS",
         "ielts_desc": "I passed my IELTS exam with 7 score."
+      },
+      "workExperience": {
+        "title": "Work Experience",
+        "1": "Front End Web Developer",
+        "1_desc": "Freelance - Tehran",
+        "2": "Front End Web Developer",
+        "2_desc": "Silverpath - Tehran",
+        "3": "Front End Web Developer",
+        "3_desc": "App Tech - Tehran",
+        "4": "Head of The Front End Web Development Team",
+        "4_desc": "Arsh - Tehran"
+      },
+      "education": {
+        "title": "Education",
+        "1": "Electrical Engineering",
+        "1_desc": "Shahid Beheshti University, GPA: B",
+        "2": "Computer Engineering",
+        "2_desc": "Islamic Azad University, GPA: A+"
       }
     },
     "gists": {

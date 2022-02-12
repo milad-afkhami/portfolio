@@ -470,6 +470,24 @@
         "becomingTeamLead_desc": "Ich habe mich in meinen Herausforderungen bewährt und wurde Leiter des Front-End-Entwicklungsteams.",
         "ielts": "IELTS",
         "ielts_desc": "Ich habe meine IELTS-Prüfung mit 7 Punkten bestanden."
+      },
+      "workExperience": {
+        "title": "Berufserfahrung",
+        "1": "Frontend-Webentwickler",
+        "1_desc": "Freiberuflich - Teheran",
+        "2": "Frontend-Webentwickler",
+        "2_desc": "Silberweg - Teheran",
+        "3": "Frontend-Webentwickler",
+        "3_desc": "App Tech - Teheran",
+        "4": "Leiter des Frontend-Webentwicklungsteams",
+        "4_desc": "Arsh - Teheran"
+      },
+      "education": {
+        "title": "Bildung",
+        "1": "Elektrotechnik",
+        "1_desc": "Shahid Beheshti Universität, GPA: B",
+        "2": "Technische Informatik",
+        "2_desc": "Islamische Azad Universität, GPA: A+"
       }
     },
     "gists": {
