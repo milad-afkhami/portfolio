@@ -23,7 +23,7 @@ export function Contact(props) {
   ];
 
   return (
-    <Div>
+    <Div id="contact">
       <PageTitle title="contact.title" tag="h2" />
       <Div
         mt="4"
