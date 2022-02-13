@@ -7,12 +7,12 @@ category: "react"
 summary: "In this post I want to talk about why I dropped using redux in most of my projects and what did I do instead."
 ---
 
-Complexity and other downsides of redux as mentioned [here](/blog/rethink-using-redux), are the reasons that there are so many projects with bad redux structure and hard to maintain codes.
-In this blog I want to show you the way I like to implement projects with redux.
+Complexity and other downsides of redux as mentioned [here](/blog/rethink-using-redux) are the reasons that there are so many projects with bad redux structure and hard to maintain codes.
+In this blog, I want to show you the way I like to implement projects with redux.
 
-Before choosing redux for state management, please consider reading [Why Do You Need to Rethink About Using Redux](/blog/rethink-using-redux) blog first. If you still want to use redux for your next project, keep on reading the rest of this blog.
+Before choosing redux for state management, please consider reading the [Why Do You Need to Rethink About Using Redux](/blog/rethink-using-redux) blog first. If you still want to use redux for your next project, keep on reading the rest of this blog.
 
-Here I work on a next.js project, if you have a react project you can skip next.js parts, and I use [redux saga](https://redux-saga.js.org/) as an async middleware to handle side effects.
+Here I work on a next.js project, if you have a react project you can skip next.js parts, and I use [redux-saga](https://redux-saga.js.org/) as an async middleware to handle side effects.
 
 ## 0. Demo & Source Code
 
@@ -22,7 +22,7 @@ And there is a [demo here](https://redux-clean-code-boilerplate-mili.vercel.app/
 
 ## 1. Installing libraries
 
-First installed needed packages:
+First, install needed packages:
 
 ```cmd
 yarn add redux react-redux redux-saga next-redux-wrapper redux-devtools-extension
@@ -30,7 +30,7 @@ yarn add redux react-redux redux-saga next-redux-wrapper redux-devtools-extensio
 
 ## 2. Folder structure
 
-I like to have a redux folder to put all of redux mess inside of it, and inside of that another two folders, `middleware` for all my middlewares and `modules` for all saga workers.
+I like to have a redux folder to put all of the redux mess inside of it, and inside of that another two folders, `middleware` for all my middlewares and `modules` for all saga workers.
 
 <Div width="600px" height="300px" Mw="100%" position="relative" mx="auto">
   <Image
@@ -42,8 +42,8 @@ I like to have a redux folder to put all of redux mess inside of it, and inside 
 
 ## 3. Middlewares
 
-Middlewares in redux play a huge role, we can use them for logging, error handling, reporting and ...
-Only required middleware here is saga middleware, we need to create a `middleware/saga.js` file like this:
+Middlewares in redux play a huge role, we can use them for logging, error handling, reporting, and ...
+The only required middleware here is saga middleware, we need to create a `middleware/saga.js` file like this:
 
 ```javascript
 import createSagaMiddleware from "redux-saga";
@@ -53,7 +53,7 @@ export const sagaMiddleware = createSagaMiddleware();
 
 ## 4. Walkthrough root files
 
-In the root of redux folder, we have 5 files.
+In the root of the redux folder, we have 5 files.
 
 **handleSagaError**
 This is file is for handling different errors. It contains a generator function:
@@ -86,7 +86,7 @@ function alert() {}
 ```
 
 **index.js**
-This file is for combining and exporting modules so outside modules won't have to now our folder structure to import :
+This file is for combining and exporting modules so outer modules won't have to now our folder structure to import :
 
 ```javascript
 import { END } from "redux-saga";
@@ -100,7 +100,7 @@ export const APP_HYDRATION = "APP_HYDRATION";
 ```
 
 **reducers.js**
-This file is for bringing all of our reducers together ready to combine with combineReducer.
+This file is responsible for bringing all of our reducers together, ready to combine with combineReducer.
 
 ```javascript
 import { xxxKey, xxxReducer } from "./modules/xxx";
@@ -111,8 +111,8 @@ export const reducers = {
 ```
 
 **sagas.js**
-This fill is responsible for creating our sagas
-Here we don't have many sagas so I only have a root saga, but as number of your sagas grows, you need to separate them into multiple sagas.
+This file is responsible for creating our sagas
+Here we don't have many sagas so I only have a root saga, but as the number of your sagas increases, you need to separate them into multiple sagas.
 
 ```javascript
 import { all, takeEvery } from "redux-saga/effects";
@@ -178,24 +178,24 @@ const nextReduxWrapper = createWrapper(makeStore, {
 export { makeStore, nextReduxWrapper };
 ```
 
-All store.js files are pretty much the same, here we are doing some different things:
+All `store.js` files are pretty much the same, here we are doing some different things:
 
-- rootReducer function separates `HYDRATE` action from others and combines reducers.
-- bindMiddleware handles setting up redux devtools on in development mode.
-- makeStore function makes store! it creates store, runs the rootSaga and if we are in client-side it dispatches `APP_HYDRATION` action.
-- `nextReduxWrapper` is a wrapper we'll need in **\_app.js** and in all files that their data fetching method needs to access redux
+- `rootReducer` function separates `HYDRATE` action from others and combines reducers.
+- `bindMiddleware` handles setting up [redux-devtools](https://www.npmjs.com/package/redux-devtools-extension) in development mode.
+- `makeStore` function makes store! it creates a store, runs the rootSaga and if we are on the client-side it dispatches the `APP_HYDRATION` action.
+- `nextReduxWrapper` is a wrapper we'll need in **\_app.js** and all files that their data fetching method needs to access redux
 
 ## 5. Creating modules/workers
 
-With redux saga, every worker is a generator function, We will create our actions and workers in same file and every reducer has 5 different types of action:
+With [redux-saga](https://redux-saga.js.org/), every worker is a generator function, We will create our actions and workers in the same file and every reducer has 5 different types of action:
 
-- `TRIGGER`: We will deal with this aciton in components.
-- `REQUEST`: After triggering TRIGGER action type, REQUEST will get dispatched and it's a sign for us to trigger loading and loaded properties of our state
-- `SUCCESS`: After triggering REQUEST action type, if everything went well, SUCCESS action type will get fired and we will set data property of our state
-- `FAILURE`: After triggering REQUEST action type, if anything went wrong, FAILURE action type will get fired and we will set error property of our state
-- `FULFILL`: After that all of the processes got finished, this action type will get fired and we will reset loading and loaded state of our state
+- `TRIGGER`: We will deal with this action in components.
+- `REQUEST`: After triggering the TRIGGER action type, REQUEST will get dispatched and it's a sign for us to trigger loading and loaded properties of our state
+- `SUCCESS`: After triggering the REQUEST action type, if everything went well, the SUCCESS action type will get fired and we will set the data property of our state
+- `FAILURE`: After triggering the REQUEST action type, if anything went wrong, the FAILURE action type will get fired and we will set the error property of our state
+- `FULFILL`: After all of the processes got finished, this action type will get fired and we will reset the loading and loaded state of our state
 
-Soon in redux you will find out so much of your code is just repeating yourself. so we need a way to prevent it. We need a method that takes store name and generates all actions types and required reducer for us.
+Soon in redux, you will find out so much of your code is just repeating yourself. so we need a way to prevent it. We need a method that takes store names and generates all actions types and required reducers for us.
 I created that method and called it `ReduxRoutines` like this:
 
 ```javascript
@@ -217,7 +217,7 @@ const initialState = {
   data: null,
   error: null,
   loading: false,
-  loaded: false, // is data fulfilled successfully?
+  loaded: false, // has data been fulfilled successfully?
   triggerPayload: null, // the payload that reducer got triggered with
 };
 
@@ -294,7 +294,7 @@ function createReducer(state = initialState, action, actionTypes) {
 
 ## 6. Usage
 
-in **\_app.js** you need to wrap the App component in `nextReduxWrapper.withRedux` like this:
+In **\_app.js** file, you need to wrap the App component in `nextReduxWrapper.withRedux` like this:
 
 ```javascript
 export default nextReduxWrapper.withRedux(WrappedApp);
@@ -314,8 +314,8 @@ export const getStaticProps = nextReduxWrapper.getStaticProps(
 );
 ```
 
-Finally you need to create a worker for every slice of your store.
-In redux saga a worker is a generator function like this:
+Finally, you need to create a worker for every slice of your store.
+In [redux-saga](https://redux-saga.js.org/) a worker is a generator function like this:
 
 ```javascript
 import { call, put } from "redux-saga/effects";
@@ -352,3 +352,9 @@ export {
   key as homeKey,
 };
 ```
+
+## Conclusion
+
+As I mentioned, there is another blog [here](/blog/rethink-using-redux) that describes why do you need to be precise about using redux in your projects, but if you figured out that using redux will be appropriate for your development process, this is the best way I know to implement redux.
+
+There are some other tools like [redux toolkit](https://www.npmjs.com/package/@reduxjs/toolkit) to help us write more understandable and clean redux code that you can use if you prefer.

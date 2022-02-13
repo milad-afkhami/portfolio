@@ -7,30 +7,32 @@ category: "next.js"
 summary: "How to create an http proxy middleware with help of serverless functions in next.js?"
 ---
 
-With next.js introducing api routes and serverless functions, a lot of ideas becomes possible for front-end developers.
+With next.js introducing API routes and serverless functions, a lot of ideas become possible for front-end developers.
 
 Some of the benefits are
 
-- No need to handle CORS policy because we are making API request from one server to another server.
+- No need to handle CORS policy because we are making API requests from one server to another server.
 - Conntecting directly to databases.
-- Creating RESTful APIs without needing to any backend server.
+- Creating RESTful APIs without needing any backend server.
 - Implementing middlewares and proxies
 - ...
 
-You can read more about this concepts in [next.js documentaion](https://vercel.com/docs/concepts/functions/serverless-functions).
+You can read more about this concepts in [next.js documentation](https://vercel.com/docs/concepts/functions/serverless-functions).
 
-A way of using them is with writing http proxies to add proxies as an extra client-server transport layer.
+A way of using them is by writing HTTP proxies to add proxies as an extra client-server transport layer.
 
 ## Why?
 
-There are so many interesting things that comes with using proxies, for example you can save authorization token as an http-only cookie and pass every api through the http proxy to add token to header. This way accessing token is a lot harder for malicious users (not impossible ofcourse).
-Other usefull things you can do are: `hiding the IP address`, `filtering requests`, `protection and security`, `caching` and ...
+There are so many interesting things that come with using proxies, for example, you can save an authorization token as an http-only cookie and pass every API through the HTTP proxy to add the token to the header. This way accessing tokens is a lot harder for malicious users (not impossible of course).
+Other useful things you can do are: `hiding the IP address`, `filtering requests`, `protection and security`, `caching` and ...
 
 ## How?
 
-So how to create an http proxy with next.js serverless functions?
+So how to create an HTTP proxy with next.js serverless functions?
 It's so simple,
 First you need two packages, [cookies](https://www.npmjs.com/package/cookies) and [http-proxy](https://www.npmjs.com/package/http-proxy).
+
+We need to a [catch all route](https://nextjs.org/docs/routing/dynamic-routes#catch-all-routes) in `api` directory. for that create a `pages/api/proxy/[...path].js` and paste this code into it.
 
 ```js
 import * as HttpProxy from "http-proxy";
@@ -43,30 +45,36 @@ import {
   proxyBasePathRegExp,
 } from "@config";
 import * as Cookies from "cookies";
+
 const proxy = HttpProxy.createProxyServer();
+
 export const config = {
   api: {
     bodyParser: false,
   },
 };
+
 export default (req, res) => {
   return new Promise((resolve, reject) => {
     const pathname = url.parse(req.url).pathname;
     const isAuth = pathname === proxyBasePath + "/auth/login";
-    // const isLogout = pathname === proxyBasePath + "/auth/logout";
     const cookies = new Cookies(req, res);
     const token = cookies.get(TOKEN_COOKIE_KEY);
+
     req.url = req.url.replace(proxyBasePathRegExp, "");
     req.headers.cookie = "";
+
     if (token) req.headers[headerTokenKey] = token;
+
     if (isAuth) proxy.once("proxyRes", interceptLoginResponse);
-    //  if (isLogout) { delete the token cookie }
+
     proxy.once("error", reject);
     proxy.web(req, res, {
       target: externalApiBaseURL,
       autoRewrite: false,
       selfHandleResponse: isAuth,
     });
+
     function interceptLoginResponse(proxyRes, req, res) {
       let apiResponseBody = "";
       proxyRes.on("data", (chunk) => {
@@ -77,12 +85,15 @@ export default (req, res) => {
           const response = JSON.parse(apiResponseBody);
           const token = response?.result?.token;
           const cookies = new Cookies(req, res);
+
           cookies.set(TOKEN_COOKIE_KEY, token, {
             maxAge: INTERVALS.A_MONTH * 1000,
             httpOnly: true,
             sameSite: "lax",
           });
+
           delete response?.result?.token;
+
           res.status(200).json(response);
           resolve(response);
         } catch (err) {
@@ -93,3 +104,13 @@ export default (req, res) => {
   });
 };
 ```
+
+The code speaks for itself, but in a simple word, what we are doing here is
+
+- Adding a thin layer or middleware to all of our API calls
+- Crating a serverless function to represent the proxy
+- Separating auth routes that are responsible for setting cookies from other APIs
+  - If the passing API was an auth related:
+    - Adding response token to cookie with needed attributes
+    - Removing token from response to prevent javascript accessing
+  - Or else, adding existing auth token to the header of other APIs

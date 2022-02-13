@@ -4,11 +4,10 @@ publishedAt: "2021-11"
 image: "/images/blog/multi-theme.png"
 readingTime: "15"
 category: "styling"
-summary: "What is the best way to implement a multi theme application using best practices?"
+summary: "What is the best way to implement a multi-theme application using best practices?"
 ---
 
-In this blog I want to describe how I handle my projects theming. Weather it is multi theme or not, I like to keep things organized.
-A clear example of it is my portfolio that is open source and you can check it out [here](https://github.com/miladMAPS/portfolio).
+In this blog, I want to describe how I handle theming of my projects. Whether it is multi-theme or not, I like to keep things organized. A clear example of it is my portfolio which is open source and you can check it out [here](https://github.com/miladMAPS/portfolio).
 
 ## 1. next-themes configs
 
@@ -36,7 +35,7 @@ function MyApp({ ... }) {
 ```
 
 <small>
-  * We'll see what <strong>GlobalColors</strong> component does later.
+  * We'll see what the <strong>GlobalColors</strong> component does later.
 </small>
 
 <br />
@@ -44,7 +43,7 @@ function MyApp({ ... }) {
 
 ## 2. Defining Color constructor function
 
-We need a constructor function to generate every color variants.
+We need a constructor function to generate every color variant.
 
 ```javascript
 // models/Color.js
@@ -64,9 +63,9 @@ export function Color(main, hover, light, lighter, dark, pale, paler, variant) {
 <small>
   * You can pass any{" "}
   <a href="https://www.w3schools.com/cssref/css_colors_legal.asp">
-    valid css color variable
+    valid CSS color variable
   </a>{" "}
-  to Color constructor.
+  to the Color constructor.
 </small>
 <br />
 <br />
@@ -120,7 +119,7 @@ export const themes = {
 ```
 
 <small>
-  You can generate your color pallette variants with help of this{" "}
+  You can generate your color palette variants with help of this website{" "}
   <a href="http://mcg.mbitson.com/">website</a>.
 </small>
 
@@ -129,8 +128,8 @@ export const themes = {
 
 ## 4. Adding color variants to global stylesheets.
 
-After that we need to add those colors as global css variables to use them everywhere.
-we do it with createGlobalStyle method from styled-components.
+After that, we need to add those colors as global CSS variables to use them everywhere.
+we do it with createGlobalStyle method from [styled-components](https://styled-components.com/).
 
 ```javascript
 import { createGlobalStyle } from "styled-components";
@@ -173,7 +172,7 @@ const types = [
   "-paler",
   "-variant",
 ];
-//  producing css variables from different types of a single color
+// producing CSS variables from different types of a single color
 function produceColorTypes(name, ...colors) {
   return (colors || []).reduce((acc, cv, i) => {
     if (cv) acc["--" + name + types[i]] = cv;
@@ -183,12 +182,12 @@ function produceColorTypes(name, ...colors) {
 ```
 
 <small>
-  * Don't panic this complex objects are well tested, just copy and paste them
-  and you will be okay.
+  * Don't panic! these complex objects are well tested, so just copy and paste
+  them, and you will be okay.
 </small>
 <br />
 <small>
-  ** We import <strong>GlobalColors</strong> component into our most top level
+  ** We import <strong>GlobalColors</strong> component into our most top-level
   component.
 </small>
 
