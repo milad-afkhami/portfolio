@@ -75,7 +75,8 @@
           "something": "Quelque chose s'est mal passé"
         },
         "textCopied": "Copié dans le presse-papiers",
-        "codeCopied": "Code copié dans le presse-papiers"
+        "codeCopied": "Code copié dans le presse-papiers",
+        "comingSoon": "Bientôt disponible ..."
       },
       "kits": {
         "more": "Plus",

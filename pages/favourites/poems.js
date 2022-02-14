@@ -13,7 +13,7 @@ const FavouritePoemsPage = (props) => {
       <Head canonical="/favourites/poems" page="favouritePoems" />
       <Div width="100%" py="3">
         <PageTitle title="favourites.poems.title" />
-        <SectionTitle title={"Coming Soon ..."} />
+        <SectionTitle title="layout.message.comingSoon" />
       </Div>
     </>
   );

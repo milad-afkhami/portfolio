@@ -79,7 +79,8 @@
           "something": "Something went wrong"
         },
         "textCopied": "Copied to clipboard",
-        "codeCopied": "Code copied to clipboard"
+        "codeCopied": "Code copied to clipboard",
+        "comingSoon": "Coming Soon ..."
       },
       "kits": {
         "more": "More",
