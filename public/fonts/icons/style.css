@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?clvb5g');
-  src:  url('fonts/icomoon.eot?clvb5g#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?clvb5g') format('truetype'),
-    url('fonts/icomoon.woff?clvb5g') format('woff'),
-    url('fonts/icomoon.svg?clvb5g#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?bx5bmu');
+  src:  url('fonts/icomoon.eot?bx5bmu#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?bx5bmu') format('truetype'),
+    url('fonts/icomoon.woff?bx5bmu') format('woff'),
+    url('fonts/icomoon.svg?bx5bmu#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -58,9 +58,6 @@
 .mili-nested-list-icon:before {
   content: "\e90a";
 }
-.mili-calendar1-icon:before {
-  content: "\e901";
-}
 .mili-clock-icon:before {
   content: "\e90c";
 }
@@ -94,14 +91,20 @@
 .mili-book-icon:before {
   content: "\e927";
 }
-.mili-sun1-icon:before {
+.mili-suitcase-icon:before {
+  content: "\e9ae";
+}
+.mili-briefcase-icon:before {
+  content: "\e9ae";
+}
+.mili-sun-icon:before {
   content: "\e9d4";
+}
+.mili-education-icon:before {
+  content: "\e905";
 }
 .mili-chevron-right-icon:before {
   content: "\e923";
-}
-.mili-sun-icon:before {
-  content: "\e92c";
 }
 .mili-copy-outline-icon:before {
   content: "\e915";

@@ -1,7 +1,7 @@
 import React from "react";
 import { Div, Text } from "@kits";
 
-export const AboutTimelineSectionYear = (props) => {
+export const TimelineSectionYear = (props) => {
   const { year } = props || {};
 
   return (
@@ -14,7 +14,12 @@ export const AboutTimelineSectionYear = (props) => {
       curve="sm"
       dimensions={{ top: "-1rem" }}
     >
-      <Text tag="p" size="h-sm-b" color="assistive-success">
+      <Text
+        tag="p"
+        size="h-sm-b"
+        color="assistive-success"
+        css={{ textTransform: "uppercase" }}
+      >
         {year}
       </Text>
     </Div>

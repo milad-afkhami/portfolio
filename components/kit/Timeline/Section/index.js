@@ -1,9 +1,9 @@
 import React from "react";
 import { Div, Text } from "@kits";
-import { AboutTimelineSectionItem } from "./Item";
-import { AboutTimelineSectionYear } from "./Year";
+import { TimelineSectionItem } from "./Item";
+import { TimelineSectionYear } from "./Year";
 
-export const AboutTimelineSection = (props) => {
+export const TimelineSection = (props) => {
   const { year, items, last } = props || {};
 
   return (
@@ -37,10 +37,10 @@ export const AboutTimelineSection = (props) => {
         },
       }}
     >
-      <AboutTimelineSectionYear year={year} />
+      <TimelineSectionYear year={year} />
       <Div ml="3">
         {items.map((item) => (
-          <AboutTimelineSectionItem text={item} />
+          <TimelineSectionItem text={item} />
         ))}
       </Div>
     </Div>

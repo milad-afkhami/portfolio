@@ -471,6 +471,24 @@
         "becomingTeamLead_desc": "J'ai fait mes preuves au siège dans mes défis et je suis devenu responsable de l'équipe de développement front-end.",
         "ielts": "IELTS",
         "ielts_desc": "J'ai réussi mon examen IELTS avec un score de 7."
+      },
+      "workExperience": {
+        "title": "Expérience professionnelle",
+        "1": "Développeur Web Front-End",
+        "1_desc": "Freelance - Téhéran",
+        "2": "Développeur Web Front-End",
+        "2_desc": "Silverpath - Téhéran",
+        "3": "Développeur Web Front-End",
+        "3_desc": "App Tech - Téhéran",
+        "4": "Responsable de l'équipe de développement Web Front End",
+        "4_desc": "Arsh - Téhéran"
+      },
+      "education": {
+        "title": "Éducation",
+        "1": "Génie électrique",
+        "1_desc": "Université Shahid Beheshti, GPA : B",
+        "2": "Génie informatique",
+        "2_desc": "Université islamique d'Azad, GPA : A+"
       }
     },
     "gists": {

@@ -1,7 +1,7 @@
 ---
 title: "Responsive Navbar"
 category: "javascript"
-summary: "Creating a responsive navbar without having to create and render multiple components and hide one of them in each screen."
+summary: "Creating a responsive navbar without having to create and render multiple components and hide one of them on each screen."
 ---
 
 See [here](https://github.com/miladMAPS/portfolio/blob/main/components/Layout/Header/Nav/index.js) for a complete solution.
@@ -14,7 +14,9 @@ import { useMediaQuery } from "@hooks";
 import { breakpoints } from "@stylesheets";
 
 const HeaderMenu = dynamic(() => import("./Desktop"), { ssr: false });
-const HeaderResponsiveMenu = dynamic(() => import("./Responsive"), { ssr: false });
+const HeaderResponsiveMenu = dynamic(() => import("./Responsive"), {
+  ssr: false,
+});
 
 export function HeaderNav(props) {
   const isBigScreen = useMediaQuery({ minWidth: breakpoints.md });

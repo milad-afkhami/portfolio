@@ -1,16 +1,17 @@
 import React from "react";
 import { Div } from "@kits";
-import { AboutTimelineSection } from "./Section";
+import { TimelineSection } from "./Section";
 import { SectionTitle } from "@components/Layout";
-import { aboutTimelineSections as sections } from "@config";
 
-export const AboutTimeLine = (props) => {
+export const Timeline = (props) => {
+  const { title, icon = "timeline", sections } = props || {};
+
   return (
     <Div my="5">
-      <SectionTitle icon="timeline" title="about.timeline.title" />
+      <SectionTitle icon={icon} title={title} />
       <Div ml="5">
         {sections.map(({ items, year }, i) => (
-          <AboutTimelineSection
+          <TimelineSection
             key={i}
             year={year}
             items={items}

@@ -8,24 +8,24 @@ summary: "How to implement global typography and responsive text sizes?"
 ---
 
 In this blog I want to describe how I handle my projects typography.
-A clear example of it is my portfolio that is open source and you can check it out [here](https://github.com/miladMAPS/portfolio).
+A clear example of it is my portfolio which is open source and you can check it out [here](https://github.com/miladMAPS/portfolio).
 
 ## Why to use a global typography?
 
-Using global typography for text sizes for texts, increases readability and maintainability of code and helps you to design as clearly and efficiently as possible.
+Using global typography for sizes of texts increases the readability and maintainability of code and helps you design as clearly and efficiently as possible.
 
 - Benefits
-  - increasing maintainability
-    - we can easily change scale of our fonts at any time
-  - increasing code readability
-  - ability to have multiple typography for different screen dimensions
+  - Increasing maintainability
+    - We can easily change the scale of our fonts at any time
+  - Increasing code readability
+  - Ability to have multiple typographies for different screen dimensions
   - ...
 
 ## Implementing
 
 ### 1. Defining Breakpoints
 
-First we need to set our breakpoint configs
+First, we need to set our breakpoint configs
 
 ```javascript
 const breakpoints = {
@@ -70,8 +70,8 @@ const typographyVariants = {
 
 ### 3. Adding values as global CSS variables.
 
-After that we need to add those typography variants as global CSS variables to use them everywhere.
-we do it with createGlobalStyle method from styled-components.
+After that, we need to add those typography variants as global CSS variables to use them everywhere.
+We can reach that with `createGlobalStyle` method from [styled-components](https://styled-components.com/).
 
 This adds default typography variant variables under **:root** and adds other variants under corresponding media queries to override defaults.
 
@@ -109,8 +109,8 @@ export const GlobalTypographies = createGlobalStyle((props) => {
 ```
 
 <small>
-  ** We need to import <strong>GlobalColors</strong> component into our most top
-  level component like App.js in react or _app.js in Next.js.
+  ** We need to import <strong>GlobalColors</strong> component into our most
+  top-level component like App.js in react or _app.js in Next.js.
 </small>
 
 <br />
@@ -138,7 +138,7 @@ Create a Text component like what I described [here](https://portfolio-mili.verc
 
 ### 2. CSS classes
 
-Create css classes in your stylesheets and use those classes in your markup to style texts.
+Create CSS classes in your stylesheets and use those classes in your markup to style texts.
 
 ```css
 /* ... */
@@ -154,15 +154,15 @@ Create css classes in your stylesheets and use those classes in your markup to s
 ```
 
 <small>
-  ** If you find it hard to write it for all of typography keys you need to
-  automate it like what we did in previous section (3. Adding values as CSS
+  ** If you find it hard to write it for all of the typography keys you need to
+  automate it like what we did in the previous section (3. Adding values as CSS
   variables.)
 </small>
 
 <br />
 <br />
 
-To skip repetitive codes, you may want to automate generation process with sass loops with something like this:
+To skip repetitive codes, you may want to automate the generation process with sass loops with something like this:
 
 ```css
 /* _variables.scss */
