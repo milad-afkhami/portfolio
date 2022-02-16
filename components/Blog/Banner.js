@@ -24,7 +24,6 @@ export const BlogBanner = (props) => {
         blurDataURL={banner}
         quality={100}
         priority
-        maximizable
       />
     </Div>
   );
