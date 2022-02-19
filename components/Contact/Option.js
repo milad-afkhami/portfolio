@@ -1,13 +1,9 @@
 import React from "react";
-import { Div, Icon, Image, Text } from "@kits";
+import { Div, Icon, Text } from "@kits";
 import { toast } from "@utils";
-import { useTranslation } from "@hooks";
-import { THEMES } from "@constants";
 
 export function ContactOption(props) {
   const { type, label, value } = props || {};
-
-  const t = useTranslation().t;
 
   const onClickContactWay = () => {
     navigator.clipboard
