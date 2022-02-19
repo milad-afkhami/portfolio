@@ -43,6 +43,7 @@
     "layout": {
       "header": {
         "defaultTitle": "Milad Afkhami",
+        "downloadResume": "Resume",
         "menu": {
           "home": "Home",
           "about": "About",

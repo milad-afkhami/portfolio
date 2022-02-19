@@ -4,6 +4,7 @@ import { useRef, useOnClickOutside, useEventListener } from "@hooks";
 import { HeaderMenuItem } from "../Item";
 import { navLinks } from "@config";
 import { noop } from "@utils";
+import { DownloadResume } from "../../DownloadResume";
 
 export function HeaderResponsiveMenuList(props) {
   const { rendered, onRequestClose } = props || {};
@@ -32,6 +33,7 @@ export function HeaderResponsiveMenuList(props) {
       {navLinks.map((menu, i) => (
         <HeaderMenuItem key={i} onClick={onRequestClose} {...menu} />
       ))}
+      <DownloadResume />
     </Div>
   );
 }
