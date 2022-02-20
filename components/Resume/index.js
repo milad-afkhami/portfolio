@@ -10,7 +10,15 @@ import { ResumeLanguages } from "./Languages";
 
 export default function Resume() {
   return (
-    <Div>
+    <Div
+      css={{
+        "@page": {
+          size: "auto",
+          size: "A3",
+          margin: "0mm",
+        },
+      }}
+    >
       <ResumeHeader />
       <Div width="100%" flex={["start"]} p="4">
         <Div width="100%">

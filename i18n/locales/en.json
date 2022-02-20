@@ -90,6 +90,14 @@
         }
       }
     },
+    "resume": {
+      "projects": {
+        "message": "See previews, details and more projects in <a>my portfolio </a>"
+      },
+      "workExperience": {
+        "message": "See my work experience in details in <a>my portfolio </a>"
+      }
+    },
     "markdown": {
       "variables": {
         "title": "Markdown Variables",
