@@ -10,6 +10,7 @@ export const ResumeWorkExperience = () => {
       <SectionTitle title="about.workExperience.title" icon="suitcase" />
       <ResumeReference
         i18nKey="resume.workExperience.message"
+        link="cutt.ly/work-experience"
         route="/about#work-experience"
       />
       <Div>

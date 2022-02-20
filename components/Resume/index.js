@@ -23,7 +23,11 @@ export default function Resume() {
     >
       <ResumeHeader />
       <Div px="4" border="border-dark" borderSide="bottom">
-        <ResumeReference i18nKey="resume.message" route="/" />
+        <ResumeReference
+          i18nKey="resume.message"
+          link="mili-portfolio.vercel.app/"
+          route="/"
+        />
       </Div>
       <Div width="100%" flex={["start"]} p="4">
         <Div width="100%">

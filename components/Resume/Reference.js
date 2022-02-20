@@ -4,7 +4,7 @@ import { Trans } from "react-i18next";
 import { appBaseURL } from "@config";
 
 export const ResumeReference = (props) => {
-  const { i18nKey, route } = props || {};
+  const { i18nKey, route, link } = props || {};
   return (
     <Div flex={["center", "start"]} my="3">
       <Icon name="info" size="sm" color="assistive-warning" />
@@ -25,11 +25,24 @@ export const ResumeReference = (props) => {
                   // className="mili-link1-icon"
                   css={{
                     ":after": { content: `\"\\e907\"`, fontFamily: "icomoon" },
+                    // ":after": { content: "attr(href)" },
+                    // ":after": { content: `\"${link}\"` },
                   }}
                 />
               ),
             }}
           />
+          {/* <Text
+            href={link}
+            target="_blank"
+            tag="a"
+            color="brand"
+            hoverColor="brand-hover"
+            noTranslation
+            size="sm-b"
+          >
+            {link}
+          </Text> */}
         </Text>
       </Div>
     </Div>

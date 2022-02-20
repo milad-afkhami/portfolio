@@ -11,13 +11,17 @@ export const ResumeProjects = () => {
   return (
     <Div mb="5">
       <SectionTitle title="projects.title" icon="code" />
-      <ResumeReference i18nKey="resume.projects.message" route="/projects" />
+      <ResumeReference
+        i18nKey="resume.projects.message"
+        link="cutt.ly/my-projects"
+        route="/projects"
+      />
       <Div>
-        {projectsData.slice(0, 3).map(({ slug, date }) => (
+        {projectsData.slice(0, 3).map(({ slug, ...data }) => (
           <ResumeProjectsItem
+            {...data}
             name={`projects.${slug}.name`}
             description={`projects.${slug}.description`}
-            date={date}
           />
         ))}
         <ResumeProjectsItem name="..." description="..." />
