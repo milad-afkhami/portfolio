@@ -16,6 +16,8 @@ module.exports = {
   swcMinify: true,
   experimental: {
     craCompat: true,
+  },
+  compiler: {
     styledComponents: true,
   },
   // images: {
