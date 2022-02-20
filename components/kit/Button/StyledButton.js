@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { setDimensions } from "./setDimensions";
 import { setStyle } from "./setStyle";
 import { curves, setTextTypography } from "@stylesheets";
-import { Div } from "@kits";
+import { Div } from "../Div/Div";
 
 export const StyledButton = styled(Div).attrs((attrs) => ({ as: "button" }))(
   ({
