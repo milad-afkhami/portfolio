@@ -61,6 +61,11 @@ const StyledWrapper = styled.div`
     display: inline;
   }
 
+  /* for adding small text as p.s. */
+  h5 {
+    font-weight: 100;
+  }
+
   ${TableStyles}
 
   ${PrismTomorrowTheme}
