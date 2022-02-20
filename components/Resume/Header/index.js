@@ -23,7 +23,7 @@ export const ResumeHeader = () => {
         </Div>
       </Div>
       <Div flexPortion="1" height="100%" flex={["center", "center"]}>
-        {/* <AboutAvatar static /> */}
+        <AboutAvatar static />
       </Div>
       <ResumeHeaderContact />
     </Div>
