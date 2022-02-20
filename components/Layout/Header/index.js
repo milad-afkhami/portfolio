@@ -27,7 +27,7 @@ export function Header(props) {
         </Div>
         <Div width="auto">{/* <Logo /> */}</Div>
         <Div width="35%" flex={[, "end"]}>
-          <DownloadResume />
+          {/* <DownloadResume /> */}
           <HeaderChangeLanguage />
           <HeaderSwitchTheme />
         </Div>
