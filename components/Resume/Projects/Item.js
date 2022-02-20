@@ -1,7 +1,8 @@
 import React from "react";
 import { Div, Text } from "@kits";
+import { ProjectTechs } from "@components/Projects";
 
-export const ResumeProjectsItem = ({ name, description, date }) => {
+export const ResumeProjectsItem = ({ name, description, date, techs }) => {
   return (
     <Div my="3">
       <Div>
@@ -14,11 +15,12 @@ export const ResumeProjectsItem = ({ name, description, date }) => {
           </Text>
         </Div>
       )}
-      <Div>
+      <Div mb="2">
         <Text size="md" color="text-secondary">
           {description}
         </Text>
       </Div>
+      {techs?.length ? <ProjectTechs techs={techs} compact /> : null}
     </Div>
   );
 };

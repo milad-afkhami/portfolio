@@ -24,7 +24,9 @@ export function DownloadResume(props) {
 
     w.document.querySelector("html").setAttribute("data-theme", THEMES.LIGHT);
 
-    w.print();
+    setTimeout(() => {
+      w.print();
+    }, 2000);
   };
 
   return (
@@ -41,7 +43,7 @@ export function DownloadResume(props) {
       onClick={printResume}
     >
       <Div mx="2" flex={["center", "center"]}>
-        <Icon size="lg-b" name="download" />
+        <Icon size="lg-b" name="download" hoverColor="inherit" />
       </Div>
       <Div>
         <Text size="sm-b">layout.header.downloadResume</Text>

@@ -6,8 +6,8 @@ import { appBaseURL } from "@config";
 export const ResumeReference = (props) => {
   const { i18nKey, route } = props || {};
   return (
-    <Div flex={["center", "start"]}>
-      <Icon name="info" />
+    <Div flex={["center", "start"]} my="3">
+      <Icon name="info" size="sm" color="assistive-warning" />
       <Div mx="1">
         <Text noTranslation size="sm" tag="p" css={{ lineHeight: "1.5" }}>
           <Trans
