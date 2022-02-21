@@ -8,7 +8,7 @@ import { shouldForwardProp } from "@helpers";
  * renders a custom div component with needed stylesheets.
  * Read more about it in Documentation( {@link https://portfolio-mili.vercel.app/gists/div} )
  *
- * @type {import("react").ComponentType<import("./DivProps").Props>}
+ * @type {import("react").ComponentType<import("./Props").Props>}
  */
 export const Div = styled.div
   .withConfig({ shouldForwardProp: shouldForwardProp("Div") })
