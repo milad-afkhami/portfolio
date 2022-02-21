@@ -23,17 +23,19 @@ export const ResumeReference = (props) => {
                   noTranslation
                   size="sm-b"
                   // className="mili-link1-icon"
-                  css={{
-                    ":after": { content: `\"\\e907\"`, fontFamily: "icomoon" },
-                    // ":after": { content: "attr(href)" },
-                    // ":after": { content: `\"${link}\"` },
-                  }}
+                  css={
+                    {
+                      // ":after": { content: `\"\\e907\"`, fontFamily: "icomoon" },
+                      // ":after": { content: "attr(href)" },
+                      // ":after": { content: `\"${link}\"` },
+                    }
+                  }
                 />
               ),
             }}
           />
-          {/* <Text
-            href={link}
+          <Text
+            href={`https://${link}`}
             target="_blank"
             tag="a"
             color="brand"
@@ -42,7 +44,7 @@ export const ResumeReference = (props) => {
             size="sm-b"
           >
             {link}
-          </Text> */}
+          </Text>
         </Text>
       </Div>
     </Div>

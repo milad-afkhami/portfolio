@@ -11,7 +11,7 @@ const resumeLanguages = [
 export const ResumeLanguages = () => {
   return (
     <Div mb="5">
-      <SectionTitle title="resume.languages.title" icon="education" />
+      <SectionTitle title="resume.languages.title" icon="earth" />
       {resumeLanguages.map((lang) => (
         <ResumeLanguageItem {...lang} />
       ))}
