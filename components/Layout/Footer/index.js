@@ -10,11 +10,11 @@ export function Footer(props) {
         <Div col={{ xs: 12, lg: 8 }}>
           <FooterLinks />
         </Div>
-        <Div col={{ xs: 12, lg: 4 }}>
+        {/* <Div col={{ xs: 12, lg: 4 }}>
           <Div flex={["end", , "column"]}>
             <FooterSocials />
           </Div>
-        </Div>
+        </Div> */}
       </Div>
     </Div>
   );
