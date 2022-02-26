@@ -17,12 +17,18 @@ export const ResumeWorkExperience = () => {
         {workExperienceTimelineSections.map((exp) => (
           <Div my="3">
             <Div>
-              <Text size="sm" color="text-secondary">
-                {exp.year}
-              </Text>
+              <Text
+                size="md"
+                color="text-secondary"
+              >{`${exp.items[0]}_desc`}</Text>
             </Div>
             <Div>
               <Text size="md-b">{exp.items[0]}</Text>
+            </Div>
+            <Div>
+              <Text size="sm" color="text-secondary">
+                {exp.year}
+              </Text>
             </Div>
           </Div>
         ))}
