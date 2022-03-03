@@ -345,14 +345,14 @@ export const favouriteAnimationsData = [
 export const favouriteSeriesData = [
   // drama
   "true-detective",
-  "mind-hunter",
+  // "mind-hunter",
   // "fleabag",
   // "shameless",
 
   // sitcoms
   "the-office",
+  "its-always-sunny-in-philadelphia",
   "the-big-bang-theory",
-  // "its-always-sunny-in-philadelphia",
   // "friends",
   // "himym",
 
