@@ -4,7 +4,7 @@ import { formData } from "@utils";
 
 /**
  * @typedef {("GET" | "POST" | "PUT" | "PATCH" | "DELETE")} Method
- * @typedef {{baseURL:string, url:string, method:Method, headers:Object, params: Object, type: "formData"|null, proxyLayer: boolean}} FetchOptions
+ * @typedef {{baseURL:string, url:string, method:Method, headers:Object, params: Object, type: "formData"|null }} FetchOptions
  */
 
 export class Http {
@@ -54,9 +54,7 @@ export class Http {
    */
   static request = async (options) => {
     const {
-      // proxyLayer property is useful when we don't want our request to pass through the proxy layer, e.g. build time and server-side requests.
-      proxyLayer = true,
-      baseURL = proxyLayer ? apiBaseURL : externalApiBaseURL,
+      baseURL = externalApiBaseURL,
       url,
       method = "GET",
       headers,
