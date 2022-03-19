@@ -1,8 +1,8 @@
 import React from "react";
 import { Div } from "@kits";
 import { HeaderNav } from "./Nav";
-import { HeaderChangeLanguage } from "./LanguagePicker";
 import dynamic from "next/dynamic";
+// import { HeaderChangeLanguage } from "./LanguagePicker";
 // import { DownloadResume } from "./DownloadResume";
 
 const HeaderSwitchTheme = dynamic(
@@ -28,7 +28,7 @@ export function Header(props) {
         <Div width="auto">{/* <Logo /> */}</Div>
         <Div width="35%" flex={[, "end"]}>
           {/* <DownloadResume /> */}
-          <HeaderChangeLanguage />
+          {/* <HeaderChangeLanguage /> */}
           <HeaderSwitchTheme />
         </Div>
       </Div>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Div, Icon, Text } from "@kits";
-import { Trans } from "react-i18next";
+// import { Trans } from "react-i18next";
 import { appBaseURL } from "@config";
 
 export const ResumeReference = (props) => {
@@ -10,7 +10,7 @@ export const ResumeReference = (props) => {
       <Icon name="info" size="sm" color="assistive-warning" />
       <Div mx="1">
         <Text noTranslation size="sm" tag="p" css={{ lineHeight: "1.5" }}>
-          <Trans
+          {/* <Trans
             i18nKey={i18nKey}
             components={{
               a: (
@@ -33,7 +33,7 @@ export const ResumeReference = (props) => {
                 />
               ),
             }}
-          />
+          /> */}
           <Text
             href={`https://${link}`}
             target="_blank"
