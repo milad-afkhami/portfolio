@@ -1,6 +1,6 @@
 import { ReactText } from "react";
 import { toast, ToastContent, ToastOptions } from "react-toastify";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "@hooks";
 
 /**
  * `react-toastify` toast powered by i18n

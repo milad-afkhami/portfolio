@@ -3,8 +3,6 @@ import { Div, Icon, Text } from "@kits";
 import { SectionTitle } from "@components/Layout";
 import { projectsData } from "@data";
 import { ResumeProjectsItem } from "./Item";
-import { Trans } from "react-i18next";
-import { appBaseURL } from "@config";
 import { ResumeReference } from "../Reference";
 
 export const ResumeProjects = () => {
