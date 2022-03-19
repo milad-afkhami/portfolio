@@ -7,7 +7,7 @@ import {
   c,
 } from "@stylesheets";
 import { matchParent } from "@stylesheets/predefined";
-import { keyframes } from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { isNullish, __kebabCase } from "@utils";
 
 export function convertPropsToStyles(props) {
