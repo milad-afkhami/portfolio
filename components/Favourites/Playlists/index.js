@@ -3,9 +3,7 @@ import { Div } from "@kits";
 import { FavouritePlaylist } from "./Item";
 import { favouritePlaylistsData } from "@data";
 
-export const FavouritePlaylists = (props) => {
-  const {} = props || {};
-
+export const FavouritePlaylists = () => {
   return (
     <Div>
       {favouritePlaylistsData.map((pl) => (
