@@ -43,8 +43,15 @@ export const Image = ({
         alt={alt}
         quality={quality}
         priority={priority}
-        loader={loader}
-        unoptimized={unoptimized}
+        loader={({ src }) => {
+          try {
+            new URL(src);
+            return src;
+          } catch (error) {
+            return `https://2q23wr5n.tinifycdn.com${src}`;
+          }
+        }}
+        unoptimized={true}
         objectPosition={objectPosition}
         placeholder={placeholder}
         width={width}
