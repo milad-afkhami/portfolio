@@ -84,9 +84,10 @@ export const getStaticPaths = async ({ locales }) => {
   const blogs = await BlogServices.getList();
 
   const paths = blogs.reduce((acc, { slug }) => {
-    locales.forEach((locale) => {
-      acc.push({ params: { slug }, locale });
-    });
+    // locales.forEach((locale) => {
+    //   acc.push({ params: { slug }, locale });
+    // });
+    acc.push({ params: { slug } });
 
     return acc;
   }, []);

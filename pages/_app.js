@@ -20,8 +20,7 @@ function MyApp({ Component, pageProps, ...rest }) {
   enhanceStringPrototype();
 
   useEffect(() => {
-    LanguageHelper.initialLanguageSetup();
-
+    // LanguageHelper.initialLanguageSetup();
     // router.events.on("routeChangeStart", nProgress.start);
     // router.events.on("routeChangeComplete", nProgress.done);
     // router.events.on("routeChangeError", nProgress.done);

@@ -52,9 +52,10 @@ export const getStaticPaths = async ({ locales }) => {
   const gists = await GistServices.getList();
 
   const paths = gists.reduce((acc, { slug }) => {
-    locales.forEach((locale) => {
-      acc.push({ params: { slug }, locale });
-    });
+    // locales.forEach((locale) => {
+    //   acc.push({ params: { slug }, locale });
+    // });
+    acc.push({ params: { slug } });
 
     return acc;
   }, []);

@@ -1,4 +1,4 @@
-import i18n from "@i18n";
+import i18n from "next-export-i18n";
 import { PageAttr } from "@helpers";
 import { Cookies } from "@utils";
 import { languages, LOCALE_COOKIE_KEY } from "@constants";
