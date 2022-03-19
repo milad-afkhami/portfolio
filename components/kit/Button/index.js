@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ButtonHTMLAttributes } from "react";
 import { Div, Text, Icon } from "@kits";
 import { useEffect, usePrevious, useToggle } from "@hooks";
 import { StyledButton } from "./StyledButton";
@@ -6,31 +6,32 @@ import { noop } from "@utils";
 
 /**
  * @typedef {("lg"|"md")} Size
- * @typedef {("button" | "submit" | "reset")} Type
  * @typedef {("primary" | "outlined" | "link")} Variant
  * @typedef {import('@kits/Icon').IconProps} Icon
  *
- * @typedef {{ size:Size, type:Type, variant:Variant, text:string, loading:boolean, hasSuccessState:boolean, disabled:boolean, onClick:Function, icon:Icon, trailingIcon:Icon, block:boolean, width:string }} ButtonProps
+ * @typedef {{ size:Size, variant:Variant, text:string, loading:boolean, hasSuccessState:boolean, icon:Icon, trailingIcon:Icon, block:boolean, fixedWidth:boolean, width:string, height:string }&ButtonHTMLAttributes} ButtonProps
  *
  * @component - Renders a button element with needed styles and functionalities
  * @type {import("react").ComponentType<ButtonProps>}
  * @param {ButtonProps} props
  */
-export const Button = function ({
-  size,
-  variant = "primary",
-  text = "",
-  loading,
-  hasSuccessState,
-  disabled,
-  error,
-  icon,
-  trailingIcon,
-  onClick,
-  block,
-  type,
-  ...rest
-}) {
+export const Button = function (props) {
+  const {
+    size,
+    variant = "primary",
+    text = "",
+    loading,
+    hasSuccessState,
+    disabled,
+    error,
+    icon,
+    trailingIcon,
+    onClick,
+    block,
+    type,
+    ...rest
+  } = props;
+
   const [success, setSuccess] = useToggle(false);
 
   const prevLoading = usePrevious(loading);
@@ -46,15 +47,9 @@ export const Button = function ({
   const notAllowed = disabled || loading || success;
   return (
     <StyledButton
+      {...props}
       onClick={notAllowed ? noop : onClick}
-      cursor={notAllowed ? "not-allowed" : "pointer"}
-      size={size}
-      variant={variant}
-      loading={loading ? "true" : undefined}
-      disabled={disabled}
-      block={block}
-      type={type}
-      {...rest}
+      cursor={notAllowed ? "default" : "pointer"}
     >
       <Div
         height="100%"
