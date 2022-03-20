@@ -10,10 +10,10 @@ Made with [Next.js](https://nextjs.org/), [MDX](https://github.com/mdx-js/mdx), 
 
 ⚡️ No component with more than 100 lines of code except index.css with CSS reset principals.
 You can run this command `git ls-files | xargs wc -l | awk '$1 > 100'` in project repository to see it in action.\
-⚡️ Multi theme with dark and light themes and easily addable for other pallettes. you can read more about it [here](https://portfolio-mili.vercel.app/blog/multi-theme). \
+⚡️ Multi theme with dark and light themes and easily addable for other pallettes. you can read more about it [here](https://milad-afkhami.com/blog/multi-theme). \
 ⚡️ Multi language implementation with support for Deutsch and French aside from english. \
-⚡️ Using ISR, SSG for data fetching as latest technologies as I described [here](https://portfolio-mili.vercel.app/blog/data-fetching-pattern-preference). \
-⚡️ Global and responsive typography. reade more about it [here](https://portfolio-mili.vercel.app/blog/typography). \
+⚡️ Using ISR, SSG for data fetching as latest technologies as I described [here](https://milad-afkhami.com/blog/data-fetching-pattern-preference). \
+⚡️ Global and responsive typography. reade more about it [here](https://milad-afkhami.com/blog/typography). \
 ⚡️ Documented with [jsdoc](https://jsdoc.app/).
 
 <!-- #TODO Making courses on youtube, walking through this repository -->

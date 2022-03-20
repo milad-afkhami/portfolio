@@ -6,7 +6,7 @@ import { shouldForwardProp } from "@helpers";
 
 /**
  * renders a custom div component with needed stylesheets.
- * Read more about it in Documentation( {@link https://portfolio-mili.vercel.app/gists/div} )
+ * Read more about it in Documentation( {@link https://milad-afkhami.com/gists/div} )
  *
  * @type {import("react").ComponentType<import("./Props").Props>}
  */

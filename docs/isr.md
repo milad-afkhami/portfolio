@@ -1,1 +1,1 @@
-see [this blog](https://portfolio-mili.vercel.app/blog/data-fetching-pattern-preference) for documentations
+see [this blog](https://milad-afkhami.com/blog/data-fetching-pattern-preference) for documentations

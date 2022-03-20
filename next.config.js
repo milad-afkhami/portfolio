@@ -5,7 +5,8 @@ const { PHASE_DEVELOPMENT_SERVER } = require("next/constants");
 /** @type {import("next").NextConfig} */
 module.exports = {
   env: {
-    REACT_APP_BASE_URL: "https://mili-portfolio.vercel.app",
+    // REACT_APP_BASE_URL: "https://mili-portfolio.vercel.app",
+    REACT_APP_BASE_URL: "https://milad-afkhami.com",
     REACT_APP_EXTERNAL_API_BASE_URL: "/api",
   },
   // i18n: {
@@ -19,6 +20,7 @@ module.exports = {
   compiler: {
     styledComponents: true,
   },
+  trailingSlash: true,
   images: {
     loader: "custom",
   },
