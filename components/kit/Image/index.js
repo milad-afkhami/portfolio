@@ -3,6 +3,7 @@ import { Div } from "@kits";
 import NextImage from "next/image";
 import { useToggle } from "@hooks";
 import { isomorphicPortal } from "@utils";
+import { imageBaseURL } from "@config";
 
 /**
  * @typedef {("intrinsic" | "fixed" | "responsive" | "fill")} Layout
@@ -38,7 +39,7 @@ export const Image = ({
   let _src = src;
 
   if (src?.startsWith?.("/")) {
-    _src = `https://2q23wr5n.tinifycdn.com${src}`;
+    _src = imageBaseURL + src;
   }
 
   return (

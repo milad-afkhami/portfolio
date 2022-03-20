@@ -1,5 +1,6 @@
 const apiBaseURL = process.env.REACT_APP_API_BASE_URL;
 const appBaseURL = process.env.REACT_APP_BASE_URL;
+const imageBaseURL = process.env.REACT_APP_IMAGE_BASE_URL;
 const externalApiBaseURL = process.env.REACT_APP_EXTERNAL_API_BASE_URL;
 const isDevelopment = process.env.NODE_ENV === "development";
 
@@ -82,6 +83,7 @@ const educationTimelineSections = [
 
 export {
   appBaseURL,
+  imageBaseURL,
   externalApiBaseURL,
   apiBaseURL,
   isDevelopment,
