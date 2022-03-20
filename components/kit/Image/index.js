@@ -35,22 +35,28 @@ export const Image = ({
 }) => {
   const [maximized, toggleMaximized] = useToggle(false);
 
+  let _src = src;
+
+  if (src?.startsWith?.("/")) {
+    _src = `https://2q23wr5n.tinifycdn.com${src}`;
+  }
+
   return (
     <>
       <Div
         as={NextImage}
-        src={src}
+        src={_src}
         alt={alt}
         quality={quality}
         priority={priority}
-        loader={({ src }) => {
-          try {
-            new URL(src);
-            return src;
-          } catch (error) {
-            return `https://2q23wr5n.tinifycdn.com${src}`;
-          }
-        }}
+        // loader={({ src }) => {
+        //   try {
+        //     new URL(src);
+        //     return src;
+        //   } catch (error) {
+        //     return `https://2q23wr5n.tinifycdn.com${src}`;
+        //   }
+        // }}
         unoptimized={true}
         objectPosition={objectPosition}
         placeholder={placeholder}
