@@ -3,7 +3,6 @@ import { Breadcrumb, Div } from "@kits";
 import { useRouter } from "@hooks";
 import { Head } from "@components/SEO";
 import { MDXRemote } from "@components/Markdown";
-import dynamic from "next/dynamic";
 import { GistServices } from "@services";
 import { MarkdownWrapper, MarkdownVariables } from "@components/Markdown";
 import { GistTitle, GistSummary } from "@components/Gists";
