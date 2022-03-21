@@ -18,7 +18,7 @@ const navLinks = [
 ];
 
 const contactOptions = [
-  { type: "email", value: "miladmaps@gmail.com" },
+  { type: "email", value: "dev.miladafkhami@gmail.com" },
   {
     type: "linkedin",
     label: "milad-afkhami-pour-71b86a18b",
