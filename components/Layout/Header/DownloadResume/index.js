@@ -4,6 +4,10 @@ import { Div, Icon, Text } from "@kits";
 export function DownloadResume(props) {
   const {} = props || {};
 
+  const downloadResume = () => {
+    window.open("/resume_milad-afkhami.pdf", "__blank");
+  };
+
   const printResume = async () => {
     const ReactDOMServer = require("react-dom/server");
     const Resume = require("@components/Resume").default;
@@ -36,18 +40,29 @@ export function DownloadResume(props) {
       responsive={{ md: { width: "8rem" } }}
       flex={["center"]}
       height="2.5rem"
-      width="7rem"
+      width="8rem"
+      mw="7rem"
       cursor="pointer"
       bg="assistive-info"
       hoverBg="assistive-info-light"
-      px="1"
-      onClick={printResume}
+      px="3"
+      mx="1"
+      // onClick={printResume}
+      onClick={downloadResume}
+      css={{ gap: "var(--spacing-2)" }}
     >
-      <Div mx="2" flex={["center", "center"]}>
-        <Icon size="lg-b" name="download" hoverColor="inherit" />
+      <Div flex={["center", "center"]}>
+        <Icon
+          color="bg-primary"
+          size="lg-b"
+          name="download"
+          hoverColor="inherit"
+        />
       </Div>
       <Div>
-        <Text size="sm-b">layout.header.downloadResume</Text>
+        <Text color="bg-primary" size="sm-b">
+          layout.header.downloadResume
+        </Text>
       </Div>
     </Div>
   );
