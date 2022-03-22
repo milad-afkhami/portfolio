@@ -13,12 +13,12 @@ export function AboutAvatar(props) {
         mb="3"
       >
         {props.static ? (
-          <Div as="img" src="/images/me.jpg" matchParent />
+          <Div as="img" src="/images/avatar.jpg" matchParent />
         ) : (
           <Image
-            src="/images/me.jpg"
+            src="/images/avatar.jpg"
             placeholder="blur"
-            blurDataURL="/images/me.jpg"
+            blurDataURL="/images/avatar.jpg"
             layout="fill"
             fit="cover"
             maximizable
