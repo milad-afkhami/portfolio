@@ -54,9 +54,9 @@ export function DownloadResume(props) {
       <Div flex={["center", "center"]}>
         <Icon
           color="bg-primary"
+          hoverColor="bg-primary"
           size="lg-b"
           name="download"
-          hoverColor="inherit"
         />
       </Div>
       <Div>
