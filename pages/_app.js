@@ -52,6 +52,11 @@ function MyApp({ Component, pageProps, ...rest }) {
             locale: router.locale,
             url: "https://www.url.ie/",
             site_name: t("app.name"),
+            profile: {
+              firstName: "Milad",
+              lastName: "Afkhami",
+              gender: "Male",
+            },
           }}
           twitter={{
             // handle: "@handle",
