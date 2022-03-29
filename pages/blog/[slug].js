@@ -41,7 +41,7 @@ export default function BlogPage(props) {
         url={canonical}
         title={title}
         description={summary}
-        images={[image]}
+        images={[appBaseURL + image]}
         datePublished={publishedAt}
         authorName={t("home.profile.name")}
       />
