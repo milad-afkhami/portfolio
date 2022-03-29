@@ -1,6 +1,6 @@
 import React from "react";
 import { Div, Timeline } from "@kits";
-import { Head } from "@components/SEO";
+import { Head, SocialProfileJsonLd } from "@components/SEO";
 import { PageTitle } from "@components/Layout";
 import { WhoAmI } from "@components/About";
 import {
@@ -10,7 +10,6 @@ import {
   educationTimelineSections,
   workExperienceTimelineSections,
 } from "@config";
-import { Head, SocialProfileJsonLd } from "@components/SEO";
 import { useTranslation } from "@hooks";
 
 export default function AboutPage(props) {
