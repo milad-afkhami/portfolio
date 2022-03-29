@@ -5,14 +5,26 @@ import { PageTitle } from "@components/Layout";
 import { WhoAmI } from "@components/About";
 import {
   aboutTimelineSections,
+  appBaseURL,
+  contactOptions,
   educationTimelineSections,
   workExperienceTimelineSections,
 } from "@config";
+import { Head, SocialProfileJsonLd } from "@components/SEO";
+import { useTranslation } from "@hooks";
 
 export default function AboutPage(props) {
+  const t = useTranslation().t;
+
   return (
     <>
       <Head canonical="/" page="about" />
+      <SocialProfileJsonLd
+        type="Person"
+        name={t("home.profile.name")}
+        url={appBaseURL}
+        sameAs={[contactOptions.find((opt) => opt.type === "linkedin").value]}
+      />
       <Div width="100%" py="3">
         <PageTitle title="about.title" />
         <WhoAmI />
