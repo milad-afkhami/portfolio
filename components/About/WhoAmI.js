@@ -5,10 +5,8 @@ import { useTranslation } from "@hooks";
 import { isDevelopment } from "@config";
 
 export const WhoAmI = (props) => {
-  const {} = props || {};
-
+  const { videoTitle } = props || {};
   const t = useTranslation().t;
-
   const paragraphsCount = 7;
 
   return (
@@ -16,6 +14,7 @@ export const WhoAmI = (props) => {
       <Div>
         <Div
           as="video"
+          title={videoTitle}
           width="min(100%, 600px)"
           curve="sm"
           border="border-light"
