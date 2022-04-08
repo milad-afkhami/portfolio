@@ -36,17 +36,13 @@ export const Image = ({
 }) => {
   const [maximized, toggleMaximized] = useToggle(false);
 
-  let _src = src;
-
-  if (src?.startsWith?.("/")) {
-    _src = imageBaseURL + src;
-  }
+  // let _src = src; if (src?.startsWith?.("/")) { _src = imageBaseURL + src; }
 
   return (
     <>
       <Div
         as={NextImage}
-        src={_src}
+        src={src}
         alt={alt}
         quality={quality}
         priority={priority}
