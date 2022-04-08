@@ -1,10 +1,10 @@
 {
   "en": {
     "app": {
-      "title": "Mili",
-      "username": "@Mili",
+      "title": "Milad Afkhami",
+      "username": "@MiladAfkhami",
       "description": "Hi! I'm Milad Afkhami and this is my portfolio website.",
-      "name": "Mili"
+      "name": "Milad Afkhami"
     },
     "seo": {
       "title": {
@@ -469,6 +469,10 @@
     },
     "about": {
       "title": "About Me",
+      "video": {
+        "title": "Introduction video about Milad Afkhami",
+        "desc": "This is a short introduction video for Milad Afkhami to introduce him and his profession"
+      },
       "p1": "Hey, I'm Milad. I'm a 23 y.o. developer, mentor, student, and at late nights writer!",
       "p2": "I work at Arsh Co. as head of the front-end development team, I am working as a front-end developer since my early university years and I'm enjoying every bit of it.",
       "p3": "I grew up in Shahr-e-Rey, a district in the south of Tehran state.",
