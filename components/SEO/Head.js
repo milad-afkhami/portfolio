@@ -3,9 +3,7 @@ import { appBaseURL } from "@config";
 import { NextSeo } from "@components/SEO";
 import { useRouter, useTranslation } from "@hooks";
 
-/**
- * @type {import("react").ComponentType<import("next-seo").NextSeoProps>}
- */
+/** @type {import("react").ComponentType<import("next-seo").NextSeoProps>} */
 export const Head = ({
   canonical = "",
   keywords = "",
@@ -35,6 +33,7 @@ export const Head = ({
     t(`seo.description.${page}`, {
       defaultValue: "",
     });
+  const titleTemplate = t("seo.title.template", { defaultValue: "%s" });
 
   return (
     <NextSeo
@@ -43,8 +42,8 @@ export const Head = ({
       titleTemplate={t("seo.title.template")}
       // defaultTitle="seo.title.default"
       openGraph={{
-        title: _title,
-        description: _description,
+        title: titleTemplate.replace("%s", _title),
+        // description: _description,
         images: [
           {
             url: "/images/logo-lg.png",
@@ -71,24 +70,7 @@ export const Head = ({
       canonical={_canonical}
       additionalMetaTags={[
         ...(keywords?.length ? [{ name: "keyword", content: keywords }] : []),
-        { property: "twitter:title", content: _title },
-        { property: "twitter:description", content: _description },
-        ...(openGraph?.images?.[0]?.url
-          ? [
-              {
-                property: "twitter:image:src",
-                content: openGraph.images[0].url,
-              },
-              {
-                property: "twitter:image:width",
-                content: openGraph.images[0].width || "400",
-              },
-              {
-                property: "twitter:image:height",
-                content: openGraph.images[0].height || "400",
-              },
-            ]
-          : []),
+
         ...additionalMetaTags,
       ]}
       // {...mobileAlternate}
