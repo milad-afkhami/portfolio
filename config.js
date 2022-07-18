@@ -39,7 +39,13 @@ const contactOptions = [
 ];
 
 const aboutTimelineSections = [
-  // { year: 2022, items: ["ielts"] },
+  {
+    year: 2022,
+    items: [
+      // "about.timeline.ielts"
+      "about.timeline.startingAtBehtarino",
+    ],
+  },
   { year: 2021, items: ["about.timeline.becomingTeamLead"] },
   {
     year: 2020,
