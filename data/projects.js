@@ -2,7 +2,7 @@ export const projectsData = [
   {
     _id: 0,
     name: "Octava",
-    link: "https://www.octava.ir",
+    link: "https://octava.ir",
     logo: "/images/projects/octava/logo.png",
     medias: [
       { src: "/images/projects/octava/desktop/1.jpg" },
@@ -107,7 +107,7 @@ export const projectsData = [
   {
     _id: 1,
     name: "Uneed",
-    link: ["https://www.uneed.ir", "https://www.merchant.uneed.ir"],
+    link: ["https://uneed.ir", "https://merchant.uneed.ir"],
     logo: "/images/projects/uneed/logo.png",
     medias: [
       { src: "/images/projects/uneed/desktop/1.jpg" },
@@ -154,9 +154,9 @@ export const projectsData = [
     _id: 2,
     name: "Tarinoo",
     link: [
-      "https://www.tarinoo.ir",
-      "https://www.zarco.ir",
-      "https://www.lapert.ir",
+      "https://tarinoo.ir",
+      "https://zarco.ir",
+      "https://lapert.ir",
       "https://risu.ir",
       "...",
     ],
@@ -225,6 +225,49 @@ export const projectsData = [
   },
   {
     _id: 3,
+    name: "Behtarino",
+    link: ["https://behtarino.com", "https://gheymat.best"],
+    logo: "/images/projects/behtarino/logo.png",
+    medias: [
+      { src: "/images/projects/behtarino/1.jpg", title: "" },
+      { src: "/images/projects/behtarino/2.jpg", title: "" },
+      { src: "/images/projects/behtarino/3.jpg", title: "" },
+      { src: "/images/projects/behtarino/4.jpg", title: "" },
+      { src: "/images/projects/behtarino/5.jpg", title: "" },
+      { src: "/images/projects/behtarino/6.jpg", title: "" },
+      { src: "/images/projects/behtarino/7.jpg", title: "" },
+    ],
+    date: "2022",
+    slug: "behtarino",
+    techs: [
+      { name: "Next.js", link: "https://www.npmjs.com/package/next" },
+      { name: "swr", link: "https://www.npmjs.com/package/swr" },
+      {
+        name: "Styled Components",
+        link: "https://www.npmjs.com/package/styled-components",
+      },
+      {
+        name: "Maplibre-gl",
+        link: "https://www.npmjs.com/package/maplibre-gl",
+      },
+    ],
+    points: [
+      "projects.behtarino.points.1",
+      "projects.behtarino.points.2",
+      "projects.behtarino.points.3",
+      "projects.behtarino.points.4",
+      {
+        title: "projects.behtarino.points.5",
+        points: [
+          "projects.behtarino.points.5-1",
+          "projects.behtarino.points.5-2",
+          "projects.behtarino.points.5-3",
+        ],
+      },
+    ],
+  },
+  {
+    _id: 4,
     name: "Bityon",
     link: "",
     logo: "/images/projects/bityon/logo.jpg",
@@ -280,7 +323,7 @@ export const projectsData = [
     ],
   },
   {
-    _id: 4,
+    _id: 5,
     name: "BIZ",
     link: "https://www.bizmlm.ir",
     logo: "/images/projects/biz/logo.png",
@@ -319,7 +362,7 @@ export const projectsData = [
     ],
   },
   {
-    _id: 5,
+    _id: 6,
     name: "CRM Panel",
     link: "https://www.crm.ir",
     logo: "/images/projects/crm/logo.jpg",
@@ -353,7 +396,7 @@ export const projectsData = [
     ],
   },
   {
-    _id: 6,
+    _id: 7,
     name: "And so forth ...",
     logo: "/images/projects/etc.jpg",
     date: "2018-present",
