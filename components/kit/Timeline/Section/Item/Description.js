@@ -15,6 +15,7 @@ export const TimelineSectionItemDescription = (props) => {
     color: "text-secondary",
     noTranslation: true,
     width: "fit-content",
+    css: { whiteSpace: "pre-line" },
   };
 
   return text ? (
