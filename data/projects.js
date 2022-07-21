@@ -18,7 +18,7 @@ export const projectsData = [
       { src: "/images/projects/octava/desktop/1-blur.jpg", title: "projects.octava.points.7" },
       { src: "/images/projects/octava/desktop/5.jpg" },
       // prettier-ignore
-      { src: "/images/projects/octava/pwa/4.jpg", title: "projects.octava.points.9" },
+      { src: "/images/projects/octava/pwa/4.jpg" },
       { src: "/images/projects/octava/pwa/5.jpg" },
       { src: "/images/projects/octava/desktop/6.jpg" },
       // prettier-ignore
