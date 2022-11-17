@@ -27,7 +27,7 @@
       "posts": { "title": "Featured Posts", "seeMore": "See More Blogs ..." },
       "profile": {
         "name": "Milad Afkhami",
-        "job": "Front-End Developer at Behtarino",
+        "job": "Front-End Chapter Lead at Ide-Kavan",
         "jobDescription0": "More than 4 years of experience in front-end development",
         "jobDescription-1": "Working as a Front-End developer and helping other members in their problems.",
         "jobDescription": "A skilled software engineer \nwith a proven ability to analyze, design, develop and maintain large scale software solutions that meet business requirements as well as performance and quality indexes."
@@ -494,7 +494,7 @@
         "desc": "This is a short introduction video for Milad Afkhami to introduce him and his profession"
       },
       "p1": "Hey, I'm Milad. I'm a 23 y.o. developer, mentor, student, and at late nights writer!",
-      "p2": "I work at Behtarino (Ide-kavan Co.) as a front-end developer, I am working in the front-end web development field since my early university years and I'm enjoying every bit of it.",
+      "p2": "I work at Ide-kavan Co. as front-end chapter lead, I am working in the front-end web development field since my early university years and I'm enjoying every bit of it.",
       "p3": "I grew up in Shahr-e-Rey, a district in the south of Tehran state.",
       "p4": "After spending my elementary and middle school, I got accepted for NODET and spent my high school there.",
       "p5": "After I was ranked 697 on the National entrance exam, I got accepted to study electrical engineering at Shahid Beheshti University",
@@ -528,26 +528,27 @@
         "startingAtAppTech_desc": "I found a good company to experience new challenges. I improved my React knowledge there and learned React Native.",
         "startingAtArshCo": "Starting At Arsh Co.",
         "startingAtArshCo_desc": "After reaching a good knowledge of React, I decided to have a new challenge and work on larger projects and I chose Arsh Company to continue. despite my last superiors, they were really nice to me",
-        "becomingTeamLead": "Becoming Team Lead",
-        "becomingTeamLead_desc": "I proved myself to headquarters in my challenges and became head of the front-end development team.",
+        "becomingChapterLead": "Becoming Chapter Lead",
+        "becomingChapterLead_desc": "I proved myself to headquarters in my challenges and became lead of the front-end development chapter.",
         "ielts": "IELTS",
         "ielts_desc": "I passed my IELTS exam with a 7 score.",
-        "startingAtBehtarino": "Starting at Behtarino (Ide-kavan Co.)",
-        "startingAtBehtarino_desc": "After overcoming numerous big challenges in Arsh corporation, decided to leave the company for good regarding the lack of suitability between my abilities and expertises and their necessities.\nAs I preferred to work creatively employing multi-expertises, decided not to work with large companies though had satisfying offers.\nAs a result, I started working with Behtarino, a young Iranian startup, so can challenge myself by owning the recoding project of their websites's front-end.",
-        "startingAtBehtarino_desc_2": "After solving many big challenges, I reached to the exit point of Arsh company due to the inconsistency between meeting my demands and my experience/abilities.\nDespite having many offers and self-assurance to work in bigger companies, my preference was to work in a free environment where the possibility of my growth is not taken away by being in a company with specific individual tasks and limited creativity space.\nFor this reason, I rejected my other offers and chose to work at the Behtarino company to own the new chapter of recoding the Behtarino.com website (in the projects section, I explained about this project)."
+        "startingAtBehtarino": "Starting at Behtarino Team - Ide-kavan Co.",
+        "startingAtBehtarino_desc": "After overcoming numerous big challenges in Arsh corporation, decided to leave the company for good regarding the lack of suitability between my abilities and expertises and their necessities.\nAs I preferred to work creatively employing multi-expertises, decided not to work with large companies though had satisfying offers.\nAs a result, I started working with Behtarino team at Ide-Kavan Company, a young Iranian startup, so can challenge myself by owning the recoding project of their websites's front-end.",
+        "becomingChapterLeadAtIdeKavan": "Becoming Chapter Lead at Ide-Kavan(Owner of the Behtarino team)",
+        "becomingChapterLeadAtIdeKavan_desc": "Five months after I joined Behtarino team, I overcame to my starter challenge of recoding the whole behtarino website to reach sustainability and became front-end chapter lead at the company level(Ide-Kavan company).\nMy goal was to help the company bringing sustainability for other projects and help ~10 members of front-end chapter to level up everyday."
       },
       "workExperience": {
         "title": "Work Experience",
         "1": "Front-End Developer",
         "1_desc": "Freelance",
         "2": "Front-End Developer",
-        "2_desc": "Silverpath - Tehran",
+        "2_desc": "Silverpath - Tehran - ~30 employee\n",
         "3": "Front-End Developer",
-        "3_desc": "App Tech - Tehran",
-        "4": "Head of The Front End Development Team",
-        "4_desc": "Arsh - Tehran",
-        "5": "Senior Front-End Developer",
-        "5_desc": "Behtarino - Tehran"
+        "3_desc": "App Tech - Tehran - ~30 employee\n",
+        "4": "Front-End Chapter Lead",
+        "4_desc": "Arsh - Tehran - ~50 employee\n",
+        "5": "Front-End Chapter Lead",
+        "5_desc": "Ide-Kavan - Tehran - ~150 employee\n"
       },
       "education": {
         "title": "Education",

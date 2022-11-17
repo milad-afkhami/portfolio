@@ -18,7 +18,7 @@ export const TimelineSectionYear = (props) => {
         tag="p"
         size="h-sm-b"
         color="assistive-success"
-        css={{ textTransform: "uppercase" }}
+        // css={{ textTransform: "uppercase" }}
       >
         {year}
       </Text>

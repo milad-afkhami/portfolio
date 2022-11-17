@@ -54,10 +54,6 @@ export default function AboutPage(props) {
       <Div width="100%" py="3">
         <PageTitle title="about.title" />
         <WhoAmI videoTitle={videoTitle} />
-        <Timeline
-          title="about.timeline.title"
-          sections={aboutTimelineSections}
-        />
         <Div id="work-experience">
           <Timeline
             title="about.workExperience.title"
@@ -65,6 +61,10 @@ export default function AboutPage(props) {
             sections={workExperienceTimelineSections}
           />
         </Div>
+        <Timeline
+          title="about.timeline.title"
+          sections={aboutTimelineSections}
+        />
         <Div id="education">
           <Timeline
             title="about.education.title"

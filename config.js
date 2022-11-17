@@ -44,9 +44,10 @@ const aboutTimelineSections = [
     items: [
       // "about.timeline.ielts"
       "about.timeline.startingAtBehtarino",
+      "about.timeline.becomingChapterLeadAtIdeKavan",
     ],
   },
-  { year: 2021, items: ["about.timeline.becomingTeamLead"] },
+  { year: 2021, items: ["about.timeline.becomingChapterLead"] },
   {
     year: 2020,
     items: ["about.timeline.startingAtArshCo"],
@@ -76,10 +77,14 @@ const aboutTimelineSections = [
 ];
 
 const workExperienceTimelineSections = [
-  { year: "JUL 2020 - Present", items: ["about.workExperience.4"] },
-  { year: "AUG 2019 - JUN 2020", items: ["about.workExperience.3"] },
-  { year: "APR 2019 - JUL 2019", items: ["about.workExperience.2"] },
-  { year: "NOV 2017 - MAR 2019", items: ["about.workExperience.1"] },
+  { year: "APR 2022 - PRESENT", items: ["about.workExperience.5"] },
+  { year: "JUL 2020 - MAR 2022 (~2 Year)", items: ["about.workExperience.4"] },
+  { year: "AUG 2019 - JUN 2020 (~1 Year)", items: ["about.workExperience.3"] },
+  { year: "APR 2019 - JUL 2019 (3 Month)", items: ["about.workExperience.2"] },
+  {
+    year: "NOV 2017 - MAR 2019 (+1 Year)",
+    items: ["about.workExperience.1"],
+  },
 ];
 
 const educationTimelineSections = [
