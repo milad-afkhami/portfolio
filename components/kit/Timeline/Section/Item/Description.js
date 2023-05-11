@@ -6,7 +6,7 @@ export const TimelineSectionItemDescription = (props) => {
   const { description } = props || {};
 
   const t = useTranslation().t;
-  const text = t(description);
+  const text = t(description, { defaultValue: "" });
   const hashMoreButton = text.length > 26;
 
   const textProps = {
@@ -15,11 +15,14 @@ export const TimelineSectionItemDescription = (props) => {
     color: "text-secondary",
     noTranslation: true,
     width: "fit-content",
+    css: { whiteSpace: "pre-line" },
   };
 
-  return hashMoreButton ? (
-    <ExpandableText {...textProps}>{text}</ExpandableText>
-  ) : (
-    <Text {...textProps}>{text}</Text>
-  );
+  return text ? (
+    hashMoreButton ? (
+      <ExpandableText {...textProps}>{text}</ExpandableText>
+    ) : (
+      <Text {...textProps}>{text}</Text>
+    )
+  ) : null;
 };

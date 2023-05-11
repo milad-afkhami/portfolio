@@ -7,7 +7,7 @@ export const Timeline = (props) => {
   const { title, icon = "timeline", sections } = props || {};
 
   return (
-    <Div my="5">
+    <Div mb="5">
       <SectionTitle icon={icon} title={title} />
       <Div ml="5">
         {sections.map(({ items, year }, i) => (

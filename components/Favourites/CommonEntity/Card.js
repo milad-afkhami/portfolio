@@ -1,5 +1,5 @@
 import React from "react";
-import { Div, Text, Image, Link } from "@kits";
+import { Div, Text, Image } from "@kits";
 import { useTranslation } from "@hooks";
 
 export const FavouriteCommonEntityCard = (props) => {

@@ -60,7 +60,7 @@ export const ProjectCard = (props) => {
                 overflow: "hidden",
               }}
             >
-              {`projects.${slug}.description`}
+              {`projects.${slug}.shortDescription`}
             </Text>
           </Div>
         </Div>

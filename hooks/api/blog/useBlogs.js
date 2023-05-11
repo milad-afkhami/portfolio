@@ -5,7 +5,7 @@ import { Http } from "@utils";
 export function useBlogs() {
   const swr = useSWRImmutable(endpoints.blogs, async (url) => {
     try {
-      const response = await Http.request({ proxyLayer: false, url });
+      const response = await Http.get({ url });
 
       return response;
     } catch (err) {

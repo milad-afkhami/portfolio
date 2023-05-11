@@ -1,11 +1,10 @@
 const apiBaseURL = process.env.REACT_APP_API_BASE_URL;
 const appBaseURL = process.env.REACT_APP_BASE_URL;
+const imageBaseURL = process.env.REACT_APP_IMAGE_BASE_URL;
 const externalApiBaseURL = process.env.REACT_APP_EXTERNAL_API_BASE_URL;
 const isDevelopment = process.env.NODE_ENV === "development";
 
 const APP_WRAPPER_ELEMENT_ID = "app-wrapper";
-const proxyBasePath = "/api/proxy";
-const proxyBasePathRegExp = /^\/api\/proxy/;
 
 const navLinks = [
   { link: "/", label: "home" },
@@ -19,7 +18,7 @@ const navLinks = [
 ];
 
 const contactOptions = [
-  { type: "email", value: "miladmaps@gmail.com" },
+  { type: "email", value: "dev.miladafkhami@gmail.com" },
   {
     type: "linkedin",
     label: "milad-afkhami-pour-71b86a18b",
@@ -40,8 +39,15 @@ const contactOptions = [
 ];
 
 const aboutTimelineSections = [
-  // { year: 2022, items: ["ielts"] },
-  { year: 2021, items: ["about.timeline.becomingTeamLead"] },
+  {
+    year: 2022,
+    items: [
+      // "about.timeline.ielts"
+      "about.timeline.startingAtBehtarino",
+      "about.timeline.becomingChapterLeadAtIdeKavan",
+    ],
+  },
+  { year: 2021, items: ["about.timeline.becomingChapterLead"] },
   {
     year: 2020,
     items: ["about.timeline.startingAtArshCo"],
@@ -71,10 +77,14 @@ const aboutTimelineSections = [
 ];
 
 const workExperienceTimelineSections = [
-  { year: "JUL 2020 - Present", items: ["about.workExperience.4"] },
-  { year: "AUG 2019 - JUN 2020", items: ["about.workExperience.3"] },
-  { year: "APR 2019 - JUL 2019", items: ["about.workExperience.2"] },
-  { year: "NOV 2017 - MAR 2019", items: ["about.workExperience.1"] },
+  { year: "APR 2022 - PRESENT", items: ["about.workExperience.5"] },
+  { year: "JUL 2020 - MAR 2022 (~2 Year)", items: ["about.workExperience.4"] },
+  { year: "AUG 2019 - JUN 2020 (~1 Year)", items: ["about.workExperience.3"] },
+  { year: "APR 2019 - JUL 2019 (3 Month)", items: ["about.workExperience.2"] },
+  {
+    year: "NOV 2017 - MAR 2019 (+1 Year)",
+    items: ["about.workExperience.1"],
+  },
 ];
 
 const educationTimelineSections = [
@@ -84,12 +94,11 @@ const educationTimelineSections = [
 
 export {
   appBaseURL,
+  imageBaseURL,
   externalApiBaseURL,
   apiBaseURL,
   isDevelopment,
   APP_WRAPPER_ELEMENT_ID,
-  proxyBasePath,
-  proxyBasePathRegExp,
   navLinks,
   contactOptions,
   aboutTimelineSections,

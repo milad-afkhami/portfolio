@@ -3,7 +3,6 @@ import { Breadcrumb, Div } from "@kits";
 import { useRouter } from "@hooks";
 import { Head } from "@components/SEO";
 import { MDXRemote } from "@components/Markdown";
-import dynamic from "next/dynamic";
 import { GistServices } from "@services";
 import { MarkdownWrapper, MarkdownVariables } from "@components/Markdown";
 import { GistTitle, GistSummary } from "@components/Gists";
@@ -52,9 +51,10 @@ export const getStaticPaths = async ({ locales }) => {
   const gists = await GistServices.getList();
 
   const paths = gists.reduce((acc, { slug }) => {
-    locales.forEach((locale) => {
-      acc.push({ params: { slug }, locale });
-    });
+    // locales.forEach((locale) => {
+    //   acc.push({ params: { slug }, locale });
+    // });
+    acc.push({ params: { slug } });
 
     return acc;
   }, []);

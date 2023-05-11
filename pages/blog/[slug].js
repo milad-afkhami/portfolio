@@ -41,7 +41,7 @@ export default function BlogPage(props) {
         url={canonical}
         title={title}
         description={summary}
-        images={[image]}
+        images={[appBaseURL + image]}
         datePublished={publishedAt}
         authorName={t("home.profile.name")}
       />
@@ -84,9 +84,10 @@ export const getStaticPaths = async ({ locales }) => {
   const blogs = await BlogServices.getList();
 
   const paths = blogs.reduce((acc, { slug }) => {
-    locales.forEach((locale) => {
-      acc.push({ params: { slug }, locale });
-    });
+    // locales.forEach((locale) => {
+    //   acc.push({ params: { slug }, locale });
+    // });
+    acc.push({ params: { slug } });
 
     return acc;
   }, []);

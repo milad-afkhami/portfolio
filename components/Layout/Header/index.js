@@ -1,9 +1,10 @@
 import React from "react";
 import { Div } from "@kits";
 import { HeaderNav } from "./Nav";
-import { HeaderChangeLanguage } from "./LanguagePicker";
 import dynamic from "next/dynamic";
-// import { DownloadResume } from "./DownloadResume";
+// import { HeaderChangeLanguage } from "./LanguagePicker";
+import { DownloadResume } from "./DownloadResume";
+import { HeaderGithub } from "./GitHub";
 
 const HeaderSwitchTheme = dynamic(
   () => import("./SwitchTheme").then((module) => module.HeaderSwitchTheme),
@@ -26,9 +27,10 @@ export function Header(props) {
           <HeaderNav />
         </Div>
         <Div width="auto">{/* <Logo /> */}</Div>
-        <Div width="35%" flex={[, "end"]}>
-          {/* <DownloadResume /> */}
-          <HeaderChangeLanguage />
+        <Div width="35%" flex={[, "end"]} css={{ gap: "var(--spacing-3)" }}>
+          <DownloadResume />
+          <HeaderGithub />
+          {/* <HeaderChangeLanguage /> */}
           <HeaderSwitchTheme />
         </Div>
       </Div>

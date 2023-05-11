@@ -53,7 +53,16 @@ const domProhibitedProps = {
 };
 
 // for some internal reasons, defaultValidatorFn was filtering layout property which is necessary for rendering next/image, so we manually allowed it to pass.
-const domAllowedProps = ["quality", "layout", "width", "height", "blurDataURL"];
+const domAllowedProps = [
+  "quality",
+  "priority",
+  "unoptimized",
+  "loader",
+  "layout",
+  "width",
+  "height",
+  "blurDataURL",
+];
 
 export const shouldForwardProp =
   (kitName, customValidatorFn = () => true) =>

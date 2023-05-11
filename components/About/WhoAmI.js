@@ -1,29 +1,39 @@
 import React from "react";
 import { Div, Text } from "@kits";
 import { __range } from "@utils";
-import { AboutAvatar } from "./Avatar";
+import { useTranslation } from "@hooks";
+import { isDevelopment } from "@config";
 
 export const WhoAmI = (props) => {
-  const {} = props || {};
-
+  const { videoTitle } = props || {};
+  const t = useTranslation().t;
   const paragraphsCount = 7;
 
   return (
-    <Div
-      flex={["center", , "column"]}
-      my="4"
-      row
-      responsive={{ md: { flex: ["start", "between", "row-reverse"] } }}
-    >
-      <Div col={{ xs: 12, md: 3 }} mb="4">
-        <AboutAvatar />
-      </Div>
-      <Div col={{ xs: 12, md: 9 }}>
+    <Div mt="4">
+      <Div>
+        <Div
+          as="video"
+          title={videoTitle}
+          width="min(100%, 600px)"
+          curve="sm"
+          border="border-light"
+          poster="/images/intro-poster.png"
+          controls
+          mb="2"
+          responsive={{ sm: { ml: 3, mb: 0, css: { float: "right" } } }}
+          preload={false}
+          muted={isDevelopment}
+        >
+          <source src="/intro.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </Div>
         {__range(paragraphsCount).map((i) => (
-          <Div key={i} mb="2">
-            <Text size="lg" tag="p" align="justify">{`about.p${i + 1}`}</Text>
-          </Div>
+          <Text size="lg" tag="p" mb="1" align="justify">
+            {t(`about.p${i + 1}`)}
+          </Text>
         ))}
+        <Div as="br" css={{ clear: "both" }} />
       </Div>
     </Div>
   );

@@ -3,6 +3,7 @@ import { Div } from "@kits";
 import NextImage from "next/image";
 import { useToggle } from "@hooks";
 import { isomorphicPortal } from "@utils";
+import { imageBaseURL } from "@config";
 
 /**
  * @typedef {("intrinsic" | "fixed" | "responsive" | "fill")} Layout
@@ -35,6 +36,8 @@ export const Image = ({
 }) => {
   const [maximized, toggleMaximized] = useToggle(false);
 
+  // let _src = src; if (src?.startsWith?.("/")) { _src = imageBaseURL + src; }
+
   return (
     <>
       <Div
@@ -43,8 +46,15 @@ export const Image = ({
         alt={alt}
         quality={quality}
         priority={priority}
-        loader={loader}
-        unoptimized={unoptimized}
+        // loader={({ src }) => {
+        //   try {
+        //     new URL(src);
+        //     return src;
+        //   } catch (error) {
+        //     return `https://2q23wr5n.tinifycdn.com${src}`;
+        //   }
+        // }}
+        unoptimized={true}
         objectPosition={objectPosition}
         placeholder={placeholder}
         width={width}

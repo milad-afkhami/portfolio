@@ -38,9 +38,9 @@ export const TimelineSection = (props) => {
       }}
     >
       <TimelineSectionYear year={year} />
-      <Div ml="3">
-        {items.map((item) => (
-          <TimelineSectionItem text={item} />
+      <Div ml="3" as="ul">
+        {items.map((item, i) => (
+          <TimelineSectionItem key={i} index={i} text={item} />
         ))}
       </Div>
     </Div>

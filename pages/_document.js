@@ -33,8 +33,14 @@ class MyDocument extends Document {
 
   render() {
     return (
-      // lang="en" dir="ltr"
-      <Html>
+      <Html
+        lang="en"
+        dir="ltr"
+        style={{
+          fontFamily:
+            "IBM Plex Sans,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji",
+        }}
+      >
         <Head>
           <meta charSet="utf-8" />
 

@@ -19,18 +19,19 @@ export const FavouritePlaylist = (props) => {
       position="relative"
       overflow="hidden"
     >
-      <Div
-        position="absolute"
-        dimensions={{ left: 0, top: 0 }}
-        height="100%"
-        width="100%"
-        css={{ filter: "blur(10px)" }}
-        opacity="0.3"
-        zIndex="-1"
-        // responsive={{ sm: { display: "none" } }}
-      >
-        <Image src={image} layout="fill" fit="cover" quality={1} />
-      </Div>
+      {image ? (
+        <Div
+          position="absolute"
+          dimensions={{ left: 0, top: 0 }}
+          height="100%"
+          width="100%"
+          css={{ filter: "blur(10px)" }}
+          opacity="0.3"
+          zIndex="-1"
+        >
+          <Image src={image} layout="fill" fit="cover" quality={1} />
+        </Div>
+      ) : null}
       <Div
         width="100%"
         height="140px"
@@ -54,7 +55,7 @@ export const FavouritePlaylist = (props) => {
           </Div>
           <Div mx="3" responsive={{ sm: { mx: "4" } }}>
             <Text size="lg-b" Mw="100%" truncate>
-              {name}
+              {name || ""}
             </Text>
           </Div>
         </Div>
@@ -63,16 +64,15 @@ export const FavouritePlaylist = (props) => {
           width="100%"
           responsive={{ sm: { flex: [, "between", "column"], width: "auto" } }}
         >
-          {link && (
+          {link ? (
             <Link outerLink href={link} m="2">
               <Button
                 variant="outlined"
                 text="favourites.listenNow"
                 size="sm"
-                onClick={() => {}}
               />
             </Link>
-          )}
+          ) : null}
           <Div m="2">
             <Button
               variant="link"

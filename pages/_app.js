@@ -20,8 +20,7 @@ function MyApp({ Component, pageProps, ...rest }) {
   enhanceStringPrototype();
 
   useEffect(() => {
-    LanguageHelper.initialLanguageSetup();
-
+    // LanguageHelper.initialLanguageSetup();
     // router.events.on("routeChangeStart", nProgress.start);
     // router.events.on("routeChangeComplete", nProgress.done);
     // router.events.on("routeChangeError", nProgress.done);
@@ -53,6 +52,11 @@ function MyApp({ Component, pageProps, ...rest }) {
             locale: router.locale,
             url: "https://www.url.ie/",
             site_name: t("app.name"),
+            profile: {
+              firstName: "Milad",
+              lastName: "Afkhami",
+              gender: "Male",
+            },
           }}
           twitter={{
             // handle: "@handle",

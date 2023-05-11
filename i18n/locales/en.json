@@ -1,10 +1,10 @@
 {
   "en": {
     "app": {
-      "title": "Mili",
-      "username": "@Mili",
+      "title": "Milad Afkhami",
+      "username": "@MiladAfkhami",
       "description": "Hi! I'm Milad Afkhami and this is my portfolio website.",
-      "name": "Mili"
+      "name": "Milad Afkhami"
     },
     "seo": {
       "title": {
@@ -19,7 +19,7 @@
         "favouritePlaylists": "Favourite Playlists"
       },
       "description": {
-        "default": "Hi! I'm Milad Afkhami and this is my portfolio website."
+        "default": "23 y.o. software engineer \nwith a proven ability to analyze, design, develop and maintain large scale software solutions that meet business requirements as well as performance and quality indexes."
       }
     },
     "home": {
@@ -27,7 +27,7 @@
       "posts": { "title": "Featured Posts", "seeMore": "See More Blogs ..." },
       "profile": {
         "name": "Milad Afkhami",
-        "job": "Head of Front-End Development Team at Arsh Co.",
+        "job": "Front-End Chapter Lead at Ide-Kavan",
         "jobDescription0": "More than 4 years of experience in front-end development",
         "jobDescription-1": "Working as a Front-End developer and helping other members in their problems.",
         "jobDescription": "A skilled software engineer \nwith a proven ability to analyze, design, develop and maintain large scale software solutions that meet business requirements as well as performance and quality indexes."
@@ -357,7 +357,8 @@
         "styling": "Styling",
         "awareness": "Awareness",
         "react": "React",
-        "next.js": "Next.js"
+        "next": "Next.js",
+        "roadmap": "Roadmap"
       },
       "notFound": "Blog Not Found!",
       "meta": {
@@ -372,9 +373,25 @@
       "title": "Projects",
       "points": "Points",
       "gallery": "Gallery",
+      "behtarino": {
+        "name": "Behtarino",
+        "shortDescription": "A platform for introducing and reviewing businesses in Iran",
+        "description": "With more than 5 million views per month, Behtarino is considered one of the largest(Yelp-ish) platforms for introducing and reviewing businesses in Iran.",
+        "points": {
+          "1": "Using Mapbox to work with interesting map features in web",
+          "2": "Using TWA (Trusted Web Activities) to generate a mobile app for our PWA",
+          "3": "Fast page load with incremental static regeneration ( ISR )",
+          "4": "Mobile App User experience for PWA users by using mobile native components like a bottom sheet, pop-up view, bottom tabs navigator, and ...",
+          "5": "Considering SEO best practices",
+          "5-1": "Optimizing meta tags",
+          "5-2": "Defining canonical tags to avoid duplicate content",
+          "5-3": "Adding schema tag ( rich result ) for media, breadcrumbs, ..."
+        }
+      },
       "octava": {
         "name": "Octava",
-        "description": "Persian music streaming platform",
+        "shortDescription": "Fully-featured persian music streaming platform",
+        "description": "Fully-featured persian music streaming platform.",
         "points": {
           "1": "Superfast page load with incremental static regeneration ( ISR )",
           "2": "Extra client-server transport layer with HTTP proxy",
@@ -410,6 +427,7 @@
       },
       "uneed": {
         "name": "Uneed",
+        "shortDescription": "Free advertisement posting platform",
         "description": "A platform for free posting of advertisements and inquiries regarding the purchase and sale of new and used products.",
         "points": {
           "1": "Using Next.js framework for server-side rendering",
@@ -421,14 +439,16 @@
       },
       "tarinoo": {
         "name": "Tarinoo",
-        "description": "Another product of uneed infrastructure, built to sell fully customized websites to business-type users.",
+        "shortDescription": "Fully customizable store and site builder for SMBs",
+        "description": "Another product of uneed infrastructure, Tarinoo is a fully customizable store and site builder that handles end-to-end of B2C and B2B SMBs(Small and Medium-Sized Businesses) digital needs, including inventory and warehouse management, shipping, online payment gateway, CRM(Customer Relationship Management), and etc.",
         "points": {
           "1": "Writing code once and using it in other sites with 4 different themes (till now)",
-          "2": "Full control over product details, banners, contents and ..., like WordPress or Joomla."
+          "2": "Full control over product details, banners, contents and ..., like WordPress and Joomla."
         }
       },
       "bityon": {
         "name": "Bityon",
+        "shortDescription": "A secure platform to trade crypto currencies",
         "description": "A secure platform to buy and sell bitcoin and other crypto currencies.",
         "points": {
           "1": "Multi-language and multi-theme infrastructure",
@@ -442,6 +462,7 @@
       },
       "biz": {
         "name": "BIZ",
+        "shortDescription": "The biggest iranian network marketing company",
         "description": "The biggest iranian network marketing company.",
         "points": {
           "1": "Custom SSR implementation",
@@ -470,8 +491,12 @@
     },
     "about": {
       "title": "About Me",
+      "video": {
+        "title": "Introduction video about Milad Afkhami",
+        "desc": "This is a short introduction video for Milad Afkhami to introduce him and his profession"
+      },
       "p1": "Hey, I'm Milad. I'm a 23 y.o. developer, mentor, student, and at late nights writer!",
-      "p2": "I work at Arsh Co. as head of the front-end development team, I am working as a front-end developer since my early university years and I'm enjoying every bit of it.",
+      "p2": "I work at Ide-kavan Co. as front-end chapter lead, I am working in the front-end web development field since my early university years and I'm enjoying every bit of it.",
       "p3": "I grew up in Shahr-e-Rey, a district in the south of Tehran state.",
       "p4": "After spending my elementary and middle school, I got accepted for NODET and spent my high school there.",
       "p5": "After I was ranked 697 on the National entrance exam, I got accepted to study electrical engineering at Shahid Beheshti University",
@@ -505,21 +530,27 @@
         "startingAtAppTech_desc": "I found a good company to experience new challenges. I improved my React knowledge there and learned React Native.",
         "startingAtArshCo": "Starting At Arsh Co.",
         "startingAtArshCo_desc": "After reaching a good knowledge of React, I decided to have a new challenge and work on larger projects and I chose Arsh Company to continue. despite my last superiors, they were really nice to me",
-        "becomingTeamLead": "Becoming Team Lead",
-        "becomingTeamLead_desc": "I proved myself to headquarters in my challenges and became head of the front-end development team.",
+        "becomingChapterLead": "Becoming Chapter Lead",
+        "becomingChapterLead_desc": "I proved myself to headquarters in my challenges and became lead of the front-end development chapter.",
         "ielts": "IELTS",
-        "ielts_desc": "I passed my IELTS exam with a 7 score."
+        "ielts_desc": "I passed my IELTS exam with a 7 score.",
+        "startingAtBehtarino": "Starting at Behtarino Team - Ide-kavan Co.",
+        "startingAtBehtarino_desc": "After overcoming numerous big challenges in Arsh corporation, decided to leave the company for good regarding the lack of suitability between my abilities and expertises and their necessities.\nAs I preferred to work creatively employing multi-expertises, decided not to work with large companies though had satisfying offers.\nAs a result, I started working with Behtarino team at Ide-Kavan Company, a young Iranian startup, so can challenge myself by owning the recoding project of their websites's front-end.",
+        "becomingChapterLeadAtIdeKavan": "Becoming Chapter Lead at Ide-Kavan(Owner of the Behtarino team)",
+        "becomingChapterLeadAtIdeKavan_desc": "Five months after I joined Behtarino team, I overcame to my starter challenge of recoding the whole behtarino website to reach sustainability and became front-end chapter lead at the company level(Ide-Kavan company).\nMy goal was to help the company bringing sustainability for other projects and help ~10 members of front-end chapter to level up everyday."
       },
       "workExperience": {
         "title": "Work Experience",
-        "1": "Front End Web Developer",
-        "1_desc": "Freelance - Tehran",
-        "2": "Front End Web Developer",
-        "2_desc": "Silverpath - Tehran",
-        "3": "Front End Web Developer",
-        "3_desc": "App Tech - Tehran",
-        "4": "Head of The Front End Web Development Team",
-        "4_desc": "Arsh - Tehran"
+        "1": "Front-End Developer",
+        "1_desc": "Freelance",
+        "2": "Front-End Developer",
+        "2_desc": "Silverpath - Tehran - ~30 employee\n",
+        "3": "Front-End Developer",
+        "3_desc": "App Tech - Tehran - ~30 employee\n",
+        "4": "Front-End Chapter Lead",
+        "4_desc": "Arsh - Tehran - ~50 employee\n",
+        "5": "Front-End Chapter Lead",
+        "5_desc": "Ide-Kavan - Tehran - ~150 employee\n"
       },
       "education": {
         "title": "Education",
