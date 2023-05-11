@@ -1,17 +1,17 @@
 import React from "react";
-import Link from "next/link";
+import NextLink from "next/link";
 import { Div } from "@kits";
 import { useCallback } from "@hooks";
 
 /**
- * @typedef {import('@kits/Div/DivProps').Props & import('next/link').LinkProps & {outerLink:boolean, underline: boolean}} LinkProps
+ * @typedef {import('@kits/Div/Props').Props & import('next/link').LinkProps & {outerLink:boolean, underline: boolean}} LinkProps
  *
  * @component
  * Renders an enhanced anchor tag with needed styles and functionalities
  * @type {import("react").ComponentType<LinkProps>}
  * @param {LinkProps} props
  */
-export const StyledLink = ({
+export const Link = ({
   href,
   as,
   replace,
@@ -51,7 +51,7 @@ export const StyledLink = ({
       {children}
     </Div>
   ) : (
-    <Link
+    <NextLink
       onClick={onClick}
       {...(as !== undefined ? { as } : {})}
       {...(href !== undefined ? { href } : {})}
@@ -66,7 +66,7 @@ export const StyledLink = ({
       <Div as="a" {...rest} hover={hover}>
         {children}
       </Div>
-    </Link>
+    </NextLink>
   );
 };
 

@@ -1,6 +1,5 @@
 import React from "react";
 import { Div, Tree } from "@kits";
-import { useState } from "@hooks";
 import { SectionTitle } from "@components/Layout";
 
 export const ColorVariables = (props) => {
@@ -157,7 +156,7 @@ const colors = [
         ],
       },
       {
-        title: "error",
+        title: "error ",
         variants: [
           "main",
           "hover",

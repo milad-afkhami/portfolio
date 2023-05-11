@@ -1,5 +1,5 @@
 ---
-title: "How to create a multi theme application"
+title: "How to Create a Multi-theme Application"
 publishedAt: "2021-11"
 image: "/images/blog/multi-theme.png"
 readingTime: "15"
@@ -34,9 +34,7 @@ function MyApp({ ... }) {
 }
 ```
 
-<small>
-  * We'll see what the <strong>GlobalColors</strong> component does later.
-</small>
+##### \* We'll see what the **GlobalColors** component does later.
 
 <br />
 <br />
@@ -60,13 +58,8 @@ export function Color(main, hover, light, lighter, dark, pale, paler, variant) {
 }
 ```
 
-<small>
-  * You can pass any{" "}
-  <a href="https://www.w3schools.com/cssref/css_colors_legal.asp">
-    valid CSS color variable
-  </a>{" "}
-  to the Color constructor.
-</small>
+##### \* You can pass any **[valid CSS color variable](https://www.w3schools.com/cssref/css_colors_legal.asp)** to the Color constructor.
+
 <br />
 <br />
 
@@ -118,10 +111,7 @@ export const themes = {
 };
 ```
 
-<small>
-  You can generate your color palette variants with help of this website{" "}
-  <a href="http://mcg.mbitson.com/">website</a>.
-</small>
+##### \* You can generate your color palette variants with help of **[this website](http://mcg.mbitson.com/)**.
 
 <br />
 <br />
@@ -181,15 +171,9 @@ function produceColorTypes(name, ...colors) {
 }
 ```
 
-<small>
-  * Don't panic! these complex objects are well tested, so just copy and paste
-  them, and you will be okay.
-</small>
-<br />
-<small>
-  ** We import <strong>GlobalColors</strong> component into our most top-level
-  component.
-</small>
+##### \* Don't panic! these complex functions are well tested, so just copy and paste them, and you will be okay.
+
+##### \*\* We import **GlobalColors** component into our most top-level component.
 
 <br />
 <br />

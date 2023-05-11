@@ -18,6 +18,27 @@ const navLinks = [
   { link: "/gists", label: "gists" },
 ];
 
+const contactOptions = [
+  { type: "email", value: "miladmaps@gmail.com" },
+  {
+    type: "linkedin",
+    label: "milad-afkhami-pour-71b86a18b",
+    value: "https://www.linkedin.com/in/milad-afkhami-pour-71b86a18b/",
+  },
+  {
+    type: "skype",
+    label: "join.skype.com/invite/pRe4UIXrDeTj",
+    value: "https://join.skype.com/invite/pRe4UIXrDeTj",
+  },
+  { type: "telegram", label: "@mili_u", value: "https://telegram.me/mili_u" },
+  {
+    type: "whatsapp",
+    label: "+98 939 284 0749",
+    value: "+989392840749",
+    private: true,
+  },
+];
+
 const aboutTimelineSections = [
   // { year: 2022, items: ["ielts"] },
   { year: 2021, items: ["about.timeline.becomingTeamLead"] },
@@ -70,6 +91,7 @@ export {
   proxyBasePath,
   proxyBasePathRegExp,
   navLinks,
+  contactOptions,
   aboutTimelineSections,
   workExperienceTimelineSections,
   educationTimelineSections,

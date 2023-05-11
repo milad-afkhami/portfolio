@@ -10,7 +10,7 @@ import { isomorphicPortal } from "@utils";
  * @typedef {{layout:Layout, fit:string, src:string, hash:string, alt:string, placeholder:Placeholder, blurDataURL:string, quality:number, priority:boolean, unoptimized:boolean, withShimmer:boolean, objectPosition:string, loader:Function}} ImageProps
  *
  * Renders an enhanced img element
- * @param {import("@kits/Div/DivProps").Props & ImageProps} props
+ * @param {import("@kits/Div/Props").Props & ImageProps} props
  */
 export const Image = ({
   fit,

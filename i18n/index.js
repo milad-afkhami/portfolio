@@ -20,7 +20,7 @@ const options = {
 
   ns: ["common"],
 
-  defaultNS: "common",
+  // defaultNS: "common",
 
   // keySeparator: ">",
   nsSeparator: "|",

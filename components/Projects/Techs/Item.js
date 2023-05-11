@@ -1,9 +1,8 @@
 import React from "react";
-import { Div, Link, Text } from "@kits";
-import {} from "@hooks";
+import { Link, Text } from "@kits";
 
 export const ProjectTech = (props) => {
-  const { name, link } = props || {};
+  const { name, link, compact } = props || {};
 
   return (
     <Link
@@ -11,10 +10,11 @@ export const ProjectTech = (props) => {
       href={link}
       bg="brand"
       hoverBg="brand-hover"
-      p="0 2"
+      px={compact ? 1 : 2}
       curve="xsm"
+      display="flex"
     >
-      <Text size="md-b" color="bg-primary">
+      <Text size={compact ? "xsm" : "md-b"} color="bg-primary">
         {name}
       </Text>
     </Link>

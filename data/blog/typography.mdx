@@ -1,5 +1,5 @@
 ---
-title: "Defining global typography"
+title: "Defining Global Typography"
 publishedAt: "2021-01"
 image: "/images/blog/typography.png"
 readingTime: "10"
@@ -80,7 +80,8 @@ This adds default typography variant variables under **:root** and adds other va
 import { createGlobalStyle } from "styled-components";
 import { typographyVariants } from "@stylesheets";
 import __reduce from "lodash/reduce";
-\
+
+// *
 export const GlobalTypographies = createGlobalStyle((props) => {
   return __reduce(
     typographyVariants,
@@ -90,8 +91,8 @@ export const GlobalTypographies = createGlobalStyle((props) => {
           typography,
           (acc, { fontSize, fontWeight }, key) => ({
             ...acc,
-            ['--font-size-' + key]: fontSize,
-            ['--font-weight-' + key]: String(fontWeight),
+            ["--font-size-" + key]: fontSize,
+            ["--font-weight-" + key]: String(fontWeight),
           }),
           {}
         ),
@@ -108,10 +109,7 @@ export const GlobalTypographies = createGlobalStyle((props) => {
 });
 ```
 
-<small>
-  ** We need to import <strong>GlobalColors</strong> component into our most
-  top-level component like App.js in react or _app.js in Next.js.
-</small>
+##### \* We need to import **GlobalTypographies** component into our most top-level component like App.js in react or \_app.js in Next.js.
 
 <br />
 <br />
@@ -153,13 +151,8 @@ Create CSS classes in your stylesheets and use those classes in your markup to s
 /* ... */
 ```
 
-<small>
-  ** If you find it hard to write it for all of the typography keys you need to
-  automate it like what we did in the previous section (3. Adding values as CSS
-  variables.)
-</small>
+##### \* If you find it hard to write it for all of the typography keys you need to automate it like what we did in the previous section ⬆️ ( 3. Adding values as CSS variables )
 
-<br />
 <br />
 
 To skip repetitive codes, you may want to automate the generation process with sass loops with something like this:

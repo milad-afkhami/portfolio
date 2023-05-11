@@ -1,6 +1,6 @@
 import { ComponentType } from "react";
 import styled from "styled-components";
-import { Div } from "./Div/Div";
+import { Div } from "./Div";
 
 /**
  *

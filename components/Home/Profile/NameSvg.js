@@ -39,6 +39,7 @@ export function ProfileNameSvg() {
         animeRef.current?.restart?.();
       }}
       cursor="pointer"
+      width="fit-content"
     >
       <svg
         width="500"

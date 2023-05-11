@@ -15,6 +15,9 @@
   --text-letter-spacing: 1px;
 
   --list-view-item-height: 70px;
+
+  /* resume */
+  --resume-header-height: 300px;
 }
 .thin-scrollbar {
   --scrollbar-width: 2px;

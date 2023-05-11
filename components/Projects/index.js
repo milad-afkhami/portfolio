@@ -4,6 +4,7 @@ import { projectsData } from "@data";
 import { Project } from "./Project";
 
 export { ProjectsList } from "./List";
+export { ProjectTechs } from "./Techs";
 
 export const Projects = () => {
   return (

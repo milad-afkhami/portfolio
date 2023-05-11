@@ -11,7 +11,7 @@ import { withTranslation } from "react-i18next";
 
 /**
  * @typedef {{ children:any, tag:string, size:import("@stylesheets").Typography, direction:string, translationOptions:Object, translationVariables:Object, noTranslation:boolean, lineHeight:string|number, align:"start"|"end"|"left"|"right"|"center"|"justify"|"initial"|"inherit" }} TextProps
- * @typedef { import('@kits/Div/DivProps').Props & TextProps } Props
+ * @typedef { import('@kits/Div/Props').Props & TextProps } Props
  *
  * @component - Renders a text component with default span element enhanced with needed styles and functionalities
  * @type {import("react").ComponentType<Props>}

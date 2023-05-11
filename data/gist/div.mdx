@@ -4,8 +4,6 @@ category: "styling"
 summary: "A high-level CSS-in-JS solution that serves as a wrapper component for most of the CSS utility needs."
 ---
 
-<!-- The Div component is a high level CSS-in-JS solution that serves as a wrapper component for most of the CSS utility needs without using any separate CSS files. -->
-
 ## Props
 
 <Div width="100%" overflowY="auto" mb="3">
@@ -49,7 +47,7 @@ summary: "A high-level CSS-in-JS solution that serves as a wrapper component for
 |      pb      |            css **_padding-bottom_** property            |    undefined     |                              "Apx" \| ["Apx"] \| "SPACING_OBJECT_KEY"                              |                                        optionally u can use values defined in [spacing](#spacing)                                        |
 |   position   |               css **_position_** property               |    undefined     |                                    possible css position values                                    |
 |     flex     |               css flex related properties               |    undefined     |                  ["ALIGN_ITEMS","JUSTIFY_CONTENT","FLEX_DIRECTION" ,"FLEX_WRAP" ]                  |              instead of full property value u can use alignValues/justifyValues object keys defined in [flex.js](#flex.js)               |
-|  animation   |            css animation related properties             |    undefined     |            { keyframes, duration, iterationCount, direction, timingFunction, fillMode }            |                         see [Animation interface](../../components/kit/Div/DivProps.js#L7) for more information                          |
+|  animation   |            css animation related properties             |    undefined     |            { keyframes, duration, iterationCount, direction, timingFunction, fillMode }            |                           see [Animation interface](../../components/kit/Div/Props.js#L7) for more information                           |
 |     col      |                  bootstrap grid system                  |    undefined     |                { xs?: [1-12], sm?: [1-12], md?: [1-12], lg?: [1-12], xl?: [1-12] }                 |
 |     grid     |               css grid related properties               |    undefined     |         ["GRID_TEMPLATE_COLUMN", "GRID_TEMPLATE_ROWS", "GRID_COLUMN_GAP", "GRID_ROW_GAP"]          |
 |  responsive  |                 responsive stylesheets                  |    undefined     | an object with [mediaFeatures](#breakpoints) object keys defined in [breakpoints.js](#breakpoints) |                     you can use all the prop above syntax in this object, see example below for further information                      |

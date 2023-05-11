@@ -1,7 +1,7 @@
 import React, { ComponentType } from "react";
 import { Div, Image, Breadcrumb } from "@kits";
 import { useRouter, useTranslation } from "@hooks";
-import { Head, BlogJsonLd } from "@components/SEO";
+import { Head, ArticleJsonLd } from "@components/SEO";
 import { MDXRemote } from "@components/Markdown";
 import dynamic from "next/dynamic";
 import { BlogTitle, BlogSummary, BlogMeta, BlogBanner } from "@components/Blog";
@@ -36,13 +36,13 @@ export default function BlogPage(props) {
         twitter={{ cardType: "summary_large_image" }}
         canonical={canonical}
       />
-      <BlogJsonLd
+      <ArticleJsonLd
+        type="Blog"
         url={canonical}
         title={title}
         description={summary}
         images={[image]}
         datePublished={publishedAt}
-        // dateModified={publishedAt}
         authorName={t("home.profile.name")}
       />
       <Div width="100%" py="3">

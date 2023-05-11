@@ -1,7 +1,7 @@
-export * from "./Div/Div";
-export * from "./Text/Text";
-export * from "./Image/Image";
-export { StyledLink as Link } from "./Link/Link";
+export * from "./Div";
+export * from "./Text";
+export * from "./Image";
+export * from "./Link";
 export * from "./Icon";
 export * from "./Button";
 export * from "./HR";
