@@ -2,7 +2,7 @@ import React from "react";
 import { Div } from "@kits";
 import { HeaderNav } from "./Nav";
 import dynamic from "next/dynamic";
-// import { HeaderChangeLanguage } from "./LanguagePicker";
+import { HeaderChangeLanguage } from "./LanguagePicker";
 import { DownloadResume } from "./DownloadResume";
 import { HeaderGithub } from "./GitHub";
 
@@ -30,7 +30,7 @@ export function Header(props) {
         <Div width="35%" flex={[, "end"]} css={{ gap: "var(--spacing-3)" }}>
           <DownloadResume />
           <HeaderGithub />
-          {/* <HeaderChangeLanguage /> */}
+          <HeaderChangeLanguage />
           <HeaderSwitchTheme />
         </Div>
       </Div>

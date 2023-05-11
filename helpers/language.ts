@@ -1,4 +1,4 @@
-import i18n from "next-export-i18n";
+// import i18n from "react-i18next";
 import { PageAttr } from "@helpers";
 import { Cookies } from "@utils";
 import { languages, LOCALE_COOKIE_KEY } from "@constants";
@@ -18,7 +18,8 @@ export class LanguageHelper {
     // PageAttr.setLanguage(language.name); handled by next.js now
     PageAttr.setFont(language.name);
     PageAttr.setPrefix();
-    if (i18n.language !== language.name) i18n.changeLanguage(language.name);
+    // if (i18n.language !== language.name)
+    i18n.changeLanguage(language.name);
   }
 
   static changeLanguage(locale) {
