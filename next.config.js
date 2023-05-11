@@ -1,6 +1,7 @@
-const { PHASE_DEVELOPMENT_SERVER } = require("next/constants");
+// const { PHASE_DEVELOPMENT_SERVER } = require("next/constants");
 // const withPlugins = require("next-compose-plugins");
 // const optimizedImages = require("next-optimized-images");
+const { i18n } = require("./next-i18next.config");
 
 /** @type {import("next").NextConfig} */
 module.exports = {
@@ -10,10 +11,7 @@ module.exports = {
     REACT_APP_IMAGE_BASE_URL: "https://2q23wr5n.tinifycdn.com",
     REACT_APP_EXTERNAL_API_BASE_URL: "/api",
   },
-  // i18n: {
-  //   locales: ["en", "de", "fr"],
-  //   defaultLocale: "en",
-  // },
+  i18n,
   swcMinify: true,
   experimental: {
     craCompat: true,
