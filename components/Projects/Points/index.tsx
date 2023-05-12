@@ -2,8 +2,6 @@ import Div from "@kits/Div";
 import Tree from "@kits/Tree";
 import SectionTitle from "@components/Layout/Title/SectionTitle";
 
-
-
 const ProjectPoints = (props) => {
   const { points } = props || {};
 
@@ -18,9 +16,4 @@ const ProjectPoints = (props) => {
   );
 };
 
-            
-                
-            
-            
-            
-            export default ProjectPoints;
+export default ProjectPoints;

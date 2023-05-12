@@ -5,7 +5,6 @@ import { useMemo } from "react";
 import FavouritesHelper from "@helpers/favourites";
 import __capitalize from "lodash-es/capitalize";
 
-
 const FooterLinks = (props) => {
   const favouritesLinks = useMemo(FavouritesHelper.getLinks, []);
 
@@ -30,13 +29,6 @@ const FooterLinks = (props) => {
       ))}
     </Div>
   );
-}
+};
 
-
-
-            
-                
-            
-            
-            
-            export default FooterLinks;
+export default FooterLinks;

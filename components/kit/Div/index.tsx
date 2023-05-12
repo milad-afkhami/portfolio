@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import getCol from "@stylesheets/utils/getCol";
 import responsiveProps from "@stylesheets/utils/responsiveProps";
-import __reduce  from "lodash-es/reduce";
+import __reduce from "lodash-es/reduce";
 import convertPropsToStyles from "./convertPropsToStyles";
 import shouldForwardProp from "@helpers/shouldForwardProp";
 
@@ -55,11 +55,4 @@ const Div = styled.div
   };
 });
 
-
-
-            
-                
-            
-            
-            
-            export default Div;
+export default Div;

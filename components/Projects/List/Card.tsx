@@ -3,8 +3,6 @@ import Image from "@kits/Image";
 import Link from "@kits/Link";
 import Text from "@kits/Text";
 
-
-
 const ProjectCard = (props) => {
   const { logo, slug } = props || {};
 
@@ -74,9 +72,4 @@ const ProjectCard = (props) => {
   );
 };
 
-            
-                
-            
-            
-            
-            export default ProjectCard;
+export default ProjectCard;

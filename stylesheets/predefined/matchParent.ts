@@ -1,5 +1,3 @@
-
-
 const matchParent = {
   width: "100%",
   minWidth: "100%",
@@ -9,4 +7,4 @@ const matchParent = {
   maxHeight: "100%",
 };
 
-            export default matchParent;
+export default matchParent;

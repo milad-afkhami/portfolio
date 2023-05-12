@@ -20,10 +20,4 @@ const GistsMoreLink = (props) => {
   );
 };
 
-
-            
-                
-            
-            
-            
-            export default GistsMoreLink
+export default GistsMoreLink;

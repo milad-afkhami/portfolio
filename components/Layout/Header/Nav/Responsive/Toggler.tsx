@@ -50,11 +50,4 @@ const StyledDiv = styled.div`
   }
 `;
 
-
-
-            
-                
-            
-            
-            
-            export default MenuToggler;
+export default MenuToggler;

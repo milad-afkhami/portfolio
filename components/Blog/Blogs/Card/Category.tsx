@@ -19,13 +19,4 @@ const BlogCardCategory = (props) => {
   );
 };
 
-
-
-
-
-            
-                
-            
-            
-            
-            export default BlogCardCategory;
+export default BlogCardCategory;

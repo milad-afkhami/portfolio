@@ -54,10 +54,4 @@ const GistCard = (props) => {
   );
 };
 
-
-            
-                
-            
-            
-            
-            export default GistCard
+export default GistCard;

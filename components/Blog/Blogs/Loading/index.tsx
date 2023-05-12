@@ -42,13 +42,4 @@ const BlogCardLoadings = (props) => {
   );
 };
 
-
-
-
-
-            
-                
-            
-            
-            
-            export default BlogCardLoadings
+export default BlogCardLoadings;

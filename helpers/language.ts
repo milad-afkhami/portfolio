@@ -2,10 +2,10 @@
 import PageAttr from "@helpers/pageAttribute";
 import Cookies from "@utils/cookies";
 import languages from "@constants/languages";
-import { LOCALE_COOKIE_KEY} from "@constants/cookies";
+import { LOCALE_COOKIE_KEY } from "@constants/cookies";
 import Router from "next/router";
 
- LanguageHelper {
+export default class LanguageHelper {
   static getDefaultLocale = () => {
     return Object.keys(languages)[0];
   };
@@ -39,5 +39,3 @@ import Router from "next/router";
     });
   }
 }
-
-            export default class

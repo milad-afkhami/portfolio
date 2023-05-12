@@ -36,6 +36,6 @@ const useEnhancedState = (initialState) => {
   );
 
   return [state, handleSetState, prevState, stateRef];
-}
+};
 
-            export default useEnhancedState
+export default useEnhancedState;

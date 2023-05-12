@@ -3,7 +3,6 @@ import Div from "@kits/Div";
 import Icon from "@kits/Icon";
 import { THEMES } from "@constants";
 
-
 const HeaderSwitchTheme = (props) => {
   const {} = props || {};
   const { theme, setTheme } = useTheme();
@@ -26,13 +25,6 @@ const HeaderSwitchTheme = (props) => {
       />
     </Div>
   );
-}
+};
 
-
-
-            
-                
-            
-            
-            
-            export default HeaderSwitchTheme;
+export default HeaderSwitchTheme;

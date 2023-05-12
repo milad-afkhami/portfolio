@@ -3,7 +3,6 @@ import Text from "@kits/Text";
 import { TimelineSectionItem } from "./Item";
 import { TimelineSectionYear } from "./Year";
 
-
 const TimelineSection = (props) => {
   const { year, items, last } = props || {};
 
@@ -48,11 +47,4 @@ const TimelineSection = (props) => {
   );
 };
 
-
-
-            
-                
-            
-            
-            
-            export default TimelineSection;
+export default TimelineSection;

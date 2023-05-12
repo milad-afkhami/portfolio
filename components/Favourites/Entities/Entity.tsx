@@ -57,13 +57,4 @@ const FavouriteEntity = (props) => {
   );
 };
 
-
-
-
-
-            
-                
-            
-            
-            
-            export default FavouriteEntity
+export default FavouriteEntity;

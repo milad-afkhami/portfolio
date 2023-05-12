@@ -2,8 +2,6 @@ import matter from "gray-matter";
 import * as fs from "fs";
 import * as path from "path";
 
-
-
 const getBlogsList = async () => {
   const BLOGS_PATH = path.join(process.cwd(), "data", "blog");
 
@@ -27,4 +25,4 @@ const getBlogsList = async () => {
   return blogs;
 };
 
-            export default getBlogsList;
+export default getBlogsList;

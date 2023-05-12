@@ -8,8 +8,6 @@ const HeaderResponsiveMenu = dynamic(() => import("./Responsive"), {
 });
 const HeaderMenu = dynamic(() => import("./Desktop"), { ssr: false });
 
-
-
 const HeaderNav = (props) => {
   const isBigScreen = useMediaQuery({ minWidth: breakpoints.md });
   const isSmallOrMediumScreen = useMediaQuery({ maxWidth: breakpoints.md });
@@ -20,11 +18,6 @@ const HeaderNav = (props) => {
       {isBigScreen && <HeaderMenu />}
     </Div>
   );
-}
+};
 
-            
-                
-            
-            
-            
-            export default HeaderNav;
+export default HeaderNav;

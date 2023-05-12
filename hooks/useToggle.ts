@@ -5,13 +5,13 @@ import { useState, useCallback, useDebugValue } from "react";
  * @param {boolean} [initialState=false]
  * @returns {[boolean, Function]}
  */
-const  useToggle=(initialState = false) =>{
+const useToggle = (initialState = false) => {
   const [state, setState] = useState(initialState);
 
   const toggle = useCallback(() => setState((state) => !state), []);
   useDebugValue(state);
 
   return [state, toggle];
-}
+};
 
-            export default useToggle
+export default useToggle;

@@ -2,8 +2,6 @@ import matter from "gray-matter";
 import * as fs from "fs";
 import * as path from "path";
 
-
-
 const getGistsList = async () => {
   const GISTS_PATH = path.join(process.cwd(), "data", "gist");
 
@@ -28,4 +26,4 @@ const getGistsList = async () => {
   return gists;
 };
 
-            export default getGistsList;
+export default getGistsList;

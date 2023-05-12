@@ -12,13 +12,4 @@ const FavouritePlaylists = () => {
   );
 };
 
-
-
-
-
-            
-                
-            
-            
-            
-            export default FavouritePlaylists
+export default FavouritePlaylists;

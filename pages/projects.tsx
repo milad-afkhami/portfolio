@@ -15,11 +15,4 @@ const ProjectsPage = (props) => {
   );
 };
 
-
-
-            
-                
-            
-            
-            
-            export default ProjectsPage;
+export default ProjectsPage;

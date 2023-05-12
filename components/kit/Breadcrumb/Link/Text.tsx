@@ -1,6 +1,5 @@
 import Text from "@kits/Text";
 
-
 const BreadcrumbLinkText = (props) => {
   const { title, lastItem } = props;
 
@@ -16,13 +15,6 @@ const BreadcrumbLinkText = (props) => {
       {title}
     </Text>
   );
-}
+};
 
-
-
-            
-                
-            
-            
-            
-            export default BreadcrumbLinkText;
+export default BreadcrumbLinkText;

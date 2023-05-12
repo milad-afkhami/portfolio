@@ -1,7 +1,5 @@
 import { Link, Text } from "@kits";
 
-
-
 const HeaderMenuItem = (props) => {
   return (
     <Link
@@ -22,11 +20,6 @@ const HeaderMenuItem = (props) => {
       </Text>
     </Link>
   );
-}
+};
 
-            
-                
-            
-            
-            
-            export default HeaderMenuItem;
+export default HeaderMenuItem;

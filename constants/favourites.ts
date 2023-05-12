@@ -1,4 +1,4 @@
- const FAVOURITE_TYPES = {
+const FAVOURITE_TYPES = {
   SONG: {
     PLAYLISTS: "PLAYLISTS",
     ARTISTS: "ARTISTS",
@@ -15,5 +15,4 @@
   },
 };
 
-
-            export default FAVOURITE_TYPES;
+export default FAVOURITE_TYPES;

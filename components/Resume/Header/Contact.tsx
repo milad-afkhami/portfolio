@@ -3,8 +3,6 @@ import Icon from "@kits/Icon";
 import Text from "@kits/Text";
 import { contactOptions } from "@config";
 
-
-
 const ResumeHeaderContact = () => {
   return (
     <Div flexPortion="1" height="100%" flex={["end", "around", "column"]}>
@@ -24,9 +22,4 @@ const ResumeHeaderContact = () => {
   );
 };
 
-            
-                
-            
-            
-            
-            export default ResumeHeaderContact;
+export default ResumeHeaderContact;

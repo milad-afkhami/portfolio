@@ -1,4 +1,4 @@
-const  FavIcons=()=> {
+const FavIcons = () => {
   return (
     <>
       {/* favIcons */}
@@ -74,11 +74,6 @@ const  FavIcons=()=> {
       />
     </>
   );
-}
+};
 
-            
-                
-            
-            
-            
-            export default FavIcons
+export default FavIcons;

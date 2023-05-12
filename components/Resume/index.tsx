@@ -9,7 +9,7 @@ import ResumeReference from "./Reference";
 import { appBaseURL } from "@config";
 // import { ResumeInterests } from "./Interests";
 
-const Resume=()=> {
+const Resume = () => {
   return (
     <Div
       css={{
@@ -38,10 +38,6 @@ const Resume=()=> {
       </Div>
     </Div>
   );
-}
+};
 
-            
-                
-            
-            
-            export default Resume
+export default Resume;

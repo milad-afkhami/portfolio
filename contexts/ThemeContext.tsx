@@ -1,11 +1,11 @@
-import {useState, useEffect, createContext } from "react";
+import { useState, useEffect, createContext } from "react";
 import { ThemeProvider as STThemeProvider } from "styled-components";
 import { defaultTheme, themes } from "@stylesheets/themes";
 import { getWidth } from "@utils/dimensions";
 import Cookies from "@utils/cookies";
-import  __cloneDeep  from "lodash-es/cloneDeep";
+import __cloneDeep from "lodash-es/cloneDeep";
 import { PLATFORMS } from "@constants";
-import PageAttr  from "@helpers/pageAttribute";
+import PageAttr from "@helpers/pageAttribute";
 
 const ThemeContext = createContext();
 

@@ -4,8 +4,6 @@ import SectionTitle from "@components/Layout/Title/SectionTitle";
 import { workExperienceTimelineSections } from "@config";
 import { ResumeReference } from "./Reference";
 
-
-
 const ResumeWorkExperience = () => {
   return (
     <Div mb="5">
@@ -39,9 +37,4 @@ const ResumeWorkExperience = () => {
   );
 };
 
-            
-                
-            
-            
-            
-            export default ResumeWorkExperience;
+export default ResumeWorkExperience;

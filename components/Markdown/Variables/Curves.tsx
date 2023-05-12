@@ -12,11 +12,4 @@ const CurveVariables = (props) => {
   );
 };
 
-
-
-            
-                
-            
-            
-            
-            export default CurveVariables;
+export default CurveVariables;

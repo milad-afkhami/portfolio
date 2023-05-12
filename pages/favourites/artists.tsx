@@ -17,11 +17,4 @@ const FavouriteArtistsPage = (props) => {
   );
 };
 
-
-
-            
-                
-            
-            
-            
-            export default FavouriteArtistsPage;
+export default FavouriteArtistsPage;

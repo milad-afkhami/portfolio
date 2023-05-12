@@ -10,10 +10,4 @@ const NoSSR = dynamic(
   { ssr: false }
 );
 
-
-            
-                
-            
-            
-            
-            export default NoSSR;
+export default NoSSR;

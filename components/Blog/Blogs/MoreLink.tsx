@@ -22,13 +22,4 @@ const BlogsMoreLink = (props) => {
   );
 };
 
-
-
-
-
-            
-                
-            
-            
-            
-            export default BlogsMoreLink;
+export default BlogsMoreLink;

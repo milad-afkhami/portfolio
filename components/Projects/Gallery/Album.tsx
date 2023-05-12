@@ -1,8 +1,6 @@
 import Div from "@kits/Div";
 import Image from "@kits/Image";
 
-
-
 const ProjectGalleryAlbum = (props) => {
   const { medias, onClickItem } = props || {};
 
@@ -54,9 +52,4 @@ const ProjectGalleryAlbum = (props) => {
   );
 };
 
-            
-                
-            
-            
-            
-            export default ProjectGalleryAlbum;
+export default ProjectGalleryAlbum;

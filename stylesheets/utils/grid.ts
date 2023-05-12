@@ -1,7 +1,5 @@
 import { spacings } from "@stylesheets";
 
-
-
 const grid = (
   cols = "",
   rows = "",
@@ -21,4 +19,4 @@ const grid = (
   ...(justify ? { justifyItems: justify } : {}),
 });
 
-            export default grid;
+export default grid;

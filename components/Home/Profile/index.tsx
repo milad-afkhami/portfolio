@@ -4,7 +4,6 @@ import { ProfileNameSvg } from "./NameSvg";
 import { ProfileAvatar } from "./Avatar";
 import { ProfileJob } from "./Job";
 
-
 const Profile = (props) => {
   return (
     <Div
@@ -26,14 +25,6 @@ const Profile = (props) => {
       <ProfileAvatar />
     </Div>
   );
-}
+};
 
-
-
-
-            
-                
-            
-            
-            
-            export default Profile;
+export default Profile;

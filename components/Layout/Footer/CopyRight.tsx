@@ -1,7 +1,6 @@
 import Div from "@kits/Div";
 import Text from "@kits/Text";
 
-
 const FooterCopyRight = (props) => {
   return (
     <Div py="4" border="text-primary" borderSide="top">
@@ -13,13 +12,6 @@ const FooterCopyRight = (props) => {
       </Div>
     </Div>
   );
-}
+};
 
-
-
-            
-                
-            
-            
-            
-            export default FooterCopyRight;
+export default FooterCopyRight;

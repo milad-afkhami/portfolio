@@ -13,10 +13,4 @@ const GistSummary = (props) => {
   );
 };
 
-
-            
-                
-            
-            
-            
-            export default GistSummary;
+export default GistSummary;

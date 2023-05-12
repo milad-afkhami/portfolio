@@ -24,4 +24,4 @@ const GistCardCategory = (props) => {
   );
 };
 
-export default  GistCardCategory
+export default GistCardCategory;

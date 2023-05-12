@@ -2,8 +2,6 @@ import Div from "@kits/Div";
 import Text from "@kits/Text";
 import { ProjectTechs } from "@components/Projects";
 
-
-
 const ResumeProjectsItem = ({ name, description, date, techs }) => {
   return (
     <Div my="3">
@@ -27,9 +25,4 @@ const ResumeProjectsItem = ({ name, description, date, techs }) => {
   );
 };
 
-            
-                
-            
-            
-            
-            export default ResumeProjectsItem;
+export default ResumeProjectsItem;

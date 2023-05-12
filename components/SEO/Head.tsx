@@ -4,7 +4,6 @@ import { useRouter, useTranslation } from "@hooks";
 
 /** @type {import("react").ComponentType<import("next-seo").NextSeoProps>} */
 
-
 const Head = ({
   canonical = "",
   keywords = "",
@@ -81,9 +80,4 @@ const Head = ({
   );
 };
 
-            
-                
-            
-            
-            
-            export default Head;
+export default Head;

@@ -1,7 +1,7 @@
 import Div from "@kits/Div";
 import Image from "@kits/Image";
 
- const BlogBanner = (props) => {
+const BlogBanner = (props) => {
   const { banner, title } = props || {};
 
   if (!banner) return null;
@@ -29,13 +29,4 @@ import Image from "@kits/Image";
   );
 };
 
-
-
-
-
-            
-                
-            
-            
-            
-            export default BlogBanner;
+export default BlogBanner;

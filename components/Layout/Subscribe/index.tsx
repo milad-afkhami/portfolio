@@ -3,8 +3,6 @@ import Image from "@kits/Image";
 import Text from "@kits/Text";
 import { c } from "@stylesheets";
 
-
-
 const SubscribeNewsletter = (props) => {
   const {} = props || {};
   return (
@@ -34,11 +32,6 @@ const SubscribeNewsletter = (props) => {
       </Div>
     </Div>
   );
-}
+};
 
-            
-                
-            
-            
-            
-            export default SubscribeNewsletter;
+export default SubscribeNewsletter;

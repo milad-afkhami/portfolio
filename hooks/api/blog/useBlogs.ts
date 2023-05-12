@@ -3,7 +3,7 @@ import endpoints from "@constants/endpoints";
 import useSWRImmutable from "swr/immutable";
 import Http from "@utils/Http";
 
- const useBlogs=() =>{
+const useBlogs = () => {
   const swr = useSWRImmutable(endpoints.blogs, async (url) => {
     try {
       const response = await Http.get({ url });
@@ -19,6 +19,6 @@ import Http from "@utils/Http";
   return {
     ...swr,
   };
-}
+};
 
-            export default useBlogs
+export default useBlogs;

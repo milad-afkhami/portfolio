@@ -1,8 +1,6 @@
 import Div from "@kits/Div";
 import Image from "@kits/Image";
 
-
-
 const AboutAvatar = (props) => {
   return (
     <Div flex={[, "center"]}>
@@ -29,16 +27,6 @@ const AboutAvatar = (props) => {
       </Div>
     </Div>
   );
-}
+};
 
-
-
-
-
-
-            
-                
-            
-            
-            
-            export default AboutAvatar;
+export default AboutAvatar;

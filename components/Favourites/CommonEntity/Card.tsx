@@ -76,13 +76,4 @@ const FavouriteCommonEntityCard = (props) => {
   );
 };
 
- 
-
-
-
-            
-                
-            
-            
-            
-            export default FavouriteCommonEntityCard
+export default FavouriteCommonEntityCard;

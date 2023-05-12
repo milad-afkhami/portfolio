@@ -4,8 +4,6 @@ import Text from "@kits/Text";
 import { appBaseURL } from "@config";
 import { Trans } from "next-i18next";
 
-
-
 const ResumeReference = (props) => {
   const { i18nKey, route, link } = props || {};
   return (
@@ -54,9 +52,4 @@ const ResumeReference = (props) => {
   );
 };
 
-            
-                
-            
-            
-            
-            export default ResumeReference;
+export default ResumeReference;

@@ -16,8 +16,6 @@ const prepareColorVars = (name, variants) =>
         {}
       );
 
-
-
 const GlobalColors = createGlobalStyle((props) => {
   return {
     ...__reduce(
@@ -33,4 +31,4 @@ const GlobalColors = createGlobalStyle((props) => {
   };
 });
 
-            export default GlobalColors;
+export default GlobalColors;

@@ -3,7 +3,6 @@ import Text from "@kits/Text";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import useTranslation from "@hooks/useTranslation";
 
-
 const ImageViewer = (props) => {
   const { isOpen, onClose, current, views } = props || {};
 
@@ -64,13 +63,6 @@ const ImageViewer = (props) => {
       ) : null}
     </ModalGateway>
   );
-}
+};
 
-
-
-            
-                
-            
-            
-            
-            export default ImageViewer;
+export default ImageViewer;

@@ -4,10 +4,9 @@
  * @param {*} element
  */
 
-
 const push = (array = [], element) => {
   array && array.push(element);
   return array;
 };
 
-            export default push;
+export default push;

@@ -1,5 +1,3 @@
-
-
 const projectsData = [
   {
     _id: 0,
@@ -415,4 +413,4 @@ const projectsData = [
   },
 ];
 
-            export default projectsData;
+export default projectsData;

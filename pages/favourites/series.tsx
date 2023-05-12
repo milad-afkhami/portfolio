@@ -22,11 +22,4 @@ const FavouriteSeriesPage = (props) => {
   );
 };
 
-
-
-            
-                
-            
-            
-            
-            export default FavouriteSeriesPage;
+export default FavouriteSeriesPage;

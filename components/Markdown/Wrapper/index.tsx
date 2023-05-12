@@ -4,8 +4,6 @@ import styled from "styled-components";
 import { PrismTomorrowTheme } from "./PrismTomorrowTheme";
 import { TableStyles } from "./TableStyles";
 
-
-
 const MarkdownWrapper = ({ children, ...rest }) => {
   useEffect(() => {
     // import("prismjs/themes/prism-tomorrow.css");
@@ -72,9 +70,4 @@ const StyledWrapper = styled.div`
   ${PrismTomorrowTheme}
 `;
 
-            
-                
-            
-            
-            
-            export default MarkdownWrapper;
+export default MarkdownWrapper;

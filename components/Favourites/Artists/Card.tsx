@@ -36,13 +36,4 @@ const FavouriteArtistCard = (props) => {
   );
 };
 
-
-
-
-
-            
-                
-            
-            
-            
-            export default FavouriteArtistCard;
+export default FavouriteArtistCard;

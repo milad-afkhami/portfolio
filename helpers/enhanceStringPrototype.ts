@@ -1,7 +1,5 @@
 import { imp } from "@stylesheets";
 
-
-
 const enhanceStringPrototype = () => {
   String.prototype.capitalize = function () {
     return this.charAt(0).toUpperCase() + this.slice(1).toLowerCase();
@@ -16,4 +14,4 @@ const enhanceStringPrototype = () => {
   };
 };
 
-            export default enhanceStringPrototype;
+export default enhanceStringPrototype;

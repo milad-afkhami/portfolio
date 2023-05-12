@@ -10,7 +10,6 @@ const HeaderSwitchTheme = dynamic(
   { ssr: false }
 );
 
-
 const Header = (props) => {
   const { transparent } = props || {};
 
@@ -36,12 +35,6 @@ const Header = (props) => {
       </Div>
     </Div>
   );
-}
+};
 
-
-            
-                
-            
-            
-            
-            export default Header;
+export default Header;

@@ -4,12 +4,11 @@ import getOtherSpacings from "@stylesheets/utils/getOtherSpacings";
 import flexer from "@stylesheets/utils/flex";
 import grider from "@stylesheets/utils/grid";
 import grider from "@stylesheets/utils/color";
-import {c} from "@stylesheets/getColorVariable";
+import { c } from "@stylesheets/getColorVariable";
 import { matchParent } from "@stylesheets/predefined";
 import styled, { keyframes } from "styled-components";
 import isNullish from "@utils/isNullish";
-import  __kebabCase  from "lodash-es/kebabCase";
-
+import __kebabCase from "lodash-es/kebabCase";
 
 const convertPropsToStyles = (props) => {
   const {
@@ -154,8 +153,6 @@ const convertPropsToStyles = (props) => {
         }
       : {}),
   };
-}
+};
 
-
-
-            export default convertPropsToStyles;
+export default convertPropsToStyles;

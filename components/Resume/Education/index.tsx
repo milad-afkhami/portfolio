@@ -3,8 +3,6 @@ import SectionTitle from "@components/Layout/Title/SectionTitle";
 import { educationTimelineSections } from "@config";
 import { ResumeEducationItem } from "./Item";
 
-
-
 const ResumeEducation = () => {
   return (
     <Div mb="5">
@@ -22,9 +20,4 @@ const ResumeEducation = () => {
   );
 };
 
-            
-                
-            
-            
-            
-            export default ResumeEducation;
+export default ResumeEducation;

@@ -1,7 +1,6 @@
 import { ExpandableText, Text } from "@kits";
 import useTranslation from "@hooks/useTranslation";
 
-
 const TimelineSectionItemDescription = (props) => {
   const { description } = props || {};
 
@@ -27,11 +26,4 @@ const TimelineSectionItemDescription = (props) => {
   ) : null;
 };
 
-
-
-            
-                
-            
-            
-            
-            export default TimelineSectionItemDescription;
+export default TimelineSectionItemDescription;

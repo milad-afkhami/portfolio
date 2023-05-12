@@ -1,7 +1,5 @@
 import { css } from "styled-components";
 
-
-
 const PrismTomorrowTheme = css`
   code[class*="language-"],
   pre[class*="language-"] {
@@ -105,9 +103,4 @@ const PrismTomorrowTheme = css`
   }
 `;
 
-            
-                
-            
-            
-            
-            export default PrismTomorrowTheme;
+export default PrismTomorrowTheme;

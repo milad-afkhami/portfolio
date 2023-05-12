@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import breakpoints from "@stylesheets/breakpoints";
-import __reduce  from "lodash-es/reduce";
+import __reduce from "lodash-es/reduce";
 
 const containers = {
   xl: "1200px",
@@ -22,7 +22,6 @@ const containers = {
 //     { ":root": {}, ".container": containerStyle }
 //   ),
 // }));
-
 
 const GlobalContainerStyle = createGlobalStyle`
   :root {

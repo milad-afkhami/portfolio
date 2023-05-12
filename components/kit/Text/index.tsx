@@ -94,11 +94,4 @@ const Text = styled.span.attrs(
   })
 );
 
-
-
-            
-                
-            
-            
-            
-            export default Text;
+export default Text;

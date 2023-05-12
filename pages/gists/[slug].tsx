@@ -6,8 +6,6 @@ import { GistServices } from "@services";
 import { MarkdownWrapper, MarkdownVariables } from "@components/Markdown";
 import { GistTitle, GistSummary } from "@components/Gists";
 
-
-
 const GistPage = (props) => {
   const router = useRouter();
   const slug = router.query.slug;
@@ -38,9 +36,7 @@ const GistPage = (props) => {
       </Div>
     </>
   );
-}
-
-
+};
 
 export const getStaticProps = async ({ params }) => {
   const result = await GistServices.getDetail(params.slug);
@@ -49,8 +45,6 @@ export const getStaticProps = async ({ params }) => {
     props: { gist: result.gist },
   };
 };
-
-
 
 export const getStaticPaths = async ({ locales }) => {
   const gists = await GistServices.getList();
@@ -70,6 +64,4 @@ export const getStaticPaths = async ({ locales }) => {
   };
 };
 
-            
-                
-export default GistPage
+export default GistPage;

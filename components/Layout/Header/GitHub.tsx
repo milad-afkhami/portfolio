@@ -1,7 +1,6 @@
 import Div from "@kits/Div";
 import Icon from "@kits/Icon";
 
-
 const HeaderGithub = (props) => {
   const {} = props || {};
 
@@ -16,13 +15,6 @@ const HeaderGithub = (props) => {
       <Icon name="github" size="28px" />
     </Div>
   );
-}
+};
 
-
-
-            
-                
-            
-            
-            
-            export default HeaderGithub;
+export default HeaderGithub;

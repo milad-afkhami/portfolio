@@ -5,7 +5,7 @@ import { ThemeProvider } from "next-themes";
 import { defaultTheme, GlobalStyles } from "@stylesheets";
 import { THEMES } from "@constants";
 import swrFetcher from "@utils/swrFetcher";
-import __pick  from "lodash-es/pick";
+import __pick from "lodash-es/pick";
 import { DefaultSeo } from "@components/SEO";
 import enhanceStringPrototype from "@helpers/enhanceStringPrototype";
 import useTranslation from "@hooks/useTranslation";
@@ -80,11 +80,4 @@ function MyApp({ Component, pageProps, ...rest }) {
   );
 }
 
-
-
-            
-                
-            
-            
-            
-            export default MyApp;
+export default MyApp;

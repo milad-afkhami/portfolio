@@ -229,11 +229,4 @@ const colors = [
   },
 ];
 
-
-
-            
-                
-            
-            
-            
-            export default ColorVariables;
+export default ColorVariables;

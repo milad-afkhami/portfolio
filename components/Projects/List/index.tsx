@@ -4,8 +4,6 @@ import PageTitle from "@components/Layout/Title/PageTitle";
 import { ProjectCard } from "./Card";
 import { ProjectsMoreLink } from "./MoreLink";
 
-
-
 const ProjectsList = (props) => {
   const {} = props || {};
 
@@ -56,9 +54,4 @@ const ProjectsList = (props) => {
   );
 };
 
-            
-                
-            
-            
-            
-            export default ProjectsList;
+export default ProjectsList;

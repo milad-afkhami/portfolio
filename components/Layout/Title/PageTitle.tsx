@@ -20,11 +20,4 @@ const PageTitle = (props) => {
   );
 };
 
-
-
-            
-                
-            
-            
-            
-            export default PageTitle;
+export default PageTitle;

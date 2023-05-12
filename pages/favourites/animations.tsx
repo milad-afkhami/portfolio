@@ -22,11 +22,4 @@ const FavouriteAnimationsPage = (props) => {
   );
 };
 
-
-
-            
-                
-            
-            
-            
-            export default FavouriteAnimationsPage;
+export default FavouriteAnimationsPage;

@@ -16,14 +16,4 @@ const BlogTitle = (props) => {
   );
 };
 
-
-
-
-
-
-            
-                
-            
-            
-            
-            export default BlogTitle;
+export default BlogTitle;

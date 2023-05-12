@@ -1,8 +1,6 @@
 import Div from "@kits/Div";
 import Text from "@kits/Text";
 
-
-
 const ProjectDescription = (props) => {
   const { slug } = props || {};
 
@@ -14,9 +12,4 @@ const ProjectDescription = (props) => {
   );
 };
 
-            
-                
-            
-            
-            
-            export default ProjectDescription;
+export default ProjectDescription;

@@ -1,9 +1,9 @@
-const withFallbackProperty=(
+const withFallbackProperty = (
   property,
   value,
   fallbackProperty
   // options: { templateLiterals: Boolean }
-) =>{
+) => {
   // const { templateLiterals } = options || {};
 
   return {
@@ -22,11 +22,11 @@ const withFallbackProperty=(
         }
       : {}),
   };
-}
+};
 
 const cssCorrespondingProperty = {
   insetInlineEnd: "inset-inline-end",
   insetInlineStart: "inset-inline-start",
 };
 
-export default withFallbackProperty
+export default withFallbackProperty;

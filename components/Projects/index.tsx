@@ -5,8 +5,6 @@ import { Project } from "./Project";
 export { ProjectsList } from "./List";
 export { ProjectTechs } from "./Techs";
 
-
-
 const Projects = () => {
   return (
     <Div>
@@ -17,9 +15,4 @@ const Projects = () => {
   );
 };
 
-            
-                
-            
-            
-            
-            export default Projects;
+export default Projects;

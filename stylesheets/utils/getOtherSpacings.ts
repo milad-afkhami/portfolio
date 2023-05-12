@@ -25,16 +25,15 @@ const spacingProps = [
  * this method will check the object passed to it and if there was any of the spacingProps object keys in it, it will translate that to correct style property.
  **/
 const getOtherSpacings = (props = {}) =>
-__reduce(
-  spacingProps.filter(({ key }) => props[key] !== undefined),
-  (result, { key, properties }) => {
+  __reduce(
+    spacingProps.filter(({ key }) => props[key] !== undefined),
+    (result, { key, properties }) => {
       properties.map((property) => {
         result[property] = spacings[props[key]] || props[key];
       });
       return result;
     },
     {}
-    );
+  );
 
-
-            export default getOtherSpacings;
+export default getOtherSpacings;

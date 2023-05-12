@@ -2,7 +2,7 @@ import __get from "lodash-es/get";
 import { parseCookies, setCookie, destroyCookie } from "nookies";
 import INTERVALS from "@constants/interval";
 
-export default  class Cookies {
+export default class Cookies {
   /**
    * Parses cookies.
    *

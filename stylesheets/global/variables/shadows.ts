@@ -2,8 +2,6 @@ import { createGlobalStyle } from "styled-components";
 import shadows from "@stylesheets/constants/shadows";
 import __reduce from "lodash-es/reduce";
 
-
-
 const GlobalShadows = createGlobalStyle((props) => {
   return {
     ":root": __reduce(
@@ -14,4 +12,4 @@ const GlobalShadows = createGlobalStyle((props) => {
   };
 });
 
-            export default GlobalShadows;
+export default GlobalShadows;

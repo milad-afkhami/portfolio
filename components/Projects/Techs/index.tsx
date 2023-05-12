@@ -1,8 +1,6 @@
 import Div from "@kits/Div";
 import { ProjectTech } from "./Item";
 
-
-
 const ProjectTechs = (props) => {
   const { techs, compact } = props || {};
 
@@ -19,9 +17,4 @@ const ProjectTechs = (props) => {
   );
 };
 
-            
-                
-            
-            
-            
-            export default ProjectTechs;
+export default ProjectTechs;

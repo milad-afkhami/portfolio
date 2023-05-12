@@ -40,11 +40,4 @@ const ListView = (props) => {
   );
 };
 
-
-
-            
-                
-            
-            
-            
-            export default ListView;
+export default ListView;

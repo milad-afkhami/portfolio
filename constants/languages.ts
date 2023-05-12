@@ -1,5 +1,3 @@
-
-
 const languages = {
   en: {
     id: 1,
@@ -35,4 +33,4 @@ const languages = {
   // },
 };
 
-            export default languages;
+export default languages;

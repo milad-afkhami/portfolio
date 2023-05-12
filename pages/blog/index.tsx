@@ -4,8 +4,6 @@ import PageTitle from "@components/Layout/Title/PageTitle";
 import { Blogs } from "@components/Blog";
 import { BlogServices } from "@services";
 
-
-
 const BlogPage = (props) => {
   // const { data, isValidating, mutate, error } = useBlogs();
 
@@ -18,7 +16,7 @@ const BlogPage = (props) => {
       </Div>
     </>
   );
-}
+};
 
 export async function getStaticProps() {
   const blogs = await BlogServices.getList();
@@ -26,9 +24,4 @@ export async function getStaticProps() {
   return { props: { blogs } };
 }
 
-            
-                
-            
-            
-            
-            export default BlogPage;
+export default BlogPage;

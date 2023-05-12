@@ -6,8 +6,6 @@ import { projectsData } from "@data";
 import { ResumeProjectsItem } from "./Item";
 import { ResumeReference } from "../Reference";
 
-
-
 const ResumeProjects = () => {
   return (
     <Div mb="5">
@@ -31,9 +29,4 @@ const ResumeProjects = () => {
   );
 };
 
-            
-                
-            
-            
-            
-            export default ResumeProjects;
+export default ResumeProjects;

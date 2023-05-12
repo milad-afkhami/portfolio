@@ -1,5 +1,3 @@
-
-
 const containerStyle = {
   width: "100%",
   paddingRight: "15px",
@@ -8,4 +6,4 @@ const containerStyle = {
   marginLeft: "auto",
 };
 
-            export default containerStyle;
+export default containerStyle;

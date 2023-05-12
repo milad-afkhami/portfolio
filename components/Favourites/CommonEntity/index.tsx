@@ -27,13 +27,4 @@ const FavouriteCommonEntityList = (props) => {
   );
 };
 
-
-
-
-
-            
-                
-            
-            
-            
-            export default FavouriteCommonEntityList
+export default FavouriteCommonEntityList;

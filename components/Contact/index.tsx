@@ -5,7 +5,6 @@ import { ContactOption } from "./Option";
 import PageTitle from "@components/Layout/Title/PageTitle";
 import { contactOptions } from "@config";
 
-
 const Contact = (props) => {
   const {} = props || {};
 
@@ -32,16 +31,6 @@ const Contact = (props) => {
       </Div>
     </Div>
   );
-}
+};
 
-
-
-
-
-
-            
-                
-            
-            
-            
-            export default Contact;
+export default Contact;

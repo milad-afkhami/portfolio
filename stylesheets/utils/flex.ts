@@ -17,8 +17,6 @@ const alignValues = {
   "flex-start": "flex-start",
 };
 
-
-
 const flex = (align, justify, dir = "row", wrap) => ({
   display: "flex",
   ...(align ? { alignItems: alignValues[align] } : {}),
@@ -27,4 +25,4 @@ const flex = (align, justify, dir = "row", wrap) => ({
   ...(wrap ? { flexWrap: wrap } : {}),
 });
 
-            export default flex;
+export default flex;

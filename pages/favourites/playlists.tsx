@@ -15,11 +15,4 @@ const FavouritePlaylistsPage = (props) => {
   );
 };
 
-
-
-            
-                
-            
-            
-            
-            export default FavouritePlaylistsPage;
+export default FavouritePlaylistsPage;

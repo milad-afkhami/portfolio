@@ -8,6 +8,4 @@ const INTERVALS = {
   A_YEAR: 31557600,
 };
 
-
-
-            export default INTERVALS;
+export default INTERVALS;

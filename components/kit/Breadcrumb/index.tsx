@@ -3,7 +3,6 @@ import { BreadcrumbJsonLd } from "next-seo";
 import BreadcrumbLink from "./Link";
 import useTranslation from "@hooks/useTranslation";
 
-
 const Breadcrumb = (props) => {
   const {
     routes,
@@ -38,13 +37,6 @@ const Breadcrumb = (props) => {
       </Div>
     </>
   );
-}
+};
 
-
-
-            
-                
-            
-            
-            
-            export default Breadcrumb;
+export default Breadcrumb;

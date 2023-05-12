@@ -3,8 +3,6 @@ import Text from "@kits/Text";
 import { AboutAvatar } from "@components/About/Avatar";
 import { ResumeHeaderContact } from "./Contact";
 
-
-
 const ResumeHeader = () => {
   return (
     <Div
@@ -32,9 +30,4 @@ const ResumeHeader = () => {
   );
 };
 
-            
-                
-            
-            
-            
-            export default ResumeHeader;
+export default ResumeHeader;

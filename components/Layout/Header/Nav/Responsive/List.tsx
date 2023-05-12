@@ -5,8 +5,6 @@ import { navLinks } from "@config";
 import { noop } from "@utils";
 // import { DownloadResume } from "../../DownloadResume";
 
-
-
 const HeaderResponsiveMenuList = (props) => {
   const { rendered, onRequestClose } = props || {};
 
@@ -37,11 +35,6 @@ const HeaderResponsiveMenuList = (props) => {
       {/* <DownloadResume /> */}
     </Div>
   );
-}
+};
 
-            
-                
-            
-            
-            
-            export default HeaderResponsiveMenuList;
+export default HeaderResponsiveMenuList;

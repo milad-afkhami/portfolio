@@ -1,7 +1,5 @@
 import { css } from "styled-components";
 
-
-
 const TableStyles = css`
   table {
     width: max-content;
@@ -45,9 +43,4 @@ const TableStyles = css`
   }
 `;
 
-            
-                
-            
-            
-            
-            export default TableStyles;
+export default TableStyles;

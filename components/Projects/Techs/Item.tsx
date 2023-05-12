@@ -1,7 +1,5 @@
 import { Link, Text } from "@kits";
 
-
-
 const ProjectTech = (props) => {
   const { name, link, compact } = props || {};
 
@@ -22,9 +20,4 @@ const ProjectTech = (props) => {
   );
 };
 
-            
-                
-            
-            
-            
-            export default ProjectTech;
+export default ProjectTech;

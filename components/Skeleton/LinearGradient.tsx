@@ -1,6 +1,3 @@
-
-
-
 const LinearGradient = (props) => {
   const { id = "fill" } = props || {};
 
@@ -49,9 +46,4 @@ const LinearGradient = (props) => {
   );
 };
 
-            
-                
-            
-            
-            
-            export default LinearGradient;
+export default LinearGradient;

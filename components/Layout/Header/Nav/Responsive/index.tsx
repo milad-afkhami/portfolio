@@ -3,8 +3,6 @@ import { useToggle, useDelayedRender } from "@hooks";
 import { MenuToggler } from "./Toggler";
 import { HeaderResponsiveMenuList } from "./List";
 
-
-
 const HeaderResponsiveMenu = (props) => {
   const [menuOpen, toggleMenu] = useToggle(false);
   const { mounted: isMenuMounted, rendered: isMenuRendered } = useDelayedRender(
@@ -23,11 +21,6 @@ const HeaderResponsiveMenu = (props) => {
       )}
     </Div>
   );
-}
+};
 
-            
-                
-            
-            
-            
-            export default HeaderResponsiveMenu;
+export default HeaderResponsiveMenu;

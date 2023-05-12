@@ -5,7 +5,6 @@ import { languages as languagesList } from "@constants";
 import __map from "lodash-es/map";
 import LanguageHelper from "@helpers/language";
 
-
 const HeaderChangeLanguage = (props) => {
   const {} = props || {};
 
@@ -36,13 +35,6 @@ const HeaderChangeLanguage = (props) => {
       />
     </Div>
   );
-}
+};
 
-
-
-            
-                
-            
-            
-            
-            export default HeaderChangeLanguage;
+export default HeaderChangeLanguage;

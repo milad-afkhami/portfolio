@@ -2,7 +2,6 @@ import Div from "@kits/Div";
 import Icon from "@kits/Icon";
 import Text from "@kits/Text";
 
-
 const DownloadResume = (props) => {
   const {} = props || {};
 
@@ -68,13 +67,6 @@ const DownloadResume = (props) => {
       </Div>
     </Div>
   );
-}
+};
 
-
-
-            
-                
-            
-            
-            
-            export default DownloadResume;
+export default DownloadResume;

@@ -1,7 +1,5 @@
 import { useEffect, useRef } from "@hooks";
 
-
-
 const usePrevious = (value) => {
   const ref = useRef();
   useEffect(() => {
@@ -10,4 +8,4 @@ const usePrevious = (value) => {
   return ref.current;
 };
 
-            export default usePrevious;
+export default usePrevious;

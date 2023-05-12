@@ -12,11 +12,4 @@ const ShadowVariables = (props) => {
   );
 };
 
-
-
-            
-                
-            
-            
-            
-            export default ShadowVariables;
+export default ShadowVariables;

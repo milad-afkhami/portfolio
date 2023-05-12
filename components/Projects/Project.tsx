@@ -8,8 +8,6 @@ import { ProjectGallery } from "./Gallery";
 import { ProjectPoints } from "./Points";
 // import { ProjectDate } from "./Date";
 
-
-
 const Project = (props) => {
   return (
     <Div mb="6" id={`project-${props.slug}`}>
@@ -22,9 +20,4 @@ const Project = (props) => {
   );
 };
 
-            
-                
-            
-            
-            
-            export default Project;
+export default Project;

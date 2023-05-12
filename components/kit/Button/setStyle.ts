@@ -40,6 +40,4 @@ const setStyle = ({ variant, disabled }) => {
   }
 };
 
-
-
-            export default setStyle;
+export default setStyle;

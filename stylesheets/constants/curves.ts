@@ -1,4 +1,3 @@
-
 const curves = {
   xlg: "2rem",
   lg: "1.5rem",
@@ -9,4 +8,4 @@ const curves = {
   circle: "50%",
 };
 
-export  default curves;
+export default curves;

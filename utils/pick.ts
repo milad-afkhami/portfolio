@@ -15,7 +15,6 @@ import { pick as _pick, groupBy as _groupBy } from "lodash";
  * // => { 'a': 1, 'c': 3, e: 4 }
  */
 
-
 const pick = (object, props, namingFunction) =>
   (typeof props === "string" ? [props] : props).reduce((acc, cv) => {
     acc[namingFunction ? namingFunction(cv) : cv.split(".").pop()] = _.get(
@@ -25,4 +24,4 @@ const pick = (object, props, namingFunction) =>
     return acc;
   }, {});
 
-            export default pick;
+export default pick;

@@ -18,11 +18,4 @@ const FavouritePoemsPage = (props) => {
   );
 };
 
-
-
-            
-                
-            
-            
-            
-            export default FavouritePoemsPage;
+export default FavouritePoemsPage;

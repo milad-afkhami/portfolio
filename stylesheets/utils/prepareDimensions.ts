@@ -28,15 +28,14 @@ const getDimensionKey = (key, value) => {
 };
 
 const prepareDimensions = (d = []) =>
-__reduce(
-  d,
-  (result, v, k) => {
-    const value = spacings[v] || v;
-    result[k] = value;
-    return result;
-  },
-  {}
+  __reduce(
+    d,
+    (result, v, k) => {
+      const value = spacings[v] || v;
+      result[k] = value;
+      return result;
+    },
+    {}
   );
 
-  
-            export default prepareDimensions;
+export default prepareDimensions;

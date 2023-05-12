@@ -51,15 +51,6 @@ const ContactOption = (props) => {
       </Div>
     </Div>
   );
-}
+};
 
-
-
-
-
-            
-                
-            
-            
-            
-            export default ContactOption;
+export default ContactOption;

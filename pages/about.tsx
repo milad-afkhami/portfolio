@@ -13,8 +13,6 @@ import {
 } from "@config";
 import useTranslation from "@hooks/useTranslation";
 
-
-
 const AboutPage = (props) => {
   const t = useTranslation().t;
   const videoTitle = t("about.video.title");
@@ -78,11 +76,6 @@ const AboutPage = (props) => {
       </Div>
     </>
   );
-}
+};
 
-            
-                
-            
-            
-            
-            export default AboutPage;
+export default AboutPage;

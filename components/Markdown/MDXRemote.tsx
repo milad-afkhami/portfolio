@@ -13,11 +13,4 @@ const MDXRemote = function (props) {
   );
 };
 
-
-
-            
-                
-            
-            
-            
-            export default MDXRemote;
+export default MDXRemote;

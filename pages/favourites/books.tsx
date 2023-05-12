@@ -22,11 +22,4 @@ const FavouriteBooksPage = (props) => {
   );
 };
 
-
-
-            
-                
-            
-            
-            
-            export default FavouriteBooksPage;
+export default FavouriteBooksPage;

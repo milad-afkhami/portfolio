@@ -3,7 +3,6 @@ import Image from "@kits/Image";
 import Link from "@kits/Link";
 import Text from "@kits/Text";
 
-
 const FooterLicenses = (props) => {
   const licenses = [
     {
@@ -32,12 +31,6 @@ const FooterLicenses = (props) => {
       ))}
     </Div>
   );
-}
+};
 
-
-            
-                
-            
-            
-            
-            export default FooterLicenses;
+export default FooterLicenses;

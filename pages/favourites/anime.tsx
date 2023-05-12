@@ -22,11 +22,4 @@ const FavouriteAnimePage = (props) => {
   );
 };
 
-
-
-            
-                
-            
-            
-            
-            export default FavouriteAnimePage;
+export default FavouriteAnimePage;

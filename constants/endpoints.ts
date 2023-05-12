@@ -3,5 +3,4 @@ const endpoints = {
   blogs: "/blog/list",
 };
 
-
-            export default endpoints
+export default endpoints;

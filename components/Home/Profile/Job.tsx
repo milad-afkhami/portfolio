@@ -1,7 +1,6 @@
 import Div from "@kits/Div";
 import Text from "@kits/Text";
 
-
 const ProfileJob = (props) => {
   return (
     <Div>
@@ -32,13 +31,6 @@ const ProfileJob = (props) => {
       </Div>
     </Div>
   );
-}
+};
 
-
-
-            
-                
-            
-            
-            
-            export default ProfileJob;
+export default ProfileJob;

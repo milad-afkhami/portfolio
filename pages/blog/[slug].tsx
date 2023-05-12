@@ -11,8 +11,6 @@ import { BlogServices } from "@services";
 import { MarkdownWrapper } from "@components/Markdown";
 import { appBaseURL } from "@config";
 
-
-
 const BlogPage = (props) => {
   const router = useRouter();
   const slug = router.query.slug;
@@ -74,9 +72,7 @@ const BlogPage = (props) => {
       </Div>
     </>
   );
-}
-
-
+};
 
 export const getStaticProps = async ({ params }) => {
   const result = await BlogServices.getDetail(params.slug);
@@ -85,8 +81,6 @@ export const getStaticProps = async ({ params }) => {
     props: { blog: result.blog },
   };
 };
-
-
 
 export const getStaticPaths = async ({ locales }) => {
   const blogs = await BlogServices.getList();
@@ -106,7 +100,4 @@ export const getStaticPaths = async ({ locales }) => {
   };
 };
 
-            
-                
-            
-export default BlogPage
+export default BlogPage;

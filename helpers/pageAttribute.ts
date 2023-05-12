@@ -10,7 +10,7 @@ const fonts = {
   // },
 };
 
- PageAttr {
+export default class PageAttr {
   static setAttr = (attribute, value) =>
     process.browser &&
     document.querySelector("html").setAttribute(attribute, value);
@@ -61,5 +61,3 @@ const fonts = {
     if (appleStatusBar) appleStatusBar.setAttribute("content", newTheme);
   };
 }
-
-            export default class

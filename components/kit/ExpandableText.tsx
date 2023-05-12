@@ -2,7 +2,6 @@ import { useToggle } from "@hooks";
 import Div from "@kits/Div";
 import Text from "@kits/Text";
 
-
 const ExpandableText = function (props) {
   const {
     children,
@@ -15,7 +14,7 @@ const ExpandableText = function (props) {
   const [isExpanded, toggleExpanded] = useToggle(defaultExpanded);
 
   if (!children) return null;
-  
+
   return (
     <Div
       position="relative"
@@ -43,13 +42,13 @@ const ExpandableText = function (props) {
       </Text>
       {!isExpanded && (
         <Div
-        position="absolute"
-        dimensions={{ bottom: 0, right: 0 }}
-        onClick={toggleExpanded}
-        bg="bg-tertiary"
-        px="2"
-        curve="xsm"
-        responsive={{ sm: { display: "none" } }}
+          position="absolute"
+          dimensions={{ bottom: 0, right: 0 }}
+          onClick={toggleExpanded}
+          bg="bg-tertiary"
+          px="2"
+          curve="xsm"
+          responsive={{ sm: { display: "none" } }}
         >
           <Text size="sm">layout.kits.more</Text>
         </Div>
@@ -58,10 +57,4 @@ const ExpandableText = function (props) {
   );
 };
 
-
-            
-                
-            
-            
-            
-            export default ExpandableText;
+export default ExpandableText;

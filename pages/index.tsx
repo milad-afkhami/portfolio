@@ -10,8 +10,6 @@ const Contact = dynamic(
   { ssr: false }
 );
 
-
-
 const Home = (props) => {
   const { data, isValidating, mutate, error } = useHome();
 
@@ -27,7 +25,7 @@ const Home = (props) => {
       </Div>
     </>
   );
-}
+};
 
 export async function getStaticProps() {
   const blogs = await BlogServices.getList();
@@ -36,9 +34,4 @@ export async function getStaticProps() {
   return { props: { blogs, gists } };
 }
 
-            
-                
-            
-            
-            
-            export default Home;
+export default Home;

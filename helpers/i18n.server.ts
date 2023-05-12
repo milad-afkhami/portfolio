@@ -3,7 +3,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 type SSRConfig = UnPromise<ReturnType<typeof serverSideTranslations>>;
 
- I18nSSRHelper {
+export default class I18nSSRHelper {
   static async t9n(
     locale?: string,
     ...namespaces: Array<I18NNameSpaces>
@@ -16,5 +16,3 @@ type SSRConfig = UnPromise<ReturnType<typeof serverSideTranslations>>;
     return t9n;
   }
 }
-
-            export default class

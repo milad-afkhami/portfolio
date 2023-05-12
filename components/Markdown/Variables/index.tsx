@@ -23,11 +23,4 @@ const MarkdownVariables = (props) => {
   );
 };
 
-
-
-            
-                
-            
-            
-            
-            export default MarkdownVariables;
+export default MarkdownVariables;

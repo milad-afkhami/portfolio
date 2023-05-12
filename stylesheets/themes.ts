@@ -1,8 +1,6 @@
 import { Color } from "@models";
 import THEMES from "@constants/themes";
 
-
-
 export const defaultTheme = THEMES.DARK;
 
 // generate pallette variants from http://mcg.mbitson.com/

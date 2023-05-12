@@ -13,11 +13,4 @@ const toast = (content, options) => {
   return rtToast(toastContent, options);
 };
 
-
-
-            
-                
-            
-            
-            
-            export default toast;
+export default toast;

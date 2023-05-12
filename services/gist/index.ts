@@ -1,9 +1,7 @@
-import { getGistsList } from "./list";
-import { getGistDetail } from "./get";
+import getGistsList from "./list";
+import getGistDetail from "./get";
 
- GistServices {
+export default class GistServices {
   static getList = getGistsList;
   static getDetail = getGistDetail;
 }
-
-            export default class

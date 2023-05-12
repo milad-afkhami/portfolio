@@ -20,10 +20,4 @@ const HR = styled(Div).attrs(() => ({
   borderTop: "none",
 }));
 
-
-            
-                
-            
-            
-            
-            export default HR;
+export default HR;

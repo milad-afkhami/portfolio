@@ -2,8 +2,6 @@ import Div from "@kits/Div";
 import Link from "@kits/Link";
 import Text from "@kits/Text";
 
-
-
 const ProjectsMoreLink = (props) => {
   return (
     <Div mt="2">
@@ -22,9 +20,4 @@ const ProjectsMoreLink = (props) => {
   );
 };
 
-            
-                
-            
-            
-            
-            export default ProjectsMoreLink;
+export default ProjectsMoreLink;

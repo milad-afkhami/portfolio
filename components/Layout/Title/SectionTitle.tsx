@@ -26,11 +26,4 @@ const SectionTitle = (props) => {
   );
 };
 
-
-
-            
-                
-            
-            
-            
-            export default SectionTitle;
+export default SectionTitle;

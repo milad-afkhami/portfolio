@@ -13,7 +13,6 @@ import { GlobalShadows } from "./variables/shadows";
  * @type {ComponentType}
  */
 
-
 const GlobalStyles = memo(() => {
   return (
     <>
@@ -30,4 +29,4 @@ const GlobalStyles = memo(() => {
   );
 });
 
-            export default GlobalStyles;
+export default GlobalStyles;

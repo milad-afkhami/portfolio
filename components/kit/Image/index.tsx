@@ -35,9 +35,9 @@ const Image = ({
   ...rest
 }) => {
   const [maximized, toggleMaximized] = useToggle(false);
-  
+
   // let _src = src; if (src?.startsWith?.("/")) { _src = imageBaseURL + src; }
-  
+
   return (
     <>
       <Div
@@ -62,8 +62,8 @@ const Image = ({
         layout={layout}
         blurDataURL={
           placeholder === "blur" && withShimmer
-          ? `data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`
-          : blurDataURL
+            ? `data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`
+            : blurDataURL
         }
         css={{
           userSelect: css.userSelect || "none",
@@ -80,13 +80,13 @@ const Image = ({
         }}
         cursor={cursor ?? (maximizable ? "zoom-in" : undefined)}
         {...rest}
-        />
+      />
       {maximizable && maximized
         ? isomorphicPortal(
-          <Div
-          width="calc(100vw - var(--scrollbar-width))"
-          height="100vh"
-          blurBg
+            <Div
+              width="calc(100vw - var(--scrollbar-width))"
+              height="100vh"
+              blurBg
               dimensions={{ top: 0, left: 0, right: 0, bottom: 0 }}
               zIndex="var(--overlay-z-index)"
               pace="xFast"
@@ -102,22 +102,22 @@ const Image = ({
                 cursor="default"
                 opacity="1"
                 pace="xFast"
-                >
+              >
                 {maximized && (
                   <Image
-                  curve="sm"
-                  onClick={toggleMaximized}
-                  quality={100}
-                  layout="fill"
-                  fit="contain"
-                  priority
-                  src={src}
-                  withShimmer
-                  placeholder="blur"
-                  // withShimmer={!blurDataURL}
-                  // {...(blurDataURL ? { blurDataURL } : {})}
+                    curve="sm"
+                    onClick={toggleMaximized}
+                    quality={100}
+                    layout="fill"
+                    fit="contain"
+                    priority
+                    src={src}
+                    withShimmer
+                    placeholder="blur"
+                    // withShimmer={!blurDataURL}
+                    // {...(blurDataURL ? { blurDataURL } : {})}
                   />
-                  )}
+                )}
               </Div>
             </Div>
           )
@@ -145,14 +145,8 @@ function shimmer(w, h) {
 
 function toBase64(str) {
   return typeof window === "undefined"
-  ? Buffer.from(str).toString("base64")
-  : window.btoa(str);
+    ? Buffer.from(str).toString("base64")
+    : window.btoa(str);
 }
-        
 
-            
-                
-            
-            
-            
-            export default Image;
+export default Image;

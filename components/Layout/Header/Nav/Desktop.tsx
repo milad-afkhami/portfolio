@@ -3,8 +3,6 @@ import Text from "@kits/Text";
 import { HeaderMenuItem } from "./Item";
 import { navLinks } from "@config";
 
-
-
 const HeaderMenu = (props) => {
   return (
     <Div display="flex" mx="-3">
@@ -13,11 +11,6 @@ const HeaderMenu = (props) => {
       ))}
     </Div>
   );
-}
+};
 
-            
-                
-            
-            
-            
-            export default HeaderMenu;
+export default HeaderMenu;

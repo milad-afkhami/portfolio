@@ -7,8 +7,6 @@ const resumeLanguages = [
   { name: "English", proficiency: "3" },
 ];
 
-
-
 const ResumeLanguages = () => {
   return (
     <Div mb="5">
@@ -20,9 +18,4 @@ const ResumeLanguages = () => {
   );
 };
 
-            
-                
-            
-            
-            
-            export default ResumeLanguages;
+export default ResumeLanguages;

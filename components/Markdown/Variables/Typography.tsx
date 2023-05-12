@@ -3,8 +3,6 @@ import Tree from "@kits/Tree";
 import SectionTitle from "@components/Layout/Title/SectionTitle";
 import { typographyVariants } from "@stylesheets";
 
-
-
 const TypographyVariables = (props) => {
   return (
     <Div id="typography" my="3">
@@ -18,9 +16,4 @@ const TypographyVariables = (props) => {
   );
 };
 
-            
-                
-            
-            
-            
-            export default TypographyVariables;
+export default TypographyVariables;

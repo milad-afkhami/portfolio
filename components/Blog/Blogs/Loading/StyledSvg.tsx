@@ -17,13 +17,4 @@ const StyledSvg = styled.svg`
   }
 `;
 
-
-
-
-
-            
-                
-            
-            
-            
-            export default StyledSvg
+export default StyledSvg;

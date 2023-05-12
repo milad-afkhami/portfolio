@@ -6,7 +6,6 @@ import useTranslation from "@hooks/useTranslation";
  * `react-toastify` toast powered by i18n
  */
 
-
 const useEnhancedToast = () => {
   const t = useTranslation().t;
 
@@ -21,4 +20,4 @@ const useEnhancedToast = () => {
   };
 };
 
-            export default useEnhancedToast;
+export default useEnhancedToast;

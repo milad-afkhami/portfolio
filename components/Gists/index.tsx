@@ -35,10 +35,4 @@ const Gists = (props) => {
   );
 };
 
-
-            
-                
-            
-            
-            
-            export default Gists
+export default Gists;

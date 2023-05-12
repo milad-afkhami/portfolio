@@ -13,14 +13,4 @@ const BlogSummary = (props) => {
   );
 };
 
-
-
-
-
-
-            
-                
-            
-            
-            
-            export default BlogSummary;
+export default BlogSummary;

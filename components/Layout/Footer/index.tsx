@@ -2,7 +2,6 @@ import Div from "@kits/Div";
 import FooterLinks from "./Links";
 import FooterSocials from "./Socials";
 
-
 const Footer = (props) => {
   return (
     <Div mt="5" py="5" mw="100%" border="border-light" borderSide="top">
@@ -18,13 +17,6 @@ const Footer = (props) => {
       </Div>
     </Div>
   );
-}
+};
 
-
-
-            
-                
-            
-            
-            
-            export default Footer;
+export default Footer;

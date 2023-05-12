@@ -1,8 +1,6 @@
 import Div from "@kits/Div";
 import Text from "@kits/Text";
 
-
-
 const ResumeLanguageItem = ({ name, proficiency }) => {
   return (
     <Div mb="2">
@@ -19,9 +17,4 @@ const ResumeLanguageItem = ({ name, proficiency }) => {
   );
 };
 
-            
-                
-            
-            
-            
-            export default ResumeLanguageItem;
+export default ResumeLanguageItem;

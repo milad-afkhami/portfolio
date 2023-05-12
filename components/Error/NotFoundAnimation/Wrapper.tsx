@@ -87,13 +87,4 @@ const NotFoundAnimationWrapper = styled.div`
   }
 `;
 
-
-
-
-
-            
-                
-            
-            
-            
-            export default NotFoundAnimationWrapper;
+export default NotFoundAnimationWrapper;

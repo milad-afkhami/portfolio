@@ -38,10 +38,4 @@ const Icon = styled.i.attrs(
   })
 );
 
-
-            
-                
-            
-            
-            
-            export default Icon;
+export default Icon;

@@ -1,5 +1,3 @@
-
-
 const placeholder = (styles) => ({
   "::-webkit-input-placeholder": styles,
   ":-moz-placeholder": styles,
@@ -8,4 +6,4 @@ const placeholder = (styles) => ({
   "::placeholder": styles,
 });
 
-            export default placeholder;
+export default placeholder;

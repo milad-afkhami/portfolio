@@ -13,11 +13,4 @@ const FavouritesPage = (props) => {
   );
 };
 
-
-
-            
-                
-            
-            
-            
-            export default FavouritesPage;
+export default FavouritesPage;

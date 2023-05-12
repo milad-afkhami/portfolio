@@ -1,5 +1,3 @@
-
-
 const OS = {
   IOS: "IOS",
   ANDROID: "ANDROID",
@@ -9,4 +7,4 @@ const OS = {
   UNKNOWN: "UNKNOWN",
 };
 
-            export default OS;
+export default OS;

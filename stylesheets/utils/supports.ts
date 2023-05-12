@@ -5,7 +5,6 @@
  * @returns "true" if supported, "false" if not.
  */
 
-
 const supports = (property, value) => {
   if (process.browser) return true;
 
@@ -16,4 +15,4 @@ const supports = (property, value) => {
 
 // todo: implement this with @supports
 
-            export default supports;
+export default supports;

@@ -3,7 +3,6 @@ import Tree from "@kits/Tree";
 import SectionTitle from "@components/Layout/Title/SectionTitle";
 import paces from "@stylesheets/constants/paces";
 
-
 const PaceVariables = (props) => {
   return (
     <Div id="paces" my="3">
@@ -13,11 +12,4 @@ const PaceVariables = (props) => {
   );
 };
 
-
-
-            
-                
-            
-            
-            
-            export default PaceVariables;
+export default PaceVariables;

@@ -10,6 +10,4 @@ const setDimensions = ({ size, block, width, height, fixedWidth }) => {
   };
 };
 
-
-
-            export default setDimensions;
+export default setDimensions;

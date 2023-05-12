@@ -26,13 +26,4 @@ const BlogMeta = (props) => {
   );
 };
 
-
-
-
-
-            
-                
-            
-            
-            
-            export default BlogMeta
+export default BlogMeta;

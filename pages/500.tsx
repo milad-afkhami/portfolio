@@ -1,10 +1,8 @@
 import { INTERVALS } from "@constants";
 
-
-
 const ServerError = (props) => {
   return <h1>500 - Server-side error occurred</h1>;
-}
+};
 
 export async function getStaticProps(context) {
   return {
@@ -13,9 +11,4 @@ export async function getStaticProps(context) {
   };
 }
 
-            
-                
-            
-            
-            
-            export default ServerError;
+export default ServerError;

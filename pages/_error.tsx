@@ -3,8 +3,6 @@ import Text from "@kits/Text";
 import Link from "@kits/Link";
 import Button from "@kits/Button";
 
-
-
 const Error = (props) => {
   return (
     <Div height="100%" flex={["center", "center", "column"]} p="3" mh="100%">
@@ -20,11 +18,6 @@ const Error = (props) => {
       </Link>
     </Div>
   );
-}
+};
 
-            
-                
-            
-            
-            
-            export default Error;
+export default Error;

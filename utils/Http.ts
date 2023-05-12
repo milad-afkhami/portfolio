@@ -7,7 +7,7 @@ import formData from "@utils/formData";
  * @typedef {{baseURL:string, url:string, method:Method, headers:Object, params: Object, type: "formData"|null }} FetchOptions
  */
 
- Http {
+export default class Http {
   /**
    * Performs an HTTP options request
    * @method
@@ -83,5 +83,3 @@ import formData from "@utils/formData";
     return response.data;
   };
 }
-
-            export default class

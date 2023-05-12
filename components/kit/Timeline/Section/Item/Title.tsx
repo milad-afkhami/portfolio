@@ -15,11 +15,4 @@ const TimelineSectionItemTitle = (props) => {
   );
 };
 
-
-
-            
-                
-            
-            
-            
-            export default TimelineSectionItemTitle;
+export default TimelineSectionItemTitle;

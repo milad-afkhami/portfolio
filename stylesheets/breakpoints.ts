@@ -10,7 +10,6 @@ const bp = {
 // <Div ml="2" sm={{ ml: '0' }} />; for xs margin-left: 2, for sm and greater margin-left: 0;
 // <Div sm={{ ml: "2" }} md={{ ml: '0' }} />; for sm margin-left: 2, for sm and greater margin-left: 0;
 
-
 export const mediaFeatures = {
   xs_only: `(max-width: ${bp.sm - 0.02}px)`,
   sm: `(min-width: ${bp.sm}px)`,
@@ -27,4 +26,3 @@ export const mediaFeatures = {
  */
 
 export default bp;
-

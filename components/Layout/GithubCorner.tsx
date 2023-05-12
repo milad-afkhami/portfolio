@@ -58,11 +58,4 @@ const StyledAnchor = styled.a`
   }
 `;
 
-
-
-            
-                
-            
-            
-            
-            export default GithubCorner;
+export default GithubCorner;

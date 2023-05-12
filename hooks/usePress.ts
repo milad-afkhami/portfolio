@@ -1,10 +1,10 @@
 import { useState, useCallback, useRef } from "react";
 
-const  useLongPress=(
+const useLongPress = (
   onLongPress,
   onClick,
   { shouldPreventDefault = true, delay = 300 } = {}
-) =>{
+) => {
   const [longPressTriggered, setLongPressTriggered] = useState(false);
   const timeout = useRef();
   const target = useRef();
@@ -44,7 +44,7 @@ const  useLongPress=(
     onMouseLeave: (e) => clear(e, false),
     onTouchEnd: (e) => clear(e),
   };
-}
+};
 
 const preventDefault = (event) => {
   if (!("touches" in event)) return;
@@ -52,4 +52,4 @@ const preventDefault = (event) => {
   if (event.touches.length < 2 && event.preventDefault) event.preventDefault();
 };
 
-            export default useLongPress
+export default useLongPress;

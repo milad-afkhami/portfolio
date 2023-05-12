@@ -50,6 +50,4 @@ const StyledButton = styled(Div).attrs((attrs) => ({
   };
 });
 
-
-
-            export default StyledButton;
+export default StyledButton;

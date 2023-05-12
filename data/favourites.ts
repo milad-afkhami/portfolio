@@ -1,5 +1,3 @@
-
-
 export const favouriteArtistsData = [
   {
     name: "Soen",
@@ -111,7 +109,6 @@ export const favouriteArtistsData = [
     category: "other",
   },
 ];
-
 
 export const favouritePlaylistsData = [
   {
@@ -304,7 +301,6 @@ export const favouritePlaylistsData = [
   },
 ];
 
-
 export const favouriteBooksData = [
   "republic",
   "the-power-of-habit",
@@ -315,7 +311,6 @@ export const favouriteBooksData = [
   "nahj-al-balagha",
   "tafsir-nemooneh",
 ];
-
 
 export const favouriteAnimationsData = [
   "el-dorado",
@@ -346,7 +341,6 @@ export const favouriteAnimationsData = [
   // "call-me-by-your-name",
   // "Eternal Sunshine Of The Spotless Mind",
 ];
-
 
 export const favouriteSeriesData = [
   // drama
@@ -381,7 +375,6 @@ export const favouriteSeriesData = [
   // "big-little-lies",
   // "horace-and-pete",
 ];
-
 
 export const favouriteAnimeData = [
   "attack-on-titan",

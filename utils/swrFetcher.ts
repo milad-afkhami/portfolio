@@ -1,6 +1,6 @@
 import Http from "@utils/Http";
 
- const swrFetcher = async (url, options) => {
+const swrFetcher = async (url, options) => {
   try {
     const response = await Http.request({
       url,
@@ -12,5 +12,4 @@ import Http from "@utils/Http";
   }
 };
 
-
-            export default swrFetcher;
+export default swrFetcher;

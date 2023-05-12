@@ -40,13 +40,4 @@ const FavouriteEntities = (props) => {
   );
 };
 
-
-
-
-
-            
-                
-            
-            
-            
-            export default FavouriteEntities
+export default FavouriteEntities;

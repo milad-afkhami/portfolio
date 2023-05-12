@@ -2,8 +2,6 @@ import Div from "@kits/Div";
 import { Head } from "@components/SEO";
 import { PageTitle, SectionTitle } from "@components/Layout";
 
-
-
 const PackagesPage = (props) => {
   return (
     <>
@@ -14,11 +12,6 @@ const PackagesPage = (props) => {
       </Div>
     </>
   );
-}
+};
 
-            
-                
-            
-            
-            
-            export default PackagesPage;
+export default PackagesPage;

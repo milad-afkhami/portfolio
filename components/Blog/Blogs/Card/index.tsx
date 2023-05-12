@@ -57,13 +57,4 @@ const BlogCard = (props) => {
   );
 };
 
-
-
-
-
-            
-                
-            
-            
-            
-            export default BlogCard;
+export default BlogCard;

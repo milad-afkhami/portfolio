@@ -3,9 +3,6 @@ import Image from "@kits/Image";
 import Link from "@kits/Link";
 import Text from "@kits/Text";
 
-
-
-
 const ProjectHeading = (props) => {
   const { logo, link = "", slug, index, date } = props || {};
 
@@ -64,8 +61,4 @@ const ProjectHeading = (props) => {
   );
 };
 
-            
-
-            
-            
-            export default ProjectHeading;
+export default ProjectHeading;

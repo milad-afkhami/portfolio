@@ -3,8 +3,6 @@ import __range from "lodash-es/range";
 import __reduce from "lodash-es/reduce";
 import { createGlobalStyle } from "styled-components";
 
-
-
 export const GlobalGridSystem2 = createGlobalStyle((props) => ({
   ".col, [class^='col-']": {
     position: "relative",

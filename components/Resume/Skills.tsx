@@ -9,8 +9,6 @@ const resumeSkills = [
   { name: "Next.js" },
 ];
 
-
-
 const ResumeSkills = () => {
   return (
     <Div>
@@ -32,9 +30,4 @@ const ResumeSkills = () => {
   );
 };
 
-            
-                
-            
-            
-            
-            export default ResumeSkills;
+export default ResumeSkills;

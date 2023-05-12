@@ -21,13 +21,4 @@ const FavouritePlaylistTracks = (props) => {
   );
 };
 
-
-
-
-
-            
-                
-            
-            
-            
-            export default FavouritePlaylistTracks;
+export default FavouritePlaylistTracks;

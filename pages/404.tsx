@@ -2,8 +2,6 @@ import { Button, Div, Link } from "@kits";
 import { NotFoundAnimation } from "@components/Error";
 import SectionTitle from "@components/Layout/Title/SectionTitle";
 
-
-
 const NotFound = (props) => {
   // return <h1>404 - Page Not Found</h1>;
   return (
@@ -26,14 +24,9 @@ const NotFound = (props) => {
       </Div>
     </Div>
   );
-}
+};
 
 // NotFound.hideHeader = true;
 // NotFound.hideFooter = true;
 
-            
-                
-            
-            
-            
-            export default NotFound;
+export default NotFound;

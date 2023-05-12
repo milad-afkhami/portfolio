@@ -1,6 +1,6 @@
 import { currentPlatform } from "@configs/platforms";
 
- I18nHelper {
+export default class I18nHelper {
   /** concatenates platform suffix to namespace name
    * @example
    * concatenateNamespace("common");
@@ -10,5 +10,3 @@ import { currentPlatform } from "@configs/platforms";
     return ns.concat(".", currentPlatform);
   }
 }
-
-            export default class

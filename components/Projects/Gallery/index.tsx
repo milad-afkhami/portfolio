@@ -8,8 +8,6 @@ const ImageViewer = dynamic(() =>
   import("@kits").then((module) => module.ImageViewer)
 );
 
-
-
 const ProjectGallery = (props) => {
   const { medias } = props || {};
 
@@ -53,9 +51,4 @@ const ProjectGallery = (props) => {
   );
 };
 
-            
-                
-            
-            
-            
-            export default ProjectGallery;
+export default ProjectGallery;

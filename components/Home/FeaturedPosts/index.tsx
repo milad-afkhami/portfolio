@@ -39,10 +39,4 @@ const FeaturedPosts = (props) => {
   );
 };
 
-
-            
-                
-            
-            
-            
-            export default FeaturedPosts
+export default FeaturedPosts;

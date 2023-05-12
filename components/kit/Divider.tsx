@@ -14,10 +14,4 @@ const Divider = ({
   return <Div width={width} height={height} bg={color} />;
 };
 
-
-            
-                
-            
-            
-            
-            export default Divider;
+export default Divider;

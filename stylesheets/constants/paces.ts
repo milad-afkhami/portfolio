@@ -1,4 +1,3 @@
-
 const paces = {
   xFast: "0.15s",
   fast: "0.3s",
@@ -7,5 +6,4 @@ const paces = {
   xSlow: "1.5s",
 };
 
-
-            export default paces
+export default paces;

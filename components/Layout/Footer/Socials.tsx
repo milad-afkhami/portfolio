@@ -1,7 +1,6 @@
-import  Div from "@kits/Div";
-import Icon  from "@kits/Icon";
-import __map  from "lodash-es/map";
-
+import Div from "@kits/Div";
+import Icon from "@kits/Icon";
+import __map from "lodash-es/map";
 
 const FooterSocials = (props) => {
   const socials = {
@@ -25,13 +24,6 @@ const FooterSocials = (props) => {
       ))}
     </Div>
   );
-}
+};
 
-
-
-            
-                
-            
-            
-            
-            export default FooterSocials;
+export default FooterSocials;

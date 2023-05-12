@@ -1,8 +1,6 @@
 import Div from "@kits/Div";
 import Text from "@kits/Text";
 
-
-
 const ResumeEducationItem = ({ year, title, description }) => {
   return (
     <Div my="3">
@@ -23,9 +21,4 @@ const ResumeEducationItem = ({ year, title, description }) => {
   );
 };
 
-            
-                
-            
-            
-            
-            export default ResumeEducationItem;
+export default ResumeEducationItem;

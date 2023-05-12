@@ -2,8 +2,6 @@ import Div from "@kits/Div";
 import Icon from "@kits/Icon";
 import Text from "@kits/Text";
 
-
-
 const ProjectDate = (props) => {
   return (
     <Div flex={["center", "start"]} mb="3">
@@ -19,9 +17,4 @@ const ProjectDate = (props) => {
   );
 };
 
-            
-                
-            
-            
-            
-            export default ProjectDate;
+export default ProjectDate;

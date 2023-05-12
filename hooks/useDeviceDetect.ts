@@ -19,6 +19,6 @@ const useDeviceDetect = () => {
   }, []);
 
   return { isMobile, userAgent };
-}
+};
 
-export default  useDeviceDetect
+export default useDeviceDetect;

@@ -4,8 +4,6 @@ import { useState } from "react";
 import SectionTitle from "@components/Layout/Title/SectionTitle";
 import { spacings } from "@stylesheets";
 
-
-
 const SpacingVariables = (props) => {
   return (
     <Div id="spacings" my="3">
@@ -18,9 +16,4 @@ const SpacingVariables = (props) => {
   );
 };
 
-            
-                
-            
-            
-            
-            export default SpacingVariables;
+export default SpacingVariables;

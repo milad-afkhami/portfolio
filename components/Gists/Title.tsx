@@ -16,10 +16,4 @@ const GistTitle = (props) => {
   );
 };
 
-
-            
-                
-            
-            
-            
-            export default GistTitle
+export default GistTitle;

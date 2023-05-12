@@ -1,6 +1,6 @@
 import Div from "@kits/Div";
 import Text from "@kits/Text";
-import __range  from "lodash-es/range";
+import __range from "lodash-es/range";
 import useTranslation from "@hooks/useTranslation";
 import { isDevelopment } from "@config";
 
@@ -39,13 +39,4 @@ const WhoAmI = (props) => {
   );
 };
 
-
-
-
-
-            
-                
-            
-            
-            
-            export default WhoAmI;
+export default WhoAmI;

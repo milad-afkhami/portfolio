@@ -1,9 +1,7 @@
-import { getBlogsList } from "./list";
-import { getBlogDetail } from "./get";
+import getBlogsList from "./list";
+import getBlogDetail from "./get";
 
- BlogServices {
+export default class BlogServices {
   static getList = getBlogsList;
   static getDetail = getBlogDetail;
 }
-
-            export default class

@@ -5,8 +5,6 @@ import PageTitle from "@components/Layout/Title/PageTitle";
 import { Gists } from "@components/Gists";
 import { GistServices } from "@services";
 
-
-
 const GistsPage = (props) => {
   return (
     <>
@@ -17,7 +15,7 @@ const GistsPage = (props) => {
       </Div>
     </>
   );
-}
+};
 
 export async function getStaticProps() {
   const gists = await GistServices.getList();
@@ -25,9 +23,4 @@ export async function getStaticProps() {
   return { props: { gists } };
 }
 
-            
-                
-            
-            
-            
-            export default GistsPage;
+export default GistsPage;

@@ -20,13 +20,4 @@ const BlogMetaItem = (props) => {
   );
 };
 
-
-
-
-
-            
-                
-            
-            
-            
-            export default BlogMetaItem
+export default BlogMetaItem;

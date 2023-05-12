@@ -19,13 +19,4 @@ const FavouriteArtists = (props) => {
   );
 };
 
-
-
-
-
-            
-                
-            
-            
-            
-            export default FavouriteArtists
+export default FavouriteArtists;

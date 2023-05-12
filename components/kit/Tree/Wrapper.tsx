@@ -104,11 +104,4 @@ const TreeWrapper = styled.div`
   }
 `;
 
-
-
-            
-                
-            
-            
-            
-            export default TreeWrapper;
+export default TreeWrapper;

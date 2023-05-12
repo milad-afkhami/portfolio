@@ -1,7 +1,7 @@
 import Div from "@kits/Div";
 import Text from "@kits/Text";
 
- const BlogCardBody = (props) => {
+const BlogCardBody = (props) => {
   const { title = "", summary = "" } = props || {};
 
   return (
@@ -27,13 +27,4 @@ import Text from "@kits/Text";
   );
 };
 
-
-
-
-
-            
-                
-            
-            
-            
-            export default BlogCardBody;
+export default BlogCardBody;

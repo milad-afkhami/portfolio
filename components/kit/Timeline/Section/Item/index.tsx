@@ -2,7 +2,6 @@ import Div from "@kits/Div";
 import { TimelineSectionItemTitle } from "./Title";
 import { TimelineSectionItemDescription } from "./Description";
 
-
 const TimelineSectionItem = (props) => {
   const { text, index } = props || {};
 
@@ -14,11 +13,4 @@ const TimelineSectionItem = (props) => {
   );
 };
 
-
-
-            
-                
-            
-            
-            
-            export default TimelineSectionItem;
+export default TimelineSectionItem;

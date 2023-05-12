@@ -38,13 +38,4 @@ const BlogCardFooter = (props) => {
   );
 };
 
-
-
-
-
-            
-                
-            
-            
-            
-            export default BlogCardFooter;
+export default BlogCardFooter;

@@ -10,7 +10,7 @@ listBuffer
   .forEach(function (file) {
     readFile(file, "utf-8", (err, _txt) => {
       if (err) {
-        console.log("err", {err,file});
+        console.log("err", { err, file });
       }
       let txt = _txt;
       const exportRegex = /export default ([^\s]+)/;
@@ -23,7 +23,7 @@ listBuffer
             export default ${component}`;
           writeFile(file, txt, (err2) => {
             if (err2) {
-              console.log("err2", {err2, file});
+              console.log("err2", { err2, file });
             }
           });
         }

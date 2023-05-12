@@ -1,4 +1,13 @@
-export default function Color(main, hover, light, lighter, dark, pale, paler, variant) {
+export default function Color(
+  main,
+  hover,
+  light,
+  lighter,
+  dark,
+  pale,
+  paler,
+  variant
+) {
   this.main = main;
   this.hover = hover;
   this.light = light;

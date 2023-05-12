@@ -46,11 +46,4 @@ const Tree = (props) => {
   );
 };
 
-
-
-            
-                
-            
-            
-            
-            export default Tree;
+export default Tree;
