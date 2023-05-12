@@ -6,3 +6,4 @@ coverage
 .vercel
 yarn.lock
 package-lock.json
+*.min.*
