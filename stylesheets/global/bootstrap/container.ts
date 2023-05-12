@@ -1,7 +1,6 @@
 import { createGlobalStyle } from "styled-components";
-import { breakpoints } from "@stylesheets";
-import { containerStyle } from "@stylesheets/predefined";
-import { __reduce } from "@utils";
+import breakpoints from "@stylesheets/breakpoints";
+import __reduce  from "lodash-es/reduce";
 
 const containers = {
   xl: "1200px",
@@ -10,7 +9,7 @@ const containers = {
   sm: "unset",
 };
 
-// export const GlobalContainerStyle = createGlobalStyle((props) => ({
+// const GlobalContainerStyle = createGlobalStyle((props) => ({
 //   ...__reduce(
 //     containers,
 //     (acc, cv, bp) => {
@@ -24,7 +23,8 @@ const containers = {
 //   ),
 // }));
 
-export const GlobalContainerStyle = createGlobalStyle`
+
+const GlobalContainerStyle = createGlobalStyle`
   :root {
     --xl-container: ${containers.xl};
     --lg-container: ${containers.lg};
@@ -59,3 +59,5 @@ export const GlobalContainerStyle = createGlobalStyle`
     }
   }
 `;
+
+export default GlobalContainerStyle;

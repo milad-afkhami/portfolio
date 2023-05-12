@@ -1,12 +1,21 @@
-import React from "react";
-import { Div, Text } from "@kits";
+import Div from "@kits/Div";
+import Text from "@kits/Text";
 
-export const DropDownLabel = (props) => {
+
+const DropDownLabel = (props) => {
   const { label } = props || {};
-
+  
   return (
     <Div flex={["center", "center"]}>
       <Text size="sm-b">{label}</Text>
     </Div>
   );
 };
+
+
+            
+                
+            
+            
+            
+            export default DropDownLabel;

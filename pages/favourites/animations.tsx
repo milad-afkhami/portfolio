@@ -1,8 +1,7 @@
-import React from "react";
-import { Div } from "@kits";
+import Div from "@kits/Div";
 import { Head } from "@components/SEO";
 import { FavouriteCommonEntityList } from "@components/Favourites";
-import { PageTitle } from "@components/Layout";
+import PageTitle from "@components/Layout/Title/PageTitle";
 import { favouriteAnimationsData } from "@data";
 import { FAVOURITE_TYPES } from "@constants";
 
@@ -23,4 +22,11 @@ const FavouriteAnimationsPage = (props) => {
   );
 };
 
-export default FavouriteAnimationsPage;
+
+
+            
+                
+            
+            
+            
+            export default FavouriteAnimationsPage;

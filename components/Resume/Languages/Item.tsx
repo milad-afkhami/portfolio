@@ -1,7 +1,9 @@
-import React from "react";
-import { Div, Text } from "@kits";
+import Div from "@kits/Div";
+import Text from "@kits/Text";
 
-export const ResumeLanguageItem = ({ name, proficiency }) => {
+
+
+const ResumeLanguageItem = ({ name, proficiency }) => {
   return (
     <Div mb="2">
       <Div>
@@ -16,3 +18,10 @@ export const ResumeLanguageItem = ({ name, proficiency }) => {
     </Div>
   );
 };
+
+            
+                
+            
+            
+            
+            export default ResumeLanguageItem;

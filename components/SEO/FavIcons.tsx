@@ -1,4 +1,4 @@
-export default function FavIcons() {
+const  FavIcons=()=> {
   return (
     <>
       {/* favIcons */}
@@ -75,3 +75,10 @@ export default function FavIcons() {
     </>
   );
 }
+
+            
+                
+            
+            
+            
+            export default FavIcons

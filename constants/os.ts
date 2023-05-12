@@ -1,4 +1,6 @@
-export const OS = {
+
+
+const OS = {
   IOS: "IOS",
   ANDROID: "ANDROID",
   MACOS: "MacOS",
@@ -6,3 +8,5 @@ export const OS = {
   LINUX: "Linux",
   UNKNOWN: "UNKNOWN",
 };
+
+            export default OS;

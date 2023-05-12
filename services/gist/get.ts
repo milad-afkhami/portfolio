@@ -3,7 +3,9 @@ import * as path from "path";
 import matter from "gray-matter";
 import { serialize } from "next-mdx-remote/serialize";
 
-export const getGistDetail = async (slug) => {
+
+
+const getGistDetail = async (slug) => {
   const GISTS_PATH = path.join(process.cwd(), "data", "gist");
 
   const gistFilePath = path.join(GISTS_PATH, `${slug}.mdx`);
@@ -27,3 +29,5 @@ export const getGistDetail = async (slug) => {
     },
   };
 };
+
+            export default getGistDetail;

@@ -1,8 +1,11 @@
-import React from "react";
-import { Div, Icon, Text } from "@kits";
+import Div from "@kits/Div";
+import Icon from "@kits/Icon";
+import Text from "@kits/Text";
 import { contactOptions } from "@config";
 
-export const ResumeHeaderContact = () => {
+
+
+const ResumeHeaderContact = () => {
   return (
     <Div flexPortion="1" height="100%" flex={["end", "around", "column"]}>
       {contactOptions.map(({ type, label, value }) => (
@@ -20,3 +23,10 @@ export const ResumeHeaderContact = () => {
     </Div>
   );
 };
+
+            
+                
+            
+            
+            
+            export default ResumeHeaderContact;

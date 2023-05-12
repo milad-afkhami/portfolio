@@ -1,10 +1,10 @@
-import React from "react";
-import { Div } from "@kits";
-import { BreadcrumbJsonLd } from "@components/SEO";
-import { BreadcrumbLink } from "./Link";
-import { useTranslation } from "@hooks";
+import Div from "@kits/Div";
+import { BreadcrumbJsonLd } from "next-seo";
+import BreadcrumbLink from "./Link";
+import useTranslation from "@hooks/useTranslation";
 
-export function Breadcrumb(props) {
+
+const Breadcrumb = (props) => {
   const {
     routes,
     lastItemBold = true,
@@ -39,3 +39,12 @@ export function Breadcrumb(props) {
     </>
   );
 }
+
+
+
+            
+                
+            
+            
+            
+            export default Breadcrumb;

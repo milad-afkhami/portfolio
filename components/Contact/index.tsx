@@ -1,10 +1,12 @@
-import React from "react";
-import { Div, Icon, Text } from "@kits";
+import Div from "@kits/Div";
+import Icon from "@kits/Icon";
+import Text from "@kits/Text";
 import { ContactOption } from "./Option";
-import { PageTitle } from "@components/Layout";
+import PageTitle from "@components/Layout/Title/PageTitle";
 import { contactOptions } from "@config";
 
-export function Contact(props) {
+
+const Contact = (props) => {
   const {} = props || {};
 
   const options = contactOptions.filter((opt) => !opt.private);
@@ -31,3 +33,15 @@ export function Contact(props) {
     </Div>
   );
 }
+
+
+
+
+
+
+            
+                
+            
+            
+            
+            export default Contact;

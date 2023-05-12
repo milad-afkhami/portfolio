@@ -20,7 +20,9 @@ dispatch(profileActions, { userId: "USER_ID" })
 ```javascript
 import { useDispatch } from "react-redux";
 
-export const useAsyncDispatch = () => {
+export default useAsyncDispatch;
+
+const useAsyncDispatch = () => {
   const dispatch = useDispatch();
 
   return (action, payload) =>

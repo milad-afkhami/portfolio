@@ -1,1 +1,5 @@
-export const noop = (_) => _;
+
+
+const noop = (_) => _;
+
+            export default noop;

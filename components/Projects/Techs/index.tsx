@@ -1,8 +1,9 @@
-import React from "react";
-import { Div } from "@kits";
+import Div from "@kits/Div";
 import { ProjectTech } from "./Item";
 
-export const ProjectTechs = (props) => {
+
+
+const ProjectTechs = (props) => {
   const { techs, compact } = props || {};
 
   return (
@@ -17,3 +18,10 @@ export const ProjectTechs = (props) => {
     </Div>
   );
 };
+
+            
+                
+            
+            
+            
+            export default ProjectTechs;

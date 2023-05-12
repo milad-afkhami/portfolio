@@ -17,10 +17,14 @@ const alignValues = {
   "flex-start": "flex-start",
 };
 
-export const flex = (align, justify, dir = "row", wrap) => ({
+
+
+const flex = (align, justify, dir = "row", wrap) => ({
   display: "flex",
   ...(align ? { alignItems: alignValues[align] } : {}),
   ...(justify ? { justifyContent: justifyValues[justify] || justify } : {}),
   ...(dir ? { flexDirection: dir } : {}),
   ...(wrap ? { flexWrap: wrap } : {}),
 });
+
+            export default flex;

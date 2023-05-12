@@ -1,11 +1,12 @@
-import React from "react";
 import { useEffect } from "@hooks";
 import { THEMES } from "@constants";
 import styled from "styled-components";
 import { PrismTomorrowTheme } from "./PrismTomorrowTheme";
 import { TableStyles } from "./TableStyles";
 
-export const MarkdownWrapper = ({ children, ...rest }) => {
+
+
+const MarkdownWrapper = ({ children, ...rest }) => {
   useEffect(() => {
     // import("prismjs/themes/prism-tomorrow.css");
     // import("../../node_modules/prismjs/themes/prism-tomorrow.css");
@@ -70,3 +71,10 @@ const StyledWrapper = styled.div`
 
   ${PrismTomorrowTheme}
 `;
+
+            
+                
+            
+            
+            
+            export default MarkdownWrapper;

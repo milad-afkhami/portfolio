@@ -1,9 +1,8 @@
-import React from "react";
-import { Div } from "@kits";
+import Div from "@kits/Div";
 import { Gists } from "@components/Gists";
 import { useMediaQuery } from "@hooks";
 import { breakpoints } from "@stylesheets";
-import { PageTitle } from "@components/Layout";
+import PageTitle from "@components/Layout/Title/PageTitle";
 import { GistsMoreLink } from "./MoreLink";
 
 const homeGists = ["div", "useEnhancedState", "vscode"];

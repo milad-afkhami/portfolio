@@ -1,5 +1,4 @@
-import React from "react";
-import { Div } from "@kits";
+import Div from "@kits/Div";
 import { APP_WRAPPER_ELEMENT_ID } from "@config";
 import { Header } from "./Header";
 import dynamic from "next/dynamic";
@@ -10,7 +9,7 @@ const Footer = dynamic(
   { ssr: false }
 );
 
-export const Layout = (props = {}) => {
+const Layout = (props = {}) => {
   const { children, hideHeader, hideFooter, transparentHeader } = props;
 
   return (
@@ -24,3 +23,12 @@ export const Layout = (props = {}) => {
     </Div>
   );
 };
+
+
+
+            
+                
+            
+            
+            
+            export default Layout;

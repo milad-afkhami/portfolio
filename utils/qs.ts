@@ -1,6 +1,6 @@
 import * as qs from "query-string";
 
-export class QS {
+ QS {
   /**
    * @param {*} params Stringify an object into a query string and sort the keys.
    * @returns
@@ -15,3 +15,5 @@ export class QS {
 
   static set = () => {};
 }
+
+            export default class

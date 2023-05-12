@@ -20,5 +20,7 @@ type LanguageConfig = {
 //     language: Languages;
 //   }
 //   export { useTranslation };
-//   export default I18n;
+//   
 // }
+
+            export default I18n;

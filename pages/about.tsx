@@ -1,8 +1,9 @@
-import React, { useMemo } from "react";
-import { Div, Timeline } from "@kits";
+import { useMemo } from "react";
+import Div from "@kits/Div";
+import Timeline from "@kits/Timeline";
 import { Head, SocialProfileJsonLd, VideoJsonLd } from "@components/SEO";
-import { PageTitle } from "@components/Layout";
-import { WhoAmI } from "@components/About";
+import PageTitle from "@components/Layout/Title/PageTitle";
+import WhoAmI from "@components/About/WhoAmI";
 import {
   aboutTimelineSections,
   appBaseURL,
@@ -10,9 +11,11 @@ import {
   educationTimelineSections,
   workExperienceTimelineSections,
 } from "@config";
-import { useTranslation } from "@hooks";
+import useTranslation from "@hooks/useTranslation";
 
-export default function AboutPage(props) {
+
+
+const AboutPage = (props) => {
   const t = useTranslation().t;
   const videoTitle = t("about.video.title");
   const videoDesc = t("about.video.desc");
@@ -76,3 +79,10 @@ export default function AboutPage(props) {
     </>
   );
 }
+
+            
+                
+            
+            
+            
+            export default AboutPage;

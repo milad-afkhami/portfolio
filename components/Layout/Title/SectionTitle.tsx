@@ -1,8 +1,10 @@
-import React from "react";
-import { Div, Icon, Image, Text } from "@kits";
+import Div from "@kits/Div";
+import Icon from "@kits/Icon";
+import Image from "@kits/Image";
+import Text from "@kits/Text";
 import { THEMES } from "@constants";
 
-export const SectionTitle = (props) => {
+const SectionTitle = (props) => {
   const { icon, title, tag = "h3" } = props || {};
 
   return (
@@ -23,3 +25,12 @@ export const SectionTitle = (props) => {
     </Div>
   );
 };
+
+
+
+            
+                
+            
+            
+            
+            export default SectionTitle;

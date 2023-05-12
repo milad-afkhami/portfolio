@@ -1,8 +1,9 @@
-import React from "react";
-import { Div, Image } from "@kits";
+import Div from "@kits/Div";
+import Image from "@kits/Image";
 import { logoLg } from "@images";
 
-export function ProfileAvatar(props) {
+
+const ProfileAvatar = (props) => {
   return (
     <Div flex={[, "center"]}>
       <Div
@@ -19,3 +20,12 @@ export function ProfileAvatar(props) {
     </Div>
   );
 }
+
+
+
+            
+                
+            
+            
+            
+            export default ProfileAvatar;

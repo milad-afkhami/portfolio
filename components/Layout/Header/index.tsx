@@ -1,5 +1,4 @@
-import React from "react";
-import { Div } from "@kits";
+import Div from "@kits/Div";
 import { HeaderNav } from "./Nav";
 import dynamic from "next/dynamic";
 import { HeaderChangeLanguage } from "./LanguagePicker";
@@ -11,7 +10,8 @@ const HeaderSwitchTheme = dynamic(
   { ssr: false }
 );
 
-export function Header(props) {
+
+const Header = (props) => {
   const { transparent } = props || {};
 
   return (
@@ -37,3 +37,11 @@ export function Header(props) {
     </Div>
   );
 }
+
+
+            
+                
+            
+            
+            
+            export default Header;

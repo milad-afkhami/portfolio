@@ -1,9 +1,8 @@
-import React from "react";
-import { __range } from "@utils";
+import __range from "lodash-es/range";
 import { StyledSvg } from "./StyledSvg";
 import { LinearGradient } from "@components/Skeleton";
 
-export const BlogCardLoadings = (props) => {
+const BlogCardLoadings = (props) => {
   const {} = props || {};
 
   return (
@@ -42,3 +41,14 @@ export const BlogCardLoadings = (props) => {
     </StyledSvg>
   );
 };
+
+
+
+
+
+            
+                
+            
+            
+            
+            export default BlogCardLoadings

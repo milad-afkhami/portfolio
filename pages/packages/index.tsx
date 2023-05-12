@@ -1,9 +1,10 @@
-import React from "react";
-import { Div } from "@kits";
+import Div from "@kits/Div";
 import { Head } from "@components/SEO";
 import { PageTitle, SectionTitle } from "@components/Layout";
 
-export default function PackagesPage(props) {
+
+
+const PackagesPage = (props) => {
   return (
     <>
       <Head canonical="/packages" />
@@ -14,3 +15,10 @@ export default function PackagesPage(props) {
     </>
   );
 }
+
+            
+                
+            
+            
+            
+            export default PackagesPage;

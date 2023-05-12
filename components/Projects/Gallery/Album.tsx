@@ -1,7 +1,9 @@
-import React from "react";
-import { Div, Image } from "@kits";
+import Div from "@kits/Div";
+import Image from "@kits/Image";
 
-export const ProjectGalleryAlbum = (props) => {
+
+
+const ProjectGalleryAlbum = (props) => {
   const { medias, onClickItem } = props || {};
 
   return (
@@ -51,3 +53,10 @@ export const ProjectGalleryAlbum = (props) => {
     </Div>
   );
 };
+
+            
+                
+            
+            
+            
+            export default ProjectGalleryAlbum;

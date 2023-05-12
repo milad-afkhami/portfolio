@@ -1,8 +1,7 @@
-import React from "react";
-import { Div } from "@kits";
+import Div from "@kits/Div";
 import { Head } from "@components/SEO";
 import { FavouriteArtists } from "@components/Favourites";
-import { PageTitle } from "@components/Layout";
+import PageTitle from "@components/Layout/Title/PageTitle";
 
 const FavouriteArtistsPage = (props) => {
   // const { data, isValidating, mutate, error } = useHome();
@@ -18,4 +17,11 @@ const FavouriteArtistsPage = (props) => {
   );
 };
 
-export default FavouriteArtistsPage;
+
+
+            
+                
+            
+            
+            
+            export default FavouriteArtistsPage;

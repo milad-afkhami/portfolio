@@ -1,8 +1,8 @@
-import React from "react";
-import { Div, Text } from "@kits";
-import { PageTitle } from "@components/Layout";
+import Div from "@kits/Div";
+import Text from "@kits/Text";
+import PageTitle from "@components/Layout/Title/PageTitle";
 
-export const BlogTitle = (props) => {
+const BlogTitle = (props) => {
   const { title } = props || {};
 
   return <PageTitle title={title} />;
@@ -15,3 +15,15 @@ export const BlogTitle = (props) => {
     </Div>
   );
 };
+
+
+
+
+
+
+            
+                
+            
+            
+            
+            export default BlogTitle;

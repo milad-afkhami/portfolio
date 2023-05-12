@@ -99,14 +99,18 @@ product: {
 The best way to implement this page is to first get data at build time with help of ISR, removing its dynamic parts( isLiked, similars ), and passing remains to the page as props.
 
 ```javascript
-export const getStaticProps = async ({ params }) => {
+export default getStaticProps;
+
+const getStaticProps = async ({ params }) => {
     const result = await ProductServices.getDetail(params.slug);
     return {
       props: { product: result.product },
     };
   };
 }
-export const getStaticPaths = async ({ locales }) => {
+export default getStaticPaths;
+
+const getStaticPaths = async ({ locales }) => {
   const priorProducts = await ProductServices.getPriors(1000);
   const paths = priorProducts.reduce((acc, { slug }) => {
     locales.forEach((locale) => {
@@ -130,8 +134,8 @@ On the client side, I use <abbr title="Stale While Revalidate">[SWR](https://swr
 import useSWRImmutable from "swr/immutable";
 import { useDebugValue } from "react";
 import { endpoints } from "@constants";
-import { Http } from "@utils";
-export function useProduct(slug) {
+import Http from "@utils/Http";
+export default function useProduct(slug) {
   const key = endpoints.product + "?slug=" + slug;
   const swr = useSWRImmutable(key, async (url) => {
     try {

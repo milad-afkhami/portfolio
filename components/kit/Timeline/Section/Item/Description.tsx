@@ -1,8 +1,8 @@
-import React from "react";
 import { ExpandableText, Text } from "@kits";
-import { useTranslation } from "@hooks";
+import useTranslation from "@hooks/useTranslation";
 
-export const TimelineSectionItemDescription = (props) => {
+
+const TimelineSectionItemDescription = (props) => {
   const { description } = props || {};
 
   const t = useTranslation().t;
@@ -26,3 +26,12 @@ export const TimelineSectionItemDescription = (props) => {
     )
   ) : null;
 };
+
+
+
+            
+                
+            
+            
+            
+            export default TimelineSectionItemDescription;

@@ -1,7 +1,8 @@
-import React from "react";
-import { Div, Icon } from "@kits";
+import Div from "@kits/Div";
+import Icon from "@kits/Icon";
 
-export function HeaderGithub(props) {
+
+const HeaderGithub = (props) => {
   const {} = props || {};
 
   return (
@@ -16,3 +17,12 @@ export function HeaderGithub(props) {
     </Div>
   );
 }
+
+
+
+            
+                
+            
+            
+            
+            export default HeaderGithub;

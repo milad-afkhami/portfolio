@@ -1,8 +1,7 @@
-import React from "react";
-import { Div } from "@kits";
-import { FavouriteCommonEntityCard } from "./Card";
+import Div from "@kits/Div";
+import FavouriteCommonEntityCard from "./Card";
 
-export const FavouriteCommonEntityList = (props) => {
+const FavouriteCommonEntityList = (props) => {
   const { items, entityType } = props || {};
 
   return (
@@ -27,3 +26,14 @@ export const FavouriteCommonEntityList = (props) => {
     </>
   );
 };
+
+
+
+
+
+            
+                
+            
+            
+            
+            export default FavouriteCommonEntityList

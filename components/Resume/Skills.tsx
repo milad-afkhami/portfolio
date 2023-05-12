@@ -1,6 +1,6 @@
-import React from "react";
-import { Div, Text } from "@kits";
-import { SectionTitle } from "@components/Layout";
+import Div from "@kits/Div";
+import Text from "@kits/Text";
+import SectionTitle from "@components/Layout/Title/SectionTitle";
 
 const resumeSkills = [
   { name: "JavaScript / TypeScript" },
@@ -9,7 +9,9 @@ const resumeSkills = [
   { name: "Next.js" },
 ];
 
-export const ResumeSkills = () => {
+
+
+const ResumeSkills = () => {
   return (
     <Div>
       <SectionTitle title="resume.skills.title" icon="focus-center" />
@@ -29,3 +31,10 @@ export const ResumeSkills = () => {
     </Div>
   );
 };
+
+            
+                
+            
+            
+            
+            export default ResumeSkills;

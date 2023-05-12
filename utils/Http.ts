@@ -1,13 +1,13 @@
 import axios from "axios";
-import { apiBaseURL, externalApiBaseURL } from "@config";
-import { formData } from "@utils";
+import { externalApiBaseURL } from "@config";
+import formData from "@utils/formData";
 
 /**
  * @typedef {("GET" | "POST" | "PUT" | "PATCH" | "DELETE")} Method
  * @typedef {{baseURL:string, url:string, method:Method, headers:Object, params: Object, type: "formData"|null }} FetchOptions
  */
 
-export class Http {
+ Http {
   /**
    * Performs an HTTP options request
    * @method
@@ -83,3 +83,5 @@ export class Http {
     return response.data;
   };
 }
+
+            export default class

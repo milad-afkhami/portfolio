@@ -1,8 +1,10 @@
 import { createGlobalStyle } from "styled-components";
-import { curves } from "@stylesheets";
-import { __reduce } from "@utils";
+import curves from "@stylesheets/constants/curves";
+import __reduce from "lodash-es/reduce";
 
-export const GlobalCurves = createGlobalStyle((props) => {
+
+
+const GlobalCurves = createGlobalStyle((props) => {
   return {
     ":root": __reduce(
       curves,
@@ -11,3 +13,5 @@ export const GlobalCurves = createGlobalStyle((props) => {
     ),
   };
 });
+
+            export default GlobalCurves;

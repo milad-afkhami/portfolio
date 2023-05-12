@@ -1,12 +1,13 @@
-import React from "react";
-import { Div } from "@kits";
+import Div from "@kits/Div";
 import { Head } from "@components/SEO";
 import dynamic from "next/dynamic";
-import { PageTitle } from "@components/Layout";
+import PageTitle from "@components/Layout/Title/PageTitle";
 import { Gists } from "@components/Gists";
 import { GistServices } from "@services";
 
-export default function GistsPage(props) {
+
+
+const GistsPage = (props) => {
   return (
     <>
       <Head canonical="/gists" page="gists" />
@@ -23,3 +24,10 @@ export async function getStaticProps() {
 
   return { props: { gists } };
 }
+
+            
+                
+            
+            
+            
+            export default GistsPage;

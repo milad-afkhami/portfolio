@@ -1,7 +1,11 @@
-import React from "react";
-import { Div, Text, Link, Button } from "@kits";
+import Div from "@kits/Div";
+import Text from "@kits/Text";
+import Link from "@kits/Link";
+import Button from "@kits/Button";
 
-export default function Error(props) {
+
+
+const Error = (props) => {
   return (
     <Div height="100%" flex={["center", "center", "column"]} p="3" mh="100%">
       <Div my="3">
@@ -17,3 +21,10 @@ export default function Error(props) {
     </Div>
   );
 }
+
+            
+                
+            
+            
+            
+            export default Error;

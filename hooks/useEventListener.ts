@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "@hooks";
 
-export function useEventListener(eventName, handler, element = window) {
+const  useEventListener=(eventName, handler, element = window) =>{
   const handlerRef = useRef();
 
   useEffect(() => {
@@ -18,3 +18,5 @@ export function useEventListener(eventName, handler, element = window) {
     return () => element.removeEventListener(eventName, eventListener);
   }, [eventName, element]);
 }
+
+            export default useEventListener

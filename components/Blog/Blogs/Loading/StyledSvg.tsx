@@ -1,7 +1,7 @@
-import { breakpoints } from "@stylesheets";
+import breakpoints from "@stylesheets/breakpoints";
 import styled from "styled-components";
 
-export const StyledSvg = styled.svg`
+const StyledSvg = styled.svg`
   @media (min-width: ${breakpoints.sm}px) and (max-width: ${breakpoints.lg}px) {
     #clip-path rect {
       width: calc(50% - 0.5rem);
@@ -16,3 +16,14 @@ export const StyledSvg = styled.svg`
     }
   }
 `;
+
+
+
+
+
+            
+                
+            
+            
+            
+            export default StyledSvg

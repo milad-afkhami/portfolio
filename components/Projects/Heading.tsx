@@ -1,7 +1,12 @@
-import React from "react";
-import { Div, Image, Link, Text } from "@kits";
+import Div from "@kits/Div";
+import Image from "@kits/Image";
+import Link from "@kits/Link";
+import Text from "@kits/Text";
 
-export const ProjectHeading = (props) => {
+
+
+
+const ProjectHeading = (props) => {
   const { logo, link = "", slug, index, date } = props || {};
 
   return (
@@ -58,3 +63,9 @@ export const ProjectHeading = (props) => {
     </Div>
   );
 };
+
+            
+
+            
+            
+            export default ProjectHeading;

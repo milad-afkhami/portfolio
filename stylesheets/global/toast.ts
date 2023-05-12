@@ -1,7 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 
-// export const GlobalGridSystem = styled.a`
-export const GlobalToastifyVariables = createGlobalStyle`
+// const GlobalGridSystem = styled.a`
+
+const GlobalToastifyVariables = createGlobalStyle`
   :root {
     --toastify-color-light: #fff;
     --toastify-color-dark: #121212;

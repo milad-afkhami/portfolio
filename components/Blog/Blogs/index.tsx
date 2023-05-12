@@ -1,12 +1,11 @@
-import React from "react";
-import { Div } from "@kits";
+import Div from "@kits/Div";
 import { BlogCard } from "./Card";
 import { BlogCardLoadings } from "./Loading";
 import { ORIENTATION } from "@constants";
-import { PageTitle } from "@components/Layout";
+import PageTitle from "@components/Layout/Title/PageTitle";
 import { BlogsMoreLink } from "./MoreLink";
 
-export const Blogs = (props) => {
+const Blogs = (props) => {
   const {
     items = [],
     loading,
@@ -42,3 +41,14 @@ export const Blogs = (props) => {
     </Div>
   );
 };
+
+
+
+
+
+            
+                
+            
+            
+            
+            export default Blogs;

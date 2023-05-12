@@ -1,8 +1,10 @@
 import { createGlobalStyle } from "styled-components";
-import { typographyVariants } from "@stylesheets";
-import { __reduce } from "@utils";
+import typographyVariants from "@stylesheets/typography";
+import __reduce from "lodash-es/reduce";
 
-export const GlobalTypographies = createGlobalStyle((props) => {
+
+
+const GlobalTypographies = createGlobalStyle((props) => {
   return __reduce(
     typographyVariants,
     (accumulatedStyles, typography, breakpoint) => {
@@ -28,3 +30,5 @@ export const GlobalTypographies = createGlobalStyle((props) => {
     {}
   );
 });
+
+            export default GlobalTypographies;

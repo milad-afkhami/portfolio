@@ -1,4 +1,5 @@
-export const curves = {
+
+const curves = {
   xlg: "2rem",
   lg: "1.5rem",
   md: " 1rem",
@@ -7,3 +8,5 @@ export const curves = {
   xxsm: "0.125rem",
   circle: "50%",
 };
+
+export  default curves;

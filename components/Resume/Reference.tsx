@@ -1,9 +1,12 @@
-import React from "react";
-import { Div, Icon, Text } from "@kits";
+import Div from "@kits/Div";
+import Icon from "@kits/Icon";
+import Text from "@kits/Text";
 import { appBaseURL } from "@config";
 import { Trans } from "next-i18next";
 
-export const ResumeReference = (props) => {
+
+
+const ResumeReference = (props) => {
   const { i18nKey, route, link } = props || {};
   return (
     <Div flex={["center", "start"]} my="3">
@@ -50,3 +53,10 @@ export const ResumeReference = (props) => {
     </Div>
   );
 };
+
+            
+                
+            
+            
+            
+            export default ResumeReference;

@@ -1,9 +1,11 @@
-import React from "react";
-import { Div, Tree } from "@kits";
-import { SectionTitle } from "@components/Layout";
+import Div from "@kits/Div";
+import Tree from "@kits/Tree";
+import SectionTitle from "@components/Layout/Title/SectionTitle";
 import { typographyVariants } from "@stylesheets";
 
-export const TypographyVariables = (props) => {
+
+
+const TypographyVariables = (props) => {
   return (
     <Div id="typography" my="3">
       <SectionTitle title="markdown.variables.typography" tag="h4" />
@@ -15,3 +17,10 @@ export const TypographyVariables = (props) => {
     </Div>
   );
 };
+
+            
+                
+            
+            
+            
+            export default TypographyVariables;

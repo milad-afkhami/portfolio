@@ -1,4 +1,4 @@
-import { keys, values } from "lodash";
+import { keys, values } from "lodash-es";
 
 /**
  * Creates an array of the own enumerable property names of object.

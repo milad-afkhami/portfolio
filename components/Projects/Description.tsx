@@ -1,7 +1,9 @@
-import React from "react";
-import { Div, Text } from "@kits";
+import Div from "@kits/Div";
+import Text from "@kits/Text";
 
-export const ProjectDescription = (props) => {
+
+
+const ProjectDescription = (props) => {
   const { slug } = props || {};
 
   return (
@@ -11,3 +13,10 @@ export const ProjectDescription = (props) => {
     </Div>
   );
 };
+
+            
+                
+            
+            
+            
+            export default ProjectDescription;

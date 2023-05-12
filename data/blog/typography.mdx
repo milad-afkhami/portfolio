@@ -82,7 +82,9 @@ import { typographyVariants } from "@stylesheets";
 import __reduce from "lodash/reduce";
 
 // *
-export const GlobalTypographies = createGlobalStyle((props) => {
+export default GlobalTypographies;
+
+const GlobalTypographies = createGlobalStyle((props) => {
   return __reduce(
     typographyVariants,
     (accumulatedStyles, typography, breakpoint) => {

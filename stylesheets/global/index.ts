@@ -1,4 +1,4 @@
-import React, { memo, ComponentType } from "react";
+import { memo, ComponentType } from "react";
 import { GlobalColors } from "./variables/colors";
 import { GlobalTypographies } from "./variables/typography";
 import { GlobalContainerStyle } from "./bootstrap/container";
@@ -12,7 +12,9 @@ import { GlobalShadows } from "./variables/shadows";
 /**
  * @type {ComponentType}
  */
-export const GlobalStyles = memo(() => {
+
+
+const GlobalStyles = memo(() => {
   return (
     <>
       <GlobalColors />
@@ -27,3 +29,5 @@ export const GlobalStyles = memo(() => {
     </>
   );
 });
+
+            export default GlobalStyles;

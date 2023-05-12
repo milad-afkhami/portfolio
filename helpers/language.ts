@@ -1,10 +1,11 @@
 // import i18n from "react-i18next";
-import { PageAttr } from "@helpers";
-import { Cookies } from "@utils";
-import { languages, LOCALE_COOKIE_KEY } from "@constants";
+import PageAttr from "@helpers/pageAttribute";
+import Cookies from "@utils/cookies";
+import languages from "@constants/languages";
+import { LOCALE_COOKIE_KEY} from "@constants/cookies";
 import Router from "next/router";
 
-export class LanguageHelper {
+ LanguageHelper {
   static getDefaultLocale = () => {
     return Object.keys(languages)[0];
   };
@@ -38,3 +39,5 @@ export class LanguageHelper {
     });
   }
 }
+
+            export default class

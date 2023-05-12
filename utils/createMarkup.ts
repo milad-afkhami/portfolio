@@ -1,1 +1,5 @@
-export const createMarkup = (data) => ({ __html: data });
+
+
+const createMarkup = (data) => ({ __html: data });
+
+            export default createMarkup;

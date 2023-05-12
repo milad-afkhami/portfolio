@@ -1,9 +1,8 @@
-import React from "react";
-import { Div } from "@kits";
-import { FavouritePlaylist } from "./Item";
-import { favouritePlaylistsData } from "@data";
+import Div from "@kits/Div";
+import FavouritePlaylist from "./Item";
+import { favouritePlaylistsData } from "@data/favourites";
 
-export const FavouritePlaylists = () => {
+const FavouritePlaylists = () => {
   return (
     <Div>
       {favouritePlaylistsData.map((pl) => (
@@ -12,3 +11,14 @@ export const FavouritePlaylists = () => {
     </Div>
   );
 };
+
+
+
+
+
+            
+                
+            
+            
+            
+            export default FavouritePlaylists

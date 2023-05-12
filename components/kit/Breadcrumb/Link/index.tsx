@@ -1,8 +1,9 @@
-import React from "react";
-import { Div, Link } from "@kits";
-import { BreadcrumbLinkText } from "./Text";
+import Div from "@kits/Div";
+import Link from "@kits/Link";
+import BreadcrumbLinkText  from "./Text";
 
-export function BreadcrumbLink(props) {
+
+const BreadcrumbLink = (props) => {
   const { route, lastItem } = props;
 
   return (
@@ -19,3 +20,12 @@ export function BreadcrumbLink(props) {
     </Div>
   );
 }
+
+
+
+            
+                
+            
+            
+            
+            export default BreadcrumbLink;

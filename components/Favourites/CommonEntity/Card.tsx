@@ -1,8 +1,9 @@
-import React from "react";
-import { Div, Text, Image } from "@kits";
-import { useTranslation } from "@hooks";
+import Div from "@kits/Div";
+import Text from "@kits/Text";
+import Image from "@kits/Image";
+import useTranslation from "@hooks/useTranslation";
 
-export const FavouriteCommonEntityCard = (props) => {
+const FavouriteCommonEntityCard = (props) => {
   const { slug, entityType } = props || {};
 
   const t = useTranslation().t;
@@ -74,3 +75,14 @@ export const FavouriteCommonEntityCard = (props) => {
     </Div>
   );
 };
+
+ 
+
+
+
+            
+                
+            
+            
+            
+            export default FavouriteCommonEntityCard

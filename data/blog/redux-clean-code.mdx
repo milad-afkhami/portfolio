@@ -48,7 +48,9 @@ The only required middleware here is saga middleware, we need to create a `middl
 ```javascript
 import createSagaMiddleware from "redux-saga";
 
-export const sagaMiddleware = createSagaMiddleware();
+export default sagaMiddleware;
+
+const sagaMiddleware = createSagaMiddleware();
 ```
 
 ## 4. Walkthrough root files
@@ -95,8 +97,12 @@ export * from "./modules/rehydrate";
 export * from "./modules/language";
 // export * from "./modules/...";
 
-export const SAGA_END = END;
-export const APP_HYDRATION = "APP_HYDRATION";
+export default SAGA_END;
+
+const SAGA_END = END;
+export default APP_HYDRATION;
+
+const APP_HYDRATION = "APP_HYDRATION";
 ```
 
 **reducers.js**
@@ -105,7 +111,9 @@ This file is responsible for bringing all of our reducers together, ready to com
 ```javascript
 import { xxxKey, xxxReducer } from "./modules/xxx";
 
-export const reducers = {
+export default reducers;
+
+const reducers = {
   [xxxKey]: xxxReducer,
 };
 ```
@@ -129,7 +137,7 @@ import {
   xxxWorker,
 } from "./";
 
-export function* rootSaga() {
+export default function* rootSaga() {
   yield all([
     takeEvery(APP_HYDRATION, rehydrateWorker),
     takeEvery(languageActionTypes.CHANGE_LANGUAGE, changeLanguageWorker),
@@ -221,7 +229,7 @@ const initialState = {
   triggerPayload: null, // the payload that reducer got triggered with
 };
 
-export function ReduxRoutines(key) {
+export default function ReduxRoutines(key) {
   const sagaRoutines = createSagaRoutines(key);
   this.actions = sagaRoutines.actions;
   this.actionTypes = sagaRoutines.actionTypes;
@@ -309,7 +317,9 @@ export default function () {
   // ...
 }
 
-export const getStaticProps = nextReduxWrapper.getStaticProps(
+export default getStaticProps;
+
+const getStaticProps = nextReduxWrapper.getStaticProps(
   (store) => () => {}
 );
 ```
@@ -320,7 +330,8 @@ In [redux-saga](https://redux-saga.js.org/) a worker is a generator function lik
 ```javascript
 import { call, put } from "redux-saga/effects";
 import { ReduxRoutines } from "@models";
-import { Http, __get } from "@utils";
+import Http from "@utils/Http";
+import __get from "lodash-es/get";
 import handleSagaError from "@redux/handleSagaError";
 import { endpoints } from "@constants";
 
@@ -328,7 +339,7 @@ const key = "home";
 
 const { actions, actionTypes, reducer } = new ReduxRoutines(key);
 
-export function* homeWorker(action) {
+export default function* homeWorker(action) {
   const { type, payload } = action;
   try {
     yield put(actions.request());

@@ -1,9 +1,8 @@
-import React from "react";
-import { Div } from "@kits";
-import { Blogs } from "@components/Blog";
-import { ORIENTATION } from "@constants";
-import { useMediaQuery } from "@hooks";
-import { breakpoints } from "@stylesheets";
+import Div from "@kits/Div";
+import Blogs from "@components/Blog";
+import ORIENTATION from "@constants/orientation";
+import { useMediaQuery } from "react-responsive";
+import breakpoints from "@stylesheets/breakpoints";
 
 const homeBlogs = [
   "data-fetching-pattern-preference",
@@ -16,7 +15,7 @@ const homeBlogs = [
   // "http-proxy",
 ];
 
-export const FeaturedPosts = (props) => {
+const FeaturedPosts = (props) => {
   // const { data, isValidating, mutate, error } = useBlogs();
 
   const isMediumScreen = useMediaQuery({
@@ -39,3 +38,11 @@ export const FeaturedPosts = (props) => {
     </Div>
   );
 };
+
+
+            
+                
+            
+            
+            
+            export default FeaturedPosts

@@ -1,4 +1,4 @@
-export const setDimensions = ({ size, block, width, height, fixedWidth }) => {
+const setDimensions = ({ size, block, width, height, fixedWidth }) => {
   const minWidth = "140px";
   const _width = width || (block ? "100%" : fixedWidth ? minWidth : undefined);
   const _height =
@@ -9,3 +9,7 @@ export const setDimensions = ({ size, block, width, height, fixedWidth }) => {
     height: _height,
   };
 };
+
+
+
+            export default setDimensions;

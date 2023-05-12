@@ -1,7 +1,7 @@
-import React from "react";
-import { Div, Text, Image, Link } from "@kits";
+import Image from "@kits/Image";
+import Link from "@kits/Link";
 
-export const GistCardCategory = (props) => {
+const GistCardCategory = (props) => {
   const { category = "" } = props || {};
 
   return (
@@ -23,3 +23,5 @@ export const GistCardCategory = (props) => {
     </Link>
   );
 };
+
+export default  GistCardCategory

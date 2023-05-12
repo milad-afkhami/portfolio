@@ -3,7 +3,9 @@ import * as path from "path";
 import matter from "gray-matter";
 import { serialize } from "next-mdx-remote/serialize";
 
-export const getBlogDetail = async (slug) => {
+
+
+const getBlogDetail = async (slug) => {
   const BLOGS_PATH = path.join(process.cwd(), "data", "blog");
 
   const blogFilePath = path.join(BLOGS_PATH, `${slug}.mdx`);
@@ -27,3 +29,5 @@ export const getBlogDetail = async (slug) => {
     },
   };
 };
+
+            export default getBlogDetail;

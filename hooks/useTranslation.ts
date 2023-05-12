@@ -25,9 +25,11 @@ function useTranslation<T extends I18NNameSpaces>(
   });
 }
 
-export default useTranslation;
+
 
 // type HookValue<T> = UseTranslationResponse<T>;
 // type HookValue = Extract<ReturnType<typeof useNINTranslation>, Record<string, unknown>>;
 // type HookValue = Exclude<ReturnType<typeof useNINTranslation>, Array<unknown>>;
 // type HookValue = Pick<ReturnType<typeof useNINTranslation>, "t" | "i18n" | "ready">;
+
+            export default useTranslation;

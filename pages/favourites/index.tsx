@@ -1,5 +1,4 @@
-import React from "react";
-import { Div } from "@kits";
+import Div from "@kits/Div";
 import { Head } from "@components/SEO";
 import { FavouriteEntities } from "@components/Favourites";
 
@@ -14,4 +13,11 @@ const FavouritesPage = (props) => {
   );
 };
 
-export default FavouritesPage;
+
+
+            
+                
+            
+            
+            
+            export default FavouritesPage;

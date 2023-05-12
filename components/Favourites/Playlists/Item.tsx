@@ -1,9 +1,12 @@
-import React from "react";
-import { Button, Div, Image, Link, Text } from "@kits";
-import { useToggle } from "@hooks";
-import { FavouritePlaylistTracks } from "./Tracks";
+import Button from "@kits/Button";
+import Div from "@kits/Div";
+import Image from "@kits/Image";
+import Link from "@kits/Link";
+import Text from "@kits/Text";
+import useToggle from "@hooks/useToggle";
+import FavouritePlaylistTracks from "./Tracks";
 
-export const FavouritePlaylist = (props) => {
+const FavouritePlaylist = (props) => {
   const { name, image, link, tracks } = props || {};
 
   const [tracksOpen, toggleTracks] = useToggle(false);
@@ -87,3 +90,14 @@ export const FavouritePlaylist = (props) => {
     </Div>
   );
 };
+
+
+
+
+
+            
+                
+            
+            
+            
+            export default FavouritePlaylist;

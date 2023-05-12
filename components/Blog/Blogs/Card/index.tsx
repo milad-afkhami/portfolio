@@ -1,10 +1,11 @@
-import React from "react";
-import { Div, Image, Link } from "@kits";
+import Div from "@kits/Div";
+import Image from "@kits/Image";
+import Link from "@kits/Link";
 import { BlogCardCategory } from "./Category";
 import { BlogCardBody } from "./Body";
 import { BlogCardFooter } from "./Footer";
 
-export const BlogCard = (props) => {
+const BlogCard = (props) => {
   const { image = "", slug = "" } = props || {};
 
   return (
@@ -55,3 +56,14 @@ export const BlogCard = (props) => {
     </Link>
   );
 };
+
+
+
+
+
+            
+                
+            
+            
+            
+            export default BlogCard;

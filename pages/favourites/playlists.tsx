@@ -1,8 +1,7 @@
-import React from "react";
-import { Div } from "@kits";
+import Div from "@kits/Div";
 import { Head } from "@components/SEO";
 import { FavouritePlaylists } from "@components/Favourites";
-import { PageTitle } from "@components/Layout";
+import PageTitle from "@components/Layout/Title/PageTitle";
 
 const FavouritePlaylistsPage = (props) => {
   return (
@@ -16,4 +15,11 @@ const FavouritePlaylistsPage = (props) => {
   );
 };
 
-export default FavouritePlaylistsPage;
+
+
+            
+                
+            
+            
+            
+            export default FavouritePlaylistsPage;

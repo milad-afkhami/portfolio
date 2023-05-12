@@ -1,7 +1,8 @@
-import React from "react";
 import { Link, Text } from "@kits";
 
-export const ProjectTech = (props) => {
+
+
+const ProjectTech = (props) => {
   const { name, link, compact } = props || {};
 
   return (
@@ -20,3 +21,10 @@ export const ProjectTech = (props) => {
     </Link>
   );
 };
+
+            
+                
+            
+            
+            
+            export default ProjectTech;

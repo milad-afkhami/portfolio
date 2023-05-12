@@ -1,12 +1,8 @@
-import React from "react";
-import { Div } from "@kits";
-import { GistCard } from "./Card";
-import { SectionTitle } from "@components/Layout";
+import Div from "@kits/Div";
+import GistCard from "./Card";
+import SectionTitle from "@components/Layout";
 
-export * from "./Title";
-export * from "./Summary";
-
-export const Gists = (props) => {
+const Gists = (props) => {
   const {
     items = [],
     loading,
@@ -38,3 +34,11 @@ export const Gists = (props) => {
     </Div>
   );
 };
+
+
+            
+                
+            
+            
+            
+            export default Gists

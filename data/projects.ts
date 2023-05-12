@@ -1,4 +1,6 @@
-export const projectsData = [
+
+
+const projectsData = [
   {
     _id: 0,
     name: "Octava",
@@ -412,3 +414,5 @@ export const projectsData = [
     ],
   },
 ];
+
+            export default projectsData;

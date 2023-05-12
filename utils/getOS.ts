@@ -1,6 +1,8 @@
 import { OS } from "@constants";
 
-export const getOS = (userAgent) => {
+
+
+const getOS = (userAgent) => {
   const agent =
     userAgent || (process.browser ? window.navigator.userAgent : "");
 
@@ -16,3 +18,5 @@ export const getOS = (userAgent) => {
     ? OS.MACOS
     : OS.UNKNOWN;
 };
+
+            export default getOS;

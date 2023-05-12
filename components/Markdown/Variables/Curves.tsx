@@ -1,10 +1,9 @@
-import React from "react";
-import { Div, Tree } from "@kits";
-import { useState } from "@hooks";
-import { SectionTitle } from "@components/Layout";
-import { curves } from "@stylesheets";
+import Div from "@kits/Div";
+import Tree from "@kits/Tree";
+import SectionTitle from "@components/Layout/Title/SectionTitle";
+import curves from "@stylesheets/constants/curves";
 
-export const CurveVariables = (props) => {
+const CurveVariables = (props) => {
   return (
     <Div id="curves" my="3">
       <SectionTitle title="markdown.variables.curves" tag="h4" />
@@ -12,3 +11,12 @@ export const CurveVariables = (props) => {
     </Div>
   );
 };
+
+
+
+            
+                
+            
+            
+            
+            export default CurveVariables;

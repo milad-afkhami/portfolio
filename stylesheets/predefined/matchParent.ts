@@ -1,4 +1,6 @@
-export const matchParent = {
+
+
+const matchParent = {
   width: "100%",
   minWidth: "100%",
   maxWidth: "100%",
@@ -6,3 +8,5 @@ export const matchParent = {
   minHeight: "100%",
   maxHeight: "100%",
 };
+
+            export default matchParent;

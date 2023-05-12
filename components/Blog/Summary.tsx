@@ -1,7 +1,7 @@
-import React from "react";
-import { Div, Text } from "@kits";
+import Div from "@kits/Div";
+import Text from "@kits/Text";
 
-export const BlogSummary = (props) => {
+const BlogSummary = (props) => {
   const { summary } = props || {};
 
   return (
@@ -12,3 +12,15 @@ export const BlogSummary = (props) => {
     </Div>
   );
 };
+
+
+
+
+
+
+            
+                
+            
+            
+            
+            export default BlogSummary;

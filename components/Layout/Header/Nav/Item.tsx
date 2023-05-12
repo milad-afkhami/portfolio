@@ -1,7 +1,8 @@
-import React from "react";
 import { Link, Text } from "@kits";
 
-export function HeaderMenuItem(props) {
+
+
+const HeaderMenuItem = (props) => {
   return (
     <Link
       href={props.link}
@@ -22,3 +23,10 @@ export function HeaderMenuItem(props) {
     </Link>
   );
 }
+
+            
+                
+            
+            
+            
+            export default HeaderMenuItem;

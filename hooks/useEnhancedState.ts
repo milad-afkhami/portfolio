@@ -12,7 +12,7 @@ import {
  * @returns {[any, Function, any, MutableRefObject]}
  */
 
-export function useEnhancedState(initialState) {
+const useEnhancedState = (initialState) => {
   const [state, setState] = useState(initialState);
   const [prevState, setPrevState] = useState();
   const stateRef = useRef();
@@ -37,3 +37,5 @@ export function useEnhancedState(initialState) {
 
   return [state, handleSetState, prevState, stateRef];
 }
+
+            export default useEnhancedState

@@ -9,17 +9,18 @@ summary: "A hook to use socket in a more linear and reactive way"
 ```javascript
 // /contexts/chat.js
 
-import React from "react";
-import { useState, useEffect, useCallback, useRef } from "@hooks";
+import { useState, useEffect, useCallback, useRef } from "react";
 import socketIOClient from "socket.io-client";
 import { socketBaseURL } from "@config";
-import { beep } from "@utils";
+import beep from "@utils/beep";
 
 import { createContext, useContextSelector } from "use-context-selector";
 
-export const ChatContext = createContext();
+export default ChatContext;
 
-export function ChatProvider({ children }) {
+const ChatContext = createContext();
+
+export default function ChatProvider({ children }) {
   const user = "USER_ID_FROM_GLOBAL_STATE";
 
   const [isConnected, setConnected] = useState(false);
@@ -156,7 +157,9 @@ You can create a hook that does this and you just need to import that one hook
 import { useContextSelector } from "use-context-selector";
 import { ChatContext } from "@context/Chat";
 
-export const useChat = (selector) => {
+export default useChat;
+
+const useChat = (selector) => {
   return useContext(ChatContext, selector);
 };
 ```

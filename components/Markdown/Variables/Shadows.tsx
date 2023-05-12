@@ -1,10 +1,9 @@
-import React from "react";
-import { Div, Tree } from "@kits";
-import { useState } from "@hooks";
-import { SectionTitle } from "@components/Layout";
-import { shadows } from "@stylesheets";
+import Div from "@kits/Div";
+import Tree from "@kits/Tree";
+import SectionTitle from "@components/Layout/Title/SectionTitle";
+import shadows from "@stylesheets/constants/shadows";
 
-export const ShadowVariables = (props) => {
+const ShadowVariables = (props) => {
   return (
     <Div id="shadows" my="3">
       <SectionTitle title="markdown.variables.shadows" tag="h4" />
@@ -12,3 +11,12 @@ export const ShadowVariables = (props) => {
     </Div>
   );
 };
+
+
+
+            
+                
+            
+            
+            
+            export default ShadowVariables;

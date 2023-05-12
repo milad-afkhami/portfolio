@@ -1,9 +1,10 @@
-import React from "react";
-import { Div, Text } from "@kits";
+import Div from "@kits/Div";
+import Text from "@kits/Text";
 import { TimelineSectionItem } from "./Item";
 import { TimelineSectionYear } from "./Year";
 
-export const TimelineSection = (props) => {
+
+const TimelineSection = (props) => {
   const { year, items, last } = props || {};
 
   return (
@@ -46,3 +47,12 @@ export const TimelineSection = (props) => {
     </Div>
   );
 };
+
+
+
+            
+                
+            
+            
+            
+            export default TimelineSection;

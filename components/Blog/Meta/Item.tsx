@@ -1,7 +1,7 @@
-import React from "react";
-import { Div, Text } from "@kits";
+import Div from "@kits/Div";
+import Text from "@kits/Text";
 
-export const BlogMetaItem = (props) => {
+const BlogMetaItem = (props) => {
   const { label, value } = props || {};
 
   if (!value) {
@@ -19,3 +19,14 @@ export const BlogMetaItem = (props) => {
     </Div>
   );
 };
+
+
+
+
+
+            
+                
+            
+            
+            
+            export default BlogMetaItem

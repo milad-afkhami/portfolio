@@ -3,7 +3,11 @@
  * @param {Array} array
  * @param {*} element
  */
-export const push = (array = [], element) => {
+
+
+const push = (array = [], element) => {
   array && array.push(element);
   return array;
 };
+
+            export default push;

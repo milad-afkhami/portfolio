@@ -2,7 +2,9 @@ import matter from "gray-matter";
 import * as fs from "fs";
 import * as path from "path";
 
-export const getBlogsList = async () => {
+
+
+const getBlogsList = async () => {
   const BLOGS_PATH = path.join(process.cwd(), "data", "blog");
 
   const blogFilePaths = fs
@@ -24,3 +26,5 @@ export const getBlogsList = async () => {
 
   return blogs;
 };
+
+            export default getBlogsList;

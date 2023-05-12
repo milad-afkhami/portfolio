@@ -1,7 +1,9 @@
-import React, { ButtonHTMLAttributes } from "react";
-import { Div, Text, Icon } from "@kits";
-import { useEffect, usePrevious, useToggle } from "@hooks";
-import { StyledButton } from "./StyledButton";
+import Div from "@kits/Div";
+import Text from "@kits/Text";
+import Icon from "@kits/Icon";
+import { useEffect, useToggle } from "react";
+import usePrevious from "@hooks/usePrevious";
+import StyledButton from "./StyledButton";
 import { noop } from "@utils";
 
 /**
@@ -15,7 +17,8 @@ import { noop } from "@utils";
  * @type {import("react").ComponentType<ButtonProps>}
  * @param {ButtonProps} props
  */
-export const Button = function (props) {
+
+const Button = function (props) {
   const {
     size,
     variant = "primary",
@@ -85,3 +88,11 @@ export const Button = function (props) {
     </StyledButton>
   );
 };
+
+
+            
+                
+            
+            
+            
+            export default Button;

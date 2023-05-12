@@ -1,6 +1,5 @@
-import React from "react";
-import { Div } from "@kits";
-import { SectionTitle } from "@components/Layout";
+import Div from "@kits/Div";
+import SectionTitle from "@components/Layout/Title/SectionTitle";
 import { ResumeLanguageItem } from "./Item";
 
 const resumeLanguages = [
@@ -8,7 +7,9 @@ const resumeLanguages = [
   { name: "English", proficiency: "3" },
 ];
 
-export const ResumeLanguages = () => {
+
+
+const ResumeLanguages = () => {
   return (
     <Div mb="5">
       <SectionTitle title="resume.languages.title" icon="earth" />
@@ -18,3 +19,10 @@ export const ResumeLanguages = () => {
     </Div>
   );
 };
+
+            
+                
+            
+            
+            
+            export default ResumeLanguages;

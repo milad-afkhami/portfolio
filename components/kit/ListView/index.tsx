@@ -1,8 +1,7 @@
-import React from "react";
-import { Div } from "@kits";
+import Div from "@kits/Div";
 import { ListItem } from "./Item";
 import { useMemo } from "@hooks";
-import { __chunk } from "@utils";
+import __chunk from "lodash-es/chunk";
 
 /**
  * @typedef {Array<{ title:string, subtitle:string }>} ListViewItemProps
@@ -10,7 +9,8 @@ import { __chunk } from "@utils";
  *
  * @type {import("react").ComponentType<ListViewProps>}
  */
-export const ListView = (props) => {
+
+const ListView = (props) => {
   const { items, col = 2 } = props || {};
 
   const pivot = useMemo(() => Math.ceil(items.length / col), [items.length]);
@@ -39,3 +39,12 @@ export const ListView = (props) => {
     </Div>
   );
 };
+
+
+
+            
+                
+            
+            
+            
+            export default ListView;

@@ -1,6 +1,7 @@
-import React from "react";
 
-export const LinearGradient = (props) => {
+
+
+const LinearGradient = (props) => {
   const { id = "fill" } = props || {};
 
   return (
@@ -47,3 +48,10 @@ export const LinearGradient = (props) => {
     </linearGradient>
   );
 };
+
+            
+                
+            
+            
+            
+            export default LinearGradient;

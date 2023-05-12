@@ -1,7 +1,7 @@
-import React from "react";
-import { Div, Text } from "@kits";
+import Div from "@kits/Div";
+import Text from "@kits/Text";
 
-export const PageTitle = (props) => {
+const PageTitle = (props) => {
   const { title, tag } = props || {};
 
   return (
@@ -19,3 +19,12 @@ export const PageTitle = (props) => {
     </Div>
   );
 };
+
+
+
+            
+                
+            
+            
+            
+            export default PageTitle;

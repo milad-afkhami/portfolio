@@ -1,7 +1,6 @@
-import React from "react";
-import { Div } from "@kits";
-import { useState, useCallback } from "@hooks";
-import { SectionTitle } from "@components/Layout";
+import Div from "@kits/Div";
+import { useState, useCallback } from "react";
+import SectionTitle from "@components/Layout/Title/SectionTitle";
 import { ProjectGalleryAlbum } from "./Album";
 import dynamic from "next/dynamic";
 
@@ -9,7 +8,9 @@ const ImageViewer = dynamic(() =>
   import("@kits").then((module) => module.ImageViewer)
 );
 
-export const ProjectGallery = (props) => {
+
+
+const ProjectGallery = (props) => {
   const { medias } = props || {};
 
   const [renderViewer, setRenderViewer] = useState(false);
@@ -51,3 +52,10 @@ export const ProjectGallery = (props) => {
     </Div>
   );
 };
+
+            
+                
+            
+            
+            
+            export default ProjectGallery;

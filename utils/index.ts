@@ -1,5 +1,4 @@
 export * from "./Http";
-export * from "./lodash";
 export * from "./getOS";
 export * from "./isEmpty";
 export * from "./filterObject";
@@ -8,7 +7,6 @@ export * from "./dimensions";
 export * from "./push";
 export * from "./cookies";
 export * from "./get";
-export * from "./lodash";
 export * from "./noop";
 export * from "./entries";
 export * from "./isNullish";

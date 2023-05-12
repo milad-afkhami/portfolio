@@ -1,9 +1,10 @@
-import React from "react";
 import { Button, Div, Link } from "@kits";
 import { NotFoundAnimation } from "@components/Error";
-import { SectionTitle } from "@components/Layout";
+import SectionTitle from "@components/Layout/Title/SectionTitle";
 
-export default function NotFound(props) {
+
+
+const NotFound = (props) => {
   // return <h1>404 - Page Not Found</h1>;
   return (
     <Div>
@@ -29,3 +30,10 @@ export default function NotFound(props) {
 
 // NotFound.hideHeader = true;
 // NotFound.hideFooter = true;
+
+            
+                
+            
+            
+            
+            export default NotFound;

@@ -1,8 +1,10 @@
 import { createGlobalStyle } from "styled-components";
-import { paces } from "@stylesheets";
-import { __reduce } from "@utils";
+import paces from "@stylesheets/constants/paces";
+import __reduce from "lodash-es/reduce";
 
-export const GlobalPaces = createGlobalStyle((props) => {
+
+
+const GlobalPaces = createGlobalStyle((props) => {
   return {
     ":root": __reduce(
       paces,
@@ -11,3 +13,5 @@ export const GlobalPaces = createGlobalStyle((props) => {
     ),
   };
 });
+
+            export default GlobalPaces;

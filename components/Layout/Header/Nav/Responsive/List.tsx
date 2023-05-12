@@ -1,12 +1,13 @@
-import React from "react";
-import { Div } from "@kits";
+import Div from "@kits/Div";
 import { useRef, useOnClickOutside, useEventListener } from "@hooks";
 import { HeaderMenuItem } from "../Item";
 import { navLinks } from "@config";
 import { noop } from "@utils";
 // import { DownloadResume } from "../../DownloadResume";
 
-export function HeaderResponsiveMenuList(props) {
+
+
+const HeaderResponsiveMenuList = (props) => {
   const { rendered, onRequestClose } = props || {};
 
   const ref = useRef();
@@ -37,3 +38,10 @@ export function HeaderResponsiveMenuList(props) {
     </Div>
   );
 }
+
+            
+                
+            
+            
+            
+            export default HeaderResponsiveMenuList;

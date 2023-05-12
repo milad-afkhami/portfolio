@@ -1,7 +1,7 @@
-import React from "react";
-import { Text } from "@kits";
+import Text from "@kits/Text";
 
-export function BreadcrumbLinkText(props) {
+
+const BreadcrumbLinkText = (props) => {
   const { title, lastItem } = props;
 
   return (
@@ -17,3 +17,12 @@ export function BreadcrumbLinkText(props) {
     </Text>
   );
 }
+
+
+
+            
+                
+            
+            
+            
+            export default BreadcrumbLinkText;

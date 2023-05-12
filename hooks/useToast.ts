@@ -1,11 +1,13 @@
 import { ReactText } from "react";
 import { toast, ToastContent, ToastOptions } from "react-toastify";
-import { useTranslation } from "@hooks";
+import useTranslation from "@hooks/useTranslation";
 
 /**
  * `react-toastify` toast powered by i18n
  */
-export const useEnhancedToast = () => {
+
+
+const useEnhancedToast = () => {
   const t = useTranslation().t;
 
   /**
@@ -18,3 +20,5 @@ export const useEnhancedToast = () => {
     return toast(toastContent, options);
   };
 };
+
+            export default useEnhancedToast;

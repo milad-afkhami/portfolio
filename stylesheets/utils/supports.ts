@@ -4,7 +4,9 @@
  * @param {string} value css property value
  * @returns "true" if supported, "false" if not.
  */
-export const supports = (property, value) => {
+
+
+const supports = (property, value) => {
   if (process.browser) return true;
 
   var div = document.createElement("div");
@@ -13,3 +15,5 @@ export const supports = (property, value) => {
 };
 
 // todo: implement this with @supports
+
+            export default supports;

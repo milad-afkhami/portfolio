@@ -1,9 +1,10 @@
-import { Div, Image } from "@kits";
+import Div from "@kits/Div";
+import Image from "@kits/Image";
 import { MDXRemote as NextMDXRemote } from "next-mdx-remote";
 
 const components = { Image, Div };
 
-export const MDXRemote = function (props) {
+const MDXRemote = function (props) {
   return (
     <NextMDXRemote
       {...props}
@@ -11,3 +12,12 @@ export const MDXRemote = function (props) {
     />
   );
 };
+
+
+
+            
+                
+            
+            
+            
+            export default MDXRemote;

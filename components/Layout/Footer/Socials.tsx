@@ -1,8 +1,9 @@
-import React from "react";
-import { Div, Icon, Link, Text } from "@kits";
-import { __map } from "@utils";
+import  Div from "@kits/Div";
+import Icon  from "@kits/Icon";
+import __map  from "lodash-es/map";
 
-export function FooterSocials(props) {
+
+const FooterSocials = (props) => {
   const socials = {
     instagram: { name: "instagram", icon: "instagram", link: "instagram.com" },
     twitter: { name: "twitter", icon: "twitter", link: "twitter.com" },
@@ -25,3 +26,12 @@ export function FooterSocials(props) {
     </Div>
   );
 }
+
+
+
+            
+                
+            
+            
+            
+            export default FooterSocials;

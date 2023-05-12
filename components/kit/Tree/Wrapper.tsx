@@ -1,7 +1,7 @@
 import { mediaFeatures } from "@stylesheets";
 import styled from "styled-components";
 
-export const TreeWrapper = styled.div`
+const TreeWrapper = styled.div`
   & > details {
     overflow-x: auto;
     overflow-y: hidden;
@@ -103,3 +103,12 @@ export const TreeWrapper = styled.div`
     }
   }
 `;
+
+
+
+            
+                
+            
+            
+            
+            export default TreeWrapper;

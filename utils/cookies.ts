@@ -1,9 +1,8 @@
-import { __get } from "@utils";
+import __get from "lodash-es/get";
 import { parseCookies, setCookie, destroyCookie } from "nookies";
-import { CookieSerializeOptions } from "cookie";
-import { INTERVALS } from "@constants";
+import INTERVALS from "@constants/interval";
 
-export class Cookies {
+export default  class Cookies {
   /**
    * Parses cookies.
    *

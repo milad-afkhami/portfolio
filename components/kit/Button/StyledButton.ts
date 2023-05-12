@@ -1,11 +1,10 @@
-import React from "react";
+import Div from "@kits/Div";
 import styled from "styled-components";
-import { setDimensions } from "./setDimensions";
-import { setStyle } from "./setStyle";
-import { curves, setTextTypography } from "@stylesheets";
-import { Div } from "../Div";
+import setDimensions from "./setDimensions";
+import setStyle from "./setStyle";
+import setTextTypography from "@stylesheets/utils/setTextTypography";
 
-export const StyledButton = styled(Div).attrs((attrs) => ({
+const StyledButton = styled(Div).attrs((attrs) => ({
   as: "button",
   loading: attrs.loading ? "true" : undefined,
 }))((props) => {
@@ -50,3 +49,7 @@ export const StyledButton = styled(Div).attrs((attrs) => ({
       : {}),
   };
 });
+
+
+
+            export default StyledButton;

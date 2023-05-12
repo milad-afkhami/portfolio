@@ -1,14 +1,13 @@
-import React from "react";
-import { Div } from "@kits";
-import { ColorVariables } from "./Colors";
-import { CurveVariables } from "./Curves";
-import { PaceVariables } from "./Paces";
-import { SpacingVariables } from "./Spacings";
-import { TypographyVariables } from "./Typography";
-import { ShadowVariables } from "./Shadows";
-import { SectionTitle } from "@components/Layout";
+import Div from "@kits/Div";
+import ColorVariables from "./Colors";
+import CurveVariables from "./Curves";
+import PaceVariables from "./Paces";
+import SpacingVariables from "./Spacings";
+import TypographyVariables from "./Typography";
+import ShadowVariables from "./Shadows";
+import SectionTitle from "@components/Layout/Title/SectionTitle";
 
-export const MarkdownVariables = (props) => {
+const MarkdownVariables = (props) => {
   const {} = props || {};
 
   return (
@@ -23,3 +22,12 @@ export const MarkdownVariables = (props) => {
     </Div>
   );
 };
+
+
+
+            
+                
+            
+            
+            
+            export default MarkdownVariables;

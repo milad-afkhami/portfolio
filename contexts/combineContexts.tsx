@@ -1,6 +1,8 @@
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 
-export const combineContexts = (contexts) => {
+
+
+const combineContexts = (contexts) => {
   return contexts.reduce(
     (AccumulatedComponents, CurrentComponent) =>
       ({ children }) =>
@@ -12,3 +14,10 @@ export const combineContexts = (contexts) => {
     <Fragment />
   );
 };
+
+            
+                
+            
+            
+            
+            export default combineContexts;

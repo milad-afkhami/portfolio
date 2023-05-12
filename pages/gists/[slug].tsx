@@ -1,4 +1,3 @@
-import React from "react";
 import { Breadcrumb, Div } from "@kits";
 import { useRouter } from "@hooks";
 import { Head } from "@components/SEO";
@@ -7,7 +6,9 @@ import { GistServices } from "@services";
 import { MarkdownWrapper, MarkdownVariables } from "@components/Markdown";
 import { GistTitle, GistSummary } from "@components/Gists";
 
-export default function GistPage(props) {
+
+
+const GistPage = (props) => {
   const router = useRouter();
   const slug = router.query.slug;
   const { title, summary } = props?.gist?.frontMatter || {};
@@ -39,6 +40,8 @@ export default function GistPage(props) {
   );
 }
 
+
+
 export const getStaticProps = async ({ params }) => {
   const result = await GistServices.getDetail(params.slug);
 
@@ -46,6 +49,8 @@ export const getStaticProps = async ({ params }) => {
     props: { gist: result.gist },
   };
 };
+
+
 
 export const getStaticPaths = async ({ locales }) => {
   const gists = await GistServices.getList();
@@ -64,3 +69,7 @@ export const getStaticPaths = async ({ locales }) => {
     fallback: false,
   };
 };
+
+            
+                
+export default GistPage

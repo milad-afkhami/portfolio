@@ -1,8 +1,8 @@
-import React from "react";
-import { Div, Text } from "@kits";
-import { SectionTitle } from "@components/Layout";
+import Div from "@kits/Div";
+import Text from "@kits/Text";
+import SectionTitle from "@components/Layout/Title/SectionTitle";
 
-export const GistTitle = (props) => {
+const GistTitle = (props) => {
   const { title } = props || {};
 
   return <SectionTitle title={title} />;
@@ -15,3 +15,11 @@ export const GistTitle = (props) => {
     </Div>
   );
 };
+
+
+            
+                
+            
+            
+            
+            export default GistTitle

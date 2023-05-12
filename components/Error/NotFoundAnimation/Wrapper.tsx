@@ -46,7 +46,7 @@ const dash = keyframes`
   }
 `;
 
-export const NotFoundAnimationWrapper = styled.div`
+const NotFoundAnimationWrapper = styled.div`
   margin-top: 5rem;
   display: flex;
   justify-content: center;
@@ -86,3 +86,14 @@ export const NotFoundAnimationWrapper = styled.div`
     animation: ${dash} 4s alternate infinite;
   }
 `;
+
+
+
+
+
+            
+                
+            
+            
+            
+            export default NotFoundAnimationWrapper;

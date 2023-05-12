@@ -1,7 +1,8 @@
-import React from "react";
 import { INTERVALS } from "@constants";
 
-export default function ServerError(props) {
+
+
+const ServerError = (props) => {
   return <h1>500 - Server-side error occurred</h1>;
 }
 
@@ -11,3 +12,10 @@ export async function getStaticProps(context) {
     revalidate: INTERVALS.A_WEEK,
   };
 }
+
+            
+                
+            
+            
+            
+            export default ServerError;

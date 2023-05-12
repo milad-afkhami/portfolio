@@ -1,8 +1,10 @@
-import React from "react";
-import { Div, Text } from "@kits";
+import Div from "@kits/Div";
+import Text from "@kits/Text";
 import { ProjectTechs } from "@components/Projects";
 
-export const ResumeProjectsItem = ({ name, description, date, techs }) => {
+
+
+const ResumeProjectsItem = ({ name, description, date, techs }) => {
   return (
     <Div my="3">
       <Div>
@@ -24,3 +26,10 @@ export const ResumeProjectsItem = ({ name, description, date, techs }) => {
     </Div>
   );
 };
+
+            
+                
+            
+            
+            
+            export default ResumeProjectsItem;

@@ -1,5 +1,4 @@
-import React from "react";
-import { Div } from "@kits";
+import Div from "@kits/Div";
 import { useOnClickOutside, useState, useRef } from "@hooks";
 import { DropDownItem } from "./Item";
 import { DropDownImage } from "./Image";
@@ -10,7 +9,8 @@ import { DropDownLabel } from "./Label";
  *
  * @param {{ items:DropDownItems, selected:string|number, onChange: Function }} props
  */
-export const DropDown = (props) => {
+
+const DropDown = (props) => {
   const { items, selected, onChange } = props || {};
 
   const [isOpen, setIsOpen] = useState(false);
@@ -62,3 +62,12 @@ export const DropDown = (props) => {
     </Div>
   );
 };
+
+
+
+            
+                
+            
+            
+            
+            export default DropDown;

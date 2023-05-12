@@ -1,10 +1,12 @@
-import React from "react";
-import { Div, Link, Text } from "@kits";
-import { useMemo } from "@hooks";
-import { FavouritesHelper } from "@helpers";
-import { __capitalize } from "@utils";
+import Div from "@kits/Div";
+import Link from "@kits/Link";
+import Text from "@kits/Text";
+import { useMemo } from "react";
+import FavouritesHelper from "@helpers/favourites";
+import __capitalize from "lodash-es/capitalize";
 
-export function FooterLinks(props) {
+
+const FooterLinks = (props) => {
   const favouritesLinks = useMemo(FavouritesHelper.getLinks, []);
 
   return (
@@ -29,3 +31,12 @@ export function FooterLinks(props) {
     </Div>
   );
 }
+
+
+
+            
+                
+            
+            
+            
+            export default FooterLinks;

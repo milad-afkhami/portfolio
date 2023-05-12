@@ -1,8 +1,7 @@
-import React from "react";
-import { Div } from "@kits";
+import Div from "@kits/Div";
 import { Head } from "@components/SEO";
 import { Projects } from "@components/Projects";
-import { PageTitle } from "@components/Layout";
+import PageTitle from "@components/Layout/Title/PageTitle";
 
 const ProjectsPage = (props) => {
   return (
@@ -16,4 +15,11 @@ const ProjectsPage = (props) => {
   );
 };
 
-export default ProjectsPage;
+
+
+            
+                
+            
+            
+            
+            export default ProjectsPage;

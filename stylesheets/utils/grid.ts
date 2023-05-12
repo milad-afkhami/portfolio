@@ -1,6 +1,8 @@
 import { spacings } from "@stylesheets";
 
-export const grid = (
+
+
+const grid = (
   cols = "",
   rows = "",
   colGap,
@@ -18,3 +20,5 @@ export const grid = (
   ...(align ? { alignContent: align } : {}),
   ...(justify ? { justifyItems: justify } : {}),
 });
+
+            export default grid;

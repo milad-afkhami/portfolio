@@ -1,10 +1,12 @@
-import React from "react";
-import { Div, Text } from "@kits";
-import { SectionTitle } from "@components/Layout";
+import Div from "@kits/Div";
+import Text from "@kits/Text";
+import SectionTitle from "@components/Layout/Title/SectionTitle";
 import { workExperienceTimelineSections } from "@config";
 import { ResumeReference } from "./Reference";
 
-export const ResumeWorkExperience = () => {
+
+
+const ResumeWorkExperience = () => {
   return (
     <Div mb="5">
       <SectionTitle title="about.workExperience.title" icon="suitcase" />
@@ -36,3 +38,10 @@ export const ResumeWorkExperience = () => {
     </Div>
   );
 };
+
+            
+                
+            
+            
+            
+            export default ResumeWorkExperience;

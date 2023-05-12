@@ -1,6 +1,6 @@
-import { useEffect } from "@hooks";
+import { useEffect } from "react";
 
-export function useOnClickOutside(ref, handler) {
+const useOnClickOutside = (ref, handler) => {
   useEffect(() => {
     const listener = (event) =>
       !ref.current || ref.current.contains(event.target)
@@ -15,3 +15,5 @@ export function useOnClickOutside(ref, handler) {
     };
   }, [ref, handler]);
 }
+
+export default useOnClickOutside

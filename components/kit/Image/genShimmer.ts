@@ -1,4 +1,4 @@
-import { CSSVariables } from "@utils";
+import CSSVariables from "@utils/CSSVariables";
 
 function getShimmer(w, h) {
   const _h = h || "100%";

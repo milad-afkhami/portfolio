@@ -1,7 +1,7 @@
-import React from "react";
-import { Div, Image } from "@kits";
+import Div from "@kits/Div";
+import Image from "@kits/Image";
 
-export const BlogBanner = (props) => {
+ const BlogBanner = (props) => {
   const { banner, title } = props || {};
 
   if (!banner) return null;
@@ -28,3 +28,14 @@ export const BlogBanner = (props) => {
     </Div>
   );
 };
+
+
+
+
+
+            
+                
+            
+            
+            
+            export default BlogBanner;

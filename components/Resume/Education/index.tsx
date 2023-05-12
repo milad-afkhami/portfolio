@@ -1,10 +1,11 @@
-import React from "react";
-import { Div } from "@kits";
-import { SectionTitle } from "@components/Layout";
+import Div from "@kits/Div";
+import SectionTitle from "@components/Layout/Title/SectionTitle";
 import { educationTimelineSections } from "@config";
 import { ResumeEducationItem } from "./Item";
 
-export const ResumeEducation = () => {
+
+
+const ResumeEducation = () => {
   return (
     <Div mb="5">
       <SectionTitle title="about.education.title" icon="education" />
@@ -20,3 +21,10 @@ export const ResumeEducation = () => {
     </Div>
   );
 };
+
+            
+                
+            
+            
+            
+            export default ResumeEducation;

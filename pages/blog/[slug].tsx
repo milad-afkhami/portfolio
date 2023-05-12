@@ -1,5 +1,7 @@
-import React, { ComponentType } from "react";
-import { Div, Image, Breadcrumb } from "@kits";
+import { ComponentType } from "react";
+import Div from "@kits/Div";
+import Image from "@kits/Image";
+import Breadcrumb from "@kits/Breadcrumb";
 import { useRouter, useTranslation } from "@hooks";
 import { Head, ArticleJsonLd } from "@components/SEO";
 import { MDXRemote } from "@components/Markdown";
@@ -9,7 +11,9 @@ import { BlogServices } from "@services";
 import { MarkdownWrapper } from "@components/Markdown";
 import { appBaseURL } from "@config";
 
-export default function BlogPage(props) {
+
+
+const BlogPage = (props) => {
   const router = useRouter();
   const slug = router.query.slug;
   const { title, summary, image, banner, publishedAt, readingTime, category } =
@@ -72,6 +76,8 @@ export default function BlogPage(props) {
   );
 }
 
+
+
 export const getStaticProps = async ({ params }) => {
   const result = await BlogServices.getDetail(params.slug);
 
@@ -79,6 +85,8 @@ export const getStaticProps = async ({ params }) => {
     props: { blog: result.blog },
   };
 };
+
+
 
 export const getStaticPaths = async ({ locales }) => {
   const blogs = await BlogServices.getList();
@@ -97,3 +105,8 @@ export const getStaticPaths = async ({ locales }) => {
     fallback: false,
   };
 };
+
+            
+                
+            
+export default BlogPage

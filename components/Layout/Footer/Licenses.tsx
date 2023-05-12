@@ -1,7 +1,10 @@
-import React from "react";
-import { Div, Image, Link, Text } from "@kits";
+import Div from "@kits/Div";
+import Image from "@kits/Image";
+import Link from "@kits/Link";
+import Text from "@kits/Text";
 
-export function FooterLicenses(props) {
+
+const FooterLicenses = (props) => {
   const licenses = [
     {
       link: "www.google.com",
@@ -30,3 +33,11 @@ export function FooterLicenses(props) {
     </Div>
   );
 }
+
+
+            
+                
+            
+            
+            
+            export default FooterLicenses;

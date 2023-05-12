@@ -1,8 +1,9 @@
-import React from "react";
-import { Div, Text, Image, Link } from "@kits";
-import { GistCardCategory } from "./Category";
+import Div from "@kits/Div";
+import Text from "@kits/Text";
+import Link from "@kits/Link";
+import GistCardCategory from "./Category";
 
-export const GistCard = (props) => {
+const GistCard = (props) => {
   const {
     _id = "",
     title = "",
@@ -52,3 +53,11 @@ export const GistCard = (props) => {
     </Link>
   );
 };
+
+
+            
+                
+            
+            
+            
+            export default GistCard

@@ -1,7 +1,8 @@
-import React from "react";
-import { Div, Text } from "@kits";
+import Div from "@kits/Div";
+import Text from "@kits/Text";
 
-export function ProfileJob(props) {
+
+const ProfileJob = (props) => {
   return (
     <Div>
       <Div
@@ -32,3 +33,12 @@ export function ProfileJob(props) {
     </Div>
   );
 }
+
+
+
+            
+                
+            
+            
+            
+            export default ProfileJob;

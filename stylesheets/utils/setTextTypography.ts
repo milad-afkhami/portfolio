@@ -1,4 +1,6 @@
-export const setTextTypography = (size, options) => {
+
+
+const setTextTypography = (size, options) => {
   const importance = options?.important ? " !important" : "";
   const bold = options?.bold;
 
@@ -15,3 +17,5 @@ export const setTextTypography = (size, options) => {
     ? { fontSize: fontSize + importance, fontWeight: fontWeight + importance }
     : {};
 };
+
+            export default setTextTypography;

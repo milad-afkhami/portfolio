@@ -1,7 +1,10 @@
-import React from "react";
-import { Div, Icon, Text } from "@kits";
+import Div from "@kits/Div";
+import Icon from "@kits/Icon";
+import Text from "@kits/Text";
 
-export const ProjectDate = (props) => {
+
+
+const ProjectDate = (props) => {
   return (
     <Div flex={["center", "start"]} mb="3">
       <Div flex={["center", "center"]} width="30px">
@@ -15,3 +18,10 @@ export const ProjectDate = (props) => {
     </Div>
   );
 };
+
+            
+                
+            
+            
+            
+            export default ProjectDate;

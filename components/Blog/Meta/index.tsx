@@ -1,9 +1,8 @@
-import React from "react";
-import { Div, Text } from "@kits";
-import { BlogMetaItem } from "./Item";
-import { useTranslation } from "@hooks";
+import Div from "@kits/Div";
+import BlogMetaItem from "./Item";
+import useTranslation from "@hooks/useTranslation";
 
-export const BlogMeta = (props) => {
+const BlogMeta = (props) => {
   const { category, readingTime, publishedAt } = props || {};
 
   const t = useTranslation().t;
@@ -26,3 +25,14 @@ export const BlogMeta = (props) => {
     </Div>
   );
 };
+
+
+
+
+
+            
+                
+            
+            
+            
+            export default BlogMeta

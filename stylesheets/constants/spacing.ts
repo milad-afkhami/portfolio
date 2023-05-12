@@ -1,4 +1,4 @@
-export const spacings = {
+const spacings = {
   0: "0",
   // 0.5: "0.125rem", "-0.5": "-0.125rem",
   1: "0.25rem",
@@ -17,6 +17,8 @@ export const spacings = {
   "-7": "-7rem",
   auto: "auto",
 };
+
+export  default spacings;
 
 /**
  * @typedef {(0|"1"|"-1"|"2"|"-2"|"3"|"-3"|"4"|"-4"|"5"|"-5"|"6"|"-6"|"7"|"-7"|"auto")} Spacings

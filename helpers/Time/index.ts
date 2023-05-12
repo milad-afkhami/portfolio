@@ -1,6 +1,6 @@
 const jMoment = () => {};
 
-export class TimeHelper {
+ TimeHelper {
   static toJMoment = (date) => jMoment(date || undefined);
 
   static parse = (value, format) => jMoment(value, format);
@@ -156,3 +156,5 @@ export class TimeHelper {
     };
   };
 }
+
+            export default class

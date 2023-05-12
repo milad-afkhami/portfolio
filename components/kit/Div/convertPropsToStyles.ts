@@ -1,16 +1,17 @@
-import {
-  prepareDimensions,
-  prepareSpacing,
-  getOtherSpacings,
-  flexer,
-  grider,
-  c,
-} from "@stylesheets";
+import prepareDimensions from "@stylesheets/utils/prepareDimensions";
+import prepareSpacing from "@stylesheets/utils/prepareSpacing";
+import getOtherSpacings from "@stylesheets/utils/getOtherSpacings";
+import flexer from "@stylesheets/utils/flex";
+import grider from "@stylesheets/utils/grid";
+import grider from "@stylesheets/utils/color";
+import {c} from "@stylesheets/getColorVariable";
 import { matchParent } from "@stylesheets/predefined";
 import styled, { keyframes } from "styled-components";
-import { isNullish, __kebabCase } from "@utils";
+import isNullish from "@utils/isNullish";
+import  __kebabCase  from "lodash-es/kebabCase";
 
-export function convertPropsToStyles(props) {
+
+const convertPropsToStyles = (props) => {
   const {
     width,
     w,
@@ -154,3 +155,7 @@ export function convertPropsToStyles(props) {
       : {}),
   };
 }
+
+
+
+            export default convertPropsToStyles;

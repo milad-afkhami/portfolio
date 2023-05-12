@@ -1,11 +1,12 @@
-import React from "react";
-import { Div } from "@kits";
+import Div from "@kits/Div";
 import { Head } from "@components/SEO";
-import { PageTitle } from "@components/Layout";
+import PageTitle from "@components/Layout/Title/PageTitle";
 import { Blogs } from "@components/Blog";
 import { BlogServices } from "@services";
 
-export default function BlogPage(props) {
+
+
+const BlogPage = (props) => {
   // const { data, isValidating, mutate, error } = useBlogs();
 
   return (
@@ -24,3 +25,10 @@ export async function getStaticProps() {
 
   return { props: { blogs } };
 }
+
+            
+                
+            
+            
+            
+            export default BlogPage;

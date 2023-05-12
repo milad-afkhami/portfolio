@@ -11,7 +11,9 @@ import { ReactText } from "react";
 import { useTranslation } from "react-i18next";
 import { toast, ToastContent, ToastOptions } from "react-toastify";
 
-export const useEnhancedToast = () => {
+export default useEnhancedToast;
+
+const useEnhancedToast = () => {
   const t = useTranslation().t;
 
   /**

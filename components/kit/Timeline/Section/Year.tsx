@@ -1,7 +1,8 @@
-import React from "react";
-import { Div, Text } from "@kits";
+import Div from "@kits/Div";
+import Text from "@kits/Text";
 
-export const TimelineSectionYear = (props) => {
+
+const TimelineSectionYear = (props) => {
   const { year } = props || {};
 
   return (
@@ -25,3 +26,12 @@ export const TimelineSectionYear = (props) => {
     </Div>
   );
 };
+
+
+
+            
+                
+            
+            
+            
+            export default TimelineSectionYear;

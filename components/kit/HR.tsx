@@ -1,4 +1,3 @@
-import { ComponentType } from "react";
 import styled from "styled-components";
 import { Div } from "./Div";
 
@@ -11,7 +10,8 @@ import { Div } from "./Div";
  *
  * @type {import("react").ComponentType<HRProps>}
  */
-export const HR = styled(Div).attrs(() => ({
+
+const HR = styled(Div).attrs(() => ({
   as: "hr",
 }))(({ type = "light", borderStyle = "solid", borderWidth = 1 }) => ({
   borderColor: `var(--color-border-${type})`,
@@ -19,3 +19,11 @@ export const HR = styled(Div).attrs(() => ({
   borderWidth: borderWidth + "px",
   borderTop: "none",
 }));
+
+
+            
+                
+            
+            
+            
+            export default HR;

@@ -1,8 +1,8 @@
-import React from "react";
-import { Div, Tree } from "@kits";
-import { SectionTitle } from "@components/Layout";
+import Div from "@kits/Div";
+import Tree from "@kits/Tree";
+import SectionTitle from "@components/Layout/Title/SectionTitle";
 
-export const ColorVariables = (props) => {
+const ColorVariables = (props) => {
   return (
     <Div id="colors" my="3">
       <SectionTitle title="markdown.variables.colors" tag="h4" />
@@ -228,3 +228,12 @@ const colors = [
     ],
   },
 ];
+
+
+
+            
+                
+            
+            
+            
+            export default ColorVariables;

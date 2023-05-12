@@ -1,10 +1,9 @@
-import React from "react";
 import { useEffect, useRef } from "@hooks";
-import { Div } from "@kits";
+import Div from "@kits/Div";
 
 // const anime = dynamic(() => import("animejs/lib/anime.es.js"), { ssr: false });
-
-export function ProfileNameSvg() {
+const
+ ProfileNameSvg = ()=> {
   const animeRef = useRef();
 
   useEffect(() => {
@@ -71,3 +70,7 @@ export function ProfileNameSvg() {
     </Div>
   );
 }
+
+            
+
+export default ProfileNameSvg

@@ -1,12 +1,13 @@
-import React from "react";
-import { Div } from "@kits";
+import Div from "@kits/Div";
 import { projectsData } from "@data";
 import { Project } from "./Project";
 
 export { ProjectsList } from "./List";
 export { ProjectTechs } from "./Techs";
 
-export const Projects = () => {
+
+
+const Projects = () => {
   return (
     <Div>
       {projectsData.map((project, i) => (
@@ -15,3 +16,10 @@ export const Projects = () => {
     </Div>
   );
 };
+
+            
+                
+            
+            
+            
+            export default Projects;

@@ -1,7 +1,8 @@
-import React from "react";
-import { Div, Image } from "@kits";
+import Div from "@kits/Div";
+import Image from "@kits/Image";
 
-export const DropDownImage = (props) => {
+
+const DropDownImage = (props) => {
   const { src } = props || {};
 
   return src ? (
@@ -10,3 +11,11 @@ export const DropDownImage = (props) => {
     </Div>
   ) : null;
 };
+
+  
+            
+                
+            
+            
+            
+            export default DropDownImage;

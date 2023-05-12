@@ -1,7 +1,8 @@
-import React from "react";
-import { Div, Text } from "@kits";
+import Div from "@kits/Div";
+import Text from "@kits/Text";
 
-export const ListItem = (props) => {
+
+const ListItem = (props) => {
   const { index, title, subtitle } = props || {};
 
   return (
@@ -33,3 +34,12 @@ export const ListItem = (props) => {
     </Div>
   );
 };
+
+
+
+            
+                
+            
+            
+            
+            export default ListItem;

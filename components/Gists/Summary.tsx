@@ -1,7 +1,7 @@
-import React from "react";
-import { Div, Text } from "@kits";
+import Div from "@kits/Div";
+import Text from "@kits/Text";
 
-export const GistSummary = (props) => {
+const GistSummary = (props) => {
   const { summary } = props || {};
 
   return (
@@ -12,3 +12,11 @@ export const GistSummary = (props) => {
     </Div>
   );
 };
+
+
+            
+                
+            
+            
+            
+            export default GistSummary;

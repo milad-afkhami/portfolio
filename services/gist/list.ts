@@ -2,7 +2,9 @@ import matter from "gray-matter";
 import * as fs from "fs";
 import * as path from "path";
 
-export const getGistsList = async () => {
+
+
+const getGistsList = async () => {
   const GISTS_PATH = path.join(process.cwd(), "data", "gist");
 
   const gistFilePaths = fs
@@ -25,3 +27,5 @@ export const getGistsList = async () => {
 
   return gists;
 };
+
+            export default getGistsList;

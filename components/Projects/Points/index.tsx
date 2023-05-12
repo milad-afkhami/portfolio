@@ -1,8 +1,10 @@
-import React from "react";
-import { Div, Tree } from "@kits";
-import { SectionTitle } from "@components/Layout";
+import Div from "@kits/Div";
+import Tree from "@kits/Tree";
+import SectionTitle from "@components/Layout/Title/SectionTitle";
 
-export const ProjectPoints = (props) => {
+
+
+const ProjectPoints = (props) => {
   const { points } = props || {};
 
   return (
@@ -15,3 +17,10 @@ export const ProjectPoints = (props) => {
     </Div>
   );
 };
+
+            
+                
+            
+            
+            
+            export default ProjectPoints;

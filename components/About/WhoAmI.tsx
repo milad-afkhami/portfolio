@@ -1,10 +1,10 @@
-import React from "react";
-import { Div, Text } from "@kits";
-import { __range } from "@utils";
-import { useTranslation } from "@hooks";
+import Div from "@kits/Div";
+import Text from "@kits/Text";
+import __range  from "lodash-es/range";
+import useTranslation from "@hooks/useTranslation";
 import { isDevelopment } from "@config";
 
-export const WhoAmI = (props) => {
+const WhoAmI = (props) => {
   const { videoTitle } = props || {};
   const t = useTranslation().t;
   const paragraphsCount = 7;
@@ -38,3 +38,14 @@ export const WhoAmI = (props) => {
     </Div>
   );
 };
+
+
+
+
+
+            
+                
+            
+            
+            
+            export default WhoAmI;

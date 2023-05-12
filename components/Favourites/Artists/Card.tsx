@@ -1,7 +1,9 @@
-import React from "react";
-import { Div, Text, Image, Link } from "@kits";
+import Div from "@kits/Div";
+import Text from "@kits/Text";
+import Image from "@kits/Image";
+import Link from "@kits/Link";
 
-export const FavouriteArtistCard = (props) => {
+const FavouriteArtistCard = (props) => {
   const { name, image, slug } = props || {};
 
   return (
@@ -33,3 +35,14 @@ export const FavouriteArtistCard = (props) => {
     </Div>
   );
 };
+
+
+
+
+
+            
+                
+            
+            
+            
+            export default FavouriteArtistCard;

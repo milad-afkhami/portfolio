@@ -1,8 +1,9 @@
-import { endpoints } from "@constants";
-import { useDebugValue, useSWRImmutable } from "@hooks";
-import { Http } from "@utils";
+import { useDebugValue } from "react";
+import endpoints from "@constants/endpoints";
+import useSWRImmutable from "swr/immutable";
+import Http from "@utils/Http";
 
-export function useBlogs() {
+ const useBlogs=() =>{
   const swr = useSWRImmutable(endpoints.blogs, async (url) => {
     try {
       const response = await Http.get({ url });
@@ -19,3 +20,5 @@ export function useBlogs() {
     ...swr,
   };
 }
+
+            export default useBlogs

@@ -1,7 +1,7 @@
-import React from "react";
-import { Div, Text } from "@kits";
+import Div from "@kits/Div";
+import Text from "@kits/Text";
 
-export const BlogCardCategory = (props) => {
+const BlogCardCategory = (props) => {
   const { category = "" } = props || {};
 
   return (
@@ -18,3 +18,14 @@ export const BlogCardCategory = (props) => {
     </Div>
   );
 };
+
+
+
+
+
+            
+                
+            
+            
+            
+            export default BlogCardCategory;

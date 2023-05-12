@@ -1,8 +1,9 @@
-import React from "react";
-import { Div, Icon, Text } from "@kits";
-import { toast } from "@utils";
+import Div from "@kits/Div";
+import Icon from "@kits/Icon";
+import Text from "@kits/Text";
+import toast from "@utils/toast";
 
-export function ContactOption(props) {
+const ContactOption = (props) => {
   const { type, label, value } = props || {};
 
   const onClickContactWay = () => {
@@ -51,3 +52,14 @@ export function ContactOption(props) {
     </Div>
   );
 }
+
+
+
+
+
+            
+                
+            
+            
+            
+            export default ContactOption;

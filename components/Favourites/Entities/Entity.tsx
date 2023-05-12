@@ -1,9 +1,11 @@
-import React from "react";
-import { Div, Image, Link, Text } from "@kits";
+import Div from "@kits/Div";
+import Text from "@kits/Text";
+import Image from "@kits/Image";
+import Link from "@kits/Link";
 
 // playlists  {/* , 6 */}{/* , 4 */}
 // artists  {/*1, , 7, 8 */}
-export const FavouriteEntity = (props) => {
+const FavouriteEntity = (props) => {
   const { link, label } = props || {};
 
   return (
@@ -54,3 +56,14 @@ export const FavouriteEntity = (props) => {
     </Link>
   );
 };
+
+
+
+
+
+            
+                
+            
+            
+            
+            export default FavouriteEntity

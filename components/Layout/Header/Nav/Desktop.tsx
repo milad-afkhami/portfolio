@@ -1,9 +1,11 @@
-import React from "react";
-import { Div, Text } from "@kits";
+import Div from "@kits/Div";
+import Text from "@kits/Text";
 import { HeaderMenuItem } from "./Item";
 import { navLinks } from "@config";
 
-export default function HeaderMenu(props) {
+
+
+const HeaderMenu = (props) => {
   return (
     <Div display="flex" mx="-3">
       {navLinks.map((menu, i) => (
@@ -12,3 +14,10 @@ export default function HeaderMenu(props) {
     </Div>
   );
 }
+
+            
+                
+            
+            
+            
+            export default HeaderMenu;

@@ -1,8 +1,10 @@
 import { createGlobalStyle } from "styled-components";
-import { spacings } from "@stylesheets";
-import { __reduce } from "@utils";
+import spacings from "@stylesheets/constants/spacing";
+import __reduce from "lodash-es/reduce";
 
-export const GlobalSpacings = createGlobalStyle((props) => {
+
+
+const GlobalSpacings = createGlobalStyle((props) => {
   return {
     ":root": __reduce(
       spacings,
@@ -11,3 +13,5 @@ export const GlobalSpacings = createGlobalStyle((props) => {
     ),
   };
 });
+
+            export default GlobalSpacings;

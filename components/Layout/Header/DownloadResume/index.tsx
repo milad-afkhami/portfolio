@@ -1,7 +1,9 @@
-import React from "react";
-import { Div, Icon, Text } from "@kits";
+import Div from "@kits/Div";
+import Icon from "@kits/Icon";
+import Text from "@kits/Text";
 
-export function DownloadResume(props) {
+
+const DownloadResume = (props) => {
   const {} = props || {};
 
   const downloadResume = () => {
@@ -67,3 +69,12 @@ export function DownloadResume(props) {
     </Div>
   );
 }
+
+
+
+            
+                
+            
+            
+            
+            export default DownloadResume;

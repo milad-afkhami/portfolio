@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import { c, setTextTypography } from "@stylesheets";
 
@@ -8,7 +7,8 @@ import { c, setTextTypography } from "@stylesheets";
  *
  * @type {import("react").ComponentType<IconProps>}
  */
-export const Icon = styled.i.attrs(
+
+const Icon = styled.i.attrs(
   ({
     prefix = "mili",
     suffix = "icon",
@@ -37,3 +37,11 @@ export const Icon = styled.i.attrs(
     ...(hoverColor ? { ":hover": { color: c(hoverColor) } } : {}),
   })
 );
+
+
+            
+                
+            
+            
+            
+            export default Icon;

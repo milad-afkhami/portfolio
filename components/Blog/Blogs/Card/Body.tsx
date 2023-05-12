@@ -1,7 +1,7 @@
-import React from "react";
-import { Div, Text } from "@kits";
+import Div from "@kits/Div";
+import Text from "@kits/Text";
 
-export const BlogCardBody = (props) => {
+ const BlogCardBody = (props) => {
   const { title = "", summary = "" } = props || {};
 
   return (
@@ -26,3 +26,14 @@ export const BlogCardBody = (props) => {
     </Div>
   );
 };
+
+
+
+
+
+            
+                
+            
+            
+            
+            export default BlogCardBody;

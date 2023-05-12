@@ -1,5 +1,6 @@
-import React from "react";
-import { Div, Icon, Text } from "@kits";
+import Div from "@kits/Div";
+import Icon from "@kits/Icon";
+import Text from "@kits/Text";
 import { ProjectHeading } from "./Heading";
 import { ProjectDescription } from "./Description";
 import { ProjectTechs } from "./Techs";
@@ -7,7 +8,9 @@ import { ProjectGallery } from "./Gallery";
 import { ProjectPoints } from "./Points";
 // import { ProjectDate } from "./Date";
 
-export const Project = (props) => {
+
+
+const Project = (props) => {
   return (
     <Div mb="6" id={`project-${props.slug}`}>
       <ProjectHeading {...props} />
@@ -18,3 +21,10 @@ export const Project = (props) => {
     </Div>
   );
 };
+
+            
+                
+            
+            
+            
+            export default Project;

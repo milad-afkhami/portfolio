@@ -1,9 +1,10 @@
-import React from "react";
-import { Div, Text } from "@kits";
+import Div from "@kits/Div";
+import Text from "@kits/Text";
 import Carousel, { Modal, ModalGateway } from "react-images";
-import { useTranslation } from "@hooks";
+import useTranslation from "@hooks/useTranslation";
 
-export function ImageViewer(props) {
+
+const ImageViewer = (props) => {
   const { isOpen, onClose, current, views } = props || {};
 
   const t = useTranslation().t;
@@ -64,3 +65,12 @@ export function ImageViewer(props) {
     </ModalGateway>
   );
 }
+
+
+
+            
+                
+            
+            
+            
+            export default ImageViewer;

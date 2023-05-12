@@ -1,11 +1,11 @@
-import React from "react";
-import { Div, Link, Text } from "@kits";
-import { useMemo } from "@hooks";
-import { FavouritesHelper } from "@helpers";
-import { PageTitle, SectionTitle } from "@components/Layout";
-import { FavouriteEntity } from "./Entity";
+import { useMemo } from "react";
+import Div from "@kits/Div";
+import FavouritesHelper from "@helpers/favourites";
+import PageTitle from "@components/Layout/Title/PageTitle";
+import SectionTitle from "@components/Layout/Title/SectionTitle";
+import FavouriteEntity from "./Entity";
 
-export const FavouriteEntities = (props) => {
+const FavouriteEntities = (props) => {
   const {} = props || {};
   const favouritesLinks = useMemo(FavouritesHelper.getLinks, []);
 
@@ -39,3 +39,14 @@ export const FavouriteEntities = (props) => {
     </Div>
   );
 };
+
+
+
+
+
+            
+                
+            
+            
+            
+            export default FavouriteEntities

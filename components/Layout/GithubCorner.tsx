@@ -1,8 +1,7 @@
-import React from "react";
 import styled from "styled-components";
 import { breakpoints, mediaFeatures, paces } from "@stylesheets";
 
-export const GithubCorner = (props) => {
+const GithubCorner = (props) => {
   return (
     <StyledAnchor href="https://github.com/miladMAPS/portfolio" target="_blank">
       <svg width="80" height="80" viewBox="0 0 250 250">
@@ -58,3 +57,12 @@ const StyledAnchor = styled.a`
     display: block;
   }
 `;
+
+
+
+            
+                
+            
+            
+            
+            export default GithubCorner;

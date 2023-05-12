@@ -1,7 +1,8 @@
-import React from "react";
-import { Div, Link, Text } from "@kits";
+import Div from "@kits/Div";
+import Link from "@kits/Link";
+import Text from "@kits/Text";
 
-export const BlogsMoreLink = (props) => {
+const BlogsMoreLink = (props) => {
   const { link } = props || {};
 
   return (
@@ -20,3 +21,14 @@ export const BlogsMoreLink = (props) => {
     </Div>
   );
 };
+
+
+
+
+
+            
+                
+            
+            
+            
+            export default BlogsMoreLink;

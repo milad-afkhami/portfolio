@@ -1,6 +1,6 @@
 import { breakpoints } from "@stylesheets";
 
-export const typographyVariants = {
+const typographyVariants = {
   default: {
     "h-xl": { fontSize: 32, fontWeight: "normal" },
     "h-xl-b": { fontSize: 32, fontWeight: "bold" },
@@ -43,6 +43,10 @@ export const typographyVariants = {
   },
 };
 
+
+
 /**
  * @typedef {("h-lg"|"h-lg-b"|"h-md"|"h-md-b"|"h-sm"|"h-sm-b"|"lg"|"lg-b"|"md"|"md-b"|"sm"|"sm-b"|"xsm"|"xsm-b"|"xxsm"|"xxsm-b"|"xxxsm"|"xxxsm-b")} Typography
  */
+
+            export default typographyVariants;

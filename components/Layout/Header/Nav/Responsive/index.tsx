@@ -1,10 +1,11 @@
-import React from "react";
-import { Div } from "@kits";
+import Div from "@kits/Div";
 import { useToggle, useDelayedRender } from "@hooks";
 import { MenuToggler } from "./Toggler";
 import { HeaderResponsiveMenuList } from "./List";
 
-export default function HeaderResponsiveMenu(props) {
+
+
+const HeaderResponsiveMenu = (props) => {
   const [menuOpen, toggleMenu] = useToggle(false);
   const { mounted: isMenuMounted, rendered: isMenuRendered } = useDelayedRender(
     menuOpen,
@@ -23,3 +24,10 @@ export default function HeaderResponsiveMenu(props) {
     </Div>
   );
 }
+
+            
+                
+            
+            
+            
+            export default HeaderResponsiveMenu;

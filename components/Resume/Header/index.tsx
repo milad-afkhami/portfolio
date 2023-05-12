@@ -1,9 +1,11 @@
-import React from "react";
-import { Div, Text } from "@kits";
+import Div from "@kits/Div";
+import Text from "@kits/Text";
 import { AboutAvatar } from "@components/About/Avatar";
 import { ResumeHeaderContact } from "./Contact";
 
-export const ResumeHeader = () => {
+
+
+const ResumeHeader = () => {
   return (
     <Div
       flex={["start", "between"]}
@@ -29,3 +31,10 @@ export const ResumeHeader = () => {
     </Div>
   );
 };
+
+            
+                
+            
+            
+            
+            export default ResumeHeader;

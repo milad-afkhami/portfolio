@@ -1,8 +1,11 @@
-import React from "react";
-import { Div, Image, Text } from "@kits";
+import Div from "@kits/Div";
+import Image from "@kits/Image";
+import Text from "@kits/Text";
 import { c } from "@stylesheets";
 
-export function SubscribeNewsletter(props) {
+
+
+const SubscribeNewsletter = (props) => {
   const {} = props || {};
   return (
     <Div
@@ -32,3 +35,10 @@ export function SubscribeNewsletter(props) {
     </Div>
   );
 }
+
+            
+                
+            
+            
+            
+            export default SubscribeNewsletter;

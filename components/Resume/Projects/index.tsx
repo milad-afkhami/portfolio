@@ -1,11 +1,14 @@
-import React from "react";
-import { Div, Icon, Text } from "@kits";
-import { SectionTitle } from "@components/Layout";
+import Div from "@kits/Div";
+import Icon from "@kits/Icon";
+import Text from "@kits/Text";
+import SectionTitle from "@components/Layout/Title/SectionTitle";
 import { projectsData } from "@data";
 import { ResumeProjectsItem } from "./Item";
 import { ResumeReference } from "../Reference";
 
-export const ResumeProjects = () => {
+
+
+const ResumeProjects = () => {
   return (
     <Div mb="5">
       <SectionTitle title="projects.title" icon="code" />
@@ -27,3 +30,10 @@ export const ResumeProjects = () => {
     </Div>
   );
 };
+
+            
+                
+            
+            
+            
+            export default ResumeProjects;

@@ -1,10 +1,11 @@
-import React from "react";
-import { Div, Link } from "@kits";
+import Div from "@kits/Div";
+import Link from "@kits/Link";
 import { ProfileNameSvg } from "./NameSvg";
 import { ProfileAvatar } from "./Avatar";
 import { ProfileJob } from "./Job";
 
-export function Profile(props) {
+
+const Profile = (props) => {
   return (
     <Div
       // href="/about"
@@ -26,3 +27,13 @@ export function Profile(props) {
     </Div>
   );
 }
+
+
+
+
+            
+                
+            
+            
+            
+            export default Profile;

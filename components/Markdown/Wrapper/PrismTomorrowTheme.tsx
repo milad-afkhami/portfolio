@@ -1,6 +1,8 @@
 import { css } from "styled-components";
 
-export const PrismTomorrowTheme = css`
+
+
+const PrismTomorrowTheme = css`
   code[class*="language-"],
   pre[class*="language-"] {
     color: #ccc;
@@ -102,3 +104,10 @@ export const PrismTomorrowTheme = css`
     color: green;
   }
 `;
+
+            
+                
+            
+            
+            
+            export default PrismTomorrowTheme;

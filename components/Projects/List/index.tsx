@@ -1,11 +1,12 @@
-import React from "react";
-import { Div } from "@kits";
+import Div from "@kits/Div";
 import { projectsData } from "@data";
-import { PageTitle } from "@components/Layout";
+import PageTitle from "@components/Layout/Title/PageTitle";
 import { ProjectCard } from "./Card";
 import { ProjectsMoreLink } from "./MoreLink";
 
-export const ProjectsList = (props) => {
+
+
+const ProjectsList = (props) => {
   const {} = props || {};
 
   const items = [
@@ -54,3 +55,10 @@ export const ProjectsList = (props) => {
     </Div>
   );
 };
+
+            
+                
+            
+            
+            
+            export default ProjectsList;

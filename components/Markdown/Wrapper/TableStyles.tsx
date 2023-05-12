@@ -1,6 +1,8 @@
 import { css } from "styled-components";
 
-export const TableStyles = css`
+
+
+const TableStyles = css`
   table {
     width: max-content;
     margin-bottom: 0.5rem;
@@ -42,3 +44,10 @@ export const TableStyles = css`
     background-color: rgba(0, 0, 0, 0.05);
   }
 `;
+
+            
+                
+            
+            
+            
+            export default TableStyles;

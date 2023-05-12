@@ -1,4 +1,6 @@
-export const languages = {
+
+
+const languages = {
   en: {
     id: 1,
     name: "en",
@@ -32,3 +34,5 @@ export const languages = {
   //   direction: "rtl",
   // },
 };
+
+            export default languages;

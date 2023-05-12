@@ -1,5 +1,5 @@
-import { spacings } from "@stylesheets";
-import { __reduce } from "@utils";
+import spacings from "@stylesheets/constants/spacing";
+import __reduce from "lodash-es/reduce";
 
 const getDimensionKey = (key, value) => {
   const insetInlineStart = key === "insetInlineStart";
@@ -27,13 +27,16 @@ const getDimensionKey = (key, value) => {
   return fallback[key];
 };
 
-export const prepareDimensions = (d = []) =>
-  __reduce(
-    d,
-    (result, v, k) => {
-      const value = spacings[v] || v;
-      result[k] = value;
-      return result;
-    },
-    {}
+const prepareDimensions = (d = []) =>
+__reduce(
+  d,
+  (result, v, k) => {
+    const value = spacings[v] || v;
+    result[k] = value;
+    return result;
+  },
+  {}
   );
+
+  
+            export default prepareDimensions;

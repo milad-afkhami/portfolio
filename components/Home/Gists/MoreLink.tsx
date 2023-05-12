@@ -1,7 +1,8 @@
-import React from "react";
-import { Div, Link, Text } from "@kits";
+import Div from "@kits/Div";
+import Link from "@kits/Link";
+import Text from "@kits/Text";
 
-export const GistsMoreLink = (props) => {
+const GistsMoreLink = (props) => {
   return (
     <Div mt="2">
       <Link
@@ -18,3 +19,11 @@ export const GistsMoreLink = (props) => {
     </Div>
   );
 };
+
+
+            
+                
+            
+            
+            
+            export default GistsMoreLink

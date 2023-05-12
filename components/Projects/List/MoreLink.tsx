@@ -1,7 +1,10 @@
-import React from "react";
-import { Div, Link, Text } from "@kits";
+import Div from "@kits/Div";
+import Link from "@kits/Link";
+import Text from "@kits/Text";
 
-export const ProjectsMoreLink = (props) => {
+
+
+const ProjectsMoreLink = (props) => {
   return (
     <Div mt="2">
       <Link
@@ -18,3 +21,10 @@ export const ProjectsMoreLink = (props) => {
     </Div>
   );
 };
+
+            
+                
+            
+            
+            
+            export default ProjectsMoreLink;

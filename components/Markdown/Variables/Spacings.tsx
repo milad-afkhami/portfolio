@@ -1,10 +1,12 @@
-import React from "react";
-import { Div, Tree } from "@kits";
-import { useState } from "@hooks";
-import { SectionTitle } from "@components/Layout";
+import Div from "@kits/Div";
+import Tree from "@kits/Tree";
+import { useState } from "react";
+import SectionTitle from "@components/Layout/Title/SectionTitle";
 import { spacings } from "@stylesheets";
 
-export const SpacingVariables = (props) => {
+
+
+const SpacingVariables = (props) => {
   return (
     <Div id="spacings" my="3">
       <SectionTitle title="markdown.variables.spacings" tag="h4" />
@@ -15,3 +17,10 @@ export const SpacingVariables = (props) => {
     </Div>
   );
 };
+
+            
+                
+            
+            
+            
+            export default SpacingVariables;

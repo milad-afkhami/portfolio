@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import { color } from "@stylesheets";
 import { themes, defaultTheme } from "@stylesheets";
-import { __reduce } from "@utils";
+import __reduce from "lodash-es/reduce";
 import { Color } from "@models";
 
 const prepareColorVars = (name, variants) =>
@@ -16,7 +16,9 @@ const prepareColorVars = (name, variants) =>
         {}
       );
 
-export const GlobalColors = createGlobalStyle((props) => {
+
+
+const GlobalColors = createGlobalStyle((props) => {
   return {
     ...__reduce(
       themes,
@@ -30,3 +32,5 @@ export const GlobalColors = createGlobalStyle((props) => {
     ),
   };
 });
+
+            export default GlobalColors;

@@ -64,9 +64,11 @@ const domAllowedProps = [
   "blurDataURL",
 ];
 
-export const shouldForwardProp =
-  (kitName, customValidatorFn = () => true) =>
-  (prop, defaultValidatorFn) =>
-    !domProhibitedProps[kitName].includes(prop) &&
-    (domAllowedProps.includes(prop) ? true : defaultValidatorFn(prop)) &&
-    customValidatorFn(prop);
+const shouldForwardProp =(kitName, customValidatorFn = () => true) =>
+(prop, defaultValidatorFn) =>
+!domProhibitedProps[kitName].includes(prop) &&
+(domAllowedProps.includes(prop) ? true : defaultValidatorFn(prop)) &&
+customValidatorFn(prop);
+
+
+            export default shouldForwardProp;

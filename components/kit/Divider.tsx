@@ -1,10 +1,11 @@
-import { Div } from "@kits";
+import Div from "@kits/Div";
 
 /**
  * Renders a divider
  * @param {{ width:string, height:string, color:string, orientation: ("vertical"|"horizontal") }} props
  */
-export const Divider = ({
+
+const Divider = ({
   color = "border-light",
   length = "100%",
   thickness = "1px",
@@ -12,3 +13,11 @@ export const Divider = ({
 }) => {
   return <Div width={width} height={height} bg={color} />;
 };
+
+
+            
+                
+            
+            
+            
+            export default Divider;

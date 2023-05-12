@@ -1,10 +1,10 @@
-import { useState, useCallback, useRef } from "@hooks";
+import { useState, useCallback, useRef } from "react";
 
-export function useLongPress(
+const  useLongPress=(
   onLongPress,
   onClick,
   { shouldPreventDefault = true, delay = 300 } = {}
-) {
+) =>{
   const [longPressTriggered, setLongPressTriggered] = useState(false);
   const timeout = useRef();
   const target = useRef();
@@ -51,3 +51,5 @@ const preventDefault = (event) => {
 
   if (event.touches.length < 2 && event.preventDefault) event.preventDefault();
 };
+
+            export default useLongPress

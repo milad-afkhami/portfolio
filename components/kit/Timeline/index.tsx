@@ -1,9 +1,9 @@
-import React from "react";
-import { Div } from "@kits";
+import Div from "@kits/Div";
 import { TimelineSection } from "./Section";
-import { SectionTitle } from "@components/Layout";
+import SectionTitle from "@components/Layout/Title/SectionTitle";
 
-export const Timeline = (props) => {
+
+const Timeline = (props) => {
   const { title, icon = "timeline", sections } = props || {};
 
   return (
@@ -22,3 +22,12 @@ export const Timeline = (props) => {
     </Div>
   );
 };
+
+
+
+            
+                
+            
+            
+            
+            export default Timeline;

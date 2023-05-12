@@ -7,8 +7,7 @@ summary: "Creating a responsive navbar without having to create and render multi
 See [here](https://github.com/miladMAPS/portfolio/blob/main/components/Layout/Header/Nav/index.js) for a complete solution.
 
 ```jsx
-import React from "react";
-import { Div } from "@kits";
+import Div from "@kits/Div";
 import dynamic from "next/dynamic";
 import { useMediaQuery } from "@hooks";
 import { breakpoints } from "@stylesheets";
@@ -18,7 +17,9 @@ const HeaderResponsiveMenu = dynamic(() => import("./Responsive"), {
   ssr: false,
 });
 
-export function HeaderNav(props) {
+export default HeaderNav;
+
+const HeaderNav = (props) => {
   const isBigScreen = useMediaQuery({ minWidth: breakpoints.md });
   const isResponsiveScreen = useMediaQuery({ maxWidth: breakpoints.md });
 

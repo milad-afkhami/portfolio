@@ -1,4 +1,3 @@
-import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheet } from "styled-components";
 import { defaultTheme, themes } from "@stylesheets";
@@ -69,4 +68,11 @@ class MyDocument extends Document {
   }
 }
 
-export default MyDocument;
+
+
+            
+                
+            
+            
+            
+            export default MyDocument;

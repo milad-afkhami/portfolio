@@ -1,8 +1,9 @@
 import styled from "styled-components";
-import { responsiveProps, getCol } from "@stylesheets";
-import { __reduce } from "@utils";
-import { convertPropsToStyles } from "./convertPropsToStyles";
-import { shouldForwardProp } from "@helpers";
+import getCol from "@stylesheets/utils/getCol";
+import responsiveProps from "@stylesheets/utils/responsiveProps";
+import __reduce  from "lodash-es/reduce";
+import convertPropsToStyles from "./convertPropsToStyles";
+import shouldForwardProp from "@helpers/shouldForwardProp";
 
 /**
  * renders a custom div component with needed stylesheets.
@@ -10,7 +11,8 @@ import { shouldForwardProp } from "@helpers";
  *
  * @type {import("react").ComponentType<import("./Props").Props>}
  */
-export const Div = styled.div
+
+const Div = styled.div
   .withConfig({ shouldForwardProp: shouldForwardProp("Div") })
   .attrs(
     ({
@@ -52,3 +54,12 @@ export const Div = styled.div
     ...(hover ? { "&:hover": convertPropsToStyles(hover) } : {}),
   };
 });
+
+
+
+            
+                
+            
+            
+            
+            export default Div;

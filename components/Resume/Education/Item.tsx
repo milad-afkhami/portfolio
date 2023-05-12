@@ -1,7 +1,9 @@
-import React from "react";
-import { Div, Text } from "@kits";
+import Div from "@kits/Div";
+import Text from "@kits/Text";
 
-export const ResumeEducationItem = ({ year, title, description }) => {
+
+
+const ResumeEducationItem = ({ year, title, description }) => {
   return (
     <Div my="3">
       <Div>
@@ -20,3 +22,10 @@ export const ResumeEducationItem = ({ year, title, description }) => {
     </Div>
   );
 };
+
+            
+                
+            
+            
+            
+            export default ResumeEducationItem;

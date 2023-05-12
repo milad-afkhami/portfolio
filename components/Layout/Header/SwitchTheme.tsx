@@ -1,9 +1,10 @@
-import React from "react";
 import { useTheme } from "@hooks";
-import { Div, Icon } from "@kits";
+import Div from "@kits/Div";
+import Icon from "@kits/Icon";
 import { THEMES } from "@constants";
 
-export function HeaderSwitchTheme(props) {
+
+const HeaderSwitchTheme = (props) => {
   const {} = props || {};
   const { theme, setTheme } = useTheme();
 
@@ -26,3 +27,12 @@ export function HeaderSwitchTheme(props) {
     </Div>
   );
 }
+
+
+
+            
+                
+            
+            
+            
+            export default HeaderSwitchTheme;

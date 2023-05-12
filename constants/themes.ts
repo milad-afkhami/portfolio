@@ -2,4 +2,4 @@ const THEMES = {
   DARK: "DARK",
   LIGHT: "LIGHT",
 };
-export { THEMES };
+export default  THEMES

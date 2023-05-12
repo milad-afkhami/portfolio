@@ -1,6 +1,5 @@
-import React from "react";
 import { useHome } from "@hooks";
-import { Div } from "@kits";
+import Div from "@kits/Div";
 import { Head } from "@components/SEO";
 import { Profile, FeaturedPosts, Projects, Gists } from "@components/Home";
 import { BlogServices, GistServices } from "@services";
@@ -11,7 +10,9 @@ const Contact = dynamic(
   { ssr: false }
 );
 
-export default function Home(props) {
+
+
+const Home = (props) => {
   const { data, isValidating, mutate, error } = useHome();
 
   return (
@@ -34,3 +35,10 @@ export async function getStaticProps() {
 
   return { props: { blogs, gists } };
 }
+
+            
+                
+            
+            
+            
+            export default Home;

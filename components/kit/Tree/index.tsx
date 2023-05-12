@@ -1,5 +1,4 @@
-import { Text } from "@kits";
-import React from "react";
+import Text from "@kits/Text";
 import { TreeWrapper } from "./Wrapper";
 
 /**
@@ -9,7 +8,8 @@ import { TreeWrapper } from "./Wrapper";
  * @param {boolean} defaultOpen Whether or not first degree details should be open by default
  * @param {boolean} defaultSubsOpen Whether or not non-first degree details should be open by default
  */
-export const Tree = (props) => {
+
+const Tree = (props) => {
   const {
     branches,
     branchesAccessor = "branches",
@@ -45,3 +45,12 @@ export const Tree = (props) => {
     </TreeWrapper>
   );
 };
+
+
+
+            
+                
+            
+            
+            
+            export default Tree;

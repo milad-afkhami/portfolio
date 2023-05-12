@@ -1,7 +1,9 @@
-import React from "react";
-import { Div, Image } from "@kits";
+import Div from "@kits/Div";
+import Image from "@kits/Image";
 
-export function AboutAvatar(props) {
+
+
+const AboutAvatar = (props) => {
   return (
     <Div flex={[, "center"]}>
       <Div
@@ -28,3 +30,15 @@ export function AboutAvatar(props) {
     </Div>
   );
 }
+
+
+
+
+
+
+            
+                
+            
+            
+            
+            export default AboutAvatar;

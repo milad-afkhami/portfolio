@@ -1,5 +1,4 @@
-import React from "react";
-import { Div } from "@kits";
+import Div from "@kits/Div";
 import dynamic from "next/dynamic";
 import { useMediaQuery } from "@hooks";
 import { breakpoints } from "@stylesheets";
@@ -9,7 +8,9 @@ const HeaderResponsiveMenu = dynamic(() => import("./Responsive"), {
 });
 const HeaderMenu = dynamic(() => import("./Desktop"), { ssr: false });
 
-export function HeaderNav(props) {
+
+
+const HeaderNav = (props) => {
   const isBigScreen = useMediaQuery({ minWidth: breakpoints.md });
   const isSmallOrMediumScreen = useMediaQuery({ maxWidth: breakpoints.md });
 
@@ -20,3 +21,10 @@ export function HeaderNav(props) {
     </Div>
   );
 }
+
+            
+                
+            
+            
+            
+            export default HeaderNav;

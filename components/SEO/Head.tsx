@@ -1,10 +1,11 @@
-import React from "react";
 import { appBaseURL } from "@config";
 import { NextSeo } from "@components/SEO";
 import { useRouter, useTranslation } from "@hooks";
 
 /** @type {import("react").ComponentType<import("next-seo").NextSeoProps>} */
-export const Head = ({
+
+
+const Head = ({
   canonical = "",
   keywords = "",
   additionalMetaTags = [],
@@ -79,3 +80,10 @@ export const Head = ({
     />
   );
 };
+
+            
+                
+            
+            
+            
+            export default Head;

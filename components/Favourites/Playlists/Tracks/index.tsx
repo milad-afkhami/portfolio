@@ -1,7 +1,7 @@
-import React from "react";
-import { Div, ListView } from "@kits";
+import Div from "@kits/Div";
+import ListView from "@kits/ListView";
 
-export const FavouritePlaylistTracks = (props) => {
+const FavouritePlaylistTracks = (props) => {
   const { open, tracks } = props || {};
 
   const row = Math.ceil(tracks?.length / 2);
@@ -20,3 +20,14 @@ export const FavouritePlaylistTracks = (props) => {
     </Div>
   );
 };
+
+
+
+
+
+            
+                
+            
+            
+            
+            export default FavouritePlaylistTracks;

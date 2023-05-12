@@ -1,4 +1,4 @@
-export const setStyle = ({ variant, disabled }) => {
+const setStyle = ({ variant, disabled }) => {
   if (variant === "primary") {
     return {
       color: "var(--color-text-primary)",
@@ -39,3 +39,7 @@ export const setStyle = ({ variant, disabled }) => {
     };
   }
 };
+
+
+
+            export default setStyle;

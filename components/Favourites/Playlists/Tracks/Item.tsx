@@ -1,7 +1,7 @@
-import React from "react";
-import { Div, Text } from "@kits";
+import Div from "@kits/Div";
+import Text from "@kits/Text";
 
-export const FavouritePlaylistTracksItem = (props) => {
+const FavouritePlaylistTracksItem = (props) => {
   const { index, name, artist } = props || {};
 
   return (
@@ -33,3 +33,14 @@ export const FavouritePlaylistTracksItem = (props) => {
     </Div>
   );
 };
+
+
+
+
+
+            
+                
+            
+            
+            
+            export default FavouritePlaylistTracksItem;

@@ -1,7 +1,7 @@
-import React from "react";
-import { Div, Link, Text } from "@kits";
+import Link from "@kits/Link";
+import Text from "@kits/Text";
 
-export const Logo = (props) => {
+const Logo = (props) => {
   const {} = props || {};
 
   return (
@@ -12,3 +12,11 @@ export const Logo = (props) => {
     </Link>
   );
 };
+
+
+            
+                
+            
+            
+            
+            export default Logo;

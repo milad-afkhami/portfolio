@@ -1,4 +1,4 @@
-export class CSSVariables {
+ CSSVariables {
   /**
    * @param {string} name
    * @param {{numeric:boolean, rgb:boolean}} options
@@ -25,3 +25,5 @@ export class CSSVariables {
     return this.get(name);
   };
 }
+
+            export default class

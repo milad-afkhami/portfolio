@@ -5,7 +5,15 @@ import dynamic from "next/dynamic";
  * Takes no props only children
  * @type {import("react").ComponentType<{children:import("react").ReactElement}>}
  */
-export const NoSSR = dynamic(
+const NoSSR = dynamic(
   () => Promise.resolve(({ children }) => <>{children}</>),
   { ssr: false }
 );
+
+
+            
+                
+            
+            
+            
+            export default NoSSR;

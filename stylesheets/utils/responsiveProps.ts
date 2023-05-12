@@ -1,13 +1,15 @@
-import { forEach } from "lodash";
-import { mediaFeatures } from "@stylesheets";
-import { __reduce } from "@utils";
+import { mediaFeatures } from "@stylesheets/breakpoints";
+import __reduce from "lodash-es/reduce";
 
-export const responsiveProps = (responsive) =>
-  __reduce(
-    responsive,
-    (result, rspValue, rspKey) => {
-      result[`@media ${mediaFeatures[rspKey]}`] = rspValue;
-      return result;
-    },
-    {}
+const responsiveProps = (responsive) =>
+__reduce(
+  responsive,
+  (result, rspValue, rspKey) => {
+    result[`@media ${mediaFeatures[rspKey]}`] = rspValue;
+    return result;
+  },
+  {}
   );
+
+
+            export default responsiveProps;

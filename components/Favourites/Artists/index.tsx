@@ -1,9 +1,8 @@
-import React from "react";
-import { Div } from "@kits";
-import { FavouriteArtistCard } from "./Card";
-import { favouriteArtistsData } from "@data";
+import Div from "@kits/Div";
+import FavouriteArtistCard from "./Card";
+import { favouriteArtistsData } from "@data/favourites";
 
-export const FavouriteArtists = (props) => {
+const FavouriteArtists = (props) => {
   return (
     <Div
       grid={["repeat(1, 1fr)", , 5, "4rem", "row"]}
@@ -19,3 +18,14 @@ export const FavouriteArtists = (props) => {
     </Div>
   );
 };
+
+
+
+
+
+            
+                
+            
+            
+            
+            export default FavouriteArtists

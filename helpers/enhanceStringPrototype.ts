@@ -1,6 +1,8 @@
 import { imp } from "@stylesheets";
 
-export const enhanceStringPrototype = () => {
+
+
+const enhanceStringPrototype = () => {
   String.prototype.capitalize = function () {
     return this.charAt(0).toUpperCase() + this.slice(1).toLowerCase();
   };
@@ -13,3 +15,5 @@ export const enhanceStringPrototype = () => {
     return this.replace("".imp(), "");
   };
 };
+
+            export default enhanceStringPrototype;

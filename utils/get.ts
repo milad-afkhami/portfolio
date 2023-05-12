@@ -1,3 +1,7 @@
-import get from "lodash/get";
+import get from "lodash-es/get";
 
-export const __get = (object, path) => (path ? get(object, path) : object);
+
+
+const __get = (object, path) => (path ? get(object, path) : object);
+
+            export default __get;

@@ -1,7 +1,7 @@
-import React from "react";
 import { NotFoundAnimationWrapper } from "./Wrapper";
 
-export function NotFoundAnimation(props) {
+
+const NotFoundAnimation = (props) => {
   return (
     <NotFoundAnimationWrapper>
       <svg
@@ -126,3 +126,15 @@ export function NotFoundAnimation(props) {
     </NotFoundAnimationWrapper>
   );
 }
+
+
+
+
+
+
+            
+                
+            
+            
+            
+            export default NotFoundAnimation;

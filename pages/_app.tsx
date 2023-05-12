@@ -1,14 +1,15 @@
-import React from "react";
 import "../index.css";
-import { Layout } from "@components/Layout";
+import Layout from "@components/Layout/Layout";
 import { useRouter } from "next/router";
 import { ThemeProvider } from "next-themes";
 import { defaultTheme, GlobalStyles } from "@stylesheets";
 import { THEMES } from "@constants";
-import { swrFetcher, __pick } from "@utils";
+import swrFetcher from "@utils/swrFetcher";
+import __pick  from "lodash-es/pick";
 import { DefaultSeo } from "@components/SEO";
-import { enhanceStringPrototype, LanguageHelper } from "@helpers";
-import { useEffect, useTranslation } from "@hooks";
+import enhanceStringPrototype from "@helpers/enhanceStringPrototype";
+import useTranslation from "@hooks/useTranslation";
+import { useEffect } from "react";
 import { ToastContainer, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import { SWRConfig } from "swr";
@@ -79,4 +80,11 @@ function MyApp({ Component, pageProps, ...rest }) {
   );
 }
 
-export default MyApp;
+
+
+            
+                
+            
+            
+            
+            export default MyApp;

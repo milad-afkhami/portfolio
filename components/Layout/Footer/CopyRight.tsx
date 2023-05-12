@@ -1,7 +1,8 @@
-import React from "react";
-import { Div, Text } from "@kits";
+import Div from "@kits/Div";
+import Text from "@kits/Text";
 
-export function FooterCopyRight(props) {
+
+const FooterCopyRight = (props) => {
   return (
     <Div py="4" border="text-primary" borderSide="top">
       <Div width="100%" flex={["center", "between"]}>
@@ -13,3 +14,12 @@ export function FooterCopyRight(props) {
     </Div>
   );
 }
+
+
+
+            
+                
+            
+            
+            
+            export default FooterCopyRight;

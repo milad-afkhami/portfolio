@@ -1,8 +1,7 @@
-import React from "react";
-import { Div } from "@kits";
+import Div from "@kits/Div";
 import styled from "styled-components";
 
-export const MenuToggler = (props) => {
+const MenuToggler = (props) => {
   const { open, toggle } = props || {};
 
   return (
@@ -50,3 +49,12 @@ const StyledDiv = styled.div`
     transform: translate(30px, -11px) rotatez(45deg);
   }
 `;
+
+
+
+            
+                
+            
+            
+            
+            export default MenuToggler;

@@ -1,7 +1,6 @@
-import React from "react";
-import { Text } from "@kits";
+import Text from "@kits/Text";
 
-export const TimelineSectionItemTitle = (props) => {
+const TimelineSectionItemTitle = (props) => {
   const { title } = props || {};
 
   return (
@@ -15,3 +14,12 @@ export const TimelineSectionItemTitle = (props) => {
     </Text>
   );
 };
+
+
+
+            
+                
+            
+            
+            
+            export default TimelineSectionItemTitle;

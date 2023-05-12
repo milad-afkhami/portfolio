@@ -1,8 +1,7 @@
-import React from "react";
-import { Div } from "@kits";
-import NextImage from "next/image";
+import Div from "@kits/Div";
+import NextImage from "next/legacy/image";
 import { useToggle } from "@hooks";
-import { isomorphicPortal } from "@utils";
+import isomorphicPortal from "@utils/isomorphicPortal";
 import { imageBaseURL } from "@config";
 
 /**
@@ -13,7 +12,8 @@ import { imageBaseURL } from "@config";
  * Renders an enhanced img element
  * @param {import("@kits/Div/Props").Props & ImageProps} props
  */
-export const Image = ({
+
+const Image = ({
   fit,
   src,
   alt = "",
@@ -35,9 +35,9 @@ export const Image = ({
   ...rest
 }) => {
   const [maximized, toggleMaximized] = useToggle(false);
-
+  
   // let _src = src; if (src?.startsWith?.("/")) { _src = imageBaseURL + src; }
-
+  
   return (
     <>
       <Div
@@ -62,8 +62,8 @@ export const Image = ({
         layout={layout}
         blurDataURL={
           placeholder === "blur" && withShimmer
-            ? `data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`
-            : blurDataURL
+          ? `data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`
+          : blurDataURL
         }
         css={{
           userSelect: css.userSelect || "none",
@@ -80,13 +80,13 @@ export const Image = ({
         }}
         cursor={cursor ?? (maximizable ? "zoom-in" : undefined)}
         {...rest}
-      />
+        />
       {maximizable && maximized
         ? isomorphicPortal(
-            <Div
-              width="calc(100vw - var(--scrollbar-width))"
-              height="100vh"
-              blurBg
+          <Div
+          width="calc(100vw - var(--scrollbar-width))"
+          height="100vh"
+          blurBg
               dimensions={{ top: 0, left: 0, right: 0, bottom: 0 }}
               zIndex="var(--overlay-z-index)"
               pace="xFast"
@@ -102,22 +102,22 @@ export const Image = ({
                 cursor="default"
                 opacity="1"
                 pace="xFast"
-              >
+                >
                 {maximized && (
                   <Image
-                    curve="sm"
-                    onClick={toggleMaximized}
-                    quality={100}
-                    layout="fill"
-                    fit="contain"
-                    priority
-                    src={src}
-                    withShimmer
-                    placeholder="blur"
-                    // withShimmer={!blurDataURL}
-                    // {...(blurDataURL ? { blurDataURL } : {})}
+                  curve="sm"
+                  onClick={toggleMaximized}
+                  quality={100}
+                  layout="fill"
+                  fit="contain"
+                  priority
+                  src={src}
+                  withShimmer
+                  placeholder="blur"
+                  // withShimmer={!blurDataURL}
+                  // {...(blurDataURL ? { blurDataURL } : {})}
                   />
-                )}
+                  )}
               </Div>
             </Div>
           )
@@ -128,23 +128,31 @@ export const Image = ({
 
 function shimmer(w, h) {
   return `
-    <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-      <defs>
-        <linearGradient id="g">
-          <stop stop-color="#333" offset="20%" />
-          <stop stop-color="#222" offset="50%" />
-          <stop stop-color="#333" offset="70%" />
-        </linearGradient>
-      </defs>
-      <rect width="${w}" height="${h}" fill="#333" />
-      <rect id="r" width="${w}" height="${h}" fill="url(#g)" />
-      <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite"  />
-    </svg>
+  <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+  <linearGradient id="g">
+  <stop stop-color="#333" offset="20%" />
+  <stop stop-color="#222" offset="50%" />
+  <stop stop-color="#333" offset="70%" />
+  </linearGradient>
+  </defs>
+  <rect width="${w}" height="${h}" fill="#333" />
+  <rect id="r" width="${w}" height="${h}" fill="url(#g)" />
+  <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite"  />
+  </svg>
   `;
 }
 
 function toBase64(str) {
   return typeof window === "undefined"
-    ? Buffer.from(str).toString("base64")
-    : window.btoa(str);
+  ? Buffer.from(str).toString("base64")
+  : window.btoa(str);
 }
+        
+
+            
+                
+            
+            
+            
+            export default Image;

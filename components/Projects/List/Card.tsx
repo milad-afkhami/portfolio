@@ -1,7 +1,11 @@
-import React from "react";
-import { Div, Image, Link, Text } from "@kits";
+import Div from "@kits/Div";
+import Image from "@kits/Image";
+import Link from "@kits/Link";
+import Text from "@kits/Text";
 
-export const ProjectCard = (props) => {
+
+
+const ProjectCard = (props) => {
   const { logo, slug } = props || {};
 
   const height = 120;
@@ -69,3 +73,10 @@ export const ProjectCard = (props) => {
     </Link>
   );
 };
+
+            
+                
+            
+            
+            
+            export default ProjectCard;

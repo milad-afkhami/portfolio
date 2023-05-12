@@ -59,7 +59,9 @@ Snippet: **`!func`**
 {
   "React Functional Component": {
     "prefix": "!func",
-    "body": "// #region imports\nimport React from \"react\";\nimport { Div, Text } from \"@kits\";\nimport { useState } from \"@hooks\";\n// #endregion\n\nexport const ${1:${TM_FILENAME_BASE}} = (props) => {\n  const {} = props || {};\n  const [state, setState] = useState(null)\n\n  return (\n    <Div>\n      ${1:${TM_FILENAME_BASE}}\n    </Div>\n  );\n}\n\n",
+    "body": "// #region imports\nimport React from \"react\";\nimport { Div, Text } from \"@kits\";\nimport { useState } from \"@hooks\";\n// #endregion\n\nexport default ${1:${TM_FILENAME_BASE}};
+
+const ${1:${TM_FILENAME_BASE}} = (props) => {\n  const {} = props || {};\n  const [state, setState] = useState(null)\n\n  return (\n    <Div>\n      ${1:${TM_FILENAME_BASE}}\n    </Div>\n  );\n}\n\n",
     "description": "Creates a functional React component"
   },
 }
@@ -70,12 +72,14 @@ This will generate this code block:
 
 ```jsx
 // #region imports
-import React from "react";
-import { Div, Text } from "@kits";
-import { useState } from "@hooks";
+import Div from "@kits/Div";
+import Text from "@kits/Text";
+import { useState } from "react";
 // #endregion
 
-export const TM_FILENAME_BASE = (props) => {
+export default TM_FILENAME_BASE;
+
+const TM_FILENAME_BASE = (props) => {
   const {} = props || {};
   const [state, setState] = useState(null);
 

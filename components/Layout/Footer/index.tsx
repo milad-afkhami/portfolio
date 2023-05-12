@@ -1,9 +1,9 @@
-import React from "react";
-import { Div } from "@kits";
-import { FooterLinks } from "./Links";
-import { FooterSocials } from "./Socials";
+import Div from "@kits/Div";
+import FooterLinks from "./Links";
+import FooterSocials from "./Socials";
 
-export function Footer(props) {
+
+const Footer = (props) => {
   return (
     <Div mt="5" py="5" mw="100%" border="border-light" borderSide="top">
       <Div row>
@@ -19,3 +19,12 @@ export function Footer(props) {
     </Div>
   );
 }
+
+
+
+            
+                
+            
+            
+            
+            export default Footer;

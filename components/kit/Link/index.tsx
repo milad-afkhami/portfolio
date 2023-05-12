@@ -1,6 +1,5 @@
-import React from "react";
 import NextLink from "next/link";
-import { Div } from "@kits";
+import Div from "@kits/Div";
 import { useCallback } from "@hooks";
 
 /**
@@ -11,7 +10,8 @@ import { useCallback } from "@hooks";
  * @type {import("react").ComponentType<LinkProps>}
  * @param {LinkProps} props
  */
-export const Link = ({
+
+const Link = ({
   href,
   as,
   replace,
@@ -83,3 +83,12 @@ export const Link = ({
 //     </Div>
 //   );
 // };
+
+
+
+            
+                
+            
+            
+            
+            export default Link;

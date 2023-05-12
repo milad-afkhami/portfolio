@@ -1,7 +1,8 @@
-import React from "react";
-import { Div, Text, Icon } from "@kits";
+import Div from "@kits/Div";
+import Text from "@kits/Text";
+import Icon from "@kits/Icon";
 
-export const BlogCardFooter = (props) => {
+const BlogCardFooter = (props) => {
   const { publishedAt = "", readingTime, views } = props || {};
 
   return (
@@ -36,3 +37,14 @@ export const BlogCardFooter = (props) => {
     </Div>
   );
 };
+
+
+
+
+
+            
+                
+            
+            
+            
+            export default BlogCardFooter;
