@@ -1,5 +1,4 @@
 import { useTranslation as useNINTranslation } from "next-i18next";
-import I18nHelper from "@helpers/i18n";
 import type { UseTranslationResponse } from "react-i18next";
 
 /**
@@ -14,15 +13,14 @@ import type { UseTranslationResponse } from "react-i18next";
  * which future-proves our code against upcoming challenges.
  *
  * For now added functionalities are:
- * * Concatenating platform suffix to namespace, Read more about it in [i18n document](../docs/i18n.md).
  * * Being more precise about static typing of namespaces
  */
 function useTranslation<T extends I18NNameSpaces>(
   ns: I18NNameSpaces = "common",
   options?: Parameters<typeof useNINTranslation>[1]
 ): UseTranslationResponse<T> {
-  return useNINTranslation(I18nHelper.concatenateNamespace(ns), {
-    nsMode: "fallback",
+  return useNINTranslation(ns, {
+    // nsMode: "fallback",
     ...(options || {}),
   });
 }

@@ -63,9 +63,8 @@ export const Link = ({
       {...(locale !== undefined ? { locale } : {})}
       {...(outerLink !== undefined ? { outerLink } : {})}
     >
-      <Div as="a" {...rest} hover={hover}>
-        {children}
-      </Div>
+      // <Div as="a" {...rest} hover={hover}></Div>
+      {children}
     </NextLink>
   );
 };
