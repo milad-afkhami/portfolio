@@ -1,5 +1,5 @@
 import Div from "@kits/Div";
-import { Head } from "@components/SEO";
+import Head from "@components/SEO/Head";
 import { FavouriteEntities } from "@components/Favourites";
 
 const FavouritesPage = (props) => {

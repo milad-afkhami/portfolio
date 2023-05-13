@@ -1,7 +1,7 @@
-import { useMemo } from "react";
 import Div from "@kits/Div";
 import Timeline from "@kits/Timeline";
-import { Head, SocialProfileJsonLd, VideoJsonLd } from "@components/SEO";
+import Head from "@components/SEO/Head";
+import { SocialProfileJsonLd, VideoJsonLd } from "next-seo";
 import PageTitle from "@components/Layout/Title/PageTitle";
 import WhoAmI from "@components/About/WhoAmI";
 import {
@@ -14,7 +14,7 @@ import {
 import useTranslation from "@hooks/useTranslation";
 
 const AboutPage = (props) => {
-  const t = useTranslation().t;
+  const { t } = useTranslation();
   const videoTitle = t("about.video.title");
   const videoDesc = t("about.video.desc");
   const videoUrl = `${appBaseURL}/intro.mp4`;

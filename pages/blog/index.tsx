@@ -1,5 +1,5 @@
 import Div from "@kits/Div";
-import { Head } from "@components/SEO";
+import Head from "@components/SEO/Head";
 import PageTitle from "@components/Layout/Title/PageTitle";
 import { Blogs } from "@components/Blog";
 import { BlogServices } from "@services";

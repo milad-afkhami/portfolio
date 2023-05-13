@@ -1,13 +1,10 @@
 import Div from "@kits/Div";
 import { APP_WRAPPER_ELEMENT_ID } from "@config";
-import { Header } from "./Header";
+import Header from "./Header";
 import dynamic from "next/dynamic";
 
 // const GithubCorner = dynamic(() => import("./GithubCorner").then((module) => module.GithubCorner), { ssr: false });
-const Footer = dynamic(
-  () => import("./Footer").then((module) => module.Footer),
-  { ssr: false }
-);
+const Footer = dynamic(() => import("./Footer"), { ssr: false });
 
 const Layout = (props = {}) => {
   const { children, hideHeader, hideFooter, transparentHeader } = props;

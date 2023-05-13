@@ -1,14 +1,13 @@
 import Div from "@kits/Div";
-import { HeaderNav } from "./Nav";
+import HeaderNav from "./Nav";
 import dynamic from "next/dynamic";
-import { HeaderChangeLanguage } from "./LanguagePicker";
-import { DownloadResume } from "./DownloadResume";
-import { HeaderGithub } from "./GitHub";
+import HeaderChangeLanguage from "./LanguagePicker";
+import DownloadResume from "./DownloadResume";
+import HeaderGithub from "./GitHub";
 
-const HeaderSwitchTheme = dynamic(
-  () => import("./SwitchTheme").then((module) => module.HeaderSwitchTheme),
-  { ssr: false }
-);
+const HeaderSwitchTheme = dynamic(() => import("./SwitchTheme"), {
+  ssr: false,
+});
 
 const Header = (props) => {
   const { transparent } = props || {};

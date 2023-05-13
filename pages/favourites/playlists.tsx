@@ -1,5 +1,5 @@
 import Div from "@kits/Div";
-import { Head } from "@components/SEO";
+import Head from "@components/SEO/Head";
 import { FavouritePlaylists } from "@components/Favourites";
 import PageTitle from "@components/Layout/Title/PageTitle";
 

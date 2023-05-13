@@ -1,7 +1,7 @@
 import Breadcrumb from "@kits/Breadcrumb";
 import Div from "@kits/Div";
 import { useRouter } from "next/router";
-import { Head } from "@components/SEO";
+import Head from "@components/SEO/Head";
 import MDXRemote from "@components/Markdown/MDXRemote";
 import GistServices from "@services/gist";
 import MarkdownWrapper from "@components/Markdown/Wrapper";

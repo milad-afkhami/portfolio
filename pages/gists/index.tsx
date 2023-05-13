@@ -1,9 +1,8 @@
 import Div from "@kits/Div";
-import { Head } from "@components/SEO";
-import dynamic from "next/dynamic";
+import Head from "@components/SEO/Head";
 import PageTitle from "@components/Layout/Title/PageTitle";
-import { Gists } from "@components/Gists";
-import { GistServices } from "@services";
+import Gists from "@components/Gists";
+import GistServices from "@services/gist";
 
 const GistsPage = (props) => {
   return (

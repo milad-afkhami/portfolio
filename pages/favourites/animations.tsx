@@ -1,5 +1,5 @@
 import Div from "@kits/Div";
-import { Head } from "@components/SEO";
+import Head from "@components/SEO/Head";
 import FavouriteCommonEntityList from "@components/Favourites/CommonEntity";
 import PageTitle from "@components/Layout/Title/PageTitle";
 import { favouriteAnimationsData } from "@data/favourites";

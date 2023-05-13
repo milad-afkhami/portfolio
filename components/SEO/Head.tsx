@@ -1,10 +1,9 @@
 import { appBaseURL } from "@config";
-import { NextSeo } from "@components/SEO";
+import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
 import useTranslation from "@hooks/useTranslation";
 
 /** @type {import("react").ComponentType<import("next-seo").NextSeoProps>} */
-
 const Head = ({
   canonical = "",
   keywords = "",
@@ -19,7 +18,7 @@ const Head = ({
   const _canonical = appBaseURL + canonical;
   const router = useRouter();
 
-  const t = useTranslation().t;
+  const { t } = useTranslation();
 
   // const mobileDomain = _canonical.replace("www.", "www.m.");
   // const mobileAlternate = { media: "only screen and (max-width: 720px)", href: mobileDomain };

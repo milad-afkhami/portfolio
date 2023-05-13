@@ -1,5 +1,5 @@
 import Div from "@kits/Div";
-import { Head } from "@components/SEO";
+import Head from "@components/SEO/Head";
 import { PageTitle, SectionTitle } from "@components/Layout";
 
 const PackagesPage = (props) => {

@@ -2,9 +2,9 @@ import Div from "@kits/Div";
 import Breadcrumb from "@kits/Breadcrumb";
 import { useRouter } from "next/router";
 import useTranslation from "@hooks/useTranslation";
-import { Head, ArticleJsonLd } from "@components/SEO";
+import Head from "@components/SEO/Head";
+import { ArticleJsonLd } from "next-seo";
 import MDXRemote from "@components/Markdown/MDXRemote";
-import dynamic from "next/dynamic";
 import BlogTitle from "@components/Blog/Title";
 import BlogSummary from "@components/Blog/Summary";
 import BlogMeta from "@components/Blog/Meta";
@@ -15,12 +15,12 @@ import { appBaseURL } from "@config";
 
 const BlogPage = (props) => {
   const router = useRouter();
-  const slug = router.query.slug;
+  const { slug } = router.query;
   const { title, summary, image, banner, publishedAt, readingTime, category } =
     props?.blog?.frontMatter || {};
   const source = props?.blog?.source || {};
 
-  const t = useTranslation().t;
+  const { t } = useTranslation();
 
   const canonical = `/blog/${slug}`;
   return (

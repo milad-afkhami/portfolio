@@ -7,7 +7,7 @@ import GlobalStyles from "@stylesheets/global";
 import THEMES from "@constants/themes";
 import swrFetcher from "@utils/swrFetcher";
 import __pick from "lodash-es/pick";
-import { DefaultSeo } from "@components/SEO";
+import { DefaultSeo } from "next-seo";
 import enhanceStringPrototype from "@helpers/enhanceStringPrototype";
 import useTranslation from "@hooks/useTranslation";
 import { useEffect } from "react";
@@ -17,7 +17,7 @@ import { SWRConfig } from "swr";
 
 function MyApp({ Component, pageProps, ...rest }) {
   const router = useRouter();
-  const t = useTranslation().t;
+  const { t } = useTranslation();
 
   enhanceStringPrototype();
 

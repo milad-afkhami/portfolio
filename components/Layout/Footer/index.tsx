@@ -1,6 +1,5 @@
 import Div from "@kits/Div";
 import FooterLinks from "./Links";
-import FooterSocials from "./Socials";
 
 const Footer = (props) => {
   return (

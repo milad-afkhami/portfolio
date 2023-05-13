@@ -1,6 +1,6 @@
 import __range from "lodash-es/range";
-import { StyledSvg } from "./StyledSvg";
-import { LinearGradient } from "@components/Skeleton";
+import StyledSvg from "./StyledSvg";
+import LinearGradient from "@components/Skeleton/LinearGradient";
 
 const BlogCardLoadings = (props) => {
   const {} = props || {};
