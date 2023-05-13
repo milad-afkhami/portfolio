@@ -5,7 +5,7 @@ import PaceVariables from "./Paces";
 import SpacingVariables from "./Spacings";
 import TypographyVariables from "./Typography";
 import ShadowVariables from "./Shadows";
-import SectionTitle from "@components/Layout/Title/SectionTitle";
+import SectionTitle from "@components/Layout/Title/Section";
 
 const MarkdownVariables = (props) => {
   return (

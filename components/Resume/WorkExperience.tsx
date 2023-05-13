@@ -1,6 +1,6 @@
 import Div from "@kits/Div";
 import Text from "@kits/Text";
-import SectionTitle from "@components/Layout/Title/SectionTitle";
+import SectionTitle from "@components/Layout/Title/Section";
 import { workExperienceTimelineSections } from "@config";
 import { ResumeReference } from "./Reference";
 

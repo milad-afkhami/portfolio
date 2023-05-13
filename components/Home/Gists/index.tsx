@@ -2,7 +2,7 @@ import Div from "@kits/Div";
 import Gists from "@components/Gists";
 import { useMediaQuery } from "react-responsive";
 import breakpoints from "@stylesheets/breakpoints";
-import PageTitle from "@components/Layout/Title/PageTitle";
+import PageTitle from "@components/Layout/Title/Page";
 import GistsMoreLink from "./MoreLink";
 
 const homeGists = ["div", "useEnhancedState", "vscode"];

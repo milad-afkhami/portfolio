@@ -1,8 +1,8 @@
 import Div from "@kits/Div";
 import Head from "@components/SEO/Head";
-import PageTitle from "@components/Layout/Title/PageTitle";
-import { Blogs } from "@components/Blog";
-import { BlogServices } from "@services";
+import PageTitle from "@components/Layout/Title/Page";
+import BlogCards from "@components/Cards/Blogs";
+import BlogServices from "@services/blog";
 
 const BlogPage = (props) => {
   // const { data, isValidating, mutate, error } = useBlogs();
@@ -12,7 +12,7 @@ const BlogPage = (props) => {
       <Head canonical="/blog" />
       <Div width="100%" py="3">
         <PageTitle title="blog.title" />
-        <Blogs items={props?.blogs} loading={!props?.blogs} />
+        <BlogCards items={props?.blogs} loading={!props?.blogs} />
       </Div>
     </>
   );

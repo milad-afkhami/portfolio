@@ -2,7 +2,7 @@ import Button from "@kits/Button";
 import Div from "@kits/Div";
 import Link from "@kits/Link";
 import { NotFoundAnimation } from "@components/Error";
-import SectionTitle from "@components/Layout/Title/SectionTitle";
+import SectionTitle from "@components/Layout/Title/Section";
 
 const NotFound = (props) => {
   // return <h1>404 - Page Not Found</h1>;

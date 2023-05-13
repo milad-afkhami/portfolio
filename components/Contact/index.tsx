@@ -1,6 +1,6 @@
 import Div from "@kits/Div";
 import ContactOption from "./Option";
-import PageTitle from "@components/Layout/Title/PageTitle";
+import PageTitle from "@components/Layout/Title/Page";
 import { contactOptions } from "@config";
 
 const Contact = (props) => {

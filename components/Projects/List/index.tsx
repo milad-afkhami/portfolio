@@ -1,6 +1,6 @@
 import Div from "@kits/Div";
 import projectsData from "@data/projects";
-import PageTitle from "@components/Layout/Title/PageTitle";
+import PageTitle from "@components/Layout/Title/Page";
 import ProjectCard from "./Card";
 import ProjectsMoreLink from "./MoreLink";
 

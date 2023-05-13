@@ -1,8 +1,8 @@
 import { useMemo } from "react";
 import Div from "@kits/Div";
 import FavouritesHelper from "@helpers/favourites";
-import PageTitle from "@components/Layout/Title/PageTitle";
-import SectionTitle from "@components/Layout/Title/SectionTitle";
+import PageTitle from "@components/Layout/Title/Page";
+import SectionTitle from "@components/Layout/Title/Section";
 import FavouriteEntity from "./Entity";
 
 const FavouriteEntities = (props) => {

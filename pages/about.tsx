@@ -2,7 +2,7 @@ import Div from "@kits/Div";
 import Timeline from "@kits/Timeline";
 import Head from "@components/SEO/Head";
 import { SocialProfileJsonLd, VideoJsonLd } from "next-seo";
-import PageTitle from "@components/Layout/Title/PageTitle";
+import PageTitle from "@components/Layout/Title/Page";
 import WhoAmI from "@components/About/WhoAmI";
 import {
   aboutTimelineSections,

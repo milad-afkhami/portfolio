@@ -1,7 +1,7 @@
 import Div from "@kits/Div";
 import Head from "@components/SEO/Head";
 import { Projects } from "@components/Projects";
-import PageTitle from "@components/Layout/Title/PageTitle";
+import PageTitle from "@components/Layout/Title/Page";
 
 const ProjectsPage = (props) => {
   return (

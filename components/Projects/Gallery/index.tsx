@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
 import Div from "@kits/Div";
-import SectionTitle from "@components/Layout/Title/SectionTitle";
+import SectionTitle from "@components/Layout/Title/Section";
 import ProjectGalleryAlbum from "./Album";
 import dynamic from "next/dynamic";
 

@@ -1,7 +1,6 @@
 import Div from "@kits/Div";
 import Icon from "@kits/Icon";
 import Text from "@kits/Text";
-import THEMES from "@constants/themes";
 
 const SectionTitle = (props) => {
   const { icon, title, tag = "h3" } = props || {};

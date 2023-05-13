@@ -1,6 +1,6 @@
 import Div from "@kits/Div";
 import Tree from "@kits/Tree";
-import SectionTitle from "@components/Layout/Title/SectionTitle";
+import SectionTitle from "@components/Layout/Title/Section";
 import spacings from "@stylesheets/constants/spacings.json";
 
 const SpacingVariables = (props) => {

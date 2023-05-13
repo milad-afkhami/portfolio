@@ -1,7 +1,7 @@
 import Div from "@kits/Div";
 import Head from "@components/SEO/Head";
-import SectionTitle from "@components/Layout/Title/SectionTitle";
-import PageTitle from "@components/Layout/Title/PageTitle";
+import SectionTitle from "@components/Layout/Title/Section";
+import PageTitle from "@components/Layout/Title/Page";
 
 const FavouritePoemsPage = (props) => {
   // const { data, isValidating, mutate, error } = useHome();

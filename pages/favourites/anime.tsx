@@ -1,7 +1,7 @@
 import Div from "@kits/Div";
 import Head from "@components/SEO/Head";
 import FavouriteCommonEntityList from "@components/Favourites/CommonEntity";
-import PageTitle from "@components/Layout/Title/PageTitle";
+import PageTitle from "@components/Layout/Title/Page";
 import { favouriteAnimeData } from "@data/favourites";
 import FAVOURITE_TYPES from "@constants/favourites";
 

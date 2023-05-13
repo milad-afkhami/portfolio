@@ -1,6 +1,6 @@
 import Div from "@kits/Div";
 import Head from "@components/SEO/Head";
-import PageTitle from "@components/Layout/Title/PageTitle";
+import PageTitle from "@components/Layout/Title/Page";
 import Gists from "@components/Gists";
 import GistServices from "@services/gist";
 

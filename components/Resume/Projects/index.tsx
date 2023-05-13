@@ -1,5 +1,5 @@
 import Div from "@kits/Div";
-import SectionTitle from "@components/Layout/Title/SectionTitle";
+import SectionTitle from "@components/Layout/Title/Section";
 import projectsData from "@data/projects";
 import ResumeProjectsItem from "./Item";
 import ResumeReference from "../Reference";
