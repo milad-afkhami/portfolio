@@ -1,18 +1,18 @@
 import Div from "@kits/Div";
 import Image from "@kits/Image";
 import Link from "@kits/Link";
-import { BlogCardCategory } from "./Category";
-import { BlogCardBody } from "./Body";
-import { BlogCardFooter } from "./Footer";
+import BlogCardCategory from "./Category";
+import BlogCardBody from "./Body";
+import BlogCardFooter from "./Footer";
 
 const BlogCard = (props) => {
-  const { image = "", slug = "" } = props || {};
+  const { image = "", slug = "", title } = props;
 
   return (
     <Link
       href={`/blog/${slug}`}
       prefetch={false}
-      height={"300px"}
+      height="300px"
       flex={[, , "column"]}
       curve="sm"
       overflow="hidden"
@@ -38,6 +38,7 @@ const BlogCard = (props) => {
             layout="fill"
             quality={20}
             fit="cover"
+            alt={title}
           />
         )}
         <BlogCardCategory {...props} />
@@ -46,7 +47,7 @@ const BlogCard = (props) => {
         px="0.75rem"
         py="2"
         flexPortion={3}
-        responsive={{ sm: { /*flexPortion: 3,*/ py: "0.75rem" } }}
+        responsive={{ sm: { py: "0.75rem" } }}
       >
         <Div flex={["start", "between", "column"]} height="100%">
           <BlogCardBody {...props} />

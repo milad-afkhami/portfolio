@@ -2,7 +2,7 @@ import Div from "@kits/Div";
 import Link from "@kits/Link";
 import Text from "@kits/Text";
 
-const BlogsMoreLink = (props) => {
+const BlogCardsMoreLink = (props) => {
   const { link } = props || {};
 
   return (
@@ -22,4 +22,4 @@ const BlogsMoreLink = (props) => {
   );
 };
 
-export default BlogsMoreLink;
+export default BlogCardsMoreLink;
