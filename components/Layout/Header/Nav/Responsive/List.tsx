@@ -1,15 +1,17 @@
 import Div from "@kits/Div";
-import { useRef, useOnClickOutside, useEventListener } from "@hooks";
-import { HeaderMenuItem } from "../Item";
+import useOnClickOutside from "@hooks/useOnClickOutside";
+import useEventListener from "@hooks/useEventListener";
+import { useRef } from "react";
+import HeaderMenuItem from "../Item";
 import { navLinks } from "@config";
-import { noop } from "@utils";
+import __noop from "lodash-es/noop";
 // import { DownloadResume } from "../../DownloadResume";
 
 const HeaderResponsiveMenuList = (props) => {
   const { rendered, onRequestClose } = props || {};
 
   const ref = useRef();
-  useOnClickOutside(ref, rendered ? onRequestClose : noop);
+  useOnClickOutside(ref, rendered ? onRequestClose : __noop);
 
   useEventListener("scroll", onRequestClose);
 

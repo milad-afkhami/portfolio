@@ -1,7 +1,7 @@
 import Div from "@kits/Div";
 import Tree from "@kits/Tree";
 import SectionTitle from "@components/Layout/Title/SectionTitle";
-import { typographyVariants } from "@stylesheets";
+import typographyVariants from "@stylesheets/typography";
 
 const TypographyVariables = (props) => {
   return (

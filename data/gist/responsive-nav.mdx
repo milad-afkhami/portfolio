@@ -9,8 +9,8 @@ See [here](https://github.com/miladMAPS/portfolio/blob/main/components/Layout/He
 ```jsx
 import Div from "@kits/Div";
 import dynamic from "next/dynamic";
-import { useMediaQuery } from "@hooks";
-import { breakpoints } from "@stylesheets";
+import { useMediaQuery } from "react-responsive";
+import breakpoints from "@stylesheets/breakpoints";
 
 const HeaderMenu = dynamic(() => import("./Desktop"), { ssr: false });
 const HeaderResponsiveMenu = dynamic(() => import("./Responsive"), {

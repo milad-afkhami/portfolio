@@ -1,6 +1,7 @@
 import { appBaseURL } from "@config";
 import { NextSeo } from "@components/SEO";
-import { useRouter, useTranslation } from "@hooks";
+import { useRouter } from "next/router";
+import useTranslation from "@hooks/useTranslation";
 
 /** @type {import("react").ComponentType<import("next-seo").NextSeoProps>} */
 

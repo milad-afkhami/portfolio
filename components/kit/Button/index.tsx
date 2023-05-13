@@ -1,10 +1,11 @@
 import Div from "@kits/Div";
 import Text from "@kits/Text";
 import Icon from "@kits/Icon";
-import { useEffect, useToggle } from "react";
+import { useEffect } from "react";
+import useToggle from "@hooks/useToggle";
 import usePrevious from "@hooks/usePrevious";
 import StyledButton from "./StyledButton";
-import { noop } from "@utils";
+import __noop from "lodash-es/noop";
 
 /**
  * @typedef {("lg"|"md")} Size
@@ -51,7 +52,7 @@ const Button = function (props) {
   return (
     <StyledButton
       {...props}
-      onClick={notAllowed ? noop : onClick}
+      onClick={notAllowed ? __noop : onClick}
       cursor={notAllowed ? "default" : "pointer"}
     >
       <Div

@@ -12,14 +12,16 @@ const DownloadResume = (props) => {
   const printResume = async () => {
     const ReactDOMServer = require("react-dom/server");
     const Resume = require("@components/Resume").default;
-    const THEMES = require("@constants").THEMES;
+    const THEMES = require("@constants/themes").default;
 
     const resumeMarkup = ReactDOMServer.renderToStaticMarkup(<Resume />);
-    const head = document.querySelector("head").innerHTML;
-    // .querySelector("head").innerHTML.replaceAll("/_next/static",`${window.location.href}_next/static`);
-    const font = document.querySelector("html").style.fontFamily;
+    const head = document.querySelector("head")?.innerHTML || "";
+    // .querySelector("head")?.innerHTML.replaceAll("/_next/static",`${window.location.href}_next/static`);
+    const font = document.querySelector("html")?.style.fontFamily;
 
     const w = window.open("", "", "height=1000, width=1400");
+
+    if (!w) return;
 
     w.document.write(`<html style='font-family: ${font};'><head>`);
     w.document.write(head);
@@ -28,10 +30,10 @@ const DownloadResume = (props) => {
     w.document.write("</body></html>");
     w.document.close();
 
-    w.document.querySelector("html").setAttribute("data-theme", THEMES.LIGHT);
+    w.document.querySelector("html")?.setAttribute("data-theme", THEMES.LIGHT);
 
     setTimeout(() => {
-      w.print();
+      w?.print();
     }, 2000);
   };
 

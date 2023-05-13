@@ -1,4 +1,5 @@
-import { Link, Text } from "@kits";
+import Link from "@kits/Link";
+import Text from "@kits/Text";
 
 const HeaderMenuItem = (props) => {
   return (

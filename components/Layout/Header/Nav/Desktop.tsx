@@ -1,6 +1,5 @@
 import Div from "@kits/Div";
-import Text from "@kits/Text";
-import { HeaderMenuItem } from "./Item";
+import HeaderMenuItem from "./Item";
 import { navLinks } from "@config";
 
 const HeaderMenu = (props) => {

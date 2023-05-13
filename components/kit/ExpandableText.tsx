@@ -1,6 +1,6 @@
-import { useToggle } from "@hooks";
 import Div from "@kits/Div";
 import Text from "@kits/Text";
+import useToggle from "@hooks/useToggle";
 
 const ExpandableText = function (props) {
   const {

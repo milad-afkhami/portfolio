@@ -1,4 +1,4 @@
-import { mediaFeatures } from "@stylesheets";
+import { mediaFeatures } from "@stylesheets/breakpoints";
 import styled from "styled-components";
 
 const TreeWrapper = styled.div`

@@ -1,4 +1,4 @@
-import { breakpoints } from "@stylesheets";
+import breakpoints from "@stylesheets/breakpoints";
 
 const typographyVariants = {
   default: {

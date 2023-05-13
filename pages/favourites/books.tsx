@@ -1,9 +1,9 @@
 import Div from "@kits/Div";
 import { Head } from "@components/SEO";
-import { FavouriteCommonEntityList } from "@components/Favourites";
+import FavouriteCommonEntityList from "@components/Favourites/CommonEntity";
 import PageTitle from "@components/Layout/Title/PageTitle";
-import { favouriteBooksData } from "@data";
-import { FAVOURITE_TYPES } from "@constants";
+import { favouriteBooksData } from "@data/favourites";
+import FAVOURITE_TYPES from "@constants/favourites";
 
 const FavouriteBooksPage = (props) => {
   // const { data, isValidating, mutate, error } = useHome();

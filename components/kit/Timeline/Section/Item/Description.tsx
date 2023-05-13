@@ -1,4 +1,5 @@
-import { ExpandableText, Text } from "@kits";
+import ExpandableText from "@kits/ExpandableText";
+import Text from "@kits/Text";
 import useTranslation from "@hooks/useTranslation";
 
 const TimelineSectionItemDescription = (props) => {

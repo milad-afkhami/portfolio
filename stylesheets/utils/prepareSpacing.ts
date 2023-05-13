@@ -1,4 +1,4 @@
-import { spacings } from "@stylesheets";
+import spacings from "@stylesheets/constants/spacing";
 
 const prepareSpacing = (s = []) =>
   `${s.map(($s) => spacings[$s] || $s).join(" ")}`;

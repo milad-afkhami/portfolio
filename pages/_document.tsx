@@ -1,6 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheet } from "styled-components";
-import { defaultTheme, themes } from "@stylesheets";
+import themes, { defaultTheme } from "@stylesheets/themes";
 import FavIcons from "@components/SEO/FavIcons";
 
 class MyDocument extends Document {

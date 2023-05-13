@@ -1,6 +1,6 @@
 import Div from "@kits/Div";
 import Text from "@kits/Text";
-import { ProjectTechs } from "@components/Projects";
+import ProjectTechs from "@components/Projects/Techs";
 
 const ResumeProjectsItem = ({ name, description, date, techs }) => {
   return (

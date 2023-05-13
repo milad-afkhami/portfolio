@@ -1,6 +1,6 @@
+import { useCallback } from "react";
 import NextLink from "next/link";
 import Div from "@kits/Div";
-import { useCallback } from "@hooks";
 
 /**
  * @typedef {import('@kits/Div/Props').Props & import('next/link').LinkProps & {outerLink:boolean, underline: boolean}} LinkProps

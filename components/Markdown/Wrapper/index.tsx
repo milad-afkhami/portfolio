@@ -1,8 +1,8 @@
-import { useEffect } from "@hooks";
-import { THEMES } from "@constants";
+import { useEffect } from "react";
+import THEMES from "@constants/themes";
 import styled from "styled-components";
-import { PrismTomorrowTheme } from "./PrismTomorrowTheme";
-import { TableStyles } from "./TableStyles";
+import PrismTomorrowTheme from "./PrismTomorrowTheme";
+import TableStyles from "./TableStyles";
 
 const MarkdownWrapper = ({ children, ...rest }) => {
   useEffect(() => {

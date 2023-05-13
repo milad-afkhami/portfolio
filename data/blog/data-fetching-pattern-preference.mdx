@@ -133,7 +133,7 @@ On the client side, I use <abbr title="Stale While Revalidate">[SWR](https://swr
 // hooks/useProduct.js
 import useSWRImmutable from "swr/immutable";
 import { useDebugValue } from "react";
-import { endpoints } from "@constants";
+import endpoints from "@constants/endpoints";
 import Http from "@utils/Http";
 export default function useProduct(slug) {
   const key = endpoints.product + "?slug=" + slug;

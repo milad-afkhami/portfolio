@@ -1,9 +1,9 @@
 import Div from "@kits/Div";
-import { BlogCard } from "./Card";
-import { BlogCardLoadings } from "./Loading";
-import { ORIENTATION } from "@constants";
+import BlogCard from "./Card";
+import BlogCardLoadings from "./Loading";
+import ORIENTATION from "@constants/orientation";
 import PageTitle from "@components/Layout/Title/PageTitle";
-import { BlogsMoreLink } from "./MoreLink";
+import BlogsMoreLink from "./MoreLink";
 
 const Blogs = (props) => {
   const {

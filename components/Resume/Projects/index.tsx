@@ -1,10 +1,8 @@
 import Div from "@kits/Div";
-import Icon from "@kits/Icon";
-import Text from "@kits/Text";
 import SectionTitle from "@components/Layout/Title/SectionTitle";
-import { projectsData } from "@data";
-import { ResumeProjectsItem } from "./Item";
-import { ResumeReference } from "../Reference";
+import projectsData from "@data/projects";
+import ResumeProjectsItem from "./Item";
+import ResumeReference from "../Reference";
 
 const ResumeProjects = () => {
   return (

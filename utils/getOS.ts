@@ -1,4 +1,4 @@
-import { OS } from "@constants";
+import OS from "@constants/os";
 
 const getOS = (userAgent) => {
   const agent =

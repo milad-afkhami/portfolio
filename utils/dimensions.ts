@@ -1,5 +1,5 @@
-import { getOS } from "./getOS";
-import { OS } from "@constants";
+import getOS from "./getOS";
+import OS from "@constants/os";
 
 const isIos = () => getOS() === OS.IOS && !window.MSStream;
 

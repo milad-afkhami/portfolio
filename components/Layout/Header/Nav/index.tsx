@@ -1,7 +1,7 @@
 import Div from "@kits/Div";
 import dynamic from "next/dynamic";
-import { useMediaQuery } from "@hooks";
-import { breakpoints } from "@stylesheets";
+import { useMediaQuery } from "react-responsive";
+import breakpoints from "@stylesheets/breakpoints";
 
 const HeaderResponsiveMenu = dynamic(() => import("./Responsive"), {
   ssr: false,

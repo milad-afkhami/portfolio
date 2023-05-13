@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "@hooks";
+import { useEffect, useRef } from "react";
 import Div from "@kits/Div";
 
 // const anime = dynamic(() => import("animejs/lib/anime.es.js"), { ssr: false });

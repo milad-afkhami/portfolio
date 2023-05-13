@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { breakpoints, mediaFeatures, paces } from "@stylesheets";
+import breakpoints, { mediaFeatures } from "@stylesheets/breakpoints";
+import paces from "@stylesheets/constants/paces";
 
 const GithubCorner = (props) => {
   return (

@@ -1,8 +1,8 @@
 import { createGlobalStyle } from "styled-components";
-import { color } from "@stylesheets";
-import { themes, defaultTheme } from "@stylesheets";
+import color from "@stylesheets/utils/color";
+import themes, { defaultTheme } from "@stylesheets/themes";
 import __reduce from "lodash-es/reduce";
-import { Color } from "@models";
+import Color from "@models/Color";
 
 const prepareColorVars = (name, variants) =>
   variants instanceof Color

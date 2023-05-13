@@ -1,8 +1,8 @@
 import Div from "@kits/Div";
-import { projectsData } from "@data";
+import projectsData from "@data/projects";
 import PageTitle from "@components/Layout/Title/PageTitle";
-import { ProjectCard } from "./Card";
-import { ProjectsMoreLink } from "./MoreLink";
+import ProjectCard from "./Card";
+import ProjectsMoreLink from "./MoreLink";
 
 const ProjectsList = (props) => {
   const {} = props || {};

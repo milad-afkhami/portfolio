@@ -1,4 +1,4 @@
-import { imp } from "@stylesheets";
+import imp from "@stylesheets/utils/important";
 
 const enhanceStringPrototype = () => {
   String.prototype.capitalize = function () {

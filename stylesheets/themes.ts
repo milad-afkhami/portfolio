@@ -1,4 +1,4 @@
-import { Color } from "@models";
+import Color from "@models/Color";
 import THEMES from "@constants/themes";
 
 export const defaultTheme = THEMES.DARK;

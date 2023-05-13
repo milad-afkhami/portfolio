@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { c, setTextTypography } from "@stylesheets";
+import setTextTypography from "@stylesheets/utils/setTextTypography";
+import { c } from "@stylesheets/getColorVariable";
 
 /**
  * @typedef {("calendar"|"music-2"|"song-2"|"ruler"|"measure-2"|"gallery"|"tools"|"measure"|"moon"|"hash"|"nested-list"|"calendar1"|"clock"|"time"|"history"|"list"|"info"|"headphones"|"music"|"song"|"film"|"show"|"book"|"sun1"|"chevron-right"|"sun"|"copy-outline"|"focus-center-2"|"timeline"|"whatsapp"|"telegram"|"skype"|"linkedin"|"email")} IconName

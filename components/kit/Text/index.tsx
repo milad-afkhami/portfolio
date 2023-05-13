@@ -1,11 +1,9 @@
 import styled from "styled-components";
-import {
-  prepareSpacing,
-  getOtherSpacings,
-  c,
-  setTextTypography,
-  paces,
-} from "@stylesheets";
+import prepareSpacing from "@stylesheets/utils/prepareSpacing";
+import getOtherSpacings from "@stylesheets/utils/prepareSpacing";
+import { c } from "@stylesheets/getColorVariable";
+import setTextTypography from "@stylesheets/utils/setTextTypography";
+import paces from "@stylesheets/constants/paces";
 import useTranslation from "@hooks/useTranslation";
 
 /**

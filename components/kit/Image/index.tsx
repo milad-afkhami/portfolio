@@ -1,8 +1,7 @@
 import Div from "@kits/Div";
 import NextImage from "next/legacy/image";
-import { useToggle } from "@hooks";
+import useToggle from "@hooks/useToggle";
 import isomorphicPortal from "@utils/isomorphicPortal";
-import { imageBaseURL } from "@config";
 
 /**
  * @typedef {("intrinsic" | "fixed" | "responsive" | "fill")} Layout

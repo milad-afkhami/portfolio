@@ -1,14 +1,16 @@
-import { ComponentType } from "react";
 import Div from "@kits/Div";
-import Image from "@kits/Image";
 import Breadcrumb from "@kits/Breadcrumb";
-import { useRouter, useTranslation } from "@hooks";
+import { useRouter } from "next/router";
+import useTranslation from "@hooks/useTranslation";
 import { Head, ArticleJsonLd } from "@components/SEO";
-import { MDXRemote } from "@components/Markdown";
+import MDXRemote from "@components/Markdown/MDXRemote";
 import dynamic from "next/dynamic";
-import { BlogTitle, BlogSummary, BlogMeta, BlogBanner } from "@components/Blog";
-import { BlogServices } from "@services";
-import { MarkdownWrapper } from "@components/Markdown";
+import BlogTitle from "@components/Blog/Title";
+import BlogSummary from "@components/Blog/Summary";
+import BlogMeta from "@components/Blog/Meta";
+import BlogBanner from "@components/Blog/Banner";
+import BlogServices from "@services/blog";
+import MarkdownWrapper from "@components/Markdown/Wrapper";
 import { appBaseURL } from "@config";
 
 const BlogPage = (props) => {

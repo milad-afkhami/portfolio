@@ -1,7 +1,9 @@
-import { useRouter, useMemo, useEnhancedToast } from "@hooks";
+import { useMemo } from "react";
+import { useRouter } from "next/router";
+import useEnhancedToast from "@hooks/useEnhancedState";
 import Div from "@kits/Div";
 import DropDown from "@kits/DropDown";
-import { languages as languagesList } from "@constants";
+import languages from "@constants/languages";
 import __map from "lodash-es/map";
 import LanguageHelper from "@helpers/language";
 
@@ -18,7 +20,7 @@ const HeaderChangeLanguage = (props) => {
 
   const dropDownItems = useMemo(
     () =>
-      __map(languagesList, (lang) => ({
+      __map(languages, (lang) => ({
         text: lang.displayName,
         image: lang.flag,
         id: lang.name,

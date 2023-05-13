@@ -1,7 +1,7 @@
-import { useTheme } from "@hooks";
+import { useTheme } from "next-themes";
 import Div from "@kits/Div";
 import Icon from "@kits/Icon";
-import { THEMES } from "@constants";
+import THEMES from "@constants/themes";
 
 const HeaderSwitchTheme = (props) => {
   const {} = props || {};

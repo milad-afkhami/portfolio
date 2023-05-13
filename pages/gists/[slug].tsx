@@ -1,10 +1,13 @@
-import { Breadcrumb, Div } from "@kits";
-import { useRouter } from "@hooks";
+import Breadcrumb from "@kits/Breadcrumb";
+import Div from "@kits/Div";
+import { useRouter } from "next/router";
 import { Head } from "@components/SEO";
-import { MDXRemote } from "@components/Markdown";
-import { GistServices } from "@services";
-import { MarkdownWrapper, MarkdownVariables } from "@components/Markdown";
-import { GistTitle, GistSummary } from "@components/Gists";
+import MDXRemote from "@components/Markdown/MDXRemote";
+import GistServices from "@services/gist";
+import MarkdownWrapper from "@components/Markdown/Wrapper";
+import MarkdownVariables from "@components/Markdown/Variables";
+import GistTitle from "@components/Gists/Title";
+import GistSummary from "@components/Gists/Summary";
 
 const GistPage = (props) => {
   const router = useRouter();

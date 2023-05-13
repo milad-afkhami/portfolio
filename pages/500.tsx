@@ -1,4 +1,4 @@
-import { INTERVALS } from "@constants";
+import INTERVALS from "@constants/interval";
 
 const ServerError = (props) => {
   return <h1>500 - Server-side error occurred</h1>;

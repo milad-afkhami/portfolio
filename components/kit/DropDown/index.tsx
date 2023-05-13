@@ -1,8 +1,7 @@
 import Div from "@kits/Div";
-import { useOnClickOutside, useState, useRef } from "@hooks";
-import { DropDownItem } from "./Item";
-import { DropDownImage } from "./Image";
-import { DropDownLabel } from "./Label";
+import { useState, useRef } from "react";
+import useOnClickOutside from "@hooks/useOnClickOutside";
+import DropDownItem from "./Item";
 
 /**
  * @typedef {Array<{text:string, id:string|number, image:string}>} DropDownItems

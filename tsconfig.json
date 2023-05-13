@@ -34,7 +34,8 @@
       "@contexts/*": ["./contexts/*"],
       "@images": ["./public/images/index"],
       "@data/*": ["./data/*"],
-      "@pages/*": ["./pages/*"]
+      "@pages/*": ["./pages/*"],
+      "@config": ["./config.ts"]
     }
   },
   "include": [

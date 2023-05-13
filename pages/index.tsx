@@ -1,14 +1,15 @@
-import { useHome } from "@hooks";
 import Div from "@kits/Div";
 import { Head } from "@components/SEO";
-import { Profile, FeaturedPosts, Projects, Gists } from "@components/Home";
-import { BlogServices, GistServices } from "@services";
+import useHome from "@hooks/api/useHome";
+import Profile from "@components/Home/Profile";
+import FeaturedPosts from "@components/Home/FeaturedPosts";
+import Projects from "@components/Home/Projects";
+import Gists from "@components/Home/Gists";
+import BlogServices from "@services/blog";
+import GistServices from "@services/gist";
 import dynamic from "next/dynamic";
 
-const Contact = dynamic(
-  () => import("@components/Contact").then((module) => module.Contact),
-  { ssr: false }
-);
+const Contact = dynamic(() => import("@components/Contact"), { ssr: false });
 
 const Home = (props) => {
   const { data, isValidating, mutate, error } = useHome();

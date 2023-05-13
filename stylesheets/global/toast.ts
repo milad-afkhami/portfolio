@@ -30,3 +30,5 @@ const GlobalToastifyVariables = createGlobalStyle`
     --toastify-color-progress-error: var(--toastify-color-error); */
   }
 `;
+
+export default GlobalToastifyVariables;

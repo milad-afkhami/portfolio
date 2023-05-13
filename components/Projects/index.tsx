@@ -1,9 +1,6 @@
 import Div from "@kits/Div";
-import { projectsData } from "@data";
-import { Project } from "./Project";
-
-export { ProjectsList } from "./List";
-export { ProjectTechs } from "./Techs";
+import projectsData from "@data/projects";
+import Project from "./Project";
 
 const Projects = () => {
   return (

@@ -1,7 +1,6 @@
 import Div from "@kits/Div";
 import Image from "@kits/Image";
 import Text from "@kits/Text";
-import { c } from "@stylesheets";
 
 const SubscribeNewsletter = (props) => {
   const {} = props || {};
