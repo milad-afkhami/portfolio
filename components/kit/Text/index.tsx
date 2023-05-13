@@ -25,7 +25,7 @@ const Text = styled.span.attrs(
     ...rest
   }) => {
     // const dir = direction || (i18n.language === "fa" ? "rtl" : "ltr");
-    const t = useTranslation().t;
+    const { t } = useTranslation();
     return {
       ...(tag ? { as: tag } : {}),
       children:

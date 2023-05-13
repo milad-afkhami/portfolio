@@ -5,7 +5,7 @@ import useTranslation from "@hooks/useTranslation";
 const TimelineSectionItemDescription = (props) => {
   const { description } = props || {};
 
-  const t = useTranslation().t;
+  const { t } = useTranslation();
   const text = t(description, { defaultValue: "" });
   const hashMoreButton = text.length > 26;
 

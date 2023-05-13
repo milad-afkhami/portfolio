@@ -6,7 +6,7 @@ import useTranslation from "@hooks/useTranslation";
 const ImageViewer = (props) => {
   const { isOpen, onClose, current, views } = props || {};
 
-  const t = useTranslation().t;
+  const { t } = useTranslation();
 
   return (
     <ModalGateway>

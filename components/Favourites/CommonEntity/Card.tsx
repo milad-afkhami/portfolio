@@ -6,7 +6,7 @@ import useTranslation from "@hooks/useTranslation";
 const FavouriteCommonEntityCard = (props) => {
   const { slug, entityType } = props || {};
 
-  const t = useTranslation().t;
+  const { t } = useTranslation();
 
   const name = `favourites.${entityType}.list.${slug}.name`;
   const meta = t(`favourites.${entityType}.list.${slug}.meta`, {

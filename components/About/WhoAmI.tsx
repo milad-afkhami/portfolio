@@ -6,7 +6,7 @@ import { isDevelopment } from "@config";
 
 const WhoAmI = (props) => {
   const { videoTitle } = props || {};
-  const t = useTranslation().t;
+  const { t } = useTranslation();
   const paragraphsCount = 7;
 
   return (

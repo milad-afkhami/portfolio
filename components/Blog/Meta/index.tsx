@@ -5,7 +5,7 @@ import useTranslation from "@hooks/useTranslation";
 const BlogMeta = (props) => {
   const { category, readingTime, publishedAt } = props || {};
 
-  const t = useTranslation().t;
+  const { t } = useTranslation();
 
   return (
     <Div

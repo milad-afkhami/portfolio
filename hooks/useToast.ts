@@ -7,7 +7,7 @@ import useTranslation from "@hooks/useTranslation";
  */
 
 const useEnhancedToast = () => {
-  const t = useTranslation().t;
+  const { t } = useTranslation();
 
   /**
    * @param {ToastContent} content
