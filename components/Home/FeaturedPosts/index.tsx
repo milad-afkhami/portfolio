@@ -1,6 +1,6 @@
 import Div from "@kits/Div";
 import Blogs from "@components/Blog";
-import ORIENTATION from "@constants/orientation";
+import Orientations from "@constants/orientations";
 import { useMediaQuery } from "react-responsive";
 import breakpoints from "@stylesheets/breakpoints";
 
@@ -30,7 +30,7 @@ const FeaturedPosts = (props) => {
   return (
     <Div my="4">
       <Blogs
-        orientation={ORIENTATION.HORIZONTAL}
+        orientation={Orientations.Horizontal}
         items={posts?.slice?.(0, isMediumScreen ? 2 : 3)}
         title="home.posts.title"
         moreLink="/blog"

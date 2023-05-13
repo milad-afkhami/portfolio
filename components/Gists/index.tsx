@@ -8,7 +8,7 @@ const Gists = (props) => {
     loading,
     title,
     loadingCount = 8,
-    // orientation = ORIENTATION.VERTICAL,
+    // orientation = Orientations.VERTICAL,
     ...rest
   } = props || {};
 
