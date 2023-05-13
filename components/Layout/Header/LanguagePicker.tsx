@@ -8,8 +8,6 @@ import __map from "lodash-es/map";
 import LanguageHelper from "@helpers/language";
 
 const HeaderChangeLanguage = (props) => {
-  const {} = props || {};
-
   const router = useRouter();
   const toast = useEnhancedToast();
 

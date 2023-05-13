@@ -3,8 +3,6 @@ import StyledSvg from "./StyledSvg";
 import LinearGradient from "@components/Skeleton/LinearGradient";
 
 const BlogCardLoadings = (props) => {
-  const {} = props || {};
-
   return (
     <StyledSvg
       role="img"

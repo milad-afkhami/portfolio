@@ -6,7 +6,6 @@ import SectionTitle from "@components/Layout/Title/SectionTitle";
 import FavouriteEntity from "./Entity";
 
 const FavouriteEntities = (props) => {
-  const {} = props || {};
   const favouritesLinks = useMemo(FavouritesHelper.getLinks, []);
 
   return (

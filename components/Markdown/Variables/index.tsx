@@ -8,8 +8,6 @@ import ShadowVariables from "./Shadows";
 import SectionTitle from "@components/Layout/Title/SectionTitle";
 
 const MarkdownVariables = (props) => {
-  const {} = props || {};
-
   return (
     <Div id="markdown-variables" my="4">
       <SectionTitle title="markdown.variables.title" icon="measure" />

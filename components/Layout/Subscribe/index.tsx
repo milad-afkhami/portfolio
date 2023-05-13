@@ -3,7 +3,6 @@ import Image from "@kits/Image";
 import Text from "@kits/Text";
 
 const SubscribeNewsletter = (props) => {
-  const {} = props || {};
   return (
     <Div
       bg="bg-tertiary"

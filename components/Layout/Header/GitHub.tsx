@@ -2,8 +2,6 @@ import Div from "@kits/Div";
 import Icon from "@kits/Icon";
 
 const HeaderGithub = (props) => {
-  const {} = props || {};
-
   return (
     <Div
       as="a"

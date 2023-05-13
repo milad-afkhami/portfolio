@@ -12,10 +12,6 @@ module.exports = {
     REACT_APP_EXTERNAL_API_BASE_URL: "/api",
   },
   i18n,
-  swcMinify: true,
-  experimental: {
-    craCompat: true,
-  },
   compiler: {
     styledComponents: true,
   },

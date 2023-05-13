@@ -3,8 +3,6 @@ import Icon from "@kits/Icon";
 import Text from "@kits/Text";
 
 const DownloadResume = (props) => {
-  const {} = props || {};
-
   const downloadResume = () => {
     window.open("/resume_milad-afkhami.pdf", "__blank");
   };

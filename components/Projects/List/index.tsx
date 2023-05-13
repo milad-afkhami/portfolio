@@ -5,8 +5,6 @@ import ProjectCard from "./Card";
 import ProjectsMoreLink from "./MoreLink";
 
 const ProjectsList = (props) => {
-  const {} = props || {};
-
   const items = [
     projectsData[0],
     projectsData[1],

@@ -4,7 +4,6 @@ import Icon from "@kits/Icon";
 import THEMES from "@constants/themes";
 
 const HeaderSwitchTheme = (props) => {
-  const {} = props || {};
   const { theme, setTheme } = useTheme();
 
   const onChangeTheme = () =>
