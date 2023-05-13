@@ -1,20 +1,21 @@
+import Div from "@kits/Div";
 import Text from "@kits/Text";
+import type { BreadcrumbLinkProps } from "@kits/Breadcrumb/props";
 
-const BreadcrumbLinkText = (props) => {
+function BreadcrumbLinkText(props: BreadcrumbLinkProps) {
   const { title, lastItem } = props;
 
   return (
-    <Text
-      cursor={lastItem ? "default" : "pointer"}
-      px="2"
-      truncate
-      hoverColor={!lastItem ? "brand" : ""}
-      size="sm-b"
-      color="text-secondary"
-    >
-      {title}
-    </Text>
+    <Div cursor={lastItem ? "default" : "pointer"} px="2">
+      <Text
+        truncate
+        color={lastItem ? "text-secondary-main" : "brand-main"}
+        noTranslation
+      >
+        {title}
+      </Text>
+    </Div>
   );
-};
+}
 
 export default BreadcrumbLinkText;

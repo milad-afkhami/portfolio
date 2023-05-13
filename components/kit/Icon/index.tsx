@@ -1,42 +1,45 @@
-import styled from "styled-components";
-import setTextTypography from "@stylesheets/utils/setTextTypography";
-import { c } from "@stylesheets/getColorVariable";
+import { styled } from "goober";
+import classNames from "@utils/classnames";
+import colorVar from "@stylesheets/utils/var/color";
+import fontSizeVar from "@stylesheets/utils/var/fontSize";
+import type { FC } from "react";
+import type IconProps from "./props";
 
-/**
- * @typedef {("calendar"|"music-2"|"song-2"|"ruler"|"measure-2"|"gallery"|"tools"|"measure"|"moon"|"hash"|"nested-list"|"calendar1"|"clock"|"time"|"history"|"list"|"info"|"headphones"|"music"|"song"|"film"|"show"|"book"|"sun1"|"chevron-right"|"sun"|"copy-outline"|"focus-center-2"|"timeline"|"whatsapp"|"telegram"|"skype"|"linkedin"|"email")} IconName
- * @typedef {{name:IconName, color:import("@stylesheets").Colors, hoverColor:import("@stylesheets").Colors, size:import("@stylesheets").Typography, bold:boolean, multiDirection:boolean, cursor:string}} IconProps
- *
- * @type {import("react").ComponentType<IconProps>}
- */
+const IconElement = styled("i")<
+  Pick<
+    IconProps,
+    "size" | "bold" | "onClick" | "color" | "disabled" | "css" | "hoverColor"
+  >
+>(({ size = "lg", bold, onClick, color, disabled, css, hoverColor }) => ({
+  fontSize: fontSizeVar(size),
+  fontWeight: bold ? "bold" : undefined,
+  cursor: onClick ? "pointer" : "unset",
+  transition: `all var(--pace-x-fast)`,
+  ...(color
+    ? { color: colorVar(disabled ? "text-disabled-main" : color) }
+    : {}),
+  ...(hoverColor && !disabled
+    ? { "&:hover": { color: colorVar("text-disabled-main") } }
+    : {}),
+  ...css,
+}));
 
-const Icon = styled.i.attrs(
-  ({
-    prefix = "mili",
-    suffix = "icon",
+const Icon: FC<IconProps> = (props) => {
+  const {
+    prefix = "icon",
+    suffix = "",
     name,
     multiDirection,
     className = "",
-  }) => {
-    const _prefix = prefix ? `${prefix}-` : "";
-    const _suffix = suffix ? `-${suffix}` : "";
-    const _name = `${_prefix}${name}${_suffix}`;
-    const dirCN = multiDirection ? "icon-dir" : "";
-    return { className: `${_name} ${dirCN} ${className}` };
-  }
-)(
-  ({
-    size = "lg",
-    bold,
-    cursor = "pointer",
-    color,
-    hoverColor = "text-secondary",
-  }) => ({
-    ...setTextTypography(size, { bold }),
-    cursor: cursor || "pointer",
-    transition: `all var(--pace-x-fast)`,
-    ...(color ? { color: c(color) } : {}),
-    ...(hoverColor ? { ":hover": { color: c(hoverColor) } } : {}),
-  })
-);
+  } = props;
+  const _prefix = prefix ? `${prefix}-` : "";
+  const _suffix = suffix ? `-${suffix}` : "";
+  const _name = `${_prefix}${name}${_suffix}`;
+  const _dir = multiDirection ? "icon-dir" : null;
+  const _className = classNames(_name, _dir, className);
+
+  // eslint-disable-next-line react/jsx-props-no-spreading
+  return <IconElement {...props} title={name} className={_className} />;
+};
 
 export default Icon;

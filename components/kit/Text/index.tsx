@@ -1,95 +1,88 @@
-import styled from "styled-components";
-import prepareSpacing from "@stylesheets/utils/prepareSpacing";
-import getOtherSpacings from "@stylesheets/utils/prepareSpacing";
-import { c } from "@stylesheets/getColorVariable";
-import setTextTypography from "@stylesheets/utils/setTextTypography";
-import paces from "@stylesheets/constants/paces";
+import { forwardRef, type FC } from "react";
+import { styled, type CSSAttribute } from "goober";
 import useTranslation from "@hooks/useTranslation";
+import colorVar from "@stylesheets/utils/var/color";
+import fontSizeVar from "@stylesheets/utils/var/fontSize";
+import { isDevelopment } from "@configs/general";
+import type TextProps from "./props";
+import type { StyledTextProps } from "./props";
 
-/**
- * @typedef {{ children:any, tag:string, size:import("@stylesheets").Typography, direction:string, translationOptions:Object, translationVariables:Object, noTranslation:boolean, lineHeight:string|number, align:"start"|"end"|"left"|"right"|"center"|"justify"|"initial"|"inherit" }} TextProps
- * @typedef { import('@kits/Div/Props').Props & TextProps } Props
- *
- * @component - Renders a text component with default span element enhanced with needed styles and functionalities
- * @type {import("react").ComponentType<Props>}
- */
+const truncateStyles: Partial<CSSAttribute> = {
+  maxWidth: "100%",
+  textOverflow: "ellipsis",
+  overflow: "hidden",
+  whiteSpace: "nowrap",
+};
 
-const Text = styled.span.attrs(
+const maxLinesStyles = (
+  count: TextProps["maxLines"]
+): Partial<CSSAttribute> => ({
+  textOverflow: "ellipsis",
+  overflow: "hidden",
+  lineClamp: count,
+  WebkitLineClamp: count,
+  boxOrient: "vertical",
+  WebkitBoxOrient: "vertical",
+  display: "-webkit-box",
+});
+
+/** Adds stylistic sets of 1 to font feature settings for adding persian numerals */
+const fontFeaturesSettings = {
+  "-moz-font-feature-settings": '"ss01"',
+  "-webkit-font-feature-settings": '"ss01"',
+  "font-feature-settings": '"ss01"',
+};
+
+const StyledText = styled(
+  "span",
+  forwardRef
+)<StyledTextProps>(
   ({
-    translationOptions = {},
-    translationVariables = {},
-    children,
-    direction,
-    tag,
-    noTranslation,
-    ...rest
-  }) => {
-    // const dir = direction || (i18n.language === "fa" ? "rtl" : "ltr");
-    const { t } = useTranslation();
-    return {
-      ...(tag ? { as: tag } : {}),
-      children:
-        noTranslation || typeof children !== "string"
-          ? children
-          : t(children, {
-              ...translationOptions,
-              ...translationVariables,
-            }),
-      ...rest,
-    };
-  }
-)(
-  ({
-    color,
     size,
-    bold,
-    m,
-    p,
-    css,
-    truncate,
-    width,
-    mw,
-    Mw,
-    height,
-    mh,
-    Mh,
-    align,
+    color,
     hoverColor,
-    zoomOnHover,
+    bold,
+    truncate,
+    align,
     lineHeight,
-    ...restProps
+    userSelect,
+    maxLines,
+    css,
   }) => ({
-    ...(color ? { color: c(color) } : {}),
-    ...setTextTypography(size, { bold }),
+    ...(color ? { color: colorVar(color) } : {}),
+    ...(size ? { fontSize: fontSizeVar(size) } : {}),
+    fontWeight: bold ? "bold" : "normal",
     margin: 0,
-    transition: paces.fast,
-    ...(m && m.length ? { margin: prepareSpacing(Array.from(m)) } : {}),
-    ...(p && p.length ? { padding: prepareSpacing(Array.from(p)) } : {}),
-    ...getOtherSpacings(restProps),
-    ...(width ? { width } : {}),
-    ...(mw ? { minWidth: mw } : {}),
-    ...(Mw ? { maxWidth: Mw } : {}),
-    ...(height ? { height } : {}),
-    ...(mh ? { minHeight: mh } : {}),
-    ...(Mh ? { maxHeight: Mh } : {}),
+    transition: "var(--pace-fast)",
     ...(align ? { textAlign: align } : {}),
     ...(lineHeight ? { lineHeight } : {}),
+    ...(userSelect ? { userSelect } : {}),
+    ...(truncate ? truncateStyles : {}),
+    ...(maxLines ? maxLinesStyles(maxLines) : {}),
+    ...(hoverColor ? { "&:hover": { color: colorVar(hoverColor) } } : {}),
+    ...fontFeaturesSettings,
     ...(css || {}),
-    ...(truncate
-      ? { textOverflow: "ellipsis", overflow: "hidden", whiteSpace: "nowrap" }
-      : {}),
-    ...(hoverColor
-      ? {
-          ":hover": {
-            ...(hoverColor ? { color: c(hoverColor) } : {}),
-            ...(zoomOnHover ? { transform: "scale(1.05)" } : {}),
-          },
-        }
-      : {}),
-    "-moz-font-feature-settings": '"ss02"',
-    "-webkit-font-feature-settings": '"ss02"',
-    "font-feature-settings": '"ss02"',
   })
 );
 
+const Text: FC<TextProps> = (props) => {
+  const { children, ns, translationOptions, noTranslation, keyPrefix } = props;
+
+  const { t } = useTranslation(ns, { keyPrefix });
+
+  const isChildrenString = typeof children === "string";
+  if (isDevelopment && !noTranslation && !isChildrenString) {
+    throw new Error("only string children is accepted for translation");
+  }
+
+  let text = children;
+  // only translate children if it was string and `noTranslation` prop was not provided
+  if (isChildrenString && !noTranslation)
+    text = t(children, translationOptions);
+
+  // eslint-disable-next-line react/jsx-props-no-spreading
+  return <StyledText {...props}>{text}</StyledText>;
+};
+
 export default Text;
+// export default withTranslation()(Text);

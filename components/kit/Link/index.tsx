@@ -1,17 +1,10 @@
-import { useCallback } from "react";
+/* eslint-disable react/jsx-props-no-spreading */
 import NextLink from "next/link";
 import Div from "@kits/Div";
+import type { FC } from "react";
+import type LinkProps from "./props";
 
-/**
- * @typedef {import('@kits/Div/Props').Props & import('next/link').LinkProps & {outerLink:boolean, underline: boolean}} LinkProps
- *
- * @component
- * Renders an enhanced anchor tag with needed styles and functionalities
- * @type {import("react").ComponentType<LinkProps>}
- * @param {LinkProps} props
- */
-
-const Link = ({
+const Link: FC<LinkProps> = ({
   href,
   as,
   replace,
@@ -26,11 +19,6 @@ const Link = ({
   underline,
   ...rest
 }) => {
-  const onClick = useCallback(
-    (e) => disabled && e.preventDefault(),
-    [disabled]
-  );
-
   const hover = {
     ...(rest?.hover || {}),
     css: {
@@ -39,49 +27,38 @@ const Link = ({
     },
   };
 
+  const hasHashHref = typeof href === "string" && href.startsWith("#");
+
   return outerLink ? (
+    // eslint-disable-next-line react/jsx-no-target-blank
+    <a target="_blank" href={href as string}>
+      <Div {...rest} hover={hover}>
+        {children}
+      </Div>
+    </a>
+  ) : (
     <Div
-      onClick={onClick}
-      target="_blank"
-      as="a"
+      as={NextLink}
+      // @ts-ignore
       href={href}
+      onClick={(e) => {
+        if (hasHashHref) {
+          e.preventDefault();
+          document.getElementById(href.slice(1))?.scrollIntoView();
+        }
+      }}
+      replace={replace}
+      scroll={scroll}
+      shallow={shallow}
+      passHref={passHref}
+      prefetch={prefetch}
+      locale={locale}
       {...rest}
       hover={hover}
     >
       {children}
     </Div>
-  ) : (
-    <NextLink
-      onClick={onClick}
-      {...(as !== undefined ? { as } : {})}
-      {...(href !== undefined ? { href } : {})}
-      {...(replace !== undefined ? { replace } : {})}
-      {...(scroll !== undefined ? { scroll } : {})}
-      {...(shallow !== undefined ? { shallow } : {})}
-      passHref={passHref ?? true}
-      {...(prefetch !== undefined ? { prefetch } : {})}
-      {...(locale !== undefined ? { locale } : {})}
-      {...(outerLink !== undefined ? { outerLink } : {})}
-    >
-      // <Div as="a" {...rest} hover={hover}></Div>
-      {children}
-    </NextLink>
   );
 };
-
-// const AnchorTag = (props) => {
-//   const hover = {
-//     ...(props?.hover || {}),
-//     css: {
-//       ...(props?.hover?.css || {}),
-//       ...(props?.underline ? { textDecoration: "underline" } : {}),
-//     },
-//   };
-//   return (
-//     <Div as="a" {...props} hover={hover}>
-//       {props.children}
-//     </Div>
-//   );
-// };
 
 export default Link;

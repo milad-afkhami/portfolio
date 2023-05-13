@@ -3,13 +3,13 @@ import prepareSpacing from "@stylesheets/utils/prepareSpacing";
 import getOtherSpacings from "@stylesheets/utils/getOtherSpacings";
 import flexer from "@stylesheets/utils/flex";
 import grider from "@stylesheets/utils/grid";
-import { c } from "@stylesheets/getColorVariable";
-import matchParent from "@stylesheets/predefined/matchParent";
-import styled, { keyframes } from "styled-components";
+import colorVar from "@stylesheets/utils/var/color";
 import isNullish from "@utils/isNullish";
 import __kebabCase from "lodash-es/kebabCase";
+import __capitalize from "lodash-es/capitalize";
+import type DivProps from "./props";
 
-const convertPropsToStyles = (props) => {
+export default function convertPropsToStyles(props: DivProps) {
   const {
     width,
     w,
@@ -24,7 +24,7 @@ const convertPropsToStyles = (props) => {
     pace,
     border,
     borderSide = "",
-    borderW = 1,
+    borderW = "1px",
     bg,
     bgImage,
     color,
@@ -35,11 +35,12 @@ const convertPropsToStyles = (props) => {
     zoomOnHover,
     m,
     p,
-    flex = "",
+    gap,
+    flex,
     flexPortion,
     display,
     opacity,
-    col,
+    // col,
     grid,
     overflow,
     overflowX,
@@ -49,21 +50,32 @@ const convertPropsToStyles = (props) => {
     dimensions,
     zIndex,
     order,
+    pointerEvents,
+    rotate,
     css,
     animation,
     blurBg,
-    // matchParent,
+    matchParent,
     ...restProps
   } = props;
 
   return {
-    ...(width ? { width: width || w } : {}),
+    ...(width || w ? { width: width || w } : {}),
     ...(mw ? { minWidth: mw } : {}),
     ...(Mw ? { maxWidth: Mw } : {}),
-    ...(height ? { height: height || h } : {}),
+    ...(height || h ? { height: height || h } : {}),
     ...(mh ? { minHeight: mh } : {}),
     ...(Mh ? { maxHeight: Mh } : {}),
-    ...(props.matchParent ? matchParent : {}),
+    ...(matchParent
+      ? {
+          width: "100%",
+          minWidth: "100%",
+          maxWidth: "100%",
+          height: "100%",
+          minHeight: "100%",
+          maxHeight: "100%",
+        }
+      : {}),
     ...(position ? { position } : {}),
     ...(zIndex ? { zIndex } : {}),
     ...(dimensions ? prepareDimensions(dimensions) : {}),
@@ -75,46 +87,50 @@ const convertPropsToStyles = (props) => {
         }
       : {}),
     ...(shadow ? { boxShadow: `var(--shadow-${shadow}, ${shadow})` } : {}),
-    // ...(shadow ? { boxShadow: shadows[shadow] || shadow } : {}),
+    ...(gap ? { gap: `var(--spacing-${gap}, ${gap})` } : {}),
     ...(pace
       ? { transition: `all var(--pace-${__kebabCase(pace)}, ${pace})` }
       : {}),
-    // ...(pace ? { transition: `all ${paces[pace || "fast"] || pace}` } : {}),
+    // border === "none" ? "none" :
     ...(border
       ? {
-          ["border" + borderSide.capitalize()]: `${borderW}px solid ${c(
+          [`border${__capitalize(borderSide)}`]: `${borderW} solid ${colorVar(
             border
           )}`,
         }
       : {}),
-    ...(bg ? { background: c(bg) } : {}),
+    ...(bg ? { background: colorVar(bg) } : {}),
     ...(bgImage ? { backgroundImage: bgImage } : {}),
     ...(overflow ? { overflow } : {}),
     ...(overflowX ? { overflowX } : {}),
     ...(overflowY ? { overflowY } : {}),
     ...(order ? { order } : {}),
-    ...(cursor ? { cursor } : {}),
-    ...(!isNullish(opacity) ? { opacity } : {}),
-    ...(color ? { color: c(color) } : {}),
-    // Array.from will convert "$" to ["$"] and will have no effect on ["$", ...]
-    ...(m !== undefined && m.length
+    ...(pointerEvents ? { pointerEvents } : {}),
+    ...(rotate
       ? {
-          margin:
-            m.includes("px") || m.includes("rem")
-              ? m
-              : prepareSpacing(Array.from(m)),
+          transform: `rotate(calc(${
+            typeof rotate === "string"
+              ? `${rotate.replace("q", "")} * 90`
+              : rotate
+          }deg))`,
         }
       : {}),
-    ...(p !== undefined && p.length
-      ? { padding: prepareSpacing(Array.from(p)) }
-      : {}),
+    ...(cursor ? { cursor } : {}),
+    ...(!isNullish(opacity) ? { opacity } : {}),
+    ...(color ? { color: colorVar(color) } : {}),
+    // @ts-ignore
+    ...(!isNullish(m) ? { margin: prepareSpacing(m) } : {}),
+    // @ts-ignore
+    ...(!isNullish(p) ? { padding: prepareSpacing(p) } : {}),
     ...getOtherSpacings(restProps),
     ...(hover || hoverBg || hoverColor || hoverShadow || zoomOnHover
       ? {
           ...(!pace ? { transition: `all var(--pace-fast)` } : {}),
-          ":hover": {
-            ...(hoverBg ? { background: c(hoverBg) } : {}),
-            ...(hoverColor ? { "& ,& *": { color: c(hoverColor) } } : {}),
+          "&:hover": {
+            ...(hoverBg ? { background: colorVar(hoverBg) } : {}),
+            ...(hoverColor
+              ? { "& ,& *": { color: colorVar(hoverColor) } }
+              : {}),
             ...(hoverShadow
               ? { boxShadow: `var(--shadow-${hoverShadow}, ${hoverShadow})` }
               : {}),
@@ -122,26 +138,21 @@ const convertPropsToStyles = (props) => {
           },
         }
       : {}),
-    ...(display || flex ? { display: display || "flex" } : {}),
+    ...(display ? { display: display || "flex" } : {}),
     ...(flexPortion ? { flex: flexPortion } : {}),
-    ...(flex && flex.length ? flexer(flex[0], flex[1], flex[2], flex[3]) : ""),
-    ...(grid && grid.length
-      ? grider(grid[0], grid[1], grid[2], grid[3], grid[4], grid[5], grid[6])
-      : ""),
+    ...(flex && flex.length ? flexer(...flex) : {}),
+    ...(grid && grid.length ? grider(...grid) : {}),
     ...(blurBg ? { backdropFilter: "blur(15px)" } : {}),
     ...(css || {}),
     ...(animation
       ? {
-          animation: keyframes(animation.keyframes),
-          animationDuration: animation.duration || "var(--pace-x-slow)",
-          ...(animation.iterationCount
-            ? { animationIterationCount: animation.iterationCount }
-            : {}),
+          // animation: keyframes(animation.keyframes),
+          animationName: animation.name,
+          animationDuration: animation.duration ?? "var(--pace-x-slow)",
+          animationTimingFunction: animation.timingFunction ?? "linear",
+          animationIterationCount: animation.iterationCount ?? "infinite",
           ...(animation.direction
             ? { animationDirection: animation.direction }
-            : {}),
-          ...(animation.timingFunction
-            ? { animationTimingFunction: animation.timingFunction }
             : {}),
           ...(animation.fillMode
             ? { animationFillMode: animation.fillMode }
@@ -152,6 +163,4 @@ const convertPropsToStyles = (props) => {
         }
       : {}),
   };
-};
-
-export default convertPropsToStyles;
+}

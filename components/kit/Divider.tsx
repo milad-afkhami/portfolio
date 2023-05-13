@@ -1,17 +1,29 @@
 import Div from "@kits/Div";
+import Orientations from "@constants/orientations";
+import type { FC } from "react";
 
-/**
- * Renders a divider
- * @param {{ width:string, height:string, color:string, orientation: ("vertical"|"horizontal") }} props
- */
+interface DividerProps {
+  thickness?: string;
+  color?: Colors;
+  orientation?: Orientations;
+}
 
-const Divider = ({
-  color = "border-light",
-  length = "100%",
-  thickness = "1px",
-  orientation = "horizontal",
-}) => {
-  return <Div width={width} height={height} bg={color} />;
+const Divider: FC<DividerProps> = (props) => {
+  const {
+    color = "border-light-main",
+    thickness = "1px",
+    orientation = Orientations.Horizontal,
+  } = props;
+
+  return (
+    <Div
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      {...(orientation === Orientations.Vertical
+        ? { width: thickness, height: "100%" }
+        : { height: thickness, width: "100%" })}
+      bg={color}
+    />
+  );
 };
 
 export default Divider;

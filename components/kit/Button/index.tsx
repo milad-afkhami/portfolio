@@ -1,93 +1,50 @@
+import { forwardRef } from "react";
 import Div from "@kits/Div";
-import Text from "@kits/Text";
-import Icon from "@kits/Icon";
-import { useEffect } from "react";
-import useToggle from "@hooks/useToggle";
-import usePrevious from "@hooks/usePrevious";
-import StyledButton from "./StyledButton";
-import __noop from "lodash-es/noop";
+import Adornment from "@kits/Adornment";
+import Spinner from "@kits/Spinner";
+import { Else, If, Then } from "@kits/ConditionalRendering";
+import BaseButton from "./Base";
+import ButtonText from "./Text";
+import type ButtonProps from "./props";
 
-/**
- * @typedef {("lg"|"md")} Size
- * @typedef {("primary" | "outlined" | "link")} Variant
- * @typedef {import('@kits/Icon').IconProps} Icon
- *
- * @typedef {{ size:Size, variant:Variant, text:string, loading:boolean, hasSuccessState:boolean, icon:Icon, trailingIcon:Icon, block:boolean, fixedWidth:boolean, width:string, height:string }&ButtonHTMLAttributes} ButtonProps
- *
- * @component - Renders a button element with needed styles and functionalities
- * @type {import("react").ComponentType<ButtonProps>}
- * @param {ButtonProps} props
- */
-
-const Button = function (props) {
+const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const {
-    size,
-    variant = "primary",
     text = "",
+    name,
     loading,
-    hasSuccessState,
     disabled,
-    error,
     icon,
     trailingIcon,
     onClick,
-    block,
-    type,
-    ...rest
+    children,
+    variant = "contained",
   } = props;
+  const notAllowed = disabled || loading;
 
-  const [success, setSuccess] = useToggle(false);
-
-  const prevLoading = usePrevious(loading);
-  useEffect(() => {
-    // when loading has changed from true to false and we have no error
-    if (hasSuccessState && prevLoading & !loading && !error) {
-      setSuccess();
-      var to = setTimeout(setSuccess, 1500);
-    }
-    return () => to && clearTimeout(to);
-  }, [loading]);
-
-  const notAllowed = disabled || loading || success;
   return (
-    <StyledButton
+    <BaseButton
+      // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}
-      onClick={notAllowed ? __noop : onClick}
-      cursor={notAllowed ? "default" : "pointer"}
+      ref={ref}
+      onClick={!notAllowed ? onClick : undefined}
+      name={name}
+      data-testid="kitButton"
     >
-      <Div
-        height="100%"
-        flex={["center", "center"]}
-        css={{ transitionDelay: "var(--pace-fast)" }}
-      >
-        {icon ? (
-          typeof icon === "string" ? (
-            <Icon name={icon} size="24" />
-          ) : typeof icon === "object" && icon?.name ? (
-            <Icon size="24" {...icon} />
-          ) : (
-            icon
-          )
-        ) : null}
-        {/* <Icon size="24" {...(typeof icon === "object" ? icon : { name: icon })} /> */}
-        {text && <Text mx="1">{text}</Text>}
-        {trailingIcon ? (
-          <Icon
-            size="24"
-            {...(typeof trailingIcon === "object"
-              ? trailingIcon
-              : { name: trailingIcon })}
-          />
-        ) : null}
+      <Div height="100%" flex={["center", "center"]} gap="1">
+        <If condition={loading}>
+          <Then>
+            <Spinner size="xsm" light={variant === "contained"} />
+          </Then>
+          <Else>
+            <Adornment icon={icon} />
+            <ButtonText text={text} />
+            {children}
+            <Adornment icon={trailingIcon} />
+          </Else>
+        </If>
       </Div>
-      {/* <Div height="100%" flex={["center", "center"]} css={{ transitionDelay: "var(--pace-fast)" }}><Spinner size="xsm" /></Div> */}
-      {hasSuccessState && (
-        <Div height="100%" flex={["center", "center"]}>
-          <Icon name="checkmark" size="30" />
-        </Div>
-      )}
-    </StyledButton>
+    </BaseButton>
   );
-};
+});
 
 export default Button;
