@@ -2,7 +2,7 @@ import Div from "@kits/Div";
 import Text from "@kits/Text";
 
 const ListItem = (props) => {
-  const { index, title, subtitle } = props || {};
+  const { index, title, subtitle } = props;
 
   return (
     <Div

@@ -9,7 +9,7 @@ const customJestConfig = {
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
   moduleNameMapper: {
     "@api/(.*)$": "<rootDir>/pages/api/$1",
-    "@kits/(.*)$": "<rootDir>/components/kit/$1",
+    "@kits/(.*)$": "<rootDir>/components/Kits/$1",
     "@components/(.*)$": "<rootDir>/components/$1",
     "@validators/(.*)$": "<rootDir>/validators/$1",
     "@utils/(.*)$": "<rootDir>/utils/$1",

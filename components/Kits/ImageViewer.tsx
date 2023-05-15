@@ -4,7 +4,7 @@ import Carousel, { Modal, ModalGateway } from "react-images";
 import useTranslation from "@hooks/useTranslation";
 
 const ImageViewer = (props) => {
-  const { isOpen, onClose, current, views } = props || {};
+  const { isOpen, onClose, current, views } = props;
 
   const { t } = useTranslation();
 

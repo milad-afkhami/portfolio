@@ -18,7 +18,7 @@
     "jsx": "preserve",
     "paths": {
       "@api/*": ["./pages/api/*"],
-      "@kits/*": ["./components/kit/*"],
+      "@kits/*": ["./components/Kits/*"],
       "@components/*": ["./components/*"],
       "@validators/*": ["./validators/*"],
       "@utils/*": ["./utils/*"],

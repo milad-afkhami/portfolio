@@ -11,7 +11,7 @@ import __chunk from "lodash-es/chunk";
  */
 
 const ListView = (props) => {
-  const { items, col = 2 } = props || {};
+  const { items, col = 2 } = props;
 
   const pivot = useMemo(() => Math.ceil(items.length / col), [items.length]);
 

@@ -3,7 +3,7 @@ import { TimelineSectionItemTitle } from "./Title";
 import { TimelineSectionItemDescription } from "./Description";
 
 const TimelineSectionItem = (props) => {
-  const { text, index } = props || {};
+  const { text, index } = props;
 
   return (
     <Div mb="3" as="li" css={{ listStyle: "none" }}>

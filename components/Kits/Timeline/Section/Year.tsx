@@ -2,7 +2,7 @@ import Div from "@kits/Div";
 import Text from "@kits/Text";
 
 const TimelineSectionYear = (props) => {
-  const { year } = props || {};
+  const { year } = props;
 
   return (
     <Div

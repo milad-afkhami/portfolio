@@ -3,7 +3,7 @@ import { TimelineSection } from "./Section";
 import SectionTitle from "@components/Layout/Title/Section";
 
 const Timeline = (props) => {
-  const { title, icon = "timeline", sections } = props || {};
+  const { title, icon = "timeline", sections } = props;
 
   return (
     <Div mb="5">

@@ -3,7 +3,7 @@ import { DropDownImage } from "./Image";
 import { DropDownLabel } from "./Label";
 
 const DropDownItem = (props) => {
-  const { image, text, onClick, ...rest } = props || {};
+  const { image, text, onClick, ...rest } = props;
 
   return (
     <Div

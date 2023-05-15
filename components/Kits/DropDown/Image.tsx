@@ -2,7 +2,7 @@ import Div from "@kits/Div";
 import Image from "@kits/Image";
 
 const DropDownImage = (props) => {
-  const { src } = props || {};
+  const { src } = props;
 
   return src ? (
     <Div flex={["center", "center"]} mx="2">

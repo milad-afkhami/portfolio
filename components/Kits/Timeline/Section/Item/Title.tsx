@@ -1,7 +1,7 @@
 import Text from "@kits/Text";
 
 const TimelineSectionItemTitle = (props) => {
-  const { title } = props || {};
+  const { title } = props;
 
   return (
     <Text

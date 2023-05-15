@@ -4,7 +4,7 @@ import { TimelineSectionItem } from "./Item";
 import { TimelineSectionYear } from "./Year";
 
 const TimelineSection = (props) => {
-  const { year, items, last } = props || {};
+  const { year, items, last } = props;
 
   return (
     <Div

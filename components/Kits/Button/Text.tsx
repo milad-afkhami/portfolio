@@ -7,7 +7,7 @@ import type TextProps from "@kits/Text/props";
 // #endregion
 
 export default function ButtonText(props: { text: ButtonProps["text"] }) {
-  const { text } = props || {};
+  const { text } = props;
 
   const sharedProps = {
     size: "sm",

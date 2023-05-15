@@ -15,7 +15,7 @@ const Tree = (props) => {
     branchesAccessor = "branches",
     defaultOpen = true,
     defaultSubsOpen = false,
-  } = props || {};
+  } = props;
 
   return (
     <TreeWrapper>

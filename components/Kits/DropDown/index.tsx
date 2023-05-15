@@ -10,7 +10,7 @@ import DropDownItem from "./Item";
  */
 
 const DropDown = (props) => {
-  const { items, selected, onChange } = props || {};
+  const { items, selected, onChange } = props;
 
   const [isOpen, setIsOpen] = useState(false);
 
