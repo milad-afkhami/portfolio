@@ -4,7 +4,7 @@ import Image from "@kits/Image";
 import useTranslation from "@hooks/useTranslation";
 
 const FavouriteCommonEntityCard = (props) => {
-  const { slug, entityType } = props || {};
+  const { slug, entityType } = props;
 
   const { t } = useTranslation();
 

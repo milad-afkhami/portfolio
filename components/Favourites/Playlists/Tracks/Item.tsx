@@ -2,7 +2,7 @@ import Div from "@kits/Div";
 import Text from "@kits/Text";
 
 const FavouritePlaylistTracksItem = (props) => {
-  const { index, name, artist } = props || {};
+  const { index, name, artist } = props;
 
   return (
     <Div

@@ -2,7 +2,7 @@ import Div from "@kits/Div";
 import Text from "@kits/Text";
 
 const BlogMetaItem = (props) => {
-  const { label, value } = props || {};
+  const { label, value } = props;
 
   if (!value) {
     return null;

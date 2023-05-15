@@ -2,7 +2,7 @@ import Div from "@kits/Div";
 import FavouriteCommonEntityCard from "./Card";
 
 const FavouriteCommonEntityList = (props) => {
-  const { items, entityType } = props || {};
+  const { items, entityType } = props;
 
   return (
     <>

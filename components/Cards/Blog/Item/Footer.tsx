@@ -3,7 +3,7 @@ import Text from "@kits/Text";
 import Icon from "@kits/Icon";
 
 const BlogCardFooter = (props) => {
-  const { publishedAt = "", readingTime, views } = props || {};
+  const { publishedAt = "", readingTime, views } = props;
 
   return (
     <Div

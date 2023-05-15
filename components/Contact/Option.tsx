@@ -4,7 +4,7 @@ import Text from "@kits/Text";
 import toast from "@utils/toast";
 
 const ContactOption = (props) => {
-  const { type, label, value } = props || {};
+  const { type, label, value } = props;
 
   const onClickContactWay = () => {
     navigator.clipboard

@@ -2,7 +2,7 @@ import Div from "@kits/Div";
 import Text from "@kits/Text";
 
 const GistSummary = (props) => {
-  const { summary } = props || {};
+  const { summary } = props;
 
   return (
     <Div my="3">

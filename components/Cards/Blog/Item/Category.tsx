@@ -2,7 +2,7 @@ import Div from "@kits/Div";
 import Text from "@kits/Text";
 
 const BlogCardCategory = (props) => {
-  const { category = "" } = props || {};
+  const { category = "" } = props;
 
   return (
     <Div

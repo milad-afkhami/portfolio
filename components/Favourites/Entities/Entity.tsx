@@ -6,7 +6,7 @@ import Link from "@kits/Link";
 // playlists  {/* , 6 */}{/* , 4 */}
 // artists  {/*1, , 7, 8 */}
 const FavouriteEntity = (props) => {
-  const { link, label } = props || {};
+  const { link, label } = props;
 
   return (
     <Link

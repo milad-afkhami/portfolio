@@ -4,7 +4,7 @@ import Image from "@kits/Image";
 import Link from "@kits/Link";
 
 const FavouriteArtistCard = (props) => {
-  const { name, image, slug } = props || {};
+  const { name, image, slug } = props;
 
   return (
     <Div

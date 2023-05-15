@@ -3,7 +3,7 @@ import Text from "@kits/Text";
 import SectionTitle from "@components/Layout/Title/Section";
 
 const GistTitle = (props) => {
-  const { title } = props || {};
+  const { title } = props;
 
   return <SectionTitle title={title} />;
 

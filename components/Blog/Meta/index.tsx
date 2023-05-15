@@ -3,7 +3,7 @@ import BlogMetaItem from "./Item";
 import useTranslation from "@hooks/useTranslation";
 
 const BlogMeta = (props) => {
-  const { category, readingTime, publishedAt } = props || {};
+  const { category, readingTime, publishedAt } = props;
 
   const { t } = useTranslation();
 

@@ -5,7 +5,7 @@ import useTranslation from "@hooks/useTranslation";
 import { isDevelopment } from "@config";
 
 const WhoAmI = (props) => {
-  const { videoTitle } = props || {};
+  const { videoTitle } = props;
   const { t } = useTranslation();
   const paragraphsCount = 7;
 

@@ -13,7 +13,7 @@ const GistCard = (props) => {
     body = "",
     slug = "",
     category = "",
-  } = props || {};
+  } = props;
 
   return (
     <Link

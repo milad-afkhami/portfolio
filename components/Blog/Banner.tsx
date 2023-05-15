@@ -2,7 +2,7 @@ import Div from "@kits/Div";
 import Image from "@kits/Image";
 
 const BlogBanner = (props) => {
-  const { banner, title } = props || {};
+  const { banner, title } = props;
 
   if (!banner) return null;
 

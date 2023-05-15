@@ -15,7 +15,7 @@ const BlogCards = (props) => {
     loadingCount = 9,
     orientation = Orientations.Vertical,
     ...rest
-  } = props || {};
+  } = props;
 
   return (
     <Div my="3" {...rest}>

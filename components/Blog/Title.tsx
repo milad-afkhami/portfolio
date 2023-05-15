@@ -3,7 +3,7 @@ import Text from "@kits/Text";
 import PageTitle from "@components/Layout/Title/Page";
 
 const BlogTitle = (props) => {
-  const { title } = props || {};
+  const { title } = props;
 
   return <PageTitle title={title} />;
 

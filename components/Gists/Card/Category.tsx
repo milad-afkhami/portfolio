@@ -2,7 +2,7 @@ import Image from "@kits/Image";
 import Link from "@kits/Link";
 
 const GistCardCategory = (props) => {
-  const { category = "" } = props || {};
+  const { category = "" } = props;
 
   return (
     <Link

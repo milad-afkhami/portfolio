@@ -10,7 +10,7 @@ const Gists = (props) => {
     loadingCount = 8,
     // orientation = Orientations.VERTICAL,
     ...rest
-  } = props || {};
+  } = props;
 
   return (
     <Div my="3" {...rest}>
