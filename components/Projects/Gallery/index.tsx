@@ -7,7 +7,7 @@ import dynamic from "next/dynamic";
 const ImageViewer = dynamic(() => import("@kits/ImageViewer"));
 
 const ProjectGallery = (props) => {
-  const { medias } = props || {};
+  const { medias } = props;
 
   const [renderViewer, setRenderViewer] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);

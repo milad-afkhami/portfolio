@@ -2,7 +2,7 @@ import Div from "@kits/Div";
 import { ProjectTech } from "./Item";
 
 const ProjectTechs = (props) => {
-  const { techs, compact } = props || {};
+  const { techs, compact } = props;
 
   return (
     <Div

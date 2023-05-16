@@ -2,7 +2,7 @@ import Link from "@kits/Link";
 import Text from "@kits/Text";
 
 const ProjectTech = (props) => {
-  const { name, link, compact } = props || {};
+  const { name, link, compact } = props;
 
   return (
     <Link

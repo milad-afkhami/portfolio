@@ -4,7 +4,7 @@ import Link from "@kits/Link";
 import Text from "@kits/Text";
 
 const ProjectCard = (props) => {
-  const { logo, slug } = props || {};
+  const { logo, slug } = props;
 
   const height = 120;
 

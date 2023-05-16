@@ -3,7 +3,7 @@ import Tree from "@kits/Tree";
 import SectionTitle from "@components/Layout/Title/Section";
 
 const ProjectPoints = (props) => {
-  const { points } = props || {};
+  const { points } = props;
 
   return (
     <Div mb="4">

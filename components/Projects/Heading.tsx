@@ -4,7 +4,7 @@ import Link from "@kits/Link";
 import Text from "@kits/Text";
 
 const ProjectHeading = (props) => {
-  const { logo, link = "", slug, index, date } = props || {};
+  const { logo, link = "", slug, index, date } = props;
 
   return (
     <Div

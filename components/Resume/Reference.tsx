@@ -5,7 +5,7 @@ import { appBaseURL } from "@config";
 import { Trans } from "next-i18next";
 
 const ResumeReference = (props) => {
-  const { i18nKey, route, link } = props || {};
+  const { i18nKey, route, link } = props;
   return (
     <Div flex={["center", "start"]} my="3">
       <Icon name="info" size="sm" color="assistive-warning" />

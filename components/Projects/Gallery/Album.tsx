@@ -2,7 +2,7 @@ import Div from "@kits/Div";
 import Image from "@kits/Image";
 
 const ProjectGalleryAlbum = (props) => {
-  const { medias, onClickItem } = props || {};
+  const { medias, onClickItem } = props;
 
   return (
     <Div

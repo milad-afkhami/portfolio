@@ -2,7 +2,7 @@ import Div from "@kits/Div";
 import Text from "@kits/Text";
 
 const ProjectDescription = (props) => {
-  const { slug } = props || {};
+  const { slug } = props;
 
   return (
     <Div mb="3">
