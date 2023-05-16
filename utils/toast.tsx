@@ -1,16 +1,29 @@
-import Text from "@kits/Text";
-import { toast as rtToast, ToastOptions, ToastContent } from "react-toastify";
+/* eslint-disable no-plusplus */
+/* eslint-disable react/jsx-props-no-spreading */
+import toast from "react-hot-toast";
+import Toast from "@kits/Toast";
+import type { ToastProps } from "@kits/Toast/props";
 
-/**
- *
- * @param {ToastContent} content : ;
- * @param {ToastOptions} options
- */
-const toast = (content, options) => {
-  const toastContent =
-    typeof content === "string" ? <Text size="sm">{content}</Text> : content;
+type ToastUtilProps = Pick<ToastProps, "title" | "message" | "close">;
 
-  return rtToast(toastContent, options);
-};
+let id = 1;
 
-export default toast;
+// TODO: refactor to Notistack
+export default class ToastUtil {
+  static #getOptions = (props: ToastUtilProps) => ({
+    id: `${++id}`,
+    ...(typeof props === "string" ? { message: props } : props),
+  });
+
+  static info = (props: ToastUtilProps) =>
+    toast.custom(<Toast type="info" {...this.#getOptions(props)} />);
+
+  static success = (props: ToastUtilProps) =>
+    toast.custom(<Toast type="success" {...this.#getOptions(props)} />);
+
+  static error = (props: ToastUtilProps) =>
+    toast.custom(<Toast type="error" {...this.#getOptions(props)} />);
+
+  static warning = (props: ToastUtilProps) =>
+    toast.custom(<Toast type="warning" {...this.#getOptions(props)} />);
+}

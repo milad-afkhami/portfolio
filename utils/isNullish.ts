@@ -1,4 +1,3 @@
-const isNullish = (value) =>
-  typeof value === "undefined" || value === null ? true : false;
-
-export default isNullish;
+export default function isNullish(value: unknown): value is Nullish {
+  return typeof value === "undefined" || value === null;
+}

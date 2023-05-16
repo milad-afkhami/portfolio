@@ -1,24 +1,30 @@
-export default class CSSVariables {
-  /**
-   * @param {string} name
-   * @param {{numeric:boolean, rgb:boolean}} options
-   * @returns {string|number}
-   */
-  static get = (name, options) => {
-    const { numeric = false, rgb = false } = options || {};
-    if (!process.browser) return null;
+import { isClient } from "./isClient";
 
-    let value = getComputedStyle(document.documentElement).getPropertyValue(
-      name
-    );
+interface GetOptions {
+  numeric: boolean;
+}
+
+type CSSVariableValue = string | number | null;
+
+type Get = (name: string, options?: GetOptions) => CSSVariableValue;
+type Set = (name: string, value: string) => CSSVariableValue;
+
+export default class CSSVariables {
+  static get: Get = (name, options = {} as GetOptions) => {
+    const { numeric = false } = options || {};
+    if (!isClient()) return null;
+
+    let value: string | number = getComputedStyle(
+      document.documentElement
+    ).getPropertyValue(name);
 
     if (numeric && value) value = Number(value.replace("px", ""));
 
     return value;
   };
 
-  static set = ({ name, value }) => {
-    if (!process.browser) return null;
+  static set: Set = (name, value) => {
+    if (!isClient()) return null;
 
     document.documentElement.style.setProperty(name, value);
 

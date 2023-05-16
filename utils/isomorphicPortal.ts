@@ -1,7 +1,13 @@
 import { createPortal } from "react-dom";
-import isClient from "./isClient";
+import { isClient } from "./isClient";
+import type { PropsWithChildren, ReactPortal } from "react";
 
-const isomorphicPortal = (children, selector) => {
+type IsomorphicPortal = (
+  children: PropsWithChildren["children"],
+  selector: string
+) => ReactPortal | null;
+
+const isomorphicPortal: IsomorphicPortal = function (children, selector) {
   if (!isClient()) return null;
 
   const destEl = selector ? document.querySelector(selector) : null;
