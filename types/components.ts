@@ -1,16 +1,39 @@
-import I18nSSRHelper from "@helpers/i18n.server";
+import I18nHelper from "@helpers/i18n";
 import type { FunctionComponent, PropsWithChildren } from "react";
 import type { AppProps as NextAppProps } from "next/app";
 import type { NextPage } from "next";
 
-type It9n = UnPromise<ReturnType<typeof I18nSSRHelper.t9n>>;
+export interface LayoutConfig {
+  /**
+   * Render no header
+   *
+   * Default value is false
+   */
+  readonly noHeader?: boolean;
+  /**
+   * Render no footer
+   *
+   * Default value is false
+   */
+  readonly noFooter?: boolean;
+}
 
-export type PageComponent<P = {}> = NextPage<It9n & P> & {};
+type It9n = UnPromise<ReturnType<typeof I18nHelper.t9n>>;
 
-export type NonTranslatedPageComponent<P = {}> = NextPage<P> & {};
+export type PageComponent<P = {}> = NextPage<It9n & P> & {
+  layoutConfig?: LayoutConfig;
+};
+
+export type NonTranslatedPageComponent<P = {}> = NextPage<P> & {
+  layoutConfig?: LayoutConfig;
+};
+
+type AppComponentProp = NextAppProps["Component"] & {
+  layoutConfig?: LayoutConfig;
+};
 
 export interface AppProps<T = {}> extends NextAppProps<T> {
-  Component: NextAppProps["Component"];
+  Component: AppComponentProp;
 }
 
 export type HOCFunctionalComponent<T = {}> = FunctionComponent<

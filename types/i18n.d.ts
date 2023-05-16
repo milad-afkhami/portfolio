@@ -1,4 +1,15 @@
-type I18NNameSpaces = "common" | "layout";
+type I18NNameSpaces =
+  | "common"
+  | "layout"
+  | "home"
+  | "resume"
+  | "favourites.common"
+  | "favourites.animations"
+  | "favourites.anime"
+  | "favourites.books"
+  | "favourites.poems"
+  | "favourites.series"
+  | "favourites.writers";
 
 type Languages = "en"; // | "de" | "fr";
 
@@ -10,7 +21,7 @@ type LanguageConfig = {
   displayName: string;
   flag: string;
   direction: "rtl" | "ltr";
-  font: string;
+  font?: string;
 };
 
 // declare module "next-i18next" {
@@ -20,7 +31,4 @@ type LanguageConfig = {
 //     language: Languages;
 //   }
 //   export { useTranslation };
-//
 // }
-
-export default I18n;
