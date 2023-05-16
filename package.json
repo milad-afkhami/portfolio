@@ -37,13 +37,7 @@
     "prettier": "prettier --write .",
     "test": "jest test",
     "lint": "next lint",
-    "prepare": "husky install",
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "stylesheets": "node ./scripts/stylesheets/index.mjs",
   },
   "browserslist": {
     "production": [

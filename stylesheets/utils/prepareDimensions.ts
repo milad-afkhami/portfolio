@@ -1,41 +1,18 @@
-import spacings from "@stylesheets/constants/spacing";
 import __reduce from "lodash-es/reduce";
+import spacingVar from "./var/spacingVar";
+import type DivProps from "@kits/Div/props";
 
-const getDimensionKey = (key, value) => {
-  const insetInlineStart = key === "insetInlineStart";
-  const insetInlineEnd = key === "insetInlineEnd";
+type Dimensions = NonNullable<DivProps["dimensions"]>;
 
-  if (
-    !process.browser ||
-    (!insetInlineStart && !insetInlineStart) ||
-    CSS.supports(
-      insetInlineStart
-        ? "inset-inline-start"
-        : insetInlineEnd
-        ? "inset-inline-end"
-        : "",
-      value
-    )
-  )
-    return key;
-
-  const dir = document.documentElement.dir;
-  const fallback = {
-    insetInlineStart: dir === "ltr" ? "right" : "left",
-    insetInlineEnd: dir === "ltr" ? "left" : "right",
-  };
-  return fallback[key];
-};
-
-const prepareDimensions = (d = []) =>
-  __reduce(
+export default function prepareDimensions(d: Dimensions) {
+  return __reduce(
     d,
     (result, v, k) => {
-      const value = spacings[v] || v;
-      result[k] = value;
+      const value = spacingVar(v);
+      // eslint-disable-next-line no-param-reassign
+      result[k as keyof typeof result] = value;
       return result;
     },
-    {}
+    {} as Dimensions
   );
-
-export default prepareDimensions;
+}

@@ -1,8 +1,11 @@
-import spacings from "@stylesheets/constants/spacing";
 import __reduce from "lodash-es/reduce";
+import spacingVar from "./var/spacingVar";
+import type DivProps from "@kits/Div/props";
+
+type SpacingProps = Array<{ key: SpacingKeys; properties: Array<string> }>;
 
 // read more about css logical properties here https://codepen.io/aardrian/pen/bGGxrvM
-const spacingProps = [
+const spacingPropsMap: SpacingProps = [
   { key: "mr", properties: ["margin-right"] },
   { key: "ml", properties: ["margin-left"] },
   { key: "mEnd", properties: ["margin-inline-end"] },
@@ -21,19 +24,27 @@ const spacingProps = [
   { key: "py", properties: ["padding-top", "padding-bottom"] },
 ];
 
-/**
- * this method will check the object passed to it and if there was any of the spacingProps object keys in it, it will translate that to correct style property.
- **/
-const getOtherSpacings = (props = {}) =>
-  __reduce(
-    spacingProps.filter(({ key }) => props[key] !== undefined),
-    (result, { key, properties }) => {
-      properties.map((property) => {
-        result[property] = spacings[props[key]] || props[key];
-      });
-      return result;
-    },
-    {}
-  );
+// type SpacingKeys = Exclude<ValueOf<typeof spacingProps>, Function | number | undefined>; type Spacings = Pick<DivProps, SpacingKeys>;
+// prettier-ignore
+type SpacingKeys = "mr" | "ml" | "mEnd" | "mStart" | "mt" | "mb" | "mx" | "my" | "pr" | "pl" | "pEnd" | "pStart" | "pt" | "pb" | "px" | "py";
 
-export default getOtherSpacings;
+/** this method will check the object passed to it and if there was any of the spacingProps object keys in it, it will translate that to correct style property. */
+export default function getOtherSpacings(
+  props: Pick<DivProps, SpacingKeys> = {}
+) {
+  return __reduce(
+    spacingPropsMap.filter(({ key }) => props[key] !== undefined),
+    (css, { key, properties }) => {
+      properties.forEach((cssProperty) => {
+        const spacingKey: Maybe<Spacings> = props[key];
+        if (spacingKey) {
+          const cssValue = spacingVar(spacingKey);
+          // eslint-disable-next-line no-param-reassign
+          css[cssProperty] = cssValue;
+        }
+      });
+      return css;
+    },
+    {} as Dictionary<string>
+  );
+}

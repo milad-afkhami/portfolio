@@ -1,0 +1,24 @@
+{
+  "default": {
+    "h-xxl": { "fontSize": 32 },
+    "h-xl": { "fontSize": 26 },
+    "h-lg": { "fontSize": 24 },
+    "h-md": { "fontSize": 20 },
+    "h-sm": { "fontSize": 18 },
+    "lg": { "fontSize": 16 },
+    "md": { "fontSize": 14 },
+    "sm": { "fontSize": 12 },
+    "xsm": { "fontSize": 10 }
+  },
+  "lg": {
+    "h-xxl": { "fontSize": 42 },
+    "h-xl": { "fontSize": 34 },
+    "h-lg": { "fontSize": 28 },
+    "h-md": { "fontSize": 24 },
+    "h-sm": { "fontSize": 20 },
+    "lg": { "fontSize": 18 },
+    "md": { "fontSize": 16 },
+    "sm": { "fontSize": 14 },
+    "xsm": { "fontSize": 12 }
+  }
+}
