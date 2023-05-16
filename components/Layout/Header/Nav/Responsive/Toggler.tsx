@@ -2,7 +2,7 @@ import Div from "@kits/Div";
 import styled from "styled-components";
 
 const MenuToggler = (props) => {
-  const { open, toggle } = props || {};
+  const { open, toggle } = props;
 
   return (
     <StyledDiv open={open} onClick={!open ? toggle : () => {}}>

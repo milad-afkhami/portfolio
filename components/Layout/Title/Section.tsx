@@ -3,7 +3,7 @@ import Icon from "@kits/Icon";
 import Text from "@kits/Text";
 
 const SectionTitle = (props) => {
-  const { icon, title, tag = "h3" } = props || {};
+  const { icon, title, tag = "h3" } = props;
 
   return (
     <Div flex={["center", "start"]} mb="2">

@@ -8,7 +8,7 @@ import __noop from "lodash-es/noop";
 // import { DownloadResume } from "../../DownloadResume";
 
 const HeaderResponsiveMenuList = (props) => {
-  const { rendered, onRequestClose } = props || {};
+  const { rendered, onRequestClose } = props;
 
   const ref = useRef();
   useOnClickOutside(ref, rendered ? onRequestClose : __noop);

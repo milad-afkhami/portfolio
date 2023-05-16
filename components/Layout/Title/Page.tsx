@@ -2,7 +2,7 @@ import Div from "@kits/Div";
 import Text from "@kits/Text";
 
 const PageTitle = (props) => {
-  const { title, tag } = props || {};
+  const { title, tag } = props;
 
   return (
     <Div mb="4">
