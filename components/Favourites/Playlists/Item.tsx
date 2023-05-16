@@ -7,7 +7,7 @@ import useToggle from "@hooks/useToggle";
 import FavouritePlaylistTracks from "./Tracks";
 
 const FavouritePlaylist = (props) => {
-  const { name, image, link, tracks } = props || {};
+  const { name, image, link, tracks } = props;
 
   const [tracksOpen, toggleTracks] = useToggle(false);
 

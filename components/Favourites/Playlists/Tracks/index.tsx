@@ -2,7 +2,7 @@ import Div from "@kits/Div";
 import ListView from "@kits/ListView";
 
 const FavouritePlaylistTracks = (props) => {
-  const { open, tracks } = props || {};
+  const { open, tracks } = props;
 
   const row = Math.ceil(tracks?.length / 2);
   const height = open
