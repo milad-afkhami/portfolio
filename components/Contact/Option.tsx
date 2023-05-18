@@ -1,6 +1,8 @@
 import Div from "@kits/Div";
 import Icon from "@kits/Icon";
 import Text from "@kits/Text";
+import ToastUtil from "@utils/toast";
+import contactOptions from "@configs/contact";
 import type { FC } from "react";
 
 type ContactOptionProps = Omit<ValueOf<typeof contactOptions>, "private">;
@@ -11,8 +13,10 @@ const ContactOption: FC<ContactOptionProps> = (props) => {
   const onClickContactWay = () => {
     navigator.clipboard
       .writeText(value)
-      .then(() => toast("layout.message.textCopied", { type: "success" }))
-      .catch(() => toast("layout.message.error.something", { type: "error" }));
+      .then(() => ToastUtil.success({ message: "layout.message.textCopied" }))
+      .catch(() =>
+        ToastUtil.error({ message: "layout.message.error.something" })
+      );
   };
 
   return (

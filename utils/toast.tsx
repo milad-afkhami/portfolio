@@ -1,16 +1,16 @@
-/* eslint-disable no-plusplus */
 /* eslint-disable react/jsx-props-no-spreading */
 import toast from "react-hot-toast";
 import Toast from "@kits/Toast";
 import type { ToastProps } from "@kits/Toast/props";
 
-type ToastUtilProps = Pick<ToastProps, "title" | "message" | "close">;
+type ToastUtilProps = string | Pick<ToastProps, "title" | "message" | "close">;
 
 let id = 1;
 
 // TODO: refactor to Notistack
 export default class ToastUtil {
   static #getOptions = (props: ToastUtilProps) => ({
+    /* eslint-disable-next-line no-plusplus */
     id: `${++id}`,
     ...(typeof props === "string" ? { message: props } : props),
   });
