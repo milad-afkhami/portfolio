@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 // #region imports
 import Text from "@kits/Text";
 import __omit from "lodash-es/omit";

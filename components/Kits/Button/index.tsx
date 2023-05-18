@@ -23,7 +23,6 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
 
   return (
     <BaseButton
-      // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}
       ref={ref}
       onClick={!notAllowed ? onClick : undefined}

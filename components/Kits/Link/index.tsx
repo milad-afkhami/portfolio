@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import NextLink from "next/link";
 import Div from "@kits/Div";
 import type { FC } from "react";

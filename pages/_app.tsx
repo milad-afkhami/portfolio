@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import { createElement, useEffect } from "react";
 import "../index.css";
 import Layout from "@components/Layout";

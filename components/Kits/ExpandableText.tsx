@@ -44,7 +44,6 @@ const ExpandableText: HOCFunctionalComponent<ExpandableTextProps> = (props) => {
           overflow: "hidden",
           ...css,
         }}
-        // eslint-disable-next-line react/jsx-props-no-spreading
         {...rest}
       >
         {children}

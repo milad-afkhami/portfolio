@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import toast from "react-hot-toast";
 import Toast from "@kits/Toast";
 import type { ToastProps } from "@kits/Toast/props";

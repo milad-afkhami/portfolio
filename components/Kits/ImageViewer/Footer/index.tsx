@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 // #region imports
 import Div from "@kits/Div";
 import type { Components } from "react-images";

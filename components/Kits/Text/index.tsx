@@ -80,7 +80,6 @@ const Text: FC<TextProps> = (props) => {
   if (isChildrenString && !noTranslation)
     text = t(children, translationOptions);
 
-  // eslint-disable-next-line react/jsx-props-no-spreading
   return <StyledText {...props}>{text}</StyledText>;
 };
 

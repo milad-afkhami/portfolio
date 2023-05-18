@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import Div from "@kits/Div";
 import Icon from "@kits/Icon";
 import { responsiveUpperBoundBreakpoint } from "@configs/general";

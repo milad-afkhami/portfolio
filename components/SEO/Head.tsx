@@ -46,7 +46,6 @@ const Head = ({
       additionalLinkTags={additionalLinkTags}
       // {...mobileAlternate}
       // {...languageAlternates}
-      // eslint-disable-next-line react/jsx-props-no-spreading
       {...restProps}
     />
   );

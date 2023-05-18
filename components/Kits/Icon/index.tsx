@@ -38,7 +38,6 @@ const Icon: FC<IconProps> = (props) => {
   const _dir = multiDirection ? "icon-dir" : null;
   const _className = classNames(_name, _dir, className);
 
-  // eslint-disable-next-line react/jsx-props-no-spreading
   return <IconElement {...props} title={name} className={_className} />;
 };
 

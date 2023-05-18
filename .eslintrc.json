@@ -38,7 +38,7 @@
     "react/require-default-props": "off",
     "react/jsx-no-duplicate-props": "off",
     "react/display-name": "off",
-    "react/jsx-props-no-spreading": ["error", { "explicitSpread": "ignore" }],
+    "react/jsx-props-no-spreading": "off", // ["error", { "explicitSpread": "ignore" }]
     "@typescript-eslint/no-non-null-assertion": "off"
   }
 }

@@ -17,7 +17,6 @@ const Divider: FC<DividerProps> = (props) => {
 
   return (
     <Div
-      // eslint-disable-next-line react/jsx-props-no-spreading
       {...(orientation === Orientations.Vertical
         ? { width: thickness, height: "100%" }
         : { height: thickness, width: "100%" })}
