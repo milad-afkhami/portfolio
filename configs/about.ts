@@ -1,43 +1,3 @@
-const apiBaseURL = process.env.REACT_APP_API_BASE_URL;
-const appBaseURL = process.env.REACT_APP_BASE_URL;
-const imageBaseURL = process.env.REACT_APP_IMAGE_BASE_URL;
-const externalApiBaseURL = process.env.REACT_APP_EXTERNAL_API_BASE_URL;
-const isDevelopment = process.env.NODE_ENV === "development";
-
-const APP_WRAPPER_ELEMENT_ID = "app-wrapper";
-
-const navLinks = [
-  { link: "/", label: "home" },
-  { link: "/about", label: "about" },
-  // { link: "/courses", label: "courses" },
-  { link: "/blog", label: "blog" },
-  // { link: "/packages", label: "packages" },
-  { link: "/projects", label: "projects" },
-  { link: "/favourites", label: "favourites" },
-  { link: "/gists", label: "gists" },
-];
-
-const contactOptions = [
-  { type: "email", value: "dev.miladafkhami@gmail.com" },
-  {
-    type: "linkedin",
-    label: "milad-afkhami-pour-71b86a18b",
-    value: "https://www.linkedin.com/in/milad-afkhami-pour-71b86a18b/",
-  },
-  {
-    type: "skype",
-    label: "join.skype.com/invite/pRe4UIXrDeTj",
-    value: "https://join.skype.com/invite/pRe4UIXrDeTj",
-  },
-  { type: "telegram", label: "@mili_u", value: "https://telegram.me/mili_u" },
-  {
-    type: "whatsapp",
-    label: "+98 939 284 0749",
-    value: "+989392840749",
-    private: true,
-  },
-];
-
 const aboutTimelineSections = [
   {
     year: 2022,
@@ -93,14 +53,6 @@ const educationTimelineSections = [
 ];
 
 export {
-  appBaseURL,
-  imageBaseURL,
-  externalApiBaseURL,
-  apiBaseURL,
-  isDevelopment,
-  APP_WRAPPER_ELEMENT_ID,
-  navLinks,
-  contactOptions,
   aboutTimelineSections,
   workExperienceTimelineSections,
   educationTimelineSections,
