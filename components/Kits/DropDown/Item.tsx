@@ -1,4 +1,6 @@
 import Div from "@kits/Div";
+import Text from "@kits/Text";
+import Image from "@kits/Image";
 import type { FC } from "react";
 import type DivProps from "@kits/Div/props";
 
@@ -20,8 +22,12 @@ const DropDownItem: FC<DropDownItemProps> = (props) => {
       onClick={onClick}
       {...rest}
     >
-      <DropDownImage src={image} />
-      <DropDownLabel label={text} />
+      <Div flex={["center", "center"]} mx="2">
+        <Image src={image} width="20px" height="20px" quality={1} />
+      </Div>
+      <Div flex={["center", "center"]}>
+        <Text size="sm-b">{label}</Text>
+      </Div>
     </Div>
   );
 };
