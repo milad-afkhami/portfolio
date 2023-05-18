@@ -84,6 +84,7 @@
     }
   },
   "error": {
+    "server": "Server error :(",
     "pageNotFound": "Page not found :(",
     "goBack": "Go back",
     "noItemFound": "No Item Found"
