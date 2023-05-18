@@ -35,7 +35,7 @@
       "@images": ["./public/images/index"],
       "@data/*": ["./data/*"],
       "@pages/*": ["./pages/*"],
-      "@config": ["./config.ts"]
+      "@configs": ["./configs/*"]
     }
   },
   "include": [
