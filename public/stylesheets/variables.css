@@ -1,0 +1,19 @@
+:root {
+  --layout-header-height: 100px;
+  --layout-subscribe-newsletter-height: 350px;
+  /* --layout-footer-height: 350px; */
+
+  --scrollbar-width: 4px;
+  --scrollbar-height: 4px;
+
+  --overlay-z-index: 10000;
+
+  --text-line-height: 1.7;
+  --text-letter-spacing: 1px;
+
+  --list-view-item-height: 70px;
+}
+.thin-scrollbar {
+  --scrollbar-width: 2px;
+  --scrollbar-height: 2px;
+}

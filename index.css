@@ -1,41 +1,8 @@
+@import url("./public/stylesheets/theme/index.css");
+@import url("./public/stylesheets/variables.css");
+@import url("./public/stylesheets/animations.css");
+@import url("./public/stylesheets/grid.min.css");
 @import url("./public/fonts/icons/style.css");
-
-/* #region Variables */
-:root {
-  --layout-header-height: 100px;
-  --layout-subscribe-newsletter-height: 350px;
-  /* --layout-footer-height: 350px; */
-
-  --scrollbar-width: 4px;
-  --scrollbar-height: 4px;
-
-  --overlay-z-index: 10000;
-
-  --text-line-height: 1.7;
-  --text-letter-spacing: 1px;
-
-  --list-view-item-height: 70px;
-
-  /* resume */
-  --resume-header-height: 300px;
-}
-.thin-scrollbar {
-  --scrollbar-width: 2px;
-  --scrollbar-height: 2px;
-}
-/* #endregion */
-
-/* MoreMenu bottom sheet styles */
-div[data-rsbs-overlay="true"][role="dialog"] {
-  --rsbs-handle-bg: var(--color-border-light) !important;
-  --rsbs-bg: linear-gradient(
-    148.16deg,
-    var(--color-bg-tertiary) 3.38%,
-    var(--color-bg-primary) 58.18%
-  ) !important;
-  --rsbs-overlay-rounded: 40px !important;
-  z-index: 5;
-}
 
 h1 {
   font-size: var(--font-size-h-md);
