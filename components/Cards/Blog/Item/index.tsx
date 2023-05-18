@@ -4,8 +4,9 @@ import Link from "@kits/Link";
 import BlogCardCategory from "./Category";
 import BlogCardBody from "./Body";
 import BlogCardFooter from "./Footer";
+import type { FC } from "react";
 
-const BlogCard = (props) => {
+const BlogCard: FC<IBlog> = (props) => {
   const { image = "", slug = "", title } = props;
 
   return (
