@@ -1,0 +1,91 @@
+{
+  "app": {
+    "title": "Milad Afkhami",
+    "username": "@MiladAfkhami",
+    "description": "Hallo! Ich bin Milad Afkhami und dies ist meine Portfolio-Website.",
+    "name": "Milad Afkhami"
+  },
+  "seo": {
+    "title": {
+      "default": "Milad Afkhami | Portfolio",
+      "template": "%s / Milad Afkhami Portfolio",
+      "home": "Zuhause",
+      "about": "Über mich",
+      "projects": "Meine Projekte",
+      "gists": "Wesentliche",
+      "favourites": "Favoriten",
+      "favouriteArtists": "Lieblingskünstler",
+      "favouritePlaylists": "Bevorzugte Wiedergabelisten"
+    },
+    "description": {
+      "default": "Hallo! Ich bin Milad Afkhami und dies ist meine Portfolio-Website."
+    }
+  },
+  "kits": {
+    "more": "Mehr",
+    "less": "Weniger",
+    "imageViewer": {
+      "nthImage": "Image {{n}}"
+    }
+  },
+  "markdown": {
+    "variables": {
+      "title": "Markdown-Variablen",
+      "colors": "Farben",
+      "curves": "Kurven",
+      "paces": "Schritte",
+      "spacings": "Abstände",
+      "typography": "Typografie",
+      "shadows": "Schatten"
+    }
+  },
+  "contact": {
+    "title": "Kontakte",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "whatsapp": "E-Mail",
+    "telegram": "Telegramm",
+    "linkedin": "xing",
+    "skype": "telefonieren"
+  },
+  "blog": {
+    "title": "Blog",
+    "category": {
+      "styling": "Formatieren",
+      "awareness": "Bewusstsein",
+      "react": "Reagieren",
+      "next.js": "Weiter.js"
+    },
+    "notFound": "Seite nicht gefunden!",
+    "meta": {
+      "category": "Kategorie",
+      "timeToReadLabel": "Zeit zum Lesen",
+      "timeToReadValue": "{{Zeit}} min.",
+      "timeToReadValueAbbr": "{{Zeit}} M.",
+      "publishedAt": "Veröffentlicht am"
+    }
+  },
+  "gists": {
+    "title": "Wesentliche",
+    "category": {
+      "styling": "Gestaltungssystem",
+      "hook": "Haken",
+      "util": "Util"
+    }
+  },
+  "packages": {
+    "title": "Pakete ( In Bearbeitung... )"
+  },
+  "form": {
+    "message": {
+      "required": "Dieses Feld ist erforderlich",
+      "checkYourInput": "Überprüfen Sie Ihre Eingabe"
+    }
+  },
+  "error": {
+    "pageNotFound": "Seite nicht gefunden :(",
+    "goBack": "Zurück",
+    "noItemFound": "Kein Artikel gefunden",
+    "sorryTranslation": "die deutsche Übersetzung ist noch in Arbeit, sorry"
+  }
+}

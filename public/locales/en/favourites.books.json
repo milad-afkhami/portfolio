@@ -1,0 +1,38 @@
+{
+  "title": "Favourite Books",
+  "list": {
+    "the-power-of-habit": {
+      "name": "The Power of Habit",
+      "fullName": "The Power of Habit: Why We Do What We Do in Life and Business",
+      "meta": "Charles Duhigg"
+    },
+    "the-unbearable-lightness-of-being": {
+      "name": "The Unbearable Lightness of Being",
+      "meta": "Milan Kundera"
+    },
+    "masnavi": {
+      "name": "Masnavi-ye-Ma'navi",
+      "meta": "Rumi"
+    },
+    "quran": {
+      "name": "Quran",
+      "meta": "Muhammad (revealed by allah)"
+    },
+    "golestan": {
+      "name": "Gulistan",
+      "meta": "Saadi Shirazi"
+    },
+    "nahj-al-balagha": {
+      "name": "Nahj al-Balagha",
+      "meta": "Ali ibn Abi Talib"
+    },
+    "tafsir-nemooneh": {
+      "name": "Tafsir Nemooneh",
+      "meta": "Naser Makarem Shirazi"
+    },
+    "republic": {
+      "name": "The Republic",
+      "meta": "Plato"
+    }
+  }
+}

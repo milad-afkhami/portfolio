@@ -1,0 +1,19 @@
+{
+  "title": "Favourites",
+  "group": {
+    "song": "Songs",
+    "book": "Books",
+    "show": "Shows"
+  },
+  "artists": "Favourite Artists",
+  "playlists": "Favourite Playlists",
+  "animations": "Favourite Animations",
+  "anime": "Favourite Anime",
+  "books": "Favourite Books",
+  "poems": "Favourite Poems",
+  "series": "Favourite Series",
+  "writers": "Favourite Writers",
+  "listenNow": "Listen Now",
+  "expand": "Expand",
+  "collapse": "Collapse"
+}

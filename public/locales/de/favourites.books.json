@@ -1,0 +1,38 @@
+{
+  "title": "Lieblingsbücher",
+  "list": {
+    "the-power-of-habit": {
+      "name": "Die Macht der Gewohnheit",
+      "fullName": "Die Macht der Gewohnheit: Warum wir das tun, was wir im Leben und im Geschäft tun",
+      "meta": "Charles Duhigg"
+    },
+    "the-unbearable-lightness-of-being": {
+      "name": "Die unerträgliche Leichtigkeit des Seins",
+      "meta": "Milan Kundera"
+    },
+    "masnavi": {
+      "name": "Masnavi-ye-Ma'navi",
+      "meta": "Rumi"
+    },
+    "quran": {
+      "name": "Koran",
+      "meta": "Muhammad (offenbart von Allah)"
+    },
+    "golestan": {
+      "name": "Gulistan",
+      "meta": "Saadi Schirazi"
+    },
+    "nahj-al-balagha": {
+      "name": "Nahj al-Balagha",
+      "meta": "Ali ibn Abi Talib"
+    },
+    "tafsir-nemooneh": {
+      "name": "Tafsir Nemooneh",
+      "meta": "Naser Makarem Shirazi"
+    },
+    "republic": {
+      "name": "Die Republik",
+      "meta": "Platon"
+    }
+  }
+}

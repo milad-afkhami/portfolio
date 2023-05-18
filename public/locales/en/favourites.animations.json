@@ -1,0 +1,53 @@
+{
+  "title": "Favourite Animations",
+  "list": {
+    "el-dorado": {
+      "name": "El Dorado"
+    },
+    "ratatouille": {
+      "name": "Ratatouille"
+    },
+    "garfield": {
+      "name": "Garfield"
+    },
+    "up": {
+      "name": "Up"
+    },
+    "beauty-and-the-beast": {
+      "name": "Beauty And The Beast"
+    },
+    "the-iron-giant": {
+      "name": "The Iron Giant"
+    },
+    "chicken-run": {
+      "name": "Chicken Run"
+    },
+    "toy-story": {
+      "name": "Toy Story"
+    },
+    "kung-fu-panda": {
+      "name": "Kung Fu Panda"
+    },
+    "finding-nemo": {
+      "name": "Finding Nemo"
+    },
+    "coraline": {
+      "name": "Coraline"
+    },
+    "cars": {
+      "name": "Cars"
+    },
+    "madagascar": {
+      "name": "Madagascar"
+    },
+    "shrek": {
+      "name": "Shrek"
+    },
+    "robots": {
+      "name": "Robots"
+    },
+    "inside-out": {
+      "name": "Inside Out"
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "title": "Favourite Series",
+  "list": {
+    "the-office": {
+      "name": "The Office"
+    },
+    "the-big-bang-theory": {
+      "name": "The Big Bang Theory"
+    },
+    "friends": {
+      "name": "Friends"
+    },
+    "vikings": {
+      "name": "Vikings"
+    },
+    "mind-hunter": {
+      "name": "Mind Hunter"
+    },
+    "avatar-the-last-airbender": {
+      "name": "Avatar The Last Airbender"
+    },
+    "the-legend-of-korra": {
+      "name": "The Legend of Korra"
+    },
+    "rick-and-morty": {
+      "name": "Rick And Morty"
+    },
+    "scenes-from-a-marriage": {
+      "name": "Scenes From a Marriage"
+    },
+    "true-detective": {
+      "name": "True Detective"
+    },
+    "hannibal": {
+      "name": "Hannibal"
+    },
+    "its-always-sunny-in-philadelphia": {
+      "name": "It's Always Sunny in Philadelphia"
+    },
+    "boJack-horseman": {
+      "name": "BoJack Horseman"
+    },
+    "family-guy": {
+      "name": "Family Guy"
+    },
+    "fleabag": {
+      "name": "Fleabag"
+    },
+    "shameless": {
+      "name": "Shameless"
+    },
+    "big-little-lies": {
+      "name": "Big Little Lies"
+    },
+    "horace-and-pete": {
+      "name": "Horace and Pete"
+    }
+  }
+}

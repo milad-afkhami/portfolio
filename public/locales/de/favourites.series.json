@@ -1,0 +1,56 @@
+{
+  "title": "Lieblingsserie",
+  "list": {
+    "the-office": {
+      "name": "Das Büro"
+    },
+    "the-big-bang-theory": {
+      "name": "Die Urknalltheorie"
+    },
+    "friends": {
+      "name": "Freunde"
+    },
+    "vikings": {
+      "name": "Wikinger"
+    },
+    "mind-hunter": {
+      "name": "Geist Jäger"
+    },
+    "avatar-the-last-airbender": {
+      "name": "Avatar Der letzte Airbender"
+    },
+    "the-legend-of-korra": {
+      "name": "Die Legende von Korra"
+    },
+    "rick-and-morty": {
+      "name": "Rick und Morty"
+    },
+    "scenes-from-a-marriage": {
+      "name": "Szenen aus einer Ehe"
+    },
+    "true-detective": {
+      "name": "Wahrer Detektiv"
+    },
+    "its-always-sunny-in-philadelphia": {
+      "name": "Es ist immer sonnig in Philadelphia"
+    },
+    "boJack-horseman": {
+      "name": "BoJack Reiter"
+    },
+    "family-guy": {
+      "name": "Familienmensch"
+    },
+    "fleabag": {
+      "name": "Fleabag"
+    },
+    "shameless": {
+      "name": "Schamlos"
+    },
+    "big-little-lies": {
+      "name": "Große kleine Lügen"
+    },
+    "horace-and-pete": {
+      "name": "Horace und Pete"
+    }
+  }
+}

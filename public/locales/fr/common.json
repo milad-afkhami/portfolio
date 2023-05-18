@@ -1,0 +1,84 @@
+{
+  "app": {
+    "title": "Mili",
+    "username": "@Mili",
+    "description": "Salut! Je suis Milad Afkhami et voici mon site web de portfolio.",
+    "name": "Mili"
+  },
+  "seo": {
+    "title": {
+      "default": "Milad Afkhami / Portfolio",
+      "template": "Portefeuille %s | Milad Afkhami",
+      "home": "Accueil",
+      "about": "À propos de moi",
+      "projects": "Mes projets",
+      "gists": "Gists",
+      "favourites": "Favoris",
+      "favouriteArtists": "Artistes préférés",
+      "favouritePlaylists": "Listes de lecture préférées"
+    },
+    "description": {
+      "default": "Salut! Je suis Milad Afkhami et voici mon site web de portfolio."
+    }
+  },
+  "markdown": {
+    "variables": {
+      "title": "Variables de démarcation",
+      "colors": "Couleurs",
+      "curves": "Courbes",
+      "paces": "Paces",
+      "spacings": "Espacements",
+      "typography": "Typographie",
+      "shadows": "ombres"
+    }
+  },
+  "contact": {
+    "title": "Contacts",
+    "email": "Email",
+    "phone": "Téléphone",
+    "whatsapp": "whatsapp",
+    "telegram": "Télégramme",
+    "linkedin": "linkedin",
+    "skype": "skype"
+  },
+  "blog": {
+    "title": "Blog",
+    "category": {
+      "styling": "Styling",
+      "awareness": "Sensibilisation",
+      "react": "Réagir",
+      "next.js": "Suivant.js"
+    },
+    "notFound": "Blog introuvable!",
+    "meta": {
+      "category": "Category",
+      "timeToReadLabel": "Il est temps de lire",
+      "timeToReadValue": "{{time}} min.",
+      "timeToReadValueAbbr": "{{time}} M.",
+      "publishedAt": "Publié à"
+    }
+  },
+  "gists": {
+    "title": "Gists",
+    "category": {
+      "styling": "Système de conception",
+      "hook": "Crochet",
+      "util": "Util"
+    }
+  },
+  "packages": {
+    "title": "Paquets (En cours... )"
+  },
+  "form": {
+    "message": {
+      "required": "ce champ est obligatoire",
+      "checkYourInput": "vérifiez votre entrée"
+    }
+  },
+  "error": {
+    "pageNotFound": "Page introuvable :(",
+    "goBack": "Retourne en arrière",
+    "noItemFound": "Aucun élément trouvé",
+    "sorryTranslation": "la traduction Deutsch est toujours en cours, désolé"
+  }
+}

@@ -1,12 +1,18 @@
-import { currentPlatform } from "@configs/platforms";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+// import type { SSRConfig } from "next-i18next/dist/types/types";
+
+type SSRConfig = UnPromise<ReturnType<typeof serverSideTranslations>>;
 
 export default class I18nHelper {
-  /** concatenates platform suffix to namespace name
-   * @example
-   * concatenateNamespace("common");
-   * // => common.VIRTIN
-   */
-  static concatenateNamespace(ns: I18NNameSpaces = "common") {
-    return ns.concat(".", currentPlatform);
+  static async t9n(
+    locale?: string,
+    ...namespaces: Array<I18NNameSpaces>
+  ): Promise<Maybe<SSRConfig>> {
+    let t9n;
+    if (locale) {
+      t9n = await serverSideTranslations(locale, ["common", ...namespaces]);
+    }
+
+    return t9n;
   }
 }

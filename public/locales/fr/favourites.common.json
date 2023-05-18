@@ -1,0 +1,19 @@
+{
+  "title": "Favoris",
+  "group": {
+    "song": "Chansons",
+    "book": "Livres",
+    "show": "Spectacles"
+  },
+  "artists": "Artistes préférés",
+  "playlists": "Playlists favorites",
+  "animations": "Animations préférées",
+  "anime": "Anime préféré",
+  "books": "Livres préférés",
+  "poems": "Poèmes préférés",
+  "series": "Série préférée",
+  "writers": "Écrivains préférés",
+  "listenNow": "Écoutez maintenant",
+  "expand": "Expand",
+  "collapse": "Collapse"
+}

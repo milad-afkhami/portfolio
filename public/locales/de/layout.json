@@ -1,0 +1,44 @@
+{
+  "header": {
+    "defaultTitle": "Milad Afkhami",
+    "downloadResume": "Resume",
+    "menu": {
+      "home": "Zuhause",
+      "about": "Über",
+      "courses": "Kurse",
+      "blog": "Blogs",
+      "packages": "Pakete",
+      "projects": "Projekte",
+      "gists": "Wesentliche",
+      "favourites": "Favoriten"
+    }
+  },
+  "footer": {
+    "artists": "Künstler",
+    "playlists": "Wiedergabelisten",
+    "poems": "Gedichte",
+    "books": "Bücher",
+    "writers": "Schriftsteller",
+    "poets": "Dichter",
+    "animations": "Animationen",
+    "series": "Serie",
+    "anime": "Zeichentrickfilm",
+    "favouriteSongs": "Lieblingssongs",
+    "favouriteMusics": "Lieblingslieder",
+    "favouritePoems": "Lieblingsgedichte",
+    "favouriteBooks": "Lieblingsbücher",
+    "favouriteWriters": "Lieblingsschriftsteller",
+    "favouriteShows": "Lieblingssendungen"
+  },
+  "navItems": {},
+  "message": {
+    "error": {
+      "connection": "Bitte überprüfen Sie Ihre Verbindung!",
+      "server": "Server konnte nicht erreicht werden",
+      "something": "Etwas ist schief gelaufen"
+    },
+    "textCopied": "In die Zwischenablage kopiert",
+    "codeCopied": "Code in die Zwischenablage kopiert",
+    "comingSoon": "kommt bald ..."
+  }
+}

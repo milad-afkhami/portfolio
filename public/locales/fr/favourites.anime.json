@@ -1,0 +1,41 @@
+{
+  "title": "Anime préféré",
+  "list": {
+    "spirited-away": {
+      "name": "Fougueux"
+    },
+    "princess-mononoke": {
+      "name": "Princesse Mononoke"
+    },
+    "fullmetal-alchemist-brotherhood": {
+      "name": "Alchimiste Fullmetal: Fraternité"
+    },
+    "death-note": {
+      "name": "Note de mort"
+    },
+    "attack-on-titan": {
+      "name": "Attaque sur Titan"
+    },
+    "ghost-in-the-shell": {
+      "name": "Fantôme dans la Coquille"
+    },
+    "hunter-x-hunter": {
+      "name": "Chasseur x Chasseur"
+    },
+    "steins-gate": {
+      "name": "Steins; Porte"
+    },
+    "berserk": {
+      "name": "Berserk"
+    },
+    "demon-slayer": {
+      "name": "Tueur de démons"
+    },
+    "a-silent-voice": {
+      "name": "une voix silencieuse"
+    },
+    "ponyo": {
+      "name": "Ponyo"
+    }
+  }
+}

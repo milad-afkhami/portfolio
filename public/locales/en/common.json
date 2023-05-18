@@ -1,0 +1,91 @@
+{
+  "app": {
+    "title": "Milad Afkhami",
+    "username": "@MiladAfkhami",
+    "description": "Hi! I'm Milad Afkhami and this is my portfolio website.",
+    "name": "Milad Afkhami"
+  },
+  "seo": {
+    "title": {
+      "default": "Milad Afkhami | Portfolio",
+      "template": "%s | Milad Afkhami Portfolio",
+      "home": "Home",
+      "about": "About Me",
+      "projects": "My Projects",
+      "gists": "Gists",
+      "favourites": "Favourites",
+      "favouriteArtists": "Favourite Artists",
+      "favouritePlaylists": "Favourite Playlists"
+    },
+    "description": {
+      "default": "23 y.o. software engineer \nwith a proven ability to analyze, design, develop and maintain large scale software solutions that meet business requirements as well as performance and quality indexes."
+    }
+  },
+  "kits": {
+    "more": "More",
+    "less": "Less",
+    "imageViewer": {
+      "nthImage": "Image {{n}}"
+    }
+  },
+  "markdown": {
+    "variables": {
+      "title": "Markdown Variables",
+      "colors": "Colors",
+      "curves": "Curves",
+      "paces": "Paces",
+      "spacings": "Spacings",
+      "typography": "Typography",
+      "shadows": "shadows"
+    }
+  },
+  "contact": {
+    "title": "Contacts",
+    "email": "Email",
+    "phone": "Phone",
+    "whatsapp": "whatsapp",
+    "telegram": "Telegram",
+    "linkedin": "linkedin",
+    "skype": "skype"
+  },
+  "blog": {
+    "title": "Blog",
+    "category": {
+      "styling": "Styling",
+      "awareness": "Awareness",
+      "react": "React",
+      "next": "Next.js",
+      "roadmap": "Roadmap"
+    },
+    "notFound": "Blog Not Found!",
+    "meta": {
+      "category": "Category",
+      "timeToReadLabel": "Time to read",
+      "timeToReadValue": "{{time}} min.",
+      "timeToReadValueAbbr": "{{time}} M.",
+      "publishedAt": "Published at"
+    }
+  },
+  "gists": {
+    "title": "Gists",
+    "category": {
+      "styling": "Design System",
+      "hook": "Hook",
+      "util": "Util"
+    }
+  },
+  "packages": {
+    "title": "Packages ( In Progress ... )"
+  },
+  "form": {
+    "message": {
+      "required": "this field is required",
+      "checkYourInput": "check your input"
+    }
+  },
+  "error": {
+    "pageNotFound": "Page not found :(",
+    "goBack": "Go back",
+    "noItemFound": "No Item Found"
+  }
+}

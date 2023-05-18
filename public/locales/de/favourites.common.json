@@ -1,0 +1,19 @@
+{
+  "title": "Favoriten",
+  "group": {
+    "song": "Lieder",
+    "book": "Bücher",
+    "show": "Zeigt"
+  },
+  "artists": "Lieblingskünstler",
+  "playlists": "Bevorzugte Wiedergabelisten",
+  "animations": "Lieblingsanimationen",
+  "anime": "Lieblingsanime",
+  "books": "Lieblingsbücher",
+  "poems": "Lieblingsgedichte",
+  "series": "Lieblingsserie",
+  "writers": "Lieblingsschriftsteller",
+  "listenNow": "Jetzt anhören",
+  "expand": "Erweitern",
+  "collapse": "Zusammenbrechen"
+}
