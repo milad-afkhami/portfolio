@@ -31,13 +31,12 @@
     "web-vitals": "^2.0.1"
   },
   "scripts": {
-    "start": "cross-env PORT=4000 NODE_OPTIONS='--inspect' next dev",
-    "start-prod": "cross-env PORT=4000 next start",
-    "export": "rm -rf out && rm -rf .next && next build && next export",
-    "build": "cross-env GENERATE_SOURCEMAP=false next build",
-    "prettier": "prettier --write .",
+    "dev": "bash scripts/ops/dev.sh",
+    "start": "next start",
+    "build": "bash scripts/ops/build.sh",
+    "export": "bash scripts/ops/export.sh",
     "test": "jest test",
-    "lint": "next lint",
+    "test-dev": "bash scripts/ops/test-dev.sh",
     "stylesheets": "node ./scripts/stylesheets/index.mjs",
   },
   "browserslist": {
