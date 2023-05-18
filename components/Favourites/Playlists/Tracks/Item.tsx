@@ -1,7 +1,14 @@
 import Div from "@kits/Div";
 import Text from "@kits/Text";
+import type { FC } from "react";
 
-const FavouritePlaylistTracksItem = (props) => {
+type FavouritePlaylistTracksItemProps = ValueOf<
+  IFavouritePlaylist["tracks"]
+> & { index: number };
+
+const FavouritePlaylistTracksItem: FC<FavouritePlaylistTracksItemProps> = (
+  props
+) => {
   const { index, name, artist } = props;
 
   return (
@@ -24,7 +31,7 @@ const FavouritePlaylistTracksItem = (props) => {
             {artist}
           </Text>
         </Div>
-        <Div flex>
+        <Div display="flex">
           <Text size="sm" noTranslation truncate Mw="100%">
             {name}
           </Text>

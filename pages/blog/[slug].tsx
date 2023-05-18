@@ -11,9 +11,20 @@ import BlogMeta from "@components/Blog/Meta";
 import BlogBanner from "@components/Blog/Banner";
 import BlogServices from "@services/blog";
 import MarkdownWrapper from "@components/Markdown/Wrapper";
-import { appBaseURL } from "@config";
+import { appBaseURL } from "@configs/urls";
+import type { FC } from "react";
+import type {
+  GetStaticPaths,
+  GetStaticPathsResult,
+  GetStaticProps,
+} from "next";
+import type { MDXResult } from "@_types/components";
 
-const BlogPage = (props) => {
+interface BlogPageProps {
+  blog: MDXResult<IBlog>;
+}
+
+const BlogPage: FC<BlogPageProps> = (props) => {
   const router = useRouter();
   const { slug } = router.query;
   const { title, summary, image, banner, publishedAt, readingTime, category } =
@@ -65,7 +76,7 @@ const BlogPage = (props) => {
             readingTime={readingTime}
             publishedAt={publishedAt}
           />
-          <BlogBanner banner={banner || image} alt={title} />
+          <BlogBanner banner={banner || image} title={title} />
           {/* className=" line-numbers" */}
           <MarkdownWrapper>
             <MDXRemote {...source} />
@@ -76,25 +87,22 @@ const BlogPage = (props) => {
   );
 };
 
-export const getStaticProps = async ({ params }) => {
-  const result = await BlogServices.getDetail(params.slug);
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const blog = await BlogServices.getDetail(params?.slug as string);
 
-  return {
-    props: { blog: result.blog },
-  };
+  return { props: { blog } };
 };
 
-export const getStaticPaths = async ({ locales }) => {
+export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   const blogs = await BlogServices.getList();
 
-  const paths = blogs.reduce((acc, { slug }) => {
-    // locales.forEach((locale) => {
-    //   acc.push({ params: { slug }, locale });
-    // });
-    acc.push({ params: { slug } });
-
-    return acc;
-  }, []);
+  const paths = (locales || []).reduce(
+    (acc, locale) => [
+      ...acc,
+      ...(blogs?.map(({ slug }) => ({ params: { slug }, locale })) || []),
+    ],
+    [] as GetStaticPathsResult["paths"]
+  );
 
   return {
     paths,

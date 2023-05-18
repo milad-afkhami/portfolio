@@ -2,9 +2,15 @@ import Div from "@kits/Div";
 import Image from "@kits/Image";
 import Link from "@kits/Link";
 import Text from "@kits/Text";
+import type { FC } from "react";
+import type { PropsWithIndex } from "@_types/components";
 
-const ProjectHeading = (props) => {
-  const { logo, link = "", slug, index, date } = props;
+type ProjectHeadingProps = PropsWithIndex<
+  Pick<IProject, "logo" | "link" | "slug">
+>;
+
+const ProjectHeading: FC<ProjectHeadingProps> = (props) => {
+  const { logo, link = "", slug, index } = props;
 
   return (
     <Div

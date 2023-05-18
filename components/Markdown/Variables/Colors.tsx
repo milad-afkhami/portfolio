@@ -1,15 +1,7 @@
 import Div from "@kits/Div";
 import Tree from "@kits/Tree";
 import SectionTitle from "@components/Layout/Title/Section";
-
-const ColorVariables = (props) => {
-  return (
-    <Div id="colors" my="3">
-      <SectionTitle title="markdown.variables.colors" tag="h4" />
-      <Tree branches={colors} branchesAccessor="variants" defaultOpen={false} />
-    </Div>
-  );
-};
+import type { FC } from "react";
 
 const colors = [
   {
@@ -228,5 +220,12 @@ const colors = [
     ],
   },
 ];
+
+const ColorVariables: FC = () => (
+  <Div id="colors" my="3">
+    <SectionTitle title="markdown.variables.colors" tag="h4" />
+    <Tree branches={colors} branchesAccessor="variants" defaultOpen={false} />
+  </Div>
+);
 
 export default ColorVariables;

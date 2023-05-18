@@ -1,8 +1,9 @@
 import Image from "@kits/Image";
 import Link from "@kits/Link";
+import type { FC } from "react";
 
-const GistCardCategory = (props) => {
-  const { category = "" } = props;
+const GistCardCategory: FC<Pick<IGist, "category">> = (props) => {
+  const { category } = props;
 
   return (
     <Link

@@ -1,14 +1,27 @@
-import INTERVALS from "@constants/interval";
+import Button from "@kits/Button";
+import Div from "@kits/Div";
+import Link from "@kits/Link";
+import Text from "@kits/Text";
+import type { FC } from "react";
 
-const ServerError = (props) => {
-  return <h1>500 - Server-side error occurred</h1>;
-};
-
-export async function getStaticProps(context) {
-  return {
-    props: {},
-    revalidate: INTERVALS.A_WEEK,
-  };
-}
+// const { title, statusCode } = props;
+const ServerError: FC = () => (
+  <Div
+    height="100%"
+    flex={["center", "center", "column"]}
+    p="3"
+    mh="100%"
+    gap="3"
+  >
+    <Div gap="2">
+      <Text>error.server</Text>
+      <Text noTranslation>|</Text>
+      <Text>500</Text>
+    </Div>
+    <Link href="/">
+      <Button text="error.goBack" />
+    </Link>
+  </Div>
+);
 
 export default ServerError;

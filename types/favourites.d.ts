@@ -7,3 +7,21 @@ type IFavouriteEntities =
   | "poems"
   | "series"
   | "writers";
+
+type IFavouritePlaylist = {
+  name: string;
+  slug: string;
+  image: string;
+  link: string;
+  tracks: Array<{
+    name: string;
+    artist: string;
+  }>;
+};
+
+type IFavouriteArtist = {
+  name: string;
+  slug: string;
+  image: string;
+  category: string;
+};

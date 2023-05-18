@@ -1,6 +1,6 @@
-const PLATFORMS = {
-  MOBILE: "MOBILE",
-  DESKTOP: "DESKTOP",
-};
+enum Platforms {
+  Mobile = "MOBILE",
+  Desktop = "DESKTOP",
+}
 
-export default PLATFORMS;
+export default Platforms;

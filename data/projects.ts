@@ -1,6 +1,6 @@
-const projectsData = [
+const projectsData: Array<IProject> = [
   {
-    _id: 0,
+    id: 0,
     name: "Octava",
     link: "https://octava.ir",
     logo: "/images/projects/octava/logo.png",
@@ -105,7 +105,7 @@ const projectsData = [
     ],
   },
   {
-    _id: 1,
+    id: 1,
     name: "Uneed",
     link: ["https://uneed.ir", "https://merchant.uneed.ir"],
     logo: "/images/projects/uneed/logo.png",
@@ -151,7 +151,7 @@ const projectsData = [
     ],
   },
   {
-    _id: 2,
+    id: 2,
     name: "Tarinoo",
     link: [
       "https://tarinoo.ir",
@@ -224,7 +224,7 @@ const projectsData = [
     points: ["projects.tarinoo.points.1", "projects.tarinoo.points.2"],
   },
   {
-    _id: 3,
+    id: 3,
     name: "Behtarino",
     link: ["https://behtarino.com", "https://gheymat.best"],
     logo: "/images/projects/behtarino/logo.png",
@@ -243,8 +243,8 @@ const projectsData = [
       { name: "Next.js", link: "https://www.npmjs.com/package/next" },
       { name: "swr", link: "https://www.npmjs.com/package/swr" },
       {
-        name: "Styled Components",
-        link: "https://www.npmjs.com/package/styled-components",
+        name: "Goober",
+        link: "https://www.npmjs.com/package/goober",
       },
       {
         name: "Maplibre-gl",
@@ -267,7 +267,7 @@ const projectsData = [
     ],
   },
   {
-    _id: 4,
+    id: 4,
     name: "Bityon",
     link: "",
     logo: "/images/projects/bityon/logo.jpg",
@@ -323,7 +323,7 @@ const projectsData = [
     ],
   },
   {
-    _id: 5,
+    id: 5,
     name: "BIZ",
     link: "https://www.bizmlm.ir",
     logo: "/images/projects/biz/logo.png",
@@ -362,7 +362,7 @@ const projectsData = [
     ],
   },
   {
-    _id: 6,
+    id: 6,
     name: "CRM Panel",
     link: "https://www.crm.ir",
     logo: "/images/projects/crm/logo.jpg",
@@ -396,7 +396,7 @@ const projectsData = [
     ],
   },
   {
-    _id: 7,
+    id: 7,
     name: "And so forth ...",
     logo: "/images/projects/etc.jpg",
     date: "2018-present",

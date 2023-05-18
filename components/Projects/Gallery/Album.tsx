@@ -1,7 +1,12 @@
 import Div from "@kits/Div";
 import Image from "@kits/Image";
+import type { FC } from "react";
 
-const ProjectGalleryAlbum = (props) => {
+type ProjectGalleryAlbumProps = Pick<IProject, "medias"> & {
+  onClickItem: (index: number) => void;
+};
+
+const ProjectGalleryAlbum: FC<ProjectGalleryAlbumProps> = (props) => {
   const { medias, onClickItem } = props;
 
   return (

@@ -1,24 +1,28 @@
 import Div from "@kits/Div";
 import Timeline from "@kits/Timeline";
 import Head from "@components/SEO/Head";
-import { SocialProfileJsonLd, VideoJsonLd } from "next-seo";
 import PageTitle from "@components/Layout/Title/Page";
 import WhoAmI from "@components/About/WhoAmI";
-import {
-  aboutTimelineSections,
-  appBaseURL,
-  contactOptions,
-  educationTimelineSections,
-  workExperienceTimelineSections,
-} from "@config";
+import { SocialProfileJsonLd, VideoJsonLd } from "next-seo";
 import useTranslation from "@hooks/useTranslation";
+import {
+  workExperienceTimelineSections,
+  educationTimelineSections,
+  aboutTimelineSections,
+} from "@configs/about";
+import { appBaseURL } from "@configs/urls";
+import contactOptions, { ContactType } from "@configs/contact";
+import type { FC } from "react";
 
-const AboutPage = (props) => {
+const AboutPage: FC = () => {
   const { t } = useTranslation();
   const videoTitle = t("about.video.title");
   const videoDesc = t("about.video.desc");
   const videoUrl = `${appBaseURL}/intro.mp4`;
   const videoPosterUrl = `${appBaseURL}/images/intro-poster.png`;
+  const linkedInProfile = contactOptions.find(
+    (opt) => opt.type === ContactType.Linkedin
+  )!.value;
 
   return (
     <>
@@ -50,7 +54,7 @@ const AboutPage = (props) => {
         type="Person"
         name={t("home.profile.name")}
         url={appBaseURL}
-        sameAs={[contactOptions.find((opt) => opt.type === "linkedin").value]}
+        sameAs={[linkedInProfile]}
       />
       <Div width="100%" py="3">
         <PageTitle title="about.title" />

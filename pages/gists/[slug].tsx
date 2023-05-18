@@ -1,19 +1,26 @@
 import Breadcrumb from "@kits/Breadcrumb";
 import Div from "@kits/Div";
-import { useRouter } from "next/router";
 import Head from "@components/SEO/Head";
 import MDXRemote from "@components/Markdown/MDXRemote";
-import GistServices from "@services/gist";
 import MarkdownWrapper from "@components/Markdown/Wrapper";
 import MarkdownVariables from "@components/Markdown/Variables";
-import GistTitle from "@components/Gists/Title";
 import GistSummary from "@components/Gists/Summary";
+import SectionTitle from "@components/Layout/Title/Section";
+import { useRouter } from "next/router";
+import GistServices from "@services/gist";
+import type { FC } from "react";
+import type {
+  GetStaticPaths,
+  GetStaticPathsResult,
+  GetStaticProps,
+} from "next";
+import type { MDXResult } from "@_types/components";
 
-const GistPage = (props) => {
+const GistPage: FC<MDXResult<IGist>> = (props) => {
   const router = useRouter();
-  const slug = router.query.slug;
-  const { title, summary } = props?.gist?.frontMatter || {};
-  const source = props?.gist?.source || {};
+  const { slug } = router.query;
+  const { title, summary } = props?.frontMatter || {};
+  const source = props?.source || {};
 
   return (
     <>
@@ -27,7 +34,7 @@ const GistPage = (props) => {
           ]}
         />
         <Div>
-          <GistTitle title={title} />
+          <SectionTitle title={title} />
           <GistSummary summary={summary} />
           <MarkdownWrapper>
             <MDXRemote
@@ -41,25 +48,22 @@ const GistPage = (props) => {
   );
 };
 
-export const getStaticProps = async ({ params }) => {
-  const result = await GistServices.getDetail(params.slug);
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const gist = await GistServices.getDetail(params?.slug as string);
 
-  return {
-    props: { gist: result.gist },
-  };
+  return { props: { gist } };
 };
 
-export const getStaticPaths = async ({ locales }) => {
+export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   const gists = await GistServices.getList();
 
-  const paths = gists.reduce((acc, { slug }) => {
-    // locales.forEach((locale) => {
-    //   acc.push({ params: { slug }, locale });
-    // });
-    acc.push({ params: { slug } });
-
-    return acc;
-  }, []);
+  const paths = (locales || []).reduce(
+    (acc, locale) => [
+      ...acc,
+      ...(gists.map(({ slug }) => ({ params: { slug }, locale })) || []),
+    ],
+    [] as GetStaticPathsResult["paths"]
+  );
 
   return {
     paths,

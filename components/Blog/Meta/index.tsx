@@ -1,10 +1,16 @@
 import Div from "@kits/Div";
 import BlogMetaItem from "./Item";
 import useTranslation from "@hooks/useTranslation";
+import type { FC } from "react";
 
-const BlogMeta = (props) => {
+interface BlogMetaProps {
+  category: string;
+  readingTime: string;
+  publishedAt: string;
+}
+
+const BlogMeta: FC<BlogMetaProps> = (props) => {
   const { category, readingTime, publishedAt } = props;
-
   const { t } = useTranslation();
 
   return (

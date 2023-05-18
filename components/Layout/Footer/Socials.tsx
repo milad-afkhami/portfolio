@@ -1,8 +1,9 @@
 import Div from "@kits/Div";
 import Icon from "@kits/Icon";
 import __map from "lodash-es/map";
+import type { FC } from "react";
 
-const FooterSocials = (props) => {
+const FooterSocials: FC = () => {
   const socials = {
     instagram: { name: "instagram", icon: "instagram", link: "instagram.com" },
     twitter: { name: "twitter", icon: "twitter", link: "twitter.com" },
@@ -11,7 +12,7 @@ const FooterSocials = (props) => {
   };
 
   return (
-    <Div row flex={["center"]}>
+    <Div flex={["center"]}>
       {__map(socials, ({ name, icon, link }, social) => (
         <Div mx="3" flex={["center", "center"]} key={social}>
           <Icon

@@ -1,10 +1,10 @@
-const OS = {
-  IOS: "IOS",
-  ANDROID: "ANDROID",
-  MACOS: "MacOS",
-  WINDOWS: "Windows",
-  LINUX: "Linux",
-  UNKNOWN: "UNKNOWN",
-};
+enum OperationSystems {
+  IOs = "IOS",
+  Android = "ANDROID",
+  MacOs = "MacOS",
+  Windows = "Windows",
+  Linux = "Linux",
+  Unknown = "UNKNOWN",
+}
 
-export default OS;
+export default OperationSystems;

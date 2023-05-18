@@ -1,7 +1,10 @@
 import Link from "@kits/Link";
 import Text from "@kits/Text";
+import type { FC } from "react";
 
-const ProjectTech = (props) => {
+type ProjectTechProps = ValueOf<IProject["techs"]> & { compact?: boolean };
+
+const ProjectTech: FC<ProjectTechProps> = (props) => {
   const { name, link, compact } = props;
 
   return (

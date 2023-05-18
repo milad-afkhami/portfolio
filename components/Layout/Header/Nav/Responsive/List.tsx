@@ -3,17 +3,23 @@ import useOnClickOutside from "@hooks/useOnClickOutside";
 import useEventListener from "@hooks/useEventListener";
 import { useRef } from "react";
 import HeaderMenuItem from "../Item";
-import { navLinks } from "@config";
+import { navItems } from "@configs/layout";
 import __noop from "lodash-es/noop";
 // import { DownloadResume } from "../../DownloadResume";
+import type { FC } from "react";
 
-const HeaderResponsiveMenuList = (props) => {
-  const { rendered, onRequestClose } = props;
+interface HeaderResponsiveMenuListProps {
+  rendered: boolean;
+  toggleMenu: NoneToVoidFunction;
+}
 
-  const ref = useRef();
-  useOnClickOutside(ref, rendered ? onRequestClose : __noop);
+const HeaderResponsiveMenuList: FC<HeaderResponsiveMenuListProps> = (props) => {
+  const { rendered, toggleMenu } = props;
 
-  useEventListener("scroll", onRequestClose);
+  const ref = useRef<HTMLDivElement>(null);
+  useOnClickOutside(ref, rendered ? toggleMenu : __noop);
+
+  useEventListener("scroll", toggleMenu);
 
   return (
     <Div
@@ -31,8 +37,8 @@ const HeaderResponsiveMenuList = (props) => {
       opacity={rendered ? 1 : 0}
       pace="fast"
     >
-      {navLinks.map((menu, i) => (
-        <HeaderMenuItem key={i} onClick={onRequestClose} {...menu} />
+      {navItems.map((menu, i) => (
+        <HeaderMenuItem key={i} onClick={toggleMenu} {...menu} />
       ))}
       {/* <DownloadResume /> */}
     </Div>

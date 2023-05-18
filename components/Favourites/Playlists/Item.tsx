@@ -5,8 +5,9 @@ import Link from "@kits/Link";
 import Text from "@kits/Text";
 import useToggle from "@hooks/useToggle";
 import FavouritePlaylistTracks from "./Tracks";
+import type { FC } from "react";
 
-const FavouritePlaylist = (props) => {
+const FavouritePlaylist: FC<IFavouritePlaylist> = (props) => {
   const { name, image, link, tracks } = props;
 
   const [tracksOpen, toggleTracks] = useToggle(false);
@@ -78,7 +79,7 @@ const FavouritePlaylist = (props) => {
           ) : null}
           <Div m="2">
             <Button
-              variant="link"
+              variant="text"
               text={tracksOpen ? "favourites.collapse" : "favourites.expand"}
               size="sm"
               onClick={toggleTracks}

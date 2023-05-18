@@ -1,7 +1,12 @@
 import Div from "@kits/Div";
 import Text from "@kits/Text";
+import type { FC } from "react";
 
-const BlogSummary = (props) => {
+interface BlogSummaryProps {
+  summary: string;
+}
+
+const BlogSummary: FC<BlogSummaryProps> = (props) => {
   const { summary } = props;
 
   return (

@@ -1,8 +1,13 @@
 import Div from "@kits/Div";
 import Text from "@kits/Text";
 import PageTitle from "@components/Layout/Title/Page";
+import type { FC } from "react";
 
-const BlogTitle = (props) => {
+interface BlogTitleProps {
+  title: string;
+}
+
+const BlogTitle: FC<BlogTitleProps> = (props) => {
   const { title } = props;
 
   return <PageTitle title={title} />;

@@ -3,8 +3,9 @@ import useDelayedRender from "use-delayed-render";
 import useToggle from "@hooks/useToggle";
 import MenuToggler from "./Toggler";
 import HeaderResponsiveMenuList from "./List";
+import type { FC } from "react";
 
-const HeaderResponsiveMenu = (props) => {
+const HeaderResponsiveMenu: FC = () => {
   const [menuOpen, toggleMenu] = useToggle(false);
   const { mounted: isMenuMounted, rendered: isMenuRendered } = useDelayedRender(
     menuOpen,
@@ -17,7 +18,7 @@ const HeaderResponsiveMenu = (props) => {
       {isMenuMounted && (
         <HeaderResponsiveMenuList
           rendered={isMenuRendered}
-          onRequestClose={toggleMenu}
+          toggleMenu={toggleMenu}
         />
       )}
     </Div>

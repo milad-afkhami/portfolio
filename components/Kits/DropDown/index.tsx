@@ -1,22 +1,25 @@
+import { useState, useRef, useCallback, type FC } from "react";
 import Div from "@kits/Div";
-import { useState, useRef } from "react";
+import { If, Then } from "@kits/ConditionalRendering";
+import DropDownItem, { type DropDownItemProps } from "./Item";
 import useOnClickOutside from "@hooks/useOnClickOutside";
-import DropDownItem from "./Item";
 
-/**
- * @typedef {Array<{text:string, id:string|number, image:string}>} DropDownItems
- *
- * @param {{ items:DropDownItems, selected:string|number, onChange: Function }} props
- */
+interface DropDownProps {
+  items: Array<DropDownItemProps>;
+  selected: string | number;
+  onChange: (value: DropDownItemProps["id"]) => void;
+}
 
-const DropDown = (props) => {
+const DropDown: FC<DropDownProps> = (props) => {
   const { items, selected, onChange } = props;
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const ref = useRef();
+  const ref = useRef<HTMLDivElement>(null);
 
-  useOnClickOutside(ref, () => setIsOpen(false));
+  const onClickOutside = useCallback(() => setIsOpen(false), []);
+
+  useOnClickOutside(ref, onClickOutside);
 
   const selectedItem = items.find(({ id }) => selected === id);
 
@@ -28,15 +31,19 @@ const DropDown = (props) => {
       position="relative"
       zIndex="2"
     >
-      <DropDownItem
-        {...(selectedItem || {})}
-        onClick={() => setIsOpen(!isOpen)}
-        border="border-dark"
-        curve="xsm"
-        width="7rem"
-        pace="fast"
-        responsive={{ md: { width: "8rem" } }}
-      />
+      <If condition={selectedItem}>
+        <Then>
+          <DropDownItem
+            {...(selectedItem! || {})}
+            onClick={() => setIsOpen(!isOpen)}
+            border="border-dark"
+            curve="xsm"
+            width="7rem"
+            pace="fast"
+            responsive={{ md: { width: "8rem" } }}
+          />
+        </Then>
+      </If>
       <Div
         position="absolute"
         dimensions={{ top: "100%" }}
@@ -51,7 +58,7 @@ const DropDown = (props) => {
           <DropDownItem
             key={i}
             {...item}
-            onClick={(e) => {
+            onClick={() => {
               setIsOpen(false);
               onChange(item.id);
             }}

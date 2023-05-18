@@ -1,9 +1,9 @@
 import Div from "@kits/Div";
 import Image from "@kits/Image";
 import Link from "@kits/Link";
-import Text from "@kits/Text";
+import type { FC } from "react";
 
-const FooterLicenses = (props) => {
+const FooterLicenses: FC = () => {
   const licenses = [
     {
       link: "www.google.com",
@@ -23,10 +23,10 @@ const FooterLicenses = (props) => {
   ];
 
   return (
-    <Div flex={["end"]} row>
-      {licenses.map(({ link, image }) => (
-        <Link outerLink href={link} mx="3">
-          <Div src={image} width="90px" height="90px" bg="bg-disabled" />
+    <Div flex={["end"]}>
+      {licenses.map(({ link, image }, i) => (
+        <Link key={i} outerLink href={link} mx="3">
+          <Image src={image} width="90px" height="90px" bg="bg-disabled" />
         </Link>
       ))}
     </Div>

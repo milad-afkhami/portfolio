@@ -1,28 +1,33 @@
 import { useMemo } from "react";
-import { useRouter } from "next/router";
-import useEnhancedToast from "@hooks/useEnhancedState";
 import Div from "@kits/Div";
 import DropDown from "@kits/DropDown";
-import languages from "@constants/languages";
+import { useRouter } from "next/router";
 import __map from "lodash-es/map";
+import toastUtil from "@utils/toast";
 import LanguageHelper from "@helpers/language";
+import languages, { defaultLanguage } from "@constants/languages";
+import type { FC } from "react";
+import type { DropDownItemProps } from "@kits/DropDown/Item";
 
-const HeaderChangeLanguage = (props) => {
+const HeaderChangeLanguage: FC = () => {
   const router = useRouter();
-  const toast = useEnhancedToast();
 
-  const onChangeLanguage = (id) =>
+  const onChangeLanguage = (id: DropDownItemProps["id"]) =>
     LanguageHelper.changeLanguage(id).then(() => {
-      if (id !== "en") return toast("error.sorryTranslation", { type: "info" });
+      if (id !== "en") toastUtil.info("error.sorryTranslation");
     });
 
   const dropDownItems = useMemo(
     () =>
-      __map(languages, (lang) => ({
-        text: lang.displayName,
-        image: lang.flag,
-        id: lang.name,
-      })),
+      __map(
+        languages,
+        (lang) =>
+          ({
+            label: lang.displayName,
+            image: lang.flag,
+            id: lang.name,
+          } as DropDownItemProps)
+      ),
     []
   );
 
@@ -30,7 +35,7 @@ const HeaderChangeLanguage = (props) => {
     <Div>
       <DropDown
         items={dropDownItems}
-        selected={router.locale}
+        selected={router.locale || defaultLanguage}
         onChange={onChangeLanguage}
       />
     </Div>

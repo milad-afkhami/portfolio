@@ -2,12 +2,12 @@ import matter from "gray-matter";
 import * as fs from "fs";
 import * as path from "path";
 
-const getBlogsList = async () => {
+export default async function getBlogsList(): Promise<Array<IBlog>> {
   const BLOGS_PATH = path.join(process.cwd(), "data", "blog");
 
   const blogFilePaths = fs
     .readdirSync(BLOGS_PATH)
-    .filter((path) => /\.mdx?$/.test(path));
+    .filter((_path) => /\.mdx?$/.test(_path));
 
   const blogs = blogFilePaths.map((filePath) => {
     const source = fs.readFileSync(path.join(BLOGS_PATH, filePath));
@@ -22,7 +22,5 @@ const getBlogsList = async () => {
     };
   });
 
-  return blogs;
-};
-
-export default getBlogsList;
+  return blogs as Array<IBlog>;
+}

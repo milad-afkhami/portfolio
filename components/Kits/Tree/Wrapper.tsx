@@ -1,7 +1,7 @@
-import { mediaFeatures } from "@stylesheets/breakpoints";
-import styled from "styled-components";
+import mediaFeatures from "@stylesheets/mediaFeatures";
+import { styled } from "goober";
 
-const TreeWrapper = styled.div`
+const TreeWrapper = styled("div")`
   & > details {
     overflow-x: auto;
     overflow-y: hidden;

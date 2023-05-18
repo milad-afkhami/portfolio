@@ -1,7 +1,13 @@
 import Div from "@kits/Div";
 import Image from "@kits/Image";
+import type { FC } from "react";
 
-const BlogBanner = (props) => {
+interface BlogBannerProps {
+  banner?: string;
+  title: string;
+}
+
+const BlogBanner: FC<BlogBannerProps> = (props) => {
   const { banner, title } = props;
 
   if (!banner) return null;

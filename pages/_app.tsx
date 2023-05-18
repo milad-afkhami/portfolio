@@ -1,84 +1,33 @@
+/* eslint-disable react/jsx-props-no-spreading */
+import { createElement, useEffect } from "react";
 import "../index.css";
-import Layout from "@components/Layout/Layout";
-import { useRouter } from "next/router";
-import { ThemeProvider } from "next-themes";
-import { defaultTheme } from "@stylesheets/themes";
-import GlobalStyles from "@stylesheets/global";
-import THEMES from "@constants/themes";
-import swrFetcher from "@utils/swrFetcher";
-import __pick from "lodash-es/pick";
-import { DefaultSeo } from "next-seo";
-import enhanceStringPrototype from "@helpers/enhanceStringPrototype";
-import useTranslation from "@hooks/useTranslation";
-import { useEffect } from "react";
-import { ToastContainer, Slide } from "react-toastify";
-import "react-toastify/dist/ReactToastify.min.css";
-import { SWRConfig } from "swr";
+import Layout from "@components/Layout";
+import DefaultSeo from "@components/SEO/DefaultSeo";
+import ContextProviders from "@contexts/Providers";
+import { appWithTranslation } from "next-i18next";
+import { setup } from "goober";
+import { prefix } from "goober/prefixer";
+import shouldForwardProp from "@helpers/shouldForwardProp";
+import type { AppProps } from "@_types/components";
 
-function MyApp({ Component, pageProps, ...rest }) {
-  const router = useRouter();
-  const { t } = useTranslation();
+// setting up goober
+setup(createElement, prefix, undefined, shouldForwardProp);
 
-  enhanceStringPrototype();
-
+function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     // LanguageHelper.initialLanguageSetup();
-    // router.events.on("routeChangeStart", nProgress.start);
-    // router.events.on("routeChangeComplete", nProgress.done);
-    // router.events.on("routeChangeError", nProgress.done);
   }, []);
 
   return (
-    <SWRConfig value={{ fetcher: swrFetcher }}>
-      <GlobalStyles />
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        closeOnClick={true}
-        pauseOnHover={true}
-        draggable={true}
-        theme="colored"
-        transition={Slide}
-      />
-      <ThemeProvider
-        themes={Object.values(THEMES)}
-        defaultTheme={defaultTheme}
-        enableSystem={false}
-      >
-        <DefaultSeo
-          defaultTitle={t("seo.title.default")}
-          description={t("seo.description.default")}
-          openGraph={{
-            type: "website",
-            locale: router.locale,
-            url: "https://www.url.ie/",
-            site_name: t("app.name"),
-            profile: {
-              firstName: "Milad",
-              lastName: "Afkhami",
-              gender: "Male",
-            },
-          }}
-          twitter={{
-            // handle: "@handle",
-            // site: "@site",
-            cardType: "summary_large_image",
-            // cardType: "player",
-          }}
-        />
-        <Layout
-          {...__pick(Component, [
-            "hideHeader",
-            "hideFooter",
-            "transparentHeader",
-          ])}
-        >
+    <>
+      <DefaultSeo />
+      <ContextProviders>
+        <Layout {...Component.layoutConfig}>
           <Component {...pageProps} />
         </Layout>
-      </ThemeProvider>
-    </SWRConfig>
+      </ContextProviders>
+    </>
   );
 }
 
-export default MyApp;
+export default appWithTranslation(App);

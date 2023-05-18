@@ -1,9 +1,12 @@
 import Div from "@kits/Div";
 import Text from "@kits/Text";
 import Icon from "@kits/Icon";
+import type { FC } from "react";
 
-const BlogCardFooter = (props) => {
-  const { publishedAt = "", readingTime, views } = props;
+type BlogCardFooterProps = Pick<IBlog, "publishedAt" | "readingTime" | "views">;
+
+const BlogCardFooter: FC<BlogCardFooterProps> = (props) => {
+  const { publishedAt = "", readingTime } = props;
 
   return (
     <Div

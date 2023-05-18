@@ -1,9 +1,10 @@
 import Div from "@kits/Div";
 import ContactOption from "./Option";
 import PageTitle from "@components/Layout/Title/Page";
-import { contactOptions } from "@config";
+import contactOptions from "@configs/contact";
+import type { FC } from "react";
 
-const Contact = (props) => {
+const Contact: FC = () => {
   const options = contactOptions.filter((opt) => !opt.private);
 
   return (

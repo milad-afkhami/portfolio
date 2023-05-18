@@ -1,7 +1,10 @@
 import Div from "@kits/Div";
-import { ProjectTech } from "./Item";
+import ProjectTech from "./Item";
+import type { FC } from "react";
 
-const ProjectTechs = (props) => {
+type ProjectTechsProps = Pick<IProject, "techs"> & { compact?: boolean };
+
+const ProjectTechs: FC<ProjectTechsProps> = (props) => {
   const { techs, compact } = props;
 
   return (

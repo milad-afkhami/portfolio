@@ -1,8 +1,8 @@
 import Div from "@kits/Div";
-import Blogs from "@components/Blog";
-import Orientations from "@constants/orientations";
+import BlogCards from "@components/Cards/Blog";
 import { useMediaQuery } from "react-responsive";
-import breakpoints from "@stylesheets/breakpoints";
+import breakpoints from "@stylesheets/constants/breakpoints.json";
+import type { FC } from "react";
 
 const homeBlogs = [
   "data-fetching-pattern-preference",
@@ -15,23 +15,22 @@ const homeBlogs = [
   // "http-proxy",
 ];
 
-const FeaturedPosts = (props) => {
-  // const { data, isValidating, mutate, error } = useBlogs();
+interface FeaturedPostsProps {
+  posts: Array<IBlog>;
+}
 
+const FeaturedPosts: FC<FeaturedPostsProps> = ({ posts }) => {
   const isMediumScreen = useMediaQuery({
     minWidth: breakpoints.sm,
     maxWidth: breakpoints.md,
   });
 
-  const posts = homeBlogs.map((slug) =>
-    props.posts.find((it) => it.slug === slug)
-  );
+  const items = posts.filter(({ slug }) => homeBlogs.includes(slug));
 
   return (
     <Div my="4">
-      <Blogs
-        orientation={Orientations.Horizontal}
-        items={posts?.slice?.(0, isMediumScreen ? 2 : 3)}
+      <BlogCards
+        items={items?.slice?.(0, isMediumScreen ? 2 : 3)}
         title="home.posts.title"
         moreLink="/blog"
       />

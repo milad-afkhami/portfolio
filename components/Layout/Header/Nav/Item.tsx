@@ -1,23 +1,21 @@
 import Link from "@kits/Link";
 import Text from "@kits/Text";
+import type { FC } from "react";
 
-const HeaderMenuItem = (props) => {
+const HeaderMenuItem: FC<INavItem> = (props) => {
+  const { link, onClick, label } = props;
+
   return (
     <Link
-      href={props.link}
+      href={link}
       m="3 0"
       responsive={{ md: { m: "0 3" } }}
-      onClick={props.onClick}
+      onClick={onClick}
       display="flex"
+      zoomOnHover
     >
-      <Text
-        size="md-b"
-        tag="p"
-        zoomOnHover
-        hoverColor="text-secondary"
-        truncate
-      >
-        {`layout.header.menu.${props.label}`}
+      <Text size="md-b" as="p" hoverColor="text-secondary" truncate>
+        {`layout.header.menu.${label}`}
       </Text>
     </Link>
   );

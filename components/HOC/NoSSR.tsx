@@ -1,11 +1,9 @@
 import dynamic from "next/dynamic";
+import type { ComponentType, PropsWithChildren } from "react";
 
-/**
- * An HOC component to render something only on client.
- * Takes no props only children
- * @type {import("react").ComponentType<{children:import("react").ReactElement}>}
- */
-const NoSSR = dynamic(
+/** An HOC component to render a piece only on client side. */
+const NoSSR: ComponentType<PropsWithChildren> = dynamic(
+  // eslint-disable-next-line react/jsx-no-useless-fragment
   () => Promise.resolve(({ children }) => <>{children}</>),
   { ssr: false }
 );

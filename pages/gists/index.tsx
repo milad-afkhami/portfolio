@@ -3,8 +3,11 @@ import Head from "@components/SEO/Head";
 import PageTitle from "@components/Layout/Title/Page";
 import Gists from "@components/Gists";
 import GistServices from "@services/gist";
+import type { FC } from "react";
 
-const GistsPage = (props) => {
+interface GistsPageProps {}
+
+const GistsPage: FC<GistsPageProps> = (props) => {
   return (
     <>
       <Head canonical="/gists" page="gists" />

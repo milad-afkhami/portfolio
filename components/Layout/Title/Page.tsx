@@ -1,7 +1,14 @@
 import Div from "@kits/Div";
 import Text from "@kits/Text";
+import type { FC } from "react";
+import type TextProps from "@kits/Text/props";
 
-const PageTitle = (props) => {
+interface PageTitleProps {
+  title: string;
+  tag?: TextProps["as"];
+}
+
+const PageTitle: FC<PageTitleProps> = (props) => {
   const { title, tag } = props;
 
   return (

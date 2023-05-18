@@ -1,10 +1,15 @@
 import Div from "@kits/Div";
-import Text from "@kits/Text";
-import { TimelineSectionItem } from "./Item";
-import { TimelineSectionYear } from "./Year";
+import TimelineSectionYear, { type TimelineSectionYearProps } from "./Year";
+import TimelineSectionItem, { type TimelineSectionItemProps } from "./Item";
+import type { FC } from "react";
 
-const TimelineSection = (props) => {
-  const { year, items, last } = props;
+export interface TimelineSectionProps extends TimelineSectionYearProps {
+  // isLast: boolean;
+  items: Array<TimelineSectionItemProps["text"]>;
+}
+
+const TimelineSection: FC<TimelineSectionProps> = (props) => {
+  const { year, items } = props;
 
   return (
     <Div

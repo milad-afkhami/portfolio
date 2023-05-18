@@ -2,6 +2,7 @@ import I18nHelper from "@helpers/i18n";
 import type { FunctionComponent, PropsWithChildren } from "react";
 import type { AppProps as NextAppProps } from "next/app";
 import type { NextPage } from "next";
+import type { MDXRemoteSerializeResult } from "next-mdx-remote";
 
 export interface LayoutConfig {
   /**
@@ -36,6 +37,16 @@ export interface AppProps<T = {}> extends NextAppProps<T> {
   Component: AppComponentProp;
 }
 
-export type HOCFunctionalComponent<T = {}> = FunctionComponent<
+export type HOCFunctionalComponent<T = Dictionary> = FunctionComponent<
   PropsWithChildren<T>
 >;
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export interface MDXResult<T extends Dictionary<any>> {
+  source: MDXRemoteSerializeResult;
+  frontMatter: T;
+}
+
+export type PropsWithIndex<P = unknown> = P & {
+  index: number;
+};

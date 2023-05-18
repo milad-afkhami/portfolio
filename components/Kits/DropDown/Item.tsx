@@ -1,9 +1,14 @@
 import Div from "@kits/Div";
-import { DropDownImage } from "./Image";
-import { DropDownLabel } from "./Label";
+import type { FC } from "react";
+import type DivProps from "@kits/Div/props";
 
-const DropDownItem = (props) => {
-  const { image, text, onClick, ...rest } = props;
+export type DropDownItemProps = MergeBy<
+  DivProps,
+  { label: string; id: string; image: string }
+>;
+
+const DropDownItem: FC<DropDownItemProps> = (props) => {
+  const { image, label, onClick, ...rest } = props;
 
   return (
     <Div

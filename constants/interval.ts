@@ -1,11 +1,11 @@
-// in seconds
-const INTERVALS = {
-  A_MIN: 60,
-  A_HOUR: 3600,
-  A_DAY: 86400,
-  A_WEEK: 604800,
-  A_MONTH: 2629800,
-  A_YEAR: 31557600,
+/** Most used intervals in seconds */
+const Intervals = {
+  Minute: 60,
+  Hour: 3600,
+  Day: 86400,
+  Week: 604800,
+  Month: 2629800,
+  Year: 31557600,
 };
 
-export default INTERVALS;
+export default Intervals;

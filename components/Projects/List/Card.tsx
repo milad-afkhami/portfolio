@@ -2,8 +2,9 @@ import Div from "@kits/Div";
 import Image from "@kits/Image";
 import Link from "@kits/Link";
 import Text from "@kits/Text";
+import type { FC } from "react";
 
-const ProjectCard = (props) => {
+const ProjectCard: FC<Pick<IProject, "logo" | "slug">> = (props) => {
   const { logo, slug } = props;
 
   const height = 120;
@@ -53,7 +54,7 @@ const ProjectCard = (props) => {
           </Div>
           <Div height="calc(100% - 2rem)">
             <Text
-              tag="p"
+              as="p"
               color="text-secondary"
               css={{
                 display: "-webkit-box",

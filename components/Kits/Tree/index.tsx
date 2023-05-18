@@ -1,15 +1,22 @@
 import Text from "@kits/Text";
-import { TreeWrapper } from "./Wrapper";
+import TreeWrapper from "./Wrapper";
+import type { FC } from "react";
 
-/**
- * Renders an expandible tree.
- * @param {Array} branches tree branches, can be an array of strings or another tree
- * @param {string} branchesAccessor the key that contains subtrees branches
- * @param {boolean} defaultOpen Whether or not first degree details should be open by default
- * @param {boolean} defaultSubsOpen Whether or not non-first degree details should be open by default
- */
+export type TreeProps = {
+  /** tree branches, can be an array of strings or another tree */
+  branches: Array<string | Dictionary<TreeProps["branches"]>>;
+  // | MergeBy<{ title: string }, { [property in T]: TreeProps<T>["branches"] }>
 
-const Tree = (props) => {
+  /** the key that contains subtrees branches */
+  branchesAccessor?: string;
+  /** Whether or not first degree details should be open by default */
+  defaultOpen?: boolean;
+  /** Whether or not non-first degree details should be open by default */
+  defaultSubsOpen?: boolean;
+};
+
+/** Renders an expandable tree. */
+const Tree: FC<TreeProps> = (props) => {
   const {
     branches,
     branchesAccessor = "branches",
@@ -28,7 +35,7 @@ const Tree = (props) => {
             } hidden-scrollbar`}
             open={defaultOpen}
           >
-            <Text tag="summary" className="tree-nav__item-title">
+            <Text as="summary" className="tree-nav__item-title">
               {typeof branch === "string" ? branch : branch.title}
             </Text>
             {branch?.[branchesAccessor]?.length ? (

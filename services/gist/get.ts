@@ -2,8 +2,11 @@ import * as fs from "fs";
 import * as path from "path";
 import matter from "gray-matter";
 import { serialize } from "next-mdx-remote/serialize";
+import type { MDXResult } from "@_types/components";
 
-const getGistDetail = async (slug) => {
+export default async function getGistDetail(
+  slug: string
+): Promise<MDXResult<IGist>> {
   const GISTS_PATH = path.join(process.cwd(), "data", "gist");
 
   const gistFilePath = path.join(GISTS_PATH, `${slug}.mdx`);
@@ -21,11 +24,7 @@ const getGistDetail = async (slug) => {
   });
 
   return {
-    gist: {
-      source: mdxSource,
-      frontMatter: data,
-    },
+    source: mdxSource,
+    frontMatter: data as IGist,
   };
-};
-
-export default getGistDetail;
+}

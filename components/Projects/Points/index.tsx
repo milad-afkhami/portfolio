@@ -1,8 +1,9 @@
 import Div from "@kits/Div";
 import Tree from "@kits/Tree";
 import SectionTitle from "@components/Layout/Title/Section";
+import type { FC } from "react";
 
-const ProjectPoints = (props) => {
+const ProjectPoints: FC<Pick<IProject, "points">> = (props) => {
   const { points } = props;
 
   return (

@@ -1,12 +1,16 @@
 import Div from "@kits/Div";
 import Text from "@kits/Text";
+import type { FC } from "react";
 
-const BlogMetaItem = (props) => {
+interface BlogMetaItemProps {
+  label: string;
+  value: string;
+}
+
+const BlogMetaItem: FC<BlogMetaItemProps> = (props) => {
   const { label, value } = props;
 
-  if (!value) {
-    return null;
-  }
+  if (!value) return null;
 
   return (
     <Div flex={["center", "between"]} bg="bg-secondary" curve="sm" p="3">

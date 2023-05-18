@@ -1,9 +1,11 @@
 import Div from "@kits/Div";
 import Icon from "@kits/Icon";
 import Text from "@kits/Text";
-import toast from "@utils/toast";
+import type { FC } from "react";
 
-const ContactOption = (props) => {
+type ContactOptionProps = Omit<ValueOf<typeof contactOptions>, "private">;
+
+const ContactOption: FC<ContactOptionProps> = (props) => {
   const { type, label, value } = props;
 
   const onClickContactWay = () => {

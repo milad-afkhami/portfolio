@@ -1,22 +1,21 @@
 import Div from "@kits/Div";
 import FavouriteArtistCard from "./Card";
-import { favouriteArtistsData } from "@data/favourites";
+import favouriteArtistsData from "@data/favourites/artists";
+import type { FC } from "react";
 
-const FavouriteArtists = (props) => {
-  return (
-    <Div
-      grid={["repeat(1, 1fr)", , 5, "4rem", "row"]}
-      responsive={{
-        sm: { css: { gridTemplateColumns: "repeat(2, 1fr)" } },
-        lg: { css: { gridTemplateColumns: "repeat(3, 1fr)" } },
-      }}
-      mb="6"
-    >
-      {favouriteArtistsData.map((artist) => (
-        <FavouriteArtistCard {...artist} />
-      ))}
-    </Div>
-  );
-};
+const FavouriteArtists: FC = () => (
+  <Div
+    grid={["repeat(1, 1fr)", , 5, "4rem", "row"]}
+    responsive={{
+      sm: { css: { gridTemplateColumns: "repeat(2, 1fr)" } },
+      lg: { css: { gridTemplateColumns: "repeat(3, 1fr)" } },
+    }}
+    mb="6"
+  >
+    {favouriteArtistsData.map((artist) => (
+      <FavouriteArtistCard key={artist.slug} {...artist} />
+    ))}
+  </Div>
+);
 
 export default FavouriteArtists;

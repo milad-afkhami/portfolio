@@ -1,30 +1,47 @@
-import ExpandableText from "@kits/ExpandableText";
+import Div from "@kits/Div";
 import Text from "@kits/Text";
+import ExpandableText from "@kits/ExpandableText";
+import { If, Then, Else } from "@kits/ConditionalRendering";
 import useTranslation from "@hooks/useTranslation";
+import type { FC } from "react";
+import type TextProps from "@kits/Text/props";
 
-const TimelineSectionItemDescription = (props) => {
+interface TimelineSectionItemDescriptionProps {
+  description: string;
+}
+
+const TimelineSectionItemDescription: FC<
+  TimelineSectionItemDescriptionProps
+> = (props) => {
   const { description } = props;
 
   const { t } = useTranslation();
   const text = t(description, { defaultValue: "" });
-  const hashMoreButton = text.length > 26;
+  const isExpandable = text.length > 26;
 
-  const textProps = {
+  const textProps: TextProps = {
     size: "md",
-    ml: "3",
     color: "text-secondary",
     noTranslation: true,
-    width: "fit-content",
     css: { whiteSpace: "pre-line" },
   };
 
-  return text ? (
-    hashMoreButton ? (
-      <ExpandableText {...textProps}>{text}</ExpandableText>
-    ) : (
-      <Text {...textProps}>{text}</Text>
-    )
-  ) : null;
+  return (
+    <If condition={text}>
+      <Then>
+        <Div ml="3" width="fit-content">
+          <If condition={isExpandable}>
+            <Then>
+              <ExpandableText {...textProps}>{text}</ExpandableText>
+            </Then>
+            <Else>
+              <Text {...textProps}>{text}</Text>
+            </Else>
+          </If>
+        </Div>
+      </Then>
+    </If>
+  );
 };
 
 export default TimelineSectionItemDescription;

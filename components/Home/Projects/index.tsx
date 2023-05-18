@@ -1,12 +1,11 @@
 import Div from "@kits/Div";
 import ProjectsList from "@components/Projects/List";
+import type { FC } from "react";
 
-const Projects = (props) => {
-  return (
-    <Div my="4">
-      <ProjectsList />
-    </Div>
-  );
-};
+const Projects: FC = () => (
+  <Div my="4">
+    <ProjectsList />
+  </Div>
+);
 
 export default Projects;

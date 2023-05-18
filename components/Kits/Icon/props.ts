@@ -2,7 +2,7 @@ import type { HTMLAttributes } from "react";
 import type { CSSAttribute } from "goober";
 
 // prettier-ignore
-export type IconName = "close" | "check" | "quote" | "chair" | "design" | "hanger" | "info" | "laptop" | "miscellaneous-services" | "mouse" | "paste-check" | "restaurant" | "scissors" | "store" | "trending-up" | "chart" | "dashboard" | "document" | "emoji-happy" | "lamp" | "linkedin" | "menu-ticked" | "message" | "paste" | "people" | "person" | "premium-badge" | "tag" | "telegram" | "arrow-back" | "article" | "box" | "chevron-down" | "chevron-left" | "chevron-right" | "chevron-up" | "desktop" | "document-scanner" | "exit" | "instagram" | "install" | "location" | "mail" | "menu" | "menu-tick" | "people" | "phone" | "phone-setup" | "price-change" | "print" | "question-mark" | "shopping-bag" | "support-agent" | "warehouse" | "whatsapp" | "android" | "apple" | "windows" | "warning" | "check-outlined" | "info-outlined" | "download";
+export type IconName = "github" | "code" | "moon" | "hash" | "nested-list" | "clock" | "time" | "history" | "list" | "info" | "headphones" | "music" | "song" | "film" | "show" | "book" | "suitcase" | "sun" | "download" | "copy-outline" | "focus-center" | "timeline" | "calendar" | "gallery" | "tools" | "measure" | "education" | "chevron-right" | "whatsapp" | "telegram" | "skype" | "linkedin" | "email";
 
 export default interface IconProps extends HTMLAttributes<Element> {
   name: IconName;

@@ -1,24 +1,24 @@
 import Div from "@kits/Div";
 import BlogCard from "./Item";
-// import BlogCardLoadings from "./Loading";
-import Orientations from "@constants/orientations";
 import PageTitle from "@components/Layout/Title/Page";
 import BlogCardsMoreLink from "./MoreLink";
 import BlogCardsWrapper from "./Wrapper";
+import type { FC } from "react";
 
-const BlogCards = (props) => {
-  const {
-    items = [],
-    loading,
-    title,
-    moreLink,
-    loadingCount = 9,
-    orientation = Orientations.Vertical,
-    ...rest
-  } = props;
+interface BlogCardsProps {
+  items: Array<IBlog>;
+  title?: string;
+  moreLink?: string;
+  // loading: string;
+  // loadingCount: string;
+  // orientation: string;
+}
+
+const BlogCards: FC<BlogCardsProps> = (props) => {
+  const { items = [], title, moreLink } = props;
 
   return (
-    <Div my="3" {...rest}>
+    <Div my="3">
       {title && <PageTitle title={title} tag="h2" />}
       {items?.length ? (
         <BlogCardsWrapper>

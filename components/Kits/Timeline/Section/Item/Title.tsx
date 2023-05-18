@@ -1,16 +1,20 @@
 import Text from "@kits/Text";
+import type { FC } from "react";
+import type { PropsWithIndex } from "@_types/components";
 
-const TimelineSectionItemTitle = (props) => {
-  const { title } = props;
+export type TimelineSectionItemTitleProps = PropsWithIndex<{ text: string }>;
+
+const TimelineSectionItemTitle: FC<TimelineSectionItemTitleProps> = (props) => {
+  const { text } = props;
 
   return (
     <Text
-      tag="p"
+      as="p"
       size="lg-b"
       color="text-secondary"
       css={{ textTransform: "capitalize" }}
     >
-      {title}
+      {text}
     </Text>
   );
 };

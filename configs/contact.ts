@@ -1,18 +1,30 @@
+export enum ContactType {
+  Email = "email",
+  Linkedin = "linkedin",
+  Skype = "skype",
+  Telegram = "telegram",
+  Whatsapp = "whatsapp",
+}
+
 const contactOptions = [
-  { type: "email", value: "dev.miladafkhami@gmail.com" },
+  { type: ContactType.Email, value: "dev.miladafkhami@gmail.com" },
   {
-    type: "linkedin",
+    type: ContactType.Linkedin,
     label: "milad-afkhami-pour",
     value: "https://www.linkedin.com/in/milad-afkhami-pour/",
   },
   {
-    type: "skype",
+    type: ContactType.Skype,
     label: "join.skype.com/invite/pRe4UIXrDeTj",
     value: "https://join.skype.com/invite/pRe4UIXrDeTj",
   },
-  { type: "telegram", label: "@mili_u", value: "https://telegram.me/mili_u" },
   {
-    type: "whatsapp",
+    type: ContactType.Telegram,
+    label: "@mili_u",
+    value: "https://telegram.me/mili_u",
+  },
+  {
+    type: ContactType.Whatsapp,
     label: "+98 939 284 0749",
     value: "+989392840749",
     private: true,

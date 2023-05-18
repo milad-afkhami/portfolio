@@ -2,18 +2,10 @@ import Div from "@kits/Div";
 import Text from "@kits/Text";
 import Link from "@kits/Link";
 import GistCardCategory from "./Category";
+import type { FC } from "react";
 
-const GistCard = (props) => {
-  const {
-    _id = "",
-    title = "",
-    summary = "",
-    description = "",
-    image = "",
-    body = "",
-    slug = "",
-    category = "",
-  } = props;
+const GistCard: FC<IGist> = (props) => {
+  const { title, summary, slug, category } = props;
 
   return (
     <Link
@@ -36,7 +28,7 @@ const GistCard = (props) => {
       </Div>
       <Div overflow="hidden">
         <Text
-          tag="p"
+          as="p"
           size="md"
           color="text-secondary"
           css={{

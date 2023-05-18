@@ -1,23 +1,10 @@
 import { useEffect } from "react";
-import THEMES from "@constants/themes";
-import styled from "styled-components";
+import { styled } from "goober";
 import PrismTomorrowTheme from "./PrismTomorrowTheme";
 import TableStyles from "./TableStyles";
+import type { HOCFunctionalComponent } from "@_types/components";
 
-const MarkdownWrapper = ({ children, ...rest }) => {
-  useEffect(() => {
-    // import("prismjs/themes/prism-tomorrow.css");
-    // import("../../node_modules/prismjs/themes/prism-tomorrow.css");
-
-    require("prismjs/prism").highlightAll();
-    require("prismjs/components/prism-jsx.js");
-    require("prismjs/components/prism-js-extras.js");
-  }, []);
-
-  return <StyledWrapper {...rest}>{children}</StyledWrapper>;
-};
-
-const StyledWrapper = styled.div`
+const StyledWrapper = styled("div")`
   font-size: var(--font-size-lg);
   font-weight: 300;
 
@@ -25,9 +12,9 @@ const StyledWrapper = styled.div`
     font-family: monospace !important;
   }
 
-  & a {
+  a {
     color: var(--color-brand);
-    :hover: {
+    :hover {
       color: var(--color-brand-hover);
     }
   }
@@ -69,5 +56,18 @@ const StyledWrapper = styled.div`
 
   ${PrismTomorrowTheme}
 `;
+
+const MarkdownWrapper: HOCFunctionalComponent = ({ children, ...rest }) => {
+  useEffect(() => {
+    // import("prismjs/themes/prism-tomorrow.css");
+    // import("../../node_modules/prismjs/themes/prism-tomorrow.css");
+
+    require("prismjs/prism").highlightAll();
+    require("prismjs/components/prism-jsx.js");
+    require("prismjs/components/prism-js-extras.js");
+  }, []);
+
+  return <StyledWrapper {...rest}>{children}</StyledWrapper>;
+};
 
 export default MarkdownWrapper;

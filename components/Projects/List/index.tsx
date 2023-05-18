@@ -3,8 +3,9 @@ import projectsData from "@data/projects";
 import PageTitle from "@components/Layout/Title/Page";
 import ProjectCard from "./Card";
 import ProjectsMoreLink from "./MoreLink";
+import type { FC } from "react";
 
-const ProjectsList = (props) => {
+const ProjectsList: FC = () => {
   const items = [
     projectsData[0],
     projectsData[1],
@@ -18,17 +19,15 @@ const ProjectsList = (props) => {
   const itemsToHide = 3;
 
   return (
-    <Div my="3" {...props}>
+    <Div my="3">
       <PageTitle title="projects.title" tag="h2" />
       {items?.length ? (
         <Div
           grid={["repeat(1, 1fr)", , "1rem", "1rem"]}
-          css={{ gridAutoFlow: "row" }}
           overflowX="auto"
           css={{
-            [`& > *:nth-child(n+${6 - itemsToHide + 1})`]: {
-              display: "none",
-            },
+            gridAutoFlow: "row",
+            [`& > *:nth-child(n+${6 - itemsToHide + 1})`]: { display: "none" },
           }}
           responsive={{
             md: {

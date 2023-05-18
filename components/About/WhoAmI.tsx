@@ -1,17 +1,20 @@
 import Div from "@kits/Div";
 import Text from "@kits/Text";
 import __range from "lodash-es/range";
-import useTranslation from "@hooks/useTranslation";
-import { isDevelopment } from "@config";
+import { isDevelopment } from "@configs/general";
+import type { FC } from "react";
 
-const WhoAmI = (props) => {
+interface WhoAmIProps {
+  videoTitle: string;
+}
+
+const WhoAmI: FC<WhoAmIProps> = (props) => {
   const { videoTitle } = props;
-  const { t } = useTranslation();
   const paragraphsCount = 7;
 
   return (
     <Div mt="4">
-      <Div>
+      <Div gap="2">
         <Div
           as="video"
           title={videoTitle}
@@ -20,7 +23,6 @@ const WhoAmI = (props) => {
           border="border-light"
           poster="/images/intro-poster.png"
           controls
-          mb="2"
           responsive={{ sm: { ml: 3, mb: 0, css: { float: "right" } } }}
           preload={false}
           muted={isDevelopment}
@@ -29,9 +31,11 @@ const WhoAmI = (props) => {
           Your browser does not support the video tag.
         </Div>
         {__range(paragraphsCount).map((i) => (
-          <Text size="lg" tag="p" mb="1" align="justify">
-            {t(`about.p${i + 1}`)}
-          </Text>
+          <Div key={i}>
+            <Text size="lg" as="p" align="justify">
+              {`about.p${i + 1}`}
+            </Text>
+          </Div>
         ))}
         <Div as="br" css={{ clear: "both" }} />
       </Div>

@@ -1,8 +1,16 @@
 import Div from "@kits/Div";
 import Text from "@kits/Text";
 import useToggle from "@hooks/useToggle";
+import type { HOCFunctionalComponent } from "@_types/components";
+import type { CSSAttribute } from "goober";
+import type TextProps from "./Text/props";
 
-const ExpandableText = function (props) {
+interface ExpandableTextProps extends TextProps {
+  defaultExpanded: boolean;
+  lineClamp: CSSAttribute["WebkitLineClamp"];
+}
+
+const ExpandableText: HOCFunctionalComponent<ExpandableTextProps> = (props) => {
   const {
     children,
     defaultExpanded = false,
@@ -27,7 +35,7 @@ const ExpandableText = function (props) {
       }}
     >
       <Text
-        tag="p"
+        as="p"
         className="expandable-text__content"
         css={{
           display: isExpanded ? "block" : "-webkit-box",
@@ -36,6 +44,7 @@ const ExpandableText = function (props) {
           overflow: "hidden",
           ...css,
         }}
+        // eslint-disable-next-line react/jsx-props-no-spreading
         {...rest}
       >
         {children}
@@ -50,7 +59,7 @@ const ExpandableText = function (props) {
           curve="xsm"
           responsive={{ sm: { display: "none" } }}
         >
-          <Text size="sm">layout.kits.more</Text>
+          <Text size="sm">kits.more</Text>
         </Div>
       )}
     </Div>

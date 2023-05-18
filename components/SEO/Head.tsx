@@ -1,80 +1,52 @@
-import { appBaseURL } from "@config";
-import { NextSeo } from "next-seo";
-import { useRouter } from "next/router";
+import { NextSeo, type NextSeoProps } from "next-seo";
 import useTranslation from "@hooks/useTranslation";
+import { appBaseURL } from "@configs/urls";
 
-/** @type {import("react").ComponentType<import("next-seo").NextSeoProps>} */
+export interface HeadProps extends NextSeoProps {
+  page?: string;
+  keywords?: string;
+}
+
 const Head = ({
   canonical = "",
   keywords = "",
   additionalMetaTags = [],
-  page,
+  additionalLinkTags = [],
+  page = "",
   title,
   description,
   openGraph = {},
-  twitter = {},
   ...restProps
-}) => {
-  const _canonical = appBaseURL + canonical;
-  const router = useRouter();
-
-  const { t } = useTranslation();
-
-  // const mobileDomain = _canonical.replace("www.", "www.m.");
-  // const mobileAlternate = { media: "only screen and (max-width: 720px)", href: mobileDomain };
-  // const languageAlternates = [
-  //   { hreflang: "x-default", href: _canonical },
-  //   { hreflang: "fa", href: _canonical.replace("www.", "www.fa.") },
-  // ];
-
+}: HeadProps) => {
+  const { t } = useTranslation("common");
   const _title = title || t(`seo.title.${page}`, { defaultValue: "" });
   const _description =
-    description ||
-    t(`seo.description.${page}`, {
-      defaultValue: "",
-    });
-  const titleTemplate = t("seo.title.template", { defaultValue: "%s" });
+    description || t(`seo.description.${page}`, { defaultValue: "" });
+  const _canonical = canonical
+    ? `${appBaseURL}${canonical === "/" ? "" : canonical}`
+    : undefined;
 
   return (
     <NextSeo
       title={_title}
       description={_description}
-      titleTemplate={t("seo.title.template")}
-      // defaultTitle="seo.title.default"
+      // default title and description are being set in DefaultSeo component
       openGraph={{
-        title: titleTemplate.replace("%s", _title),
-        // description: _description,
-        images: [
-          {
-            url: "/images/logo-lg.png",
-            width: 400,
-            height: 400,
-            alt: t("app.title"),
-            type: "image/png",
-          },
-        ],
+        title: _title,
+        description: _description,
         url: _canonical,
-        type: "website",
-        locale: router.locale,
-        site_name: t("app.title"),
+        // other defaults are being set in DefaultSeo component
         ...openGraph,
-      }}
-      twitter={{
-        cardType: "summary",
-        // summary, summary_large_image, app, or player
-        handle: t("app.username"),
-        // site: t("app.username"),
-        url: _canonical,
-        ...twitter,
       }}
       canonical={_canonical}
       additionalMetaTags={[
         ...(keywords?.length ? [{ name: "keyword", content: keywords }] : []),
-
         ...additionalMetaTags,
       ]}
+      additionalLinkTags={additionalLinkTags}
       // {...mobileAlternate}
       // {...languageAlternates}
+      // eslint-disable-next-line react/jsx-props-no-spreading
       {...restProps}
     />
   );

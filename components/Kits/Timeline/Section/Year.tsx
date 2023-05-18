@@ -1,7 +1,12 @@
 import Div from "@kits/Div";
 import Text from "@kits/Text";
+import type { FC } from "react";
 
-const TimelineSectionYear = (props) => {
+export interface TimelineSectionYearProps {
+  year: string | number;
+}
+
+const TimelineSectionYear: FC<TimelineSectionYearProps> = (props) => {
   const { year } = props;
 
   return (
@@ -15,7 +20,7 @@ const TimelineSectionYear = (props) => {
       dimensions={{ top: "-1rem" }}
     >
       <Text
-        tag="p"
+        as="p"
         size="h-sm-b"
         color="assistive-success"
         // css={{ textTransform: "uppercase" }}

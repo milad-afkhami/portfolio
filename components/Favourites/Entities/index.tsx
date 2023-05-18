@@ -4,8 +4,9 @@ import FavouritesHelper from "@helpers/favourites";
 import PageTitle from "@components/Layout/Title/Page";
 import SectionTitle from "@components/Layout/Title/Section";
 import FavouriteEntity from "./Entity";
+import type { FC } from "react";
 
-const FavouriteEntities = (props) => {
+const FavouriteEntities: FC = () => {
   const favouritesLinks = useMemo(FavouritesHelper.getLinks, []);
 
   return (

@@ -1,15 +1,12 @@
-import styled from "styled-components";
-import { Div } from "./Div";
+import type { FC } from "react";
+import type { CSSAttribute } from "goober";
 
-/**
- *
- * @typedef {("dashed"|"dotted"|"double"|"solid")} BorderStyle
- * @typedef {("dashed"|"dotted"|"double"|"solid")} Type
- * @typedef {{ type:Type, borderStyle:BorderStyle, borderWidth:number|string }} HRProps
- *
- *
- * @type {import("react").ComponentType<HRProps>}
- */
+type HRProps = Pick<CSSAttribute, "borderStyle" | "borderWidth"> & {
+  type: "light" | "dark";
+};
+
+const HR: FC<HRProps> = (props) => {
+  const { type = "light", borderStyle = "solid", borderWidth = "1px" } = props;
 
 const HR = styled(Div).attrs(() => ({
   as: "hr",

@@ -2,8 +2,16 @@ import Div from "@kits/Div";
 import Text from "@kits/Text";
 import Image from "@kits/Image";
 import useTranslation from "@hooks/useTranslation";
+import type { FC } from "react";
 
-const FavouriteCommonEntityCard = (props) => {
+interface FavouriteCommonEntityCardProps {
+  slug: string;
+  entityType: IFavouriteEntities;
+}
+
+const FavouriteCommonEntityCard: FC<FavouriteCommonEntityCardProps> = (
+  props
+) => {
   const { slug, entityType } = props;
 
   const { t } = useTranslation();
@@ -27,7 +35,7 @@ const FavouriteCommonEntityCard = (props) => {
       curve="md"
     >
       <Div
-        flex
+        display="flex"
         height="100%"
         width="100%"
         overflow="hidden"

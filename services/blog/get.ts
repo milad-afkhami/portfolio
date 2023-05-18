@@ -2,8 +2,11 @@ import * as fs from "fs";
 import * as path from "path";
 import matter from "gray-matter";
 import { serialize } from "next-mdx-remote/serialize";
+import type { MDXResult } from "@_types/components";
 
-const getBlogDetail = async (slug) => {
+export default async function getBlogDetail(
+  slug: string
+): Promise<MDXResult<IBlog>> {
   const BLOGS_PATH = path.join(process.cwd(), "data", "blog");
 
   const blogFilePath = path.join(BLOGS_PATH, `${slug}.mdx`);
@@ -21,11 +24,7 @@ const getBlogDetail = async (slug) => {
   });
 
   return {
-    blog: {
-      source: mdxSource,
-      frontMatter: data,
-    },
+    source: mdxSource,
+    frontMatter: data as IBlog,
   };
-};
-
-export default getBlogDetail;
+}

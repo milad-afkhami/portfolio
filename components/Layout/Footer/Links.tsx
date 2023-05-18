@@ -4,8 +4,9 @@ import Text from "@kits/Text";
 import { useMemo } from "react";
 import FavouritesHelper from "@helpers/favourites";
 import __capitalize from "lodash-es/capitalize";
+import type { FC } from "react";
 
-const FooterLinks = (props) => {
+const FooterLinks: FC = () => {
   const favouritesLinks = useMemo(FavouritesHelper.getLinks, []);
 
   return (
@@ -17,8 +18,8 @@ const FooterLinks = (props) => {
               group
             )}s`}</Text>
           </Div>
-          {links.map(({ label, link }, i) => (
-            <Link href={link} mb="3" key={i}>
+          {links.map(({ label, link }, j) => (
+            <Link href={link} mb="3" key={j}>
               <Text
                 hoverColor="text-secondary"
                 size="sm-b"

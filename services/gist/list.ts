@@ -2,12 +2,12 @@ import matter from "gray-matter";
 import * as fs from "fs";
 import * as path from "path";
 
-const getGistsList = async () => {
+export default async function getGistsList() {
   const GISTS_PATH = path.join(process.cwd(), "data", "gist");
 
   const gistFilePaths = fs
     .readdirSync(GISTS_PATH)
-    .filter((path) => /\.mdx?$/.test(path));
+    .filter((_path) => /\.mdx?$/.test(_path));
 
   const gists = gistFilePaths.map((filePath) => {
     const source = fs.readFileSync(path.join(GISTS_PATH, filePath));
@@ -23,7 +23,5 @@ const getGistsList = async () => {
   });
   // .sort((a, b) => a.value - b.value);
 
-  return gists;
-};
-
-export default getGistsList;
+  return gists as Array<IGist>;
+}

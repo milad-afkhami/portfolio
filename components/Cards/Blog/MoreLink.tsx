@@ -1,8 +1,13 @@
 import Div from "@kits/Div";
 import Link from "@kits/Link";
 import Text from "@kits/Text";
+import type { FC } from "react";
 
-const BlogCardsMoreLink = (props) => {
+interface BlogCardsMoreLinkProps {
+  link: string;
+}
+
+const BlogCardsMoreLink: FC<BlogCardsMoreLinkProps> = (props) => {
   const { link } = props;
 
   return (

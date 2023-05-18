@@ -1,19 +1,18 @@
-import Div from "@kits/Div";
-import styled from "styled-components";
+import { styled } from "goober";
+import __noop from "lodash-es/noop";
+import type { FC, PropsWithChildren } from "react";
 
-const MenuToggler = (props) => {
-  const { open, toggle } = props;
+interface MenuTogglerProps {
+  open: boolean;
+  toggle: NoneToVoidFunction;
+}
 
-  return (
-    <StyledDiv open={open} onClick={!open ? toggle : () => {}}>
-      <span></span>
-      <span></span>
-      <span></span>
-    </StyledDiv>
-  );
-};
+type StyledDivProps = PropsWithChildren<{
+  open: boolean;
+  onClick: NoneToVoidFunction;
+}>;
 
-const StyledDiv = styled.div`
+const StyledDiv = styled<StyledDivProps>("div")`
   transform: scale(0.4);
   display: flex;
   flex-direction: column;
@@ -49,5 +48,17 @@ const StyledDiv = styled.div`
     transform: translate(30px, -11px) rotatez(45deg);
   }
 `;
+
+const MenuToggler: FC<MenuTogglerProps> = (props) => {
+  const { open, toggle } = props;
+
+  return (
+    <StyledDiv open={open} onClick={!open ? toggle : __noop}>
+      <span />
+      <span />
+      <span />
+    </StyledDiv>
+  );
+};
 
 export default MenuToggler;

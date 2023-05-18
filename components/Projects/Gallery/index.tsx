@@ -3,10 +3,11 @@ import Div from "@kits/Div";
 import SectionTitle from "@components/Layout/Title/Section";
 import ProjectGalleryAlbum from "./Album";
 import dynamic from "next/dynamic";
+import type { FC } from "react";
 
 const ImageViewer = dynamic(() => import("@kits/ImageViewer"));
 
-const ProjectGallery = (props) => {
+const ProjectGallery: FC<Pick<IProject, "medias">> = (props) => {
   const { medias } = props;
 
   const [renderViewer, setRenderViewer] = useState(false);
@@ -37,7 +38,7 @@ const ProjectGallery = (props) => {
         <ImageViewer
           isOpen={viewerIsOpen}
           onClose={closeLightbox}
-          current={currentImage}
+          currentIndex={currentImage}
           views={medias.map((x) => ({
             srcset: x.src,
             src: x.src,

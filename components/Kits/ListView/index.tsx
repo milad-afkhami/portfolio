@@ -1,21 +1,22 @@
+import { useMemo, type FC } from "react";
 import Div from "@kits/Div";
-import ListItem from "./Item";
-import { useMemo } from "react";
+import ListItem, { type ListViewItemProps } from "./Item";
 import __chunk from "lodash-es/chunk";
 
-/**
- * @typedef {Array<{ title:string, subtitle:string }>} ListViewItemProps
- * @typedef {{items:ListViewItemProps, color:import("@stylesheets").Colors, hoverColor:import("@stylesheets").Colors, size:import("@stylesheets").Typography, bold:boolean, multiDirection:boolean, cursor:string}} ListViewProps
- *
- * @type {import("react").ComponentType<ListViewProps>}
- */
+interface ListViewProps {
+  items: Array<Omit<ListViewItemProps, "index">>;
+  col?: number;
+}
 
-const ListView = (props) => {
+const ListView: FC<ListViewProps> = (props) => {
   const { items, col = 2 } = props;
 
-  const pivot = useMemo(() => Math.ceil(items.length / col), [items.length]);
+  const pivot = useMemo(
+    () => Math.ceil(items.length / col),
+    [items.length, col]
+  );
 
-  const columns = useMemo(() => __chunk(items, pivot), [items.length]);
+  const columns = useMemo(() => __chunk(items, pivot), [items, pivot]);
 
   return (
     <Div
@@ -23,16 +24,18 @@ const ListView = (props) => {
       width="100%"
       border="border-light"
       curve="xsm"
-      flex={[, , "row"]}
-      css={{
-        gap: "1rem",
-      }}
+      display="flex"
+      gap="1rem"
       p="2"
     >
       {columns.map((colItems, j) => (
-        <Div width="100%" px="0">
+        <Div key={j} width="100%" px="0">
           {colItems.map((item, i) => (
-            <ListItem index={j === 0 ? i + 1 : pivot + i + 1} {...item} />
+            <ListItem
+              key={i}
+              index={j === 0 ? i + 1 : pivot + i + 1}
+              {...item}
+            />
           ))}
         </Div>
       ))}

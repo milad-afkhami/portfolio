@@ -1,18 +1,16 @@
-import Div from "@kits/Div";
+import Link from "@kits/Link";
 import Icon from "@kits/Icon";
+import type { FC } from "react";
 
-const HeaderGithub = (props) => {
-  return (
-    <Div
-      as="a"
-      height="2.5rem"
-      flex={["center", "center"]}
-      href="https://github.com/miladMAPS/portfolio"
-      target="blank"
-    >
-      <Icon name="github" size="28px" />
-    </Div>
-  );
-};
+const HeaderGithub: FC = () => (
+  <Link
+    outerLink
+    height="2.5rem"
+    flex={["center", "center"]}
+    href="https://github.com/miladMAPS/portfolio"
+  >
+    <Icon name="github" size="28px" />
+  </Link>
+);
 
 export default HeaderGithub;

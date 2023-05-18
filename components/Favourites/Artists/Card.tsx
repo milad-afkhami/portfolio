@@ -1,10 +1,10 @@
 import Div from "@kits/Div";
 import Text from "@kits/Text";
 import Image from "@kits/Image";
-import Link from "@kits/Link";
+import type { FC } from "react";
 
-const FavouriteArtistCard = (props) => {
-  const { name, image, slug } = props;
+const FavouriteArtistCard: FC<IFavouriteArtist> = (props) => {
+  const { name, image } = props;
 
   return (
     <Div
@@ -13,7 +13,7 @@ const FavouriteArtistCard = (props) => {
       hoverColor="text-secondary"
     >
       <Div
-        flex
+        display="flex"
         curve="circle"
         height="250px"
         width="min(250px, 100%)"

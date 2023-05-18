@@ -1,15 +1,13 @@
 import Div from "@kits/Div";
 import FavouritePlaylist from "./Item";
-import { favouritePlaylistsData } from "@data/favourites";
+import favouritePlaylistsData from "@data/favourites/playlists";
 
-const FavouritePlaylists = () => {
-  return (
-    <Div>
-      {favouritePlaylistsData.map((pl) => (
-        <FavouritePlaylist {...pl} />
-      ))}
-    </Div>
-  );
-};
+const FavouritePlaylists = () => (
+  <Div>
+    {favouritePlaylistsData.map((pl) => (
+      <FavouritePlaylist key={pl.slug} {...pl} />
+    ))}
+  </Div>
+);
 
 export default FavouritePlaylists;

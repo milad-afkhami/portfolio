@@ -1,13 +1,18 @@
 import Div from "@kits/Div";
-import { TimelineSectionItemTitle } from "./Title";
-import { TimelineSectionItemDescription } from "./Description";
+import TimelineSectionItemTitle, {
+  type TimelineSectionItemTitleProps,
+} from "./Title";
+import TimelineSectionItemDescription from "./Description";
+import type { FC } from "react";
 
-const TimelineSectionItem = (props) => {
+export type TimelineSectionItemProps = TimelineSectionItemTitleProps;
+
+const TimelineSectionItem: FC<TimelineSectionItemProps> = (props) => {
   const { text, index } = props;
 
   return (
     <Div mb="3" as="li" css={{ listStyle: "none" }}>
-      <TimelineSectionItemTitle title={text} index={index} />
+      <TimelineSectionItemTitle text={text} index={index} />
       <TimelineSectionItemDescription description={`${text}_desc`} />
     </Div>
   );

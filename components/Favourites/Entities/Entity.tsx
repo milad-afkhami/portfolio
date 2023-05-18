@@ -2,10 +2,17 @@ import Div from "@kits/Div";
 import Text from "@kits/Text";
 import Image from "@kits/Image";
 import Link from "@kits/Link";
+import type { FC } from "react";
 
 // playlists  {/* , 6 */}{/* , 4 */}
-// artists  {/*1, , 7, 8 */}
-const FavouriteEntity = (props) => {
+// artists  {/*1, , 7, 8 */}import type { FC } from "react";
+
+interface FavouriteEntityProps {
+  link: string;
+  label: string;
+}
+
+const FavouriteEntity: FC<FavouriteEntityProps> = (props) => {
   const { link, label } = props;
 
   return (
@@ -28,7 +35,7 @@ const FavouriteEntity = (props) => {
       flex={[, "between", "column"]}
     >
       <Div
-        flex
+        display="flex"
         flexPortion="auto"
         curve="sm"
         height="200px"

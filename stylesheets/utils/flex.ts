@@ -1,3 +1,6 @@
+import type { CSSAttribute } from "goober";
+import type DivProps from "@kits/Div/props";
+
 const justifyValues = {
   center: "center",
   end: "flex-end",
@@ -17,12 +20,18 @@ const alignValues = {
   "flex-start": "flex-start",
 };
 
-const flex = (align, justify, dir = "row", wrap) => ({
-  display: "flex",
-  ...(align ? { alignItems: alignValues[align] } : {}),
-  ...(justify ? { justifyContent: justifyValues[justify] || justify } : {}),
-  ...(dir ? { flexDirection: dir } : {}),
-  ...(wrap ? { flexWrap: wrap } : {}),
-});
+interface Flex {
+  (...props: NonNullable<DivProps["flex"]>): CSSAttribute;
+}
+
+const flex: Flex = function (align, justify, dir, wrap) {
+  return {
+    display: "flex",
+    ...(align ? { alignItems: alignValues[align] } : {}),
+    ...(justify ? { justifyContent: justifyValues[justify] || justify } : {}),
+    ...(dir ? { flexDirection: dir || "row" } : {}),
+    ...(wrap ? { flexWrap: wrap } : {}),
+  };
+};
 
 export default flex;

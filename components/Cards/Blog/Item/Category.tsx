@@ -1,8 +1,9 @@
 import Div from "@kits/Div";
 import Text from "@kits/Text";
+import type { FC } from "react";
 
-const BlogCardCategory = (props) => {
-  const { category = "" } = props;
+const BlogCardCategory: FC<Pick<IBlog, "category">> = (props) => {
+  const { category } = props;
 
   return (
     <Div

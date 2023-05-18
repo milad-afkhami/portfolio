@@ -1,7 +1,14 @@
 import Div from "@kits/Div";
 import Text from "@kits/Text";
+import type { FC } from "react";
 
-const ListItem = (props) => {
+export interface ListViewItemProps {
+  index: number;
+  title: string;
+  subtitle: string;
+}
+
+const ListItem: FC<ListViewItemProps> = (props) => {
   const { index, title, subtitle } = props;
 
   return (
@@ -19,12 +26,12 @@ const ListItem = (props) => {
         <Text size="md" noTranslation>{`${index}. `}</Text>
       </Div>
       <Div mx="3" Mw="-webkit-fill-available">
-        <Div>
-          <Text size="sm" noTranslation truncate Mw="100%">
+        <Div Mw="100%">
+          <Text size="sm" noTranslation truncate>
             {title}
           </Text>
         </Div>
-        <Div flex>
+        <Div display="flex">
           <Text size="xsm" color="text-secondary" noTranslation>
             {subtitle}
           </Text>
