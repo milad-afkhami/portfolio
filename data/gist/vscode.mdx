@@ -60,8 +60,11 @@ Snippet: **`!func`**
   "React Functional Component": {
     "prefix": "!func",
     "body": "// #region imports\nimport React from \"react\";\nimport { Div, Text } from \"@kits\";\nimport { useState } from \"@hooks\";\n// #endregion\n\nexport default ${1:${TM_FILENAME_BASE}};
+import type { FC } from "react";
 
-const ${1:${TM_FILENAME_BASE}} = (props) => {\n  const {} = props || {};\n  const [state, setState] = useState(null)\n\n  return (\n    <Div>\n      ${1:${TM_FILENAME_BASE}}\n    </Div>\n  );\n}\n\n",
+interface ${1:${TM_FILENAME_BASE}}Props {}
+
+const ${1:${TM_FILENAME_BASE}}: FC<${1:${TM_FILENAME_BASE}}Props> = (props) => {\n  const {} = props;\n  const [state, setState] = useState(null)\n\n  return (\n    <Div>\n      ${1:${TM_FILENAME_BASE}}\n    </Div>\n  );\n}\n\n",
     "description": "Creates a functional React component"
   },
 }
@@ -78,8 +81,11 @@ import { useState } from "react";
 // #endregion
 
 export default TM_FILENAME_BASE;
+import type { FC } from "react";
 
-const TM_FILENAME_BASE = (props) => {
+interface TM_FILENAME_BASEProps {}
+
+const TM_FILENAME_BASE: FC<TM_FILENAME_BASEProps> = (props) => {
   const [state, setState] = useState(null);
 
   return <Div>TM_FILENAME_BASE</Div>;

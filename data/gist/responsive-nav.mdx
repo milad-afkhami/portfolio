@@ -10,7 +10,7 @@ See [here](https://github.com/miladMAPS/portfolio/blob/main/components/Layout/He
 import Div from "@kits/Div";
 import dynamic from "next/dynamic";
 import { useMediaQuery } from "react-responsive";
-import breakpoints from "@stylesheets/breakpoints";
+import breakpoints from "@stylesheets/constants/breakpoints.json";
 
 const HeaderMenu = dynamic(() => import("./Desktop"), { ssr: false });
 const HeaderResponsiveMenu = dynamic(() => import("./Responsive"), {
@@ -18,8 +18,11 @@ const HeaderResponsiveMenu = dynamic(() => import("./Responsive"), {
 });
 
 export default HeaderNav;
+import type { FC } from "react";
 
-const HeaderNav = (props) => {
+interface HeaderNavProps {}
+
+const HeaderNav: FC<HeaderNavProps> = (props) => {
   const isBigScreen = useMediaQuery({ minWidth: breakpoints.md });
   const isResponsiveScreen = useMediaQuery({ maxWidth: breakpoints.md });
 
