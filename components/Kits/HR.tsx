@@ -1,3 +1,4 @@
+import { css } from "goober";
 import type { FC } from "react";
 import type { CSSAttribute } from "goober";
 
@@ -8,13 +9,16 @@ type HRProps = Pick<CSSAttribute, "borderStyle" | "borderWidth"> & {
 const HR: FC<HRProps> = (props) => {
   const { type = "light", borderStyle = "solid", borderWidth = "1px" } = props;
 
-const HR = styled(Div).attrs(() => ({
-  as: "hr",
-}))(({ type = "light", borderStyle = "solid", borderWidth = 1 }) => ({
-  borderColor: `var(--color-border-${type})`,
-  borderStyle: borderStyle,
-  borderWidth: borderWidth + "px",
-  borderTop: "none",
-}));
+  return (
+    <hr
+      className={css({
+        borderColor: `var(--color-border-${type})`,
+        borderStyle,
+        borderWidth,
+        borderTop: "none",
+      })}
+    />
+  );
+};
 
 export default HR;

@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import { styled, keyframes } from "goober";
 
 const scales = keyframes`
   from {
@@ -46,7 +46,7 @@ const dash = keyframes`
   }
 `;
 
-const NotFoundAnimationWrapper = styled.div`
+const NotFoundAnimationWrapper = styled("div")`
   margin-top: 5rem;
   display: flex;
   justify-content: center;
