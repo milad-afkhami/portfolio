@@ -3,7 +3,7 @@
 interface IProject {
   id: number;
   name: string;
-  link: string;
+  link: string | Array<string>;
   logo: string;
   medias: Array<{ src: string; title?: string }>;
   date: string;
