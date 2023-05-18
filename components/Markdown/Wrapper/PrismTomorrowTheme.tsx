@@ -1,4 +1,4 @@
-import { css } from "styled-components";
+import { css } from "goober";
 
 const PrismTomorrowTheme = css`
   code[class*="language-"],
