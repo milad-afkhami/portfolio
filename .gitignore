@@ -10,14 +10,7 @@
 
 # next.js
 /.next/
-/.*.next/
-/.build.dev
-/.build/
-/.build.*/
-/.*.build/
-/.*.build
 /out/
-.build.dev/
 
 # production
 /build
@@ -25,6 +18,7 @@
 # misc
 .DS_Store
 .env
+next-env.d
 
 # debug
 npm-debug.log*
@@ -33,23 +27,21 @@ yarn-error.log*
 
 .idea/
 .vscode/
-node_modules/
-build
-.DS_Store
-*.tgz
-my-app*
-template/src/__tests__/__snapshots__/
-lerna-debug.log
+.vercel
 /.changelog
 .npm/
 yarn.lock
 package-lock.json
 
-*.pem
 # local env files
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-# vercel
-.vercel
+# .env.*
+# .env.*.*
+# .env.*.*
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+public/stylesheets/theme/*.min.css
+
+/cache/
