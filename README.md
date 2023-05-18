@@ -2,7 +2,7 @@
 
 ## My portfolio website
 
-Made with [Next.js](https://nextjs.org/), [MDX](https://github.com/mdx-js/mdx), [styled-components](https://styled-components.com/) and deployed on [Vercel](https://vercel.com/)
+Made with [Next.js](https://nextjs.org/), [MDX](https://github.com/mdx-js/mdx), [goober](https://goober.js.org/) and deployed on [Vercel](https://vercel.com/)
 
 ---
 
