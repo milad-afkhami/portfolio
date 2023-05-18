@@ -1,10 +1,10 @@
 import { useState, useEffect, createContext } from "react";
-import { ThemeProvider as STThemeProvider } from "styled-components";
+import { ThemeProvider as STThemeProvider } from "goober";
 import themes, { defaultTheme } from "@stylesheets/themes";
 import { getWidth } from "@utils/dimensions";
 import Cookies from "@utils/cookies";
 import __cloneDeep from "lodash-es/cloneDeep";
-import PLATFORMS from "@constants/platforms";
+import Platforms from "@constants/platforms";
 import PageAttr from "@helpers/pageAttribute";
 
 const ThemeContext = createContext();
@@ -14,9 +14,9 @@ const ThemeProvider = ({ children }) => {
     theme: Cookies.get("theme") || defaultTheme,
     platform: getWidth()
       ? getWidth() > 768
-        ? PLATFORMS.MOBILE
-        : PLATFORMS.DESKTOP
-      : Cookies.get("platform") || process.env.APP_PLATFORM || PLATFORMS.MOBILE,
+        ? Platforms.Mobile
+        : Platforms.Desktop
+      : Cookies.get("platform") || process.env.APP_PLATFORM || Platforms.Mobile,
   });
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const ThemeProvider = ({ children }) => {
       } else throw new Error("theme not found!");
 
     if (_platform)
-      if (typeof _theme === "string" && PLATFORMS[_platform]) {
+      if (typeof _theme === "string" && Platforms[_platform]) {
         // if there is a new platform and it fits
         Cookies.set("platform", _platform);
         _themeContext.platform = _platform;
