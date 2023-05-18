@@ -1,6 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import Div from "@kits/Div";
-import NextImage, { type ImageProps as NextImageProps } from "next/image";
+import NextImage, {
+  type ImageProps as NextImageProps,
+} from "next/legacy/image";
 import type { FC } from "react";
 import type ImageProps from "./props";
 
