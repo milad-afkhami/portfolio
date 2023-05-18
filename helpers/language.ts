@@ -1,7 +1,7 @@
 // import i18n from "react-i18next";
 import PageAttr from "@helpers/pageAttribute";
 import Cookies from "@utils/cookies";
-import languages from "@constants/languages";
+import languages, { defaultLanguage } from "@configs/languages";
 import { LOCALE_COOKIE_KEY } from "@constants/cookies";
 import Router from "next/router";
 
@@ -11,8 +11,7 @@ export default class LanguageHelper {
   };
 
   static initialLanguageSetup(locale) {
-    const _locale =
-      locale || Cookies.get(LOCALE_COOKIE_KEY) || this.getDefaultLocale();
+    const _locale = locale || Cookies.get(LOCALE_COOKIE_KEY) || defaultLanguage;
     const language = languages[_locale];
 
     PageAttr.setDirection(language.direction);

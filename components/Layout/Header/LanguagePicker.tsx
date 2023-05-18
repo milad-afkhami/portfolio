@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import __map from "lodash-es/map";
 import toastUtil from "@utils/toast";
 import LanguageHelper from "@helpers/language";
-import languages, { defaultLanguage } from "@constants/languages";
+import languages, { defaultLanguage } from "@configs/languages";
 import type { FC } from "react";
 import type { DropDownItemProps } from "@kits/DropDown/Item";
 
