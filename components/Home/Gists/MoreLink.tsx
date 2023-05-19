@@ -10,7 +10,7 @@ const GistsMoreLink: FC = () => (
       width="100%"
       height="3rem"
       flex={["center", "center"]}
-      bg="bg-secondary"
+      bg="bg-secondary-main"
       hoverBg="bg-secondary-hover"
       curve="sm"
     >

@@ -5,7 +5,7 @@ import type { FC } from "react";
 
 const SubscribeNewsletter: FC = () => (
   <Div
-    bg="bg-tertiary"
+    bg="bg-tertiary-main"
     height="var(--layout-subscribe-newsletter-height)"
     flex={["center", "around"]}
   >
@@ -14,17 +14,24 @@ const SubscribeNewsletter: FC = () => (
       <Div mb="4">
         <Text size="md-b">layout.subscribe.desc</Text>
       </Div>
-      <Div height="3.5rem" width="400px" border="border-dark" display="flex">
+      <Div
+        height="3.5rem"
+        width="400px"
+        border="border-dark-main"
+        display="flex"
+      >
         <Div width="50%" height="100%" flex={["center", "center"]}>
           <Text>layout.subscribe.enterEmail</Text>
         </Div>
         <Div
           width="50%"
           height="100%"
-          bg="text-primary"
+          bg="text-primary-main"
           flex={["center", "center"]}
         >
-          <Text color="bg-primary">layout.subscribe.sendEmail</Text>
+          <Text color="bg-primary-main" ns="layout">
+            subscribe.sendEmail
+          </Text>
         </Div>
       </Div>
     </Div>

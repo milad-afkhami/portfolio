@@ -17,7 +17,7 @@ const BlogCardsMoreLink: FC<BlogCardsMoreLinkProps> = (props) => {
         width="100%"
         height="3rem"
         flex={["center", "center"]}
-        bg="bg-secondary"
+        bg="bg-secondary-main"
         hoverBg="bg-secondary-hover"
         curve="sm"
       >

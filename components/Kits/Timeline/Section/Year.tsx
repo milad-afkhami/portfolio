@@ -14,15 +14,14 @@ const TimelineSectionYear: FC<TimelineSectionYearProps> = (props) => {
       height="2rem"
       flex={["center"]}
       position="absolute"
-      bg="bg-primary"
+      bg="bg-primary-main"
       px="3"
       curve="sm"
       dimensions={{ top: "-1rem" }}
     >
       <Text
         as="p"
-        size="h-sm-b"
-        color="assistive-success"
+        color="assistive-success-main"
         // css={{ textTransform: "uppercase" }}
       >
         {year}

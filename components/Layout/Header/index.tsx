@@ -13,8 +13,8 @@ const Header = () => (
   <Div
     height="var(--layout-header-height)"
     width="100%"
-    bg="bg-primary"
-    border="border-light"
+    bg="bg-primary-main"
+    border="border-light-main"
     borderSide="bottom"
   >
     <Div flex={["center", "between"]} matchParent>

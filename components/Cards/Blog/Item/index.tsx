@@ -17,7 +17,7 @@ const BlogCard: FC<IBlog> = (props) => {
       flex={[, , "column"]}
       curve="sm"
       overflow="hidden"
-      bg="bg-secondary"
+      bg="bg-secondary-main"
       hoverBg="bg-secondary-hover"
       // mw="280px"
       responsive={{

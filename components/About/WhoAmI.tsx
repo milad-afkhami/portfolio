@@ -20,7 +20,7 @@ const WhoAmI: FC<WhoAmIProps> = (props) => {
           title={videoTitle}
           width="min(100%, 600px)"
           curve="sm"
-          border="border-light"
+          border="border-light-main"
           poster="/images/intro-poster.png"
           controls
           responsive={{ sm: { ml: 3, mb: 0, css: { float: "right" } } }}
@@ -32,7 +32,7 @@ const WhoAmI: FC<WhoAmIProps> = (props) => {
         </Div>
         {__range(paragraphsCount).map((i) => (
           <Div key={i}>
-            <Text size="lg" as="p" align="justify">
+            <Text size="lg" as="p" align="justify" ns="about">
               {`about.p${i + 1}`}
             </Text>
           </Div>

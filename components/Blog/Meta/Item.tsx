@@ -13,9 +13,9 @@ const BlogMetaItem: FC<BlogMetaItemProps> = (props) => {
   if (!value) return null;
 
   return (
-    <Div flex={["center", "between"]} bg="bg-secondary" curve="sm" p="3">
+    <Div flex={["center", "between"]} bg="bg-secondary-main" curve="sm" p="3">
       <Div>
-        <Text color="text-secondary">{label}</Text>
+        <Text color="text-secondary-main">{label}</Text>
       </Div>
       <Div>
         <Text size="md-b">{value}</Text>

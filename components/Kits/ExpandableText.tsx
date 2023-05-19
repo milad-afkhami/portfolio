@@ -53,7 +53,7 @@ const ExpandableText: HOCFunctionalComponent<ExpandableTextProps> = (props) => {
           position="absolute"
           dimensions={{ bottom: 0, right: 0 }}
           onClick={toggleExpanded}
-          bg="bg-tertiary"
+          bg="bg-tertiary-main"
           px="2"
           curve="xsm"
           responsive={{ sm: { display: "none" } }}

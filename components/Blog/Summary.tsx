@@ -10,7 +10,7 @@ const BlogSummary: FC<BlogSummaryProps> = (props) => {
   const { summary } = props;
 
   return (
-    <Div my="3" bg="bg-secondary" p="3" curve="sm">
+    <Div my="3" bg="bg-secondary-main" p="3" curve="sm">
       <Text size="lg" as="p" lineHeight={2}>
         {summary}
       </Text>

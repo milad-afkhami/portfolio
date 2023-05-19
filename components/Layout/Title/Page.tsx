@@ -16,7 +16,7 @@ const PageTitle: FC<PageTitleProps> = (props) => {
       <Div
         flex={["center", "start"]}
         py="3"
-        border="border-light"
+        border="border-light-main"
         borderSide="bottom"
       >
         <Text size="h-md-b" as={tag || "h1"}>

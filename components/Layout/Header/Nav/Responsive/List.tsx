@@ -31,7 +31,7 @@ const HeaderResponsiveMenuList: FC<HeaderResponsiveMenuListProps> = (props) => {
         right: 0,
         top: "var(--layout-header-height)",
       }}
-      bg="bg-primary"
+      bg="bg-primary-main"
       zIndex="2"
       p="2 4"
       opacity={rendered ? 1 : 0}

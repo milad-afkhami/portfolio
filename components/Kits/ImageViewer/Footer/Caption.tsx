@@ -9,7 +9,7 @@ const ImageViewerFooterCaption: Components["FooterCaption"] = (props) => {
 
   return (
     <Div mx="2" flex={["center", "start"]}>
-      <Text as="p" size="lg-b" color="assistive-warning">
+      <Text as="p" size="lg" bold color="assistive-warning-main" noTranslation>
         {caption}
       </Text>
     </Div>

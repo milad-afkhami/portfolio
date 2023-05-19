@@ -22,7 +22,7 @@ const ListView: FC<ListViewProps> = (props) => {
     <Div
       height="100%"
       width="100%"
-      border="border-light"
+      border="border-light-main"
       curve="xsm"
       display="flex"
       gap="1rem"

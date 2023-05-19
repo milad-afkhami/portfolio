@@ -16,7 +16,7 @@ const DownloadResume: FC = () => {
       width="8rem"
       mw="7rem"
       cursor="pointer"
-      bg="assistive-info"
+      bg="assistive-info-main"
       hoverBg="assistive-info-light"
       px="3"
       mx="1"
@@ -26,14 +26,13 @@ const DownloadResume: FC = () => {
     >
       <Div flex={["center", "center"]}>
         <Icon
-          color="bg-primary"
-          hoverColor="bg-primary"
-          size="lg-b"
+          color="bg-primary-main"
+          hoverColor="bg-primary-main"
           name="download"
         />
       </Div>
       <Div>
-        <Text color="bg-primary" size="sm-b">
+        <Text ns="layout" color="bg-primary-main" size="sm" bold>
           layout.header.downloadResume
         </Text>
       </Div>

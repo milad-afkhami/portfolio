@@ -18,8 +18,8 @@ const FooterSocials: FC = () => {
           <Icon
             name={icon}
             size="20"
-            color="text-secondary"
-            hoverColor="brand"
+            color="text-secondary-main"
+            hoverColor="brand-main"
           />
         </Div>
       ))}

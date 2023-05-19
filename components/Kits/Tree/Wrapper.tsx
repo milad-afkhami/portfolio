@@ -29,7 +29,7 @@ const TreeWrapper = styled("div")`
     position: relative;
   }
   .tree-nav__item.is-expandable::before {
-    border-left: 1px solid var(--color-border-light);
+    border-left: 1px solid var(--color-border-light-main);
     content: "";
     height: 100%;
     position: absolute;
@@ -55,7 +55,7 @@ const TreeWrapper = styled("div")`
     will-change: transform;
     transition: var(--pace-fast) ease;
     font-family: "auto";
-    color: var(--color-text-primary);
+    color: var(--color-text-primary-main);
     font-size: var(--font-size-lg);
     font-weight: bold;
     line-height: 1.2;
@@ -76,16 +76,16 @@ const TreeWrapper = styled("div")`
     cursor: default;
     display: block;
     outline: 0;
-    color: var(--color-text-primary);
+    color: var(--color-text-primary-main);
     line-height: 2.5rem;
   }
   .is-expandable > .tree-nav__item-title {
     cursor: pointer;
     transition: color var(--pace-x-fast);
     :hover {
-      color: var(--color-text-secondary);
+      color: var(--color-text-secondary-main);
       :before {
-        color: var(--color-text-secondary);
+        color: var(--color-text-secondary-main);
       }
     }
   }

@@ -36,7 +36,7 @@ const DropDown: FC<DropDownProps> = (props) => {
           <DropDownItem
             {...(selectedItem! || {})}
             onClick={() => setIsOpen(!isOpen)}
-            border="border-dark"
+            border="border-dark-main"
             curve="xsm"
             width="7rem"
             pace="fast"
@@ -50,7 +50,7 @@ const DropDown: FC<DropDownProps> = (props) => {
         width="100%"
         height={`calc(${isOpen ? items.length : 0} * 100%)`}
         pace="fast"
-        bg="bg-secondary"
+        bg="bg-secondary-main"
         overflow="hidden"
         curve="xsm"
       >

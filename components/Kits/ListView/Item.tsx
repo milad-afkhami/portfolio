@@ -15,7 +15,7 @@ const ListItem: FC<ListViewItemProps> = (props) => {
     <Div
       flex={["center", "start"]}
       height="var(--list-view-item-height)"
-      // bg="bg-secondary"
+      // bg="bg-secondary-main"
       hoverBg="bg-secondary-paler"
       responsive={{ sm: { px: "3" } }}
       curve="xsm"
@@ -32,7 +32,7 @@ const ListItem: FC<ListViewItemProps> = (props) => {
           </Text>
         </Div>
         <Div display="flex">
-          <Text size="xsm" color="text-secondary" noTranslation>
+          <Text size="xsm" color="text-secondary-main" noTranslation>
             {subtitle}
           </Text>
         </Div>

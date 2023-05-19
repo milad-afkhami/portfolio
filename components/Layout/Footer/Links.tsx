@@ -21,9 +21,7 @@ const FooterLinks: FC = () => {
           {links.map(({ label, link }, j) => (
             <Link href={link} mb="3" key={j}>
               <Text
-                hoverColor="text-secondary"
-                size="sm-b"
-              >{`layout.footer.${label}`}</Text>
+                hoverColor="text-secondary-main"
             </Link>
           ))}
         </Div>

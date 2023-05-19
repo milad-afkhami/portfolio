@@ -21,7 +21,7 @@ const TimelineSectionItemDescription: FC<
 
   const textProps: TextProps = {
     size: "md",
-    color: "text-secondary",
+    color: "text-secondary-main",
     noTranslation: true,
     css: { whiteSpace: "pre-line" },
   };

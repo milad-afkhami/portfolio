@@ -16,26 +16,26 @@ const BlogCardFooter: FC<BlogCardFooterProps> = (props) => {
       width="100%"
       pt="2"
       responsive={{ md: { pt: "0.75rem" } }}
-      border="border-light"
+      border="border-light-main"
       borderSide="top"
     >
       <Div>
-        <Text as="time" color="text-secondary" size="xsm">
+        <Text as="time" color="text-secondary-main" size="xsm" noTranslation>
           {publishedAt}
         </Text>
       </Div>
       {readingTime ? (
         <Div flex={["center", "center"]} gap="2">
           <Text
-            color="text-secondary"
+            color="text-secondary-main"
             size="xsm"
             css={{ letterSpacing: "normal" }}
             noTranslation
           >
             {t("blog.meta.timeToReadValue", { time: readingTime })}
           </Text>
-          {/* <Text mx="2" color="text-secondary" size="xsm" translationVariables={{ time: readingTime }}>blog.meta.timeToReadValue</Text> */}
-          <Icon name="clock" color="text-secondary" size="sm" />
+          {/* <Text mx="2" color="text-secondary-main" size="xsm" translationVariables={{ time: readingTime }}>blog.meta.timeToReadValue</Text> */}
+          <Icon name="clock" color="text-secondary-main" size="sm" />
         </Div>
       ) : null}
     </Div>

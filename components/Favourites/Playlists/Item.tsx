@@ -15,7 +15,7 @@ const FavouritePlaylist: FC<IFavouritePlaylist> = (props) => {
   return (
     <Div
       width="100%"
-      border="border-light"
+      border="border-light-main"
       p="2"
       responsive={{ sm: { p: "3" } }}
       mb="3"

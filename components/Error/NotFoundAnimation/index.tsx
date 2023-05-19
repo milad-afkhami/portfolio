@@ -27,9 +27,9 @@ const NotFoundAnimation: FC = () => (
           <mask id="prefix__b" fill="#fff">
             <use xlinkHref="#prefix__a" />
           </mask>
-          <use fill="var(--color-bg-secondary)" xlinkHref="#prefix__a" />
+          <use fill="var(--color-bg-secondary-main)" xlinkHref="#prefix__a" />
           <path
-            fill="var(--color-bg-tertiary)"
+            fill="var(--color-bg-tertiary-main)"
             fillRule="nonzero"
             d="M-14.199 211.2H481.36V301.2H-14.199z"
             mask="url(#prefix__b)"
@@ -112,10 +112,10 @@ const NotFoundAnimation: FC = () => (
             />
           </g>
           <path
-            fill="var(--color-text-secondary)"
+            fill="var(--color-text-secondary-main)"
             className="path"
             fillRule="nonzero"
-            stroke="var(--color-text-tertiary)"
+            stroke="var(--color-text-tertiary-main)"
             strokeWidth={2}
             d="M198.754 186c1.56 0 2.246-.703 2.246-2.3v-41.4c0-1.597-.686-2.3-2.246-2.3h-9.608c-1.56 0-2.247.703-2.247 2.3v19.678h-5.802c-1.185 0-1.934-.83-1.934-2.172V142.3c0-1.597-.686-2.3-2.246-2.3h-9.67c-1.56 0-2.247.703-2.247 2.3v22.425c0 7.283 3.244 10.606 11.355 10.606H186.9v8.369c0 1.597.687 2.3 2.247 2.3h9.608zm32.277 1c15.3 0 18.969-5.248 18.969-13.056V152.12c0-7.808-3.67-13.12-18.969-13.12-15.3 0-19.031 5.312-19.031 13.12v21.824c0 7.808 3.732 13.056 19.031 13.056zm.969-12c-4.25 0-5-1.27-5-2.986v-17.091c0-1.652.75-2.923 5-2.923 4.313 0 5 1.27 5 2.923v17.09c0 1.716-.688 2.987-5 2.987zm62.754 11c1.56 0 2.246-.703 2.246-2.3v-41.4c0-1.597-.686-2.3-2.246-2.3h-9.608c-1.56 0-2.247.703-2.247 2.3v19.678h-5.802c-1.185 0-1.934-.83-1.934-2.172V142.3c0-1.597-.686-2.3-2.246-2.3h-9.67c-1.56 0-2.247.703-2.247 2.3v22.425c0 7.283 3.244 10.606 11.355 10.606H282.9v8.369c0 1.597.687 2.3 2.247 2.3h9.608z"
           />

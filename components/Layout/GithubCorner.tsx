@@ -12,8 +12,8 @@ const StyledAnchor = styled("a")`
   right: 0;
   svg {
     transition: all ${paces.fast};
-    fill: var(--color-text-primary);
-    color: var(--color-bg-primary);
+    fill: var(--color-text-primary-main);
+    color: var(--color-bg-primary-main);
   }
   .octo-arm {
     transform-origin: 130px 106px;

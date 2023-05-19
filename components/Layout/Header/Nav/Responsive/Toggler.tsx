@@ -19,7 +19,7 @@ const StyledDiv = styled<StyledDivProps>("div")`
   width: 70px;
   cursor: pointer;
   span {
-    background: var(--color-text-primary);
+    background: var(--color-text-primary-main);
     border-radius: 10px;
     height: 7px;
     margin: 7px 0;

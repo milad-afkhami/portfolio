@@ -10,7 +10,7 @@ const FavouriteArtistCard: FC<IFavouriteArtist> = (props) => {
     <Div
       // href={`/${slug}`}
       flex={["center", "center", "column"]}
-      hoverColor="text-secondary"
+      hoverColor="text-secondary-main"
     >
       <Div
         display="flex"

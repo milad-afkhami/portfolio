@@ -13,7 +13,7 @@ const StyledWrapper = styled("div")`
   }
 
   a {
-    color: var(--color-brand);
+    color: var(--color-brand-main);
     :hover {
       color: var(--color-brand-hover);
     }
@@ -23,7 +23,7 @@ const StyledWrapper = styled("div")`
     background: var(--color-brand-light);
     padding: 2px 4px;
     border-radius: 4px;
-    color: var(--color-bg-tertiary);
+    color: var(--color-bg-tertiary-main);
     font-weight: bold;
   }
 
@@ -37,8 +37,8 @@ const StyledWrapper = styled("div")`
   }
 
   blockquote {
-    background: var(--color-bg-secondary);
-    border-left: 10px solid var(--color-border-light);
+    background: var(--color-bg-secondary-main);
+    border-left: 10px solid var(--color-border-light-main);
     margin: 1.5em 0 1.5rem 1rem;
     padding: 1rem;
   }

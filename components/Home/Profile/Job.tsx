@@ -19,8 +19,7 @@ const ProfileJob: FC = () => (
         md: { css: { textAlign: "start", "*": { whiteSpace: "pre-line" } } },
       }}
     >
-      <Text size="lg" color="text-secondary" as="p" lineHeight="2" Mw="600px">
-        home.profile.jobDescription
+        color="text-secondary-main"
       </Text>
     </Div>
   </Div>

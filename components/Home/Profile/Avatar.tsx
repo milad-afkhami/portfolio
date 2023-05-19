@@ -9,7 +9,7 @@ const ProfileAvatar: FC = () => (
       width="11rem"
       height="11rem"
       curve="circle"
-      bg="brand"
+      bg="brand-main"
       position="relative"
       overflow="hidden"
       mb="3"

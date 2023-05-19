@@ -15,7 +15,7 @@ const FavouritePlaylistTracksItem: FC<FavouritePlaylistTracksItemProps> = (
     <Div
       flex={["center", "start"]}
       height="62px"
-      // bg="bg-secondary"
+      // bg="bg-secondary-main"
       hoverBg="bg-secondary-paler"
       responsive={{ sm: { px: "3" } }}
       curve="sm"
@@ -27,7 +27,7 @@ const FavouritePlaylistTracksItem: FC<FavouritePlaylistTracksItemProps> = (
       </Div>
       <Div mx="3" Mw="-webkit-fill-available">
         <Div>
-          <Text size="xsm" color="text-secondary" noTranslation>
+          <Text size="xsm" color="text-secondary-main" noTranslation>
             {artist}
           </Text>
         </Div>

@@ -5,7 +5,7 @@ import type { FC } from "react";
 // import FooterSocials from "./Socials";
 
 const Footer: FC = () => (
-  <Div mt="5" py="5" mw="100%" border="border-light" borderSide="top">
+  <Div mt="5" py="5" mw="100%" border="border-light-main" borderSide="top">
     <Row>
       <Col xs="12" lg="8">
         <FooterLinks />

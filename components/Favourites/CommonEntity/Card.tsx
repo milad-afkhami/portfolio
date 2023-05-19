@@ -25,7 +25,7 @@ const FavouriteCommonEntityCard: FC<FavouriteCommonEntityCardProps> = (
   return (
     <Div
       // href={`/${slug}`}
-      // hoverColor="text-secondary"
+      // hoverColor="text-secondary-main"
       position="relative"
       mh="400px"
       Mw="300px"
@@ -74,7 +74,7 @@ const FavouriteCommonEntityCard: FC<FavouriteCommonEntityCardProps> = (
         </Div>
         {meta && (
           <Div>
-            <Text size="md" color="text-secondary">
+            <Text size="md" color="text-secondary-main" noTranslation>
               {meta}
             </Text>
           </Div>

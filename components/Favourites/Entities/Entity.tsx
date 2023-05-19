@@ -21,7 +21,7 @@ const FavouriteEntity: FC<FavouriteEntityProps> = (props) => {
       mb="3"
       prefetch={false}
       // flex={["center", , "column"]}
-      bg="bg-secondary"
+      bg="bg-secondary-main"
       hoverBg="bg-secondary-hover"
       p="3"
       curve="sm"
@@ -57,8 +57,8 @@ const FavouriteEntity: FC<FavouriteEntityProps> = (props) => {
         <Text size="lg-b">{`favourites.${label}.title`}</Text>
       </Div>
       {/* <Text
-        hoverColor="text-secondary"
-        size="sm-b"
+        hoverColor="text-secondary-main"
+        size="sm" bold
       >{`favourites.${label}.title`}</Text> */}
     </Link>
   );

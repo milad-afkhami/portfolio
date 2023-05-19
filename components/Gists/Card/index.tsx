@@ -30,14 +30,7 @@ const GistCard: FC<IGist> = (props) => {
         <Text
           as="p"
           size="md"
-          color="text-secondary"
-          css={{
-            whiteSpace: "pre-wrap",
-            display: "-webkit-box",
-            WebkitLineClamp: 3,
-            lineClamp: 3,
-            WebkitBoxOrient: "vertical",
-          }}
+          color="text-secondary-main"
         >
           {summary}
         </Text>
