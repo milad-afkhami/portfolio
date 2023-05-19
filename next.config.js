@@ -10,9 +10,7 @@ module.exports = {
     styledComponents: true,
   },
   trailingSlash: true,
-  images: {
-    loader: "custom",
-  },
+  // modularizeImports: { "next-seo": { transform: "next-seo/{{member}}" } },
 };
 
 // withPlugins([[optimizedImages, { optimizeImagesInDev: true }]],
