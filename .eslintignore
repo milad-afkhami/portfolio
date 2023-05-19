@@ -10,3 +10,4 @@ package-lock.json
 scripts/stylesheets/*.mjs
 commitlint.config.js
 next.config.js
+next-i18next.config.js
