@@ -1,5 +1,4 @@
 import fs from "fs";
-// import LightTheme from "../stylesheets/constants/themes/LIGHT.json" assert { type: "json" };
 
 /**
  * generates color variables
@@ -40,8 +39,6 @@ const prepareCSSVariables = (name, variants) => {
 // function endLoading() {if (loadingInterval) {clearInterval(loadingInterval);}}
 
 async function main() {
-  const platform = process.argv[2];
-
   let styles = ``;
 
   const themeFileNames = fs.readdirSync("./stylesheets/constants/themes/");
@@ -52,10 +49,7 @@ async function main() {
 
     // getting current theme palette
     const palette = JSON.parse(
-      fs.readFileSync(
-        `./stylesheets/constants/themes/${name}/${platform}.json`,
-        "utf-8"
-      )
+      fs.readFileSync(`./stylesheets/constants/themes/${name}.json`, "utf-8")
     );
     // extracting variables
     let variables = prepareCSSVariables("color", palette);

@@ -6,8 +6,6 @@ if (nodeMajorVersion < 14) {
   throw new Error("`fs.rm` method requires node version 14.14.0 or higher.");
 }
 
-const platform = process.argv[2];
-
 // listing all scripts in current file
 const listBuffer = execSync("ls", { cwd: "./scripts/stylesheets" });
 
@@ -25,7 +23,7 @@ listBuffer
     // synchronous approach is 2.4x faster than asynchronous one
     exec(
       // --experimental-json-modules flag enables experimental support for import of JSON files
-      `node --experimental-json-modules ./scripts/stylesheets/${type}.mjs ${platform}`,
+      `node --experimental-json-modules ./scripts/stylesheets/${type}.mjs`,
       (error, stdout, stderr) => {
         if (error) {
           // prettier-ignore
