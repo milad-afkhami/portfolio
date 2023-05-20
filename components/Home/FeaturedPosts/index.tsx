@@ -1,8 +1,6 @@
 import Div from "@kits/Div";
 import BlogCards from "@components/Cards/Blog";
-import { useMediaQuery } from "react-responsive";
 import useTranslation from "@hooks/useTranslation";
-import breakpoints from "@stylesheets/constants/breakpoints.json";
 import type { FC } from "react";
 
 const homeBlogs = [
@@ -20,23 +18,18 @@ interface FeaturedPostsProps {
   posts: Array<IBlog>;
 }
 
-const FeaturedPosts: FC<FeaturedPostsProps> = ({ posts }) => {
+const FeaturedPosts: FC<FeaturedPostsProps> = (props) => {
+  const { posts } = props;
+
   const { t } = useTranslation("home");
 
-  const isMediumScreen = useMediaQuery({
-    minWidth: breakpoints.sm,
-    maxWidth: breakpoints.md,
-  });
+  // const isMediumScreen = useMediaQuery({ minWidth: breakpoints.sm, maxWidth: breakpoints.md });
 
   const items = posts.filter(({ slug }) => homeBlogs.includes(slug));
 
   return (
     <Div my="4">
-      <BlogCards
-        items={items?.slice?.(0, isMediumScreen ? 2 : 3)}
-        title={t("posts.title")}
-        moreLink="/blog"
-      />
+      <BlogCards items={items} title={t("posts.title")} moreLink="/blog" />
     </Div>
   );
 };
