@@ -1,5 +1,5 @@
 import { createPortal } from "react-dom";
-import { isClient } from "./isClient";
+import isClient from "./isClient";
 import type { PropsWithChildren, ReactPortal } from "react";
 
 type IsomorphicPortal = (

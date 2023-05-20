@@ -1,10 +1,20 @@
-import getOS from "./getOS";
+import getOS from "@utils/getOS";
+import isClient from "@utils/isClient";
 import OperationSystems from "@constants/os";
 
-const isIos = () => getOS() === OperationSystems.IOs && !window.MSStream;
+// @ts-ignore
+const isIos = () => getOS() === OperationSystems.IOS && !window.MSStream;
 
-export const getWidth = () =>
-  process.browser ? (isIos() ? window.screen.width : window.innerWidth) : NaN;
+export const getWidth = (): Maybe<number> => {
+  if (!isClient()) return undefined;
 
-export const getHeight = () =>
-  process.browser ? (isIos() ? window.screen.height : window.innerHeight) : NaN;
+  if (isIos()) return window.screen.width;
+  return window.innerWidth;
+};
+
+export const getHeight = (): Maybe<number> => {
+  if (!isClient()) return undefined;
+
+  if (isIos()) return window.screen.height;
+  return window.innerHeight;
+};

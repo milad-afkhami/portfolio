@@ -53,12 +53,14 @@ export default class Cookies {
    * if it can't be set, then the HTTP Only Cookie must be there (or the user is blocking cookies).
    */
   static httpCookieExist = (cookieName: string) => {
-    var date = new Date();
+    const date = new Date();
     date.setTime(date.getTime() + 1000);
-    var expires = "expires=" + date.toUTCString();
+    const expires = `expires=${date.toUTCString()}`;
 
-    document.cookie = cookieName + "=new_value;path=/;" + expires;
-    if (document.cookie.indexOf(cookieName + "=") == -1) return true;
-    else return false;
+    document.cookie = `${cookieName}=new_value;path=/;${expires}`;
+
+    if (document.cookie.indexOf(`${cookieName}=`) === -1) return true;
+
+    return false;
   };
 }

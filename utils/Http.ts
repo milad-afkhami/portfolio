@@ -1,58 +1,44 @@
-import axios from "axios";
+import axios, { type AxiosRequestHeaders } from "axios";
 import { apiBaseURL } from "@configs/urls";
 import formData from "@utils/formData";
 
-/**
- * @typedef {("GET" | "POST" | "PUT" | "PATCH" | "DELETE")} Method
- * @typedef {{baseURL:string, url:string, method:Method, headers:Object, params: Object, type: "formData"|null }} FetchOptions
- */
+type Method = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
+
+interface FetchOptions {
+  baseURL?: string;
+  url?: string;
+  method?: Method;
+  headers?: AxiosRequestHeaders;
+  params?: Dictionary;
+  data?: Dictionary<unknown>;
+  type?: "formData" | null;
+}
+
+export interface HTTPResponse<Data = unknown> {
+  data?: Data;
+  meta: { status_code: number; paginated?: boolean; detail?: string };
+}
 
 export default class Http {
-  /**
-   * Performs an HTTP options request
-   * @method
-   * @param {FetchOptions} options
-   * @returns {Promise}
-   */
-  static get = (options) => {
+  static async get<T>(options: FetchOptions | string) {
     const config = typeof options === "string" ? { url: options } : options;
 
-    return this.request({ method: "GET", ...config });
-  };
+    return this.request<T>({ method: "GET", ...config });
+  }
 
-  /**
-   * Performs an HTTP POST request
-   * @method
-   * @param {FetchOptions} options
-   * @returns {Promise}
-   */
-  static post = (options = {}) => this.request({ method: "POST", ...options });
+  static async post<T>(options: FetchOptions) {
+    return this.request<T>({ method: "POST", ...(options || {}) });
+  }
 
-  /**
-   * Performs an HTTP PATCH request
-   * @method
-   * @param {FetchOptions} options
-   * @returns {Promise}
-   */
-  static patch = (options = {}) =>
-    this.request({ method: "PATCH", ...options });
+  static async patch<T>(options: FetchOptions) {
+    return this.request<T>({ method: "PATCH", ...(options || {}) });
+  }
 
-  /**
-   * Performs an HTTP DELETE request
-   * @method
-   * @param {FetchOptions} options
-   * @returns {Promise}
-   */
-  static delete = (options = {}) =>
-    this.request({ method: "DELETE", ...options });
+  static async delete<T>(options: FetchOptions) {
+    return this.request<T>({ method: "DELETE", ...(options || {}) });
+  }
 
-  /**
-   * Performs an HTTP request
-   * @method
-   * @param {FetchOptions} options
-   * @returns {Promise}
-   */
-  static request = async (options) => {
+  static async request<T>(options: FetchOptions) {
     const {
       baseURL = apiBaseURL,
       url,
@@ -71,7 +57,7 @@ export default class Http {
       ...headers,
     };
 
-    const response = await axios.request({
+    const response = await axios.request<T>({
       method,
       url,
       baseURL,
@@ -81,5 +67,5 @@ export default class Http {
     });
 
     return response.data;
-  };
+  }
 }

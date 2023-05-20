@@ -1,20 +1,16 @@
 import OperationSystems from "@constants/os";
 
-const getOS = (userAgent) => {
+const getOS = (userAgent?: string): OperationSystems => {
   const agent =
-    userAgent || (process.browser ? window.navigator.userAgent : "");
+    userAgent ||
+    (typeof window !== "undefined" ? window.navigator.userAgent : "");
 
-  return /iPad|iPhone|iPod/.test(agent)
-    ? OperationSystems.IOs
-    : /Android/.test(agent)
-    ? OperationSystems.Android
-    : /Win/.test(agent)
-    ? OperationSystems.Windows
-    : /Linux/.test(agent)
-    ? OperationSystems.Linux
-    : /Mac/.test(agent)
-    ? OperationSystems.MacOs
-    : OperationSystems.Unknown;
+  if (/iPad|iPhone|iPod/.test(agent)) return OperationSystems.IOS;
+  if (/Android/.test(agent)) return OperationSystems.Android;
+  if (/Win/.test(agent)) return OperationSystems.Windows;
+  if (/Linux/.test(agent)) return OperationSystems.Linux;
+  if (/Mac/.test(agent)) return OperationSystems.MacOs;
+  return OperationSystems.Unknown;
 };
 
 export default getOS;

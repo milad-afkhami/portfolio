@@ -1,5 +1,5 @@
 enum OperationSystems {
-  IOs = "IOS",
+  IOS = "IOS",
   Android = "ANDROID",
   MacOs = "MacOS",
   Windows = "Windows",
