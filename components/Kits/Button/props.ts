@@ -8,7 +8,7 @@ interface ButtonTextProp extends Omit<TextProps, "children"> {
 export default interface ButtonProps extends ButtonHTMLAttributes<Element> {
   size?: "lg" | "md";
   variant?: "text" | "contained" | "outlined";
-  color?: "brand" | "brand-variant" | "success" | "error" | "warning" | "info";
+  color?: "brand" | "success" | "error" | "warning" | "info";
   text?: string | ButtonTextProp;
   loading?: boolean;
   disabled?: boolean;

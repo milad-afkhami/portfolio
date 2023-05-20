@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 import Div from "@kits/Div";
 import Adornment from "@kits/Adornment";
 import Spinner from "@kits/Spinner";
-import { Else, If, Then } from "@kits/ConditionalRendering";
+import { If, Then, Else } from "@kits/ConditionalRendering";
 import BaseButton from "./Base";
 import ButtonText from "./Text";
 import type ButtonProps from "./props";
