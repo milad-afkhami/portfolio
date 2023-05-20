@@ -1,10 +1,11 @@
 import Div from "@kits/Div";
 import Text from "@kits/Text";
 import type { FC } from "react";
+import type { PropsWithIndex } from "@_types/components";
 
-type FavouritePlaylistTracksItemProps = ValueOf<
-  IFavouritePlaylist["tracks"]
-> & { index: number };
+type FavouritePlaylistTracksItemProps = PropsWithIndex<
+  ValueOf<IFavouritePlaylist["tracks"]>
+>;
 
 const FavouritePlaylistTracksItem: FC<FavouritePlaylistTracksItemProps> = (
   props

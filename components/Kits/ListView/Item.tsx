@@ -1,14 +1,14 @@
 import Div from "@kits/Div";
 import Text from "@kits/Text";
 import type { FC } from "react";
+import type { PropsWithIndex } from "@_types/components";
 
 export interface ListViewItemProps {
-  index: number;
   title: string;
   subtitle: string;
 }
 
-const ListItem: FC<ListViewItemProps> = (props) => {
+const ListItem: FC<PropsWithIndex<ListViewItemProps>> = (props) => {
   const { index, title, subtitle } = props;
 
   return (

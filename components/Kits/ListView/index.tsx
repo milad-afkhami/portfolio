@@ -4,7 +4,7 @@ import ListItem, { type ListViewItemProps } from "./Item";
 import __chunk from "lodash-es/chunk";
 
 interface ListViewProps {
-  items: Array<Omit<ListViewItemProps, "index">>;
+  items: Array<ListViewItemProps>;
   col?: number;
 }
 
