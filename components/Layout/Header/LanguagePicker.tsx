@@ -1,6 +1,6 @@
 import { useMemo } from "react";
-import Div from "@kits/Div";
 import DropDown from "@kits/DropDown";
+import { If, Then } from "@kits/ConditionalRendering";
 import { useRouter } from "next/router";
 import __map from "lodash-es/map";
 import toastUtil from "@utils/toast";
@@ -31,14 +31,21 @@ const HeaderChangeLanguage: FC = () => {
     []
   );
 
+  const canChangeLanguage = useMemo(
+    () => Object.keys(languages).length > 1,
+    []
+  );
+
   return (
-    <Div>
-      <DropDown
-        items={dropDownItems}
-        selected={router.locale || defaultLanguage}
-        onChange={onChangeLanguage}
-      />
-    </Div>
+    <If condition={canChangeLanguage}>
+      <Then>
+        <DropDown
+          items={dropDownItems}
+          selected={router.locale || defaultLanguage}
+          onChange={onChangeLanguage}
+        />
+      </Then>
+    </If>
   );
 };
 
