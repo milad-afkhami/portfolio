@@ -1,10 +1,15 @@
 import Div from "@kits/Div";
 import Icon from "@kits/Icon";
 import __map from "lodash-es/map";
+import type IconProps from "@kits/Icon/props";
 import type { FC } from "react";
 
 const FooterSocials: FC = () => {
-  const socials = {
+  const socials: Dictionary<{
+    name: string;
+    icon: IconProps["name"];
+    link: string;
+  }> = {
     instagram: { name: "instagram", icon: "instagram", link: "instagram.com" },
     twitter: { name: "twitter", icon: "twitter", link: "twitter.com" },
     linkedIn: { name: "linkedIn", icon: "linkdin", link: "linkedIn.com" },
