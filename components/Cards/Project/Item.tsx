@@ -48,12 +48,7 @@ const ProjectCard: FC<Pick<IProject, "logo" | "slug" | "name">> = (props) => {
       <Div flexPortion="auto" ml="3">
         <Div flex={["start", "start", "column"]} height="100%">
           <Div mb="2" height="1.5rem">
-            <Text
-              ns="projects"
-              size="lg"
-              bold
-              css={{ textTransform: "uppercase" }}
-            >
+            <Text ns="projects" size="lg" bold transform="uppercase">
               {name}
             </Text>
           </Div>

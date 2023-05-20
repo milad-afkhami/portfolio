@@ -11,7 +11,8 @@ export interface StyledTextProps extends HTMLAttributes<Element> {
   maxLines?: number;
   bold?: boolean;
   truncate?: boolean;
-  lineHeight?: string | number;
+  lineHeight?: CSSAttribute["lineHeight"];
+  transform?: CSSAttribute["textTransform"];
   userSelect?: CSSAttribute["userSelect"];
   align?: CSSAttribute["textAlign"];
   css?: CSSAttribute;

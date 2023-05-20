@@ -10,13 +10,7 @@ interface ExpandableTextProps extends TextProps {
 }
 
 const ExpandableText: HOCFunctionalComponent<ExpandableTextProps> = (props) => {
-  const {
-    children,
-    defaultExpanded = false,
-    maxLines = 1,
-    css = {},
-    ...rest
-  } = props;
+  const { children, defaultExpanded = false, maxLines = 1, ...rest } = props;
 
   const [isExpanded, toggleExpanded] = useToggle(defaultExpanded);
 
@@ -37,7 +31,6 @@ const ExpandableText: HOCFunctionalComponent<ExpandableTextProps> = (props) => {
         as="p"
         className="expandable-text__content"
         maxLines={isExpanded ? undefined : maxLines}
-        css={css}
         {...rest}
       >
         {children}

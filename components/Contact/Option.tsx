@@ -40,12 +40,7 @@ const ContactOption: FC<ContactOptionProps> = (props) => {
         <Icon name={type} size="2.5rem" />
       </Div>
       <Div mb="2">
-        <Text
-          color="brand-main"
-          size="lg"
-          bold
-          css={{ textTransform: "capitalize" }}
-        >
+        <Text color="brand-main" size="lg" bold transform="capitalize">
           {`contact.${type}`}
         </Text>
       </Div>

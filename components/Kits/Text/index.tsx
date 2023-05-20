@@ -47,6 +47,7 @@ const StyledText = styled(
     lineHeight,
     userSelect,
     maxLines,
+    transform,
     css,
   }) => ({
     ...(color ? { color: colorVar(color) } : {}),
@@ -57,6 +58,7 @@ const StyledText = styled(
     ...(align ? { textAlign: align } : {}),
     ...(lineHeight ? { lineHeight } : {}),
     ...(userSelect ? { userSelect } : {}),
+    ...(transform ? { textTransform: transform } : {}),
     ...(truncate ? truncateStyles : {}),
     ...(maxLines ? maxLinesStyles(maxLines) : {}),
     ...(hoverColor ? { "&:hover": { color: colorVar(hoverColor) } } : {}),
@@ -66,7 +68,14 @@ const StyledText = styled(
 );
 
 const Text: FC<TextProps> = (props) => {
-  const { children, ns, translationOptions, noTranslation, keyPrefix } = props;
+  const {
+    children,
+    ns,
+    translationOptions,
+    noTranslation,
+    keyPrefix,
+    ...rest
+  } = props;
 
   const { t } = useTranslation(ns, { keyPrefix });
 
@@ -80,7 +89,7 @@ const Text: FC<TextProps> = (props) => {
   if (isChildrenString && !noTranslation)
     text = t(children, translationOptions);
 
-  return <StyledText {...props}>{text}</StyledText>;
+  return <StyledText {...rest}>{text}</StyledText>;
 };
 
 export default Text;

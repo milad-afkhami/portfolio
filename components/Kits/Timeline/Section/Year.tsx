@@ -25,7 +25,7 @@ const TimelineSectionYear: FC<TimelineSectionYearProps> = (props) => {
         bold
         color="assistive-success-main"
         noTranslation
-        // css={{ textTransform: "uppercase" }}
+        transform="uppercase"
       >
         {year}
       </Text>
