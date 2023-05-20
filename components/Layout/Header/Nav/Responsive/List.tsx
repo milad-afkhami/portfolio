@@ -33,9 +33,12 @@ const HeaderResponsiveMenuList: FC<HeaderResponsiveMenuListProps> = (props) => {
       }}
       bg="bg-primary-main"
       zIndex="2"
-      p="2 4"
+      py="2"
+      px="4"
       opacity={rendered ? 1 : 0}
       pace="fast"
+      flex={[, , "column"]}
+      gap="3"
     >
       {navItems.map((menu, i) => (
         <HeaderMenuItem key={i} onClick={toggleMenu} {...menu} />

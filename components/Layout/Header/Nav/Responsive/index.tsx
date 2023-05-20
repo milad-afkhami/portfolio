@@ -4,6 +4,7 @@ import useToggle from "@hooks/useToggle";
 import MenuToggler from "./Toggler";
 import HeaderResponsiveMenuList from "./List";
 import type { FC } from "react";
+import { responsiveUpperBoundBreakpoint } from "@configs/general";
 
 const HeaderResponsiveMenu: FC = () => {
   const [menuOpen, toggleMenu] = useToggle(false);
@@ -13,7 +14,10 @@ const HeaderResponsiveMenu: FC = () => {
   );
 
   return (
-    <Div display="flex">
+    <Div
+      display="flex"
+      responsive={{ [responsiveUpperBoundBreakpoint]: { display: "none" } }}
+    >
       <MenuToggler open={isMenuMounted} toggle={toggleMenu} />
       {isMenuMounted && (
         <HeaderResponsiveMenuList
