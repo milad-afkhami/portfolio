@@ -11,13 +11,13 @@ const ProjectTech: FC<ProjectTechProps> = (props) => {
     <Link
       outerLink
       href={link}
-      bg="brand"
+      bg="brand-main"
       hoverBg="brand-hover"
       px={compact ? 1 : 2}
       curve="xsm"
       display="flex"
     >
-      <Text size={compact ? "xsm" : "md-b"} color="bg-primary">
+      <Text size={compact ? "xsm" : "md"} color="bg-primary-main">
         {name}
       </Text>
     </Link>

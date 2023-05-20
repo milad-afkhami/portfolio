@@ -7,8 +7,8 @@ const ProjectDescription: FC<Pick<IProject, "slug">> = (props) => {
 
   return (
     <Div mb="3">
-      <Text size="lg">{`projects.${slug}.description`}</Text>
-      {/* /{" "}<Text size="md-b" as="time" css={{ textDecoration: "underline" }}>{`${props.date}`}</Text> */}
+      <Text size="lg" ns="projects">{`${slug}.description`}</Text>
+      {/* /{" "}<Text size="md" bold as="time" css={{ textDecoration: "underline" }}>{`${props.date}`}</Text> */}
     </Div>
   );
 };

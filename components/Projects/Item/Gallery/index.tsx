@@ -4,6 +4,7 @@ import SectionTitle from "@components/Layout/Title/Section";
 import ProjectGalleryAlbum from "./Album";
 import dynamic from "next/dynamic";
 import type { FC } from "react";
+import useTranslation from "@hooks/useTranslation";
 
 const ImageViewer = dynamic(() => import("@kits/ImageViewer"));
 
@@ -13,8 +14,9 @@ const ProjectGallery: FC<Pick<IProject, "medias">> = (props) => {
   const [renderViewer, setRenderViewer] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
+  const { t } = useTranslation();
 
-  const openLightbox = useCallback((index) => {
+  const openLightbox = useCallback((index: number) => {
     setCurrentImage(index);
     setViewerIsOpen(true);
   }, []);
@@ -26,7 +28,7 @@ const ProjectGallery: FC<Pick<IProject, "medias">> = (props) => {
 
   return (
     <Div mb="4">
-      <SectionTitle icon="gallery" title="projects.gallery" />
+      <SectionTitle icon="gallery" title="gallery" ns="projects" />
       <ProjectGalleryAlbum
         medias={medias}
         onClickItem={(index) => {
@@ -40,9 +42,9 @@ const ProjectGallery: FC<Pick<IProject, "medias">> = (props) => {
           onClose={closeLightbox}
           currentIndex={currentImage}
           views={medias.map((x) => ({
-            srcset: x.src,
-            src: x.src,
-            caption: x.title,
+            source: x.src,
+            caption: x.title ? t(x.title) : undefined,
+            alt: x.title ? t(x.title) : undefined,
           }))}
         />
       )}

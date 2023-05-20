@@ -6,25 +6,26 @@ import type { FC } from "react";
 import type { PropsWithIndex } from "@_types/components";
 
 type ProjectHeadingProps = PropsWithIndex<
-  Pick<IProject, "logo" | "link" | "slug">
+  Pick<IProject, "logo" | "link" | "slug" | "name">
 >;
 
 const ProjectHeading: FC<ProjectHeadingProps> = (props) => {
-  const { logo, link = "", slug, index } = props;
+  const { index, name, logo, link = "", slug } = props;
 
   return (
     <Div
       flex={["center", "between"]}
       py="3"
       mb="4"
-      border="border-light"
+      border="border-light-main"
       borderSide="bottom"
     >
       <Div flex={["center", "start"]}>
-        <Text size="h-lg-b">{`${index}.`}</Text>
+        <Text size="h-lg" bold>{`${index}.`}</Text>
         <Div mx="2">
-          <Text size="h-md-b" as="h2">
-            {`projects.${slug}.name`}
+          <Text size="h-md" bold as="h2" noTranslation>
+            {name}
+            {/* {`${slug}.name`} */}
           </Text>
         </Div>
         <Div flex={["center", "center"]} curve="circle" overflow="hidden">

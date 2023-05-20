@@ -2,8 +2,8 @@ import Div from "@kits/Div";
 import Head from "@components/SEO/Head";
 import Profile from "@components/Home/Profile";
 import FeaturedPosts from "@components/Home/FeaturedPosts";
-import Projects from "@components/Home/Projects";
-import Gists from "@components/Home/Gists";
+import HomeProjects from "@components/Home/Projects";
+import HomeGists from "@components/Home/Gists";
 import BlogServices from "@services/blog";
 import GistServices from "@services/gist";
 import dynamic from "next/dynamic";
@@ -27,8 +27,8 @@ const HomePage: FC<HomePageProps> = (props) => {
       <Div width="100%" py="3">
         <Profile />
         <FeaturedPosts posts={blogs} />
-        <Projects />
-        <Gists items={gists} />
+        <HomeProjects />
+        <HomeGists items={gists} />
         <Contact />
       </Div>
     </>

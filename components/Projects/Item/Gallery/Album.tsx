@@ -35,7 +35,7 @@ const ProjectGalleryAlbum: FC<ProjectGalleryAlbumProps> = (props) => {
           responsive={{ sm: { width: "150px", height: "150px" } }}
           position="relative"
           cursor="zoom-in"
-          border="border-dark"
+          border="border-dark-main"
           borderW="2"
           curve="sm"
           overflow="hidden"

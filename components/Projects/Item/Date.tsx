@@ -12,7 +12,7 @@ const ProjectDate: FC<Pick<IProject, "date">> = (props) => {
         <Icon name="calendar" size="h-md" />
       </Div>
       <Div mx="2">
-        <Text size="md-b" as="time">
+        <Text size="md" bold as="time">
           {date}
         </Text>
       </Div>

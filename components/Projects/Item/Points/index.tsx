@@ -8,10 +8,15 @@ const ProjectPoints: FC<Pick<IProject, "points">> = (props) => {
 
   return (
     <Div mb="4">
-      <SectionTitle icon="focus-center" title="projects.points" />
+      <SectionTitle icon="focus-center" title="points" ns="projects" />
       {/* mx="-4" */}
       <Div Mw="100%">
-        <Tree branches={points} branchesAccessor="points" defaultOpen />
+        <Tree
+          ns="projects"
+          branches={points}
+          branchesAccessor="points"
+          defaultOpen
+        />
       </Div>
     </Div>
   );
