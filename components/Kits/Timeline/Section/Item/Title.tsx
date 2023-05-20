@@ -10,6 +10,8 @@ const TimelineSectionItemTitle: FC<TimelineSectionItemTitleProps> = (props) => {
   return (
     <Text
       as="p"
+      size="lg"
+      bold
       color="text-secondary-main"
       css={{ textTransform: "capitalize" }}
       noTranslation

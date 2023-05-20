@@ -30,7 +30,9 @@ const FavouriteArtistCard: FC<IFavouriteArtist> = (props) => {
         />
       </Div>
       <Div>
-        <Text size="lg-b">{name}</Text>
+        <Text noTranslation size="lg" bold>
+          {name}
+        </Text>
       </Div>
     </Div>
   );

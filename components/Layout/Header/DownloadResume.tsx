@@ -29,6 +29,8 @@ const DownloadResume: FC = () => {
         <Icon
           color="bg-primary-main"
           hoverColor="bg-primary-main"
+          size="lg"
+          bold
           name="download"
         />
       </Div>

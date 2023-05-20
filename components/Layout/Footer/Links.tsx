@@ -22,6 +22,8 @@ const FooterLinks: FC = () => {
             <Link href={link} mb="3" key={j}>
               <Text
                 hoverColor="text-secondary-main"
+                size="sm"
+                bold
                 ns="layout"
               >{`footer.${label}`}</Text>
             </Link>
