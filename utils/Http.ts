@@ -1,5 +1,5 @@
 import axios from "axios";
-import { externalApiBaseURL } from "@config";
+import { apiBaseURL } from "@configs/urls";
 import formData from "@utils/formData";
 
 /**
@@ -54,7 +54,7 @@ export default class Http {
    */
   static request = async (options) => {
     const {
-      baseURL = externalApiBaseURL,
+      baseURL = apiBaseURL,
       url,
       method = "GET",
       headers,

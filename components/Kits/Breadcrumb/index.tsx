@@ -1,5 +1,5 @@
-import { BreadcrumbJsonLd } from "next-seo";
 import Div from "@kits/Div";
+import { BreadcrumbJsonLd } from "next-seo";
 import BreadcrumbLink from "./Link";
 import { responsiveUpperBoundBreakpoint } from "@configs/general";
 import type { FC } from "react";

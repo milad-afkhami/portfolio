@@ -1,5 +1,5 @@
 /* eslint-disable react/self-closing-comp */
-import styled from "goober";
+import { styled } from "goober";
 import breakpoints from "@stylesheets/constants/breakpoints.json";
 import paces from "@stylesheets/constants/paces.json";
 import type { FC } from "react";
