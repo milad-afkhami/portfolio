@@ -99,18 +99,14 @@ product: {
 The best way to implement this page is to first get data at build time with help of ISR, removing its dynamic parts( isLiked, similars ), and passing remains to the page as props.
 
 ```javascript
-export default getStaticProps;
-
-const getStaticProps = async ({ params }) => {
+export const getStaticProps = async ({ params }) => {
     const result = await ProductServices.getDetail(params.slug);
     return {
       props: { product: result.product },
     };
   };
 }
-export default getStaticPaths;
-
-const getStaticPaths = async ({ locales }) => {
+export const getStaticPaths = async ({ locales }) => {
   const priorProducts = await ProductServices.getPriors(1000);
   const paths = priorProducts.reduce((acc, { slug }) => {
     locales.forEach((locale) => {
