@@ -36,6 +36,14 @@ h3 {
   transition: background-color 0.1s linear;
 }
 
+/* *, ::after, ::before {} */
+html {
+  font-family: IBM Plex Sans, ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
+    Noto Color Emoji;
+}
+
 /* #region selection style */
 *::selection {
   color: white;
