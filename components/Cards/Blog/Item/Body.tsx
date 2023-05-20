@@ -12,7 +12,7 @@ const BlogCardBody: FC<Pick<IBlog, "title" | "summary">> = (props) => {
           {title}
         </Text>
       </Div>
-      {/* <Div><Text color="text-secondary-main" css={{ display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden" }} >{summary}</Text></Div> */}
+      {/* <Div><Text color="text-secondary-main" maxLines="3" overflow="hidden" >{summary}</Text></Div> */}
     </Div>
   );
 };

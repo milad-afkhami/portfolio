@@ -2,19 +2,18 @@ import Div from "@kits/Div";
 import Text from "@kits/Text";
 import useToggle from "@hooks/useToggle";
 import type { HOCFunctionalComponent } from "@_types/components";
-import type { CSSAttribute } from "goober";
 import type TextProps from "./Text/props";
 
 interface ExpandableTextProps extends TextProps {
-  defaultExpanded: boolean;
-  lineClamp: CSSAttribute["WebkitLineClamp"];
+  defaultExpanded?: boolean;
+  maxLines?: number;
 }
 
 const ExpandableText: HOCFunctionalComponent<ExpandableTextProps> = (props) => {
   const {
     children,
     defaultExpanded = false,
-    lineClamp = 1,
+    maxLines = 1,
     css = {},
     ...rest
   } = props;
@@ -29,7 +28,7 @@ const ExpandableText: HOCFunctionalComponent<ExpandableTextProps> = (props) => {
       responsive={{
         sm: {
           css: {
-            [`& > .expandable-text__content`]: { display: "block".imp() },
+            [`& > .expandable-text__content`]: { display: "block !important" },
           },
         },
       }}
@@ -37,13 +36,8 @@ const ExpandableText: HOCFunctionalComponent<ExpandableTextProps> = (props) => {
       <Text
         as="p"
         className="expandable-text__content"
-        css={{
-          display: isExpanded ? "block" : "-webkit-box",
-          WebkitLineClamp: lineClamp,
-          WebkitBoxOrient: "vertical",
-          overflow: "hidden",
-          ...css,
-        }}
+        maxLines={isExpanded ? undefined : maxLines}
+        css={css}
         {...rest}
       >
         {children}

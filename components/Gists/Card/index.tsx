@@ -33,6 +33,7 @@ const GistCard: FC<IGist> = (props) => {
           as="p"
           size="md"
           color="text-secondary-main"
+          maxLines={3}
           noTranslation
         >
           {summary}
