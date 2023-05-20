@@ -26,8 +26,8 @@ const IconElement = styled("i")<
 
 const Icon: FC<IconProps> = (props) => {
   const {
-    prefix = "icon",
-    suffix = "",
+    prefix = "mili",
+    suffix = "icon",
     name,
     multiDirection,
     className = "",
