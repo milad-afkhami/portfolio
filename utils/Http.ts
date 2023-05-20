@@ -14,11 +14,6 @@ interface FetchOptions {
   type?: "formData" | null;
 }
 
-export interface HTTPResponse<Data = unknown> {
-  data?: Data;
-  meta: { status_code: number; paginated?: boolean; detail?: string };
-}
-
 export default class Http {
   static async get<T>(options: FetchOptions | string) {
     const config = typeof options === "string" ? { url: options } : options;
