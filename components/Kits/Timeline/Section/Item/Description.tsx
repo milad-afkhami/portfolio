@@ -2,7 +2,6 @@ import Div from "@kits/Div";
 import Text from "@kits/Text";
 import ExpandableText from "@kits/ExpandableText";
 import { If, Then, Else } from "@kits/ConditionalRendering";
-import useTranslation from "@hooks/useTranslation";
 import type { FC } from "react";
 import type TextProps from "@kits/Text/props";
 
@@ -15,9 +14,7 @@ const TimelineSectionItemDescription: FC<
 > = (props) => {
   const { description } = props;
 
-  const { t } = useTranslation();
-  const text = t(description, { defaultValue: "" });
-  const isExpandable = text.length > 26;
+  const isExpandable = description.length > 26;
 
   const textProps: TextProps = {
     size: "md",
@@ -26,21 +23,19 @@ const TimelineSectionItemDescription: FC<
     css: { whiteSpace: "pre-line" },
   };
 
+  if (!description) return null;
+
   return (
-    <If condition={text}>
-      <Then>
-        <Div ml="3" width="fit-content">
-          <If condition={isExpandable}>
-            <Then>
-              <ExpandableText {...textProps}>{text}</ExpandableText>
-            </Then>
-            <Else>
-              <Text {...textProps}>{text}</Text>
-            </Else>
-          </If>
-        </Div>
-      </Then>
-    </If>
+    <Div ml="3" width="fit-content">
+      <If condition={isExpandable}>
+        <Then>
+          <ExpandableText {...textProps}>{description}</ExpandableText>
+        </Then>
+        <Else>
+          <Text {...textProps}>{description}</Text>
+        </Else>
+      </If>
+    </Div>
   );
 };
 

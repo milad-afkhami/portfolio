@@ -2,18 +2,12 @@ import Div from "@kits/Div";
 import Text from "@kits/Text";
 import Icon from "@kits/Icon";
 import { If, Then } from "@kits/ConditionalRendering";
-import type TextProps from "@kits/Text/props";
-import type { IconName } from "@kits/Icon/props";
 import type { FC } from "react";
-
-interface SectionTitleProps {
-  title?: string;
-  icon?: IconName;
-  tag?: TextProps["as"];
-}
+import type TextProps from "@kits/Text/props";
+import type { SectionTitleProps } from "./props";
 
 const SectionTitle: FC<SectionTitleProps> = (props) => {
-  const { icon, title, tag = "h3" } = props;
+  const { icon, title, ns, tag = "h3" } = props;
 
   if (!title) return null;
 
@@ -30,7 +24,7 @@ const SectionTitle: FC<SectionTitleProps> = (props) => {
   }
 
   return (
-    <Div flex={["center", "start"]} mb="2">
+    <Div flex={["center", "start"]} mb="2" gap="2">
       <If condition={icon}>
         <Then>
           <Div flex={["center", "center"]}>
@@ -38,8 +32,8 @@ const SectionTitle: FC<SectionTitleProps> = (props) => {
           </Div>
         </Then>
       </If>
-      <Div mx={icon ? 2 : 0}>
-        <Text size={size} bold as={tag}>
+      <Div>
+        <Text ns={ns} size={size} bold as={tag}>
           {title}
         </Text>
       </Div>

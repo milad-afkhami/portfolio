@@ -1,16 +1,16 @@
 import Div from "@kits/Div";
 import Breadcrumb from "@kits/Breadcrumb";
 import { useRouter } from "next/router";
-import useTranslation from "@hooks/useTranslation";
 import Head from "@components/SEO/Head";
 import { ArticleJsonLd } from "next-seo";
 import MDXRemote from "@components/Markdown/MDXRemote";
-import BlogTitle from "@components/Blog/Title";
 import BlogSummary from "@components/Blog/Summary";
 import BlogMeta from "@components/Blog/Meta";
 import BlogBanner from "@components/Blog/Banner";
-import BlogServices from "@services/blog";
+import PageTitle from "@components/Layout/Title/Page";
 import MarkdownWrapper from "@components/Markdown/Wrapper";
+import useTranslation from "@hooks/useTranslation";
+import BlogServices from "@services/blog";
 import { appBaseURL } from "@configs/urls";
 import type { FC } from "react";
 import type {
@@ -32,6 +32,7 @@ const BlogPage: FC<BlogPageProps> = (props) => {
   const source = props?.blog?.source || {};
 
   const { t } = useTranslation();
+  const { t: layoutT } = useTranslation("layout");
 
   const canonical = `/blog/${slug}`;
   return (
@@ -58,18 +59,18 @@ const BlogPage: FC<BlogPageProps> = (props) => {
         description={summary}
         images={[appBaseURL + image]}
         datePublished={publishedAt}
-        authorName={t("home.profile.name")}
+        authorName={t("profile.name")}
       />
       <Div width="100%" py="3">
         <Breadcrumb
           routes={[
-            { title: "home.title", link: "/" },
-            { title: "blog.title", link: "/blog" },
+            { title: layoutT("header.menu.home"), link: "/" },
+            { title: layoutT("header.menu.blog"), link: "/blog" },
             { title, link: canonical },
           ]}
         />
         <Div>
-          <BlogTitle title={title} />
+          <PageTitle title={title} />
           <BlogSummary summary={summary} />
           <BlogMeta
             category={category}

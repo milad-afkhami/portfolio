@@ -1,15 +1,10 @@
 import Div from "@kits/Div";
 import Text from "@kits/Text";
 import type { FC } from "react";
-import type TextProps from "@kits/Text/props";
-
-interface PageTitleProps {
-  title: string;
-  tag?: TextProps["as"];
-}
+import type { PageTitleProps } from "./props";
 
 const PageTitle: FC<PageTitleProps> = (props) => {
-  const { title, tag } = props;
+  const { title, tag, ns } = props;
 
   return (
     <Div mb="4">
@@ -19,7 +14,7 @@ const PageTitle: FC<PageTitleProps> = (props) => {
         border="border-light-main"
         borderSide="bottom"
       >
-        <Text size="h-md-b" as={tag || "h1"}>
+        <Text size="h-md" bold as={tag || "h1"} ns={ns}>
           {title}
         </Text>
       </Div>

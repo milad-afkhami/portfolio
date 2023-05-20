@@ -2,6 +2,7 @@ import { useState, useRef, useCallback, type FC } from "react";
 import Div from "@kits/Div";
 import { If, Then } from "@kits/ConditionalRendering";
 import DropDownItem, { type DropDownItemProps } from "./Item";
+import { responsiveUpperBoundBreakpoint } from "@configs/general";
 import useOnClickOutside from "@hooks/useOnClickOutside";
 
 interface DropDownProps {
@@ -40,7 +41,7 @@ const DropDown: FC<DropDownProps> = (props) => {
             curve="xsm"
             width="7rem"
             pace="fast"
-            responsive={{ md: { width: "8rem" } }}
+            responsive={{ [responsiveUpperBoundBreakpoint]: { width: "8rem" } }}
           />
         </Then>
       </If>

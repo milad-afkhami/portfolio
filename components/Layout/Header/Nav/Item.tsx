@@ -1,5 +1,6 @@
 import Link from "@kits/Link";
 import Text from "@kits/Text";
+import { responsiveUpperBoundBreakpoint } from "@configs/general";
 import type { FC } from "react";
 
 const HeaderMenuItem: FC<INavItem> = (props) => {
@@ -8,8 +9,9 @@ const HeaderMenuItem: FC<INavItem> = (props) => {
   return (
     <Link
       href={link}
-      m="3 0"
-      responsive={{ md: { m: "0 3" } }}
+      mx="3"
+      my="0"
+      responsive={{ [responsiveUpperBoundBreakpoint]: { mx: 0, my: 3 } }}
       onClick={onClick}
       display="flex"
       zoomOnHover

@@ -2,6 +2,7 @@ import Div from "@kits/Div";
 import Text from "@kits/Text";
 import Image from "@kits/Image";
 import Link from "@kits/Link";
+import { responsiveUpperBoundBreakpoint } from "@configs/general";
 import type { FC } from "react";
 
 // playlists  {/* , 6 */}{/* , 4 */}
@@ -29,7 +30,11 @@ const FavouriteEntity: FC<FavouriteEntityProps> = (props) => {
       height="260px"
       responsive={{
         sm: { width: "min(260px, 100%)", mw: "260px", height: "210px" },
-        md: { width: "min(350px, 100%)", mw: "350px", height: "280px" },
+        [responsiveUpperBoundBreakpoint]: {
+          width: "min(350px, 100%)",
+          mw: "350px",
+          height: "280px",
+        },
       }}
       position="relative"
       flex={[, "between", "column"]}

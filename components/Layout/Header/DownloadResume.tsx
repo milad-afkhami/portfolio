@@ -1,6 +1,7 @@
 import Div from "@kits/Div";
 import Icon from "@kits/Icon";
 import Text from "@kits/Text";
+import { responsiveUpperBoundBreakpoint } from "@configs/general";
 import type { FC } from "react";
 
 const DownloadResume: FC = () => {
@@ -10,7 +11,7 @@ const DownloadResume: FC = () => {
   return (
     <Div
       curve="xsm"
-      responsive={{ md: { width: "8rem" } }}
+      responsive={{ [responsiveUpperBoundBreakpoint]: { width: "8rem" } }}
       flex={["center"]}
       height="2.5rem"
       width="8rem"
@@ -33,7 +34,7 @@ const DownloadResume: FC = () => {
       </Div>
       <Div>
         <Text ns="layout" color="bg-primary-main" size="sm" bold>
-          layout.header.downloadResume
+          header.downloadResume
         </Text>
       </Div>
     </Div>

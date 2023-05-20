@@ -2,6 +2,7 @@ import Div from "@kits/Div";
 import Text from "@kits/Text";
 import Icon from "@kits/Icon";
 import useTranslation from "@hooks/useTranslation";
+import { responsiveUpperBoundBreakpoint } from "@configs/general";
 import type { FC } from "react";
 
 type BlogCardFooterProps = Pick<IBlog, "publishedAt" | "readingTime" | "views">;
@@ -15,7 +16,7 @@ const BlogCardFooter: FC<BlogCardFooterProps> = (props) => {
       flex={["center", "between"]}
       width="100%"
       pt="2"
-      responsive={{ md: { pt: "0.75rem" } }}
+      responsive={{ [responsiveUpperBoundBreakpoint]: { pt: "3" } }}
       border="border-light-main"
       borderSide="top"
     >
