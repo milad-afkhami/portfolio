@@ -5,6 +5,7 @@ import PageTitle from "@components/Layout/Title/Page";
 import WhoAmI from "@components/About/WhoAmI";
 import { SocialProfileJsonLd, VideoJsonLd } from "next-seo";
 import useTranslation from "@hooks/useTranslation";
+import I18nHelper from "@helpers/i18n";
 import {
   workExperienceTimelineSections,
   educationTimelineSections,
@@ -13,6 +14,7 @@ import {
 import { appBaseURL } from "@configs/urls";
 import contactOptions, { ContactType } from "@configs/contact";
 import type { FC } from "react";
+import type { GetStaticProps } from "next";
 
 const AboutPage: FC = () => {
   const { t } = useTranslation("about");
@@ -83,6 +85,14 @@ const AboutPage: FC = () => {
       </Div>
     </>
   );
+};
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  const [t9n] = await Promise.all([
+    I18nHelper.ssrT9n(locale, "layout", "about"),
+  ]);
+
+  return { props: { ...t9n } };
 };
 
 export default AboutPage;

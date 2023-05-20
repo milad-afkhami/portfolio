@@ -10,13 +10,14 @@ import BlogBanner from "@components/Blog/Banner";
 import PageTitle from "@components/Layout/Title/Page";
 import MarkdownWrapper from "@components/Markdown/Wrapper";
 import useTranslation from "@hooks/useTranslation";
+import I18nHelper from "@helpers/i18n";
 import BlogServices from "@services/blog";
 import { appBaseURL } from "@configs/urls";
 import type { FC } from "react";
 import type {
+  GetStaticProps,
   GetStaticPaths,
   GetStaticPathsResult,
-  GetStaticProps,
 } from "next";
 import type { MDXResult } from "@_types/components";
 
@@ -70,7 +71,7 @@ const BlogPage: FC<BlogPageProps> = (props) => {
           ]}
         />
         <Div>
-          <PageTitle title={title} />
+          {/* <PageTitle title={title} /> */}
           <BlogSummary summary={summary} />
           <BlogMeta
             category={category}
@@ -88,10 +89,13 @@ const BlogPage: FC<BlogPageProps> = (props) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const blog = await BlogServices.getDetail(params?.slug as string);
+export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
+  const [t9n, blog] = await Promise.all([
+    I18nHelper.ssrT9n(locale, "layout"),
+    BlogServices.getDetail(params?.slug as string),
+  ]);
 
-  return { props: { blog } };
+  return { props: { ...t9n, blog } };
 };
 
 export const getStaticPaths: GetStaticPaths = async ({ locales }) => {

@@ -3,7 +3,9 @@ import Head from "@components/SEO/Head";
 import PageTitle from "@components/Layout/Title/Page";
 import BlogCards from "@components/Cards/Blog";
 import BlogServices from "@services/blog";
+import I18nHelper from "@helpers/i18n";
 import type { FC } from "react";
+import type { GetStaticProps } from "next";
 
 interface BlogsPageProps {
   blogs: Array<IBlog>;
@@ -23,10 +25,13 @@ const BlogsPage: FC<BlogsPageProps> = (props) => {
   );
 };
 
-export async function getStaticProps() {
-  const blogs = await BlogServices.getList();
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  const [t9n, blogs] = await Promise.all([
+    I18nHelper.ssrT9n(locale, "layout"),
+    BlogServices.getList(),
+  ]);
 
-  return { props: { blogs } };
-}
+  return { props: { ...t9n, blogs } };
+};
 
 export default BlogsPage;
