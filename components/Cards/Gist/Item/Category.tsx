@@ -13,6 +13,7 @@ const GistCardCategory: FC<Pick<IGist, "category">> = (props) => {
       overflow="hidden"
       height="48px"
       width="48px"
+      mw="48px"
       position="relative"
     >
       <Image

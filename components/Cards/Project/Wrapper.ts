@@ -1,8 +1,5 @@
 import { styled } from "goober";
-import { responsiveUpperBoundBreakpointValue } from "@configs/general";
-
-/** number of items to hide in responsive */
-const itemsToHide = 3;
+import breakpoints from "@stylesheets/constants/breakpoints.json";
 
 const ProjectCardsWrapper = styled("div")`
   display: grid;
@@ -12,14 +9,12 @@ const ProjectCardsWrapper = styled("div")`
   overflow: auto;
   padding: var(--spacing-2);
   grid-auto-flow: row;
-  & > *:nth-child(n + ${6 - itemsToHide + 1}) {
-    display: "none";
+
+  @media (min-width: ${breakpoints.md}px) {
+    grid-template-columns: repeat(2, 1fr);
   }
-  @media (min-width: ${responsiveUpperBoundBreakpointValue}) {
+  @media (min-width: ${breakpoints.lg}px) {
     grid-template-columns: repeat(3, 1fr);
-    & > *:nth-child(n + ${6 - itemsToHide + 1}) {
-      display: flex;
-    }
   }
 `;
 

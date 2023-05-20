@@ -9,14 +9,7 @@ interface GistsProps {
 }
 
 const GistCards: FC<GistsProps> = (props) => {
-  const {
-    title,
-    items,
-    // loading,
-    // loadingCount = 8,
-    // orientation = Orientations.VERTICAL,
-    ...rest
-  } = props;
+  const { title, items, ...rest } = props;
 
   return (
     <Div my="3" {...rest}>
@@ -24,10 +17,7 @@ const GistCards: FC<GistsProps> = (props) => {
       <Div
         grid={["repeat(1, 1fr)", , "1rem", "1rem"]}
         css={{ gridAutoFlow: "row" }}
-        responsive={{
-          sm: { css: { gridTemplateColumns: "repeat(2, 1fr)" } },
-          lg: { css: { gridTemplateColumns: "repeat(3, 1fr)" } },
-        }}
+        responsive={{ md: { css: { gridTemplateColumns: "repeat(3, 1fr)" } } }}
       >
         {items.map((post, i) => (
           <GistCard key={i} {...post} />
