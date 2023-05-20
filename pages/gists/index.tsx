@@ -1,7 +1,7 @@
 import Div from "@kits/Div";
 import Head from "@components/SEO/Head";
 import PageTitle from "@components/Layout/Title/Page";
-import Gists from "@components/Gists";
+import GistCards from "@components/Cards/Gist";
 import GistServices from "@services/gist";
 import type { FC } from "react";
 
@@ -17,7 +17,7 @@ const GistsPage: FC<GistsPageProps> = (props) => {
       <Head canonical="/gists" page="gists" />
       <Div width="100%" py="3">
         <PageTitle title="gists.title" />
-        <Gists items={gists} />
+        <GistCards items={gists} />
       </Div>
     </>
   );

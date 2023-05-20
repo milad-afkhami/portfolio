@@ -1,6 +1,6 @@
 import Div from "@kits/Div";
-import GistCard from "./Card";
 import SectionTitle from "@components/Layout/Title/Section";
+import GistCard from "./Item";
 import type { FC } from "react";
 
 interface GistsProps {
@@ -8,7 +8,7 @@ interface GistsProps {
   items: Array<IGist>;
 }
 
-const Gists: FC<GistsProps> = (props) => {
+const GistCards: FC<GistsProps> = (props) => {
   const {
     title,
     items,
@@ -37,4 +37,4 @@ const Gists: FC<GistsProps> = (props) => {
   );
 };
 
-export default Gists;
+export default GistCards;

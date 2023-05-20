@@ -1,5 +1,5 @@
 import Div from "@kits/Div";
-import Gists from "@components/Gists";
+import GistCards from "@components/Cards/Gist";
 import PageTitle from "@components/Layout/Title/Page";
 import GistsMoreLink from "./MoreLink";
 import { useMediaQuery } from "react-responsive";
@@ -26,7 +26,7 @@ const HomeGists: FC<HomeGistsProps> = (props) => {
   return (
     <Div my="4">
       <PageTitle title="gists.title" ns="home" />
-      <Gists items={_items?.slice?.(0, isMediumScreen ? 2 : 3)} />
+      <GistCards items={_items?.slice?.(0, isMediumScreen ? 2 : 3)} />
       <GistsMoreLink />
     </Div>
   );
