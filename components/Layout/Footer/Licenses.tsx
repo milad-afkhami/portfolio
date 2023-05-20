@@ -26,7 +26,7 @@ const FooterLicenses: FC = () => {
     <Div flex={["end"]}>
       {licenses.map(({ link, image }, i) => (
         <Link key={i} outerLink href={link} mx="3">
-          <Image src={image} width="90px" height="90px" bg="bg-disabled" />
+          <Image src={image} width="90px" height="90px" bg="bg-disabled-main" />
         </Link>
       ))}
     </Div>
