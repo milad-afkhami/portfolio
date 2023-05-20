@@ -36,7 +36,7 @@ const leftSparks = keyframes`
 const dash = keyframes`
   0%,
   30% {
-    fill: var(--color-text-secondary);
+    fill: var(--color-text-secondary-main);
     stroke-dashoffset: 0;
   }
   80%,
