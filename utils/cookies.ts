@@ -1,19 +1,12 @@
-import __get from "lodash-es/get";
 import { parseCookies, setCookie, destroyCookie } from "nookies";
-import INTERVALS from "@constants/interval";
+import Intervals from "@constants/interval";
 import type { NextPageContext } from "next";
 
 type GetCookieMethod = (
   name: string,
-  ctx: Nullable<NextPageContext>,
-  options?: Parameters<typeof parseCookies>[1]
+  ...rest: Parameters<typeof parseCookies>
 ) => string;
-type SetCookieMethod = (
-  name: string,
-  value: string,
-  ctx: Nullable<NextPageContext>,
-  options?: Parameters<typeof setCookie>[3]
-) => void;
+type SetCookieMethod = (...args: Parameters<typeof setCookie>) => void;
 type RemoveCookieMethod = (
   key: string,
   ctx: Nullable<NextPageContext>,
@@ -23,20 +16,23 @@ type RemoveCookieMethod = (
 export default class Cookies {
   /**
    * Parses cookies.
+   * @param name Name of the cookie
+   * @param ctx NextJS page or API context, express context, null or undefined.
+   * @param options Options that we pass down to `cookie` library.
    */
-  static get: GetCookieMethod = (name, ctx = null, options) =>
-    parseCookies(ctx, options)[name];
+  static get: GetCookieMethod = (name, ctx, options) =>
+    parseCookies(ctx || null, options)[name];
 
   /**
    * Sets a cookie.
-   * @param name The name of your cookie
-   * @param value The value of your cookie
    * @param ctx NextJS page or API context, express context, null or undefined
+   * @param name Name of the cookie
+   * @param value The value of your cookie
    * @param options Options that we pass down to `nookies` library
    */
-  static set: SetCookieMethod = (name, value, ctx, options = {}) =>
+  static set: SetCookieMethod = (ctx, name, value, options = {}) =>
     setCookie(ctx, name, value, {
-      maxAge: INTERVALS.Month,
+      maxAge: Intervals.Month,
       path: "/",
       ...options,
     });
