@@ -3,23 +3,27 @@ import Icon from "@kits/Icon";
 import ToastWrapper from "./Wrapper";
 import Div from "@kits/Div";
 import Text from "@kits/Text";
+import Button from "@kits/Button";
 import { If, Then } from "@kits/ConditionalRendering";
 import { toast } from "react-hot-toast";
+import { type FC, useMemo } from "react";
 import type IconProps from "@kits/Icon/props";
-import type { FC } from "react";
 import type { ToastProps } from "./props";
 // #endregion
 
 const Toast: FC<ToastProps> = (props) => {
   const { id, close = false, title, message, type } = props;
 
-  let icon: IconProps["name"] = "info-outlined";
-
-  if (type === "success") {
-    icon = "check-outlined";
-  } else if (type === "warning") {
-    icon = "warning";
-  }
+  const icon = useMemo((): IconProps["name"] => {
+    switch (type) {
+      case "success":
+        return "check-outlined";
+      case "warning":
+        return "warning";
+      default:
+        return "info-outlined";
+    }
+  }, []);
 
   const handleClick = () => toast.remove(id);
 
@@ -42,13 +46,17 @@ const Toast: FC<ToastProps> = (props) => {
       </Div>
       <If condition={close}>
         <Then>
-          {/* TODO: refactor to Button */}
-          <Div flex={[, "end"]} onClick={handleClick}>
+          <Button
+            text="kits.close"
+            onClick={handleClick}
+            trailingIcon="close"
+          />
+          {/* <Div flex={[, "end"]} onClick={handleClick}>
             <Div css={{ cursor: "pointer" }} gap="2" flex={["center"]}>
               <Text>kits.expandableArea.showLess</Text>
               <Icon name="close" />
             </Div>
-          </Div>
+          </Div> */}
         </Then>
       </If>
     </ToastWrapper>
