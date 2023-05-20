@@ -70,18 +70,13 @@ const FavouritePlaylist: FC<IFavouritePlaylist> = (props) => {
         >
           {link ? (
             <Link outerLink href={link} m="2">
-              <Button
-                variant="outlined"
-                text="favourites.listenNow"
-                size="sm"
-              />
+              <Button variant="outlined" text="favourites.listenNow" />
             </Link>
           ) : null}
           <Div m="2">
             <Button
               variant="text"
               text={tracksOpen ? "favourites.collapse" : "favourites.expand"}
-              size="sm"
               onClick={toggleTracks}
             />
           </Div>
