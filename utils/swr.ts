@@ -12,7 +12,7 @@ export default class SWRUtil {
       url,
       ...(options ? JSON.parse(options) : {}),
     });
-    return response.data;
+    return response;
   }
 
   static getInfiniteKey: GetInfiniteKey = function (url, pageKey) {
