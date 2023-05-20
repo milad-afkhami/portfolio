@@ -1,63 +1,11 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable import/extensions */
+/* eslint-disable global-require */
 import { useEffect } from "react";
-import { styled } from "goober";
-import PrismTomorrowTheme from "./PrismTomorrowTheme";
-import TableStyles from "./TableStyles";
+import StyledWrapper from "./Styled";
 import type { HOCFunctionalComponent } from "@_types/components";
 
-const StyledWrapper = styled("div")`
-  font-size: var(--font-size-lg);
-  font-weight: 300;
-
-  code {
-    font-family: monospace !important;
-  }
-
-  a {
-    color: var(--color-brand-main);
-    :hover {
-      color: var(--color-brand-hover);
-    }
-  }
-
-  table code {
-    background: var(--color-brand-light);
-    padding: 2px 4px;
-    border-radius: 4px;
-    color: var(--color-bg-tertiary-main);
-    font-weight: bold;
-  }
-
-  ul {
-    margin-bottom: 1rem;
-    margin-left: 1rem;
-    ul {
-      margin-left: 2rem;
-      margin-bottom: 0.5rem;
-    }
-  }
-
-  blockquote {
-    background: var(--color-bg-secondary-main);
-    border-left: 10px solid var(--color-border-light-main);
-    margin: 1.5em 0 1.5rem 1rem;
-    padding: 1rem;
-  }
-
-  blockquote p {
-    display: inline;
-  }
-
-  /* for adding small text as p.s. */
-  h5 {
-    font-weight: 100;
-  }
-
-  ${TableStyles}
-
-  ${PrismTomorrowTheme}
-`;
-
-const MarkdownWrapper: HOCFunctionalComponent = ({ children, ...rest }) => {
+const MarkdownWrapper: HOCFunctionalComponent = ({ children }) => {
   useEffect(() => {
     // import("prismjs/themes/prism-tomorrow.css");
     // import("../../node_modules/prismjs/themes/prism-tomorrow.css");
@@ -67,7 +15,7 @@ const MarkdownWrapper: HOCFunctionalComponent = ({ children, ...rest }) => {
     require("prismjs/components/prism-js-extras.js");
   }, []);
 
-  return <StyledWrapper {...rest}>{children}</StyledWrapper>;
+  return <StyledWrapper>{children}</StyledWrapper>;
 };
 
 export default MarkdownWrapper;
