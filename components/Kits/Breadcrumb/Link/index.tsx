@@ -34,7 +34,11 @@ function BreadcrumbLink(props: BreadcrumbLinkProps) {
       <If condition={!lastItem}>
         <Then>
           <Div flex={["center", "center"]}>
-            <Icon name="chevron-left" size="20px" color="bg-disabled-main" />
+            <Icon
+              name="chevron-right"
+              size="0.75rem"
+              color="bg-disabled-main"
+            />
           </Div>
         </Then>
       </If>
