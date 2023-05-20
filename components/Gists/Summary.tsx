@@ -7,7 +7,7 @@ const GistSummary: FC<Pick<IGist, "summary">> = (props) => {
 
   return (
     <Div my="3">
-      <Text size="lg" as="p">
+      <Text size="lg" as="p" noTranslation>
         {summary}
       </Text>
     </Div>

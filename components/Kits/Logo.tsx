@@ -4,8 +4,8 @@ import type { FC } from "react";
 
 const Logo: FC = () => (
   <Link href="/">
-    <Text size="h-lg-b" as="h1">
-      layout.header.defaultTitle
+    <Text size="h-lg" bold as="h1" ns="layout">
+      header.defaultTitle
     </Text>
   </Link>
 );

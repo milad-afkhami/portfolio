@@ -4,7 +4,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 type SSRConfig = UnPromise<ReturnType<typeof serverSideTranslations>>;
 
 export default class I18nHelper {
-  static async t9n(
+  static async ssrT9n(
     locale?: string,
     ...namespaces: Array<I18NNameSpaces>
   ): Promise<Maybe<SSRConfig>> {

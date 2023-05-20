@@ -7,6 +7,7 @@ import Gists from "@components/Home/Gists";
 import BlogServices from "@services/blog";
 import GistServices from "@services/gist";
 import dynamic from "next/dynamic";
+import I18nHelper from "@helpers/i18n";
 import type { FC } from "react";
 import type { GetStaticProps } from "next";
 
@@ -34,11 +35,14 @@ const HomePage: FC<HomePageProps> = (props) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
-  const blogs = await BlogServices.getList();
-  const gists = await GistServices.getList();
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  const [t9n, blogs, gists] = await Promise.all([
+    I18nHelper.ssrT9n(locale, "layout", "home", "projects"),
+    BlogServices.getList(),
+    GistServices.getList(),
+  ]);
 
-  return { props: { blogs, gists } };
+  return { props: { blogs, gists, ...t9n } };
 };
 
 export default HomePage;

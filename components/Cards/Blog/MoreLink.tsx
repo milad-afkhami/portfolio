@@ -21,7 +21,9 @@ const BlogCardsMoreLink: FC<BlogCardsMoreLinkProps> = (props) => {
         hoverBg="bg-secondary-hover"
         curve="sm"
       >
-        <Text size="md-b">home.posts.seeMore</Text>
+        <Text size="md" bold ns="home">
+          posts.seeMore
+        </Text>
       </Link>
     </Div>
   );

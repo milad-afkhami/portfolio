@@ -9,7 +9,7 @@ const FavouritePoemsPage: FC = () => (
     <Head canonical="/favourites/poems" page="favouritePoems" />
     <Div width="100%" py="3">
       <PageTitle title="favourites.poems.title" />
-      <SectionTitle title="layout.message.comingSoon" />
+      <SectionTitle title="message.comingSoon" ns="layout" />
     </Div>
   </>
 );

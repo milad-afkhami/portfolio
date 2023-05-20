@@ -14,10 +14,11 @@ const FavouriteCommonEntityCard: FC<FavouriteCommonEntityCardProps> = (
 ) => {
   const { slug, entityType } = props;
 
-  const { t } = useTranslation();
+  const ns = `favourites.${entityType}` as I18NNameSpaces;
+  const { t } = useTranslation(ns);
 
-  const name = `favourites.${entityType}.list.${slug}.name`;
-  const meta = t(`favourites.${entityType}.list.${slug}.meta`, {
+  const name = `list.${slug}.name`;
+  const meta = t(`list.${slug}.meta`, {
     defaultValue: "",
   });
   const image = `/images/favourites/${entityType}/${slug}.jpg`;
@@ -59,16 +60,7 @@ const FavouriteCommonEntityCard: FC<FavouriteCommonEntityCardProps> = (
         flex={["start", "around", "column"]}
       >
         <Div overflow="hidden">
-          <Text
-            size="lg-b"
-            css={{
-              whiteSpace: "pre-wrap",
-              display: "-webkit-box",
-              WebkitLineClamp: 1,
-              lineClamp: 1,
-              WebkitBoxOrient: "vertical",
-            }}
-          >
+          <Text noTranslation size="lg" bold maxLines={1} ns={ns}>
             {name}
           </Text>
         </Div>

@@ -9,20 +9,20 @@ const projectsData: Array<IProject> = [
       { src: "/images/projects/octava/desktop/2.jpg" },
       { src: "/images/projects/octava/pwa/1.jpg" },
       // prettier-ignore
-      { src: "/images/projects/octava/pwa/2.jpg", title: "projects.octava.points.9" },
+      { src: "/images/projects/octava/pwa/2.jpg", title: "octava.points.9" },
       { src: "/images/projects/octava/desktop/3.jpg" },
       { src: "/images/projects/octava/pwa/3.jpg" },
       { src: "/images/projects/octava/desktop/4.jpg" },
       { src: "/images/projects/octava/desktop/1-skeleton.jpg" },
       // prettier-ignore
-      { src: "/images/projects/octava/desktop/1-blur.jpg", title: "projects.octava.points.7" },
+      { src: "/images/projects/octava/desktop/1-blur.jpg", title: "octava.points.7" },
       { src: "/images/projects/octava/desktop/5.jpg" },
       // prettier-ignore
       { src: "/images/projects/octava/pwa/4.jpg" },
       { src: "/images/projects/octava/pwa/5.jpg" },
       { src: "/images/projects/octava/desktop/6.jpg" },
       // prettier-ignore
-      { src: "/images/projects/octava/pwa/6.jpg", title: "projects.octava.points.9" },
+      { src: "/images/projects/octava/pwa/6.jpg", title: "octava.points.9" },
       { src: "/images/projects/octava/desktop/7.jpg" },
       { src: "/images/projects/octava/pwa/7.jpg" },
       { src: "/images/projects/octava/desktop/8.jpg" },
@@ -48,60 +48,48 @@ const projectsData: Array<IProject> = [
       { name: "i18next", link: "https://www.npmjs.com/package/i18next" },
     ],
     points: [
-      "projects.octava.points.1",
+      "octava.points.1",
       {
-        title: "projects.octava.points.2",
+        title: "octava.points.2",
         points: [
-          "projects.octava.points.2-1",
-          "projects.octava.points.2-2",
-          "projects.octava.points.2-3",
+          "octava.points.2-1",
+          "octava.points.2-2",
+          "octava.points.2-3",
           {
-            title: "projects.octava.points.2-4",
+            title: "octava.points.2-4",
             points: [
-              "projects.octava.points.2-4-1",
-              "projects.octava.points.2-4-2",
-              "projects.octava.points.2-4-3",
-              "projects.octava.points.2-4-4",
+              "octava.points.2-4-1",
+              "octava.points.2-4-2",
+              "octava.points.2-4-3",
+              "octava.points.2-4-4",
             ],
           },
         ],
       },
       {
-        title: "projects.octava.points.3",
+        title: "octava.points.3",
         points: [
-          "projects.octava.points.3-1",
-          "projects.octava.points.3-2",
-          "projects.octava.points.3-3",
-          "projects.octava.points.3-4",
+          "octava.points.3-1",
+          "octava.points.3-2",
+          "octava.points.3-3",
+          "octava.points.3-4",
         ],
       },
-      "projects.octava.points.4",
+      "octava.points.4",
       {
-        title: "projects.octava.points.5",
-        points: [
-          "projects.octava.points.5-1",
-          "projects.octava.points.5-2",
-          "projects.octava.points.5-3",
-        ],
+        title: "octava.points.5",
+        points: ["octava.points.5-1", "octava.points.5-2", "octava.points.5-3"],
       },
       {
-        title: "projects.octava.points.6",
-        points: [
-          "projects.octava.points.6-1",
-          "projects.octava.points.6-2",
-          "projects.octava.points.6-3",
-        ],
+        title: "octava.points.6",
+        points: ["octava.points.6-1", "octava.points.6-2", "octava.points.6-3"],
       },
       {
-        title: "projects.octava.points.7",
-        points: [
-          "projects.octava.points.7-1",
-          "projects.octava.points.7-2",
-          "projects.octava.points.7-3",
-        ],
+        title: "octava.points.7",
+        points: ["octava.points.7-1", "octava.points.7-2", "octava.points.7-3"],
       },
-      "projects.octava.points.8",
-      "projects.octava.points.9",
+      "octava.points.8",
+      "octava.points.9",
     ],
   },
   {
@@ -113,7 +101,7 @@ const projectsData: Array<IProject> = [
       { src: "/images/projects/uneed/desktop/1.jpg" },
       {
         src: "/images/projects/uneed/desktop/2.jpg",
-        title: "projects.uneed.points.5",
+        title: "uneed.points.5",
       },
       { src: "/images/projects/uneed/desktop/3.jpg" },
       { src: "/images/projects/uneed/desktop/4.jpg" },
@@ -144,10 +132,10 @@ const projectsData: Array<IProject> = [
       { name: "i18next", link: "https://www.npmjs.com/package/i18next" },
     ],
     points: [
-      "projects.uneed.points.1",
-      "projects.uneed.points.2",
-      "projects.uneed.points.3",
-      "projects.uneed.points.4",
+      "uneed.points.1",
+      "uneed.points.2",
+      "uneed.points.3",
+      "uneed.points.4",
     ],
   },
   {
@@ -164,47 +152,47 @@ const projectsData: Array<IProject> = [
     medias: [
       {
         src: "/images/projects/tarinoo/1.jpg",
-        title: "projects.tarinoo.points.1",
+        title: "tarinoo.points.1",
       },
       {
         src: "/images/projects/tarinoo/2.jpg",
-        title: "projects.tarinoo.points.2",
+        title: "tarinoo.points.2",
       },
       {
         src: "/images/projects/tarinoo/3.jpg",
-        title: "projects.tarinoo.points.2",
+        title: "tarinoo.points.2",
       },
       {
         src: "/images/projects/tarinoo/4.jpg",
-        title: "projects.tarinoo.points.2",
+        title: "tarinoo.points.2",
       },
       {
         src: "/images/projects/tarinoo/5.jpg",
-        title: "projects.tarinoo.points.2",
+        title: "tarinoo.points.2",
       },
       {
         src: "/images/projects/tarinoo/6.jpg",
-        title: "projects.tarinoo.points.2",
+        title: "tarinoo.points.2",
       },
       {
         src: "/images/projects/tarinoo/7.jpg",
-        title: "projects.tarinoo.points.2",
+        title: "tarinoo.points.2",
       },
       {
         src: "/images/projects/tarinoo/8.jpg",
-        title: "projects.tarinoo.points.2",
+        title: "tarinoo.points.2",
       },
       {
         src: "/images/projects/tarinoo/9.jpg",
-        title: "projects.tarinoo.points.2",
+        title: "tarinoo.points.2",
       },
       {
         src: "/images/projects/tarinoo/10.jpg",
-        title: "projects.tarinoo.points.2",
+        title: "tarinoo.points.2",
       },
       {
         src: "/images/projects/tarinoo/11.jpg",
-        title: "projects.tarinoo.points.2",
+        title: "tarinoo.points.2",
       },
     ],
     date: "2020-1",
@@ -221,7 +209,7 @@ const projectsData: Array<IProject> = [
       },
       { name: "i18next", link: "https://www.npmjs.com/package/i18next" },
     ],
-    points: ["projects.tarinoo.points.1", "projects.tarinoo.points.2"],
+    points: ["tarinoo.points.1", "tarinoo.points.2"],
   },
   {
     id: 3,
@@ -252,16 +240,16 @@ const projectsData: Array<IProject> = [
       },
     ],
     points: [
-      "projects.behtarino.points.1",
-      "projects.behtarino.points.2",
-      "projects.behtarino.points.3",
-      "projects.behtarino.points.4",
+      "behtarino.points.1",
+      "behtarino.points.2",
+      "behtarino.points.3",
+      "behtarino.points.4",
       {
-        title: "projects.behtarino.points.5",
+        title: "behtarino.points.5",
         points: [
-          "projects.behtarino.points.5-1",
-          "projects.behtarino.points.5-2",
-          "projects.behtarino.points.5-3",
+          "behtarino.points.5-1",
+          "behtarino.points.5-2",
+          "behtarino.points.5-3",
         ],
       },
     ],
@@ -274,7 +262,7 @@ const projectsData: Array<IProject> = [
     medias: [
       {
         src: "/images/projects/bityon/desktop/1.jpg",
-        title: "projects.bityon.points.1",
+        title: "bityon.points.1",
       },
       { src: "/images/projects/bityon/desktop/2.jpg" },
       { src: "/images/projects/bityon/desktop/3.jpg" },
@@ -283,7 +271,7 @@ const projectsData: Array<IProject> = [
       { src: "/images/projects/bityon/desktop/6.jpg" },
       {
         src: "/images/projects/bityon/desktop/7.jpg",
-        title: "projects.bityon.points.3",
+        title: "bityon.points.3",
       },
       { src: "/images/projects/bityon/mobile/1.jpg" },
       { src: "/images/projects/bityon/mobile/2.jpg" },
@@ -310,16 +298,16 @@ const projectsData: Array<IProject> = [
     ],
     points: [
       {
-        title: "projects.bityon.points.1",
+        title: "bityon.points.1",
         points: [
-          "projects.bityon.points.1-1",
-          "projects.bityon.points.1-2",
-          "projects.bityon.points.1-3",
-          "projects.bityon.points.1-4",
+          "bityon.points.1-1",
+          "bityon.points.1-2",
+          "bityon.points.1-3",
+          "bityon.points.1-4",
         ],
       },
-      "projects.bityon.points.2",
-      "projects.bityon.points.3",
+      "bityon.points.2",
+      "bityon.points.3",
     ],
   },
   {
@@ -328,7 +316,7 @@ const projectsData: Array<IProject> = [
     link: "https://www.bizmlm.ir",
     logo: "/images/projects/biz/logo.png",
     medias: [
-      { src: "/images/projects/biz/1.jpg", title: "projects.biz.points.1" },
+      { src: "/images/projects/biz/1.jpg", title: "biz.points.1" },
       { src: "/images/projects/biz/2.jpg" },
       { src: "/images/projects/biz/3.jpg" },
       { src: "/images/projects/biz/4.jpg" },
@@ -350,15 +338,11 @@ const projectsData: Array<IProject> = [
     ],
     points: [
       {
-        title: "projects.biz.points.1",
-        points: [
-          "projects.biz.points.2-1",
-          "projects.biz.points.2-2",
-          "projects.biz.points.2-3",
-        ],
+        title: "biz.points.1",
+        points: ["biz.points.2-1", "biz.points.2-2", "biz.points.2-3"],
       },
-      "projects.biz.points.3",
-      "projects.biz.points.4",
+      "biz.points.3",
+      "biz.points.4",
     ],
   },
   {
@@ -388,11 +372,11 @@ const projectsData: Array<IProject> = [
     ],
     points: [
       {
-        title: "projects.crm.points.1",
-        points: ["projects.crm.points.1-1", "projects.crm.points.1-2"],
+        title: "crm.points.1",
+        points: ["crm.points.1-1", "crm.points.1-2"],
       },
-      "projects.crm.points.2",
-      "projects.crm.points.3",
+      "crm.points.2",
+      "crm.points.3",
     ],
   },
   {

@@ -32,7 +32,7 @@ const FavouritePlaylistTracksItem: FC<FavouritePlaylistTracksItemProps> = (
           </Text>
         </Div>
         <Div display="flex">
-          <Text size="sm" noTranslation truncate Mw="100%">
+          <Text size="sm" truncate noTranslation>
             {name}
           </Text>
         </Div>

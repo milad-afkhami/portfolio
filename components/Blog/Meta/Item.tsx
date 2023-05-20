@@ -15,10 +15,23 @@ const BlogMetaItem: FC<BlogMetaItemProps> = (props) => {
   return (
     <Div flex={["center", "between"]} bg="bg-secondary-main" curve="sm" p="3">
       <Div>
-        <Text color="text-secondary-main">{label}</Text>
+        <Text
+          color="text-secondary-main"
+          ns="common"
+          // ns="blog"
+        >
+          {label}
+        </Text>
       </Div>
       <Div>
-        <Text size="md-b">{value}</Text>
+        <Text
+          size="md"
+          bold
+          ns="common"
+          // ns="blog"
+        >
+          {value}
+        </Text>
       </Div>
     </Div>
   );

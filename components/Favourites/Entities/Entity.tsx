@@ -54,7 +54,11 @@ const FavouriteEntity: FC<FavouriteEntityProps> = (props) => {
         />
       </Div>
       <Div flex={["center"]}>
-        <Text size="lg-b">{`favourites.${label}.title`}</Text>
+        <Text
+          size="lg"
+          bold
+          ns="favourites.common"
+        >{`favourites.${label}`}</Text>
       </Div>
       {/* <Text
         hoverColor="text-secondary-main"

@@ -12,7 +12,9 @@ const SubscribeNewsletter: FC = () => (
     <Image src="/images/lapert-logo-lg.png" height="300px" width="300px" />
     <Div flex={["center", "center", "column"]}>
       <Div mb="4">
-        <Text size="md-b">layout.subscribe.desc</Text>
+        <Text size="md" bold ns="layout">
+          subscribe.desc
+        </Text>
       </Div>
       <Div
         height="3.5rem"
@@ -21,7 +23,7 @@ const SubscribeNewsletter: FC = () => (
         display="flex"
       >
         <Div width="50%" height="100%" flex={["center", "center"]}>
-          <Text>layout.subscribe.enterEmail</Text>
+          <Text ns="layout">subscribe.enterEmail</Text>
         </Div>
         <Div
           width="50%"

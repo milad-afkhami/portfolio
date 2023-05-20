@@ -33,7 +33,7 @@ const WhoAmI: FC<WhoAmIProps> = (props) => {
         {__range(paragraphsCount).map((i) => (
           <Div key={i}>
             <Text size="lg" as="p" align="justify" ns="about">
-              {`about.p${i + 1}`}
+              {`p${i + 1}`}
             </Text>
           </Div>
         ))}

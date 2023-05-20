@@ -1,6 +1,7 @@
 import Div from "@kits/Div";
 import BlogCards from "@components/Cards/Blog";
 import { useMediaQuery } from "react-responsive";
+import useTranslation from "@hooks/useTranslation";
 import breakpoints from "@stylesheets/constants/breakpoints.json";
 import type { FC } from "react";
 
@@ -20,6 +21,8 @@ interface FeaturedPostsProps {
 }
 
 const FeaturedPosts: FC<FeaturedPostsProps> = ({ posts }) => {
+  const { t } = useTranslation("home");
+
   const isMediumScreen = useMediaQuery({
     minWidth: breakpoints.sm,
     maxWidth: breakpoints.md,
@@ -31,7 +34,7 @@ const FeaturedPosts: FC<FeaturedPostsProps> = ({ posts }) => {
     <Div my="4">
       <BlogCards
         items={items?.slice?.(0, isMediumScreen ? 2 : 3)}
-        title="home.posts.title"
+        title={t("posts.title")}
         moreLink="/blog"
       />
     </Div>

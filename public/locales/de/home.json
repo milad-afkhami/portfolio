@@ -1,13 +1,6 @@
 {
   "title": "Startseite",
   "posts": { "title": "Ausgewählte Beiträge", "seeMore": "Mehr anzeigen" },
-  "profile": {
-    "name": "Milad Afkhami",
-    "job": "Leiter des Front-End-Entwicklungsteams bei Arsh Co.",
-    "jobDescription0": "Mehr als 4 Jahre Erfahrung in der Frontend-Entwicklung",
-    "jobDescription-1": "Als Frontend-Entwickler arbeiten und anderen Mitgliedern bei ihren Problemen helfen.",
-    "jobDescription": "Ein erfahrener Software-Ingenieur  nmit einer nachgewiesenen Fähigkeit, große Softwarelösungen zu analysieren, zu entwerfen, zu entwickeln und zu warten, die den Geschäftsanforderungen sowie den Leistungs- und Qualitätsindizes entsprechen."
-  },
   "projects": {
     "seeMore": "Sehen Sie mehr im Detail"
   },

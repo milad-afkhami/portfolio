@@ -8,7 +8,7 @@ const ProjectsPage: FC = () => (
   <>
     <Head canonical="/" page="projects" />
     <Div width="100%" py="3">
-      <PageTitle title="projects.title" />
+      <PageTitle title="title" ns="projects" />
       <Projects />
     </Div>
   </>

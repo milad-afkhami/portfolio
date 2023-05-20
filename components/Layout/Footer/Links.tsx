@@ -14,7 +14,7 @@ const FooterLinks: FC = () => {
       {favouritesLinks.map(({ links, group }, i) => (
         <Div key={i} flex={["start", "start", "column"]} mx="3" mb="3">
           <Div mb="4">
-            <Text size="md-b">{`layout.footer.favourite${__capitalize(
+            <Text size="md" bold ns="layout">{`footer.favourite${__capitalize(
               group
             )}s`}</Text>
           </Div>
@@ -22,6 +22,8 @@ const FooterLinks: FC = () => {
             <Link href={link} mb="3" key={j}>
               <Text
                 hoverColor="text-secondary-main"
+                ns="layout"
+              >{`footer.${label}`}</Text>
             </Link>
           ))}
         </Div>

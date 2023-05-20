@@ -58,8 +58,8 @@ const FavouritePlaylist: FC<IFavouritePlaylist> = (props) => {
             <Image src={image} height="100px" width="100px" fit="cover" />
           </Div>
           <Div mx="3" responsive={{ sm: { mx: "4" } }}>
-            <Text size="lg-b" Mw="100%" truncate>
-              {name || ""}
+            <Text size="lg" bold truncate noTranslation>
+              {name}
             </Text>
           </Div>
         </Div>

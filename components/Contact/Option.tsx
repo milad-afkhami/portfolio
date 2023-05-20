@@ -1,6 +1,7 @@
 import Div from "@kits/Div";
 import Icon from "@kits/Icon";
 import Text from "@kits/Text";
+import useTranslation from "@hooks/useTranslation";
 import ToastUtil from "@utils/toast";
 import contactOptions from "@configs/contact";
 import type { FC } from "react";
@@ -9,14 +10,13 @@ type ContactOptionProps = Omit<ValueOf<typeof contactOptions>, "private">;
 
 const ContactOption: FC<ContactOptionProps> = (props) => {
   const { type, label, value } = props;
+  const { t } = useTranslation("layout");
 
   const onClickContactWay = () => {
     navigator.clipboard
       .writeText(value)
-      .then(() => ToastUtil.success({ message: "layout.message.textCopied" }))
-      .catch(() =>
-        ToastUtil.error({ message: "layout.message.error.something" })
-      );
+      .then(() => ToastUtil.success(t("message.textCopied")))
+      .catch(() => ToastUtil.error(t("message.error.something")));
   };
 
   return (
@@ -36,13 +36,16 @@ const ContactOption: FC<ContactOptionProps> = (props) => {
         flex={["center", "center"]}
         position="relative"
         mb="3"
-        // responsive={{ md: { width: "100px", height: "100px" } }}
       >
         <Icon name={type} size="2.5rem" />
       </Div>
       <Div mb="2">
+        <Text
           color="brand-main"
           size="lg"
+          bold
+          css={{ textTransform: "capitalize" }}
+        >
           {`contact.${type}`}
         </Text>
       </Div>
@@ -52,7 +55,7 @@ const ContactOption: FC<ContactOptionProps> = (props) => {
         hover={{ css: { textDecoration: "underline" } }}
         color="brand-light"
       >
-        <Text color="brand-light" size="sm" Mw="100%" truncate>
+        <Text noTranslation color="brand-light" size="sm" truncate>
           {label || value}
         </Text>
       </Div>

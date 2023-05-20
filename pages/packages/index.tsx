@@ -9,7 +9,7 @@ const PackagesPage: PageComponent = () => (
     <Head canonical="/packages" />
     <Div width="100%" py="3">
       <PageTitle title="packages.title" />
-      <SectionTitle title="layout.message.comingSoon" />
+      <SectionTitle title="message.comingSoon" ns="layout" />
     </Div>
   </>
 );

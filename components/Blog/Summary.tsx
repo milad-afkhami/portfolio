@@ -11,7 +11,7 @@ const BlogSummary: FC<BlogSummaryProps> = (props) => {
 
   return (
     <Div my="3" bg="bg-secondary-main" p="3" curve="sm">
-      <Text size="lg" as="p" lineHeight={2}>
+      <Text size="lg" as="p" lineHeight={2} noTranslation>
         {summary}
       </Text>
     </Div>

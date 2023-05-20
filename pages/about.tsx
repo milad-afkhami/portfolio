@@ -15,9 +15,9 @@ import contactOptions, { ContactType } from "@configs/contact";
 import type { FC } from "react";
 
 const AboutPage: FC = () => {
-  const { t } = useTranslation();
-  const videoTitle = t("about.video.title");
-  const videoDesc = t("about.video.desc");
+  const { t } = useTranslation("about");
+  const videoTitle = t("video.title");
+  const videoDesc = t("video.desc");
   const videoUrl = `${appBaseURL}/intro.mp4`;
   const videoPosterUrl = `${appBaseURL}/images/intro-poster.png`;
   const linkedInProfile = contactOptions.find(
@@ -52,27 +52,30 @@ const AboutPage: FC = () => {
       />
       <SocialProfileJsonLd
         type="Person"
-        name={t("home.profile.name")}
+        name={t("app.title")}
         url={appBaseURL}
         sameAs={[linkedInProfile]}
       />
       <Div width="100%" py="3">
-        <PageTitle title="about.title" />
+        <PageTitle title="title" ns="about" />
         <WhoAmI videoTitle={videoTitle} />
         <Div id="work-experience">
           <Timeline
-            title="about.workExperience.title"
+            ns="about"
+            title="workExperience.title"
             icon="suitcase"
             sections={workExperienceTimelineSections}
           />
         </Div>
         <Timeline
-          title="about.timeline.title"
+          ns="about"
+          title="timeline.title"
           sections={aboutTimelineSections}
         />
         <Div id="education">
           <Timeline
-            title="about.education.title"
+            ns="about"
+            title="education.title"
             icon="education"
             sections={educationTimelineSections}
           />

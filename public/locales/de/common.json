@@ -5,6 +5,11 @@
     "description": "Hallo! Ich bin Milad Afkhami und dies ist meine Portfolio-Website.",
     "name": "Milad Afkhami"
   },
+  "profile": {
+    "name": "Milad Afkhami",
+    "job": "Leiter des Front-End-Entwicklungsteams bei Arsh Co.",
+    "jobDescription": "Ein erfahrener Software-Ingenieur  nmit einer nachgewiesenen Fähigkeit, große Softwarelösungen zu analysieren, zu entwerfen, zu entwickeln und zu warten, die den Geschäftsanforderungen sowie den Leistungs- und Qualitätsindizes entsprechen."
+  },
   "seo": {
     "title": {
       "default": "Milad Afkhami | Portfolio",

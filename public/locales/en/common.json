@@ -5,6 +5,11 @@
     "description": "Hi! I'm Milad Afkhami and this is my portfolio website.",
     "name": "Milad Afkhami"
   },
+  "profile": {
+    "name": "Milad Afkhami",
+    "job": "Front-End Chapter Lead at Ide-Kavan",
+    "jobDescription": "A skilled software engineer \nwith a proven ability to analyze, design, develop and maintain large scale software solutions that meet business requirements as well as performance and quality indexes."
+  },
   "seo": {
     "title": {
       "default": "Milad Afkhami | Portfolio",
@@ -18,12 +23,13 @@
       "favouritePlaylists": "Favourite Playlists"
     },
     "description": {
-      "default": "23 y.o. software engineer \nwith a proven ability to analyze, design, develop and maintain large scale software solutions that meet business requirements as well as performance and quality indexes."
+      "default": "24 y.o. software engineer \nwith a proven ability to analyze, design, develop and maintain large scale software solutions that meet business requirements as well as performance and quality indexes."
     }
   },
   "kits": {
     "more": "More",
     "less": "Less",
+    "close": "Close",
     "imageViewer": {
       "nthImage": "Image {{n}}"
     }

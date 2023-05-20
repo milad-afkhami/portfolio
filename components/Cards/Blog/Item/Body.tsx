@@ -8,22 +8,11 @@ const BlogCardBody: FC<Pick<IBlog, "title" | "summary">> = (props) => {
   return (
     <Div>
       <Div mb="2" overflow="hidden">
-        <Text
-          as="p"
-          size="md-b"
-          lineHeight="1.5"
-          css={{
-            whiteSpace: "pre-wrap",
-            display: "-webkit-box",
-            WebkitLineClamp: 3,
-            lineClamp: 3,
-            WebkitBoxOrient: "vertical",
-          }}
-        >
+        <Text as="p" size="md" bold noTranslation lineHeight="1.5" maxLines={3}>
           {title}
         </Text>
       </Div>
-      {/* <Div><Text color="text-secondary" css={{ display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden" }} >{summary}</Text></Div> */}
+      {/* <Div><Text color="text-secondary-main" css={{ display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden" }} >{summary}</Text></Div> */}
     </Div>
   );
 };

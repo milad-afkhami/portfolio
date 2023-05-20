@@ -6,6 +6,7 @@ import MarkdownWrapper from "@components/Markdown/Wrapper";
 import MarkdownVariables from "@components/Markdown/Variables";
 import GistSummary from "@components/Gists/Summary";
 import SectionTitle from "@components/Layout/Title/Section";
+import useTranslation from "@hooks/useTranslation";
 import { useRouter } from "next/router";
 import GistServices from "@services/gist";
 import type { FC } from "react";
@@ -17,6 +18,7 @@ import type {
 import type { MDXResult } from "@_types/components";
 
 const GistPage: FC<MDXResult<IGist>> = (props) => {
+  const { t } = useTranslation("layout");
   const router = useRouter();
   const { slug } = router.query;
   const { title, summary } = props?.frontMatter || {};
@@ -28,8 +30,8 @@ const GistPage: FC<MDXResult<IGist>> = (props) => {
       <Div width="100%" py="3">
         <Breadcrumb
           routes={[
-            { title: "home.title", link: "/" },
-            { title: "gists.title", link: "/gists" },
+            { title: t("header.menu.home"), link: "/" },
+            { title: t("header.menu.gists"), link: "/gists" },
             { title, link: `/gists/${slug}` },
           ]}
         />

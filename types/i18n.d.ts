@@ -2,7 +2,6 @@ type I18NNameSpaces =
   | "common"
   | "layout"
   | "home"
-  | "resume"
   | "projects"
   | "about"
   | "favourites.common"

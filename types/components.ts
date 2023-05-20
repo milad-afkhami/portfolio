@@ -19,7 +19,7 @@ export interface LayoutConfig {
   readonly noFooter?: boolean;
 }
 
-type It9n = UnPromise<ReturnType<typeof I18nHelper.t9n>>;
+type It9n = UnPromise<ReturnType<typeof I18nHelper.ssrT9n>>;
 
 export type PageComponent<P = {}> = NextPage<It9n & P> & {
   layoutConfig?: LayoutConfig;

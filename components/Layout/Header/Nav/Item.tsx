@@ -14,7 +14,15 @@ const HeaderMenuItem: FC<INavItem> = (props) => {
       display="flex"
       zoomOnHover
     >
+      <Text
+        ns="layout"
+        size="md"
+        bold
+        as="p"
         hoverColor="text-secondary-main"
+        truncate
+      >
+        {`header.menu.${label}`}
       </Text>
     </Link>
   );

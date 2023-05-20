@@ -1,13 +1,6 @@
 {
   "title": "Home",
   "posts": { "title": "Featured Posts", "seeMore": "See More Blogs ..." },
-  "profile": {
-    "name": "Milad Afkhami",
-    "job": "Front-End Chapter Lead at Ide-Kavan",
-    "jobDescription0": "More than 4 years of experience in front-end development",
-    "jobDescription-1": "Working as a Front-End developer and helping other members in their problems.",
-    "jobDescription": "A skilled software engineer \nwith a proven ability to analyze, design, develop and maintain large scale software solutions that meet business requirements as well as performance and quality indexes."
-  },
   "projects": {
     "seeMore": "See More in Details"
   },

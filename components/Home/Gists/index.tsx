@@ -25,7 +25,7 @@ const HomeGists: FC<HomeGistsProps> = (props) => {
 
   return (
     <Div my="4">
-      <PageTitle title="home.gists.title" />
+      <PageTitle title="gists.title" ns="home" />
       <Gists items={_items?.slice?.(0, isMediumScreen ? 2 : 3)} />
       <GistsMoreLink />
     </Div>

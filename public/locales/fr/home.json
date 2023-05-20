@@ -1,13 +1,6 @@
 {
   "title": "Accueil",
   "posts": { "title": "Articles en vedette", "seeMore": "Voir plus" },
-  "profile": {
-    "name": "Milad Afkhami",
-    "job": "Responsable de l'équipe de développement Front-End chez Arsh Co.",
-    "jobDescription0": "Plus de 4 ans d'expérience dans le développement front-end",
-    "jobDescription-1": "Travailler en tant que développeur Front-End et aider les autres membres dans leurs problèmes.",
-    "jobDescription": "Un ingénieur logiciel qualifié avec une capacité éprouvée à analyser, concevoir, développer et maintenir des solutions logicielles à grande échelle qui répondent aux exigences de l'entreprise ainsi qu'aux indices de performance et de qualité."
-  },
   "projects": {
     "seeMore": "Voir plus en détails"
   },

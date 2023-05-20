@@ -22,7 +22,9 @@ const GistCard: FC<IGist> = (props) => {
     >
       <Div height="3rem" flex={["center", "between"]} mb="3">
         <Div>
-          <Text size="h-sm-b">{title}</Text>
+          <Text size="h-sm" bold noTranslation>
+            {title}
+          </Text>
         </Div>
         <GistCardCategory category={category} />
       </Div>
@@ -31,6 +33,7 @@ const GistCard: FC<IGist> = (props) => {
           as="p"
           size="md"
           color="text-secondary-main"
+          noTranslation
         >
           {summary}
         </Text>

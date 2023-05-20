@@ -14,9 +14,9 @@ const ServerError: FC = () => (
     gap="3"
   >
     <Div gap="2">
-      <Text>error.server</Text>
+      <Text ns="common">error.server</Text>
       <Text noTranslation>|</Text>
-      <Text>500</Text>
+      <Text noTranslation>500</Text>
     </Div>
     <Link href="/">
       <Button text="error.goBack" />

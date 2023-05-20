@@ -14,7 +14,9 @@ const GistsMoreLink: FC = () => (
       hoverBg="bg-secondary-hover"
       curve="sm"
     >
-      <Text size="md-b">home.gists.seeMore</Text>
+      <Text size="md" bold ns="home">
+        gists.seeMore
+      </Text>
     </Link>
   </Div>
 );

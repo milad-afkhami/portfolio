@@ -10,8 +10,7 @@ const ImageViewerFooterCount: Components["FooterCount"] = (props) => {
   const { t } = useTranslation();
 
   return (
-    <Div flex={["center", "center"]} bg="bg-tertiary" p="1" curve="sm" mw="fit">
-      <Text size="md" align="center">
+      <Text size="md" align="center" noTranslation>
         {t("kits.imageViewer.nthImage", {
           n: currentIndex + 1,
         })}
