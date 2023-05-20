@@ -14,7 +14,7 @@ const GistCard: FC<IGist> = (props) => {
       mh="140px"
       curve="sm"
       overflow="hidden"
-      bg="bg-secondary"
+      bg="bg-secondary-main"
       hoverBg="bg-secondary-hover"
       position="relative"
       p="3"
