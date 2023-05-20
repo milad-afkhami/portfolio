@@ -1,30 +1,28 @@
 import Div from "@kits/Div";
 import Text from "@kits/Text";
-import { responsiveUpperBoundBreakpoint } from "@configs/general";
+import { styled } from "goober";
+import { responsiveUpperBoundBreakpointValue } from "@configs/general";
 import type { FC } from "react";
 
+const ProfileJobWrapper = styled("div")`
+  * {
+    text-align: center;
+  }
+  @media (min-width: ${responsiveUpperBoundBreakpointValue}) {
+    * {
+      text-align: start;
+    }
+  }
+`;
+
 const ProfileJob: FC = () => (
-  <Div>
-    <Div
-      mb="3"
-      css={{ textAlign: "center" }}
-      responsive={{
-        [responsiveUpperBoundBreakpoint]: { css: { textAlign: "start" } },
-      }}
-    >
+  <ProfileJobWrapper>
+    <Div mb="3">
       <Text ns="home" size="lg" bold as="h2">
         profile.job
       </Text>
     </Div>
-    <Div
-      Mw="600px"
-      css={{ textAlign: "center" }}
-      responsive={{
-        [responsiveUpperBoundBreakpoint]: {
-          css: { textAlign: "start", "*": { whiteSpace: "pre-line" } },
-        },
-      }}
-    >
+    <Div Mw="600px">
       <Text
         ns="home"
         size="lg"
@@ -35,7 +33,7 @@ const ProfileJob: FC = () => (
         profile.jobDescription
       </Text>
     </Div>
-  </Div>
+  </ProfileJobWrapper>
 );
 
 export default ProfileJob;
