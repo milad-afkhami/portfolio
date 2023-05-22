@@ -10,7 +10,7 @@
     "sm": { "fontSize": 12 },
     "xsm": { "fontSize": 10 }
   },
-  "lg": {
+  "md": {
     "h-xxl": { "fontSize": 42 },
     "h-xl": { "fontSize": 34 },
     "h-lg": { "fontSize": 28 },
