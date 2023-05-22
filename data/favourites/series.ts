@@ -2,7 +2,7 @@ const favouriteSeriesData = [
   // drama
   "hannibal",
   "true-detective",
-  // "mind-hunter",
+  "mind-hunter",
   // "fleabag",
   // "shameless",
 
@@ -18,15 +18,13 @@ const favouriteSeriesData = [
   // animations
   "family-guy",
   "rick-and-morty",
-  "avatar-the-last-airbender",
+  "bojack-horseman",
+  "the-untamed",
   // "shaun-the-sheep",
-  // "the-legend-of-korra",
-  // "boJack-horseman",
   // "south-park"
   // "sponge-bob"
   // "gravity-falls"
   // "teenage-mutant-ninja-turtles"
-  // ""
 
   // "scenes-from-a-marriage",
   // "big-little-lies",

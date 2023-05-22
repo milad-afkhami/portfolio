@@ -1,4 +1,5 @@
 const favouriteAnimeData = [
+  "avatar-the-last-airbender",
   "attack-on-titan",
   "death-note",
   "fullmetal-alchemist-brotherhood",
