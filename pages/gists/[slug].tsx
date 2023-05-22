@@ -1,9 +1,7 @@
 import Breadcrumb from "@kits/Breadcrumb";
 import Div from "@kits/Div";
 import Head from "@components/SEO/Head";
-import MDXRemote from "@components/Markdown/MDXRemote";
-import MarkdownWrapper from "@components/Markdown/Wrapper";
-import MarkdownVariables from "@components/Markdown/Variables";
+import Markdown from "@components/Markdown";
 import GistSummary from "@components/Gists/Summary";
 import SectionTitle from "@components/Layout/Title/Section";
 import useTranslation from "@hooks/useTranslation";
@@ -15,7 +13,7 @@ import type {
   GetStaticPathsResult,
   GetStaticProps,
 } from "next";
-import type { MDXResult } from "@_types/components";
+import type { MDXResult, PageComponent } from "@_types/components";
 
 const GistPage: FC<MDXResult<IGist>> = (props) => {
   const { t } = useTranslation("layout");
@@ -38,12 +36,7 @@ const GistPage: FC<MDXResult<IGist>> = (props) => {
         <Div>
           <SectionTitle title={title} />
           <GistSummary summary={summary} />
-          <MarkdownWrapper>
-            <MDXRemote
-              {...source}
-              components={{ Variables: MarkdownVariables }}
-            />
-          </MarkdownWrapper>
+          <Markdown source={source} />
         </Div>
       </Div>
     </>

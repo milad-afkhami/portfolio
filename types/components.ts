@@ -42,7 +42,7 @@ export type HOCFunctionalComponent<T = Dictionary> = FunctionComponent<
 >;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export interface MDXResult<T extends Dictionary<any>> {
+export interface MDXResult<T extends Dictionary<any> = Dictionary<unknown>> {
   source: MDXRemoteSerializeResult;
   frontMatter: T;
 }

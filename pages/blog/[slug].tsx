@@ -19,7 +19,7 @@ import type {
   GetStaticPaths,
   GetStaticPathsResult,
 } from "next";
-import type { MDXResult } from "@_types/components";
+import type { MDXResult, PageComponent } from "@_types/components";
 
 interface BlogPageProps {
   blog: MDXResult<IBlog>;
@@ -80,9 +80,7 @@ const BlogPage: FC<BlogPageProps> = (props) => {
           />
           <BlogBanner banner={banner || image} title={title} />
           {/* className=" line-numbers" */}
-          <MarkdownWrapper>
-            <MDXRemote {...source} />
-          </MarkdownWrapper>
+          <Markdown source={source} />
         </Div>
       </Div>
     </>
