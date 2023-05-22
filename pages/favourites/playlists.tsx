@@ -8,7 +8,7 @@ const FavouritePlaylistsPage: FC = () => (
   <>
     <Head canonical="/favourites/playlists" page="favouritePlaylists" />
     <Div width="100%" py="3">
-      <PageTitle title="favourites.playlists.title" />
+      <PageTitle title="title" ns="favourites.playlists" />
       <FavouritePlaylists />
     </Div>
   </>

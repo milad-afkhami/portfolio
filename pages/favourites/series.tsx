@@ -10,7 +10,7 @@ const FavouriteSeriesPage: FC = () => (
   <>
     <Head canonical="/favourites/series" page="favouriteSeries" />
     <Div width="100%" py="3">
-      <PageTitle title="favourites.series.title" />
+      <PageTitle title="title" ns="favourites.series" />
       <FavouriteCommonEntityCards
         items={favouriteSeriesData}
         entityType={FAVOURITE_TYPES.SHOW.SERIES as IFavouriteEntities}

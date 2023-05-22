@@ -13,17 +13,17 @@ const FavouriteEntities: FC = () => {
 
   return (
     <Div>
-      <PageTitle title="favourites.title" />
+      <PageTitle title="title" ns="favourites.common" />
       {favouritesLinks.map(({ links, group }, i) => (
         <Div key={i} flex={["start", "start", "column"]} mb="3">
           <SectionTitle
             icon={group as IconName}
-            title={`favourites.group.${group}`}
-            tag="h3"
+            ns="favourites.common"
+            title={`group.${group}`}
           />
           <Div
-            display="flex"
-            css={{ columnGap: "var(--spacing-3)", flexDirection: "column" }}
+            flex={[, , "column"]}
+            css={{ columnGap: "var(--spacing-3)" }}
             responsive={{
               sm: { css: { flexDirection: "row" } },
               [responsiveUpperBoundBreakpoint]: {

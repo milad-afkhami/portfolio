@@ -18,6 +18,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     onClick,
     children,
     variant = "contained",
+    ns,
   } = props;
   const notAllowed = disabled || loading;
 
@@ -29,14 +30,14 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
       name={name}
       data-testid="kitButton"
     >
-      <Div height="100%" flex={["center", "center"]} gap="1">
+      <Div height="100%" flex={["center", "center"]} gap="2">
         <If condition={loading}>
           <Then>
             <Spinner size="xsm" light={variant === "contained"} />
           </Then>
           <Else>
             <Adornment icon={icon} />
-            <ButtonText text={text} />
+            <ButtonText text={text} ns={ns} />
             {children}
             <Adornment icon={trailingIcon} />
           </Else>

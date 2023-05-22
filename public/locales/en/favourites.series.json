@@ -16,12 +16,6 @@
     "mind-hunter": {
       "name": "Mind Hunter"
     },
-    "avatar-the-last-airbender": {
-      "name": "Avatar The Last Airbender"
-    },
-    "the-legend-of-korra": {
-      "name": "The Legend of Korra"
-    },
     "rick-and-morty": {
       "name": "Rick And Morty"
     },
@@ -37,8 +31,11 @@
     "its-always-sunny-in-philadelphia": {
       "name": "It's Always Sunny in Philadelphia"
     },
-    "boJack-horseman": {
+    "bojack-horseman": {
       "name": "BoJack Horseman"
+    },
+    "the-untamed": {
+      "name": "The Untamed"
     },
     "family-guy": {
       "name": "Family Guy"

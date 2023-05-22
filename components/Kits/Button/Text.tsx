@@ -5,14 +5,14 @@ import type ButtonProps from "./props";
 import type TextProps from "@kits/Text/props";
 // #endregion
 
-export default function ButtonText(props: { text: ButtonProps["text"] }) {
-  const { text } = props;
+export default function ButtonText(props: Pick<ButtonProps, "text" | "ns">) {
+  const { text, ns } = props;
 
   const sharedProps = {
-    size: "sm",
+    ns,
+    size: "md",
     userSelect: "none",
-    bold: true,
-  } as Partial<TextProps>;
+  } as TextProps;
 
   if (typeof text === "string") {
     return <Text {...sharedProps}>{text}</Text>;
