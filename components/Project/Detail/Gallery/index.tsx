@@ -1,44 +1,43 @@
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import Div from "@kits/Div";
 import SectionTitle from "@components/Layout/Title/Section";
 import ProjectGalleryAlbum from "./Album";
 import dynamic from "next/dynamic";
-import type { FC } from "react";
 import useTranslation from "@hooks/useTranslation";
+import useToggle from "@hooks/useToggle";
+import useDelayedRender from "use-delayed-render";
+import type { FC } from "react";
 
 const ImageViewer = dynamic(() => import("@kits/ImageViewer"));
 
 const ProjectGallery: FC<Pick<IProject, "medias">> = (props) => {
   const { medias } = props;
 
-  const [renderViewer, setRenderViewer] = useState(false);
+  const [viewerIsOpen, toggleViewer] = useToggle(false);
   const [currentImage, setCurrentImage] = useState(0);
-  const [viewerIsOpen, setViewerIsOpen] = useState(false);
-  const { t } = useTranslation();
 
-  const openLightbox = useCallback((index: number) => {
-    setCurrentImage(index);
-    setViewerIsOpen(true);
-  }, []);
+  const { mounted: isViewerMounted, rendered: isViewerRendered } =
+    useDelayedRender(viewerIsOpen);
+
+  const { t } = useTranslation();
 
   const closeLightbox = () => {
     setCurrentImage(0);
-    setViewerIsOpen(false);
+    toggleViewer();
+  };
+
+  const onClickItem = (index: number) => {
+    toggleViewer();
+    setCurrentImage(index);
   };
 
   return (
     <Div mb="4">
       <SectionTitle icon="gallery" title="gallery" ns="projects" />
-      <ProjectGalleryAlbum
-        medias={medias}
-        onClickItem={(index) => {
-          setRenderViewer(true);
-          setTimeout(() => openLightbox(index), 100);
-        }}
-      />
-      {renderViewer && (
+      <ProjectGalleryAlbum medias={medias} onClickItem={onClickItem} />
+      {isViewerMounted && (
         <ImageViewer
-          isOpen={viewerIsOpen}
+          isOpen={isViewerRendered}
           onClose={closeLightbox}
           currentIndex={currentImage}
           views={medias.map((x) => ({

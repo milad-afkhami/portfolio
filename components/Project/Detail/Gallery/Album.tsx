@@ -39,6 +39,7 @@ const ProjectGalleryAlbum: FC<ProjectGalleryAlbumProps> = (props) => {
           borderW="2"
           curve="sm"
           overflow="hidden"
+          onClick={() => onClickItem(index)}
         >
           <Image
             src={media.src}
@@ -47,7 +48,6 @@ const ProjectGalleryAlbum: FC<ProjectGalleryAlbumProps> = (props) => {
             layout="fill"
             quality={1}
             fit="cover"
-            onClick={(e) => onClickItem(index)}
             placeholder="blur"
             withShimmer
           />
