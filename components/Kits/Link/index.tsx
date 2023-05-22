@@ -2,6 +2,7 @@ import NextLink from "next/link";
 import Div from "@kits/Div";
 import type { FC } from "react";
 import type LinkProps from "./props";
+import type DivProps from "@kits/Div/props";
 
 const Link: FC<LinkProps> = ({
   href,
@@ -18,13 +19,9 @@ const Link: FC<LinkProps> = ({
   underline,
   ...rest
 }) => {
-  const hover = {
-    ...(rest?.hover || {}),
-    css: {
-      ...(rest?.hover?.css || {}),
-      ...(underline ? { textDecoration: "underline" } : {}),
-    },
-  };
+  const hover: Maybe<DivProps["hover"]> = underline
+    ? { css: { textDecoration: "underline" } }
+    : undefined;
 
   const hasHashHref = typeof href === "string" && href.startsWith("#");
 
@@ -46,6 +43,7 @@ const Link: FC<LinkProps> = ({
           document.getElementById(href.slice(1))?.scrollIntoView();
         }
       }}
+      hover={hover}
       replace={replace}
       scroll={scroll}
       shallow={shallow}
@@ -53,7 +51,6 @@ const Link: FC<LinkProps> = ({
       prefetch={prefetch}
       locale={locale}
       {...rest}
-      hover={hover}
     >
       {children}
     </Div>
