@@ -8,39 +8,24 @@ const BaseButton = styled(
   "button",
   forwardRef
 )<ButtonProps>((props) => {
-  const {
-    loading = false,
-    disabled = false,
-    variant = "contained",
-    color = "brand",
-    bordered = true,
-  } = props;
+  const { loading = false, disabled = false, variant = "contained" } = props;
   const dimensions = ButtonHelper.setDimensions(props);
-  const paints = ButtonHelper.setPaints({
-    variant,
-    disabled,
-    color,
-    loading,
-    bordered,
-  });
+  const paints = ButtonHelper.setPaints({ variant, disabled });
+
   return {
     ...dimensions,
     ...paints,
-    "&, & *": {
-      transition: "all 0.1s ease, background 0.8s",
-    },
-    "& i": {
-      pointerEvents: "none",
-    },
+    "&, & *": { transition: "all 0.1s ease, background 0.8s" },
+    "& i": { pointerEvents: "none" },
     backgroundPosition: "center",
     fontSize: fontSizeVar("sm"),
     "& > *:first-child": { transition: "margin-top 0.3s ease" },
     display: "block",
-    borderRadius: bordered ? "var(--button-curve)" : "unset",
+    borderRadius: "var(--button-curve)",
     overflow: "hidden",
-    padding: "var(--spacing-1) var(--spacing-3)",
+    padding: "var(--spacing-1) var(--spacing-4)",
     lineHeight: "normal",
-    outline: "none!important",
+    outline: "none !important",
     cursor: disabled || loading ? "default" : "pointer",
     textAlign: "center",
   };

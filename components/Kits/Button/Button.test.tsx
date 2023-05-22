@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-
 import Button from ".";
+import type IconProps from "@kits/Icon/props";
 
 describe("Button ui component tests", () => {
   const buttonText = "testButton";
@@ -24,7 +24,7 @@ describe("Button ui component tests", () => {
   });
 
   it("Should render with trailing icon", () => {
-    const iconName = "chevron-left";
+    const iconName = "chevron-left" as IconProps["name"];
     render(<Button text={buttonText} trailingIcon={iconName} />);
     expect(screen.getByTitle(iconName)).toBeInTheDocument();
   });
