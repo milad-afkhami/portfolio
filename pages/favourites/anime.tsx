@@ -1,22 +1,32 @@
 import Div from "@kits/Div";
 import Head from "@components/SEO/Head";
 import PageTitle from "@components/Layout/Title/Page";
-import FavouriteCommonEntityList from "@components/Favourites/CommonEntity";
+import FavouriteCommonEntityCards from "@components/Cards/CommonEntity";
+import I18nHelper from "@helpers/i18n";
 import favouriteAnimeData from "@data/favourites/anime";
 import FAVOURITE_TYPES from "@constants/favourites";
-import type { FC } from "react";
+import type { GetStaticProps } from "next";
+import type { PageComponent } from "@_types/components";
 
-const FavouriteAnimePage: FC = () => (
+const FavouriteAnimePage: PageComponent = () => (
   <>
     <Head canonical="/favourites/anime" page="favouriteAnime" />
     <Div width="100%" py="3">
-      <PageTitle title="favourites.anime.title" />
-      <FavouriteCommonEntityList
+      <PageTitle title="title" ns="favourites.anime" />
+      <FavouriteCommonEntityCards
         items={favouriteAnimeData}
         entityType={FAVOURITE_TYPES.SHOW.ANIME as IFavouriteEntities}
       />
     </Div>
   </>
 );
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  const [t9n = {}] = await Promise.all([
+    I18nHelper.ssrT9n(locale, "layout", "favourites.anime"),
+  ]);
+
+  return { props: t9n };
+};
 
 export default FavouriteAnimePage;

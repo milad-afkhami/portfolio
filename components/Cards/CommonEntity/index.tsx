@@ -2,12 +2,12 @@ import Div from "@kits/Div";
 import FavouriteCommonEntityCard from "./Card";
 import type { FC } from "react";
 
-interface FavouriteCommonEntityListProps {
+interface FavouriteCommonEntityCardsProps {
   items: Array<string>;
   entityType: IFavouriteEntities;
 }
 
-const FavouriteCommonEntityList: FC<FavouriteCommonEntityListProps> = (
+const FavouriteCommonEntityCards: FC<FavouriteCommonEntityCardsProps> = (
   props
 ) => {
   const { items, entityType } = props;
@@ -33,4 +33,4 @@ const FavouriteCommonEntityList: FC<FavouriteCommonEntityListProps> = (
   );
 };
 
-export default FavouriteCommonEntityList;
+export default FavouriteCommonEntityCards;
