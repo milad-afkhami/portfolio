@@ -1,16 +1,12 @@
-import colorVar from "@stylesheets/utils/var/color";
 import type ButtonProps from "@kits/Button/props";
 import type { Properties as CSSProperties } from "csstype";
 // import type { CSSProperties } from "react";
 
-type PaintParams = Pick<
-  ButtonProps,
-  "variant" | "disabled" | "loading" | "color" | "bordered"
->;
+type PaintParams = Pick<ButtonProps, "variant" | "disabled">;
 
 type Paints = Pick<
   CSSProperties,
-  "color" | "backgroundColor" | "border" | "background"
+  "color" | "backgroundColor" | "border" | "borderColor" | "background"
 > & {
   "&:hover"?: Partial<Omit<Paints, "&:hover">>;
 };
@@ -23,87 +19,39 @@ type DimensionParams = Pick<
 type Dimensions = Pick<CSSProperties, "minWidth" | "width" | "height">;
 
 export default class ButtonHelper {
-  static setPaints({
-    variant,
-    disabled,
-    loading,
-    color,
-    bordered,
-  }: PaintParams): Paints {
-    // eslint-disable-next-line one-var
-    let hoverColor, bgColor;
+  static setPaints({ variant, disabled }: PaintParams): Paints {
+    let color = "var(--color-text-primary-main)";
+    if (disabled) color = "var(--color-text-tertiary-main)";
+    const hoverColor = "var(--color-brand-hover)";
+
     switch (variant) {
       case "outlined":
-        hoverColor = colorVar(`${color}-paler`);
         return {
-          color: colorVar(disabled ? "text-disabled-main" : `${color}-main`),
-          backgroundColor: "var(--color-bg-primary-main)",
-          border: bordered
-            ? `1px solid ${colorVar(
-                disabled ? "text-disabled-main" : `${color}-main`
-              )}`
-            : "none",
-          ...(!disabled && !loading
-            ? {
-                "&:hover": {
-                  background: ButtonHelper.#getHoverBg(hoverColor),
-                },
-                "&:active": {
-                  backgroundColor: colorVar(`${color}-light`),
-                  backgroundSize: "100%",
-                  transition: "background 0s",
-                },
-              }
-            : {}),
+          color,
+          backgroundColor: "transparent",
+          border: `1px solid ${
+            disabled ? "var(--color-border-light)" : "var(--color-brand-main)"
+          }`,
+          ...(!disabled ? { "&:hover": { borderColor: hoverColor } } : {}),
         };
+
       case "text":
-        hoverColor = colorVar(`${color}-paler`);
         return {
-          color: disabled
-            ? "var(--color-text-disabled-main)"
-            : "var(--color-brand-main)",
-          backgroundColor: "var(--color-bg-primary-main)",
+          color,
+          backgroundColor: "transparent",
           border: "none",
-          ...(!disabled && !loading
-            ? {
-                "&:hover": {
-                  color: "var(--color-brand-hover)",
-                  background: ButtonHelper.#getHoverBg(hoverColor),
-                },
-                "&:active": {
-                  backgroundColor: colorVar(`${color}-light`),
-                  backgroundSize: "100%",
-                  transition: "background 0s",
-                },
-              }
-            : {}),
+          ...(!disabled ? { "&:hover": { color: hoverColor } } : {}),
         };
 
       case "contained":
       default:
-        if (bordered) hoverColor = colorVar(`${color}-hover`);
-        bgColor = disabled ? "bg-disabled-main" : `${color}-main`;
-        if (!bordered) bgColor = `${color}-pale`;
         return {
-          color: disabled
-            ? "var(--color-text-disabled-main)"
-            : "var(--color-bg-primary-main)",
-          backgroundColor: colorVar(bgColor),
+          color,
+          backgroundColor: disabled
+            ? "var(--color-bg-disabled-main)"
+            : "var(--color-brand-main)",
           border: "none",
-          ...(!disabled && !loading
-            ? {
-                "&:hover": {
-                  ...(hoverColor && {
-                    background: ButtonHelper.#getHoverBg(hoverColor),
-                  }),
-                },
-                "&:active": {
-                  backgroundColor: colorVar(`${color}-light`),
-                  backgroundSize: "100%",
-                  transition: "background 0s",
-                },
-              }
-            : {}),
+          ...(!disabled ? { "&:hover": { backgroundColor: hoverColor } } : {}),
         };
     }
   }
@@ -114,7 +62,7 @@ export default class ButtonHelper {
     height = "var(--button-height)",
     fixedWidth,
   }: DimensionParams): Dimensions {
-    const minWidth = "50px";
+    const minWidth = "140px";
     let _width = width;
     if (block) {
       _width ??= "100%";
@@ -128,9 +76,5 @@ export default class ButtonHelper {
       ...(_width ? { width: _width } : {}),
       height,
     };
-  }
-
-  static #getHoverBg(hoverColor: string) {
-    return `${hoverColor} radial-gradient(circle, transparent 1%, ${hoverColor} 1%) center/15000%`;
   }
 }
