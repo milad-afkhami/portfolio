@@ -4,6 +4,7 @@ import PageTitle from "@components/Layout/Title/Page";
 import FavouriteCommonEntityCards from "@components/Cards/CommonEntity";
 import favouriteBooksData from "@data/favourites/books";
 import FAVOURITE_TYPES from "@constants/favourites";
+import I18nHelper from "@helpers/i18n";
 import type { GetStaticProps } from "next";
 import type { PageComponent } from "@_types/components";
 
@@ -19,5 +20,13 @@ const FavouriteBooksPage: PageComponent = () => (
     </Div>
   </>
 );
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  const [t9n = {}] = await Promise.all([
+    I18nHelper.ssrT9n(locale, "layout", "favourites.books"),
+  ]);
+
+  return { props: t9n };
+};
 
 export default FavouriteBooksPage;

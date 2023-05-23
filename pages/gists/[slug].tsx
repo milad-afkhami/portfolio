@@ -7,7 +7,7 @@ import SectionTitle from "@components/Layout/Title/Section";
 import useTranslation from "@hooks/useTranslation";
 import { useRouter } from "next/router";
 import GistServices from "@services/gist";
-import type { FC } from "react";
+import I18nHelper from "@helpers/i18n";
 import type {
   GetStaticPaths,
   GetStaticPathsResult,
@@ -37,7 +37,7 @@ const GistPage: PageComponent<GistPageProps> = (props) => {
             { title, link: `/gists/${slug}` },
           ]}
         />
-        <Div>
+        <Div mt="3">
           <SectionTitle title={title} />
           <GistSummary summary={summary} />
           <Markdown source={source} />
@@ -51,8 +51,12 @@ export const getStaticProps: GetStaticProps<GistPageProps> = async ({
   locale,
   params,
 }) => {
+  const [t9n = {}, gist] = await Promise.all([
+    I18nHelper.ssrT9n(locale, "layout"),
+    GistServices.getDetail(params?.slug as string),
+  ]);
 
-  return { props: { gist } };
+  return { props: { gist, ...t9n } };
 };
 
 export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
