@@ -1,14 +1,12 @@
+import Div from "@kits/Div";
 import Image from "@kits/Image";
-import Link from "@kits/Link";
 import type { FC } from "react";
 
 const GistCardCategory: FC<Pick<IGist, "category">> = (props) => {
   const { category } = props;
 
   return (
-    <Link
-      href={{ pathname: "/gists", query: { category } }}
-      hover={{ css: { filter: "brightness(0.7)" } }}
+    <Div
       curve="circle"
       overflow="hidden"
       height="48px"
@@ -22,7 +20,7 @@ const GistCardCategory: FC<Pick<IGist, "category">> = (props) => {
         layout="fill"
       />
       {/* <Div mb="1"></Div><Div><Text size="xsm">{`gists.category.${category}`}</Text></Div> */}
-    </Link>
+    </Div>
   );
 };
 
