@@ -13,10 +13,10 @@ import {
 } from "@configs/about";
 import { appBaseURL } from "@configs/urls";
 import contactOptions, { ContactType } from "@configs/contact";
-import type { FC } from "react";
 import type { GetStaticProps } from "next";
+import type { PageComponent } from "@_types/components";
 
-const AboutPage: FC = () => {
+const AboutPage: PageComponent = () => {
   const { t } = useTranslation("about");
   const videoTitle = t("video.title");
   const videoDesc = t("video.desc");

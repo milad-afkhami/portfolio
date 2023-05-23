@@ -4,9 +4,10 @@ import PageTitle from "@components/Layout/Title/Page";
 import FavouriteCommonEntityCards from "@components/Cards/CommonEntity";
 import favouriteBooksData from "@data/favourites/books";
 import FAVOURITE_TYPES from "@constants/favourites";
-import type { FC } from "react";
+import type { GetStaticProps } from "next";
+import type { PageComponent } from "@_types/components";
 
-const FavouriteBooksPage: FC = () => (
+const FavouriteBooksPage: PageComponent = () => (
   <>
     <Head canonical="/favourites/books" page="favouriteBooks" />
     <Div width="100%" py="3">

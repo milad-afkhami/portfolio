@@ -3,13 +3,14 @@ import Head from "@components/SEO/Head";
 import PageTitle from "@components/Layout/Title/Page";
 import GistCards from "@components/Cards/Gist";
 import GistServices from "@services/gist";
-import type { FC } from "react";
+import type { GetStaticProps } from "next";
+import type { PageComponent } from "@_types/components";
 
 interface GistsPageProps {
   gists: Array<IGist>;
 }
 
-const GistsPage: FC<GistsPageProps> = (props) => {
+const GistsPage: PageComponent<GistsPageProps> = (props) => {
   const { gists } = props;
 
   return (
@@ -23,8 +24,7 @@ const GistsPage: FC<GistsPageProps> = (props) => {
   );
 };
 
-export async function getStaticProps() {
-  const gists = await GistServices.getList();
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
 
   return { props: { gists } };
 }

@@ -2,9 +2,10 @@ import Div from "@kits/Div";
 import Head from "@components/SEO/Head";
 import PageTitle from "@components/Layout/Title/Page";
 import FavouritePlaylists from "@components/Favourites/Playlists";
-import type { FC } from "react";
+import type { GetStaticProps } from "next";
+import type { PageComponent } from "@_types/components";
 
-const FavouritePlaylistsPage: FC = () => (
+const FavouritePlaylistsPage: PageComponent = () => (
   <>
     <Head canonical="/favourites/playlists" page="favouritePlaylists" />
     <Div width="100%" py="3">

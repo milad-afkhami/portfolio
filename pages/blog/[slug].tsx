@@ -3,17 +3,14 @@ import Breadcrumb from "@kits/Breadcrumb";
 import { useRouter } from "next/router";
 import Head from "@components/SEO/Head";
 import { ArticleJsonLd } from "next-seo";
-import MDXRemote from "@components/Markdown/MDXRemote";
+import Markdown from "@components/Markdown";
 import BlogSummary from "@components/Blog/Summary";
 import BlogMeta from "@components/Blog/Meta";
 import BlogBanner from "@components/Blog/Banner";
-import PageTitle from "@components/Layout/Title/Page";
-import MarkdownWrapper from "@components/Markdown/Wrapper";
 import useTranslation from "@hooks/useTranslation";
 import I18nHelper from "@helpers/i18n";
 import BlogServices from "@services/blog";
 import { appBaseURL } from "@configs/urls";
-import type { FC } from "react";
 import type {
   GetStaticProps,
   GetStaticPaths,
@@ -25,7 +22,7 @@ interface BlogPageProps {
   blog: MDXResult<IBlog>;
 }
 
-const BlogPage: FC<BlogPageProps> = (props) => {
+const BlogPage: PageComponent<BlogPageProps> = (props) => {
   const router = useRouter();
   const { slug } = router.query;
   const { title, summary, image, banner, publishedAt, readingTime, category } =
@@ -87,7 +84,10 @@ const BlogPage: FC<BlogPageProps> = (props) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
+export const getStaticProps: GetStaticProps<BlogPageProps> = async ({
+  params,
+  locale,
+}) => {
   const [t9n, blog] = await Promise.all([
     I18nHelper.ssrT9n(locale, "layout"),
     BlogServices.getDetail(params?.slug as string),

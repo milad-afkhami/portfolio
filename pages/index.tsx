@@ -8,8 +8,8 @@ import BlogServices from "@services/blog";
 import GistServices from "@services/gist";
 import dynamic from "next/dynamic";
 import I18nHelper from "@helpers/i18n";
-import type { FC } from "react";
 import type { GetStaticProps } from "next";
+import type { PageComponent } from "@_types/components";
 
 const Contact = dynamic(() => import("@components/Contact"), { ssr: false });
 
@@ -18,7 +18,7 @@ interface HomePageProps {
   gists: Array<IGist>;
 }
 
-const HomePage: FC<HomePageProps> = (props) => {
+const HomePage: PageComponent<HomePageProps> = (props) => {
   const { blogs, gists } = props;
 
   return (
@@ -35,7 +35,9 @@ const HomePage: FC<HomePageProps> = (props) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getStaticProps: GetStaticProps<HomePageProps> = async ({
+  locale,
+}) => {
   const [t9n, blogs, gists] = await Promise.all([
     I18nHelper.ssrT9n(locale, "layout", "home", "projects"),
     BlogServices.getList(),

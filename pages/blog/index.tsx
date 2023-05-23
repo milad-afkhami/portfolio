@@ -4,14 +4,14 @@ import PageTitle from "@components/Layout/Title/Page";
 import BlogCards from "@components/Cards/Blog";
 import BlogServices from "@services/blog";
 import I18nHelper from "@helpers/i18n";
-import type { FC } from "react";
 import type { GetStaticProps } from "next";
+import type { PageComponent } from "@_types/components";
 
 interface BlogsPageProps {
   blogs: Array<IBlog>;
 }
 
-const BlogsPage: FC<BlogsPageProps> = (props) => {
+const BlogsPage: PageComponent<BlogsPageProps> = (props) => {
   const { blogs } = props;
 
   return (
@@ -25,7 +25,9 @@ const BlogsPage: FC<BlogsPageProps> = (props) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getStaticProps: GetStaticProps<BlogsPageProps> = async ({
+  locale,
+}) => {
   const [t9n, blogs] = await Promise.all([
     I18nHelper.ssrT9n(locale, "layout"),
     BlogServices.getList(),

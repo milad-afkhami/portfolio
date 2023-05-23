@@ -1,9 +1,10 @@
 import Div from "@kits/Div";
 import Head from "@components/SEO/Head";
 import FavouriteEntities from "@components/Favourites/Entities";
-import type { FC } from "react";
+import type { GetStaticProps } from "next";
+import type { PageComponent } from "@_types/components";
 
-const FavouritesPage: FC = () => (
+const FavouritesPage: PageComponent = () => (
   <>
     <Head canonical="/favourites" page="favourites" />
     <Div width="100%" py="3">

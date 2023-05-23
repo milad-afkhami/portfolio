@@ -15,12 +15,16 @@ import type {
 } from "next";
 import type { MDXResult, PageComponent } from "@_types/components";
 
-const GistPage: FC<MDXResult<IGist>> = (props) => {
+type GistPageProps = { gist: MDXResult<IGist> };
+
+const GistPage: PageComponent<GistPageProps> = (props) => {
+  const { gist } = props;
+
   const { t } = useTranslation("layout");
   const router = useRouter();
   const { slug } = router.query;
-  const { title, summary } = props?.frontMatter || {};
-  const source = props?.source || {};
+  const { title, summary } = gist?.frontMatter || {};
+  const source = gist?.source;
 
   return (
     <>
@@ -43,8 +47,10 @@ const GistPage: FC<MDXResult<IGist>> = (props) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const gist = await GistServices.getDetail(params?.slug as string);
+export const getStaticProps: GetStaticProps<GistPageProps> = async ({
+  locale,
+  params,
+}) => {
 
   return { props: { gist } };
 };
