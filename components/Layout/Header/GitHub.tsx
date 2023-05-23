@@ -5,7 +5,7 @@ import type { FC } from "react";
 const HeaderGithub: FC = () => (
   <Link
     outerLink
-    height="2.5rem"
+    height="100%"
     flex={["center", "center"]}
     href="https://github.com/miladMAPS/portfolio"
   >
