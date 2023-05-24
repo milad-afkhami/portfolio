@@ -8,11 +8,20 @@
 
   --overlay-z-index: 10000;
 
+  /* Components */
+  /*   Kits */
+  /*     Button */
+  --button-height: 3rem;
+  --button-curve: var(--curve-lg);
+  /*     Text */
   --text-line-height: 1.7;
   --text-letter-spacing: 1px;
-
+  /*     ListView */
   --list-view-item-height: 70px;
+  /*     Toast */
+  --toast-width: 320px;
 }
+
 .thin-scrollbar {
   --scrollbar-width: 2px;
   --scrollbar-height: 2px;
