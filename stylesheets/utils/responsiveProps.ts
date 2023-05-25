@@ -2,9 +2,18 @@ import mediaFeatures from "@stylesheets/mediaFeatures";
 import __reduce from "lodash-es/reduce";
 import type DivProps from "@kits/Div/props";
 
+/**
+ * @description
+ * Wraps arrived responsive props into corresponded media queries
+ *
+ * @example
+ * responsiveProps({ sm: { mx: 3 } });
+ *
+ * // returns: { "@media (min-width: 576px)": { mx: 3 } }
+ */
 export default function responsiveProps(
   responsive: NonNullable<DivProps["responsive"]>
-) {
+): Dictionary<DivProps> {
   return __reduce(
     responsive,
     (result, rspValue, rspKey) => {

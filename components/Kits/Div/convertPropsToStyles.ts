@@ -7,9 +7,12 @@ import colorVar from "@stylesheets/utils/var/color";
 import isNullish from "@utils/isNullish";
 import __kebabCase from "lodash-es/kebabCase";
 import __capitalize from "lodash-es/capitalize";
+import type { CSSAttribute } from "goober";
 import type DivProps from "./props";
 
-export default function convertPropsToStyles(props: DivProps) {
+export default function convertPropsToStyles(
+  props: DivProps
+): Partial<CSSAttribute> {
   const {
     width,
     w,

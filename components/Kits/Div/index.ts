@@ -20,7 +20,7 @@ const Div = styled(
     ...(responsive
       ? __reduce(
           responsiveProps(responsive),
-          (res: any, v, k) => {
+          (res: Dictionary<unknown>, v, k) => {
             res[k] = convertPropsToStyles(v);
             return res;
           },
