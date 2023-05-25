@@ -1,19 +1,18 @@
 @font-face {
-  font-family: "icomoon";
-  src: url("fonts/icomoon.eot?z3xoeq");
-  src: url("fonts/icomoon.eot?z3xoeq#iefix") format("embedded-opentype"),
-    url("fonts/icomoon.ttf?z3xoeq") format("truetype"),
-    url("fonts/icomoon.woff?z3xoeq") format("woff"),
-    url("fonts/icomoon.svg?z3xoeq#icomoon") format("svg");
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?88odkc');
+  src:  url('fonts/icomoon.eot?88odkc#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?88odkc') format('truetype'),
+    url('fonts/icomoon.woff?88odkc') format('woff'),
+    url('fonts/icomoon.svg?88odkc#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
-[class^="mili-"],
-[class*=" mili-"] {
+[class^="mili-"], [class*=" mili-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: "icomoon" !important;
+  font-family: 'icomoon' !important;
   speak: never;
   font-style: normal;
   font-weight: normal;
@@ -26,6 +25,15 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.mili-close-icon:before {
+  content: "\e908";
+}
+.mili-checkmark-outline-icon:before {
+  content: "\e901";
+}
+.mili-education-icon:before {
+  content: "\e905";
+}
 .mili-github-icon:before {
   content: "\e907";
 }
@@ -103,9 +111,6 @@
 }
 .mili-measure-icon:before {
   content: "\e906";
-}
-.mili-education-icon:before {
-  content: "\e905";
 }
 .mili-chevron-right-icon:before {
   content: "\e923";
