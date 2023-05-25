@@ -6,11 +6,11 @@ import type { FC } from "react";
 import type { PropsWithIndex } from "@_types/components";
 
 type ProjectHeadingProps = PropsWithIndex<
-  Pick<IProject, "logo" | "link" | "slug" | "name">
+  Pick<IProject, "logo" | "link" | "name">
 >;
 
 const ProjectHeading: FC<ProjectHeadingProps> = (props) => {
-  const { index, name, logo, link = "", slug } = props;
+  const { index, name, logo, link = "" } = props;
 
   return (
     <Div

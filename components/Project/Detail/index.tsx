@@ -13,13 +13,7 @@ const ProjectDetail: FC<PropsWithIndex<IProject>> = (props) => {
 
   return (
     <Div mb="6" id={`project-${slug}`}>
-      <ProjectHeading
-        name={name}
-        logo={logo}
-        link={link}
-        slug={slug}
-        index={index}
-      />
+      <ProjectHeading name={name} logo={logo} link={link} index={index} />
       <ProjectDescription slug={slug} />
       {/* {date && <ProjectDate date={date} />} */}
       {medias && <ProjectGallery medias={medias} />}
