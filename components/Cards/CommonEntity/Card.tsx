@@ -34,6 +34,7 @@ const FavouriteCommonEntityCard: FC<FavouriteCommonEntityCardProps> = (
       flex={["center", "center", "column"]}
       overflow="hidden"
       curve="md"
+      title={`${meta} - ${name}`}
     >
       <Div
         display="flex"
@@ -61,7 +62,7 @@ const FavouriteCommonEntityCard: FC<FavouriteCommonEntityCardProps> = (
         flex={["start", "around", "column"]}
       >
         <Div overflow="hidden">
-          <Text size="lg" bold maxLines={1} noTranslation>
+          <Text size="lg" bold maxLines={1} noTranslation title={name}>
             {name}
           </Text>
         </Div>
