@@ -167,7 +167,7 @@ const favouritePlaylistsData: Array<IFavouritePlaylist> = [
       { name: "Afsar", artist: "Mohsen Chavoshi" },
       { name: "Maslakh", artist: "Mohsen Chavoshi" },
 
-      { name: ". . ." },
+      { name: ". . .", artist: "..." },
 
       // { name: "Ghatar", artist: "Mohsen Chavoshi" },
       // { name: "Gonjeshke Parideh", artist: "Mohsen Chavoshi" },
