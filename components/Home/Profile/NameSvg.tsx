@@ -7,6 +7,7 @@ const ProfileNameSvg = () => {
   const animeRef = useRef();
 
   useEffect(() => {
+    // eslint-disable-next-line global-require, @typescript-eslint/no-var-requires, import/extensions
     const anime = require("animejs/lib/anime.js");
 
     // #todo reverse it so in first paint the name is shown
