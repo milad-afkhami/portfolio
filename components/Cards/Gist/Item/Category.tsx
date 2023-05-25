@@ -18,6 +18,7 @@ const GistCardCategory: FC<Pick<IGist, "category">> = (props) => {
         src={`/images/gists/${category}.jpg`}
         // alt={`gists.category.${category}`}
         layout="fill"
+        alt={category}
       />
       {/* <Div mb="1"></Div><Div><Text size="xsm">{`gists.category.${category}`}</Text></Div> */}
     </Div>

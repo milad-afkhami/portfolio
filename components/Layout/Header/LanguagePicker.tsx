@@ -3,7 +3,6 @@ import DropDown from "@kits/DropDown";
 import { If, Then } from "@kits/ConditionalRendering";
 import { useRouter } from "next/router";
 import __map from "lodash-es/map";
-import toastUtil from "@utils/toast";
 import LanguageHelper from "@helpers/language";
 import { languages, defaultLanguage } from "@configs/languages";
 import type { FC } from "react";
@@ -12,10 +11,10 @@ import type { DropDownItemProps } from "@kits/DropDown/Item";
 const HeaderChangeLanguage: FC = () => {
   const router = useRouter();
 
-  const onChangeLanguage = (id: DropDownItemProps["id"]) =>
-    LanguageHelper.changeLanguage(id).then(() => {
-      if (id !== "en") toastUtil.info("error.sorryTranslation");
-    });
+  const onChangeLanguage = (id: Languages) => {
+    LanguageHelper.changeLanguage(id);
+    // if (id !== "en") toastUtil.info("error.sorryTranslation");
+  };
 
   const dropDownItems = useMemo(
     () =>
@@ -42,7 +41,7 @@ const HeaderChangeLanguage: FC = () => {
         <DropDown
           items={dropDownItems}
           selected={router.locale || defaultLanguage}
-          onChange={onChangeLanguage}
+          onChange={(id) => onChangeLanguage(id as Languages)}
         />
       </Then>
     </If>

@@ -3,7 +3,7 @@ import Tree from "@kits/Tree";
 import SectionTitle from "@components/Layout/Title/Section";
 import type { FC } from "react";
 
-const ProjectPoints: FC<Pick<IProject, "points">> = (props) => {
+const ProjectPoints: FC<Required<Pick<IProject, "points">>> = (props) => {
   const { points } = props;
 
   return (

@@ -17,7 +17,7 @@ const FavouriteCommonEntityCard: FC<FavouriteCommonEntityCardProps> = (
   const ns = `favourites.${entityType}` as I18NNameSpaces;
   const { t } = useTranslation(ns);
 
-  const name = `list.${slug}.name`;
+  const name = t(`list.${slug}.name`);
   const meta = t(`list.${slug}.meta`, {
     defaultValue: "",
   });
@@ -44,6 +44,7 @@ const FavouriteCommonEntityCard: FC<FavouriteCommonEntityCardProps> = (
       >
         <Image
           src={image}
+          alt={`${name} - ${meta}`}
           placeholder="blur"
           blurDataURL={image}
           layout="fill"
@@ -60,7 +61,7 @@ const FavouriteCommonEntityCard: FC<FavouriteCommonEntityCardProps> = (
         flex={["start", "around", "column"]}
       >
         <Div overflow="hidden">
-          <Text size="lg" bold maxLines={1} ns={ns}>
+          <Text size="lg" bold maxLines={1} noTranslation>
             {name}
           </Text>
         </Div>

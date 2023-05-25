@@ -31,10 +31,11 @@ const ProjectHeading: FC<ProjectHeadingProps> = (props) => {
         <Div flex={["center", "center"]} curve="circle" overflow="hidden">
           <Image
             src={logo}
-            width="32px"
-            height="32px"
+            width={32}
+            height={32}
             // placeholder="blur"
             withShimmer
+            alt={name}
           />
         </Div>
       </Div>

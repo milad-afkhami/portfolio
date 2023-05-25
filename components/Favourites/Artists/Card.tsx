@@ -27,6 +27,7 @@ const FavouriteArtistCard: FC<IFavouriteArtist> = (props) => {
           blurDataURL={image}
           layout="fill"
           fit="cover"
+          alt={name}
         />
       </Div>
       <Div>

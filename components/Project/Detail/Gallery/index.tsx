@@ -10,7 +10,7 @@ import type { FC } from "react";
 
 const ImageViewer = dynamic(() => import("@kits/ImageViewer"));
 
-const ProjectGallery: FC<Pick<IProject, "medias">> = (props) => {
+const ProjectGallery: FC<Required<Pick<IProject, "medias">>> = (props) => {
   const { medias } = props;
 
   const [viewerIsOpen, toggleViewer] = useToggle(false);

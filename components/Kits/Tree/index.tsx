@@ -1,21 +1,6 @@
 import Text from "@kits/Text";
 import TreeWrapper from "./Wrapper";
-import type { FC } from "react";
-import type TextProps from "@kits/Text/props";
-
-export type TreeProps = {
-  /** tree branches, can be an array of strings or another tree */
-  branches: Array<string | Dictionary<TreeProps["branches"]>>;
-  // | MergeBy<{ title: string }, { [property in T]: TreeProps<T>["branches"] }>
-
-  /** the key that contains subtrees branches */
-  branchesAccessor?: string;
-  /** Whether or not first degree details should be open by default */
-  defaultOpen?: boolean;
-  /** Whether or not non-first degree details should be open by default */
-  defaultSubsOpen?: boolean;
-  ns?: TextProps["ns"];
-};
+import { FC, useCallback } from "react";
 
 /** Renders an expandable tree. */
 const Tree: FC<TreeProps> = (props) => {
@@ -27,6 +12,14 @@ const Tree: FC<TreeProps> = (props) => {
     defaultSubsOpen = false,
   } = props;
 
+  const isExpandableBranch = useCallback(
+    (
+      br: ValueOf<TreeProps["branches"]>
+    ): br is Exclude<ValueOf<TreeProps["branches"]>, string> =>
+      Boolean(typeof br === "object" && br?.[branchesAccessor]),
+    [branchesAccessor]
+  );
+
   return (
     <TreeWrapper>
       {branches.map((branch, i) =>
@@ -34,14 +27,15 @@ const Tree: FC<TreeProps> = (props) => {
           <details
             key={i}
             className={`tree-nav__item ${
-              branch?.[branchesAccessor] ? "is-expandable" : ""
+              isExpandableBranch(branch) ? "is-expandable" : ""
             } hidden-scrollbar`}
             open={defaultOpen}
           >
             <Text as="summary" className="tree-nav__item-title" ns={ns}>
               {typeof branch === "string" ? branch : branch.title}
             </Text>
-            {branch?.[branchesAccessor]?.length ? (
+            {isExpandableBranch(branch) &&
+            Array.isArray(branch?.[branchesAccessor]) ? (
               <Tree
                 ns={ns}
                 branches={branch[branchesAccessor]}

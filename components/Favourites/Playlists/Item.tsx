@@ -33,7 +33,7 @@ const FavouritePlaylist: FC<IFavouritePlaylist> = (props) => {
           opacity="0.3"
           zIndex="-1"
         >
-          <Image src={image} layout="fill" fit="cover" quality={1} />
+          <Image src={image} layout="fill" fit="cover" quality={1} alt={name} />
         </Div>
       ) : null}
       <Div
@@ -55,7 +55,13 @@ const FavouritePlaylist: FC<IFavouritePlaylist> = (props) => {
             mw="100px"
             responsive={{ sm: { flex: ["center", "center"] } }}
           >
-            <Image src={image} height="100px" width="100px" fit="cover" />
+            <Image
+              src={image}
+              height={100}
+              width={100}
+              fit="cover"
+              alt={name}
+            />
           </Div>
           <Div mx="3" responsive={{ sm: { mx: "4" } }}>
             <Text size="lg" bold truncate noTranslation>

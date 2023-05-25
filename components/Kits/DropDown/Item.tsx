@@ -23,7 +23,7 @@ const DropDownItem: FC<DropDownItemProps> = (props) => {
       {...rest}
     >
       <Div flex={["center", "center"]} mx="2">
-        <Image src={image} width="20px" height="20px" quality={1} />
+        <Image src={image} width={20} height={20} quality={1} alt={label} />
       </Div>
       <Div flex={["center", "center"]}>
         <Text size="sm" bold>

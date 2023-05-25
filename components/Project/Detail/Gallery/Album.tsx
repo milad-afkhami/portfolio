@@ -1,19 +1,24 @@
+import useTranslation from "@hooks/useTranslation";
 import Div from "@kits/Div";
 import Image from "@kits/Image";
 import type { FC } from "react";
 
-type ProjectGalleryAlbumProps = Pick<IProject, "medias"> & {
+type ProjectGalleryAlbumProps = Required<Pick<IProject, "medias">> & {
   onClickItem: (index: number) => void;
 };
 
 const ProjectGalleryAlbum: FC<ProjectGalleryAlbumProps> = (props) => {
   const { medias, onClickItem } = props;
 
+  const { t } = useTranslation("projects");
+
+  if (!medias?.length) return null;
+
   return (
     <Div
       grid={[
         ,
-        `repeat(${medias?.length < 12 ? 1 : 2}, 1fr)`,
+        `repeat(${medias.length < 12 ? 1 : 2}, 1fr)`,
         "2",
         "2",
         "column",
@@ -43,7 +48,7 @@ const ProjectGalleryAlbum: FC<ProjectGalleryAlbumProps> = (props) => {
         >
           <Image
             src={media.src}
-            alt={media.title}
+            alt={`${t("app.name")} ${t("title")}`}
             title={media.title}
             layout="fill"
             quality={1}

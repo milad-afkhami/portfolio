@@ -41,6 +41,7 @@ const ProjectCard: FC<Pick<IProject, "logo" | "slug" | "name">> = (props) => {
             blurDataURL={logo}
             quality={20}
             layout="fill"
+            alt={name}
             fit="contain"
           />
         </Div>

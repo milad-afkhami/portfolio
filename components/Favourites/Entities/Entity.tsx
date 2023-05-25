@@ -56,6 +56,7 @@ const FavouriteEntity: FC<FavouriteEntityProps> = (props) => {
           quality={50}
           layout="fill"
           fit="cover"
+          alt={label}
         />
       </Div>
       <Div flex={["center"]}>

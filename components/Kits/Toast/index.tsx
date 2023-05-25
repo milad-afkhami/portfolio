@@ -21,7 +21,7 @@ const Toast: FC<ToastProps> = (props) => {
       case "warning":
         return "warning";
       default:
-        return "info-outlined";
+        return "info";
     }
   }, []);
 
@@ -51,12 +51,6 @@ const Toast: FC<ToastProps> = (props) => {
             onClick={handleClick}
             trailingIcon="close"
           />
-          {/* <Div flex={[, "end"]} onClick={handleClick}>
-            <Div css={{ cursor: "pointer" }} gap="2" flex={["center"]}>
-              <Text>kits.expandableArea.showLess</Text>
-              <Icon name="close" />
-            </Div>
-          </Div> */}
         </Then>
       </If>
     </ToastWrapper>
