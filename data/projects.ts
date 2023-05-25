@@ -364,7 +364,10 @@ const projectsData: Array<IProject> = [
         name: "socket.io-client",
         link: "https://www.npmjs.com/package/socket.io-client",
       },
-      { name: "React Query", link: "https://www.npmjs.com/package/next-seo" },
+      {
+        name: "React Query",
+        link: "https://www.npmjs.com/package/react-query",
+      },
       {
         name: "Styled Components",
         link: "https://www.npmjs.com/package/styled-components",
@@ -389,10 +392,13 @@ const projectsData: Array<IProject> = [
       { name: "React", link: "https://www.npmjs.com/package/react" },
       {
         name: "React-native",
-        link: "https://www.npmjs.com/package/next-seo",
+        link: "https://www.npmjs.com/package/react-native",
       },
-      { name: "Angular", link: "https://www.npmjs.com/package/next-seo" },
-      { name: "wordpress", link: "https://www.npmjs.com/package/next-seo" },
+      { name: "Angular", link: "https://www.npmjs.com/package/@angular/core" },
+      {
+        name: "WordPress",
+        link: "https://wordpress.org/",
+      },
     ],
   },
 ];
