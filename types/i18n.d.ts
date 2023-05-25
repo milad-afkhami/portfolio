@@ -16,16 +16,15 @@ type I18NNameSpaces =
 
 type Languages = "en"; // | "de" | "fr";
 
-type LanguageConfig = {
+type LanguageConfig = Readonly<{
   id: number;
-  /** @deprecated */
   name: Languages;
   fullName: string;
   displayName: string;
   flag: string;
   direction: "rtl" | "ltr";
   font?: string;
-};
+}>;
 
 // declare module "next-i18next" {
 //   import NextI18n, { useTranslation } from "next-i18next";
