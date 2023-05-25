@@ -87,5 +87,3 @@ type MergeBy<T, K> = Omit<T, keyof K> & K;
  * // Subtracted = { c: boolean; };
  */
 type Subtract<T extends K, K> = Omit<T, keyof K>;
-
-type T = Merged[""];
