@@ -23,7 +23,7 @@ const Toast: FC<ToastProps> = (props) => {
       default:
         return "info";
     }
-  }, []);
+  }, [type]);
 
   const handleClick = () => toast.remove(id);
 
