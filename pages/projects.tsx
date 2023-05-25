@@ -9,7 +9,7 @@ import type { PageComponent } from "@_types/components";
 
 const ProjectsPage: PageComponent = () => (
   <>
-    <Head canonical="/" page="projects" />
+    <Head canonical="/projects" page="projects" />
     <Div width="100%" py="3">
       <PageTitle title="title" ns="projects" />
       <Div>

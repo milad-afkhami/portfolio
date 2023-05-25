@@ -29,7 +29,7 @@ const AboutPage: PageComponent = () => {
   return (
     <>
       <Head
-        canonical="/"
+        canonical="/about"
         page="about"
         openGraph={{
           videos: [
