@@ -53,7 +53,12 @@ const favouriteArtistsData: Array<IFavouriteArtist> = [
     image: "/images/favourites/artists/nirvana.jpg",
     category: "rock-metal",
   },
-
+  {
+    name: "Katatonia",
+    slug: "katatonia",
+    image: "/images/favourites/artists/katatonia.jpg",
+    category: "rock-metal",
+  },
   {
     name: "Opeth",
     slug: "opeth",
@@ -100,12 +105,6 @@ const favouriteArtistsData: Array<IFavouriteArtist> = [
     name: "Hozier",
     slug: "hozier",
     image: "/images/favourites/artists/hozier.jpg",
-    category: "other",
-  },
-  {
-    name: "Frank Ocean",
-    slug: "frank-ocean",
-    image: "/images/favourites/artists/frank-ocean.jpg",
     category: "other",
   },
 ];
