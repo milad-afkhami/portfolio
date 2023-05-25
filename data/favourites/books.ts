@@ -1,5 +1,6 @@
 const favouriteBooksData = [
   "the-making-of-a-manager",
+  "nvc",
   "republic",
   "the-power-of-habit",
   "the-unbearable-lightness-of-being",
