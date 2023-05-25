@@ -34,8 +34,8 @@ declare module "@stylesheets/constants/spacings.json" {
   type SpacingsConstants = {
     [key in Spacings]: string;
   };
-  const values: SpacingsConstants;
-  export default values;
+  const spacings: SpacingsConstants;
+  export default spacings;
 }
 
 // declare module "@stylesheets/constants/themes.json" {}
@@ -44,40 +44,32 @@ declare module "@stylesheets/constants/breakpoints.json" {
   type BreakpointsConstants = {
     [key in Breakpoints]: number;
   };
-  const values: BreakpointsConstants;
-  export default values;
+  const breakpoints: BreakpointsConstants;
+  export default breakpoints;
 }
 
 declare module "@stylesheets/constants/curves.json" {
   type CurvesConstants = {
     [key in Exclude<Curves, boolean>]: string;
   };
-  const values: CurvesConstants;
-  export default values;
+  const curves: CurvesConstants;
+  export default curves;
 }
 
 declare module "@stylesheets/constants/paces.json" {
   type PacesConstants = {
     [key in Paces]: string;
   };
-  const values: PacesConstants;
-  export default values;
+  const paces: PacesConstants;
+  export default paces;
 }
 
 declare module "@stylesheets/constants/shadows.json" {
   type ShadowsConstants = {
     [key in Exclude<Shadows, boolean>]: string;
   };
-  const values: ShadowsConstants;
-  export default values;
-}
-
-declare module "@stylesheets/constants/" {
-  type SpacingsConstants = {
-    [key in Spacings]: string;
-  };
-  const values: SpacingsConstants;
-  export default values;
+  const shadows: ShadowsConstants;
+  export default shadows;
 }
 
 // declare module "@stylesheets/constants/typographies.json" {}
