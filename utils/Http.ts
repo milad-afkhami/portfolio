@@ -44,7 +44,7 @@ export default class Http {
       type,
     } = options;
     const isFormData = type === "formData";
-    const _data = isFormData ? formData(data) : data;
+    const _data = isFormData && data ? formData(data) : data;
 
     const _headers = {
       Accept: "application/json",
