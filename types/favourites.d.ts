@@ -12,7 +12,7 @@ type IFavouritePlaylist = {
   name: string;
   slug: string;
   image: string;
-  link: string;
+  link?: string;
   tracks: Array<{
     name: string;
     artist: string;
