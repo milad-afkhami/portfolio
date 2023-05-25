@@ -2,7 +2,7 @@ import Div from "@kits/Div";
 import Timeline from "@kits/Timeline";
 import Head from "@components/SEO/Head";
 import PageTitle from "@components/Layout/Title/Page";
-import WhoAmI from "@components/About/WhoAmI";
+import AboutWhoAmI from "@components/About/WhoAmI";
 import { SocialProfileJsonLd, VideoJsonLd } from "next-seo";
 import useTranslation from "@hooks/useTranslation";
 import I18nHelper from "@helpers/i18n";
@@ -60,7 +60,7 @@ const AboutPage: PageComponent = () => {
       />
       <Div width="100%" py="3">
         <PageTitle title="title" ns="about" />
-        <WhoAmI videoTitle={videoTitle} />
+        <AboutWhoAmI videoTitle={videoTitle} />
         <Div id="work-experience">
           <Timeline
             ns="about"
