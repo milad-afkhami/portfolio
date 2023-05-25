@@ -9,7 +9,7 @@ import type { FC } from "react";
 import type { IconName } from "@kits/Icon/props";
 
 const FavouriteEntities: FC = () => {
-  const favouritesLinks = useMemo(FavouritesHelper.getLinks, []);
+  const favouritesLinks = useMemo(() => FavouritesHelper.getLinks(), []);
 
   return (
     <Div>

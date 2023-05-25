@@ -7,7 +7,7 @@ import __capitalize from "lodash-es/capitalize";
 import type { FC } from "react";
 
 const FooterLinks: FC = () => {
-  const favouritesLinks = useMemo(FavouritesHelper.getLinks, []);
+  const favouritesLinks = useMemo(() => FavouritesHelper.getLinks(), []);
 
   return (
     <Div flex={["start", "start", "row", "wrap"]} mx="-3">
