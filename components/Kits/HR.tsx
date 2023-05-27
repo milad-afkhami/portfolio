@@ -2,9 +2,9 @@ import { css } from "goober";
 import type { FC } from "react";
 import type { CSSAttribute } from "goober";
 
-type HRProps = Pick<CSSAttribute, "borderStyle" | "borderWidth"> & {
+interface HRProps extends Pick<CSSAttribute, "borderStyle" | "borderWidth"> {
   type: "light" | "dark";
-};
+}
 
 const HR: FC<HRProps> = (props) => {
   const { type = "light", borderStyle = "solid", borderWidth = "1px" } = props;

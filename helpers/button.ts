@@ -4,12 +4,13 @@ import type { Properties as CSSProperties } from "csstype";
 
 type PaintParams = Pick<ButtonProps, "variant" | "disabled">;
 
-type Paints = Pick<
-  CSSProperties,
-  "color" | "backgroundColor" | "border" | "borderColor" | "background"
-> & {
+interface Paints
+  extends Pick<
+    CSSProperties,
+    "color" | "backgroundColor" | "border" | "borderColor" | "background"
+  > {
   "&:hover"?: Partial<Omit<Paints, "&:hover">>;
-};
+}
 
 type DimensionParams = Pick<
   ButtonProps,

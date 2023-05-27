@@ -2,9 +2,10 @@ import Div from "@kits/Div";
 import ListView from "@kits/ListView";
 import type { FC } from "react";
 
-type FavouritePlaylistTracksProps = Pick<IFavouritePlaylist, "tracks"> & {
+interface FavouritePlaylistTracksProps
+  extends Pick<IFavouritePlaylist, "tracks"> {
   open: boolean;
-};
+}
 
 const FavouritePlaylistTracks: FC<FavouritePlaylistTracksProps> = (props) => {
   const { open, tracks } = props;
