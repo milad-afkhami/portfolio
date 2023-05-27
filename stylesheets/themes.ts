@@ -1,6 +1,6 @@
 import Themes from "@constants/themes";
 
-export const defaultTheme = Themes.Light;
+export const defaultTheme = Themes.Dark;
 
 // generate palette variants
 // we can use http://mcg.mbitson.com/
