@@ -6,6 +6,7 @@ const HeaderGithub: FC = () => (
   <Link
     outerLink
     height="100%"
+    width="30px"
     flex={["center", "center"]}
     href="https://github.com/miladMAPS/portfolio"
   >
