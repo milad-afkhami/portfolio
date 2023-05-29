@@ -1,13 +1,9 @@
 import Div from "@kits/Div";
 import HeaderNav from "./Nav";
-import dynamic from "next/dynamic";
 import HeaderGithub from "./GitHub";
 import DownloadResume from "./DownloadResume";
 import HeaderChangeLanguage from "./LanguagePicker";
-
-const HeaderSwitchTheme = dynamic(() => import("./SwitchTheme"), {
-  ssr: false,
-});
+import HeaderSwitchTheme from "./SwitchTheme";
 
 const Header = () => (
   <Div
@@ -22,7 +18,7 @@ const Header = () => (
         <HeaderNav />
       </Div>
       <Div width="auto">{/* <Logo /> */}</Div>
-      <Div width="35%" flex={[, "end"]} css={{ gap: "var(--spacing-3)" }}>
+      <Div width="35%" flex={[, "end"]} gap="3">
         <DownloadResume />
         <HeaderGithub />
         <HeaderChangeLanguage />

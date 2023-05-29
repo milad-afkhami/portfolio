@@ -1,20 +1,22 @@
-import { useTheme } from "next-themes";
+import { type FC, useState, useEffect } from "react";
 import Div from "@kits/Div";
 import Icon from "@kits/Icon";
 import { If, Then } from "@kits/ConditionalRendering";
+import { useTheme } from "next-themes";
 import Themes from "@constants/themes";
-import type { FC } from "react";
 import type IconProps from "@kits/Icon/props";
 
 const HeaderSwitchTheme: FC = () => {
   const { theme, setTheme } = useTheme();
+  const [icon, setIcon] = useState<Maybe<IconProps["name"]>>();
 
   const onChangeTheme = () =>
     setTheme(theme === Themes.Dark ? Themes.Light : Themes.Dark);
 
-  let icon: Maybe<IconProps["name"]>;
-  if (theme === Themes.Dark) icon = "sun";
-  else if (theme === Themes.Light) icon = "moon";
+  useEffect(() => {
+    if (theme === Themes.Dark) setIcon("sun");
+    if (theme === Themes.Light) setIcon("moon");
+  }, [theme]);
 
   return (
     <Div
