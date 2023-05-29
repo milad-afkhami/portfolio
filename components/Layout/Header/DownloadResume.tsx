@@ -3,7 +3,10 @@ import type { FC } from "react";
 
 const DownloadResume: FC = () => {
   const handleDownloadResume = () =>
-    window.open("/resume_milad-afkhami.pdf", "__blank");
+    window.open(
+      `/documents/${encodeURIComponent(`Milad Afkhami's Resume.pdf`)}`,
+      "__blank"
+    );
 
   return (
     <Button

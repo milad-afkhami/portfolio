@@ -1,0 +1,96 @@
+﻿Milad Afkhami
+Frontend Developer
+Summary
+A highly skilled and motivated frontend developer with 5 years of experience, specializing in web development using modern technologies in more than 20 different projects. Demonstrated expertise in leading frontend teams and driving project success. Strong problem-solving skills and a passion for delivering high-quality code and user experiences.
+Skills
+* Programming Languages: JavaScript, TypeScript
+* Frontend Frameworks/Libraries: React, Next.js, React Native, Electron
+* UI Styling: CSS, Styled Components/Goober, Material UI, Tailwind, Sass
+* State Management(Server & UI): Context API, Redux-Saga, SWR, React Query, Jotai, Zustand, Valtio
+* Documentation: Storybook, Markdown, XMind
+* Testing: Jest, React Testing Library, Cypress, K6
+* Build Tools: Yarn, NPM, Webpack, Rollup, Parcel
+* Backend Technologies: Prisma, Nest.js, MongoDB
+* Microfrontend: Module Federation
+* Other: Git, Husky, ESLint, react-i18next, Bash, PWA, @apollo/client, Lodash
+Work Experience
+Frontend Chapter Lead, Ide-Kavan Group (APR 2022 - Present)
+* Led frontend chapter and successfully implemented re-architecture of whole frontend projects with an explicit roadmap.
+* Guided and mentored a team of around 11 front-end developers to foster their growth and improve their skills.
+* Built scalable development pipelines and workflows to have delivery and quality balanced.
+* Composed over 20 in-depth documents outlining coding standards, style guides, and workflows to ensure the highest levels of code quality and ease of maintenance.
+* Recruited talented developers to support various projects.
+* Reviewed over 500 pull requests to ensure code consistency and quality.
+* Implemented automated code analysis checks to accelerate the review process.
+Arsh Company (JUL 2020 - MAR 2022)
+Frontend Chapter Lead(JAN 2021 - MAR 2022)
+* Promoted to Frontend Chapter Lead for exceptional performance and leadership skills.
+* Guided and empowered a team of 4-5 front-end developers to enhance their productivity and increase the average knowledge of the company.
+* Proven ability to tackle complex challenges and deliver high-quality solutions.
+Frontend Developer(JUL 2020 - JAN 2021)
+* Contributed to the development of over 8 projects, demonstrating expertise in JavaScript, React, Next.js, and more.
+* Worked on a diverse range of projects from different industries including Network Marketing, Audio Streaming, Commerce, etc.
+Frontend Developer, AppTech(Larax) Company (AUG 2019 - JUN 2020)
+* Worked on a diverse range of projects from different industries and regions, improving my communication skills.
+* Gaining experience in JavaScript, React, React Native, and next.js.
+* Collaborated with a team of developers to deliver high-quality products on time.
+* Developed responsive and user-friendly interfaces for web and mobile applications.
+Frontend Developer, SilverPath Company (APR 2019 - JUL 2019)
+* Worked on a single project, leveraging skills in HTML, CSS, JavaScript, and React.
+* Left after one project due to the lack of growth opportunities within the company.
+Freelance Frontend Developer (NOV 2017 - MAR 2019)
+* Executed custom solutions and delivered high-quality websites for clients.
+* Successfully completed various projects using React, jQuery, WordPress, and … .
+Projects
+* Frontend Toolkit
+   * Date: MAR 2023
+   * Description: Built three NPM packages encompassing UI Kits, Hooks, and Utils, harnessing the capabilities of NPM packages to elevate frontend development, mitigate inconsistency, and eradicate redundancy and duplication across the organization.
+   * Technologies: Storybook, RollUp, Semantic Release, Jest, Husky, Material UI, Typescript, JSDoc.
+* Landingator
+   * Links: landing.behtarino.com, daramad.me, dobare.me, …
+   * Date: NOV 2022
+   * Description: Dynamic website builder with superfast and also up-to-date static pages using on-demand revalidation, comprehensive documentation, and advanced developer experience.
+   * Technologies: React, Next.js, TypeScript, Goober, Jest, React Testing Library, Husky, Bash, next-i18next.
+* Behtarino
+   * Links: behtarino.com, admin.behtarino.com
+   * Date: APR 2022
+   * Description: Recoded the behtarino.com website, a large-scale platform for business reviews, with a focus on performance optimization, mobile user experience, code quality, and comprehensive documentation.
+   * Technologies: React, Next.js, SWR, Goober, Jotai, JSDoc, MapLibre, Next SEO, XMind.
+* Octava
+   * Links: Not released yet
+   * Date: DEC 2022
+   * Description: Fully-featured Persian music streaming platform with superfast pages implemented that combines the power of Incremental Static Regeneration (ISR) and Client-Side Rendering (CSR) data fetching strategies to achieve a perfect balance between page load times, SEO optimization, and user experience. Additionally, the platform leverages an additional client-server transport layer with an HTTP proxy, augmenting its capabilities with the robustness and versatility of proxies.
+   * Technologies: React, Next.js, HTTP Proxy, SWR, Styled Components, React Spring.
+* Bityon
+   * Date: AUG 2021
+   * Description:  A secure platform facilitating the buying and selling of cryptocurrencies, featuring multi-language support and custom themes.
+   * Technologies: React, Next.js, pm2, Redux-Saga, Express, socket.io-client, Sass, firebase, react-hook-form, styled-components, react-i18next.
+* Tarinoo
+   * Links: tarinoo.ir
+   * Date: MAY 2021
+   * Description: Fully customizable store and site builder for SMBs, offering control over UI, details, contents, and functionalities with white labeling.
+   * Technologies: React, Next.js, pm2, Redux-Saga, Express, socket.io-client, Sass, firebase, react-hook-form, styled-components, react-i18next.
+* Uneed
+   * Links: uneed.ir, admin.uneed.ir
+   * Date: OCT 2020
+   * Description: A platform for free posting of advertisements and inquiries regarding the purchase and sale of new and used products.
+   * Technologies: React, Next.js, pm2, Redux-Saga, Express, socket.io-client, Sass, firebase, react-hook-form, styled-components, react-i18next.
+* CRM Panel
+   * Date: SEP 2020
+   * Description: Customer relationship management panel that provides an all-in-one social media management tool to integrate all Instagram, WhatsApp, and Telegram chats into one place and apply automation on them, using socket.io-client for superfast communication with the server and highly covered end-to-end tests using cypress.
+   * Technologies: React, socket.io-client, Ant Design, react-hook-form, react-query, immer, react-app-rewired.
+* BIZ
+   * Links: bizmlm.ir
+   * Date: AUG 2020
+   * Description: Developed and deployed a new SSR website over the previous static one for Biz, the largest Iranian network marketing company, leveraging Express to implement custom server-side rendering, Redis for request caching, and a custom serverside redux wrapper to synchronize server and client state in order to have a single source of truth.
+   * Technologies: React, Express, Redux-Saga, pm2, socket.io-client, firebase, highcharts, Sass, react-i18next, redis.
+Education
+* Bachelor of Science (B.S.), Computer Engineering, Islamic Azad University - Non-Attendance Unit (2020 - PRESENT)
+* Bachelor of Science (B.S.), Electrical Engineering, Shahid Beheshti University (2017 - 2019)
+Languages
+* Persian (Native)
+* English (Working Proficiency)
+Contact
+* Email: dev.miladafkhami@gmail.com
+* LinkedIn: linkedin.com/in/milad-afkhami-pour
+* Skype: join.skype.com/invite/pRe4UIXrDeTj
