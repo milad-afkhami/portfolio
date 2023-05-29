@@ -9,7 +9,7 @@ module.exports = {
   compiler: {
     styledComponents: true,
   },
-  trailingSlash: true,
+  trailingSlash: false,
   // modularizeImports: { "next-seo": { transform: "next-seo/{{member}}" } },
 };
 
