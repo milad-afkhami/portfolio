@@ -2,7 +2,9 @@ import Button from "@kits/Button";
 import Div from "@kits/Div";
 import Link from "@kits/Link";
 import Text from "@kits/Text";
+import I18nHelper from "@helpers/i18n";
 import type { FC } from "react";
+import type { GetStaticProps } from "next";
 
 // const { title, statusCode } = props;
 const ServerError: FC = () => (
@@ -23,5 +25,11 @@ const ServerError: FC = () => (
     </Link>
   </Div>
 );
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  const t9n = await I18nHelper.ssrT9n(locale, "layout");
+
+  return { props: t9n || {} };
+};
 
 export default ServerError;

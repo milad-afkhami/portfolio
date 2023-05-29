@@ -3,7 +3,9 @@ import Link from "@kits/Link";
 import Button from "@kits/Button";
 import SectionTitle from "@components/Layout/Title/Section";
 import NotFoundAnimation from "@components/Error/NotFoundAnimation";
+import I18nHelper from "@helpers/i18n";
 import type { PageComponent } from "@_types/components";
+import type { GetStaticProps } from "next";
 
 const NotFound: PageComponent = () => (
   <Div>
@@ -26,6 +28,10 @@ const NotFound: PageComponent = () => (
   </Div>
 );
 
-// NotFound.layoutConfig = { noHeader: true, noFooter: true };
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  const t9n = await I18nHelper.ssrT9n(locale, "layout");
+
+  return { props: t9n || {} };
+};
 
 export default NotFound;
