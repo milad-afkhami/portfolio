@@ -1,4 +1,4 @@
-import { forwardRef, type FC } from "react";
+import { forwardRef } from "react";
 import { styled, type CSSAttribute } from "goober";
 import useTranslation from "@hooks/useTranslation";
 import colorVar from "@stylesheets/utils/var/color";
@@ -6,6 +6,7 @@ import fontSizeVar from "@stylesheets/utils/var/fontSize";
 import { isDevelopment } from "@configs/general";
 import type TextProps from "./props";
 import type { StyledTextProps } from "./props";
+import type { HOCFunctionalComponent } from "@_types/components";
 
 const truncateStyles: Partial<CSSAttribute> = {
   maxWidth: "100%",
@@ -67,11 +68,11 @@ const StyledText = styled(
   })
 );
 
-const Text: FC<TextProps> = (props) => {
+const Text: HOCFunctionalComponent<TextProps> = (props) => {
   const {
     children,
     ns,
-    translationOptions,
+    translationOptions = {},
     noTranslation,
     keyPrefix,
     ...rest

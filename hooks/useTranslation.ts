@@ -1,5 +1,9 @@
 import { useTranslation as useNINTranslation } from "next-i18next";
-import type { UseTranslationResponse } from "react-i18next";
+import type { KeyPrefix } from "i18next";
+import type {
+  UseTranslationOptions,
+  UseTranslationResponse,
+} from "react-i18next";
 
 /**
  * @extends useNINTranslation
@@ -17,17 +21,9 @@ import type { UseTranslationResponse } from "react-i18next";
  */
 function useTranslation<T extends I18NNameSpaces>(
   ns: I18NNameSpaces = "common",
-  options?: Parameters<typeof useNINTranslation>[1]
+  options?: UseTranslationOptions<KeyPrefix<I18NNameSpaces>> // Parameters<typeof useNINTranslation>[1]
 ): UseTranslationResponse<T> {
-  return useNINTranslation(ns, {
-    // nsMode: "fallback",
-    ...(options || {}),
-  });
+  return useNINTranslation(ns, options);
 }
-
-// type HookValue<T> = UseTranslationResponse<T>;
-// type HookValue = Extract<ReturnType<typeof useNINTranslation>, Record<string, unknown>>;
-// type HookValue = Exclude<ReturnType<typeof useNINTranslation>, Array<unknown>>;
-// type HookValue = Pick<ReturnType<typeof useNINTranslation>, "t" | "i18n" | "ready">;
 
 export default useTranslation;
