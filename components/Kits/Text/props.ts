@@ -1,9 +1,7 @@
 import type { HTMLAttributes } from "react";
-import useTranslation from "@hooks/useTranslation";
-// import type { TOptions } from "i18next";
 import type { CSSAttribute } from "goober";
-import type { KeyPrefix } from "i18next";
-import type { UseTranslationOptions } from "react-i18next";
+// import type { KeyPrefix } from "i18next";
+// import type { UseTranslationOptions } from "react-i18next";
 
 export interface StyledTextProps extends HTMLAttributes<Element> {
   // as?: Parameters<typeof styled>[0];
@@ -22,8 +20,7 @@ export interface StyledTextProps extends HTMLAttributes<Element> {
 }
 
 export default interface TextProps extends StyledTextProps {
-  keyPrefix?: UseTranslationOptions<KeyPrefix<I18NNameSpaces>>["keyPrefix"];
-  translationOptions?: Parameters<ReturnType<typeof useTranslation>["t"]>[1];
+  keyPrefix?: string;
   noTranslation?: boolean;
   ns?: I18NNameSpaces;
 }
