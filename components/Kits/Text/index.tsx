@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import { styled, type CSSAttribute } from "goober";
-import useTranslation from "@hooks/useTranslation";
+import { useTranslation } from "next-i18next";
 import colorVar from "@stylesheets/utils/var/color";
 import fontSizeVar from "@stylesheets/utils/var/fontSize";
 import { isDevelopment } from "@configs/general";
@@ -78,6 +78,7 @@ const Text: HOCFunctionalComponent<TextProps> = (props) => {
     ...rest
   } = props;
 
+  // const { t } = useTranslation(ns, { keyPrefix });
   const { t } = useTranslation(ns, { keyPrefix });
 
   const isChildrenString = typeof children === "string";

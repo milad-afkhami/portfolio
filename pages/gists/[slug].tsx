@@ -4,7 +4,7 @@ import Head from "@components/SEO/Head";
 import Markdown from "@components/Markdown";
 import GistSummary from "@components/Gists/Summary";
 import SectionTitle from "@components/Layout/Title/Section";
-import useTranslation from "@hooks/useTranslation";
+import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import GistServices from "@services/gist";
 import I18nHelper from "@helpers/i18n";
@@ -19,7 +19,6 @@ type GistPageProps = { gist: MDXResult<IGist> };
 
 const GistPage: PageComponent<GistPageProps> = (props) => {
   const { gist } = props;
-
   const { t } = useTranslation("layout");
   const router = useRouter();
   const { slug } = router.query;

@@ -1,6 +1,6 @@
 import Div from "@kits/Div";
 import Image from "@kits/Image";
-import useTranslation from "@hooks/useTranslation";
+import { useTranslation } from "next-i18next";
 import type { FC } from "react";
 
 interface AboutAvatarProps {

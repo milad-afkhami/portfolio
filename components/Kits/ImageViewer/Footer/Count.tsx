@@ -1,7 +1,7 @@
 // #region imports
 import Div from "@kits/Div";
 import Text from "@kits/Text";
-import useTranslation from "@hooks/useTranslation";
+import { useTranslation } from "next-i18next";
 import type { Components } from "react-images";
 // #endregion
 

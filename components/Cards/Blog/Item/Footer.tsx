@@ -1,7 +1,7 @@
 import Div from "@kits/Div";
 import Text from "@kits/Text";
 import Icon from "@kits/Icon";
-import useTranslation from "@hooks/useTranslation";
+import { useTranslation } from "next-i18next";
 import { responsiveUpperBoundBreakpoint } from "@configs/general";
 import type { FC } from "react";
 

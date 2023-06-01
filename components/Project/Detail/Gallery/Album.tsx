@@ -1,6 +1,6 @@
-import useTranslation from "@hooks/useTranslation";
 import Div from "@kits/Div";
 import Image from "@kits/Image";
+import { useTranslation } from "next-i18next";
 import type { FC } from "react";
 
 type ProjectGalleryAlbumProps = Required<Pick<IProject, "medias">> & {
@@ -48,7 +48,7 @@ const ProjectGalleryAlbum: FC<ProjectGalleryAlbumProps> = (props) => {
         >
           <Image
             src={media.src}
-            alt={`${t("app.name")} ${t("title")}`}
+            alt={`${t("app.name")} - ${t("title")}`}
             title={media.title}
             layout="fill"
             quality={1}

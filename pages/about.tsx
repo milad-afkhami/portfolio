@@ -4,7 +4,7 @@ import Head from "@components/SEO/Head";
 import PageTitle from "@components/Layout/Title/Page";
 import AboutWhoAmI from "@components/About/WhoAmI";
 import { SocialProfileJsonLd, VideoJsonLd } from "next-seo";
-import useTranslation from "@hooks/useTranslation";
+import { useTranslation } from "next-i18next";
 import I18nHelper from "@helpers/i18n";
 import {
   workExperienceTimelineSections,

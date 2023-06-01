@@ -1,13 +1,13 @@
 // #region imports
 import { DefaultSeo as NextDefaultSeo } from "next-seo";
 import { useRouter } from "next/router";
-import useTranslation from "@hooks/useTranslation";
+import { useTranslation } from "next-i18next";
 import { appBaseURL } from "@configs/urls";
 // #endregion
 
 export default function DefaultSeo() {
   const router = useRouter();
-  const { t } = useTranslation("common");
+  const { t } = useTranslation();
   const appTitle = t("seo.title.default");
   const defaultTitle = t("seo.title.default");
   const defaultDescription = t("seo.description.default");

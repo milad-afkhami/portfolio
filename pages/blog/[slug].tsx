@@ -7,7 +7,7 @@ import Markdown from "@components/Markdown";
 import BlogSummary from "@components/Blog/Summary";
 import BlogMeta from "@components/Blog/Meta";
 import BlogBanner from "@components/Blog/Banner";
-import useTranslation from "@hooks/useTranslation";
+import { useTranslation } from "next-i18next";
 import I18nHelper from "@helpers/i18n";
 import BlogServices from "@services/blog";
 import { appBaseURL } from "@configs/urls";
