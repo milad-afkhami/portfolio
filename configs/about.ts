@@ -4,7 +4,7 @@ const aboutTimelineSections = [
     items: [
       // "timeline.ielts"
       "timeline.startingAtBehtarino",
-      "timeline.becomingChapterLeadAtIdeKavan",
+      // "timeline.becomingChapterLeadAtIdeKavan",
     ],
   },
   { year: 2021, items: ["timeline.becomingChapterLead"] },
