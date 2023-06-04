@@ -6,7 +6,8 @@ import type { FC } from "react";
 const homeBlogs = [
   "data-fetching-pattern-preference",
   "rethink-using-redux",
-  "redux-clean-code",
+  "front-end-learning-roadmap",
+  // "redux-clean-code",
   // "homophobia",
 
   // "multi-theme",
