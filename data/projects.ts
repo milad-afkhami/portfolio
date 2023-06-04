@@ -1,5 +1,91 @@
 const projectsData: Array<IProject> = [
   {
+    id: 8,
+    name: "Landingator",
+    link: [
+      "https://daramad.me",
+      "https://dobare.me",
+      "https://vitrin.me",
+      "...",
+    ],
+    logo: "/images/projects/landingator/logo.jpg",
+    medias: [
+      {
+        src: "/images/projects/landingator/1.jpg",
+        title: "landingator.points.2",
+      },
+      {
+        src: "/images/projects/landingator/2.jpg",
+        title: "landingator.points.2",
+      },
+      {
+        src: "/images/projects/landingator/6.jpg",
+        title: "landingator.points.2",
+      },
+      {
+        src: "/images/projects/landingator/3.jpg",
+        title: "landingator.points.2",
+      },
+      {
+        src: "/images/projects/landingator/8.jpg",
+        title: "landingator.points.2",
+      },
+      {
+        src: "/images/projects/landingator/9.jpg",
+        title: "landingator.points.2",
+      },
+      { src: "/images/projects/landingator/4.jpg" },
+      { src: "/images/projects/landingator/5.jpg" },
+      { src: "/images/projects/landingator/7.jpg" },
+      {
+        src: "/images/projects/landingator/10.jpg",
+        title: "landingator.points.3",
+      },
+      {
+        src: "/images/projects/landingator/11.jpg",
+        title: "landingator.points.3",
+      },
+    ],
+    date: "2022-11",
+    slug: "landingator",
+    techs: [
+      { name: "Next.js", link: "https://www.npmjs.com/package/next" },
+      { name: "jest", link: "https://www.npmjs.com/package/jest" },
+      {
+        name: "@testing-library/react",
+        link: "https://www.npmjs.com/package/@testing-library/react",
+      },
+      {
+        name: "husky",
+        link: "https://www.npmjs.com/package/husky",
+      },
+      {
+        name: "next-i18next",
+        link: "https://www.npmjs.com/package/next-i18next",
+      },
+      { name: "swr", link: "https://www.npmjs.com/package/swr" },
+      {
+        name: "Goober",
+        link: "https://www.npmjs.com/package/goober",
+      },
+    ],
+    points: [
+      "landingator.points.1",
+      "landingator.points.2",
+      "landingator.points.3",
+      "landingator.points.4",
+      "landingator.points.5",
+      {
+        title: "landingator.points.6",
+        points: [
+          "landingator.points.6-1",
+          "landingator.points.6-2",
+          "landingator.points.6-3",
+        ],
+      },
+    ],
+  },
+  {
     id: 0,
     name: "Octava",
     link: "https://octava.ir",
