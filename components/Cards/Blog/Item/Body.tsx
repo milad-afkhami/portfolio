@@ -6,14 +6,14 @@ const BlogCardBody: FC<Pick<IBlog, "title" | "summary">> = (props) => {
   const { title } = props;
 
   return (
-    <Div>
+    <div>
       <Div mb="2" overflow="hidden">
         <Text as="p" size="md" bold noTranslation lineHeight="1.5" maxLines={3}>
           {title}
         </Text>
       </Div>
-      {/* <Div><Text color="text-secondary-main" maxLines="3" overflow="hidden" >{summary}</Text></Div> */}
-    </Div>
+      {/* <div><Text color="text-secondary-main" maxLines="3" overflow="hidden" >{summary}</Text></div> */}
+    </div>
   );
 };
 

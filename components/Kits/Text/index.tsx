@@ -1,11 +1,12 @@
-import { forwardRef, type FC } from "react";
+import { forwardRef } from "react";
 import { styled, type CSSAttribute } from "goober";
-import useTranslation from "@hooks/useTranslation";
+import { useTranslation } from "next-i18next";
 import colorVar from "@stylesheets/utils/var/color";
 import fontSizeVar from "@stylesheets/utils/var/fontSize";
 import { isDevelopment } from "@configs/general";
 import type TextProps from "./props";
 import type { StyledTextProps } from "./props";
+import type { HOCFunctionalComponent } from "@_types/components";
 
 const truncateStyles: Partial<CSSAttribute> = {
   maxWidth: "100%",
@@ -67,15 +68,8 @@ const StyledText = styled(
   })
 );
 
-const Text: FC<TextProps> = (props) => {
-  const {
-    children,
-    ns,
-    translationOptions,
-    noTranslation,
-    keyPrefix,
-    ...rest
-  } = props;
+const Text: HOCFunctionalComponent<TextProps> = (props) => {
+  const { children, ns, noTranslation, keyPrefix, ...rest } = props;
 
   const { t } = useTranslation(ns, { keyPrefix });
 
@@ -86,8 +80,7 @@ const Text: FC<TextProps> = (props) => {
 
   let text = children;
   // only translate children if it was string and `noTranslation` prop was not provided
-  if (isChildrenString && !noTranslation)
-    text = t(children, translationOptions);
+  if (isChildrenString && !noTranslation) text = t(children);
 
   return <StyledText {...rest}>{text}</StyledText>;
 };

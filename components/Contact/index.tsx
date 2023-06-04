@@ -8,7 +8,7 @@ const Contact: FC = () => {
   const options = contactOptions.filter((opt) => !opt.private);
 
   return (
-    <Div id="contact">
+    <div id="contact">
       <PageTitle title="contact.title" tag="h2" />
       <Div
         mt="4"
@@ -24,7 +24,7 @@ const Contact: FC = () => {
           <ContactOption key={i} {...option} />
         ))}
       </Div>
-    </Div>
+    </div>
   );
 };
 

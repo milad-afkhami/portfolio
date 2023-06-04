@@ -27,11 +27,11 @@ const FavouritePlaylistTracksItem: FC<FavouritePlaylistTracksItemProps> = (
         <Text size="md" noTranslation>{`${index}. `}</Text>
       </Div>
       <Div mx="3" Mw="-webkit-fill-available">
-        <Div>
+        <div>
           <Text size="xsm" color="text-secondary-main" noTranslation>
             {artist}
           </Text>
-        </Div>
+        </div>
         <Div display="flex">
           <Text size="sm" truncate noTranslation>
             {name}

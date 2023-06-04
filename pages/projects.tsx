@@ -12,11 +12,11 @@ const ProjectsPage: PageComponent = () => (
     <Head canonical="/projects" page="projects" />
     <Div width="100%" py="3">
       <PageTitle title="title" ns="projects" />
-      <Div>
+      <div>
         {projectsData.map((project, i) => (
           <ProjectDetail key={i} index={i + 1} {...project} />
         ))}
-      </Div>
+      </div>
     </Div>
   </>
 );

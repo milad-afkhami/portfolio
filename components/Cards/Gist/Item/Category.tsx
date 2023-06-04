@@ -20,7 +20,7 @@ const GistCardCategory: FC<Pick<IGist, "category">> = (props) => {
         layout="fill"
         alt={category}
       />
-      {/* <Div mb="1"></Div><Div><Text size="xsm">{`gists.category.${category}`}</Text></Div> */}
+      {/* <Div mb="1"></Div><div><Text size="xsm">{`gists.category.${category}`}</Text></div> */}
     </Div>
   );
 };

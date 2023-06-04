@@ -22,7 +22,7 @@ const ProfileJob: FC = () => (
         profile.job
       </Text>
     </Div>
-    <Div Mw="600px">
+    <Div Mw="700px">
       <Text
         ns="home"
         size="lg"

@@ -4,7 +4,7 @@ import Head from "@components/SEO/Head";
 import PageTitle from "@components/Layout/Title/Page";
 import AboutWhoAmI from "@components/About/WhoAmI";
 import { SocialProfileJsonLd, VideoJsonLd } from "next-seo";
-import useTranslation from "@hooks/useTranslation";
+import { useTranslation } from "next-i18next";
 import I18nHelper from "@helpers/i18n";
 import {
   workExperienceTimelineSections,
@@ -61,27 +61,27 @@ const AboutPage: PageComponent = () => {
       <Div width="100%" py="3">
         <PageTitle title="title" ns="about" />
         <AboutWhoAmI videoTitle={videoTitle} />
-        <Div id="work-experience">
+        <div id="work-experience">
           <Timeline
             ns="about"
             title="workExperience.title"
             icon="suitcase"
             sections={workExperienceTimelineSections}
           />
-        </Div>
+        </div>
         <Timeline
           ns="about"
           title="timeline.title"
           sections={aboutTimelineSections}
         />
-        <Div id="education">
+        <div id="education">
           <Timeline
             ns="about"
             title="education.title"
             icon="education"
             sections={educationTimelineSections}
           />
-        </Div>
+        </div>
       </Div>
     </>
   );

@@ -12,7 +12,7 @@ const FavouriteEntities: FC = () => {
   const favouritesLinks = useMemo(() => FavouritesHelper.getLinks(), []);
 
   return (
-    <Div>
+    <div>
       <PageTitle title="title" ns="favourites.common" />
       {favouritesLinks.map(({ links, group }, i) => (
         <Div key={i} flex={["start", "start", "column"]} mb="3">
@@ -40,7 +40,7 @@ const FavouriteEntities: FC = () => {
           </Div>
         </Div>
       ))}
-    </Div>
+    </div>
   );
 };
 

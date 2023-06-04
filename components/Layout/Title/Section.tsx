@@ -32,11 +32,11 @@ const SectionTitle: FC<SectionTitleProps> = (props) => {
           </Div>
         </Then>
       </If>
-      <Div>
+      <div>
         <Text ns={ns} size={size} bold as={tag}>
           {title}
         </Text>
-      </Div>
+      </div>
     </Div>
   );
 };

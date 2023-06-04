@@ -3,7 +3,7 @@ import Div from "@kits/Div";
 import SectionTitle from "@components/Layout/Title/Section";
 import ProjectGalleryAlbum from "./Album";
 import dynamic from "next/dynamic";
-import useTranslation from "@hooks/useTranslation";
+import { useTranslation } from "next-i18next";
 import useToggle from "@hooks/useToggle";
 import useDelayedRender from "use-delayed-render";
 import type { FC } from "react";
@@ -19,7 +19,7 @@ const ProjectGallery: FC<Required<Pick<IProject, "medias">>> = (props) => {
   const { mounted: isViewerMounted, rendered: isViewerRendered } =
     useDelayedRender(viewerIsOpen);
 
-  const { t } = useTranslation();
+  const { t } = useTranslation("projects");
 
   const closeLightbox = () => {
     setCurrentImage(0);

@@ -1,11 +1,12 @@
 import type TextProps from "@kits/Text/props";
-import type { ButtonHTMLAttributes } from "react";
+import type { ButtonHTMLAttributes, PropsWithChildren } from "react";
 import type { AdornmentProp } from "@kits/Adornment";
 
 interface ButtonTextProp extends Omit<TextProps, "children"> {
   content?: string;
 }
-export default interface ButtonProps extends ButtonHTMLAttributes<Element> {
+export default interface ButtonProps
+  extends PropsWithChildren<Omit<ButtonHTMLAttributes<Element>, "children">> {
   size?: "lg" | "md";
   variant?: "text" | "contained" | "outlined";
   text?: string | ButtonTextProp;

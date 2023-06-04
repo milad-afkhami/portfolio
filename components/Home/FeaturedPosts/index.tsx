@@ -1,12 +1,13 @@
 import Div from "@kits/Div";
 import BlogCards from "@components/Cards/Blog";
-import useTranslation from "@hooks/useTranslation";
+import { useTranslation } from "next-i18next";
 import type { FC } from "react";
 
 const homeBlogs = [
   "data-fetching-pattern-preference",
   "rethink-using-redux",
-  "redux-clean-code",
+  "front-end-learning-roadmap",
+  // "redux-clean-code",
   // "homophobia",
 
   // "multi-theme",

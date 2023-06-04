@@ -7,7 +7,7 @@ import Markdown from "@components/Markdown";
 import BlogSummary from "@components/Blog/Summary";
 import BlogMeta from "@components/Blog/Meta";
 import BlogBanner from "@components/Blog/Banner";
-import useTranslation from "@hooks/useTranslation";
+import { useTranslation } from "next-i18next";
 import I18nHelper from "@helpers/i18n";
 import BlogServices from "@services/blog";
 import { appBaseURL } from "@configs/urls";
@@ -67,7 +67,7 @@ const BlogPage: PageComponent<BlogPageProps> = (props) => {
             { title, link: canonical },
           ]}
         />
-        <Div>
+        <div>
           {/* <PageTitle title={title} /> */}
           <BlogSummary summary={summary} />
           <BlogMeta
@@ -78,7 +78,7 @@ const BlogPage: PageComponent<BlogPageProps> = (props) => {
           <BlogBanner banner={banner || image} title={title} />
           {/* className=" line-numbers" */}
           <Markdown source={source} />
-        </Div>
+        </div>
       </Div>
     </>
   );

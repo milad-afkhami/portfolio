@@ -1,7 +1,7 @@
 import Div from "@kits/Div";
 import Icon from "@kits/Icon";
 import Text from "@kits/Text";
-import useTranslation from "@hooks/useTranslation";
+import { useTranslation } from "next-i18next";
 import ToastUtil from "@utils/toast";
 import contactOptions from "@configs/contact";
 import type { FC } from "react";

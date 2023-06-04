@@ -1,7 +1,7 @@
 import Div from "@kits/Div";
 import Text from "@kits/Text";
 import Image from "@kits/Image";
-import useTranslation from "@hooks/useTranslation";
+import { useTranslation } from "next-i18next";
 import type { FC } from "react";
 
 interface FavouriteCommonEntityCardProps {
@@ -67,11 +67,11 @@ const FavouriteCommonEntityCard: FC<FavouriteCommonEntityCardProps> = (
           </Text>
         </Div>
         {meta && (
-          <Div>
+          <div>
             <Text size="md" color="text-secondary-main" noTranslation>
               {meta}
             </Text>
-          </Div>
+          </div>
         )}
       </Div>
     </Div>

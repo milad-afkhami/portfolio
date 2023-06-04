@@ -1,13 +1,12 @@
-import Div from "@kits/Div";
 import FavouritePlaylist from "./Item";
 import favouritePlaylistsData from "@data/favourites/playlists";
 
 const FavouritePlaylists = () => (
-  <Div>
+  <div>
     {favouritePlaylistsData.map((pl) => (
       <FavouritePlaylist key={pl.slug} {...pl} />
     ))}
-  </Div>
+  </div>
 );
 
 export default FavouritePlaylists;

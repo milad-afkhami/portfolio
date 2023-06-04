@@ -1,7 +1,7 @@
 import Div from "@kits/Div";
 import Text from "@kits/Text";
 import Icon from "@kits/Icon";
-import useTranslation from "@hooks/useTranslation";
+import { useTranslation } from "next-i18next";
 import { responsiveUpperBoundBreakpoint } from "@configs/general";
 import type { FC } from "react";
 
@@ -20,11 +20,11 @@ const BlogCardFooter: FC<BlogCardFooterProps> = (props) => {
       border="border-light-main"
       borderSide="top"
     >
-      <Div>
+      <div>
         <Text as="time" color="text-secondary-main" size="xsm" noTranslation>
           {publishedAt}
         </Text>
-      </Div>
+      </div>
       {readingTime ? (
         <Div flex={["center", "center"]} gap="2">
           <Text

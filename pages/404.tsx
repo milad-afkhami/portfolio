@@ -8,7 +8,7 @@ import type { PageComponent } from "@_types/components";
 import type { GetStaticProps } from "next";
 
 const NotFound: PageComponent = () => (
-  <Div>
+  <div>
     <NotFoundAnimation />
     <Div
       flex={["center", "center", "column"]}
@@ -25,7 +25,7 @@ const NotFound: PageComponent = () => (
         />
       </Link>
     </Div>
-  </Div>
+  </div>
 );
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {

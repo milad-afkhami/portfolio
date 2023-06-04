@@ -3,6 +3,22 @@
   "points": "Points",
   "tools": "Tools",
   "gallery": "Gallery",
+  "landingator": {
+    "name": "Landingator",
+    "shortDescription": "Dynamic website builder",
+    "description": "Dynamic website builder with superfast and also up-to-date static pages using on-demand revalidation, comprehensive documentation, and advanced developer experience.",
+    "points": {
+      "1": "Fast page load with incremental static regeneration ( ISR )",
+      "2": "Up-to-date static pages with on-demand revalidation",
+      "3": "Composing comprehensive documentation using storybook, Gitlab Wiki, Confluence, Markdown and XMind",
+      "4": "Advanced developer experience using bash script for operations like dev, build, test and ...",
+      "5": "Build-time generated stylesheets like tailwind, using scripts written in mjs",
+      "6": "Considering SEO best practices",
+      "6-1": "Optimizing meta tags",
+      "6-2": "Defining canonical tags to avoid duplicate content",
+      "6-3": "Adding schema tag ( rich result ) for blogs, faqs, businesses, breadcrumbs, ..."
+    }
+  },
   "behtarino": {
     "name": "Behtarino",
     "shortDescription": "A platform for introducing and reviewing businesses in Iran",

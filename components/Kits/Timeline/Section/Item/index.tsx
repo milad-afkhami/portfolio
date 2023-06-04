@@ -3,7 +3,7 @@ import TimelineSectionItemTitle, {
   type TimelineSectionItemTitleProps,
 } from "./Title";
 import TimelineSectionItemDescription from "./Description";
-import useTranslation from "@hooks/useTranslation";
+import { useTranslation } from "next-i18next";
 import type { FC } from "react";
 import type TextProps from "@kits/Text/props";
 

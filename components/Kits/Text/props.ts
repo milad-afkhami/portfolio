@@ -1,6 +1,7 @@
-import type { HTMLAttributes, PropsWithChildren } from "react";
-import type { TOptions } from "i18next";
+import type { HTMLAttributes } from "react";
 import type { CSSAttribute } from "goober";
+// import type { KeyPrefix } from "i18next";
+// import type { UseTranslationOptions } from "react-i18next";
 
 export interface StyledTextProps extends HTMLAttributes<Element> {
   // as?: Parameters<typeof styled>[0];
@@ -18,9 +19,8 @@ export interface StyledTextProps extends HTMLAttributes<Element> {
   css?: CSSAttribute;
 }
 
-export default interface TextProps extends PropsWithChildren, StyledTextProps {
+export default interface TextProps extends StyledTextProps {
   keyPrefix?: string;
-  translationOptions?: TOptions;
   noTranslation?: boolean;
   ns?: I18NNameSpaces;
 }

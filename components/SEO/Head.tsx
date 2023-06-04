@@ -1,5 +1,5 @@
 import { NextSeo, type NextSeoProps } from "next-seo";
-import useTranslation from "@hooks/useTranslation";
+import { useTranslation } from "next-i18next";
 import { appBaseURL } from "@configs/urls";
 
 export interface HeadProps extends NextSeoProps {
@@ -18,7 +18,7 @@ const Head = ({
   openGraph = {},
   ...restProps
 }: HeadProps) => {
-  const { t } = useTranslation("common");
+  const { t } = useTranslation();
   const _title = title || t(`seo.title.${page}`, { defaultValue: "" });
   const _description =
     description || t(`seo.description.${page}`, { defaultValue: "" });
