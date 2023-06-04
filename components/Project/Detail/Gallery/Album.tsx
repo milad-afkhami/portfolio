@@ -54,7 +54,8 @@ const ProjectGalleryAlbum: FC<ProjectGalleryAlbumProps> = (props) => {
             quality={1}
             fit="cover"
             placeholder="blur"
-            withShimmer
+            blurDataURL={media.src}
+            // withShimmer
           />
         </Div>
       ))}
