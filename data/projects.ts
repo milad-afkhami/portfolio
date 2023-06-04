@@ -315,14 +315,15 @@ const projectsData: Array<IProject> = [
     slug: "behtarino",
     techs: [
       { name: "Next.js", link: "https://www.npmjs.com/package/next" },
+      { name: "jotai", link: "https://www.npmjs.com/package/jotai" },
+      {
+        name: "Maplibre-gl",
+        link: "https://www.npmjs.com/package/maplibre-gl",
+      },
       { name: "swr", link: "https://www.npmjs.com/package/swr" },
       {
         name: "Goober",
         link: "https://www.npmjs.com/package/goober",
-      },
-      {
-        name: "Maplibre-gl",
-        link: "https://www.npmjs.com/package/maplibre-gl",
       },
     ],
     points: [
