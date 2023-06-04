@@ -20,11 +20,11 @@ const BlogCardFooter: FC<BlogCardFooterProps> = (props) => {
       border="border-light-main"
       borderSide="top"
     >
-      <Div>
+      <div>
         <Text as="time" color="text-secondary-main" size="xsm" noTranslation>
           {publishedAt}
         </Text>
-      </Div>
+      </div>
       {readingTime ? (
         <Div flex={["center", "center"]} gap="2">
           <Text

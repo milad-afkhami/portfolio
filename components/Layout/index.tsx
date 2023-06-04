@@ -16,7 +16,7 @@ const Layout: HOCFunctionalComponent<LayoutConfig> = function (props = {}) {
       <Container>
         {/* <GithubCorner /> */}
         {!noHeader && <Header />}
-        <Div>{children}</Div>
+        <div>{children}</div>
         {!noFooter && <Footer />}
       </Container>
     </Div>

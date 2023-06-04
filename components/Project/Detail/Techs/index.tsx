@@ -9,7 +9,7 @@ const ProjectTechs: FC<ProjectTechsProps> = (props) => {
   const { techs } = props;
 
   return (
-    <Div>
+    <div>
       <SectionTitle icon="tools" title="tools" ns="projects" />
       <Div
         flex={["center", "start", , "wrap"]}
@@ -20,7 +20,7 @@ const ProjectTechs: FC<ProjectTechsProps> = (props) => {
           <ProjectTech key={i} {...tech} />
         ))}
       </Div>
-    </Div>
+    </div>
   );
 };
 

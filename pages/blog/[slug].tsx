@@ -67,7 +67,7 @@ const BlogPage: PageComponent<BlogPageProps> = (props) => {
             { title, link: canonical },
           ]}
         />
-        <Div>
+        <div>
           {/* <PageTitle title={title} /> */}
           <BlogSummary summary={summary} />
           <BlogMeta
@@ -78,7 +78,7 @@ const BlogPage: PageComponent<BlogPageProps> = (props) => {
           <BlogBanner banner={banner || image} title={title} />
           {/* className=" line-numbers" */}
           <Markdown source={source} />
-        </Div>
+        </div>
       </Div>
     </>
   );

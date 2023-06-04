@@ -67,11 +67,11 @@ const FavouriteCommonEntityCard: FC<FavouriteCommonEntityCardProps> = (
           </Text>
         </Div>
         {meta && (
-          <Div>
+          <div>
             <Text size="md" color="text-secondary-main" noTranslation>
               {meta}
             </Text>
-          </Div>
+          </div>
         )}
       </Div>
     </Div>

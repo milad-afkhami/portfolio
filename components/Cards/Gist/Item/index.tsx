@@ -21,11 +21,11 @@ const GistCard: FC<IGist> = (props) => {
       responsive={{ sm: { height: "180px" } }}
     >
       <Div height="3rem" flex={["center", "between"]} mb="3">
-        <Div>
+        <div>
           <Text size="h-sm" bold noTranslation>
             {title}
           </Text>
-        </Div>
+        </div>
         <GistCardCategory category={category} />
       </Div>
       <Div overflow="hidden">
