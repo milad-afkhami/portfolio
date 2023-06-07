@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import Head from "@components/SEO/Head";
 import { ArticleJsonLd } from "next-seo";
 import Markdown from "@components/Markdown";
+import PageTitle from "@components/Layout/Title/Page";
 import BlogSummary from "@components/Blog/Summary";
 import BlogMeta from "@components/Blog/Meta";
 import BlogBanner from "@components/Blog/Banner";
@@ -68,7 +69,7 @@ const BlogPage: PageComponent<BlogPageProps> = (props) => {
           ]}
         />
         <div>
-          {/* <PageTitle title={title} /> */}
+          <PageTitle title={title} />
           <BlogSummary summary={summary} />
           <BlogMeta
             category={category}
