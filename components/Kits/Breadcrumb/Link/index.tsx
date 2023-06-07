@@ -8,8 +8,8 @@ import type { BreadcrumbLinkProps } from "@kits/Breadcrumb/props";
 function BreadcrumbLink(props: BreadcrumbLinkProps) {
   const { title, link, lastItem } = props;
   return (
-    <Div as="li" my={1} display="flex">
-      <If condition={link}>
+    <Div as="li" my={1} flex={["center"]}>
+      <If condition={!lastItem}>
         <Then>
           <Link
             underline
@@ -17,29 +17,21 @@ function BreadcrumbLink(props: BreadcrumbLinkProps) {
             href={link!}
             prefetch={false}
             css={{
-              "&, &:hover": {
-                textDecoration: "underline",
-                textUnderlineOffset: "var(--spacing-1)",
-                textDecorationColor: "var(--color-brand-light)",
-              },
+              textDecoration: "underline",
+              textUnderlineOffset: "var(--spacing-1)",
+              textDecorationColor: "var(--color-brand-light) !important",
             }}
           >
-            <BreadcrumbLinkText title={title} lastItem={lastItem} />
+            <BreadcrumbLinkText title={title} lastItem={false} />
           </Link>
         </Then>
         <Else>
-          <BreadcrumbLinkText title={title} lastItem={lastItem} />
+          <BreadcrumbLinkText title={title} lastItem />
         </Else>
       </If>
       <If condition={!lastItem}>
         <Then>
-          <Div flex={["center", "center"]}>
-            <Icon
-              name="chevron-right"
-              size="0.75rem"
-              color="bg-disabled-main"
-            />
-          </Div>
+          <Icon name="chevron-right" size="0.75rem" color="bg-disabled-main" />
         </Then>
       </If>
     </Div>
