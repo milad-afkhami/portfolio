@@ -3,7 +3,7 @@ import Div from "@kits/Div";
 import Head from "@components/SEO/Head";
 import Markdown from "@components/Markdown";
 import GistSummary from "@components/Gists/Summary";
-import SectionTitle from "@components/Layout/Title/Section";
+import PageTitle from "@components/Layout/Title/Page";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import GistServices from "@services/gist";
@@ -37,7 +37,7 @@ const GistPage: PageComponent<GistPageProps> = (props) => {
           ]}
         />
         <Div mt="3">
-          <SectionTitle title={title} />
+          <PageTitle title={title} />
           <GistSummary summary={summary} />
           <Markdown source={source} />
         </Div>

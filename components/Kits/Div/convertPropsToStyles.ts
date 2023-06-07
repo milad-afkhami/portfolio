@@ -94,7 +94,6 @@ export default function convertPropsToStyles(
     ...(pace
       ? { transition: `all var(--pace-${__kebabCase(pace)}, ${pace})` }
       : {}),
-    // border === "none" ? "none" :
     ...(border
       ? {
           [`border${__capitalize(borderSide)}`]: `${borderW} solid ${colorVar(
