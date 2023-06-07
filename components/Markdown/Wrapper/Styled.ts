@@ -23,10 +23,12 @@ const StyledWrapper = styled("div")`
     font-weight: bold;
   }
 
-  ul {
+  ul,
+  ol {
     margin-bottom: 1rem;
     margin-left: 1rem;
-    ul {
+    ul,
+    ol {
       margin-left: 2rem;
       margin-bottom: 0.5rem;
     }
