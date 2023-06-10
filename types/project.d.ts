@@ -4,7 +4,7 @@ interface IProject {
   id: number;
   name: string;
   link?: string | Array<string>;
-  logo: string;
+  logo?: string;
   medias?: Array<{ src: string; title?: string }>;
   date: string;
   slug: string;

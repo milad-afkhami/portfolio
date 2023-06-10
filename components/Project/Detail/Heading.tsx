@@ -2,6 +2,7 @@ import Div from "@kits/Div";
 import Image from "@kits/Image";
 import Link from "@kits/Link";
 import Text from "@kits/Text";
+import { If, Then } from "@kits/ConditionalRendering";
 import type { FC } from "react";
 import type { PropsWithIndex } from "@_types/components";
 
@@ -28,16 +29,13 @@ const ProjectHeading: FC<ProjectHeadingProps> = (props) => {
             {/* {`${slug}.name`} */}
           </Text>
         </Div>
-        <Div flex={["center", "center"]} curve="circle" overflow="hidden">
-          <Image
-            src={logo}
-            width={32}
-            height={32}
-            // placeholder="blur"
-            withShimmer
-            alt={name}
-          />
-        </Div>
+        <If condition={logo}>
+          <Then>
+            <Div flex={["center", "center"]} curve="circle" overflow="hidden">
+              <Image src={logo!} width={32} height={32} alt={name} />
+            </Div>
+          </Then>
+        </If>
       </Div>
       {Array.isArray(link) ? (
         <Div flex={["center", "end"]}>

@@ -2,10 +2,11 @@ import Div from "@kits/Div";
 import Image from "@kits/Image";
 import Link from "@kits/Link";
 import Text from "@kits/Text";
+import { placeholderImage } from "@images";
 import type { FC } from "react";
 
 const ProjectCard: FC<Pick<IProject, "logo" | "slug" | "name">> = (props) => {
-  const { logo, slug, name } = props;
+  const { logo = placeholderImage, slug, name } = props;
 
   const height = 120;
 
@@ -23,28 +24,22 @@ const ProjectCard: FC<Pick<IProject, "logo" | "slug" | "name">> = (props) => {
       hoverBg="bg-secondary-hover"
     >
       <Div
+        position="relative"
         height="100%"
+        curve="sm"
         flex={["center", "center"]}
         mw={`calc(${height}px - 1rem)`}
-        position="relative"
+        overflow="hidden"
       >
-        <Div
-          position="relative"
-          width="100%"
-          height="100%"
-          curve="sm"
-          overflow="hidden"
-        >
-          <Image
-            src={logo}
-            placeholder="blur"
-            blurDataURL={logo}
-            quality={20}
-            layout="fill"
-            alt={name}
-            fit="contain"
-          />
-        </Div>
+        <Image
+          src={logo}
+          // placeholder="blur"
+          // blurDataURL={logo}
+          quality={20}
+          layout="fill"
+          alt={name}
+          fit="contain"
+        />
       </Div>
       <Div flexPortion="auto" ml="3">
         <Div flex={["start", "start", "column"]} height="100%">
