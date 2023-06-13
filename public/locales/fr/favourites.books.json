@@ -33,6 +33,14 @@
     "republic": {
       "name": "La République",
       "meta": "Platon"
+    },
+    "no-rules-rules": {
+      "name": "No Rules Rules",
+      "meta": "Reed Hastings and Erin Meyer"
+    },
+    "the-joy-of-missing-out": {
+      "name": "The Joy of Missing Out",
+      "meta": "Svend Brinkmann"
     }
   }
 }

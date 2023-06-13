@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.1" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 	<url>
 		<loc>
-			https://milad-afkhami.com/
+			https://milad-afkhami.com
 		</loc>
 		<lastmod>
-			2022-03-20T13:21:30+00:00
+			2023-06-06
 		</lastmod>
 		<priority>
 			1.00
@@ -14,10 +14,10 @@
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/blog/front-end-learning-roadmap/
+			https://milad-afkhami.com/blog/front-end-learning-roadmap
 		</loc>
 		<lastmod>
-			2022-03-20T13:21:30+00:00
+			2023-01-06
 		</lastmod>
 		<priority>
 			0.80
@@ -25,10 +25,10 @@
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/blog/data-fetching-pattern-preference/
+			https://milad-afkhami.com/blog/data-fetching-pattern-preference
 		</loc>
 		<lastmod>
-			2022-03-20T13:21:30+00:00
+			2023-03-20
 		</lastmod>
 		<priority>
 			0.80
@@ -36,10 +36,10 @@
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/blog/rethink-using-redux/
+			https://milad-afkhami.com/blog/one-on-one
 		</loc>
 		<lastmod>
-			2022-03-20T13:21:32+00:00
+			2023-06-06
 		</lastmod>
 		<priority>
 			0.80
@@ -47,10 +47,10 @@
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/blog/redux-clean-code/
+			https://milad-afkhami.com/blog/rethink-using-redux
 		</loc>
 		<lastmod>
-			2022-03-20T13:21:32+00:00
+			2022-03-20
 		</lastmod>
 		<priority>
 			0.80
@@ -58,10 +58,21 @@
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/blog/
+			https://milad-afkhami.com/blog/redux-clean-code
 		</loc>
 		<lastmod>
-			2022-03-20T13:21:30+00:00
+			2022-03-20
+		</lastmod>
+		<priority>
+			0.80
+		</priority>
+	</url>
+	<url>
+		<loc>
+			https://milad-afkhami.com/blog
+		</loc>
+		<lastmod>
+			2023-06-06
 		</lastmod>
 		<priority>
 			0.90
@@ -69,10 +80,10 @@
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/blog/homophobia/
+			https://milad-afkhami.com/blog/homophobia
 		</loc>
 		<lastmod>
-			2022-03-20T13:21:32+00:00
+			2022-03-20
 		</lastmod>
 		<priority>
 			0.80
@@ -80,10 +91,10 @@
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/blog/http-proxy/
+			https://milad-afkhami.com/blog/http-proxy
 		</loc>
 		<lastmod>
-			2022-03-20T13:21:32+00:00
+			2022-03-20
 		</lastmod>
 		<priority>
 			0.70
@@ -91,10 +102,10 @@
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/blog/multi-theme/
+			https://milad-afkhami.com/blog/multi-theme
 		</loc>
 		<lastmod>
-			2022-03-20T13:21:32+00:00
+			2022-03-20
 		</lastmod>
 		<priority>
 			0.80
@@ -102,10 +113,10 @@
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/blog/typography/
+			https://milad-afkhami.com/blog/typography
 		</loc>
 		<lastmod>
-			2022-03-20T13:21:32+00:00
+			2022-03-20
 		</lastmod>
 		<priority>
 			0.70
@@ -113,10 +124,10 @@
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/projects/
+			https://milad-afkhami.com/projects
 		</loc>
 		<lastmod>
-			2022-03-20T13:21:38+00:00
+			2023-06-01
 		</lastmod>
 		<priority>
 			0.85
@@ -124,10 +135,10 @@
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/about/
+			https://milad-afkhami.com/about
 		</loc>
 		<lastmod>
-			2022-03-20T13:21:38+00:00
+			2023-06-01
 		</lastmod>
 		<priority>
 			0.90
@@ -135,10 +146,10 @@
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/gists/
+			https://milad-afkhami.com/gists
 		</loc>
 		<lastmod>
-			2022-03-20T13:21:32+00:00
+			2022-03-20
 		</lastmod>
 		<priority>
 			0.70
@@ -146,10 +157,10 @@
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/gists/div/
+			https://milad-afkhami.com/gists/div
 		</loc>
 		<lastmod>
-			2022-03-20T13:21:32+00:00
+			2022-03-20
 		</lastmod>
 		<priority>
 			0.60
@@ -157,10 +168,10 @@
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/gists/useEnhancedState/
+			https://milad-afkhami.com/gists/useEnhancedState
 		</loc>
 		<lastmod>
-			2022-03-20T13:21:32+00:00
+			2022-03-20
 		</lastmod>
 		<priority>
 			0.60
@@ -168,10 +179,10 @@
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/gists/vscode/
+			https://milad-afkhami.com/gists/vscode
 		</loc>
 		<lastmod>
-			2022-03-20T13:21:32+00:00
+			2022-03-20
 		</lastmod>
 		<priority>
 			0.60
@@ -179,10 +190,10 @@
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/gists/css-variables/
+			https://milad-afkhami.com/gists/css-variables
 		</loc>
 		<lastmod>
-			2022-03-20T13:21:32+00:00
+			2022-03-20
 		</lastmod>
 		<priority>
 			0.60
@@ -190,10 +201,10 @@
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/gists/Enum/
+			https://milad-afkhami.com/gists/Enum
 		</loc>
 		<lastmod>
-			2022-03-20T13:21:32+00:00
+			2022-03-20
 		</lastmod>
 		<priority>
 			0.60
@@ -201,10 +212,10 @@
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/gists/isomorphicPortal/
+			https://milad-afkhami.com/gists/isomorphicPortal
 		</loc>
 		<lastmod>
-			2022-03-20T13:21:32+00:00
+			2022-03-20
 		</lastmod>
 		<priority>
 			0.60
@@ -212,10 +223,10 @@
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/gists/responsive-nav/
+			https://milad-afkhami.com/gists/responsive-nav
 		</loc>
 		<lastmod>
-			2022-03-20T13:21:32+00:00
+			2022-03-20
 		</lastmod>
 		<priority>
 			0.60
@@ -223,10 +234,10 @@
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/gists/sass/
+			https://milad-afkhami.com/gists/sass
 		</loc>
 		<lastmod>
-			2022-03-20T13:21:32+00:00
+			2022-03-20
 		</lastmod>
 		<priority>
 			0.60
@@ -234,10 +245,10 @@
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/gists/text/
+			https://milad-afkhami.com/gists/text
 		</loc>
 		<lastmod>
-			2022-03-20T13:21:32+00:00
+			2022-03-20
 		</lastmod>
 		<priority>
 			0.60
@@ -245,10 +256,10 @@
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/gists/useAsyncDispatch/
+			https://milad-afkhami.com/gists/useAsyncDispatch
 		</loc>
 		<lastmod>
-			2022-03-20T13:21:32+00:00
+			2022-03-20
 		</lastmod>
 		<priority>
 			0.60
@@ -256,10 +267,10 @@
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/gists/useDisclosure/
+			https://milad-afkhami.com/gists/useDisclosure
 		</loc>
 		<lastmod>
-			2022-03-20T13:21:32+00:00
+			2022-03-20
 		</lastmod>
 		<priority>
 			0.60
@@ -267,10 +278,10 @@
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/gists/useEnhancedToast/
+			https://milad-afkhami.com/gists/useEnhancedToast
 		</loc>
 		<lastmod>
-			2022-03-20T13:21:32+00:00
+			2022-03-20
 		</lastmod>
 		<priority>
 			0.60
@@ -278,10 +289,10 @@
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/gists/useShallowEqualSelector/
+			https://milad-afkhami.com/gists/useShallowEqualSelector
 		</loc>
 		<lastmod>
-			2022-03-20T13:21:32+00:00
+			2022-03-20
 		</lastmod>
 		<priority>
 			0.60
@@ -289,10 +300,10 @@
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/favourites/
+			https://milad-afkhami.com/favourites
 		</loc>
 		<lastmod>
-			2022-03-20T13:21:32+00:00
+			2022-03-20
 		</lastmod>
 		<priority>
 			0.60
@@ -300,10 +311,10 @@
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/favourites/animations/
+			https://milad-afkhami.com/favourites/animations
 		</loc>
 		<lastmod>
-			2022-03-20T13:21:32+00:00
+			2022-03-20
 		</lastmod>
 		<priority>
 			0.50
@@ -311,10 +322,10 @@
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/favourites/anime/
+			https://milad-afkhami.com/favourites/anime
 		</loc>
 		<lastmod>
-			2022-03-20T13:21:32+00:00
+			2023-06-01
 		</lastmod>
 		<priority>
 			0.50
@@ -322,10 +333,10 @@
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/favourites/artists/
+			https://milad-afkhami.com/favourites/artists
 		</loc>
 		<lastmod>
-			2022-03-20T13:21:32+00:00
+			2022-03-20
 		</lastmod>
 		<priority>
 			0.50
@@ -333,10 +344,10 @@
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/favourites/books/
+			https://milad-afkhami.com/favourites/books
 		</loc>
 		<lastmod>
-			2022-03-20T13:21:32+00:00
+			2023-06-13
 		</lastmod>
 		<priority>
 			0.50
@@ -344,10 +355,10 @@
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/favourites/playlists/
+			https://milad-afkhami.com/favourites/playlists
 		</loc>
 		<lastmod>
-			2022-03-20T13:21:32+00:00
+			2022-03-20
 		</lastmod>
 		<priority>
 			0.65
@@ -355,10 +366,10 @@
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/favourites/poems/
+			https://milad-afkhami.com/favourites/poems
 		</loc>
 		<lastmod>
-			2022-03-20T13:21:32+00:00
+			2022-03-20
 		</lastmod>
 		<priority>
 			0.50
@@ -366,10 +377,10 @@
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/favourites/series/
+			https://milad-afkhami.com/favourites/series
 		</loc>
 		<lastmod>
-			2022-03-20T13:21:32+00:00
+			2023-06-06
 		</lastmod>
 		<priority>
 			0.50
@@ -377,10 +388,10 @@
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/packages/
+			https://milad-afkhami.com/packages
 		</loc>
 		<lastmod>
-			2022-03-20T13:21:32+00:00
+			2022-03-20
 		</lastmod>
 		<priority>
 			0.60

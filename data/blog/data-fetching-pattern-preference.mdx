@@ -1,6 +1,6 @@
 ---
 title: "My Data-fetching Preference in Next.js"
-publishedAt: "2021-07"
+publishedAt: "2022-07"
 image: "/images/blog/server-client-communication-banner.jpeg"
 readingTime: "20"
 category: "next"
@@ -69,12 +69,12 @@ This method lets you build your pages at build time instead of doing it on deman
 
 ### 4. Incremental Static Regeneration ( ISR )
 
-ISR is a new paradigm introduced by [Next.js](https://nextjs.org/). It combines the advantages of SSG and SSR to build websites.
+`ISR` is a new paradigm introduced by [Next.js](https://nextjs.org/). It combines the advantages of `SSG` and SSR to build websites.
 
 - **_Benefits:_**
-  - All of SSG benefits
+  - All of `SSG` benefits
   - Fast <abbr title="time to first byte">TTFB</abbr> ( as most of the times we serve statically generated page )
-  - Fresh content, as you can set the max stale time
+  - **Almost** Fresh content, as you can set the max stale time
 
 <br />
 
@@ -83,20 +83,158 @@ ISR is a new paradigm introduced by [Next.js](https://nextjs.org/). It combines 
   - No user specific content
   - Slow <abbr title="time to first byte">TTFB</abbr> for pages that wasn't statically cached before.
 
-### 5. SSG/ISR + CSR
+### 5. On-demand Revalidation
 
-This is my favorite, you can use ISR or SSG for building most of the important parts of a page at build time while you can get more fresh and user-specific data on the client side.
-For this approach, we need to separate our data into two different parts: shared between request and specific for every request. for example, below you can see a payload of data for a product page of an e-commerce website.
+Since `next.js` version 12, you can use the stable `revalite`
+method and bring the power of webhooks at your service.
+You first need to know what on-demand revalidation is.
+Gladly, I don't have to reinvent the wheel in this scenario and you can read
+[the comprehensive documentation of next.js about that](https://nextjs.org/docs/pages/building-your-application/rendering/incremental-static-regeneration#on-demand-revalidation).
 
-```js
-product: {
-  id, name, description, isLiked, similars;
+Using it is pretty straighforward but I will have
+an example here for you to show how I like to implement it.
+
+In the below example I am using `ISR` and also built a revalidation api
+and gave it to backend folks and headless CMS to call as a webhook on data change:
+
+```javascript
+export const getStaticPaths: GetStaticPaths = async function ({ locales }) {
+  const products = await ProductServices.listMostViewedProducts();
+
+  const paths = (locales || []).reduce(
+    (acc, locale) => [
+      ...acc,
+      ...(products?.map(({ slug }) => ({
+        params: { slug },
+        locale,
+      })) || []),
+    ],
+    [] as GetStaticPathsResult["paths"]
+  );
+
+  return { paths, fallback: "blocking" };
+};
+
+type PageProps = { product: IProduct };
+
+export const getStaticProps: GetStaticProps<Dictionary, ProductPageProps> =
+  async function ({ locale, params }) {
+    try {
+      const product = await ProductServices.get(params.slug);
+
+      if (!product) return { notFound: true };
+
+      return {
+        props: { product },
+        revalidate: 604800,
+      };
+    } catch (e) {
+      if (e.statusCode === HTTPStatusCodes.NotFound) return { notFound: true };
+      throw e;
+    }
+  };
+```
+
+The above code is for generating some product pages at build time
+and adding a week stale time to its cache using ISR.
+But what if the data of a product changed a second after the cache was generated?
+The people who changed the data obviously don't want to wait for a week to see the changes,
+So we need some kind of webhook to be called whenever we want to revalidate our caches.
+
+The below code is a next.js serverless api that demonstrates that webhook:
+
+```javascript
+import { HTTPStatusCodes } from "@constants/http";
+import type { NextApiRequest, NextApiResponse } from "next";
+
+/** Revalidates cache of an statically generated page */
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse<{ revalidated?: boolean, message?: string }>
+) {
+  const { method } = req;
+
+  if (method !== "PUT") {
+    res.setHeader("Allow", ["PUT"]);
+    return res.status(405).end(`Method ${method} Not Allowed`);
+  }
+  try {
+    const AUTHORIZATION_HEADER_TYPE = "RevalidationSecret";
+    const revalidationSecret = process.env.ON_DEMAND_REVALIDATION_SECRET;
+    const providedRevalidationSecret = req.headers.authorization?.replace?.(
+      `${AUTHORIZATION_HEADER_TYPE} `,
+      ""
+    );
+    const pathToRevalidate: string = req.body?.path;
+
+    if (providedRevalidationSecret !== revalidationSecret) {
+      return res
+        .status(HTTPStatusCodes.Unauthorized)
+        .json({ message: "INVALID REVALIDATION SECRET" });
+    }
+    if (!pathToRevalidate) {
+      return res
+        .status(HTTPStatusCodes.BadRequest)
+        .json({ message: "BAD REQUEST" });
+    }
+
+    await res.revalidate(pathToRevalidate);
+
+    console.log(
+      `%cpath: \`${pathToRevalidate}\` revalidated successfully.`,
+      "color: green"
+    );
+    return res.status(HTTPStatusCodes.Ok).json({ revalidated: true });
+  } catch (error) {
+    return res
+      .status(HTTPStatusCodes.InternalServerError)
+      .json({ message: "ERROR OCCURRED WHILE REVALIDATING" });
+  }
 }
 ```
 
-`id` is something that will not change, name and description may get change sometimes, isLiked and similars are some parts of this response that will be different based on request.
+the `ON_DEMAND_REVALIDATION_SECRET` environment variable is a secret
+shared between frontend and the headless CMS to protect your caches
+to get revalidated frequently by malicious users.
+You can add host value check or a more sofisticated
+secret generator to make your webhook safer.
 
-The best way to implement this page is to first get data at build time with help of ISR, removing its dynamic parts( isLiked, similars ), and passing remains to the page as props.
+---
+
+- **_Benefits:_**
+  - All of `ISR` benefits
+  - Fresh content, as you can revalidate your caches at any time.
+
+<br />
+
+- **_Downsides:_**
+  - All of `ISR` Downsides
+  - Not ideal for cases that you have so many pages that get revalidated frequently.
+
+### 6. On-Demand Revalidation/ISR/SSG + CSR
+
+This is my favorite one, you can use On-Demand Revalidation, ISR,
+or `SSG` for building most of the important parts of a page at build time whilst
+you can get more fresh and user-specific data on the client side.
+For this approach, we need to separate our data into two different parts:
+shared between request and specific for every request.
+in the example below you can see a payload of data for a product page of an e-commerce website.
+
+```javascript
+interface IProduct {
+  id: number;
+  name: string;
+  description: string;
+  isLiked: Boolean;
+  similars: Array<IProduct>;
+}
+```
+
+`id` is something that will not change, `name` and `description` may get change sometimes,
+`isLiked` and `similars` are some parts of this response that will be different based on request.
+
+The best way to implement this page is to first fetch data at build time with help of ISR,
+removing its dynamic parts( isLiked, similars ), and passing remains to the page as props.
 
 ```javascript
 export const getStaticProps = async ({ params }) => {
@@ -125,37 +263,47 @@ export const getStaticPaths = async ({ locales }) => {
 
 On the client side, I use <abbr title="Stale While Revalidate">[SWR](https://swr.vercel.app)</abbr> as a server state management tool, you can use [react-query](https://react-query.tanstack.com/installation) or any other tool that u like.
 
-```js
+```javascript
 // hooks/useProduct.js
 import useSWRImmutable from "swr/immutable";
 import { useDebugValue } from "react";
 import endpoints from "@constants/endpoints";
 import Http from "@utils/Http";
+
+const swrFetcher = async (url) => {
+  try {
+    const response = await Http.request({ url });
+    return response;
+  } catch (err) {
+    return err;
+  }
+};
+
 export default function useProduct(slug) {
   const key = endpoints.product + "?slug=" + slug;
-  const swr = useSWRImmutable(key, async (url) => {
-    try {
-      const response = await Http.request({ url });
-      return response;
-    } catch (err) {
-      return err;
-    }
-  });
+  const swr = useSWRImmutable(key, swrFetcher);
+
   useDebugValue(swr.data);
+
   return swr;
 }
 ```
 
-```js
+```javascript
 // pages/product/[slug].js
 const router = useRouter();
 const product = useProduct(router.query.slug, { initialData: props.product });
 ```
 
-With this we can use `product.data` everywhere we want. since we filled it at first render, some parts of the product state aren't completed yet( dynamic parts ), but after all the things we did with ISR/SSG, now we have most of our data so we can statically generate parts that are needed for crawler robots to index our page and for end-users to interact with it.
-To complete our amazing user experience, for other parts of our page we can use skeleton loading like this:
+With this we can use `product.data` everywhere we want. since we filled it at first render,
+some parts of the product state aren't completed yet( dynamic parts ),
+but after all the things we did with ISR/SSG, now we have most of our data
+so we can statically generate parts that are needed for crawler robots
+to index our page and for end-users to interact with it.
+To complete our amazing user experience,
+for other parts of our page we can use skeleton loading like this:
 
-```jsx
+```tsx
 return (
   <>
     <Head title={product.name} description={product.description} />
@@ -165,27 +313,44 @@ return (
 )
 ```
 
-Inside `SimilarProducts` component, we show a skeleton loading representing future UI until the loading prop is true.
+Inside `SimilarProducts` component, we show a skeleton loading
+representing future UI as long as the loading prop is true.
 
-In this method, we have all the benefits of ISR and SSG without making the user wait for data that has no use for us on the first render.
-To prevent a bugging flash on screen after loading data and also to make a better user experience we use skeleton loading, you can paint your own loading with SVG or you can use third-party packages like [react-content-loader](https://skeletonreact.com/).
+In this method, we have all the benefits of `ISR` and `SSG`
+without making the user wait for data that has no use for us on the first render.
+To prevent a bugging flash on screen after loading data
+and also to make a better user experience we use skeleton loading,
+you can paint your own loading with SVG or you can use third-party packages
+like [react-content-loader](https://skeletonreact.com/).
 
 #### Important note
 
-Since on the client-side, we are calling the same API we called at build time, we can lighten API response by using [GraphQL](https://graphql.org/) to just fetch parts of data that we want.
+Since on the client-side, we are calling the same API we called at build time,
+we can lighten API response by using [GraphQL](https://graphql.org/)
+to just fetch parts of data that we want.
 
 ## Conclusion
 
-As we discussed, choosing SSR blindly is no longer an option for web applications and alternative strategies with fixing issues and expanding the limitations, has become more optimal ways for implementing web applications
+As we discussed, choosing SSR blindly is no longer an straighforward option for web applications
+and alternative strategies with fixing issues and expanding the limitations,
+has became more optimal ways for implementing web applications
 All the things said, now you can choose a better way to implement your pages based on your need.
 
-For pages that SEO does not matters for them, like a user profile page, you need to use client-side rendering( first strategy ) without hesitation, and since you are not using any SSR data fetching method here, next.js will statically generate some parts of this page like Layout, Head and ... for you
-If you have a shared API for all your pages e.g. list of all countries that you need everywhere in your app, you can mix it with the 5th strategy and fetch it at build time.
+For pages that SEO does not matters, like a user profile page,
+you need to use client-side rendering( first strategy ) without hesitation,
+and since you are not using any SSR data fetching method here,
+`next.js` will statically generate some parts of this page like Layout, Head and ... for you.
 
-In cases that SEO does matters for your page, you need to first distinguish different parts of your data.
-If needed data to render your page, is completely shared between different clients, you can choose between 3rd or 4th strategies based on the required time for revalidation of your data.
-But if your data has dynamic parts that have different values for different users ( like isLiked and similar property in our example ), you should choose the 5th strategy for your page.
+If you have a shared API for all your pages
+e.g. list of all countries that you need everywhere in your app,
+you can mix it with the 5th strategy and fetch it at build time or you can use middlewares.
 
-```
+In cases that SEO does matters for your page,
+you need to first distinguish different parts of your data.
 
-```
+If needed data to render your page, is completely shared between different clients,
+you can choose between 3rd or 4th strategies based on the required time for revalidation of your data.
+
+But if your data has dynamic parts that have different values for different users
+( like `isLiked` and `similars` properties in our example ),
+you should choose the 5th strategy for your page.
