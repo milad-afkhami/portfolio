@@ -1,52 +1,32 @@
 ---
 title: "useSocket"
-category: "util"
+category: "hook"
 summary: "A hook to use socket in a more linear and reactive way"
 ---
 
 ## Source
 
-```javascript
+```typescript
 // /contexts/chat.js
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import socketIOClient from "socket.io-client";
-import { socketBaseURL } from "@config";
-import beep from "@utils/beep";
-
 import { createContext, useContextSelector } from "use-context-selector";
 
-export default ChatContext;
+const socketBaseURL = "...";
 
-const ChatContext = createContext();
+const SocketContext = createContext();
 
-export default function ChatProvider({ children }) {
+export default function SocketProvider({ children }) {
   const user = "USER_ID_FROM_GLOBAL_STATE";
 
   const [isConnected, setConnected] = useState(false);
+  const [isActive, setActive] = useState(false);
 
-  // true if user is in chat page
-  const [active, setActive] = useState(false);
-
-  const [messages, setMessages] = useState(null);
-  const _messagesRef = useRef(messages);
-  useEffect(() => {
-    _messagesRef.current = messages;
-  }, [messages]);
-
-  // Alternatively you can replace useState with useImmer and make use of functional updates( setState(draft => { ... }) )
-  // const [messages, setMessages] = useImmer(null);
-
-  const [conversations, setConversations] = useState(null);
-  const _conversationsRef = useRef(conversations);
-
-  const [activeConversation, setActiveConversation] = useState(null);
-  const activeConversationRef = useRef(activeConversation);
-
-  const socketRef = useRef();
+  const socketRef = useRef(null);
 
   useEffect(() => {
-    if (user && !socketRef.current) {
+    if (!socketRef.current) {
       const token = "AUTH_TOKEN";
 
       socketRef.current = socketIOClient(socketBaseURL, {
@@ -54,86 +34,42 @@ export default function ChatProvider({ children }) {
         query: { token },
       });
 
-      socketRef.current.on("connect", () => {
-        setConnected(true);
-      });
+      socketRef.current.on("connect", () => setConnected(true));
 
-      socketRef.current.on("disconnect", () => {
-        setConnected(false);
-      });
+      socketRef.current.on("disconnect", () => setConnected(false));
 
-      socketRef.current.on("MESSAGE", (message) => {
-        const isMine = message?.isAnswer;
-
-        const isUserInTheConversation = activeConversationRef.current._id === message.conversation?._id; // prettier-ignore
-
-        if (isUserInTheConversation) {
-          setMessages([message, ..._messagesRef.current]);
-        } else if (!isMine) {
-          // if new message is not from user, then play a beep sound
-          beep();
-        }
-
-        // revalidating conversations
-        loadConversations();
+      socketRef.current.on("SOME_EVENT", (message) => {
+        // do stuff
       });
 
       socketRef.current.on("error", () => {});
     }
 
     return () => {
-      if (!user && socketRef.current) socketRef.current.disconnect();
+      if (socketRef.current) resetConnection();
     };
-  }, [user]);
-
-  useEffect(() => {
-    if (active && !conversations?.length) loadConversations();
-
-    if (!active && conversations?.length) resetConversations();
-  }, [active]);
-
-  const sendMessage = (newMessage) => {
-    setMessages([newMessage, ..._messagesRef.current]);
-
-    // then communicate with backend ...
-  };
-
-  const getMessages = useCallback(async () => {}, []);
-
-  const joinConversation = useCallback(async (id) => {
-    setActiveConversation(conversations[id]);
-    loadMessages(id);
   }, []);
 
-  const loadMessages = useCallback(async () => {}, []);
+  const resetConnection = () => {
+    if (socketRef.current) socketRef.current.disconnect();
 
-  const loadConversations = useCallback(async () => {}, []);
-
-  const resetConversations = () => {};
-
-  const resetSocket = () => {
-    socketRef.current?.disconnect?.();
     socketRef.current = null;
   };
 
   const contextValue = {
     isConnected,
+    isActive,
 
-    messages,
-    conversations,
+    // some other methods
 
-    activateChat: () => setActive(true),
-    deActivateChat: () => setActive(false),
-    joinConversation,
-    sendMessage,
-
-    resetSocket,
-    socket: socketRef,
-    activeConversation,
+    resetConnection,
+    ref: socketRef,
   };
 
   return (
-    <ChatContext.Provider value={contextValue}>{children}</ChatContext.Provider>
+    <SocketContext.Provider value={contextValue}>
+      {children}
+    </SocketContext.Provider>
   );
 }
 ```
@@ -142,40 +78,42 @@ export default function ChatProvider({ children }) {
 
 Instead of doing this in every file:
 
-```javascript
+```typescript
 import { useContextSelector } from "use-context-selector";
-import ChatContext from "@contexts/chat";
+import SocketContext from "@contexts/chat";
 
 function Component(props) {
-  const chat = useContextSelector(ChatContext, ...);
+  const chat = useContextSelector(SocketContext, ...);
 }
 ```
 
-You can create a hook that does this and you just need to import that one hook
+You can create a hook that does this and you just need to import that one hook in your files:
 
-```javascript
+```typescript
 import { useContextSelector } from "use-context-selector";
-import { ChatContext } from "@context/Chat";
+import SocketContext from "@context/Socket";
 
-export default useChat;
+const useSocket = (selector) => {
+  const context = useContext(SocketContext, selector);
 
-const useChat = (selector) => {
-  return useContext(ChatContext, selector);
+  if (isDevelopment && context === undefined)
+    throw new Error("useSocket must be used within a SocketProvider");
+
+  return context;
 };
+
+export default useSocket;
 ```
 
-This doesn't do anything right now, it's just a way to skip multiple imports and also it gives us some flexibility in the future
+This doesn't do anything right now, it's just a way to skip multiple imports
+and also it gives us some flexibility in the future and makes our code future proof.
 
 ## Usage
 
-```javascript
-const Message = function (props) {
-  const message = useChat((state) => state.messages[i]);
+```typescript
+const Chat = function (props) {
+  const socket = useSocket((state) => state.isActive);
 
   return <div>...</div>;
 };
 ```
-
-## Aliases
-
-`useSocket`, `useChat`, `useIO`, ...
