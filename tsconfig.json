@@ -43,10 +43,7 @@
     "**/*.ts",
     "**/*.tsx",
     "types/*.d.ts",
-    "next.config.js",
-    "jest.setup.js",
-    "jest.config.js",
-    "public/fonts/icons/demo-files/demo.js"
+    "**/*.js"
   ],
-  "exclude": ["node_modules", "dist", ".next"]
+  "exclude": ["node_modules", "out", ".next"]
 }
