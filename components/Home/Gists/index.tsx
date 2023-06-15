@@ -8,7 +8,7 @@ const GistCards = dynamic(() => import("@components/Cards/Gist"), {
   ssr: false,
 });
 
-const homeGists = ["div", "useEnhancedState", "vscode"];
+const homeGists = ["utility-types", "useIntersector", "vscode"];
 
 interface HomeGistsProps {
   items: Array<IGist>;
