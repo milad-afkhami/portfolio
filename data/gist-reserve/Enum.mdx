@@ -4,7 +4,7 @@ category: "util"
 summary: "Creating an Enum constructor in javascript, well not quite, not a complete instance of the Enum but a similar one."
 ---
 
-```javascript
+```typescript
 function Enum(...values) {
   for (const val of values) this[val] = val;
 }
