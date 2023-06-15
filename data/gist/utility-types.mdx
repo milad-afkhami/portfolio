@@ -1,0 +1,144 @@
+---
+title: "Utility Types"
+category: "typescript"
+summary: "Typescript utility types to have enhanced development experience."
+---
+
+First we should create a file in `types/utilities.d.ts` path.
+
+## 1. Nullable
+
+```typescript
+type Nullable<T> = T | null;
+```
+
+## 2. Nullish
+
+```typescript
+type Nullish = null | undefined;
+```
+
+## 3. Nullishable
+
+```typescript
+type Nullishable<T> = T | Nullish;
+```
+
+## 4. NonUndefined
+
+```typescript
+type NonUndefined<T> = T extends undefined ? never : T;
+```
+
+## 5. Maybe
+
+```typescript
+type Maybe<T> = T | undefined;
+```
+
+## 6. Falsy
+
+```typescript
+type Falsy = null | undefined | false | "" | 0 | 0n;
+```
+
+## 7. Truthy
+
+```typescript
+type Truthy<T> = Exclude<T, Falsy>;
+```
+
+## 8. Primitive
+
+```typescript
+type Primitive = string | number | bigint | boolean | symbol | null | undefined;
+```
+
+## 9. Dictionaty
+
+```typescript
+type Dictionary<T = unknown> = { [key: string]: T };
+```
+
+```typescript
+type Dict = Dictionary<number>;
+// type Dict will be an object with string keys and `number`
+```
+
+## 10. ValueOf
+
+Extracts the type of values in an object type.
+
+```typescript
+type ValueOf<
+  T extends
+    | ReadonlyArray<unknown>
+    | ArrayLike<unknown>
+    | Record<unknown, unknown>
+> = T extends ReadonlyArray<unknown>
+  ? T[number]
+  : T extends ArrayLike<unknown>
+  ? T[number]
+  : T extends object
+  ? T[keyof T]
+  : never;
+```
+
+```typescript
+type A = ValueOf<{ a: string; b: number }>;
+// type A will be `string | number`
+```
+
+## 11. UnPromise
+
+Extracts type of resolved promise value.
+
+```typescript
+type UnPromise<T extends Promise<unknown>> = T extends Promise<infer U>
+  ? U
+  : never;
+```
+
+```typescript
+type P = Promise<number>;
+type A = UnPromise<P>;
+// type A will be of number
+```
+
+## 12. NoneToVoidFunction
+
+```typescript
+type NoneToVoidFunction = () => void;
+```
+
+## 13. MergeBy
+
+Merges two object types.
+
+```typescript
+type MergeBy<T, K> = Omit<T, keyof K> & K;
+```
+
+```typescript
+type ObjectType1 = { a: string; b: number; c: boolean };
+type ObjectType2 = { a: number; b: string; d: boolean };
+
+type Merged = MergeBy<ObjectType1, ObjectType2>;
+// type `Merged` will be of type `{ a: number; b: string; c: boolean; d: boolean }`
+```
+
+## 14. Subtract
+
+Removes shared properties of two object types from the first one.
+
+```typescript
+type Subtract<T extends K, K> = Omit<T, keyof K>;
+```
+
+```typescript
+type ObjectType1 = { a: string; b: number; c: boolean };
+type ObjectType2 = { a: number; b: string; d: boolean };
+
+type Subtracted = Subtract<ObjectType1, ObjectType2>;
+// type `Subtracted` will be of type `{ c: boolean; }`
+```
