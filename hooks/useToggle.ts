@@ -8,7 +8,10 @@ interface ToggleHook {
 const useToggle: ToggleHook = (initialState = false) => {
   const [state, setState] = useState(initialState);
 
-  const toggle = useCallback(() => setState((state) => !state), []);
+  const toggle = useCallback(
+    () => setState((currentState) => !currentState),
+    []
+  );
   useDebugValue(state);
 
   return [state, toggle];
