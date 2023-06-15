@@ -35,7 +35,7 @@
     "start": "next start",
     "build": "bash scripts/ops/build.sh",
     "export": "bash scripts/ops/export.sh",
-    "test": "jest test",
+    "test": "jest",
     "test-dev": "bash scripts/ops/test-dev.sh",
     "stylesheets": "node ./scripts/stylesheets/index.mjs",
     "lint": "next lint",
