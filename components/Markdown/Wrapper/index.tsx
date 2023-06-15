@@ -12,7 +12,9 @@ const MarkdownWrapper: HOCFunctionalComponent = ({ children }) => {
 
     require("prismjs/prism").highlightAll();
     require("prismjs/components/prism-jsx.js");
-    require("prismjs/components/prism-js-extras.js");
+    require("prismjs/components/prism-tsx.js");
+    require("prismjs/components/prism-typescript.js");
+    require("prismjs/components/prism-json.js");
   }, []);
 
   return <StyledWrapper>{children}</StyledWrapper>;
