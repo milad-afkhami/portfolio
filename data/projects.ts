@@ -8,7 +8,6 @@ const projectsData: Array<IProject> = [
       "https://vitrin.me",
       "...",
     ],
-    logo: "/images/projects/landingator/logo.jpg",
     medias: [
       {
         src: "/images/projects/landingator/1.jpg",
