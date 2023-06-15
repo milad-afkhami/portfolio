@@ -34,7 +34,7 @@ You can run this command `git ls-files | xargs wc -l | awk '$1 > 100'` in projec
 ## How To Use 🔧
 
 1. \
-   `git clone https://github.com/miladMAPS/portfolio.git`
+   `git clone https://github.com/milad-afkhami/portfolio.git`
 
 2. \
    `cd portfolio`

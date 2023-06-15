@@ -8,7 +8,7 @@ const HeaderGithub: FC = () => (
     height="100%"
     width="30px"
     flex={["center", "center"]}
-    href="https://github.com/miladMAPS/portfolio"
+    href="https://github.com/milad-afkhami/portfolio"
   >
     <Icon name="github" size="28px" />
   </Link>

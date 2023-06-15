@@ -42,7 +42,10 @@ const StyledAnchor = styled("a")`
 `;
 
 const GithubCorner: FC = () => (
-  <StyledAnchor href="https://github.com/miladMAPS/portfolio" target="_blank">
+  <StyledAnchor
+    href="https://github.com/milad-afkhami/portfolio"
+    target="_blank"
+  >
     <svg width="80" height="80" viewBox="0 0 250 250">
       <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
       <path
