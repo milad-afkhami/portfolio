@@ -1,0 +1,60 @@
+---
+title: "useToggle"
+category: "hook"
+summary: "This hook accepts a parameter with a boolean value and proves useful when we need to perform actions that involve transitioning between binary states, such as showing and hiding an overlay or opening and closing a menu."
+---
+
+## Source
+
+```typescript
+import { useState, useCallback, useDebugValue } from "react";
+
+interface ToggleHook {
+  (initialState?: boolean): [boolean, () => void];
+}
+
+const useToggle: ToggleHook = (initialState = false) => {
+  const [state, setState] = useState(initialState);
+
+  const toggle = useCallback(
+    () => setState((currentState) => !currentState),
+    []
+  );
+  useDebugValue(state);
+
+  return [state, toggle];
+};
+
+export default useToggle;
+```
+
+## Test
+
+```typescript
+import { renderHook, act } from "@testing-library/react";
+import useToggle from "@hooks/useToggle";
+
+test.each`
+  initialValue | expected
+  ${true}      | ${false}
+  ${false}     | ${true}
+  ${undefined} | ${true}
+  ${""}        | ${true}
+  ${null}      | ${true}
+`(
+  "should be $expected after toggling with $initialValue initialValue",
+  ({ initialValue, expected }) => {
+    const { result } = renderHook(() => useToggle(initialValue));
+
+    act(() => result.current[1]());
+
+    expect(result.current[0]).toBe(expected);
+  }
+);
+```
+
+## Usage
+
+```typescript
+useKeyPress("Escape", onClickEscape);
+```
