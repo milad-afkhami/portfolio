@@ -45,6 +45,15 @@ const StyledWrapper = styled("div")`
     display: inline;
   }
 
+  kbd {
+    font-family: monospace;
+    background-color: var(--color-bg-tertiary-main);
+    border-radius: var(--curve-xsm);
+    border: 1px solid var(--color-border-light-main);
+    box-shadow: var(--shadow-sm);
+    padding: 0 var(--spacing-1);
+  }
+
   /* for adding small text as p.s. */
   h5 {
     font-weight: 100;
