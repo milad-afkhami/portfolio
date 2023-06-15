@@ -27,7 +27,7 @@ Using global typography for sizes of texts increases the readability and maintai
 
 First, we need to set our breakpoint configs
 
-```javascript
+```typescript
 const breakpoints = {
   xs: 414,
   sm: 576,
@@ -42,7 +42,7 @@ const breakpoints = {
 Then we need to define our typography variant in different breakpoints.
 In the below example the key `default` will be our typography in screens with _min-width_ of **breakpoints.lg**.
 
-```javascript
+```typescript
 const typographyVariants = {
   default: {
     "h-lg": { fontSize: 24, fontWeight: "normal" },
@@ -75,7 +75,7 @@ We can reach that with `createGlobalStyle` method from [styled-components](https
 
 This adds default typography variant variables under **:root** and adds other variants under corresponding media queries to override defaults.
 
-```javascript
+```typescript
 // adding values as CSS variables like : var(--font-size-sm) and var(--font-weight-sm)
 import { createGlobalStyle } from "styled-components";
 import { typographyVariants } from "@stylesheets";

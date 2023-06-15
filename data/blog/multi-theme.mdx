@@ -14,11 +14,12 @@ In this blog, I want to describe how I handle theming of my projects. Whether it
 I use [next-themes](https://github.com/pacocoursey/next-themes) to handle theme attribute and cross tab theme changes,
 It requires us to wrap our app with a **ThemeProvider** like this:
 
-```jsx
+```tsx
 // _app.js
 import { ThemeProvider } from "next-themes";
 import { THEMES, defaultTheme, GlobalColors } from "@stylesheets";
 // ...
+
 function MyApp({ ... }) {
   // ...
   return (
@@ -27,7 +28,7 @@ function MyApp({ ... }) {
       defaultTheme={defaultTheme}
       enableSystem={false}
     >
-      <GlobalColors /> // *
+      <GlobalColors />
       ...
     </ThemeProvider>
   );
@@ -36,14 +37,15 @@ function MyApp({ ... }) {
 
 ##### \* We'll see what the **GlobalColors** component does later.
 
-<br />
-<br />
+---
+
+---
 
 ## 2. Defining Color constructor function
 
 We need a constructor function to generate every color variant.
 
-```javascript
+```typescript
 // models/Color.js
 export default function Color(
   main,
@@ -69,27 +71,22 @@ export default function Color(
 
 ##### \* You can pass any **[valid CSS color variable](https://www.w3schools.com/cssref/css_colors_legal.asp)** to the Color constructor.
 
-<br />
-<br />
+---
+
+---
 
 ## 3. Defining color variants
 
 We define our color variants in a file named themes.js, I recommend defining it in stylesheets/themes.js destination.
 
-```javascript
-export default THEMES;
-
+```typescript
 const THEMES = {
   DARK: "DARK",
   LIGHT: "LIGHT",
   OCEAN: "OCEAN"
 };
 
-export default defaultTheme;
-
 const defaultTheme = THEMES.LIGHT;
-
-export default themes;
 
 const themes = {
   [THEMES.LIGHT]: {
@@ -128,15 +125,16 @@ const themes = {
 
 ##### \* You can generate your color palette variants with help of **[this website](http://mcg.mbitson.com/)**.
 
-<br />
-<br />
+---
+
+---
 
 ## 4. Adding color variants to global stylesheets.
 
 After that, we need to add those colors as global CSS variables to use them everywhere.
 we do it with createGlobalStyle method from [styled-components](https://styled-components.com/).
 
-```javascript
+```typescript
 import { createGlobalStyle } from "styled-components";
 import __reduce from "lodash/reduce";
 
@@ -192,8 +190,9 @@ function produceColorTypes(name, ...colors) {
 
 ##### \*\* We import **GlobalColors** component into our most top-level component.
 
-<br />
-<br />
+---
+
+---
 
 ## 5. Usage
 

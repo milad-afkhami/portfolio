@@ -97,7 +97,7 @@ an example here for you to show how I like to implement it.
 In the below example I am using `ISR` and also built a revalidation api
 and gave it to backend folks and headless CMS to call as a webhook on data change:
 
-```javascript
+```typescript
 export const getStaticPaths: GetStaticPaths = async function ({ locales }) {
   const products = await ProductServices.listMostViewedProducts();
 
@@ -143,14 +143,14 @@ So we need some kind of webhook to be called whenever we want to revalidate our 
 
 The below code is a next.js serverless api that demonstrates that webhook:
 
-```javascript
+```typescript
 import { HTTPStatusCodes } from "@constants/http";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 /** Revalidates cache of an statically generated page */
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<{ revalidated?: boolean, message?: string }>
+  res: NextApiResponse<{ revalidated?: boolean; message?: string }>
 ) {
   const { method } = req;
 
@@ -220,7 +220,7 @@ For this approach, we need to separate our data into two different parts:
 shared between request and specific for every request.
 in the example below you can see a payload of data for a product page of an e-commerce website.
 
-```javascript
+```typescript
 interface IProduct {
   id: number;
   name: string;
@@ -236,7 +236,7 @@ interface IProduct {
 The best way to implement this page is to first fetch data at build time with help of ISR,
 removing its dynamic parts( isLiked, similars ), and passing remains to the page as props.
 
-```javascript
+```typescript
 export const getStaticProps = async ({ params }) => {
     const result = await ProductServices.getDetail(params.slug);
     return {
@@ -263,7 +263,7 @@ export const getStaticPaths = async ({ locales }) => {
 
 On the client side, I use <abbr title="Stale While Revalidate">[SWR](https://swr.vercel.app)</abbr> as a server state management tool, you can use [react-query](https://react-query.tanstack.com/installation) or any other tool that u like.
 
-```javascript
+```typescript
 // hooks/useProduct.js
 import useSWRImmutable from "swr/immutable";
 import { useDebugValue } from "react";
@@ -289,7 +289,7 @@ export default function useProduct(slug) {
 }
 ```
 
-```javascript
+```typescript
 // pages/product/[slug].js
 const router = useRouter();
 const product = useProduct(router.query.slug, { initialData: props.product });

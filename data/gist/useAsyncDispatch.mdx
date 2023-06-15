@@ -17,7 +17,7 @@ dispatch(profileActions, { userId: "USER_ID" })
 
 ## Source
 
-```javascript
+```typescript
 import { useDispatch } from "react-redux";
 
 export default useAsyncDispatch;
@@ -35,7 +35,7 @@ const useAsyncDispatch = () => {
 You need to take care of settling this promise in your store.
 It should be something like this:
 
-```javascript
+```typescript
 try {
   // ...
   action?.payload?.resolve?.(result);

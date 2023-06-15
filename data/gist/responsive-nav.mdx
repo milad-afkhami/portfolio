@@ -6,19 +6,17 @@ summary: "Creating a responsive navbar without having to create and render multi
 
 See [here](https://github.com/milad-afkhami/portfolio/blob/main/components/Layout/Header/Nav/index.tsx) for a complete solution.
 
-```jsx
+```tsx
 import Div from "@kits/Div";
 import dynamic from "next/dynamic";
 import { useMediaQuery } from "react-responsive";
 import breakpoints from "@stylesheets/constants/breakpoints.json";
+import type { FC } from "react";
 
 const HeaderMenu = dynamic(() => import("./Desktop"), { ssr: false });
 const HeaderResponsiveMenu = dynamic(() => import("./Responsive"), {
   ssr: false,
 });
-
-export default HeaderNav;
-import type { FC } from "react";
 
 interface HeaderNavProps {}
 
@@ -28,11 +26,9 @@ const HeaderNav: FC<HeaderNavProps> = (props) => {
 
   return (
     <Div display="flex">
-      {isResponsiveScreen && <HeaderResponsiveMenu />}
-      {isBigScreen && <HeaderMenu />}
+      {isResponsiveScreen ? <HeaderResponsiveMenu {...props} /> : null}
+      {isBigScreen ? <HeaderMenu {...props} /> : null}
     </Div>
   );
 };
 ```
-
-Read more about Div component [here](/gists/div).

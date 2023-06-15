@@ -45,10 +45,8 @@ I like to have a redux folder to put all of the redux mess inside of it, and ins
 Middlewares in redux play a huge role, we can use them for logging, error handling, reporting, and ...
 The only required middleware here is saga middleware, we need to create a `middleware/saga.js` file like this:
 
-```javascript
+```typescript
 import createSagaMiddleware from "redux-saga";
-
-export default sagaMiddleware;
 
 const sagaMiddleware = createSagaMiddleware();
 ```
@@ -60,7 +58,7 @@ In the root of the redux folder, we have 5 files.
 **handleSagaError**
 This is file is for handling different errors. It contains a generator function:
 
-```javascript
+```typescript
 import { put, delay } from "redux-saga/effects";
 
 export default function* handleSagaError(error, status = "failure") {
@@ -90,17 +88,14 @@ function alert() {}
 **index.js**
 This file is for combining and exporting modules so outer modules won't have to now our folder structure to import :
 
-```javascript
+```typescript
 import { END } from "redux-saga";
 
 export * from "./modules/rehydrate";
 export * from "./modules/language";
 // export * from "./modules/...";
 
-export default SAGA_END;
-
 const SAGA_END = END;
-export default APP_HYDRATION;
 
 const APP_HYDRATION = "APP_HYDRATION";
 ```
@@ -108,10 +103,8 @@ const APP_HYDRATION = "APP_HYDRATION";
 **reducers.js**
 This file is responsible for bringing all of our reducers together, ready to combine with combineReducer.
 
-```javascript
+```typescript
 import { xxxKey, xxxReducer } from "./modules/xxx";
-
-export default reducers;
 
 const reducers = {
   [xxxKey]: xxxReducer,
@@ -122,7 +115,7 @@ const reducers = {
 This file is responsible for creating our sagas
 Here we don't have many sagas so I only have a root saga, but as the number of your sagas increases, you need to separate them into multiple sagas.
 
-```javascript
+```typescript
 import { all, takeEvery } from "redux-saga/effects";
 import {
   APP_HYDRATION,
@@ -150,7 +143,7 @@ export default function* rootSaga() {
 **store.js**
 And most important file is store.js which is for configuring our store.
 
-```javascript
+```typescript
 import { applyMiddleware, createStore, combineReducers } from "redux";
 import createSagaMiddleware from "redux-saga";
 import { createWrapper, HYDRATE } from "next-redux-wrapper";
@@ -206,7 +199,7 @@ With [redux-saga](https://redux-saga.js.org/), every worker is a generator funct
 Soon in redux, you will find out so much of your code is just repeating yourself. so we need a way to prevent it. We need a method that takes store names and generates all actions types and required reducers for us.
 I created that method and called it `ReduxRoutines` like this:
 
-```javascript
+```typescript
 const REDUX_ACTION_TYPES = [
   "TRIGGER",
   "REQUEST",
@@ -217,8 +210,8 @@ const REDUX_ACTION_TYPES = [
 ];
 ```
 
-```javascript
-import { REDUX_ACTION_TYPES } from "@constants";
+```typescript
+import { REDUX_ACTION_TYPES } from "@constants/redux";
 
 const initialState = {
   timestamp: null, // timestamp of the last action that was dispatched
@@ -304,32 +297,28 @@ function createReducer(state = initialState, action, actionTypes) {
 
 In **\_app.js** file, you need to wrap the App component in `nextReduxWrapper.withRedux` like this:
 
-```javascript
+```typescript
 export default nextReduxWrapper.withRedux(WrappedApp);
 ```
 
 And wherever in files inside pages directory you wanted to use data fetching methods of next.js, you need to import `nextReduxWrapper` and use it like this:
 
-```javascript
+```typescript
 import { nextReduxWrapper } from "@redux";
 
 export default function () {
   // ...
 }
 
-export default getStaticProps;
-
-const getStaticProps = nextReduxWrapper.getStaticProps(
-  (store) => () => {}
-);
+const getStaticProps = nextReduxWrapper.getStaticProps((store) => () => {});
 ```
 
 Finally, you need to create a worker for every slice of your store.
 In [redux-saga](https://redux-saga.js.org/) a worker is a generator function like this:
 
-```javascript
+```typescript
 import { call, put } from "redux-saga/effects";
-import { ReduxRoutines } from "@models";
+import ReduxRoutines from "@models/ReduxRoutines";
 import Http from "@utils/Http";
 import __get from "lodash-es/get";
 import handleSagaError from "@redux/handleSagaError";

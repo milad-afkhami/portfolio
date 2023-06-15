@@ -45,14 +45,12 @@ prefix: **`!func`**
 
 The above code will generate the below code block:
 
-```jsx
+```tsx
 // #region imports
+import { useState, type FC } from "react";
 import Div from "@kits/Div";
 import Text from "@kits/Text";
-import { useState } from "react";
 // #endregion
-
-import type { FC } from "react";
 
 interface TM_FILENAME_BASEProps {}
 
@@ -83,7 +81,7 @@ You may also need to create snippets for your hooks or regular utils. take the `
 
 The above snippet will generate the following output:
 
-```javascript
+```typescript
 const { t } = useTranslation("ns");
 ```
 

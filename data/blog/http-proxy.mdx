@@ -34,10 +34,11 @@ First you need two packages, [cookies](https://www.npmjs.com/package/cookies) an
 
 We need to a [catch all route](https://nextjs.org/docs/routing/dynamic-routes#catch-all-routes) in `api` directory. for that create a `pages/api/proxy/[...path].js` and paste this code into it.
 
-```js
+```typescript
 import * as HttpProxy from "http-proxy";
 import url from "url";
-import { INTERVALS, TOKEN_COOKIE_KEY } from "@constants";
+import Intervals from "@constants/Intervals";
+import { TOKEN_COOKIE_KEY } from "@constants/cookies";
 import {
   externalApiBaseURL,
   headerTokenKey,
@@ -47,8 +48,6 @@ import {
 import * as Cookies from "cookies";
 
 const proxy = HttpProxy.createProxyServer();
-
-export default config;
 
 const config = {
   api: {
@@ -89,7 +88,7 @@ export default (req, res) => {
           const cookies = new Cookies(req, res);
 
           cookies.set(TOKEN_COOKIE_KEY, token, {
-            maxAge: INTERVALS.A_MONTH * 1000,
+            maxAge: Intervals.Month * 1000,
             httpOnly: true,
             sameSite: "lax",
           });
