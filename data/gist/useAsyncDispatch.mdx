@@ -1,19 +1,8 @@
 ---
 title: "useAsyncDispatch"
-category: "styling"
+category: "hook"
 summary: "Async version of redux dispatch function"
 ---
-
-## Usage
-
-```javascript
-const dispatch = useAsyncDispatch();
-
-dispatch(profileActions, { userId: "USER_ID" })
-  .then(() => {})
-  .catch(() => {})
-  .finally(() => {});
-```
 
 ## Source
 
@@ -42,4 +31,15 @@ try {
 } catch (error) {
   action?.payload?.reject?.(error);
 }
+```
+
+## Usage
+
+```typescript
+const dispatch = useAsyncDispatch();
+
+dispatch(profileActions, { userId: "USER_ID" })
+  .then(() => {})
+  .catch(() => {})
+  .finally(() => {});
 ```
