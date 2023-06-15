@@ -1,0 +1,53 @@
+---
+title: "useIntersector"
+category: "hook"
+summary: "A hook that indicates wether an element is visible in the viewport or not."
+---
+
+## Source
+
+```typescript
+import { useState, useEffect, type RefObject } from "react";
+
+interface IntersectionHookOptions extends IntersectionObserverInit {
+  defaultValue: boolean;
+}
+
+interface IntersectorHook {
+  (ref: RefObject<Element>, options?: IntersectionHookOptions): boolean;
+}
+
+const useIntersector: IntersectorHook = function (ref, options) {
+  const {
+    defaultValue = false,
+    rootMargin = "0px",
+    root,
+    threshold,
+  } = options || {};
+  const [isIntersecting, setIntersecting] = useState(defaultValue);
+
+  const rootObserver = () =>
+    new IntersectionObserver(
+      ([entry]) => setIntersecting(entry.isIntersecting),
+      { rootMargin, root, threshold }
+    );
+
+  useEffect(() => {
+    if (window.IntersectionObserver) {
+      if (ref.current) rootObserver().observe(ref.current);
+
+      return () => rootObserver()?.disconnect?.();
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  return isIntersecting;
+};
+```
+
+## Usage
+
+```typescript
+const elementRef = useRef<HTMLDivElement>(null);
+const isIntersecting = useIntersector(elementRef);
+```
