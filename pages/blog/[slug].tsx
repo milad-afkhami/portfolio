@@ -26,8 +26,16 @@ interface BlogPageProps {
 const BlogPage: PageComponent<BlogPageProps> = (props) => {
   const router = useRouter();
   const { slug } = router.query;
-  const { title, summary, image, banner, publishedAt, readingTime, category } =
-    props?.blog?.frontMatter || {};
+  const {
+    title,
+    summary,
+    image,
+    banner,
+    publishedAt,
+    modifiedAt,
+    readingTime,
+    category,
+  } = props?.blog?.frontMatter || {};
   const source = props?.blog?.source || {};
 
   const { t } = useTranslation();
@@ -58,6 +66,7 @@ const BlogPage: PageComponent<BlogPageProps> = (props) => {
         description={summary}
         images={[appBaseURL + image]}
         datePublished={publishedAt}
+        dateModified={modifiedAt}
         authorName={t("profile.name")}
       />
       <Div width="100%" py="3">
