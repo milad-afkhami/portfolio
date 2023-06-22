@@ -1,12 +1,9 @@
 import Button from "@kits/Button";
+import { resumeURL } from "@configs/urls";
 import type { FC } from "react";
 
 const DownloadResume: FC = () => {
-  const handleDownloadResume = () =>
-    window.open(
-      `/documents/${encodeURIComponent(`Milad Afkhami's Resume.pdf`)}`,
-      "__blank"
-    );
+  const handleDownloadResume = () => window.open(resumeURL, "_blank");
 
   return (
     <Button
