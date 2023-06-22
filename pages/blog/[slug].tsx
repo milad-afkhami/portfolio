@@ -30,7 +30,6 @@ const BlogPage: PageComponent<BlogPageProps> = (props) => {
     title,
     summary,
     image,
-    banner,
     publishedAt,
     modifiedAt,
     readingTime,
@@ -85,7 +84,7 @@ const BlogPage: PageComponent<BlogPageProps> = (props) => {
             readingTime={readingTime}
             publishedAt={publishedAt}
           />
-          <BlogBanner banner={banner || image} title={title} />
+          <BlogBanner banner={image} title={title} />
           {/* className=" line-numbers" */}
           <Markdown source={source} />
         </div>
