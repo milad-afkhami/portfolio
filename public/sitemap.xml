@@ -47,6 +47,17 @@
 	</url>
 	<url>
 		<loc>
+			https://milad-afkhami.com/blog/build-time-data-caching-in-next-js
+		</loc>
+		<lastmod>
+			2023-06-22
+		</lastmod>
+		<priority>
+			0.80
+		</priority>
+	</url>
+	<url>
+		<loc>
 			https://milad-afkhami.com/blog/rethink-using-redux
 		</loc>
 		<lastmod>
