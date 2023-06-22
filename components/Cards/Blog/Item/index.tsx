@@ -44,12 +44,7 @@ const BlogCard: FC<IBlog> = (props) => {
         )}
         <BlogCardCategory {...props} />
       </Div>
-      <Div
-        px="0.75rem"
-        py="2"
-        flexPortion={3}
-        responsive={{ sm: { py: "0.75rem" } }}
-      >
+      <Div px="3" py="2" flexPortion={3} responsive={{ sm: { py: "3" } }}>
         <Div flex={["start", "between", "column"]} height="100%">
           <BlogCardBody {...props} />
           <BlogCardFooter {...props} />
