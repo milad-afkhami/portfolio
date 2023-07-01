@@ -23,5 +23,4 @@ type IFavouriteArtist = {
   name: string;
   slug: string;
   image: string;
-  category: string;
 };
