@@ -4,16 +4,14 @@ import { useTranslation } from "next-i18next";
 import type { FC } from "react";
 
 const homeBlogs = [
-  // "data-fetching-pattern-preference",
   "one-on-one",
   "front-end-learning-roadmap",
+  "adr",
+  "data-fetching-pattern-preference",
   "rethink-using-redux",
+  "build-time-data-caching-in-next-js",
   // "redux-clean-code",
   // "homophobia",
-
-  // "multi-theme",
-  // "typography",
-  // "http-proxy",
 ];
 
 interface FeaturedPostsProps {
