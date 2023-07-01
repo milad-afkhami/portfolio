@@ -1,0 +1,45 @@
+---
+title: "isNullish"
+category: "util"
+summary: "A method that returs true if the accepted value is null or undefined."
+---
+
+## Source
+
+```typescript
+export default function isNullish(value: unknown): value is Nullish {
+  return typeof value === "undefined" || value === null;
+}
+```
+
+What is the `Nullish` type? [See here](/gists/utility-types).
+
+## Usage
+
+```typescript
+if (isNullish(value)) {
+  // Here, value will be assumed as null or undefined
+}
+```
+
+## Test
+
+```typescript
+test.each`
+  provided     | expected
+  ${null}      | ${true}
+  ${undefined} | ${true}
+  ${false}     | ${false}
+  ${true}      | ${false}
+  ${""}        | ${false}
+  ${NaN}       | ${false}
+  ${{}}        | ${false}
+`("should be $expected for $provided", ({ provided, expected }) => {
+  const mockFn = jest.fn(isNullish);
+  const value = mockFn(provided);
+
+  expect(mockFn).toBeCalledTimes(1);
+  expect(mockFn).toHaveBeenCalledWith(provided);
+  expect(value).toBe(expected);
+});
+```

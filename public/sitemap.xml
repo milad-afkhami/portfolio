@@ -171,10 +171,21 @@
 			https://milad-afkhami.com/gists
 		</loc>
 		<lastmod>
-			2023-06-16
+			2023-07-01
 		</lastmod>
 		<priority>
 			0.70
+		</priority>
+	</url>
+	<url>
+		<loc>
+			https://milad-afkhami.com/gists/is-nullish
+		</loc>
+		<lastmod>
+			2023-07-01
+		</lastmod>
+		<priority>
+			0.60
 		</priority>
 	</url>
 	<url>
