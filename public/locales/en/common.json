@@ -62,7 +62,8 @@
       "management": "Management",
       "react": "React",
       "next": "Next.js",
-      "roadmap": "Roadmap"
+      "roadmap": "Roadmap",
+      "documentation": "Documentation"
     },
     "notFound": "Blog Not Found!",
     "meta": {
