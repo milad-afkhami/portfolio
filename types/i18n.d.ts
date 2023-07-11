@@ -4,6 +4,7 @@ type I18NNameSpaces =
   | "home"
   | "projects"
   | "about"
+  | "packages"
   | "favourites.common"
   | "favourites.animations"
   | "favourites.artists"
