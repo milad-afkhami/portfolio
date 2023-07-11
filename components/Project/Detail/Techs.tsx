@@ -1,5 +1,5 @@
 import Div from "@kits/Div";
-import ProjectTech from "./Item";
+import Chips from "@kits/Chips";
 import SectionTitle from "@components/Layout/Title/Section";
 import type { FC } from "react";
 
@@ -11,14 +11,8 @@ const ProjectTechs: FC<ProjectTechsProps> = (props) => {
   return (
     <div>
       <SectionTitle icon="tools" title="tools" ns="projects" />
-      <Div
-        flex={["center", "start", , "wrap"]}
-        css={{ gap: "var(--spacing-2)" }}
-        my="4"
-      >
-        {techs.map((tech, i) => (
-          <ProjectTech key={i} {...tech} />
-        ))}
+      <Div my="3">
+        <Chips items={techs.map(({ name, link }) => ({ label: name, link }))} />
       </Div>
     </div>
   );
