@@ -10,7 +10,6 @@ export default interface IconProps extends HTMLAttributes<Element> {
   prefix?: string;
   suffix?: string;
   color?: Colors;
-  hoverColor?: Colors;
   size?: Typography | CSSAttribute["fontSize"];
   bold?: boolean;
   multiDirection?: boolean;

@@ -6,21 +6,15 @@ import type { FC } from "react";
 import type IconProps from "./props";
 
 const IconElement = styled("i")<
-  Pick<
-    IconProps,
-    "size" | "bold" | "onClick" | "color" | "disabled" | "css" | "hoverColor"
-  >
->(({ size = "lg", bold, onClick, color, disabled, css, hoverColor }) => ({
+  Pick<IconProps, "size" | "bold" | "onClick" | "color" | "disabled" | "css">
+>(({ size = "lg", bold, onClick, color, disabled, css }) => ({
   fontSize: fontSizeVar(size),
   fontWeight: bold ? "bold" : undefined,
   cursor: onClick ? "pointer" : "unset",
   transition: `all var(--pace-x-fast)`,
-  ...(color
-    ? { color: colorVar(disabled ? "text-disabled-main" : color) }
-    : {}),
-  ...(hoverColor && !disabled
-    ? { "&:hover": { color: colorVar("text-disabled-main") } }
-    : {}),
+  color: colorVar(
+    disabled ? "text-disabled-main" : color || "text-primary-main"
+  ),
   ...css,
 }));
 
