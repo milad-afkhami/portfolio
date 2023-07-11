@@ -1,7 +1,7 @@
 {
-  "x-fast": "0.15s",
-  "fast": "0.3s",
-  "normal": "0.6s",
-  "slow": "0.9s",
-  "x-slow": "1.5s"
+  "x-fast": 0.15,
+  "fast": 0.3,
+  "normal": 0.6,
+  "slow": 0.9,
+  "x-slow": 1.5
 }
