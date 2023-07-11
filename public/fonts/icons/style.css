@@ -1,18 +1,17 @@
 @font-face {
-  font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?88odkc');
-  src:  url('fonts/icomoon.eot?88odkc#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?88odkc') format('truetype'),
-    url('fonts/icomoon.woff?88odkc') format('woff'),
-    url('fonts/icomoon.svg?88odkc#icomoon') format('svg');
+  font-family: "icomoon";
+  src: url("fonts/icomoon.ttf?3qd467") format("truetype"),
+    url("fonts/icomoon.woff?3qd467") format("woff"),
+    url("fonts/icomoon.svg?3qd467#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
-[class^="mili-"], [class*=" mili-"] {
+[class^="mili-"],
+[class*=" mili-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'icomoon' !important;
+  font-family: "icomoon" !important;
   speak: never;
   font-style: normal;
   font-weight: normal;
@@ -25,6 +24,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.mili-external-link-icon:before {
+  content: "\e90b";
+}
 .mili-close-icon:before {
   content: "\e908";
 }
