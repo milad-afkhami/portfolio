@@ -13,6 +13,8 @@
   /*     Button */
   --button-height: 3rem;
   --button-curve: var(--curve-lg);
+  /*     Icon Button */
+  --icon-button-height: 2.5rem;
   /*     Text */
   --text-line-height: 1.7;
   --text-letter-spacing: 1px;

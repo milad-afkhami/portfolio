@@ -10,10 +10,10 @@ const IconButton: FC<IconButtonProps> = (props) => {
   return (
     <Div
       flex={["center", "center"]}
-      width="var(--button-height)"
-      height="var(--button-height)"
-      mw="var(--button-height)"
-      mh="var(--button-height)"
+      width="var(--icon-button-height)"
+      height="var(--icon-button-height)"
+      mw="var(--icon-button-height)"
+      mh="var(--icon-button-height)"
       curve={type === "default" ? "circle" : "sm"}
       border={type === "outlined" ? "brand-main" : undefined}
       {...(!disabled
