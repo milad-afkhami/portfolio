@@ -63,7 +63,7 @@ export default class ButtonHelper {
     height = "var(--button-height)",
     fixedWidth,
   }: DimensionParams): Dimensions {
-    const minWidth = "140px";
+    const minWidth = "120px";
     let _width = width;
     if (block) {
       _width ??= "100%";
