@@ -11,4 +11,6 @@ const navItems: Array<INavItem> = [
 
 const toastDuration = 3000;
 
-export { navItems, toastDuration };
+const headerNavResponsiveBreakpoint: Breakpoints = "lg";
+
+export { navItems, toastDuration, headerNavResponsiveBreakpoint };

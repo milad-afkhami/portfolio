@@ -8,7 +8,7 @@ const DownloadResume: FC = () => {
   return (
     <Button
       variant="contained"
-      text="Download Resume"
+      text={{ content: "header.downloadResume", ns: "layout", size: "lg" }}
       onClick={handleDownloadResume}
       icon="download"
     />

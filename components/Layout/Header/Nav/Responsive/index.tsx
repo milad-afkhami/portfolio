@@ -1,10 +1,10 @@
 import Div from "@kits/Div";
-import useDelayedRender from "use-delayed-render";
-import useToggle from "@hooks/useToggle";
 import MenuToggler from "./Toggler";
 import HeaderResponsiveMenuList from "./List";
+import useDelayedRender from "use-delayed-render";
+import useToggle from "@hooks/useToggle";
+import { headerNavResponsiveBreakpoint } from "@configs/layout";
 import type { FC } from "react";
-import { responsiveUpperBoundBreakpoint } from "@configs/general";
 
 const HeaderResponsiveMenu: FC = () => {
   const [menuOpen, toggleMenu] = useToggle(false);
@@ -16,7 +16,7 @@ const HeaderResponsiveMenu: FC = () => {
   return (
     <Div
       display="flex"
-      responsive={{ [responsiveUpperBoundBreakpoint]: { display: "none" } }}
+      responsive={{ [headerNavResponsiveBreakpoint]: { display: "none" } }}
     >
       <MenuToggler open={isMenuMounted} toggle={toggleMenu} />
       {isMenuMounted && (
