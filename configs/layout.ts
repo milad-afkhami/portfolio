@@ -3,10 +3,10 @@ const navItems: Array<INavItem> = [
   { link: "/about", label: "about" },
   // { link: "/courses", label: "courses" },
   { link: "/blog", label: "blog" },
-  // { link: "/packages", label: "packages" },
+  { link: "/packages", label: "packages" },
   { link: "/projects", label: "projects" },
-  { link: "/favourites", label: "favourites" },
   { link: "/gists", label: "gists" },
+  { link: "/favourites", label: "favourites" },
 ];
 
 const toastDuration = 3000;
