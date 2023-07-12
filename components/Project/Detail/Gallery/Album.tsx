@@ -25,7 +25,7 @@ const ProjectGalleryAlbum: FC<ProjectGalleryAlbumProps> = (props) => {
         ,
         "start",
       ]}
-      responsive={{ sm: { css: { gap: "var(--spacing-3)" } } }}
+      responsive={{ sm: { styles: { gap: "var(--spacing-3)" } } }}
       overflowX="auto"
       pb="3"
       width="fit-content"

@@ -30,7 +30,7 @@ const BlogCardFooter: FC<BlogCardFooterProps> = (props) => {
           <Text
             color="text-secondary-main"
             size="xsm"
-            css={{ letterSpacing: "normal" }}
+            styles={{ letterSpacing: "normal" }}
             noTranslation
           >
             {t("blog.meta.timeToReadValue", { time: readingTime })}

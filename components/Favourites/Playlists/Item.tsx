@@ -29,7 +29,7 @@ const FavouritePlaylist: FC<IFavouritePlaylist> = (props) => {
           dimensions={{ left: 0, top: 0 }}
           height="100%"
           width="100%"
-          css={{ filter: "blur(10px)" }}
+          styles={{ filter: "blur(10px)" }}
           opacity="0.3"
           zIndex="-1"
         >
@@ -40,13 +40,15 @@ const FavouritePlaylist: FC<IFavouritePlaylist> = (props) => {
         width="100%"
         height="140px"
         flex={["center", "between", "column"]}
-        responsive={{ sm: { css: { flexDirection: "row", height: "150px" } } }}
+        responsive={{
+          sm: { styles: { flexDirection: "row", height: "150px" } },
+        }}
       >
         <Div
           flex={["center", "center"]}
           width="100%"
           height="100%"
-          responsive={{ sm: { css: { justifyContent: "flex-start" } } }}
+          responsive={{ sm: { styles: { justifyContent: "flex-start" } } }}
         >
           <Div
             display="none"

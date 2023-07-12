@@ -49,7 +49,7 @@ const StyledText = styled(
     userSelect,
     maxLines,
     transform,
-    css,
+    styles,
   }) => ({
     ...(color ? { color: colorVar(color) } : {}),
     ...(size ? { fontSize: fontSizeVar(size) } : {}),
@@ -64,7 +64,7 @@ const StyledText = styled(
     ...(maxLines ? maxLinesStyles(maxLines) : {}),
     ...(hoverColor ? { "&:hover": { color: colorVar(hoverColor) } } : {}),
     ...fontFeaturesSettings,
-    ...(css || {}),
+    ...(styles || {}),
   })
 );
 

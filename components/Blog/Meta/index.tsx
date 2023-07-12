@@ -17,7 +17,7 @@ const BlogMeta: FC<BlogMetaProps> = (props) => {
     <Div
       curve="sm"
       grid={["repeat(1, 1fr)", , "4", "3", "row"]}
-      responsive={{ sm: { css: { gridTemplateColumns: "repeat(3, 1fr)" } } }}
+      responsive={{ sm: { styles: { gridTemplateColumns: "repeat(3, 1fr)" } } }}
     >
       <BlogMetaItem
         label="blog.meta.category"

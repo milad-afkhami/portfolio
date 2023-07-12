@@ -21,7 +21,7 @@ const ExpandableText: HOCFunctionalComponent<ExpandableTextProps> = (props) => {
       position="relative"
       responsive={{
         sm: {
-          css: {
+          styles: {
             [`& > .expandable-text__content`]: { display: "block !important" },
           },
         },

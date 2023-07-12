@@ -7,8 +7,8 @@ const FavouriteArtists: FC = () => (
   <Div
     grid={["repeat(1, 1fr)", , 5, "4rem", "row"]}
     responsive={{
-      sm: { css: { gridTemplateColumns: "repeat(2, 1fr)" } },
-      lg: { css: { gridTemplateColumns: "repeat(3, 1fr)" } },
+      sm: { styles: { gridTemplateColumns: "repeat(2, 1fr)" } },
+      lg: { styles: { gridTemplateColumns: "repeat(3, 1fr)" } },
     }}
     mb="6"
   >

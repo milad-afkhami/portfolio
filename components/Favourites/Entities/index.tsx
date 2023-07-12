@@ -23,11 +23,11 @@ const FavouriteEntities: FC = () => {
           />
           <Div
             flex={[, , "column"]}
-            css={{ columnGap: "var(--spacing-3)" }}
+            styles={{ columnGap: "var(--spacing-3)" }}
             responsive={{
-              sm: { css: { flexDirection: "row" } },
+              sm: { styles: { flexDirection: "row" } },
               [responsiveUpperBoundBreakpoint]: {
-                css: { columnGap: "var(--spacing-4)" },
+                styles: { columnGap: "var(--spacing-4)" },
               },
             }}
             width="100%"

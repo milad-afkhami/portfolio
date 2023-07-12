@@ -12,7 +12,7 @@ const NotFound: PageComponent = () => (
     <NotFoundAnimation />
     <Div
       flex={["center", "center", "column"]}
-      css={{ gap: "1rem" }}
+      styles={{ gap: "1rem" }}
       mt="5"
       width="100%"
     >

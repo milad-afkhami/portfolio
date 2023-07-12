@@ -23,7 +23,7 @@ const Image: FC<ImageProps> = (props) => {
     objectPosition,
     withShimmer,
     fill,
-    css = {},
+    styles = {},
     onClick,
     sizes,
     ...rest
@@ -50,11 +50,11 @@ const Image: FC<ImageProps> = (props) => {
           ? ImageHelper.getShimmerURL()
           : blurDataURL
       }
-      css={{
-        userSelect: css.userSelect || "none",
+      styles={{
+        userSelect: styles.userSelect || "none",
         "-webkit-user-drag": "none",
         objectFit: fit || "unset",
-        ...css,
+        ...styles,
       }}
       // onClick={(e) => onClick?.(e)}
       {...rest}

@@ -12,7 +12,7 @@ const BlogCardsWrapper: HOCFunctionalComponent = (props) => {
       grid={["repeat(1, 1fr)", , "1rem", "1rem", "row"]}
       responsive={{
         [responsiveUpperBoundBreakpoint]: {
-          css: { gridTemplateColumns: "repeat(3, 1fr)" },
+          styles: { gridTemplateColumns: "repeat(3, 1fr)" },
         },
       }}
       overflowX="auto"

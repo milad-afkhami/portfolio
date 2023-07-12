@@ -20,7 +20,7 @@ const Link: FC<LinkProps> = ({
   ...rest
 }) => {
   const hover: Maybe<DivProps["hover"]> = underline
-    ? { css: { textDecoration: "underline" } }
+    ? { styles: { textDecoration: "underline" } }
     : undefined;
 
   const hasHashHref = typeof href === "string" && href.startsWith("#");

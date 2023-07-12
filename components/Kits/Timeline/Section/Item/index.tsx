@@ -16,7 +16,7 @@ const TimelineSectionItem: FC<TimelineSectionItemProps> = (props) => {
   const { t } = useTranslation(ns);
 
   return (
-    <Div mb="3" as="li" css={{ listStyle: "none" }}>
+    <Div mb="3" as="li" styles={{ listStyle: "none" }}>
       <TimelineSectionItemTitle text={t(text)} index={index} />
       <TimelineSectionItemDescription description={t(`${text}_desc`)} />
     </Div>

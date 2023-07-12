@@ -6,8 +6,8 @@ import type { FC } from "react";
 import type IconProps from "./props";
 
 const IconElement = styled("i")<
-  Pick<IconProps, "size" | "bold" | "onClick" | "color" | "disabled" | "css">
->(({ size = "lg", bold, onClick, color, disabled, css }) => ({
+  Pick<IconProps, "size" | "bold" | "onClick" | "color" | "disabled" | "styles">
+>(({ size = "lg", bold, onClick, color, disabled, styles }) => ({
   fontSize: fontSizeVar(size),
   fontWeight: bold ? "bold" : undefined,
   cursor: onClick ? "pointer" : "unset",
@@ -15,7 +15,7 @@ const IconElement = styled("i")<
   color: colorVar(
     disabled ? "text-disabled-main" : color || "text-primary-main"
   ),
-  ...css,
+  ...styles,
 }));
 
 const Icon: FC<IconProps> = (props) => {

@@ -16,9 +16,9 @@ const FavouriteCommonEntityCards: FC<FavouriteCommonEntityCardsProps> = (
     <Div
       grid={["repeat(1, 1fr)", , 4, 5, "row"]}
       responsive={{
-        sm: { css: { gridTemplateColumns: "repeat(2, 1fr)" } },
-        md: { css: { gridTemplateColumns: "repeat(3, 1fr)" } },
-        lg: { css: { gridTemplateColumns: "repeat(4, 1fr)" } },
+        sm: { styles: { gridTemplateColumns: "repeat(2, 1fr)" } },
+        md: { styles: { gridTemplateColumns: "repeat(3, 1fr)" } },
+        lg: { styles: { gridTemplateColumns: "repeat(4, 1fr)" } },
       }}
       mb="6"
     >

@@ -23,7 +23,7 @@ const AboutWhoAmI: FC<WhoAmIProps> = (props) => {
             </Text>
           </Div>
         ))}
-        <Div as="br" css={{ clear: "both" }} />
+        <Div as="br" styles={{ clear: "both" }} />
       </Div>
     </Div>
   );

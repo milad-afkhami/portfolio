@@ -16,7 +16,7 @@ export interface StyledTextProps extends HTMLAttributes<Element> {
   transform?: CSSAttribute["textTransform"];
   userSelect?: CSSAttribute["userSelect"];
   align?: CSSAttribute["textAlign"];
-  css?: CSSAttribute;
+  styles?: CSSAttribute;
 }
 
 export default interface TextProps extends StyledTextProps {

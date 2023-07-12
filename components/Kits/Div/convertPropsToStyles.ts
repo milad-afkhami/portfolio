@@ -55,7 +55,7 @@ export default function convertPropsToStyles(
     order,
     pointerEvents,
     rotate,
-    css,
+    styles,
     animation,
     blurBg,
     matchParent,
@@ -145,7 +145,7 @@ export default function convertPropsToStyles(
     ...(flex && flex.length ? flexer(...flex) : {}),
     ...(grid && grid.length ? grider(...grid) : {}),
     ...(blurBg ? { backdropFilter: "blur(15px)" } : {}),
-    ...(css || {}),
+    ...(styles || {}),
     ...(animation
       ? {
           // animation: keyframes(animation.keyframes),

@@ -16,7 +16,7 @@ function BreadcrumbLink(props: BreadcrumbLinkProps) {
             passHref
             href={link!}
             prefetch={false}
-            css={{
+            styles={{
               textDecoration: "underline",
               textUnderlineOffset: "var(--spacing-1)",
               textDecorationColor: "var(--color-brand-light) !important",

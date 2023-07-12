@@ -11,7 +11,7 @@ const Profile: FC = () => (
     // prefetch={false}
     flex={[, , "column-reverse"]}
     responsive={{
-      [responsiveUpperBoundBreakpoint]: { css: { flexDirection: "row" } },
+      [responsiveUpperBoundBreakpoint]: { styles: { flexDirection: "row" } },
     }}
     width="100%"
     my="4"

@@ -14,5 +14,5 @@ export default interface IconProps extends HTMLAttributes<Element> {
   bold?: boolean;
   multiDirection?: boolean;
   disabled?: boolean;
-  css?: CSSAttribute;
+  styles?: CSSAttribute;
 }

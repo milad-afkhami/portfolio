@@ -16,8 +16,10 @@ const GistCards: FC<GistsProps> = (props) => {
       <SectionTitle title={title} />
       <Div
         grid={["repeat(1, 1fr)", , "1rem", "1rem"]}
-        css={{ gridAutoFlow: "row" }}
-        responsive={{ md: { css: { gridTemplateColumns: "repeat(3, 1fr)" } } }}
+        styles={{ gridAutoFlow: "row" }}
+        responsive={{
+          md: { styles: { gridTemplateColumns: "repeat(3, 1fr)" } },
+        }}
       >
         {items.map((post, i) => (
           <GistCard key={i} {...post} />

@@ -20,7 +20,7 @@ const TimelineSectionItemDescription: FC<
     size: "md",
     color: "text-secondary-main",
     noTranslation: true,
-    css: { whiteSpace: "pre-line" },
+    styles: { whiteSpace: "pre-line" },
   };
 
   if (!description) return null;

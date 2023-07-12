@@ -56,7 +56,7 @@ const domProhibitedProps = [
   "after",
   "before",
   "responsive",
-  "css",
+  "styles",
   "animation",
   "pointerEvents",
   "rotate",

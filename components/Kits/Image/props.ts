@@ -7,6 +7,6 @@ export default interface ImageProps extends NextImageProps {
   hash?: string;
   withShimmer?: boolean;
   objectPosition?: string;
-  css?: DivProps["css"];
+  styles?: DivProps["styles"];
   responsive?: DivProps["responsive"];
 }
