@@ -1,12 +1,11 @@
 import Div from "@kits/Div";
 import Image from "@kits/Image";
-import { MDXRemote as NextMDXRemote } from "next-mdx-remote";
-import type { ReactNode } from "react";
+import {
+  MDXRemote as NextMDXRemote,
+  type MDXRemoteProps as NextMDXRemoteProps,
+} from "next-mdx-remote";
 
-const defaultComponents: Parameters<typeof NextMDXRemote>[0]["components"] = {
-  Div: Div as unknown as ReactNode,
-  Image: Image as unknown as ReactNode,
-};
+const defaultComponents = { Div, Image };
 
 const MDXRemote = function (props: Parameters<typeof NextMDXRemote>[0]) {
   const { components } = props;
@@ -14,7 +13,10 @@ const MDXRemote = function (props: Parameters<typeof NextMDXRemote>[0]) {
   return (
     <NextMDXRemote
       {...props}
-      components={{ ...defaultComponents, ...(components || {}) }}
+      components={{
+        ...(defaultComponents as NextMDXRemoteProps["components"]),
+        ...(components || {}),
+      }}
     />
   );
 };
