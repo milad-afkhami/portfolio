@@ -1,9 +1,6 @@
 import Div from "@kits/Div";
 import Image from "@kits/Image";
-import {
-  MDXRemote as NextMDXRemote,
-  type MDXRemoteProps as NextMDXRemoteProps,
-} from "next-mdx-remote";
+import { MDXRemote as NextMDXRemote } from "next-mdx-remote";
 
 const defaultComponents = { Div, Image };
 
@@ -13,8 +10,9 @@ const MDXRemote = function (props: Parameters<typeof NextMDXRemote>[0]) {
   return (
     <NextMDXRemote
       {...props}
+      // @ts-ignore
       components={{
-        ...(defaultComponents as NextMDXRemoteProps["components"]),
+        ...defaultComponents,
         ...(components || {}),
       }}
     />
