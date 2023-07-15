@@ -10,7 +10,7 @@
     "points": {
       "1": "Fast page load with incremental static regeneration ( ISR )",
       "2": "Up-to-date static pages with on-demand revalidation",
-      "3": "Composing comprehensive documentation using storybook, Gitlab Wiki, Confluence, Markdown and XMind",
+      "3": "Composing comprehensive documentation using storybook, Gitlab Wiki, Confluence, Markdown, and XMind",
       "4": "Advanced developer experience using bash script for operations like dev, build, test and ...",
       "5": "Build-time generated stylesheets like tailwind, using scripts written in mjs",
       "6": "Considering SEO best practices",
