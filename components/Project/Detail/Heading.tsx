@@ -15,11 +15,12 @@ const ProjectHeading: FC<ProjectHeadingProps> = (props) => {
 
   return (
     <Div
-      flex={["center", "between"]}
+      flex={["center", "between", , "wrap"]}
       py="3"
       mb="4"
       border="border-light-main"
       borderSide="bottom"
+      gap="3"
     >
       <Div flex={["center", "start"]}>
         <Text size="h-lg" bold>{`${index}.`}</Text>
