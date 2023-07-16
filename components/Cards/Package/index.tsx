@@ -14,7 +14,7 @@ const PackageCards: FC<PackageCardsProps> = (props) => {
   const { items } = props;
 
   return (
-    <Div>
+    <div>
       {items.map(
         ({
           name,
@@ -52,39 +52,41 @@ const PackageCards: FC<PackageCardsProps> = (props) => {
                 </a>
               </Div>
             </Div>
-            <Div>
-              <Text as="p" size="md">
+            <div>
+              <Text as="p" size="md" noTranslation>
                 {description}
               </Text>
-            </Div>
+            </div>
             <Div display="flex" gap="2">
-              <Div>
+              <div>
                 <Text size="sm" bold ns="packages">
                   latestVersion
                 </Text>
-              </Div>
-              <Div>
+                <span>:</span>
+              </div>
+              <div>
                 <Text size="md" as="em" noTranslation>
                   {latestVersion}
                 </Text>
-              </Div>
+              </div>
             </Div>
             <Div flex={[, , , "wrap"]} gap="2">
-              <Div>
+              <div>
                 <Text size="sm" bold ns="packages">
                   keywords
                 </Text>
-              </Div>
-              <Div>
+                <span>:</span>
+              </div>
+              <div>
                 <Text size="sm" ns="packages" as="em" noTranslation>
                   {keywords.join(", ")}
                 </Text>
-              </Div>
+              </div>
             </Div>
           </Div>
         )
       )}
-    </Div>
+    </div>
   );
 };
 
