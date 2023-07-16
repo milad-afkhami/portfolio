@@ -1,6 +1,6 @@
 import Div from "@kits/Div";
 import Head from "@components/SEO/Head";
-import FavouriteCommonEntityCards from "@components/Cards/CommonEntity";
+import FavouriteCommonEntityCards from "@components/Cards/Favourites/CommonEntity";
 import PageTitle from "@components/Layout/Title/Page";
 import favouriteSeriesData from "@data/favourites/series";
 import FAVOURITE_TYPES from "@constants/favourites";

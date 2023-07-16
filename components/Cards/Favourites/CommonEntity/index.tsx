@@ -1,5 +1,5 @@
 import Div from "@kits/Div";
-import FavouriteCommonEntityCard from "./Card";
+import FavouriteCommonEntityCard from "./Item";
 import type { FC } from "react";
 
 interface FavouriteCommonEntityCardsProps {

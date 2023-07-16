@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import Div from "@kits/Div";
 import PageTitle from "@components/Layout/Title/Page";
 import SectionTitle from "@components/Layout/Title/Section";
-import FavouriteEntity from "./Entity";
+import FavouriteEntityCard from "@components/Cards/Favourites/Entity";
 import FavouritesHelper from "@helpers/favourites";
 import { responsiveUpperBoundBreakpoint } from "@configs/general";
 import type { FC } from "react";
@@ -35,7 +35,7 @@ const FavouriteEntities: FC = () => {
             thinScrollbar
           >
             {links.map((item, j) => (
-              <FavouriteEntity {...item} key={j} />
+              <FavouriteEntityCard {...item} key={j} />
             ))}
           </Div>
         </Div>

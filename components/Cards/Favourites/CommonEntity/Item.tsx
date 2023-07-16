@@ -22,6 +22,7 @@ const FavouriteCommonEntityCard: FC<FavouriteCommonEntityCardProps> = (
     defaultValue: "",
   });
   const image = `/images/favourites/${entityType}/${slug}.jpg`;
+  const title = [meta, name].filter(Boolean).join(" - ");
 
   return (
     <Div
@@ -34,7 +35,7 @@ const FavouriteCommonEntityCard: FC<FavouriteCommonEntityCardProps> = (
       flex={["center", "center", "column"]}
       overflow="hidden"
       curve="md"
-      title={`${meta} - ${name}`}
+      title={title}
     >
       <Div
         display="flex"

@@ -5,15 +5,12 @@ import Link from "@kits/Link";
 import { responsiveUpperBoundBreakpoint } from "@configs/general";
 import type { FC } from "react";
 
-// playlists  {/* , 6 */}{/* , 4 */}
-// artists  {/*1, , 7, 8 */}import type { FC } from "react";
-
-interface FavouriteEntityProps {
+interface FavouriteEntityCardProps {
   link: string;
   label: string;
 }
 
-const FavouriteEntity: FC<FavouriteEntityProps> = (props) => {
+const FavouriteEntityCard: FC<FavouriteEntityCardProps> = (props) => {
   const { link, label } = props;
 
   return (
@@ -72,4 +69,4 @@ const FavouriteEntity: FC<FavouriteEntityProps> = (props) => {
   );
 };
 
-export default FavouriteEntity;
+export default FavouriteEntityCard;
