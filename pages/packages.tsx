@@ -13,7 +13,7 @@ const PackagesPage: PageComponent<{ packages: Array<IPackage> }> = (props) => {
 
   return (
     <>
-      <Head canonical="/packages" />
+      <Head page="favourites" canonical="/packages" />
       <Div width="100%" py="3">
         <PageTitle title="title" ns="packages" />
         <PackageCards items={packages} />
