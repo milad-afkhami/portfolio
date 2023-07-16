@@ -8,7 +8,7 @@ const Chips: FC<ChipsProps> = (props) => {
   const { items } = props;
 
   return (
-    <Div flex={["center", "start", , "wrap"]} gap="2">
+    <Div flex={["center", "flex-start", , "wrap"]} gap="2">
       {items.map((item, i) => (
         <Chip key={i} {...item} />
       ))}

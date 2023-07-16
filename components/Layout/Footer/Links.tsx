@@ -10,9 +10,14 @@ const FooterLinks: FC = () => {
   const favouritesLinks = useMemo(() => FavouritesHelper.getLinks(), []);
 
   return (
-    <Div flex={["start", "start", "row", "wrap"]} mx="-3">
+    <Div flex={["flex-start", "flex-start", "row", "wrap"]} mx="-3">
       {favouritesLinks.map(({ links, group }, i) => (
-        <Div key={i} flex={["start", "start", "column"]} mx="3" mb="3">
+        <Div
+          key={i}
+          flex={["flex-start", "flex-start", "column"]}
+          mx="3"
+          mb="3"
+        >
           <Div mb="4">
             <Text size="md" bold ns="layout">{`footer.favourite${__capitalize(
               group

@@ -13,12 +13,12 @@ const Header = () => (
     border="border-light-main"
     borderSide="bottom"
   >
-    <Div flex={["center", "between"]} matchParent>
-      <Div flex={[, "start"]}>
+    <Div flex={["center", "space-between"]} matchParent>
+      <Div flex={[, "flex-start"]}>
         <HeaderNav />
       </Div>
       <Div width="auto">{/* <Logo /> */}</Div>
-      <Div width="35%" flex={[, "end"]} gap="3">
+      <Div width="35%" flex={[, "flex-end"]} gap="3">
         <DownloadResume />
         <HeaderGithub />
         <HeaderChangeLanguage />

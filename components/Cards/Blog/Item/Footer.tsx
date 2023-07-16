@@ -13,7 +13,7 @@ const BlogCardFooter: FC<BlogCardFooterProps> = (props) => {
 
   return (
     <Div
-      flex={["center", "between"]}
+      flex={["center", "space-between"]}
       width="100%"
       pt="2"
       responsive={{ [responsiveUpperBoundBreakpoint]: { pt: "3" } }}

@@ -23,7 +23,7 @@ const FooterLicenses: FC = () => {
   ];
 
   return (
-    <Div flex={["end"]}>
+    <Div flex={["flex-end"]}>
       {licenses.map(({ link, image }, i) => (
         <Link key={i} outerLink href={link} mx="3">
           <Image src={image} width={90} height={90} alt={link} />

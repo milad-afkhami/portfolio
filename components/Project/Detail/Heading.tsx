@@ -15,14 +15,14 @@ const ProjectHeading: FC<ProjectHeadingProps> = (props) => {
 
   return (
     <Div
-      flex={["center", "between", , "wrap"]}
+      flex={["center", "space-between", , "wrap"]}
       py="3"
       mb="4"
       border="border-light-main"
       borderSide="bottom"
       gap="3"
     >
-      <Div flex={["center", "start"]}>
+      <Div flex={["center", "flex-start"]}>
         <Text size="h-lg" bold>{`${index}.`}</Text>
         <Div mx="2">
           <Text size="h-md" bold as="h2" noTranslation>
@@ -39,7 +39,7 @@ const ProjectHeading: FC<ProjectHeadingProps> = (props) => {
         </If>
       </Div>
       {Array.isArray(link) ? (
-        <Div flex={["center", "end"]}>
+        <Div flex={["center", "flex-end"]}>
           {link.map((item, i) => (
             <>
               <Link href={item} outerLink underline>

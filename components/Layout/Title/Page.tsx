@@ -9,7 +9,7 @@ const PageTitle: FC<PageTitleProps> = (props) => {
   return (
     <Div mb="4">
       <Div
-        flex={["center", "start"]}
+        flex={["center", "flex-start"]}
         py="3"
         border="border-light-main"
         borderSide="bottom"

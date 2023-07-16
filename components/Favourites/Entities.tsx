@@ -15,7 +15,7 @@ const FavouriteEntities: FC = () => {
     <div>
       <PageTitle title="title" ns="favourites.common" />
       {favouritesLinks.map(({ links, group }, i) => (
-        <Div key={i} flex={["start", "start", "column"]} mb="3">
+        <Div key={i} flex={["flex-start", "flex-start", "column"]} mb="3">
           <SectionTitle
             icon={group as IconName}
             ns="favourites.common"

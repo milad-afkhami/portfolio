@@ -60,7 +60,7 @@ const FavouriteCommonEntityCard: FC<FavouriteCommonEntityCardProps> = (
         mh="min(70px,20%)"
         bg="bg-secondary-pale"
         p="2"
-        flex={["start", "around", "column"]}
+        flex={["flex-start", "space-around", "column"]}
       >
         <Div overflow="hidden">
           <Text size="lg" bold maxLines={1} noTranslation title={name}>

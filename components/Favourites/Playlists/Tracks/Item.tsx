@@ -14,7 +14,7 @@ const FavouritePlaylistTracksItem: FC<FavouritePlaylistTracksItemProps> = (
 
   return (
     <Div
-      flex={["center", "start"]}
+      flex={["center", "flex-start"]}
       height="62px"
       // bg="bg-secondary-main"
       hoverBg="bg-secondary-paler"

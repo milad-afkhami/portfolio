@@ -4,7 +4,7 @@ import type { FC } from "react";
 
 const FooterCopyRight: FC = () => (
   <Div py="4" border="text-primary-main" borderSide="top">
-    <Div width="100%" flex={["center", "between"]}>
+    <Div width="100%" flex={["center", "space-between"]}>
       <Text size="xsm" ns="layout">
         footer.copyRight
       </Text>

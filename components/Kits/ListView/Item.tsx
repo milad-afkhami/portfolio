@@ -13,7 +13,7 @@ const ListItem: FC<PropsWithIndex<ListViewItemProps>> = (props) => {
 
   return (
     <Div
-      flex={["center", "start"]}
+      flex={["center", "flex-start"]}
       height="var(--list-view-item-height)"
       // bg="bg-secondary-main"
       hoverBg="bg-secondary-paler"

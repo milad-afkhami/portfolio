@@ -39,7 +39,7 @@ const FavouritePlaylist: FC<IFavouritePlaylist> = (props) => {
       <Div
         width="100%"
         height="140px"
-        flex={["center", "between", "column"]}
+        flex={["center", "space-between", "column"]}
         responsive={{
           sm: { styles: { flexDirection: "row", height: "150px" } },
         }}

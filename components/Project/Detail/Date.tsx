@@ -7,7 +7,7 @@ const ProjectDate: FC<Pick<IProject, "date">> = (props) => {
   const { date } = props;
 
   return (
-    <Div flex={["center", "start"]} mb="3">
+    <Div flex={["center", "flex-start"]} mb="3">
       <Div flex={["center", "center"]} width="30px">
         <Icon name="calendar" size="h-md" />
       </Div>

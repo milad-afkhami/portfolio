@@ -14,7 +14,7 @@ const DropDownItem: FC<DropDownItemProps> = (props) => {
 
   return (
     <Div
-      flex={["center", "start"]}
+      flex={["center", "flex-start"]}
       height="2.5rem"
       cursor="pointer"
       hoverBg="bg-tertiary-main"

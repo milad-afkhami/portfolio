@@ -34,7 +34,7 @@ const FavouriteEntityCard: FC<FavouriteEntityCardProps> = (props) => {
         },
       }}
       position="relative"
-      flex={[, "between", "column"]}
+      flex={[, "space-between", "column"]}
     >
       <Div
         display="flex"

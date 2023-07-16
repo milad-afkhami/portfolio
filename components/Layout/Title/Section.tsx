@@ -24,7 +24,7 @@ const SectionTitle: FC<SectionTitleProps> = (props) => {
   }
 
   return (
-    <Div flex={["center", "start"]} mb="2" gap="2">
+    <Div flex={["center", "flex-start"]} mb="2" gap="2">
       <If condition={icon}>
         <Then>
           <Div flex={["center", "center"]}>

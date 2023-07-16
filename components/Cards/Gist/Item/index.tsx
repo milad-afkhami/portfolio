@@ -20,7 +20,7 @@ const GistCard: FC<IGist> = (props) => {
       p="3"
       responsive={{ sm: { height: "180px" } }}
     >
-      <Div height="3rem" flex={["center", "between"]} mb="3">
+      <Div height="3rem" flex={["center", "space-between"]} mb="3">
         <div>
           <Text size="h-sm" bold noTranslation>
             {title}

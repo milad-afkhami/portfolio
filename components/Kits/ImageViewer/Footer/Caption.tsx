@@ -8,7 +8,7 @@ const ImageViewerFooterCaption: Components["FooterCaption"] = (props) => {
   const { caption } = props?.currentView || {};
 
   return (
-    <Div mx="2" flex={["center", "start"]}>
+    <Div mx="2" flex={["center", "flex-start"]}>
       <Text as="p" size="lg" bold color="assistive-warning-main" noTranslation>
         {caption}
       </Text>

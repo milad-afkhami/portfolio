@@ -13,7 +13,7 @@ const ImageViewerFooter: Components["Footer"] = (props) => {
       width="100%"
       mh="1.5rem"
       p="3"
-      flex={["center", "start"]}
+      flex={["center", "flex-start"]}
       bg="bg-secondary-paler"
     >
       {FooterCount && <FooterCount {...props} />}

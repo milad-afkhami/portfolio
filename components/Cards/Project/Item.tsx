@@ -42,7 +42,7 @@ const ProjectCard: FC<Pick<IProject, "logo" | "slug" | "name">> = (props) => {
         />
       </Div>
       <Div flexPortion="auto" ml="3">
-        <Div flex={["start", "start", "column"]} height="100%">
+        <Div flex={["flex-start", "flex-start", "column"]} height="100%">
           <Div mb="2" height="1.5rem">
             <Text ns="projects" size="lg" bold transform="uppercase">
               {name}
@@ -54,7 +54,7 @@ const ProjectCard: FC<Pick<IProject, "logo" | "slug" | "name">> = (props) => {
             </Text>
           </Div>
         </Div>
-        {/* <Div flex={["center", "between"]} width="100%" pt="3" border="border-light-main" borderSide="top"><Text color="text-secondary-main" size="xsm">{date}</Text></Div> */}
+        {/* <Div flex={["center", "space-between"]} width="100%" pt="3" border="border-light-main" borderSide="top"><Text color="text-secondary-main" size="xsm">{date}</Text></Div> */}
       </Div>
     </Link>
   );

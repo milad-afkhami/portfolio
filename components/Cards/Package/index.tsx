@@ -31,10 +31,10 @@ const PackageCards: FC<PackageCardsProps> = (props) => {
             bg="bg-secondary-main"
             position="relative"
             p="3"
-            flex={["start", "start", "column"]}
+            flex={["flex-start", "flex-start", "column"]}
             gap="3"
           >
-            <Div flex={["center", "between"]} width="100%">
+            <Div flex={["center", "space-between"]} width="100%">
               <div>
                 <Text size="h-sm" bold noTranslation transform="capitalize">
                   {__lowerCase(name)}
