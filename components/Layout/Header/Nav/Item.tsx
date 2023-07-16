@@ -6,7 +6,7 @@ const HeaderMenuItem: FC<INavItem> = (props) => {
   const { link, onClick, label } = props;
 
   return (
-    <Link href={link} onClick={onClick} display="flex" zoomOnHover>
+    <Link href={link} onClick={onClick} display="flex">
       <Text
         ns="layout"
         size="md"

@@ -34,7 +34,6 @@ const ProjectGalleryAlbum: FC<ProjectGalleryAlbumProps> = (props) => {
       {medias.map((media, index) => (
         <Div
           key={index}
-          zoomOnHover
           width="100px"
           height="100px"
           responsive={{ sm: { width: "150px", height: "150px" } }}

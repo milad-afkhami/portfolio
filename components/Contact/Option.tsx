@@ -44,12 +44,7 @@ const ContactOption: FC<ContactOptionProps> = (props) => {
           {`contact.${type}`}
         </Text>
       </Div>
-      <Div
-        flex={["center", "center"]}
-        Mw="80%"
-        hover={{ styles: { textDecoration: "underline" } }}
-        color="brand-light"
-      >
+      <Div flex={["center", "center"]} Mw="80%" color="brand-light">
         <Text noTranslation color="brand-light" size="sm" truncate>
           {label || value}
         </Text>

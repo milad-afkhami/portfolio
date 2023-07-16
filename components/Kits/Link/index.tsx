@@ -16,21 +16,14 @@ const Link: FC<LinkProps> = ({
   outerLink,
   children,
   disabled,
-  underline,
   ...rest
 }) => {
-  const hover: Maybe<DivProps["hover"]> = underline
-    ? { styles: { textDecoration: "underline" } }
-    : undefined;
-
   const hasHashHref = typeof href === "string" && href.startsWith("#");
 
   return outerLink ? (
     // eslint-disable-next-line react/jsx-no-target-blank
     <a target="_blank" href={href as string}>
-      <Div {...rest} hover={hover}>
-        {children}
-      </Div>
+      <Div {...rest}>{children}</Div>
     </a>
   ) : (
     <Div
@@ -43,7 +36,6 @@ const Link: FC<LinkProps> = ({
           document.getElementById(href.slice(1))?.scrollIntoView();
         }
       }}
-      hover={hover}
       replace={replace}
       scroll={scroll}
       shallow={shallow}
