@@ -1,19 +1,18 @@
 import Div from "@kits/Div";
 import Head from "@components/SEO/Head";
 import PageTitle from "@components/Layout/Title/Page";
+import PackageCards from "@components/Cards/Package";
 import PackageServices from "@services/package";
 import I18nHelper from "@helpers/i18n";
-import Intervals from "@constants/interval";
 import type { PageComponent } from "@_types/components";
 import type { GetStaticProps } from "next";
-import PackageCards from "@components/Cards/Package";
 
 const PackagesPage: PageComponent<{ packages: Array<IPackage> }> = (props) => {
   const { packages } = props;
 
   return (
     <>
-      <Head page="favourites" canonical="/packages" />
+      <Head page="packages" canonical="/packages" />
       <Div width="100%" py="3">
         <PageTitle title="title" ns="packages" />
         <PackageCards items={packages} />
@@ -28,10 +27,7 @@ export const getStaticProps: GetStaticProps = async function ({ locale }) {
     PackageServices.getList(),
   ]);
 
-  return {
-    props: { ...t9n, packages },
-    revalidate: Intervals.Week,
-  };
+  return { props: { ...t9n, packages } };
 };
 
 export default PackagesPage;
