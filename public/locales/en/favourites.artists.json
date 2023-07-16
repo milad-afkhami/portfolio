@@ -1,3 +1,59 @@
 {
-  "title": "Favourite Artists"
+  "title": "Favourite Artists",
+  "list": {
+    "soen": {
+      "name": "Soen"
+    },
+    "muse": {
+      "name": "Muse"
+    },
+    "radiohead": {
+      "name": "Radiohead"
+    },
+    "marilyn-manson": {
+      "name": "Marilyn Manson"
+    },
+    "metallica": {
+      "name": "Metallica"
+    },
+    "mohsen-chavoshi": {
+      "name": "Mohsen Chavoshi"
+    },
+    "empyrium": {
+      "name": "Empyrium"
+    },
+    "uaral": {
+      "name": "Uaral"
+    },
+    "nirvana": {
+      "name": "Nirvana"
+    },
+    "katatonia": {
+      "name": "Katatonia"
+    },
+    "opeth": {
+      "name": "Opeth"
+    },
+    "tool": {
+      "name": "Tool"
+    },
+    "linkin-park": {
+      "name": "Linkin Park"
+    },
+    "slipknot": {
+      "name": "Slipknot"
+    },
+    "system-of-a-down": {
+      "name": "System of a Down"
+    },
+    "avenged-sevenfold": {
+      "name": "Avenged Sevenfold"
+    },
+    "cigarettes-after-sex": {
+      "name": "Cigarettes After Sex"
+    },
+    "hozier": {
+      "name": "Hozier"
+    }
+  }
 }
