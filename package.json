@@ -39,7 +39,7 @@
     "export": "bash scripts/ops/export.sh",
     "test": "jest",
     "test-dev": "bash scripts/ops/test-dev.sh",
-    "stylesheets": "node ./scripts/stylesheets/index.mjs",
+    "stylesheets": "style-wiz",
     "lint": "next lint",
     "prettier": "prettier --write .",
     "prepare": "husky install"
