@@ -14,8 +14,6 @@
     "next": "^13.4.9",
     "next-i18next": "^14.0.0",
     "next-mdx-remote": "^4.4.1",
-    "next-optimized-images": "^2.6.2",
-    "next-pwa": "^5.2.21",
     "next-seo": "^6.1.0",
     "next-themes": "^0.2.1",
     "nookies": "^2.5.2",
