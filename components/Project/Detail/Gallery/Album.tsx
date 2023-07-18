@@ -1,6 +1,7 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import Image from "@kits/Image";
 import { useTranslation } from "next-i18next";
+import responsiveStyles from "@helpers/responsiveStyles";
 import type { FC } from "react";
 
 type ProjectGalleryAlbumProps = Required<Pick<IProject, "medias">> & {
@@ -25,7 +26,7 @@ const ProjectGalleryAlbum: FC<ProjectGalleryAlbumProps> = (props) => {
         ,
         "flex-start",
       ]}
-      responsive={{ sm: { styles: { gap: "var(--spacing-3)" } } }}
+      styles={responsiveStyles("sm", { gap: "var(--spacing-3)" })}
       overflowX="auto"
       pb="3"
       width="fit-content"
@@ -36,7 +37,7 @@ const ProjectGalleryAlbum: FC<ProjectGalleryAlbumProps> = (props) => {
           key={index}
           width="100px"
           height="100px"
-          responsive={{ sm: { width: "150px", height: "150px" } }}
+          styles={responsiveStyles("sm", { width: "150px", height: "150px" })}
           position="relative"
           cursor="zoom-in"
           border="border-dark-main"

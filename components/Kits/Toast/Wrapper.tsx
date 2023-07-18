@@ -1,8 +1,5 @@
-// #region imports
-import colorVar from "@stylesheets/utils/var/color";
 import { styled } from "goober";
 import type { ToastProps } from "./props";
-// #endregion
 
 interface ToastWrapperProps {
   type: ToastProps["type"];
@@ -11,11 +8,11 @@ interface ToastWrapperProps {
 const ToastWrapper = styled<ToastWrapperProps>("div")`
   width: var(--toast-width);
   padding: var(--spacing-2) var(--spacing-4);
-  background-color: ${({ type }) => colorVar(`assistive-${type}-main`)};
+  background-color: ${({ type }) => `var(--color-assistive-${type}-main)`};
   color: ${({ type }) =>
     type === "warning"
-      ? colorVar("text-primary-main")
-      : colorVar("bg-primary-main")};
+      ? "var(--color-text-primary-main)"
+      : "var(--color-bg-primary-main)"};
   border-radius: var(--curve-xsm);
 `;
 

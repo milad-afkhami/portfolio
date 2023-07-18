@@ -1,4 +1,4 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import Link from "@kits/Link";
 import Button from "@kits/Button";
 import SectionTitle from "@components/Layout/Title/Section";

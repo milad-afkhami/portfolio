@@ -1,4 +1,4 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import Head from "@components/SEO/Head";
 import Profile from "@components/Home/Profile";
 import FeaturedPosts from "@components/Home/FeaturedPosts";

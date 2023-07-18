@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import SectionTitle from "@components/Layout/Title/Section";
 import ProjectGalleryAlbum from "./Album";
 import dynamic from "next/dynamic";

@@ -1,5 +1,5 @@
 // #region imports
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import type { Components } from "react-images";
 // #endregion
 

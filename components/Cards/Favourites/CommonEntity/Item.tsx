@@ -1,4 +1,4 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import Text from "@kits/Text";
 import Image from "@kits/Image";
 import { useTranslation } from "next-i18next";

@@ -1,5 +1,5 @@
 // #region imports
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import Text from "@kits/Text";
 import { useTranslation } from "next-i18next";
 import type { Components } from "react-images";

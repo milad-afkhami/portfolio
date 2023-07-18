@@ -1,4 +1,4 @@
-import breakpoints from "@stylesheets/constants/breakpoints.json";
+import breakpoints from "@constants/stylesheets/breakpoints.json";
 
 const isDevelopment = process.env.NODE_ENV === "development";
 const isProduction = process.env.NODE_ENV === "production";

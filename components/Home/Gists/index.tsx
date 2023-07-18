@@ -1,4 +1,4 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import PageTitle from "@components/Layout/Title/Page";
 import GistsMoreLink from "./MoreLink";
 import dynamic from "next/dynamic";

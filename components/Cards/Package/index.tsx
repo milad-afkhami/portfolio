@@ -1,5 +1,5 @@
 // #region imports
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import Text from "@kits/Text";
 import IconButton from "@kits/IconButton";
 import __lowerCase from "lodash-es/lowerCase";

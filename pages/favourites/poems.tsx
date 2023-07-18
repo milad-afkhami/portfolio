@@ -1,4 +1,4 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import Head from "@components/SEO/Head";
 import PageTitle from "@components/Layout/Title/Page";
 import SectionTitle from "@components/Layout/Title/Section";

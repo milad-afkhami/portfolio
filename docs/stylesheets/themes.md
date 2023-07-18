@@ -2,7 +2,7 @@
 
 ## Colors
 
-Our theme colors are located in [stylesheets/constants/themes directory](../../stylesheets/constants/themes/) with files named after members of [Themes enum](../../constants/themes.ts).
+Our theme colors are located in [constants/stylesheets/themes directory](../../constants/stylesheets/themes/) with files named after members of [Themes enum](../../constants/themes.ts).
 
 ## Theme Palette Structure
 

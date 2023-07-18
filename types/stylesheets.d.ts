@@ -13,9 +13,6 @@ type Colors = HexColor | RGBColor | (string & {}) | "brand-main" | "brand-hover"
 type Breakpoints = "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
 
 // prettier-ignore
-type MediaFeatures = "xs_only" | "sm" | "sm_only" | "md" | "md_only" | "lg" | "lg_only" | "xl" | "xl_only" | "xxl";
-
-// prettier-ignore
 type Typography = "h-xxl" | "h-xl" | "h-lg" | "h-md" | "h-sm" | "lg" | "md" | "sm" | "xsm";
 
 // prettier-ignore
@@ -30,7 +27,7 @@ type Shadows = "sm" | "md" | "lg" | "xlg" | true | false;
 
 type Paces = "x-fast" | "fast" | "normal" | "slow" | "x-slow";
 
-declare module "@stylesheets/constants/spacings.json" {
+declare module "@constants/stylesheets/spacings.json" {
   type SpacingsConstants = {
     [key in Spacings]: string;
   };
@@ -38,9 +35,9 @@ declare module "@stylesheets/constants/spacings.json" {
   export default spacings;
 }
 
-// declare module "@stylesheets/constants/themes.json" {}
+// declare module "@constants/stylesheets/themes.json" {}
 
-declare module "@stylesheets/constants/breakpoints.json" {
+declare module "@constants/stylesheets/breakpoints.json" {
   type BreakpointsConstants = {
     [key in Breakpoints]: number;
   };
@@ -48,7 +45,7 @@ declare module "@stylesheets/constants/breakpoints.json" {
   export default breakpoints;
 }
 
-declare module "@stylesheets/constants/curves.json" {
+declare module "@constants/stylesheets/curves.json" {
   type CurvesConstants = {
     [key in Exclude<Curves, boolean>]: string;
   };
@@ -56,7 +53,7 @@ declare module "@stylesheets/constants/curves.json" {
   export default curves;
 }
 
-declare module "@stylesheets/constants/paces.json" {
+declare module "@constants/stylesheets/paces.json" {
   type PacesConstants = {
     [key in Paces]: string;
   };
@@ -64,7 +61,7 @@ declare module "@stylesheets/constants/paces.json" {
   export default paces;
 }
 
-declare module "@stylesheets/constants/shadows.json" {
+declare module "@constants/stylesheets/shadows.json" {
   type ShadowsConstants = {
     [key in Exclude<Shadows, boolean>]: string;
   };
@@ -72,4 +69,4 @@ declare module "@stylesheets/constants/shadows.json" {
   export default shadows;
 }
 
-// declare module "@stylesheets/constants/typographies.json" {}
+// declare module "@constants/stylesheets/typographies.json" {}

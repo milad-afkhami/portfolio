@@ -1,8 +1,7 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import Text from "@kits/Text";
 import Icon from "@kits/Icon";
 import { useTranslation } from "next-i18next";
-import { responsiveUpperBoundBreakpoint } from "@configs/general";
 import type { FC } from "react";
 
 type BlogCardFooterProps = Pick<IBlog, "publishedAt" | "readingTime" | "views">;
@@ -15,8 +14,7 @@ const BlogCardFooter: FC<BlogCardFooterProps> = (props) => {
     <Div
       flex={["center", "space-between"]}
       width="100%"
-      pt="2"
-      responsive={{ [responsiveUpperBoundBreakpoint]: { pt: "3" } }}
+      pt="inherit"
       border="border-light-main"
       borderSide="top"
     >

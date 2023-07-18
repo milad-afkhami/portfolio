@@ -1,4 +1,4 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import Icon from "@kits/Icon";
 import Text from "@kits/Text";
 import type { FC } from "react";

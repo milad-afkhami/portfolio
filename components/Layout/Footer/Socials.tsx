@@ -1,5 +1,5 @@
 // @ts-nocheck
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import Link from "@kits/Link";
 import Icon from "@kits/Icon";
 import __map from "lodash-es/map";

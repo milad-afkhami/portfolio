@@ -1,4 +1,4 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import projectsData from "@data/projects";
 import PageTitle from "@components/Layout/Title/Page";
 import ProjectCard from "./Item";

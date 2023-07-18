@@ -3,7 +3,7 @@ import SWRUtil from "@utils/swr";
 import Themes from "@constants/themes";
 import { ThemeProvider } from "next-themes";
 import { Toaster } from "react-hot-toast";
-import { defaultTheme } from "@stylesheets/themes";
+import { defaultTheme } from "@configs/themes";
 import { toastDuration } from "@configs/layout";
 import type { HOCFunctionalComponent } from "@_types/components";
 

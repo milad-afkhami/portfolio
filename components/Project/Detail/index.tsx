@@ -1,4 +1,4 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import ProjectHeading from "./Heading";
 import ProjectDescription from "./Description";
 // import ProjectDate from "./Date";

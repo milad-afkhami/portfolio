@@ -1,7 +1,8 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import Text from "@kits/Text";
 import Image from "@kits/Image";
 import Link from "@kits/Link";
+import responsiveStyles from "@helpers/responsiveStyles";
 import { responsiveUpperBoundBreakpoint } from "@configs/general";
 import type { FC } from "react";
 
@@ -25,16 +26,20 @@ const FavouriteEntityCard: FC<FavouriteEntityCardProps> = (props) => {
       curve="sm"
       width="100%"
       height="260px"
-      responsive={{
-        sm: { width: "min(260px, 100%)", mw: "260px", height: "210px" },
-        [responsiveUpperBoundBreakpoint]: {
-          width: "min(350px, 100%)",
-          mw: "350px",
-          height: "280px",
-        },
-      }}
       position="relative"
       flex={[, "space-between", "column"]}
+      styles={Object.assign(
+        responsiveStyles("sm", {
+          width: "min(260px, 100%)",
+          minWidth: "260px",
+          height: "210px",
+        }),
+        responsiveStyles(responsiveUpperBoundBreakpoint, {
+          width: "min(350px, 100%)",
+          minWidth: "350px",
+          height: "280px",
+        })
+      )}
     >
       <Div
         display="flex"

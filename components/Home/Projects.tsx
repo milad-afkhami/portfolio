@@ -1,4 +1,4 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import ProjectCards from "@components/Cards/Project";
 import type { FC } from "react";
 

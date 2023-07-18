@@ -1,8 +1,7 @@
 import NextLink from "next/link";
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import type { FC } from "react";
 import type LinkProps from "./props";
-import type DivProps from "@kits/Div/props";
 
 const Link: FC<LinkProps> = ({
   href,

@@ -1,9 +1,8 @@
-import Div from "@kits/Div";
-import Text from "@kits/Text";
+import { Div } from "style-wiz";
+import Text, { type TextProps } from "@kits/Text";
 import ExpandableText from "@kits/ExpandableText";
 import { If, Then, Else } from "@kits/ConditionalRendering";
 import type { FC } from "react";
-import type TextProps from "@kits/Text/props";
 
 interface TimelineSectionItemDescriptionProps {
   description: string;

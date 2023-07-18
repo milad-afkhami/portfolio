@@ -1,8 +1,7 @@
 // #region imports
-import Text from "@kits/Text";
+import Text, { type TextProps } from "@kits/Text";
 import __omit from "lodash-es/omit";
 import type ButtonProps from "./props";
-import type TextProps from "@kits/Text/props";
 // #endregion
 
 export default function ButtonText(props: Pick<ButtonProps, "text" | "ns">) {

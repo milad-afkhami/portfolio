@@ -1,9 +1,9 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import TimelineSectionWrapper from "./Wrapper";
 import TimelineSectionYear, { type TimelineSectionYearProps } from "./Year";
 import TimelineSectionItem, { type TimelineSectionItemProps } from "./Item";
 import type { FC } from "react";
-import type TextProps from "@kits/Text/props";
+import type { TextProps } from "@kits/Text";
 
 export interface TimelineSectionProps extends TimelineSectionYearProps {
   // isLast: boolean;

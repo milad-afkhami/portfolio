@@ -1,4 +1,4 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import Image from "@kits/Image";
 import { useTranslation } from "next-i18next";
 import type { FC } from "react";

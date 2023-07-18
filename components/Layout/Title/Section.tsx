@@ -1,9 +1,8 @@
-import Div from "@kits/Div";
-import Text from "@kits/Text";
+import { Div } from "style-wiz";
+import Text, { type TextProps } from "@kits/Text";
 import Icon from "@kits/Icon";
 import { If, Then } from "@kits/ConditionalRendering";
 import type { FC } from "react";
-import type TextProps from "@kits/Text/props";
 import type { SectionTitleProps } from "./props";
 
 const SectionTitle: FC<SectionTitleProps> = (props) => {

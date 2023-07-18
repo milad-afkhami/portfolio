@@ -1,5 +1,5 @@
 import type IconProps from "@kits/Icon/props";
-import type TextProps from "@kits/Text/props";
+import type { TextProps } from "@kits/Text";
 
 interface BaseTitleProps {
   title?: string;

@@ -1,4 +1,4 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import ListView from "@kits/ListView";
 import type { FC } from "react";
 

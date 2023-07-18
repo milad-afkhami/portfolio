@@ -1,8 +1,8 @@
-import Div from "@kits/Div";
-import Text from "@kits/Text";
+import { Div } from "style-wiz";
+import Text, { type TextProps } from "@kits/Text";
 import useToggle from "@hooks/useToggle";
+import responsiveStyles from "@helpers/responsiveStyles";
 import type { HOCFunctionalComponent } from "@_types/components";
-import type TextProps from "./Text/props";
 
 interface ExpandableTextProps extends TextProps {
   defaultExpanded?: boolean;
@@ -19,13 +19,9 @@ const ExpandableText: HOCFunctionalComponent<ExpandableTextProps> = (props) => {
   return (
     <Div
       position="relative"
-      responsive={{
-        sm: {
-          styles: {
-            [`& > .expandable-text__content`]: { display: "block !important" },
-          },
-        },
-      }}
+      styles={responsiveStyles("sm", {
+        [`& > .expandable-text__content`]: { display: "block !important" },
+      })}
     >
       <Text
         as="p"
@@ -43,7 +39,7 @@ const ExpandableText: HOCFunctionalComponent<ExpandableTextProps> = (props) => {
           bg="bg-tertiary-main"
           px="2"
           curve="xsm"
-          responsive={{ sm: { display: "none" } }}
+          styles={responsiveStyles("sm", { display: "none" })}
         >
           <Text size="sm">kits.more</Text>
         </Div>

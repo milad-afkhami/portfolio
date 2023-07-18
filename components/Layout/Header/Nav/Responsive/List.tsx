@@ -1,4 +1,4 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import useOnClickOutside from "@hooks/useOnClickOutside";
 import useEventListener from "@hooks/useEventListener";
 import { useRef } from "react";

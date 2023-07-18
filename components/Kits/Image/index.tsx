@@ -1,4 +1,4 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import NextImage, {
   type ImageProps as NextImageProps,
 } from "next/legacy/image";

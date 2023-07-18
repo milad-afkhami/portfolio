@@ -1,5 +1,5 @@
 import { useMemo, type FC } from "react";
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import ListItem, { type ListViewItemProps } from "./Item";
 import __chunk from "lodash-es/chunk";
 

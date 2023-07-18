@@ -1,5 +1,5 @@
-import mediaFeatures from "@stylesheets/mediaFeatures";
 import { styled } from "goober";
+import breakpoints from "@constants/stylesheets/breakpoints.json";
 
 const TreeWrapper = styled("div")`
   & > details {
@@ -93,7 +93,7 @@ const TreeWrapper = styled("div")`
     display: none;
   }
 
-  @media ${mediaFeatures.sm} {
+  @media (min-width: ${breakpoints.sm}px) {
     .tree-nav__item .tree-nav__item {
       padding-left: 1.5rem;
     }

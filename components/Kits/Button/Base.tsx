@@ -1,6 +1,5 @@
 import { forwardRef } from "react";
 import { styled } from "goober";
-import fontSizeVar from "@stylesheets/utils/var/fontSize";
 import ButtonHelper from "@helpers/button";
 import type ButtonProps from "./props";
 
@@ -18,7 +17,7 @@ const BaseButton = styled(
     "&, & *": { transition: "all 0.1s ease, background 0.8s" },
     "& i": { pointerEvents: "none" },
     backgroundPosition: "center",
-    fontSize: fontSizeVar("sm"),
+    fontSize: "var(--font-size-sm)",
     "& > *:first-child": { transition: "margin-top 0.3s ease" },
     display: "block",
     borderRadius: "var(--button-curve)",

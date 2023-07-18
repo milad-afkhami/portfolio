@@ -1,5 +1,5 @@
 import Breadcrumb from "@kits/Breadcrumb";
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import Head from "@components/SEO/Head";
 import Markdown from "@components/Markdown";
 import GistSummary from "@components/Gists/Summary";

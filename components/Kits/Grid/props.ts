@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from "react";
-import type DivProps from "@kits/Div/props";
+import type { DivProps } from "style-wiz";
 
 export interface RowProps extends PropsWithChildren<DivProps> {
   reverse?: boolean;

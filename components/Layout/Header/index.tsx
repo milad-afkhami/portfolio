@@ -1,4 +1,4 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import HeaderNav from "./Nav";
 import HeaderGithub from "./GitHub";
 import DownloadResume from "./DownloadResume";

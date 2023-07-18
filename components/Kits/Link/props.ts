@@ -1,5 +1,5 @@
-import { type LinkProps as NextLinkProps } from "next/link";
-import type DivProps from "@kits/Div/props";
+import type { LinkProps as NextLinkProps } from "next/link";
+import type { DivProps } from "style-wiz";
 
 type NextLinkOmittedProps = "as" | "onClick" | "onMouseEnter" | "onTouchStart";
 

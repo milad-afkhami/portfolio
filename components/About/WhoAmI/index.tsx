@@ -1,4 +1,4 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import Text from "@kits/Text";
 import AboutWhoAmIVideo from "./Video";
 import __range from "lodash-es/range";

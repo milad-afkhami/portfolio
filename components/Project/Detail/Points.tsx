@@ -1,4 +1,4 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import Tree from "@kits/Tree";
 import SectionTitle from "@components/Layout/Title/Section";
 import type { FC } from "react";

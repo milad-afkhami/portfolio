@@ -1,6 +1,6 @@
 // #region imports
 import { styled } from "goober";
-import breakpoints from "@stylesheets/constants/breakpoints.json";
+import breakpoints from "@constants/stylesheets/breakpoints.json";
 // #endregion
 
 const containers = {

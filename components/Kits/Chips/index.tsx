@@ -1,4 +1,4 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import Chip, { type ChipProps } from "./Item";
 import type { FC } from "react";
 

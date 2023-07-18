@@ -1,4 +1,4 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import Container from "@kits/Container";
 import Header from "./Header";
 import dynamic from "next/dynamic";

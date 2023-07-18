@@ -1,7 +1,8 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import Text from "@kits/Text";
 import Link from "@kits/Link";
 import GistCardCategory from "./Category";
+import responsiveStyles from "@helpers/responsiveStyles";
 import type { FC } from "react";
 
 const GistCard: FC<IGist> = (props) => {
@@ -18,7 +19,7 @@ const GistCard: FC<IGist> = (props) => {
       hoverBg="bg-secondary-hover"
       position="relative"
       p="3"
-      responsive={{ sm: { height: "180px" } }}
+      styles={responsiveStyles("sm", { height: "180px" })}
     >
       <Div height="3rem" flex={["center", "space-between"]} mb="3">
         <div>

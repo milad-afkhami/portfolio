@@ -1,6 +1,7 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import { BreadcrumbJsonLd } from "next-seo";
 import BreadcrumbLink from "./Link";
+import responsiveStyles from "@helpers/responsiveStyles";
 import { responsiveUpperBoundBreakpoint } from "@configs/general";
 import type { FC } from "react";
 import type BreadcrumbProps from "./props";
@@ -39,12 +40,10 @@ const Breadcrumb: FC<BreadcrumbProps> = (props) => {
         as="ol"
         flex={["center"]}
         overflowX="auto"
-        responsive={{
-          [responsiveUpperBoundBreakpoint]: {
-            overflowX: "hidden",
-            flex: ["center", , , "wrap"],
-          },
-        }}
+        styles={responsiveStyles(responsiveUpperBoundBreakpoint, {
+          overflowX: "hidden",
+          flexWrap: "wrap",
+        })}
       >
         {routes.map((route, index) => {
           const lastItem = index + 1 === routes.length;

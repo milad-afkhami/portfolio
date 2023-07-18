@@ -1,4 +1,4 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import Head from "@components/SEO/Head";
 import FavouriteEntities from "@components/Favourites/Entities";
 import I18nHelper from "@helpers/i18n";

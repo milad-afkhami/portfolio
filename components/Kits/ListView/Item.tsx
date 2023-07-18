@@ -1,5 +1,6 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import Text from "@kits/Text";
+import responsiveStyles from "@helpers/responsiveStyles";
 import type { FC } from "react";
 import type { PropsWithIndex } from "@_types/components";
 
@@ -17,7 +18,10 @@ const ListItem: FC<PropsWithIndex<ListViewItemProps>> = (props) => {
       height="var(--list-view-item-height)"
       // bg="bg-secondary-main"
       hoverBg="bg-secondary-paler"
-      responsive={{ sm: { px: "3" } }}
+      styles={responsiveStyles("sm", {
+        paddingRight: "var(--spacing-3)",
+        paddingLeft: "var(--spacing-3)",
+      })}
       curve="xsm"
       py="2"
       cursor="pointer"

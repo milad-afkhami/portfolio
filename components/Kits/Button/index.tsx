@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import Adornment from "@kits/Adornment";
 import BaseButton from "./Base";
 import ButtonText from "./Text";

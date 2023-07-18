@@ -1,4 +1,4 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import Breadcrumb from "@kits/Breadcrumb";
 import { useRouter } from "next/router";
 import Head from "@components/SEO/Head";

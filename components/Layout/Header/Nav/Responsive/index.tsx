@@ -1,8 +1,9 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import MenuToggler from "./Toggler";
 import HeaderResponsiveMenuList from "./List";
 import useDelayedRender from "use-delayed-render";
 import useToggle from "@hooks/useToggle";
+import responsiveStyles from "@helpers/responsiveStyles";
 import { headerNavResponsiveBreakpoint } from "@configs/layout";
 import type { FC } from "react";
 
@@ -16,7 +17,9 @@ const HeaderResponsiveMenu: FC = () => {
   return (
     <Div
       display="flex"
-      responsive={{ [headerNavResponsiveBreakpoint]: { display: "none" } }}
+      styles={responsiveStyles(headerNavResponsiveBreakpoint, {
+        display: "none",
+      })}
     >
       <MenuToggler open={isMenuMounted} toggle={toggleMenu} />
       {isMenuMounted && (

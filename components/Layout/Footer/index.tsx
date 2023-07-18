@@ -1,4 +1,4 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import { Row, Col } from "@kits/Grid";
 import FooterLinks from "./Links";
 import type { FC } from "react";

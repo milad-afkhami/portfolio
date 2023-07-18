@@ -1,6 +1,7 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import ContactOption from "./Option";
 import PageTitle from "@components/Layout/Title/Page";
+import responsiveStyles from "@helpers/responsiveStyles";
 import contactOptions from "@configs/contact";
 import type { FC } from "react";
 
@@ -13,12 +14,11 @@ const Contact: FC = () => {
       <Div
         mt="4"
         grid={[`repeat(${Math.ceil(options.length / 2)}, 1fr)`, , "3", "4"]}
-        responsive={{
-          sm: {
-            grid: [`repeat(${Math.ceil(options.length)}, 1fr)`],
-            mt: "5",
-          },
-        }}
+        styles={responsiveStyles("sm", {
+          marginTop: "var(--spacing-5)",
+          gridTemplateRows: "1fr",
+          gridTemplateColumns: `repeat(${options.length}`,
+        })}
       >
         {options.map((option, i) => (
           <ContactOption key={i} {...option} />

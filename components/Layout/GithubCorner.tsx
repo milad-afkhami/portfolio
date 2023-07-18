@@ -1,7 +1,7 @@
 /* eslint-disable react/self-closing-comp */
 import { styled } from "goober";
-import breakpoints from "@stylesheets/constants/breakpoints.json";
-import paces from "@stylesheets/constants/paces.json";
+import breakpoints from "@constants/stylesheets/breakpoints.json";
+import paces from "@constants/stylesheets/paces.json";
 import type { FC } from "react";
 
 const StyledAnchor = styled("a")`

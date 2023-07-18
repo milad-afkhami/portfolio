@@ -1,6 +1,7 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import SectionTitle from "@components/Layout/Title/Section";
 import GistCard from "./Item";
+import responsiveStyles from "@helpers/responsiveStyles";
 import type { FC } from "react";
 
 interface GistsProps {
@@ -16,9 +17,9 @@ const GistCards: FC<GistsProps> = (props) => {
       <SectionTitle title={title} />
       <Div
         grid={["repeat(1, 1fr)", , "1rem", "1rem"]}
-        styles={{ gridAutoFlow: "row" }}
-        responsive={{
-          md: { styles: { gridTemplateColumns: "repeat(3, 1fr)" } },
+        styles={{
+          gridAutoFlow: "row",
+          ...responsiveStyles("md", { gridTemplateColumns: "repeat(3, 1fr)" }),
         }}
       >
         {items.map((post, i) => (

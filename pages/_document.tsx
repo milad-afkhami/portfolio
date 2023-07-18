@@ -8,7 +8,7 @@ import NextDocument, {
 } from "next/document";
 import FavIcons from "@components/SEO/FavIcons";
 import { extractCss } from "goober";
-import { brandColor } from "@stylesheets/themes";
+import { brandColor } from "@configs/themes";
 
 type Props = { css: string };
 interface DocumentInitialProps extends NextDocumentInitialProps, Props {}

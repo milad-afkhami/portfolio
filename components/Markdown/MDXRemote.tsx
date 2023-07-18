@@ -1,4 +1,4 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import Image from "@kits/Image";
 import { MDXRemote as NextMDXRemote } from "next-mdx-remote";
 

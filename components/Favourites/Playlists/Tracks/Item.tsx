@@ -1,5 +1,6 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import Text from "@kits/Text";
+import responsiveStyles from "@helpers/responsiveStyles";
 import type { FC } from "react";
 import type { PropsWithIndex } from "@_types/components";
 
@@ -18,7 +19,7 @@ const FavouritePlaylistTracksItem: FC<FavouritePlaylistTracksItemProps> = (
       height="62px"
       // bg="bg-secondary-main"
       hoverBg="bg-secondary-paler"
-      responsive={{ sm: { px: "3" } }}
+      styles={responsiveStyles("sm", { paddingRight: "3", paddingLeft: "3" })}
       curve="sm"
       my="2"
       cursor="pointer"

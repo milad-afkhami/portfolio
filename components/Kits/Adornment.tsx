@@ -1,6 +1,6 @@
 // #region imports
 import { isValidElement, type FC, type ReactElement } from "react";
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import Icon from "@kits/Icon";
 import type IconProps from "@kits/Icon/props";
 // #endregion

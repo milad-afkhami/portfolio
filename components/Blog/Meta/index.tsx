@@ -1,6 +1,7 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import BlogMetaItem from "./Item";
 import { useTranslation } from "next-i18next";
+import responsiveStyles from "@helpers/responsiveStyles";
 import type { FC } from "react";
 
 interface BlogMetaProps {
@@ -17,7 +18,7 @@ const BlogMeta: FC<BlogMetaProps> = (props) => {
     <Div
       curve="sm"
       grid={["repeat(1, 1fr)", , "4", "3", "row"]}
-      responsive={{ sm: { styles: { gridTemplateColumns: "repeat(3, 1fr)" } } }}
+      styles={responsiveStyles("sm", { gridTemplateColumns: "repeat(3, 1fr)" })}
     >
       <BlogMetaItem
         label="blog.meta.category"

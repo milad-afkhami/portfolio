@@ -1,4 +1,4 @@
-import type DivProps from "@kits/Div/props";
+import type { DivProps } from "style-wiz";
 import type { ImageProps as NextImageProps } from "next/image";
 import type { CSSAttribute } from "goober";
 
@@ -8,5 +8,4 @@ export default interface ImageProps extends NextImageProps {
   withShimmer?: boolean;
   objectPosition?: string;
   styles?: DivProps["styles"];
-  responsive?: DivProps["responsive"];
 }

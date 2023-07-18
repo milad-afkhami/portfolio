@@ -1,7 +1,7 @@
 // #region imports
 import Icon from "@kits/Icon";
 import ToastWrapper from "./Wrapper";
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import Text from "@kits/Text";
 import Button from "@kits/Button";
 import { If, Then } from "@kits/ConditionalRendering";

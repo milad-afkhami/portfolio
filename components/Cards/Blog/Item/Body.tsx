@@ -1,4 +1,4 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import Text from "@kits/Text";
 import type { FC } from "react";
 
@@ -8,7 +8,14 @@ const BlogCardBody: FC<Pick<IBlog, "title" | "summary">> = (props) => {
   return (
     <div>
       <Div mb="2" overflow="hidden">
-        <Text as="p" size="md" bold noTranslation lineHeight="1.5" maxLines={3}>
+        <Text
+          as="p"
+          size="md"
+          bold
+          noTranslation
+          maxLines={3}
+          styles={{ lineHeight: 1.5 }}
+        >
           {title}
         </Text>
       </Div>

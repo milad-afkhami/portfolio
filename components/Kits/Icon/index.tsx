@@ -1,22 +1,9 @@
-import { styled } from "goober";
+import { useMemo } from "react";
+import Text from "@kits/Text";
 import classNames from "@utils/classnames";
-import colorVar from "@stylesheets/utils/var/color";
-import fontSizeVar from "@stylesheets/utils/var/fontSize";
+import type { CSSAttribute } from "goober";
 import type { FC } from "react";
 import type IconProps from "./props";
-
-const IconElement = styled("i")<
-  Pick<IconProps, "size" | "bold" | "onClick" | "color" | "disabled" | "styles">
->(({ size = "lg", bold, onClick, color, disabled, styles }) => ({
-  fontSize: fontSizeVar(size),
-  fontWeight: bold ? "bold" : undefined,
-  cursor: onClick ? "pointer" : "unset",
-  transition: `all var(--pace-x-fast)`,
-  color: colorVar(
-    disabled ? "text-disabled-main" : color || "text-primary-main"
-  ),
-  ...styles,
-}));
 
 const Icon: FC<IconProps> = (props) => {
   const {
@@ -25,14 +12,51 @@ const Icon: FC<IconProps> = (props) => {
     name,
     multiDirection,
     className = "",
+    size = "lg",
+    bold,
+    onClick,
+    color,
+    disabled,
+    styles,
   } = props;
-  const _prefix = prefix ? `${prefix}-` : "";
-  const _suffix = suffix ? `-${suffix}` : "";
-  const _name = `${_prefix}${name}${_suffix}`;
+
+  const _name = [prefix, name, suffix].filter(Boolean).join("-");
+
   const _dir = multiDirection ? "icon-dir" : null;
+
   const _className = classNames(_name, _dir, className);
 
-  return <IconElement {...props} title={name} className={_className} />;
+  const cursor = useMemo<CSSAttribute["cursor"]>(() => {
+    if (onClick) return "pointer";
+    if (disabled) return "not-allowed";
+    return "unset";
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [!!onClick, disabled]);
+
+  return (
+    // @ts-ignore
+    <Text
+      noTranslation
+      as="i"
+      size={size}
+      bold={bold}
+      onClick={onClick}
+      color={
+        disabled
+          ? "var(--color-text-disabled-main)"
+          : color || "var(--color-text-primary-main)"
+      }
+      aria-disabled={disabled}
+      styles={{
+        cursor,
+        transition: "all var(--pace-x-fast)",
+        ...(styles || {}),
+      }}
+      title={name}
+      className={_className}
+    />
+  );
+  // return <IconElement {...props} title={name} className={_className} />;
 };
 
 export default Icon;

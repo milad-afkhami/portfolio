@@ -1,11 +1,11 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import TimelineSectionItemTitle, {
   type TimelineSectionItemTitleProps,
 } from "./Title";
 import TimelineSectionItemDescription from "./Description";
 import { useTranslation } from "next-i18next";
 import type { FC } from "react";
-import type TextProps from "@kits/Text/props";
+import type { TextProps } from "@kits/Text";
 
 export type TimelineSectionItemProps = TimelineSectionItemTitleProps & {
   ns?: TextProps["ns"];

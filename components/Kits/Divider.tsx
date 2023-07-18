@@ -1,4 +1,4 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import Orientations from "@constants/orientations";
 import type { FC } from "react";
 

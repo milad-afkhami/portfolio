@@ -1,9 +1,10 @@
 import { useState, useRef, useCallback, type FC } from "react";
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import { If, Then } from "@kits/ConditionalRendering";
 import DropDownItem, { type DropDownItemProps } from "./Item";
-import { responsiveUpperBoundBreakpoint } from "@configs/general";
 import useOnClickOutside from "@hooks/useOnClickOutside";
+import responsiveStyles from "@helpers/responsiveStyles";
+import { responsiveUpperBoundBreakpoint } from "@configs/general";
 
 interface DropDownProps {
   items: Array<DropDownItemProps>;
@@ -41,7 +42,9 @@ const DropDown: FC<DropDownProps> = (props) => {
             curve="xsm"
             width="7rem"
             pace="fast"
-            responsive={{ [responsiveUpperBoundBreakpoint]: { width: "8rem" } }}
+            styles={responsiveStyles(responsiveUpperBoundBreakpoint, {
+              width: "8rem",
+            })}
           />
         </Then>
       </If>

@@ -1,4 +1,4 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import BlogCards from "@components/Cards/Blog";
 import { useTranslation } from "next-i18next";
 import type { FC } from "react";

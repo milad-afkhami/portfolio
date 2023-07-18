@@ -1,8 +1,7 @@
-import Div from "@kits/Div";
+import { Div, type DivProps } from "style-wiz";
 import Text from "@kits/Text";
 import Image from "@kits/Image";
 import type { FC } from "react";
-import type DivProps from "@kits/Div/props";
 
 export type DropDownItemProps = MergeBy<
   DivProps,

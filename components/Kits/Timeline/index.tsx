@@ -1,9 +1,9 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import TimelineSection, { type TimelineSectionProps } from "./Section";
 import SectionTitle from "@components/Layout/Title/Section";
 import type { FC } from "react";
-import IconProps from "@kits/Icon/props";
-import TextProps from "@kits/Text/props";
+import type IconProps from "@kits/Icon/props";
+import type { TextProps } from "@kits/Text";
 
 export interface TimelineProps {
   title: string;

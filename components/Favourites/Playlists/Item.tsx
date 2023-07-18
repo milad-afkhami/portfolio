@@ -1,10 +1,11 @@
+import { Div } from "style-wiz";
 import Button from "@kits/Button";
-import Div from "@kits/Div";
 import Image from "@kits/Image";
 import Link from "@kits/Link";
 import Text from "@kits/Text";
-import useToggle from "@hooks/useToggle";
 import FavouritePlaylistTracks from "./Tracks";
+import useToggle from "@hooks/useToggle";
+import responsiveStyles from "@helpers/responsiveStyles";
 import type { FC } from "react";
 
 const FavouritePlaylist: FC<IFavouritePlaylist> = (props) => {
@@ -16,8 +17,7 @@ const FavouritePlaylist: FC<IFavouritePlaylist> = (props) => {
     <Div
       width="100%"
       border="border-light-main"
-      p="2"
-      responsive={{ sm: { p: "3" } }}
+      p="3"
       mb="3"
       curve="xsm"
       position="relative"
@@ -40,22 +40,27 @@ const FavouritePlaylist: FC<IFavouritePlaylist> = (props) => {
         width="100%"
         height="140px"
         flex={["center", "space-between", "column"]}
-        responsive={{
-          sm: { styles: { flexDirection: "row", height: "150px" } },
-        }}
+        styles={responsiveStyles("sm", {
+          height: "150px",
+          flexDirection: "row",
+        })}
       >
         <Div
           flex={["center", "center"]}
           width="100%"
           height="100%"
-          responsive={{ sm: { styles: { justifyContent: "flex-start" } } }}
+          styles={responsiveStyles("sm", { justifyContent: "flex-start" })}
         >
           <Div
             display="none"
             curve="circle"
             overflow="hidden"
             mw="100px"
-            responsive={{ sm: { flex: ["center", "center"] } }}
+            styles={responsiveStyles("sm", {
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            })}
           >
             <Image
               src={image}
@@ -65,16 +70,25 @@ const FavouritePlaylist: FC<IFavouritePlaylist> = (props) => {
               alt={name}
             />
           </Div>
-          <Div mx="3" responsive={{ sm: { mx: "4" } }}>
+          <Div
+            mx="3"
+            styles={responsiveStyles("sm", {
+              marginRight: "var(--spacing-4)",
+              marginLeft: "var(--spacing-4)",
+            })}
+          >
             <Text size="lg" bold truncate noTranslation>
               {name}
             </Text>
           </Div>
         </Div>
         <Div
-          flex={[, "between", "row-reverse"]}
           width="100%"
-          responsive={{ sm: { flex: [, "between", "column"], width: "auto" } }}
+          flex={[, "between", "row-reverse"]}
+          styles={responsiveStyles("sm", {
+            width: "auto",
+            flexDirection: "column",
+          })}
         >
           {link ? (
             <Link outerLink href={link} m="2">

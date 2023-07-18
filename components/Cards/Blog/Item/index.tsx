@@ -1,9 +1,10 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import Image from "@kits/Image";
 import Link from "@kits/Link";
 import BlogCardCategory from "./Category";
 import BlogCardBody from "./Body";
 import BlogCardFooter from "./Footer";
+import responsiveStyles from "@helpers/responsiveStyles";
 import type { FC } from "react";
 
 const BlogCard: FC<IBlog> = (props) => {
@@ -20,15 +21,15 @@ const BlogCard: FC<IBlog> = (props) => {
       bg="bg-secondary-main"
       hoverBg="bg-secondary-hover"
       // mw="280px"
-      responsive={{
-        sm: { flex: [, , "column"], height: "300px" },
-        lg: { height: "340px" },
-      }}
+      styles={Object.assign(
+        responsiveStyles("sm", { height: "300px", flexDirection: "column" }),
+        responsiveStyles("lg", { height: "340px" })
+      )}
     >
       <Div
         height="100%"
         flexPortion={5}
-        // responsive={{ sm: { flexPortion: 4 } }}
+        styles={{ ...responsiveStyles("sm", { flex: 4 }) }}
         position="relative"
       >
         {image && (
@@ -44,11 +45,21 @@ const BlogCard: FC<IBlog> = (props) => {
         )}
         <BlogCardCategory {...props} />
       </Div>
-      <Div px="3" py="2" flexPortion={3} responsive={{ sm: { py: "3" } }}>
-        <Div flex={["flex-start", "space-between", "column"]} height="100%">
-          <BlogCardBody {...props} />
-          <BlogCardFooter {...props} />
-        </Div>
+      <Div
+        px="3"
+        py="2"
+        flex={["flex-start", "space-between", "column"]}
+        height="100%"
+        flexPortion={3}
+        styles={{
+          ...responsiveStyles("sm", {
+            paddingTop: "var(--spacing-3)",
+            paddingBottom: "var(--spacing-3)",
+          }),
+        }}
+      >
+        <BlogCardBody {...props} />
+        <BlogCardFooter {...props} />
       </Div>
     </Link>
   );

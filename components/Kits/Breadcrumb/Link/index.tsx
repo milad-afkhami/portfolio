@@ -1,5 +1,5 @@
+import { Div } from "style-wiz";
 import Icon from "@kits/Icon";
-import Div from "@kits/Div";
 import Link from "@kits/Link";
 import { If, Then, Else } from "@kits/ConditionalRendering";
 import BreadcrumbLinkText from "./Text";

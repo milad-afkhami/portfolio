@@ -1,14 +1,14 @@
 // #region imports
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import classNames from "@utils/classnames";
-import generateColumnClassNames from "@stylesheets/utils/generateColumnClassNames";
+import __reduce from "lodash-es/reduce";
 import { responsiveUpperBoundBreakpoint } from "@configs/general";
 import { type FC, useMemo } from "react";
 import type { ColProps, RowProps } from "./props";
 // #endregion
 
 export const Row: FC<RowProps> = (props) => {
-  const { children, className, reverse, ...rest } = props || {};
+  const { children, className, reverse, ...rest } = props;
 
   return (
     <Div
@@ -43,7 +43,7 @@ export const Col: FC<ColProps> = (props) => {
     xl,
     responsiveUpperBoundBreakpoint: _responsiveUpperBoundBreakpoint,
     ...rest
-  } = props || {};
+  } = props;
 
   const columnsClassNames = useMemo(() => {
     const columns = { xs, sm, md, lg, xl };
@@ -52,7 +52,19 @@ export const Col: FC<ColProps> = (props) => {
       columns[responsiveUpperBoundBreakpoint] = _responsiveUpperBoundBreakpoint;
     }
 
-    const colClassNames = generateColumnClassNames(columns);
+    const colClassNames = __reduce(
+      columns || {},
+      (acc, cv, key) => {
+        if (cv) {
+          // eslint-disable-next-line no-param-reassign
+          if (key === "xs") acc += `col-${cv}`;
+          // eslint-disable-next-line no-param-reassign
+          else acc += ` col-${key}-${cv}`;
+        }
+        return acc;
+      },
+      ""
+    );
 
     return colClassNames;
   }, [xs, sm, md, lg, xl, _responsiveUpperBoundBreakpoint]);

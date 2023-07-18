@@ -1,5 +1,5 @@
 import { type FC, useState, useEffect } from "react";
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import Icon from "@kits/Icon";
 import { If, Then } from "@kits/ConditionalRendering";
 import { useTheme } from "next-themes";

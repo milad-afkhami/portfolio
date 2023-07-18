@@ -1,6 +1,6 @@
 # Global Styles
 
-We have created some scripts that generates stylesheet variables automatically based on stylesheets constants located in [stylesheets/constants directory](../../stylesheets/constants/).
+We have created some scripts that generates stylesheet variables automatically based on stylesheets constants located in [constants/stylesheets directory](../../constants/stylesheets/).
 
 These script are located inside of [scripts/stylesheets directory](../../scripts/stylesheets/), they generate all the styles that we need and put it inside of [public/stylesheets/theme/\*.min.css](../../public/stylesheets/theme/) files
 

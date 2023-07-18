@@ -1,4 +1,4 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import Text from "@kits/Text";
 import { styled } from "goober";
 import { responsiveUpperBoundBreakpointValue } from "@configs/general";
@@ -28,7 +28,7 @@ const ProfileJob: FC = () => (
         size="lg"
         color="text-secondary-main"
         as="p"
-        lineHeight="2"
+        styles={{ lineHeight: 2 }}
       >
         profile.jobDescription
       </Text>

@@ -1,4 +1,4 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import Link from "@kits/Link";
 import Text from "@kits/Text";
 import { useMemo } from "react";

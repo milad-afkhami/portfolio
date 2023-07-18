@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { useEffect, useRef } from "react";
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 
 // const anime = dynamic(() => import("animejs/lib/anime.es.js"), { ssr: false });
 const ProfileNameSvg = () => {

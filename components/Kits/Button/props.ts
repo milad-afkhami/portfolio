@@ -1,4 +1,4 @@
-import type TextProps from "@kits/Text/props";
+import type { TextProps } from "@kits/Text";
 import type { ButtonHTMLAttributes, PropsWithChildren } from "react";
 import type { AdornmentProp } from "@kits/Adornment";
 

@@ -1,4 +1,4 @@
-import Div from "@kits/Div";
+import { Div } from "style-wiz";
 import BlogCard from "./Item";
 import PageTitle from "@components/Layout/Title/Page";
 import BlogCardsMoreLink from "./MoreLink";

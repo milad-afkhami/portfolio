@@ -6,7 +6,7 @@ Typographies also follow the auto generation process descried [here](./global-st
 
 ## Variables
 
-Typography constants are located in [typographies.json](../../stylesheets/constants/typographies.json) file.
+Typography constants are located in [typographies.json](../../constants/stylesheets/typographies.json) file.
 
 ## Structure
 
@@ -18,7 +18,7 @@ Typography constants are located in [typographies.json](../../stylesheets/consta
 
   - **Md**
 
-    - Any key from [breakpoints.json](../../stylesheets/constants/breakpoints.json) object can be here. In our case we have `md` which means if screen width were greater than `breakpoints["md"]`, then these variations will override the default ones.
+    - Any key from [breakpoints.json](../../constants/stylesheets/breakpoints.json) object can be here. In our case we have `md` which means if screen width were greater than `breakpoints["md"]`, then these variations will override the default ones.
 
 - **Variations**: Each scope contains some variations which are listed below
 
