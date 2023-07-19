@@ -20,18 +20,12 @@ const BlogCard: FC<IBlog> = (props) => {
       overflow="hidden"
       bg="bg-secondary-main"
       hoverBg="bg-secondary-hover"
-      // mw="280px"
       styles={Object.assign(
-        responsiveStyles("sm", { height: "300px", flexDirection: "column" }),
+        responsiveStyles("sm", { height: "300px" }),
         responsiveStyles("lg", { height: "340px" })
       )}
     >
-      <Div
-        height="100%"
-        flexPortion={5}
-        styles={{ ...responsiveStyles("sm", { flex: 4 }) }}
-        position="relative"
-      >
+      <Div height="100%" flexPortion={5} position="relative">
         {image && (
           <Image
             src={image}
