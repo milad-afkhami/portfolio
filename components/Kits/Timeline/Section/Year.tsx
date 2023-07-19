@@ -12,6 +12,7 @@ const TimelineSectionYear: FC<TimelineSectionYearProps> = (props) => {
   return (
     <Div
       height="2rem"
+      Mw="100%"
       flex={["center"]}
       position="absolute"
       bg="bg-primary-main"
@@ -20,8 +21,10 @@ const TimelineSectionYear: FC<TimelineSectionYearProps> = (props) => {
       dimensions={{ top: "-1rem" }}
     >
       <Text
+        truncate
+        title={`${year}`}
         as="p"
-        size="h-sm"
+        size="lg"
         bold
         color="assistive-success-main"
         noTranslation
