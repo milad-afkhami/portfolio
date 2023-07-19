@@ -18,7 +18,7 @@ const Contact: FC = () => (
       ]}
       styles={responsiveStyles("sm", {
         gridTemplateRows: "1fr",
-        gridTemplateColumns: `repeat(${contactOptions.length}`,
+        gridTemplateColumns: `repeat(${contactOptions.length}, 1fr)`,
       })}
     >
       {contactOptions.map((option) => (
