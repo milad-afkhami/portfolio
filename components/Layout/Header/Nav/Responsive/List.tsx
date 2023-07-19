@@ -24,7 +24,7 @@ const HeaderResponsiveMenuList: FC<HeaderResponsiveMenuListProps> = (props) => {
   return (
     <Div
       position="absolute"
-      width="100vw"
+      width="100%"
       ref={ref}
       dimensions={{
         left: 0,
