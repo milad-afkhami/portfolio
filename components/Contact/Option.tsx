@@ -6,7 +6,7 @@ import ToastUtil from "@utils/toast";
 import contactOptions from "@configs/contact";
 import type { FC } from "react";
 
-type ContactOptionProps = Omit<ValueOf<typeof contactOptions>, "private">;
+type ContactOptionProps = ValueOf<typeof contactOptions>;
 
 const ContactOption: FC<ContactOptionProps> = (props) => {
   const { type, label, value } = props;

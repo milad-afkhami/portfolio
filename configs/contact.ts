@@ -23,12 +23,7 @@ const contactOptions = [
     label: "@mili_u",
     value: "https://telegram.me/mili_u",
   },
-  {
-    type: ContactType.Whatsapp,
-    label: "+98 939 284 0749",
-    value: "+989392840749",
-    private: true,
-  },
+  // { type: ContactType.Whatsapp, label: "+98 939 284 0749", value: "+989392840749" },
 ];
 
 export default contactOptions;
