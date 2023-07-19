@@ -16,7 +16,7 @@ const GistCards: FC<GistsProps> = (props) => {
     <Div my="3" {...rest}>
       <SectionTitle title={title} />
       <Div
-        grid={["repeat(1, 1fr)", , "1rem", "1rem"]}
+        grid={["repeat(1, 1fr)", , "4", "4"]}
         styles={{
           gridAutoFlow: "row",
           ...responsiveStyles("md", { gridTemplateColumns: "repeat(3, 1fr)" }),
