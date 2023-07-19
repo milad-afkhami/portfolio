@@ -1,5 +1,6 @@
 import Div from "@kits/Div";
 import Text from "@kits/Text";
+import SectionTitle from "@components/Layout/Title/Section";
 import type { FC } from "react";
 
 interface BlogSummaryProps {
@@ -11,7 +12,8 @@ const BlogSummary: FC<BlogSummaryProps> = (props) => {
 
   return (
     <Div my="3" bg="bg-secondary-main" p="3" curve="sm">
-      <Text size="lg" as="p" lineHeight={2} noTranslation>
+      <SectionTitle title="blog.summary" tag="h2" />
+      <Text size="lg" as="p" styles={{ lineHeight: 2 }} noTranslation>
         {summary}
       </Text>
     </Div>

@@ -57,6 +57,7 @@
   },
   "blog": {
     "title": "Blog",
+    "summary": "Summary:",
     "category": {
       "styling": "Styling",
       "awareness": "Awareness",
