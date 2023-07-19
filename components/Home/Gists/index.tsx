@@ -1,12 +1,8 @@
 import { Div } from "style-wiz";
 import PageTitle from "@components/Layout/Title/Page";
+import GistCards from "@components/Cards/Gist";
 import GistsMoreLink from "./MoreLink";
-import dynamic from "next/dynamic";
 import type { FC } from "react";
-
-const GistCards = dynamic(() => import("@components/Cards/Gist"), {
-  ssr: false,
-});
 
 const homeGists = ["utility-types", "useIntersector", "vscode"];
 

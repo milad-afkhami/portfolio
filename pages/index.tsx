@@ -4,14 +4,12 @@ import Profile from "@components/Home/Profile";
 import FeaturedPosts from "@components/Home/FeaturedPosts";
 import HomeProjects from "@components/Home/Projects";
 import HomeGists from "@components/Home/Gists";
+import Contact from "@components/Contact";
 import BlogServices from "@services/blog";
 import GistServices from "@services/gist";
-import dynamic from "next/dynamic";
 import I18nHelper from "@helpers/i18n";
 import type { GetStaticProps } from "next";
 import type { PageComponent } from "@_types/components";
-
-const Contact = dynamic(() => import("@components/Contact"), { ssr: false });
 
 interface HomePageProps {
   blogs: Array<IBlog>;
