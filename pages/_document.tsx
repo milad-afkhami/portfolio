@@ -8,6 +8,7 @@ import NextDocument, {
 } from "next/document";
 import FavIcons from "@components/SEO/FavIcons";
 import { extractCss } from "goober";
+import { extractCss as styleWizExtractCss } from "style-wiz";
 import { brandColor } from "@configs/themes";
 
 type Props = { css: string };
@@ -18,7 +19,8 @@ export default class Document extends NextDocument<Props> {
     renderPage,
   }: DocumentContext): Promise<DocumentInitialProps> {
     const page = await renderPage();
-    const css = extractCss();
+    const css = `${extractCss()} ${styleWizExtractCss()}`;
+
     return { ...page, css };
   }
 
