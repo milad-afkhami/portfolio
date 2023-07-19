@@ -34,7 +34,6 @@ const Icon: FC<IconProps> = (props) => {
   }, [!!onClick, disabled]);
 
   return (
-    // @ts-ignore
     <Text
       noTranslation
       as="i"
@@ -56,7 +55,6 @@ const Icon: FC<IconProps> = (props) => {
       className={_className}
     />
   );
-  // return <IconElement {...props} title={name} className={_className} />;
 };
 
 export default Icon;
