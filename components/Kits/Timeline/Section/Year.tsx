@@ -22,7 +22,7 @@ const TimelineSectionYear: FC<TimelineSectionYearProps> = (props) => {
     >
       <Text
         truncate
-        title={`${year}`}
+        title={year.toString()}
         as="p"
         size="lg"
         bold
