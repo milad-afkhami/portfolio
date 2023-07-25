@@ -15,7 +15,7 @@ const BlogCardCategory: FC<Pick<IBlog, "category">> = (props) => {
       curve="xsm"
       color="text-primary-main"
     >
-      <Text size="xxsm" bold>{`blog.category.${category}`}</Text>
+      <Text size="xsm" bold>{`blog.category.${category}`}</Text>
     </Div>
   );
 };
