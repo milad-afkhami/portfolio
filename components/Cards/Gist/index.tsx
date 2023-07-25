@@ -19,8 +19,7 @@ const GistCards: FC<GistsProps> = (props) => {
         grid={["repeat(1, 1fr)", , "4", "4"]}
         styles={{
           gridAutoFlow: "row",
-          ...responsiveStyles("md", { gridTemplateColumns: "repeat(2, 1fr)" }),
-          ...responsiveStyles("lg", { gridTemplateColumns: "repeat(3, 1fr)" }),
+          ...responsiveStyles("md", { gridTemplateColumns: "repeat(3, 1fr)" }),
         }}
       >
         {items.map((post, i) => (
