@@ -58,7 +58,7 @@ body {
   margin: 0;
   font-family: inherit;
   font-size: var(--font-size-md);
-  font-weight: var(--font-weight-md);
+  font-weight: normal;
   line-height: var(--text-line-height);
   letter-spacing: var(--text-letter-spacing);
   color: var(--color-text-primary-main);
