@@ -24,11 +24,12 @@ const AboutWhoAmIVideo: FC<AboutWhoAmIVideoProps> = ({ title }) => (
 );
 
 const StyledAboutWhoAmIVideo = styled("video")`
+  display: block;
   width: min(100%, 600px);
   border: 1px solid var(--color-border-light-main);
   border-radius: var(--curve-sm);
-  margin-bottom: var(--spacing-3);
-  @media (min-width: ${breakpoints.sm}px) {
+  margin: 0 auto var(--spacing-3) auto;
+  @media (min-width: ${breakpoints.lg}px) {
     margin-left: var(--spacing-3);
     margin-bottom: 0;
     float: right;

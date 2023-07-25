@@ -1,17 +1,12 @@
 import { Div } from "style-wiz";
 import Button from "@kits/Button";
 import Image from "@kits/Image";
-import Link from "@kits/Link";
 import Text from "@kits/Text";
-import FavouritePlaylistTracks from "./Tracks";
-import useToggle from "@hooks/useToggle";
 import responsiveStyles from "@helpers/responsiveStyles";
 import type { FC } from "react";
 
 const FavouritePlaylist: FC<IFavouritePlaylist> = (props) => {
-  const { name, image, link, tracks } = props;
-
-  const [tracksOpen, toggleTracks] = useToggle(false);
+  const { name, image, link } = props;
 
   return (
     <Div
@@ -82,34 +77,15 @@ const FavouritePlaylist: FC<IFavouritePlaylist> = (props) => {
             </Text>
           </Div>
         </Div>
-        <Div
-          width="100%"
-          flex={[, "between", "row-reverse"]}
-          styles={responsiveStyles("sm", {
-            width: "auto",
-            flexDirection: "column",
-          })}
-        >
-          {link ? (
-            <Link outerLink href={link} m="2">
-              <Button
-                variant="outlined"
-                text="listenNow"
-                ns="favourites.playlists"
-              />
-            </Link>
-          ) : null}
-          <Div m="2">
-            <Button
-              variant="text"
-              ns="favourites.playlists"
-              text={tracksOpen ? "collapse" : "expand"}
-              onClick={toggleTracks}
-            />
-          </Div>
-        </Div>
+        <a href={link} target="_blank">
+          <Button
+            variant="outlined"
+            text="listenNow"
+            ns="favourites.playlists"
+          />
+        </a>
       </Div>
-      <FavouritePlaylistTracks open={tracksOpen} tracks={tracks} />
+      {/* <FavouritePlaylistTracks open={tracksOpen} tracks={tracks} /> */}
     </Div>
   );
 };
