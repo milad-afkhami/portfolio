@@ -63,7 +63,7 @@ const FavouriteCommonEntityCard: FC<FavouriteCommonEntityCardProps> = (
         flex={["flex-start", "space-around", "column"]}
       >
         <Div overflow="hidden">
-          <Text size="lg" bold maxLines={1} noTranslation title={name}>
+          <Text size="lg" bold maxLines={2} noTranslation title={name}>
             {name}
           </Text>
         </Div>
