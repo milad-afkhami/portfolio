@@ -1,6 +1,6 @@
 // import PageAttr from "@helpers/pageAttribute";
 import Cookies from "@utils/cookies";
-import { languages, defaultLanguage } from "@configs/languages";
+import { languages } from "@configs/languages";
 import { LOCALE_COOKIE_KEY } from "@constants/cookies";
 
 export default class LanguageHelper {
