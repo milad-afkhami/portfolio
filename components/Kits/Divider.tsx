@@ -1,10 +1,10 @@
-import { Div } from "style-wiz";
+import { Div, type DivProps } from "style-wiz";
 import Orientations from "@constants/orientations";
 import type { FC } from "react";
 
 interface DividerProps {
   thickness?: string;
-  color?: Colors;
+  color?: DivProps["bg"];
   orientation?: Orientations;
 }
 

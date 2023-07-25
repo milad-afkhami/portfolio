@@ -1,7 +1,6 @@
 /* eslint-disable react/self-closing-comp */
 import { styled } from "goober";
 import breakpoints from "@constants/stylesheets/breakpoints.json";
-import paces from "@constants/stylesheets/paces.json";
 import type { FC } from "react";
 
 const StyledAnchor = styled("a")`
@@ -11,7 +10,7 @@ const StyledAnchor = styled("a")`
   border: 0;
   right: 0;
   svg {
-    transition: all ${paces.fast};
+    transition: all var(--pace-fast);
     fill: var(--color-text-primary-main);
     color: var(--color-bg-primary-main);
   }
