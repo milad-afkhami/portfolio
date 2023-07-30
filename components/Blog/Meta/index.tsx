@@ -12,7 +12,7 @@ interface BlogMetaProps {
 
 const BlogMeta: FC<BlogMetaProps> = (props) => {
   const { category, readingTime, publishedAt } = props;
-  const { t } = useTranslation();
+  const [t] = useTranslation();
 
   return (
     <Div

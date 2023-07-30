@@ -7,6 +7,8 @@
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/strict-type-checked",
+    "plugin:@typescript-eslint/stylistic-type-checked",
     "airbnb",
     "airbnb/hooks",
     "airbnb-typescript",
@@ -34,11 +36,12 @@
     "no-underscore-dangle": "off",
     "@typescript-eslint/naming-convention": "off",
     "import/order": "off",
-    "react/no-array-index-key": "off",
     "react/require-default-props": "off",
-    "react/jsx-no-duplicate-props": "off",
     "react/display-name": "off",
-    "react/jsx-props-no-spreading": "off", // ["error", { "explicitSpread": "ignore" }]
-    "@typescript-eslint/no-non-null-assertion": "off"
+    "react/jsx-props-no-spreading": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/no-unsafe-call": "off",
+    "@typescript-eslint/no-unsafe-assignment": "off",
+    "@typescript-eslint/no-confusing-void-expression": "off"
   }
 }

@@ -14,7 +14,7 @@ const ProjectsPage: PageComponent = () => (
       <PageTitle title="title" ns="projects" />
       <div>
         {projectsData.map((project, i) => (
-          <ProjectDetail key={i} index={i + 1} {...project} />
+          <ProjectDetail key={project.id} index={i + 1} {...project} />
         ))}
       </div>
     </Div>

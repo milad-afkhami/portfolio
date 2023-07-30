@@ -17,9 +17,10 @@ import type { GetStaticProps } from "next";
 import type { PageComponent } from "@_types/components";
 
 const AboutPage: PageComponent = () => {
-  const { t } = useTranslation("about");
+  const [t] = useTranslation("about");
   const videoTitle = t("video.title");
   const videoDesc = t("video.desc");
+  const appTitle = t("app.title");
   const videoUrl = `${appBaseURL}/intro.mp4`;
   const videoPosterUrl = `${appBaseURL}/images/intro-poster.png`;
   const linkedInProfile = contactOptions.find(
@@ -54,7 +55,7 @@ const AboutPage: PageComponent = () => {
       />
       <SocialProfileJsonLd
         type="Person"
-        name={t("app.title")}
+        name={appTitle}
         url={appBaseURL}
         sameAs={[linkedInProfile]}
       />

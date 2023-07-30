@@ -43,13 +43,13 @@ const Icon: FC<IconProps> = (props) => {
       color={
         disabled
           ? "var(--color-text-disabled-main)"
-          : color || "var(--color-text-primary-main)"
+          : color ?? "var(--color-text-primary-main)"
       }
       aria-disabled={disabled}
       styles={{
         cursor,
         transition: "all var(--pace-x-fast)",
-        ...(styles || {}),
+        ...(styles ?? {}),
       }}
       title={name}
       className={_className}

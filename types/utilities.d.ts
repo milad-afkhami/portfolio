@@ -17,7 +17,7 @@ type Truthy<T> = Exclude<T, Falsy>;
 
 type Primitive = string | number | bigint | boolean | symbol | null | undefined;
 
-type Dictionary<T = unknown> = { [key: string]: T };
+type Dictionary<T = unknown> = Record<string, T>;
 
 /** Dictionary with type specified keys */
 type DynamicDictionary<K extends string | number, V> = Record<K, V>;
@@ -26,11 +26,8 @@ type DynamicDictionary<K extends string | number, V> = Record<K, V>;
 
 // type ValueOf<T> = T[keyof T];
 type ValueOf<
-  T extends
-    | ReadonlyArray<unknown>
-    | ArrayLike<unknown>
-    | Record<unknown, unknown>
-> = T extends ReadonlyArray<unknown>
+  T extends readonly unknown[] | ArrayLike<unknown> | Record<unknown, unknown>
+> = T extends readonly unknown[]
   ? T[number]
   : T extends ArrayLike<unknown>
   ? T[number]

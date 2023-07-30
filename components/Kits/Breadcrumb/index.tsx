@@ -5,18 +5,16 @@ import responsiveStyles from "@helpers/responsiveStyles";
 import { responsiveUpperBoundBreakpoint } from "@configs/general";
 import type { FC } from "react";
 import type BreadcrumbProps from "./props";
+import type { ItemListElements as NextSeoItemListElements } from "next-seo/lib/types";
 
-type Accumulator = Array<{
+interface ItemListElements extends NextSeoItemListElements {
   "@type": "ListItem";
-  position: number;
-  name: string;
-  item: string;
-}>;
+}
 
 const Breadcrumb: FC<BreadcrumbProps> = (props) => {
   const { routes } = props;
 
-  const itemListElements = routes.reduce(
+  const itemListElements = routes.reduce<ItemListElements[]>(
     (
       acc,
       { link, title }: { link?: string; title?: string },
@@ -25,12 +23,12 @@ const Breadcrumb: FC<BreadcrumbProps> = (props) => {
       acc.push({
         "@type": "ListItem",
         position: index + 1,
-        name: title || "",
-        item: link || "",
+        name: title ?? "",
+        item: link ?? "",
       });
       return acc;
     },
-    [] as Accumulator
+    []
   );
 
   return (

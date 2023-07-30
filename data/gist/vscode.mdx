@@ -35,7 +35,7 @@ prefix: **`!func`**
 {
   "React Functional Component": {
     "prefix": "!func",
-    "body": "// #region imports\nimport { useState, type FC } from \"react\";\nimport Div from \"@kits/Div\";\nimport Text from \"@kits/Text\";\n// #endregion\n\ninterface ${1:${TM_FILENAME_BASE}}Props {\n  example: any;\n}\n\nconst ${1:${TM_FILENAME_BASE}}: FC<${1:${TM_FILENAME_BASE}}Props> = (props) => {\n  const {} = props || {};\n  const [state, setState] = useState(null);\n\n  return <Div>${1:${TM_FILENAME_BASE}}</Div>;\n};\n\nexport default ${1:${TM_FILENAME_BASE}};\n",
+    "body": "// #region imports\nimport { useState, type FC } from \"react\";\nimport Div from \"@kits/Div\";\nimport Text from \"@kits/Text\";\n// #endregion\n\ninterface ${1:${TM_FILENAME_BASE}}Props {\n  example: any;\n}\n\nconst ${1:${TM_FILENAME_BASE}}: FC<${1:${TM_FILENAME_BASE}}Props> = (props) => {\n  const {} = props;\n  const [state, setState] = useState(null);\n\n  return <Div>${1:${TM_FILENAME_BASE}}</Div>;\n};\n\nexport default ${1:${TM_FILENAME_BASE}};\n",
     "description": "Creates a functional React component"
   }
 }
@@ -73,7 +73,7 @@ You may also need to create snippets for your hooks or regular utils. take the `
 {
   "useTranslation hook": {
     "prefix": ["t", "useTranslation", "translation"],
-    "body": "const { t } = useTranslation(\"${ns}\");",
+    "body": "const [t] = useTranslation(\"${ns}\");",
     "description": "Invokes useTranslation hook and destructures the t method from it"
   }
 }
@@ -82,7 +82,7 @@ You may also need to create snippets for your hooks or regular utils. take the `
 The above snippet will generate the following output:
 
 ```typescript
-const { t } = useTranslation("ns");
+const [t] = useTranslation("ns");
 ```
 
 ## 2. Shortcuts

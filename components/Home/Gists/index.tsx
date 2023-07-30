@@ -7,7 +7,7 @@ import type { FC } from "react";
 const homeGists = ["utility-types", "useIntersector", "vscode"];
 
 interface HomeGistsProps {
-  items: Array<IGist>;
+  items: IGist[];
 }
 
 const HomeGists: FC<HomeGistsProps> = (props) => {
@@ -18,7 +18,7 @@ const HomeGists: FC<HomeGistsProps> = (props) => {
   // const _items = items.filter(({ slug }) => homeGists.includes(slug));
   const _items = homeGists
     .map((slug) => items.find((it) => it.slug === slug))
-    .filter(Boolean) as Array<IGist>;
+    .filter(Boolean) as IGist[];
 
   return (
     <Div my="4">

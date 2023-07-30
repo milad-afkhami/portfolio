@@ -8,7 +8,7 @@ type BlogCardFooterProps = Pick<IBlog, "publishedAt" | "readingTime" | "views">;
 
 const BlogCardFooter: FC<BlogCardFooterProps> = (props) => {
   const { publishedAt = "", readingTime } = props;
-  const { t } = useTranslation();
+  const [t] = useTranslation();
 
   return (
     <Div

@@ -19,10 +19,10 @@ const ProjectCards: FC = () => {
   return (
     <Div my="3">
       <PageTitle title="title" tag="h2" ns="projects" />
-      {items?.length ? (
+      {items.length ? (
         <ProjectCardsWrapper>
-          {items.map((data, i) => (
-            <ProjectCard key={i} {...data} />
+          {items.map((project) => (
+            <ProjectCard key={project.id} {...project} />
           ))}
         </ProjectCardsWrapper>
       ) : null}

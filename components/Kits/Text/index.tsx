@@ -14,7 +14,7 @@ export interface TextProps extends StyledTextProps {
 const Text: HOCFunctionalComponent<TextProps> = (props) => {
   const { children, ns, noTranslation, keyPrefix, ...rest } = props;
 
-  const { t } = useTranslation(ns, { keyPrefix });
+  const [t] = useTranslation(ns, { keyPrefix });
 
   const isChildrenString = typeof children === "string";
 

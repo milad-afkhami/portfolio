@@ -13,6 +13,7 @@ const ProfileNameSvg = () => {
     // #todo reverse it so in first paint the name is shown
     animeRef.current = anime({
       targets: "#name-animation path",
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       strokeDashoffset: [anime.setDashoffset, 0],
       // easing: "easeInOutQuad",
       easing: "easeInOutSine",

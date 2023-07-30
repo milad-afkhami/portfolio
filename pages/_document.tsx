@@ -11,7 +11,9 @@ import { extractCss } from "goober";
 import { extractCss as styleWizExtractCss } from "style-wiz";
 import { brandColor } from "@configs/themes";
 
-type Props = { css: string };
+interface Props {
+  css: string;
+}
 interface DocumentInitialProps extends NextDocumentInitialProps, Props {}
 
 export default class Document extends NextDocument<Props> {

@@ -4,7 +4,7 @@ import responsiveStyles from "@helpers/responsiveStyles";
 import type { FC } from "react";
 
 interface FavouriteCommonEntityCardsProps {
-  items: Array<string>;
+  items: string[];
   entityType: IFavouriteEntities;
 }
 
@@ -23,11 +23,11 @@ const FavouriteCommonEntityCards: FC<FavouriteCommonEntityCardsProps> = (
       )}
       mb="6"
     >
-      {items.map((item, i) => (
+      {items.map((item) => (
         <FavouriteCommonEntityCard
-          key={i}
+          key={item}
           slug={item}
-          entityType={entityType?.toLowerCase?.() as IFavouriteEntities}
+          entityType={entityType.toLowerCase() as IFavouriteEntities}
         />
       ))}
     </Div>

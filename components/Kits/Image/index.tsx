@@ -36,7 +36,7 @@ const Image: FC<ImageProps> = (props) => {
       as={(_props: NextImageProps) => (
         <NextImage {..._props} sizes={sizes} width={width} height={height} />
       )}
-      // @ts-ignore
+      // @ts-expect-error
       src={src}
       alt={alt}
       quality={quality}
@@ -51,9 +51,9 @@ const Image: FC<ImageProps> = (props) => {
           : blurDataURL
       }
       styles={{
-        userSelect: styles.userSelect || "none",
+        userSelect: styles.userSelect ?? "none",
         "-webkit-user-drag": "none",
-        objectFit: fit || "unset",
+        objectFit: fit ?? "unset",
         ...styles,
       }}
       // onClick={(e) => onClick?.(e)}

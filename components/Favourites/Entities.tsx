@@ -14,8 +14,8 @@ const FavouriteEntities: FC = () => {
   return (
     <div>
       <PageTitle title="title" ns="favourites.common" />
-      {favouritesLinks.map(({ links, group }, i) => (
-        <Div key={i} flex={["flex-start", "flex-start", "column"]} mb="3">
+      {favouritesLinks.map(({ links, group }) => (
+        <Div key={group} flex={["flex-start", "flex-start", "column"]} mb="3">
           <SectionTitle
             icon={group as IconName}
             ns="favourites.common"
@@ -28,8 +28,8 @@ const FavouriteEntities: FC = () => {
             gap="4"
             styles={responsiveStyles("sm", { display: "flex" })}
           >
-            {links.map((item, j) => (
-              <FavouriteEntityCard {...item} key={j} />
+            {links.map((item) => (
+              <FavouriteEntityCard {...item} key={item.label} />
             ))}
           </Div>
         </Div>

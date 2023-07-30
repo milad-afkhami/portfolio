@@ -28,7 +28,8 @@ const Switch: ISwitch = ({ children, expression }) => {
 
     if (!matchingCaseRef.current && child.type === Case) {
       // const conditionResult = Boolean(expression) === Boolean(child.props.value);
-      const conditionResult = expression === child.props.value;
+      const conditionResult =
+        expression === (child.props as { value: string }).value;
 
       if (conditionResult) {
         matchingCaseRef.current = child;

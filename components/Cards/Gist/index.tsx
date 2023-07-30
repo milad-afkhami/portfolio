@@ -6,7 +6,7 @@ import type { FC } from "react";
 
 interface GistsProps {
   title?: string;
-  items: Array<IGist>;
+  items: IGist[];
 }
 
 const GistCards: FC<GistsProps> = (props) => {
@@ -22,8 +22,8 @@ const GistCards: FC<GistsProps> = (props) => {
           ...responsiveStyles("md", { gridTemplateColumns: "repeat(3, 1fr)" }),
         }}
       >
-        {items.map((post, i) => (
-          <GistCard key={i} {...post} />
+        {items.map((post) => (
+          <GistCard key={post.slug} {...post} />
         ))}
       </Div>
     </Div>

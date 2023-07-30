@@ -18,12 +18,7 @@ interface IntersectorHook {
 }
 
 const useIntersector: IntersectorHook = function (ref, options) {
-  const {
-    defaultValue = false,
-    rootMargin = "0px",
-    root,
-    threshold,
-  } = options || {};
+  const { defaultValue = false, rootMargin = "0px", root, threshold } = options;
   const [isIntersecting, setIntersecting] = useState(defaultValue);
 
   const rootObserver = () =>

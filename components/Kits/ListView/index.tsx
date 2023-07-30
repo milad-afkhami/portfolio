@@ -4,7 +4,7 @@ import ListItem, { type ListViewItemProps } from "./Item";
 import __chunk from "lodash-es/chunk";
 
 interface ListViewProps {
-  items: Array<ListViewItemProps>;
+  items: ListViewItemProps[];
   col?: number;
 }
 
@@ -29,9 +29,11 @@ const ListView: FC<ListViewProps> = (props) => {
       p="2"
     >
       {columns.map((colItems, j) => (
+        // eslint-disable-next-line react/no-array-index-key
         <Div key={j} width="100%" px="0">
           {colItems.map((item, i) => (
             <ListItem
+              // eslint-disable-next-line react/no-array-index-key
               key={i}
               index={j === 0 ? i + 1 : pivot + i + 1}
               {...item}

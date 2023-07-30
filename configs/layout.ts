@@ -1,4 +1,4 @@
-const navItems: Array<INavItem> = [
+const navItems: INavItem[] = [
   { link: "/", label: "home" },
   { link: "/about", label: "about" },
   // { link: "/courses", label: "courses" },

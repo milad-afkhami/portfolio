@@ -29,7 +29,7 @@ const ServerError: FC = () => (
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const t9n = await I18nHelper.ssrT9n(locale, "layout");
 
-  return { props: t9n || {} };
+  return { props: t9n ?? {} };
 };
 
 export default ServerError;

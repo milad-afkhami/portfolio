@@ -12,8 +12,8 @@ import type { GetStaticProps } from "next";
 import type { PageComponent } from "@_types/components";
 
 interface HomePageProps {
-  blogs: Array<IBlog>;
-  gists: Array<IGist>;
+  blogs: IBlog[];
+  gists: IGist[];
 }
 
 const HomePage: PageComponent<HomePageProps> = (props) => {

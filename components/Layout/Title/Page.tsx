@@ -14,7 +14,7 @@ const PageTitle: FC<PageTitleProps> = (props) => {
         border="border-light-main"
         borderSide="bottom"
       >
-        <Text size="h-md" bold as={tag || "h1"} ns={ns}>
+        <Text size="h-md" bold as={tag ?? "h1"} ns={ns}>
           {title}
         </Text>
       </Div>

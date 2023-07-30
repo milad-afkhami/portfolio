@@ -13,10 +13,11 @@ export default function ButtonText(props: Pick<ButtonProps, "text" | "ns">) {
     userSelect: "none",
   } as TextProps;
 
-  if (typeof text === "string") {
-    return <Text {...sharedProps}>{text}</Text>;
-  }
-  if (typeof text === "object" && text?.content) {
+  if (!text) return null;
+
+  if (typeof text === "string") return <Text {...sharedProps}>{text}</Text>;
+
+  if ("content" in text) {
     return (
       <Text {...sharedProps} {...__omit(text, "content")}>
         {text.content}

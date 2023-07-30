@@ -19,7 +19,7 @@ const ProjectGallery: FC<Required<Pick<IProject, "medias">>> = (props) => {
   const { mounted: isViewerMounted, rendered: isViewerRendered } =
     useDelayedRender(viewerIsOpen);
 
-  const { t } = useTranslation("projects");
+  const [t] = useTranslation("projects");
 
   const closeLightbox = () => {
     setCurrentImage(0);

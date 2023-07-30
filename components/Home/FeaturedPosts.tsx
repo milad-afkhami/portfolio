@@ -15,20 +15,20 @@ const homeBlogs = [
 ];
 
 interface FeaturedPostsProps {
-  posts: Array<IBlog>;
+  posts: IBlog[];
 }
 
 const FeaturedPosts: FC<FeaturedPostsProps> = (props) => {
   const { posts } = props;
 
-  const { t } = useTranslation("home");
+  const [t] = useTranslation("home");
 
   // const isMediumScreen = useMediaQuery({ minWidth: breakpoints.sm, maxWidth: breakpoints.md });
 
   // const items = posts.filter(({ slug }) => homeBlogs.includes(slug));
   const items = homeBlogs.map((slug) =>
     posts.find((post) => post.slug === slug)
-  ) as Array<IBlog>;
+  ) as IBlog[];
 
   return (
     <Div my="4">

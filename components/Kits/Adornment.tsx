@@ -5,9 +5,9 @@ import Icon from "@kits/Icon";
 import type IconProps from "@kits/Icon/props";
 // #endregion
 
-export type AdornmentProp = {
+export interface AdornmentProp {
   icon?: IconProps["name"] | IconProps | ReactElement;
-};
+}
 
 const Adornment: FC<AdornmentProp> = function (props) {
   const { icon } = props;
@@ -27,10 +27,10 @@ const Adornment: FC<AdornmentProp> = function (props) {
     if (isValidElement(icon)) {
       return icon;
     }
-    if ((icon as IconProps).name) {
+    if ("name" in icon) {
       return (
         <Div mw={size as string} flex={["center", "center"]}>
-          <Icon size={size} {...(icon as IconProps)} />
+          <Icon size={size} {...icon} />
         </Div>
       );
     }

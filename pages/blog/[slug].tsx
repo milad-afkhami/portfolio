@@ -24,21 +24,24 @@ interface BlogPageProps {
 }
 
 const BlogPage: PageComponent<BlogPageProps> = (props) => {
+  const { blog } = props;
   const router = useRouter();
-  const { slug } = router.query;
+  const slug = router.query.slug as string;
   const {
-    title,
-    summary,
-    image,
-    publishedAt,
-    modifiedAt,
-    readingTime,
-    category,
-  } = props?.blog?.frontMatter || {};
-  const source = props?.blog?.source || {};
+    source,
+    frontMatter: {
+      title,
+      summary,
+      image,
+      publishedAt,
+      modifiedAt,
+      readingTime,
+      category,
+    },
+  } = blog;
 
-  const { t } = useTranslation();
-  const { t: layoutT } = useTranslation("layout");
+  const [t] = useTranslation();
+  const [layoutT] = useTranslation("layout");
 
   const canonical = `/blog/${slug}`;
   return (
@@ -108,18 +111,15 @@ export const getStaticProps: GetStaticProps<BlogPageProps> = async ({
 export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   const blogs = await BlogServices.getList();
 
-  const paths = (locales || []).reduce(
+  const paths = (locales ?? []).reduce<GetStaticPathsResult["paths"]>(
     (acc, locale) => [
       ...acc,
-      ...(blogs?.map(({ slug }) => ({ params: { slug }, locale })) || []),
+      ...blogs.map(({ slug }) => ({ params: { slug }, locale })),
     ],
-    [] as GetStaticPathsResult["paths"]
+    []
   );
 
-  return {
-    paths,
-    fallback: false,
-  };
+  return { paths, fallback: false };
 };
 
 export default BlogPage;

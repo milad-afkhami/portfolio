@@ -11,9 +11,9 @@ const FooterLinks: FC = () => {
 
   return (
     <Div flex={["flex-start", "flex-start", "row", "wrap"]} mx="-3">
-      {favouritesLinks.map(({ links, group }, i) => (
+      {favouritesLinks.map(({ links, group }) => (
         <Div
-          key={i}
+          key={group}
           flex={["flex-start", "flex-start", "column"]}
           mx="3"
           mb="3"
@@ -23,8 +23,8 @@ const FooterLinks: FC = () => {
               group
             )}s`}</Text>
           </Div>
-          {links.map(({ label, link }, j) => (
-            <Link href={link} mb="3" key={j}>
+          {links.map(({ label, link }) => (
+            <Link href={link} mb="3" key={label}>
               <Text
                 hoverColor="text-secondary-main"
                 size="sm"

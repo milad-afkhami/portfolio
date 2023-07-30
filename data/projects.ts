@@ -1,4 +1,4 @@
-const projectsData: Array<IProject> = [
+const projectsData: IProject[] = [
   {
     id: 8,
     name: "Landingator",

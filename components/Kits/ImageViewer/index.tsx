@@ -9,7 +9,7 @@ const ImageViewer: FC<ImageViewerProps> = (props) => {
   const { isOpen, onClose, currentIndex, views } = props;
 
   return (
-    // @ts-ignore
+    // @ts-expect-error
     <ModalGateway>
       {isOpen ? (
         <Modal onClose={onClose}>

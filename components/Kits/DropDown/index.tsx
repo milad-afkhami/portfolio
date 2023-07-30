@@ -7,7 +7,7 @@ import responsiveStyles from "@helpers/responsiveStyles";
 import { responsiveUpperBoundBreakpoint } from "@configs/general";
 
 interface DropDownProps {
-  items: Array<DropDownItemProps>;
+  items: DropDownItemProps[];
   selected: string | number;
   onChange: (value: DropDownItemProps["id"]) => void;
 }
@@ -19,7 +19,9 @@ const DropDown: FC<DropDownProps> = (props) => {
 
   const ref = useRef<HTMLDivElement>(null);
 
-  const onClickOutside = useCallback(() => setIsOpen(false), []);
+  const onClickOutside = useCallback(() => {
+    setIsOpen(false);
+  }, []);
 
   useOnClickOutside(ref, onClickOutside);
 
@@ -36,7 +38,7 @@ const DropDown: FC<DropDownProps> = (props) => {
       <If condition={selectedItem}>
         <Then>
           <DropDownItem
-            {...(selectedItem! || {})}
+            {...selectedItem!}
             onClick={() => setIsOpen(!isOpen)}
             border="border-dark-main"
             curve="xsm"
@@ -58,9 +60,9 @@ const DropDown: FC<DropDownProps> = (props) => {
         overflow="hidden"
         curve="xsm"
       >
-        {items.map((item, i) => (
+        {items.map((item) => (
           <DropDownItem
-            key={i}
+            key={item.id}
             {...item}
             onClick={() => {
               setIsOpen(false);

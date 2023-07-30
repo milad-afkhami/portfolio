@@ -30,7 +30,7 @@ type LanguageConfig = Readonly<{
 // declare module "next-i18next" {
 //   import NextI18n, { useTranslation } from "next-i18next";
 //   interface I18n extends NextI18n {
-//     languages: Array<Languages>;
+//     languages:Languages[];
 //     language: Languages;
 //   }
 //   export { useTranslation };

@@ -5,7 +5,7 @@ import type { Components } from "react-images";
 // #endregion
 
 const ImageViewerFooterCaption: Components["FooterCaption"] = (props) => {
-  const { caption } = props?.currentView || {};
+  const { currentView: { caption } = {} } = props;
 
   return (
     <Div mx="2" flex={["center", "flex-start"]}>

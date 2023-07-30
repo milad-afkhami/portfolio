@@ -2,7 +2,7 @@ import matter from "gray-matter";
 import * as fs from "fs";
 import * as path from "path";
 
-export default async function getBlogsList(): Promise<Array<IBlog>> {
+export default async function getBlogsList(): Promise<IBlog[]> {
   const BLOGS_PATH = path.join(process.cwd(), "data", "blog");
 
   const blogFilePaths = fs
@@ -22,5 +22,5 @@ export default async function getBlogsList(): Promise<Array<IBlog>> {
     };
   });
 
-  return blogs as Array<IBlog>;
+  return blogs as IBlog[];
 }

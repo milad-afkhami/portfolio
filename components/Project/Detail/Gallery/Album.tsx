@@ -11,9 +11,9 @@ type ProjectGalleryAlbumProps = Required<Pick<IProject, "medias">> & {
 const ProjectGalleryAlbum: FC<ProjectGalleryAlbumProps> = (props) => {
   const { medias, onClickItem } = props;
 
-  const { t } = useTranslation("projects");
+  const [t] = useTranslation("projects");
 
-  if (!medias?.length) return null;
+  if (!medias.length) return null;
 
   return (
     <Div
@@ -34,7 +34,7 @@ const ProjectGalleryAlbum: FC<ProjectGalleryAlbumProps> = (props) => {
     >
       {medias.map((media, index) => (
         <Div
-          key={index}
+          key={media.src}
           width="100px"
           height="100px"
           styles={responsiveStyles("sm", { width: "150px", height: "150px" })}

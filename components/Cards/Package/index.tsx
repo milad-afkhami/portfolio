@@ -7,7 +7,7 @@ import type { FC } from "react";
 // #endregion
 
 interface PackageCardsProps {
-  items: Array<IPackage>;
+  items: IPackage[];
 }
 
 const PackageCards: FC<PackageCardsProps> = (props) => {

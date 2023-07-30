@@ -53,7 +53,7 @@ export const Col: FC<ColProps> = (props) => {
     }
 
     const colClassNames = __reduce(
-      columns || {},
+      columns,
       (acc, cv, key) => {
         if (cv) {
           // eslint-disable-next-line no-param-reassign

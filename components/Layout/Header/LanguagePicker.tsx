@@ -40,7 +40,7 @@ const HeaderChangeLanguage: FC = () => {
       <Then>
         <DropDown
           items={dropDownItems}
-          selected={router.locale || defaultLanguage}
+          selected={router.locale ?? defaultLanguage}
           onChange={(id) => onChangeLanguage(id as Languages)}
         />
       </Then>
