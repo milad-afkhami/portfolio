@@ -1,9 +1,9 @@
 import { Div } from "style-wiz";
-import projectsData from "@data/projects";
 import PageTitle from "@components/Layout/Title/Page";
 import ProjectCard from "./Item";
 import ProjectCardsWrapper from "./Wrapper";
 import ProjectCardsMoreLink from "./MoreLink";
+import projectsData from "@data/projects";
 import type { FC } from "react";
 
 const ProjectCards: FC = () => {
