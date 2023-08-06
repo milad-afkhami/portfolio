@@ -53,7 +53,3 @@ This script is for running automated tests on our app.
 ##### 2.2.3.2. [test-dev.sh](../scripts/ops/test-dev.sh)
 
 This script is for running the automated tests for our app on watch mode. it also accepts a match pattern and passes it directly to [jest command](https://jestjs.io/docs/cli#running-from-the-command-line).
-
-### 2.3. Stylesheets
-
-Read [the global styles documentation](./stylesheets/global-styles.md) to get informed.
