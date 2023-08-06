@@ -16,7 +16,7 @@ const BlogsPage: PageComponent<BlogsPageProps> = (props) => {
 
   return (
     <>
-      <Head canonical="/blog" />
+      <Head page="blogs" canonical="/blog" />
       <Div width="100%" py="3">
         <PageTitle title="blog.title" />
         <BlogCards items={blogs} />
