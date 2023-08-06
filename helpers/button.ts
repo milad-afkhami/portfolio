@@ -47,7 +47,7 @@ export default class ButtonHelper {
       case "contained":
       default:
         return {
-          color,
+          color: "var(--color-bg-primary-main)",
           backgroundColor: disabled
             ? "var(--color-bg-disabled-main)"
             : "var(--color-brand-main)",
