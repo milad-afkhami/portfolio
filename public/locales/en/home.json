@@ -1,11 +1,11 @@
 {
   "title": "Home",
-  "posts": { "title": "Featured Posts", "seeMore": "See More Blogs ..." },
+  "posts": { "title": "Featured Posts", "seeMore": "Explore More Blogs" },
   "projects": {
-    "seeMore": "See More in Details"
+    "seeMore": "View All Projects"
   },
   "gists": {
     "title": "Gists",
-    "seeMore": "See More"
+    "seeMore": "Discover More Gists"
   }
 }
