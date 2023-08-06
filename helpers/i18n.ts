@@ -6,7 +6,7 @@ type SSRConfig = UnPromise<ReturnType<typeof serverSideTranslations>>;
 export default class I18nHelper {
   static async ssrT9n(
     locale?: string,
-    ...namespaces: Array<I18NNameSpaces>
+    ...namespaces: I18NNameSpaces[]
   ): Promise<Maybe<SSRConfig>> {
     let t9n;
     if (locale) {

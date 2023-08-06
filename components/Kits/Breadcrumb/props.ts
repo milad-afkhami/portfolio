@@ -1,9 +1,9 @@
 export default interface BreadcrumbProps {
-  routes: Array<BreadcrumbLinkProps>;
+  routes: BreadcrumbLinkProps[];
 }
 
-export type BreadcrumbLinkProps = {
+export interface BreadcrumbLinkProps {
   link?: string;
   title: string;
   lastItem?: boolean;
-};
+}

@@ -7,7 +7,7 @@ import type { Components } from "react-images";
 
 const ImageViewerFooterCount: Components["FooterCount"] = (props) => {
   const { currentIndex = 0 } = props;
-  const { t } = useTranslation();
+  const [t] = useTranslation();
 
   return (
     <Div

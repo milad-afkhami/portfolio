@@ -17,7 +17,7 @@ const ProjectDetail: FC<PropsWithIndex<IProject>> = (props) => {
       <ProjectDescription slug={slug} />
       {/* {date && <ProjectDate date={date} />} */}
       {medias && <ProjectGallery medias={medias} />}
-      {techs && <ProjectTechs techs={techs} />}
+      {techs.length ? <ProjectTechs techs={techs} /> : null}
       {points && <ProjectPoints points={points} />}
     </Div>
   );

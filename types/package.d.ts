@@ -2,7 +2,7 @@ interface IPackage {
   name: string;
   latestVersion: string;
   homepage: string;
-  keywords: Array<string>;
+  keywords: string[];
   readmeFilename: string;
   description: string;
 }
@@ -14,11 +14,11 @@ interface IPackageDetailed {
   "dist-tags": {
     latest: string;
   };
-  versions: Dictionary<Dictionary<unknown>>;
+  versions: Dictionary<Dictionary>;
   time: Dictionary<string>;
-  maintainers: Array<{ name: string; email: string }>;
+  maintainers: { name: string; email: string }[];
   homepage: string;
-  keywords: Array<string>;
+  keywords: string[];
   repository: {
     type: string;
     url: string;

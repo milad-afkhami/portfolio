@@ -1,4 +1,4 @@
-const favouritePlaylistsData: Array<IFavouritePlaylist> = [
+const favouritePlaylistsData: IFavouritePlaylist[] = [
   {
     name: "Best Songs of Soen",
     slug: "soen",

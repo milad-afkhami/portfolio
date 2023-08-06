@@ -40,8 +40,8 @@ const HeaderResponsiveMenuList: FC<HeaderResponsiveMenuListProps> = (props) => {
       flex={[, , "column"]}
       gap="3"
     >
-      {navItems.map((menu, i) => (
-        <HeaderMenuItem key={i} onClick={toggleMenu} {...menu} />
+      {navItems.map((menu) => (
+        <HeaderMenuItem key={menu.label} onClick={toggleMenu} {...menu} />
       ))}
       {/* <DownloadResume /> */}
     </Div>

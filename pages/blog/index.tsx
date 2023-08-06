@@ -8,7 +8,7 @@ import type { GetStaticProps } from "next";
 import type { PageComponent } from "@_types/components";
 
 interface BlogsPageProps {
-  blogs: Array<IBlog>;
+  blogs: IBlog[];
 }
 
 const BlogsPage: PageComponent<BlogsPageProps> = (props) => {

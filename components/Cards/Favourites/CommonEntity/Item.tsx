@@ -15,7 +15,7 @@ const FavouriteCommonEntityCard: FC<FavouriteCommonEntityCardProps> = (
   const { slug, entityType } = props;
 
   const ns = `favourites.${entityType}` as I18NNameSpaces;
-  const { t } = useTranslation(ns);
+  const [t] = useTranslation(ns);
 
   const name = t(`list.${slug}.name`);
   const meta = t(`list.${slug}.meta`, {

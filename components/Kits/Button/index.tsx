@@ -17,6 +17,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     children,
     ns,
   } = props;
+  // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
   const notAllowed = disabled || loading;
 
   return (

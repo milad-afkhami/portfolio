@@ -10,10 +10,10 @@ const MDXRemote = function (props: Parameters<typeof NextMDXRemote>[0]) {
   return (
     <NextMDXRemote
       {...props}
-      // @ts-ignore
+      // @ts-expect-error
       components={{
         ...defaultComponents,
-        ...(components || {}),
+        ...(components ?? {}),
       }}
     />
   );

@@ -27,7 +27,7 @@ const Link: FC<LinkProps> = ({
   ) : (
     <Div
       as={NextLink}
-      // @ts-ignore
+      // @ts-expect-error
       href={href}
       onClick={(e) => {
         if (hasHashHref) {

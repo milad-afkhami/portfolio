@@ -5,7 +5,7 @@ import { logoLg } from "@images";
 import type { FC } from "react";
 
 const ProfileAvatar: FC = () => {
-  const { t } = useTranslation();
+  const [t] = useTranslation();
 
   return (
     <Div flex={[, "center"]}>

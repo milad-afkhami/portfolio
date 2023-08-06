@@ -13,7 +13,7 @@ export type TimelineSectionItemProps = TimelineSectionItemTitleProps & {
 
 const TimelineSectionItem: FC<TimelineSectionItemProps> = (props) => {
   const { text, index, ns } = props;
-  const { t } = useTranslation(ns);
+  const [t] = useTranslation(ns);
 
   return (
     <Div mb="3" as="li" styles={{ listStyle: "none" }}>

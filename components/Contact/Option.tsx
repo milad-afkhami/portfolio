@@ -10,13 +10,13 @@ type ContactOptionProps = ValueOf<typeof contactOptions>;
 
 const ContactOption: FC<ContactOptionProps> = (props) => {
   const { type, label, value } = props;
-  const { t } = useTranslation("layout");
+  const [t] = useTranslation("layout");
 
   const onClickContactWay = () => {
     navigator.clipboard
       .writeText(value)
-      .then(() => ToastUtil.success(t("message.textCopied")))
-      .catch(() => ToastUtil.error(t("message.error.something")));
+      .then(() => ToastUtil.success(t("message.textCopied") as string))
+      .catch(() => ToastUtil.error(t("message.error.something") as string));
   };
 
   return (
@@ -46,7 +46,7 @@ const ContactOption: FC<ContactOptionProps> = (props) => {
       </Div>
       <Div flex={["center", "center"]} Mw="80%" color="brand-light">
         <Text noTranslation color="brand-light" size="sm" truncate>
-          {label || value}
+          {label ?? value}
         </Text>
       </Div>
     </Div>

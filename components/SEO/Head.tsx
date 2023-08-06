@@ -18,10 +18,10 @@ const Head = ({
   openGraph = {},
   ...restProps
 }: HeadProps) => {
-  const { t } = useTranslation();
-  const _title = title || t(`seo.title.${page}`, { defaultValue: "" });
+  const [t] = useTranslation();
+  const _title = title ?? t(`seo.title.${page}`, { defaultValue: "" });
   const _description =
-    description || t(`seo.description.${page}`, { defaultValue: "" });
+    description ?? t(`seo.description.${page}`, { defaultValue: "" });
   const _canonical = canonical
     ? `${appBaseURL}${canonical === "/" ? "" : canonical}`
     : undefined;
@@ -40,7 +40,7 @@ const Head = ({
       }}
       canonical={_canonical}
       additionalMetaTags={[
-        ...(keywords?.length ? [{ name: "keyword", content: keywords }] : []),
+        ...(keywords.length ? [{ name: "keyword", content: keywords }] : []),
         ...additionalMetaTags,
       ]}
       additionalLinkTags={additionalLinkTags}

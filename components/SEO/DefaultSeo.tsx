@@ -7,11 +7,12 @@ import { appBaseURL } from "@configs/urls";
 
 export default function DefaultSeo() {
   const router = useRouter();
-  const { t } = useTranslation();
+  const [t] = useTranslation();
   const appTitle = t("seo.title.default");
   const defaultTitle = t("seo.title.default");
   const defaultDescription = t("seo.description.default");
   const titleTemplate = t("seo.title.template");
+  const appName = t("app.name");
 
   return (
     <NextDefaultSeo
@@ -24,7 +25,7 @@ export default function DefaultSeo() {
         type: "website",
         locale: router.locale,
         url: appBaseURL,
-        site_name: t("app.name"),
+        site_name: appName,
         profile: {
           firstName: "Milad",
           lastName: "Afkhami",

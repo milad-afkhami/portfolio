@@ -30,15 +30,13 @@ describe("Button ui component tests", () => {
   });
 
   it("Should be disabled", () => {
-    const { getByTestId } = render(
-      <Button disabled text={buttonText} onClick={() => mockFn()} />
-    );
+    const { getByTestId } = render(<Button disabled text={buttonText} />);
     expect(getByTestId("kitButton")).toHaveAttribute("disabled");
   });
 
   it("Should not be clickable when is disabled", () => {
     const { getByTestId } = render(
-      <Button disabled text={buttonText} onClick={() => mockFn()} />
+      <Button disabled text={buttonText} onClick={mockFn} />
     );
     getByTestId("kitButton").click();
     expect(mockFn).toHaveBeenCalledTimes(0);

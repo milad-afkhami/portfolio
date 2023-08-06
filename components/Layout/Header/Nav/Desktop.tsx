@@ -12,8 +12,8 @@ const HeaderMenu: FC = () => (
     })}
     gap="6"
   >
-    {navItems.map((menu, i) => (
-      <HeaderMenuItem key={i} {...menu} />
+    {navItems.map((menu) => (
+      <HeaderMenuItem key={menu.label} {...menu} />
     ))}
   </Div>
 );

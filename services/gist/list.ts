@@ -23,5 +23,5 @@ export default async function getGistsList() {
   });
   // .sort((a, b) => a.value - b.value);
 
-  return gists as Array<IGist>;
+  return gists as IGist[];
 }

@@ -15,15 +15,19 @@ import type {
 } from "next";
 import type { MDXResult, PageComponent } from "@_types/components";
 
-type GistPageProps = { gist: MDXResult<IGist> };
+interface GistPageProps {
+  gist: MDXResult<IGist>;
+}
 
 const GistPage: PageComponent<GistPageProps> = (props) => {
   const { gist } = props;
-  const { t } = useTranslation("layout");
+  const [t] = useTranslation("layout");
   const router = useRouter();
-  const { slug } = router.query;
-  const { title, summary } = gist?.frontMatter || {};
-  const source = gist?.source;
+  const slug = router.query.slug as string;
+  const {
+    source,
+    frontMatter: { title, summary },
+  } = gist;
 
   return (
     <>
@@ -61,18 +65,15 @@ export const getStaticProps: GetStaticProps<GistPageProps> = async ({
 export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   const gists = await GistServices.getList();
 
-  const paths = (locales || []).reduce(
+  const paths = (locales ?? []).reduce<GetStaticPathsResult["paths"]>(
     (acc, locale) => [
       ...acc,
-      ...(gists.map(({ slug }) => ({ params: { slug }, locale })) || []),
+      ...gists.map(({ slug }) => ({ params: { slug }, locale })),
     ],
-    [] as GetStaticPathsResult["paths"]
+    []
   );
 
-  return {
-    paths,
-    fallback: false,
-  };
+  return { paths, fallback: false };
 };
 
 export default GistPage;

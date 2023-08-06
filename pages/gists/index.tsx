@@ -8,7 +8,7 @@ import type { GetStaticProps } from "next";
 import type { PageComponent } from "@_types/components";
 
 interface GistsPageProps {
-  gists: Array<IGist>;
+  gists: IGist[];
 }
 
 const GistsPage: PageComponent<GistsPageProps> = (props) => {

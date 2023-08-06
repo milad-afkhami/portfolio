@@ -11,12 +11,7 @@ const ProjectPoints: FC<Required<Pick<IProject, "points">>> = (props) => {
       <SectionTitle icon="focus-center" title="points" ns="projects" />
       {/* mx="-4" */}
       <Div Mw="100%">
-        <Tree
-          ns="projects"
-          branches={points}
-          branchesAccessor="points"
-          defaultOpen
-        />
+        <Tree ns="projects" branches={points} defaultOpen />
       </Div>
     </Div>
   );

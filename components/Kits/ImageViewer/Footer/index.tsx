@@ -4,7 +4,8 @@ import type { Components } from "react-images";
 // #endregion
 
 const ImageViewerFooter: Components["Footer"] = (props) => {
-  const { FooterCount, FooterCaption } = props?.carouselProps?.components || {};
+  const { carouselProps } = props;
+  const { FooterCount, FooterCaption } = carouselProps?.components ?? {};
 
   return (
     <Div

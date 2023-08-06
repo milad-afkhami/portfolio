@@ -9,7 +9,7 @@ export interface TimelineProps {
   title: string;
   ns?: TextProps["ns"];
   icon?: IconProps["name"];
-  sections: Array<Omit<TimelineSectionProps, "isLast">>;
+  sections: Omit<TimelineSectionProps, "isLast">[];
 }
 
 const Timeline: FC<TimelineProps> = (props) => {
@@ -19,8 +19,8 @@ const Timeline: FC<TimelineProps> = (props) => {
     <Div mb="5">
       <SectionTitle icon={icon} title={title} ns={ns} />
       <Div ml="5">
-        {sections.map(({ items, year }, i) => (
-          <TimelineSection key={i} year={year} items={items} ns={ns} />
+        {sections.map(({ items, year }) => (
+          <TimelineSection key={year} year={year} items={items} ns={ns} />
         ))}
       </Div>
     </Div>
