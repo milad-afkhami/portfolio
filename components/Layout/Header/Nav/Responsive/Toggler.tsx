@@ -7,12 +7,12 @@ interface MenuTogglerProps {
   toggle: NoneToVoidFunction;
 }
 
-type StyledDivProps = PropsWithChildren<{
+type StyledMenuTogglerWrapperProps = PropsWithChildren<{
   open: boolean;
   onClick: NoneToVoidFunction;
 }>;
 
-const StyledDiv = styled<StyledDivProps>("div")`
+const StyledMenuTogglerWrapper = styled<StyledMenuTogglerWrapperProps>("div")`
   transform: scale(0.4);
   display: flex;
   flex-direction: column;
@@ -53,11 +53,11 @@ const MenuToggler: FC<MenuTogglerProps> = (props) => {
   const { open, toggle } = props;
 
   return (
-    <StyledDiv open={open} onClick={!open ? toggle : __noop}>
+    <StyledMenuTogglerWrapper open={open} onClick={!open ? toggle : __noop}>
       <span />
       <span />
       <span />
-    </StyledDiv>
+    </StyledMenuTogglerWrapper>
   );
 };
 
