@@ -47,12 +47,12 @@ html {
 /* #region selection style */
 *::selection {
   color: white;
-  background-color: var(--color-brand-main);
+  background-color: var(--color-brand-primary-main);
 }
 
 *::-moz-selection {
   color: white;
-  background-color: var(--color-brand-main);
+  background-color: var(--color-brand-primary-main);
 }
 /* #endregion */
 
@@ -70,23 +70,20 @@ html[dir="rtl"] .icon-dir {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: var(--color-brand-lighter);
-  border-radius: 10px;
-  transition: all 0.3s;
+  background: var(--color-brand-primary-lighter);
+  border-radius: var(--curve-sm);
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: var(--color-brand-dark);
-  border-radius: 10px;
-  transition: all 0.3s;
+  background: var(--color-brand-primary-dark);
+  border-radius: var(--curve-sm);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-brand-variant);
-  border-radius: 10px;
-  transition: all 0.3s;
+  background: var(--color-brand-primary-darker);
+  border-radius: var(--curve-sm);
 }
 
 .hidden-scrollbar::-webkit-scrollbar {
@@ -95,7 +92,8 @@ html[dir="rtl"] .icon-dir {
 
 /* firefox */
 * {
-  scrollbar-color: var(--color-brand-main) var(--color-brand-lighter);
+  scrollbar-color: var(--color-brand-primary-main)
+    var(--color-brand-primary-lighter);
   scrollbar-width: thin;
 }
 /* #endregion */

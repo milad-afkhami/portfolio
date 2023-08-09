@@ -7,4 +7,5 @@ export const defaultTheme = Themes.Dark;
 // we can use http://mcg.mbitson.com/
 // export const themes = { [Themes.LIGHT]: require("./constants/themes/LIGHT.json"), [Themes.DARK]: require("./constants/themes/DARK.json") };
 
-export const brandColor = lightTheme.brand.main;
+// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+export const brandColor = lightTheme.brand.primary.main;

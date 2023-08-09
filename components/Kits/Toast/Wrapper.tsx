@@ -9,10 +9,7 @@ const ToastWrapper = styled<ToastWrapperProps>("div")`
   width: var(--toast-width);
   padding: var(--spacing-2) var(--spacing-4);
   background-color: ${({ type }) => `var(--color-assistive-${type}-main)`};
-  color: ${({ type }) =>
-    type === "warning"
-      ? "var(--color-text-primary-main)"
-      : "var(--color-bg-primary-main)"};
+  color: ${({ type }) => `var(--color-assistive-${type}-contrast)`};
   border-radius: var(--curve-xsm);
 `;
 

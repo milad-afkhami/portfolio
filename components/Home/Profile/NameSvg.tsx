@@ -54,11 +54,11 @@ const ProfileNameSvg = () => {
           strokeLinecap="round"
           fillRule="evenodd"
           fontSize="9pt"
-          stroke="var(--color-brand-main)"
+          stroke="var(--color-brand-primary-main)"
           strokeWidth="0.75mm"
           fill="none"
           style={{
-            stroke: "var(--color-brand-main)",
+            stroke: "var(--color-brand-primary-main)",
             strokeWidth: "0.75mm",
             fill: "none",
           }}

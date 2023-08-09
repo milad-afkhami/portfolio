@@ -13,9 +13,12 @@ const BlogCardCategory: FC<Pick<IBlog, "category">> = (props) => {
       flex={["center", "center"]}
       bg="bg-secondary-pale"
       curve="xsm"
-      color="text-primary-main"
     >
-      <Text size="xsm" bold>{`blog.category.${category}`}</Text>
+      <Text
+        color="text-primary-main"
+        size="xsm"
+        bold
+      >{`blog.category.${category}`}</Text>
     </Div>
   );
 };

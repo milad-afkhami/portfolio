@@ -9,7 +9,7 @@ function BreadcrumbLinkText(props: BreadcrumbLinkProps) {
     <Div cursor={lastItem ? "default" : "pointer"} px="2">
       <Text
         truncate
-        color={lastItem ? "text-secondary-main" : "brand-main"}
+        color={lastItem ? "text-secondary-main" : "brand-primary-main"}
         noTranslation
       >
         {title}

@@ -23,7 +23,7 @@ export default class ButtonHelper {
   static setPaints({ variant, disabled }: PaintParams): Paints {
     let color = "var(--color-text-primary-main)";
     if (disabled) color = "var(--color-text-tertiary-main)";
-    const hoverColor = "var(--color-brand-hover)";
+    const hoverColor = "var(--color-brand-primary-hover)";
 
     switch (variant) {
       case "outlined":
@@ -31,7 +31,9 @@ export default class ButtonHelper {
           color,
           backgroundColor: "transparent",
           border: `1px solid ${
-            disabled ? "var(--color-border-light)" : "var(--color-brand-main)"
+            disabled
+              ? "var(--color-border-light-main)"
+              : "var(--color-brand-primary-main)"
           }`,
           ...(!disabled ? { "&:hover": { borderColor: hoverColor } } : {}),
         };
@@ -47,10 +49,10 @@ export default class ButtonHelper {
       case "contained":
       default:
         return {
-          color: "var(--color-bg-primary-main)",
+          color,
           backgroundColor: disabled
             ? "var(--color-bg-disabled-main)"
-            : "var(--color-brand-main)",
+            : "var(--color-brand-primary-main)",
           border: "none",
           ...(!disabled ? { "&:hover": { backgroundColor: hoverColor } } : {}),
         };

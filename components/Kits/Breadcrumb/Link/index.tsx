@@ -19,7 +19,8 @@ function BreadcrumbLink(props: BreadcrumbLinkProps) {
             styles={{
               textDecoration: "underline",
               textUnderlineOffset: "var(--spacing-1)",
-              textDecorationColor: "var(--color-brand-light) !important",
+              textDecorationColor:
+                "var(--color-brand-primary-light) !important",
             }}
           >
             <BreadcrumbLinkText title={title} lastItem={false} />

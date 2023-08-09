@@ -13,13 +13,13 @@ const Chip: FC<ChipProps> = (props) => {
   return (
     <Div
       {...(link ? { as: "a", href: link, target: "_blank" } : {})}
-      bg="brand-main"
-      hoverBg="brand-hover"
+      bg="brand-primary-main"
+      hoverBg="brand-primary-hover"
       px="2"
       curve="xsm"
       display="flex"
     >
-      <Text size="md" bold color="bg-primary-main" noTranslation>
+      <Text size="md" bold color="brand-primary-contrast" noTranslation>
         {label}
       </Text>
     </Div>

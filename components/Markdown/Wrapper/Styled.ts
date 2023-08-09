@@ -9,14 +9,14 @@ const StyledWrapper = styled("div")`
   }
 
   a {
-    color: var(--color-brand-main);
+    color: var(--color-brand-primary-main);
     :hover {
-      color: var(--color-brand-hover);
+      color: var(--color-brand-primary-hover);
     }
   }
 
   table code {
-    background: var(--color-brand-light);
+    background: var(--color-brand-primary-light);
     padding: 2px 4px;
     border-radius: 4px;
     color: var(--color-bg-tertiary-main);

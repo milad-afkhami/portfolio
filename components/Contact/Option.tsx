@@ -28,8 +28,8 @@ const ContactOption: FC<ContactOptionProps> = (props) => {
       cursor="pointer"
     >
       <Div
-        bg="brand-main"
-        hoverBg="brand-hover"
+        bg="brand-primary-main"
+        hoverBg="brand-primary-hover"
         curve="circle"
         width="100px"
         height="100px"
@@ -40,12 +40,12 @@ const ContactOption: FC<ContactOptionProps> = (props) => {
         <Icon name={type} size="2.5rem" />
       </Div>
       <Div mb="2">
-        <Text color="brand-main" size="lg" bold transform="capitalize">
+        <Text color="brand-primary-main" size="lg" bold transform="capitalize">
           {`contact.${type}`}
         </Text>
       </Div>
-      <Div flex={["center", "center"]} Mw="80%" color="brand-light">
-        <Text noTranslation color="brand-light" size="sm" truncate>
+      <Div flex={["center", "center"]} Mw="80%" color="brand-primary-light">
+        <Text noTranslation color="brand-primary-light" size="sm" truncate>
           {label ?? value}
         </Text>
       </Div>
