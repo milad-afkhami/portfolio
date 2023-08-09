@@ -9,7 +9,6 @@ const Header = () => (
   <Div
     height="var(--layout-header-height)"
     width="100%"
-    bg="bg-primary-main"
     border="border-light-main"
     borderSide="bottom"
   >

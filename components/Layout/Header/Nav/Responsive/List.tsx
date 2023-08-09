@@ -33,8 +33,7 @@ const HeaderResponsiveMenuList: FC<HeaderResponsiveMenuListProps> = (props) => {
       }}
       bg="bg-primary-main"
       zIndex="2"
-      py="2"
-      px="4"
+      p="4"
       opacity={rendered ? 1 : 0}
       pace="fast"
       flex={[, , "column"]}
