@@ -1,8 +1,13 @@
-import { Div } from "style-wiz";
+import { Div, type DivProps } from "style-wiz";
 import Image from "@kits/Image";
 import { MDXRemote as NextMDXRemote } from "next-mdx-remote";
+import type ImageProps from "@kits/Image/props";
 
-const defaultComponents = { Div, Image };
+const defaultComponents = {
+  Div: (props: DivProps) => <Div {...props} />,
+  // eslint-disable-next-line jsx-a11y/alt-text
+  Image: (props: ImageProps) => <Image {...props} />,
+};
 
 const MDXRemote = function (props: Parameters<typeof NextMDXRemote>[0]) {
   const { components } = props;
@@ -10,7 +15,6 @@ const MDXRemote = function (props: Parameters<typeof NextMDXRemote>[0]) {
   return (
     <NextMDXRemote
       {...props}
-      // @ts-expect-error
       components={{
         ...defaultComponents,
         ...(components ?? {}),
