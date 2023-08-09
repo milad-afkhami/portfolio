@@ -48,7 +48,7 @@ You can run this command `git ls-files | xargs wc -l | awk '$1 > 100'` in projec
 
 ## 2. Analytic Reports 📐
 
-![GTmetrix grade for my portfolio](public/images/projects/portfolio/gtmetrix.jpg)
+![GTmetrix grade for my portfolio](public/images/projects/portfolio/gtmetrix.png)
 ![GTmetrix grade for my portfolio](public/images/projects/portfolio/pagespeed.png)
 
 <!-- |||
