@@ -29,13 +29,9 @@ const TreeWrapper = styled("div")`
     position: relative;
   }
   .tree-nav__item.is-expandable::before {
-    border-left: 1px solid var(--color-border-light-main);
     content: "";
-    height: 100%;
+    border-left: 1px solid var(--color-border-light-main);
     position: absolute;
-    left: 0.8rem;
-    top: 2rem;
-    height: calc(100% - 2rem);
     left: 0;
     top: 3rem;
     height: calc(100% - 4rem);
@@ -47,28 +43,24 @@ const TreeWrapper = styled("div")`
     transform: rotate(90deg);
   }
   .tree-nav__item.is-expandable > .tree-nav__item-title {
-    padding-left: 2rem;
     padding-left: 0;
   }
   .tree-nav__item.is-expandable > .tree-nav__item-title::before {
-    position: absolute;
-    will-change: transform;
-    transition: var(--pace-fast) ease;
-    font-family: "auto";
-    color: var(--color-text-primary-main);
-    font-size: var(--font-size-lg);
-    font-weight: bold;
-    line-height: 1.2;
-    /* content: "›"; */
     content: "\\e923";
     font-family: "icomoon";
-    height: 100%;
-    display: inline-block;
+    font-size: var(--font-size-lg);
+    font-weight: bold;
+    position: absolute;
     right: -2rem;
+    will-change: transform;
+    transition: var(--pace-fast) ease;
+    color: var(--color-text-primary-main);
+    line-height: 1.2;
+    height: 100%;
+    width: 1.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 1.5rem;
     text-align: center;
   }
 
@@ -97,7 +89,6 @@ const TreeWrapper = styled("div")`
     .tree-nav__item .tree-nav__item {
       padding-left: 1.5rem;
     }
-
     .tree-nav__item.is-expandable > .tree-nav__item-title::before {
       line-height: 0.9;
     }
