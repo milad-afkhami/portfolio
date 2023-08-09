@@ -22,6 +22,7 @@ type Dimensions = Pick<CSSProperties, "minWidth" | "width" | "height">;
 export default class ButtonHelper {
   static setPaints({ variant, disabled }: PaintParams): Paints {
     let color = "var(--color-text-primary-main)";
+    if (variant === "contained") color = "var(--color-brand-primary-contrast)";
     if (disabled) color = "var(--color-text-tertiary-main)";
     const hoverColor = "var(--color-brand-primary-hover)";
 

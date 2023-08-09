@@ -32,7 +32,7 @@ const Toast: FC<ToastProps> = (props) => {
       <Div flex={["center"]} gap="3">
         <If condition={icon}>
           <Then>
-            <Icon name={icon} />
+            <Icon name={icon} color="inherit" />
           </Then>
         </If>
         <Div flex={[, , "column"]}>

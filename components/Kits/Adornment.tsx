@@ -19,7 +19,7 @@ const Adornment: FC<AdornmentProp> = function (props) {
   if (typeof icon === "string") {
     return (
       <Div mw={size as string} flex={["center", "center"]}>
-        <Icon name={icon} size={size} />
+        <Icon name={icon} size={size} color="inherit" />
       </Div>
     );
   }
@@ -30,7 +30,7 @@ const Adornment: FC<AdornmentProp> = function (props) {
     if ("name" in icon) {
       return (
         <Div mw={size as string} flex={["center", "center"]}>
-          <Icon size={size} {...icon} />
+          <Icon size={size} color="inherit" {...icon} />
         </Div>
       );
     }
