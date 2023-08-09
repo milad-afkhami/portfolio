@@ -11,12 +11,13 @@ import type { CSSAttribute } from "goober";
  * <Div styles={responsiveStyles("md", { display: "flex" })} />
  * ```
  */
-const responsiveStyles = (breakpoint: Breakpoints, styles: CSSAttribute) => {
-  if (styles) {
-    return { [`@media (min-width: ${breakpoints[breakpoint]}px)`]: styles };
-  }
+const responsiveStyles = (
+  breakpoint: Breakpoints,
+  styles: Nullishable<CSSAttribute>
+) => {
+  if (!styles) return {};
 
-  return {};
+  return { [`@media (min-width: ${breakpoints[breakpoint]}px)`]: styles };
 };
 
 export default responsiveStyles;
