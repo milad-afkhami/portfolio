@@ -12,8 +12,8 @@ const containers = {
 
 const Container = styled("div")`
   width: 100%;
-  padding-right: 1rem;
-  padding-left: 1rem;
+  padding-right: var(--spacing-4);
+  padding-left: var(--spacing-4);
   margin-right: auto;
   margin-left: auto;
 
