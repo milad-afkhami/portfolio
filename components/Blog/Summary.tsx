@@ -13,7 +13,7 @@ const BlogSummary: FC<BlogSummaryProps> = (props) => {
   return (
     <Div my="3" bg="bg-secondary-main" p="3" curve="sm">
       <SectionTitle title="blog.summary" tag="h2" />
-      <Text size="lg" as="p" styles={{ lineHeight: 2 }} noTranslation>
+      <Text size="md" as="p" styles={{ lineHeight: 2 }} noTranslation>
         {summary}
       </Text>
     </Div>
