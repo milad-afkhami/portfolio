@@ -7,20 +7,14 @@ import type { MDXResult } from "@_types/components";
 export default async function getGistDetail(
   slug: string
 ): Promise<MDXResult<IGist>> {
-  const GISTS_PATH = path.join(process.cwd(), "data", "gist");
-
-  const gistFilePath = path.join(GISTS_PATH, `${slug}.mdx`);
+  const gistFilePath = path.join(process.cwd(), "data", "gist", `${slug}.mdx`);
   const source = fs.readFileSync(gistFilePath);
 
   const { content, data } = matter(source);
 
   const mdxSource = await serialize(content, {
-    // Optionally pass remark/rehype plugins
-    mdxOptions: {
-      remarkPlugins: [],
-      rehypePlugins: [],
-    },
     scope: data,
+    // Optionally pass remark/rehype plugins mdxOptions: { remarkPlugins: [], rehypePlugins: [] },
   });
 
   return {

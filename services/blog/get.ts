@@ -7,20 +7,14 @@ import type { MDXResult } from "@_types/components";
 export default async function getBlogDetail(
   slug: string
 ): Promise<MDXResult<IBlog>> {
-  const BLOGS_PATH = path.join(process.cwd(), "data", "blog");
-
-  const blogFilePath = path.join(BLOGS_PATH, `${slug}.mdx`);
+  const blogFilePath = path.join(process.cwd(), "data", "blog", `${slug}.mdx`);
   const source = fs.readFileSync(blogFilePath);
 
   const { content, data } = matter(source);
 
   const mdxSource = await serialize(content, {
-    // Optionally pass remark/rehype plugins
-    mdxOptions: {
-      remarkPlugins: [],
-      rehypePlugins: [],
-    },
     scope: data,
+    // Optionally pass remark/rehype plugins mdxOptions: { remarkPlugins: [], rehypePlugins: [] },
   });
 
   return {
