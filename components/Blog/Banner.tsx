@@ -19,7 +19,6 @@ const BlogBanner: FC<BlogBannerProps> = (props) => {
       width="100%"
       curve="sm"
       overflow="hidden"
-      my="4"
     >
       <Image
         alt={title}
