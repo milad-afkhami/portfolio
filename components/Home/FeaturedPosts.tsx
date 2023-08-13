@@ -6,10 +6,12 @@ import type { FC } from "react";
 const homeBlogs = [
   "one-on-one",
   "front-end-learning-roadmap",
+  "the-ideal-team-player-patrick-lencioni",
+  "five-dysfunctions-of-a-team-patrick-lencioni",
   "adr",
   "data-fetching-pattern-preference",
-  "rethink-using-redux",
-  "build-time-data-caching-in-next-js",
+  // "rethink-using-redux",
+  // "build-time-data-caching-in-next-js",
   // "redux-clean-code",
   // "homophobia",
 ];
