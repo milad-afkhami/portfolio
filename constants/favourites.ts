@@ -1,12 +1,12 @@
 const FAVOURITE_TYPES = {
-  SONG: {
-    PLAYLISTS: "PLAYLISTS",
-    ARTISTS: "ARTISTS",
-  },
   BOOK: {
     BOOKS: "BOOKS",
     POEMS: "POEMS",
     // WRITERS: "WRITERS",
+  },
+  SONG: {
+    PLAYLISTS: "PLAYLISTS",
+    ARTISTS: "ARTISTS",
   },
   SHOW: {
     ANIMATIONS: "ANIMATIONS",
