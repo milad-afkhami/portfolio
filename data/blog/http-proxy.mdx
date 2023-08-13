@@ -1,11 +1,13 @@
 ---
 title: "How to Create an HTTP Proxy in Next.js?"
-publishedAt: "2021-6"
+publishedAt: "2021-06"
 image: "/images/blog/http-proxy.jpg"
 readingTime: "10"
 category: "next"
 summary: "This blog demonstrates how to create an HTTP proxy in Next.js using serverless functions. HTTP proxies can be used to add an extra client-server transport layer, providing several benefits, including securing authorization tokens as http-only cookies, filtering requests, and enhancing protection and security. The blog provides a simple step-by-step guide on setting up an HTTP proxy by creating a catch-all route in the 'api' directory of next.js and utilizing the 'http-proxy' package. The proxy adds a middleware layer to all API calls, separates auth routes for handling cookies, and includes existing auth tokens in the headers of other APIs."
 ---
+
+## 1. Introduction
 
 With next.js introducing API routes and serverless functions, a lot of ideas become possible for front-end developers.
 
@@ -21,12 +23,12 @@ You can read more about this concepts in [next.js documentation](https://vercel.
 
 A way of using them is by writing HTTP proxies to add proxies as an extra client-server transport layer.
 
-## Why?
+## 2. Why?
 
 There are so many interesting things that come with using proxies, for example, you can save an authorization token as an http-only cookie and pass every API through the HTTP proxy to add the token to the header. This way accessing tokens is a lot harder for malicious users (not impossible of course).
 Other useful things you can do are: `hiding the IP address`, `filtering requests`, `protection and security`, `caching` and ...
 
-## How?
+## 3. How?
 
 So how to create an HTTP proxy with next.js serverless functions?
 It's so simple,
