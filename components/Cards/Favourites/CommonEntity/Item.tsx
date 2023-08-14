@@ -1,6 +1,7 @@
 import { Div } from "style-wiz";
 import Text from "@kits/Text";
 import Image from "@kits/Image";
+import copyToClipboard from "@utils/copyToClipboard";
 import type { FC } from "react";
 
 interface FavouriteCommonEntityCardProps extends IFavouriteCommonEntity {
@@ -25,6 +26,8 @@ const FavouriteCommonEntityCard: FC<FavouriteCommonEntityCardProps> = (
       overflow="hidden"
       curve="md"
       title={description}
+      cursor="pointer"
+      onClick={() => copyToClipboard(description)}
     >
       <Div
         display="flex"
