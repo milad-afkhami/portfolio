@@ -6,14 +6,7 @@ type I18NNameSpaces =
   | "about"
   | "packages"
   | "favourites.common"
-  | "favourites.animations"
-  | "favourites.artists"
-  | "favourites.anime"
-  | "favourites.books"
-  | "favourites.playlists"
-  | "favourites.poems"
-  | "favourites.series"
-  | "favourites.writers";
+  | "favourites.playlists";
 
 type Languages = "en"; // | "de" | "fr";
 

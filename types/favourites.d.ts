@@ -14,3 +14,9 @@ interface IFavouritePlaylist {
   image: string;
   link: string;
 }
+
+interface IFavouriteCommonEntity {
+  slug: string;
+  name: string;
+  meta?: string;
+}

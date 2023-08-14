@@ -12,7 +12,7 @@ const FavouriteAnimePage: PageComponent = () => (
   <>
     <Head canonical="/favourites/anime" page="favouriteAnime" />
     <Div width="100%" py="3">
-      <PageTitle title="title" ns="favourites.anime" />
+      <PageTitle title="anime" ns="favourites.common" />
       <FavouriteCommonEntityCards
         items={favouriteAnimeData}
         entityType={FAVOURITE_TYPES.SHOW.ANIME as IFavouriteEntities}
@@ -23,7 +23,7 @@ const FavouriteAnimePage: PageComponent = () => (
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const [t9n = {}] = await Promise.all([
-    I18nHelper.ssrT9n(locale, "layout", "favourites.anime"),
+    I18nHelper.ssrT9n(locale, "layout", "favourites.common"),
   ]);
 
   return { props: t9n };

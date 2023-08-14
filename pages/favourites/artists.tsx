@@ -12,7 +12,7 @@ const FavouriteArtistsPage: PageComponent = () => (
   <>
     <Head canonical="/favourites/artists" page="favouriteArtists" />
     <Div width="100%" py="3">
-      <PageTitle title="title" ns="favourites.artists" />
+      <PageTitle title="artists" ns="favourites.common" />
       <FavouriteCommonEntityCards
         items={favouriteArtistsData}
         entityType={FAVOURITE_TYPES.SONG.ARTISTS as IFavouriteEntities}
@@ -23,7 +23,7 @@ const FavouriteArtistsPage: PageComponent = () => (
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const [t9n = {}] = await Promise.all([
-    I18nHelper.ssrT9n(locale, "layout", "favourites.artists"),
+    I18nHelper.ssrT9n(locale, "layout", "favourites.common"),
   ]);
 
   return { props: t9n };

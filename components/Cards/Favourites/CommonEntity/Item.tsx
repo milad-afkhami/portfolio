@@ -1,41 +1,30 @@
 import { Div } from "style-wiz";
 import Text from "@kits/Text";
 import Image from "@kits/Image";
-import { useTranslation } from "next-i18next";
 import type { FC } from "react";
 
-interface FavouriteCommonEntityCardProps {
-  slug: string;
+interface FavouriteCommonEntityCardProps extends IFavouriteCommonEntity {
   entityType: IFavouriteEntities;
 }
 
 const FavouriteCommonEntityCard: FC<FavouriteCommonEntityCardProps> = (
   props
 ) => {
-  const { slug, entityType } = props;
+  const { entityType, slug, name, meta } = props;
 
-  const ns = `favourites.${entityType}` as I18NNameSpaces;
-  const [t] = useTranslation(ns);
-
-  const name = t(`list.${slug}.name`);
-  const meta = t(`list.${slug}.meta`, {
-    defaultValue: "",
-  });
   const image = `/images/favourites/${entityType}/${slug}.jpg`;
-  const title = [meta, name].filter(Boolean).join(" - ");
+  const description = [name, meta].filter(Boolean).join(" - ");
 
   return (
     <Div
-      // href={`/${slug}`}
-      // hoverColor="text-secondary-main"
       position="relative"
-      mh="400px"
+      mh="450px"
       Mw="300px"
       ml="max(calc(50% - 150px),0px)"
       flex={["center", "center", "column"]}
       overflow="hidden"
       curve="md"
-      title={title}
+      title={description}
     >
       <Div
         display="flex"
@@ -46,7 +35,7 @@ const FavouriteCommonEntityCard: FC<FavouriteCommonEntityCardProps> = (
       >
         <Image
           src={image}
-          alt={`${name} - ${meta}`}
+          alt={description}
           placeholder="blur"
           blurDataURL={image}
           layout="fill"
@@ -54,25 +43,25 @@ const FavouriteCommonEntityCard: FC<FavouriteCommonEntityCardProps> = (
         />
       </Div>
       <Div
-        position="absolute"
-        dimensions={{ bottom: 0 }}
+        // position="absolute"
+        // dimensions={{ bottom: 0 }}
         width="100%"
-        mh="min(70px,20%)"
-        bg="bg-secondary-pale"
+        mh="80px"
+        bg="bg-tertiary-main"
         p="2"
         flex={["flex-start", "space-around", "column"]}
       >
         <Div overflow="hidden">
-          <Text size="lg" bold maxLines={2} noTranslation title={name}>
+          <Text size="lg" bold maxLines={1} noTranslation title={name}>
             {name}
           </Text>
         </Div>
         {meta && (
-          <div>
+          <Div>
             <Text size="md" color="text-secondary-main" noTranslation>
               {meta}
             </Text>
-          </div>
+          </Div>
         )}
       </Div>
     </Div>
