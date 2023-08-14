@@ -1,8 +1,7 @@
 import { Div } from "style-wiz";
 import Icon from "@kits/Icon";
 import Text from "@kits/Text";
-import { useTranslation } from "next-i18next";
-import ToastUtil from "@utils/toast";
+import copyToClipboard from "@utils/copyToClipboard";
 import contactOptions from "@configs/contact";
 import type { FC } from "react";
 
@@ -10,22 +9,14 @@ type ContactOptionProps = ValueOf<typeof contactOptions>;
 
 const ContactOption: FC<ContactOptionProps> = (props) => {
   const { type, label, value } = props;
-  const [t] = useTranslation("layout");
-
-  const onClickContactWay = () => {
-    navigator.clipboard
-      .writeText(value)
-      .then(() => ToastUtil.success(t("message.textCopied") as string))
-      .catch(() => ToastUtil.error(t("message.error.something") as string));
-  };
 
   return (
     <Div
       flex={["center", , "column"]}
       Mw="100%"
       overflow="hidden"
-      onClick={onClickContactWay}
       cursor="pointer"
+      onClick={() => copyToClipboard(value)}
     >
       <Div
         bg="brand-primary-main"
