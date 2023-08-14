@@ -8,9 +8,9 @@ type IFavouriteEntities =
   | "series"
   | "writers";
 
-type IFavouritePlaylist = {
+interface IFavouritePlaylist {
   name: string;
   slug: string;
   image: string;
   link: string;
-};
+}
