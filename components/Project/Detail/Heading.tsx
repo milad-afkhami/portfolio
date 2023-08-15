@@ -3,7 +3,7 @@ import Image from "@kits/Image";
 import Link from "@kits/Link";
 import Text from "@kits/Text";
 import { If, Then } from "@kits/ConditionalRendering";
-import type { FC } from "react";
+import { Fragment, type FC } from "react";
 import type { PropsWithIndex } from "@_types/components";
 
 type ProjectHeadingProps = PropsWithIndex<
@@ -41,7 +41,7 @@ const ProjectHeading: FC<ProjectHeadingProps> = (props) => {
       {Array.isArray(link) ? (
         <Div flex={["center", "flex-end"]}>
           {link.map((item, i) => (
-            <>
+            <Fragment key={item}>
               <Link href={item} outerLink underline>
                 <Text size="sm">
                   {item.replace("https://", "").replace("www.", "")}
@@ -54,7 +54,7 @@ const ProjectHeading: FC<ProjectHeadingProps> = (props) => {
                   </Text>
                 </Div>
               ) : null}
-            </>
+            </Fragment>
           ))}
         </Div>
       ) : (
