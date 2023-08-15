@@ -1,18 +1,19 @@
 // #region imports
-import { Div } from "style-wiz";
-import classNames from "@utils/classnames";
-import __reduce from "lodash-es/reduce";
+import { Div, type DivProps } from "style-wiz";
+import responsiveStyles from "@helpers/responsiveStyles";
 import { responsiveUpperBoundBreakpoint } from "@configs/general";
-import { type FC, useMemo } from "react";
-import type { ColProps, RowProps } from "./props";
+import { type FC, useMemo, useCallback } from "react";
+import type { RowProps, ColProps, ColValue } from "./props";
+import type { CSSAttribute } from "goober";
 // #endregion
 
 export const Row: FC<RowProps> = (props) => {
-  const { children, className, reverse, ...rest } = props;
+  const { children, reverse, ...rest } = props;
 
   return (
     <Div
-      className={classNames("row", reverse && "row-reverse", className)}
+      flex={[, , reverse ? "row-reverse" : "row", "wrap"]}
+      mx="-var(--spacing-2)"
       {...rest}
     >
       {children}
@@ -32,45 +33,60 @@ export const Row: FC<RowProps> = (props) => {
  * @example
  * <Col xs={12} responsiveUpperBoundBreakpoint={6} />
  */
-export const Col: FC<ColProps> = (props) => {
+export const Col: FC<ColProps & DivProps> = (props) => {
   const {
     children,
-    className,
     xs,
     sm,
     md,
     lg,
     xl,
-    responsiveUpperBoundBreakpoint: _responsiveUpperBoundBreakpoint,
+    xxl,
+    responsiveUpperBoundBreakpoint: responsiveUpperBoundBreakpointValue,
     ...rest
   } = props;
 
-  const columnsClassNames = useMemo(() => {
-    const columns = { xs, sm, md, lg, xl };
+  const columns = useMemo(() => {
+    const result: ColProps = { xs, sm, md, lg, xl };
 
-    if (_responsiveUpperBoundBreakpoint) {
-      columns[responsiveUpperBoundBreakpoint] = _responsiveUpperBoundBreakpoint;
+    if (responsiveUpperBoundBreakpointValue) {
+      result[responsiveUpperBoundBreakpoint] =
+        responsiveUpperBoundBreakpointValue;
     }
 
-    const colClassNames = __reduce(
-      columns,
-      (acc, cv, key) => {
-        if (cv) {
-          // eslint-disable-next-line no-param-reassign
-          if (key === "xs") acc += `col-${cv}`;
-          // eslint-disable-next-line no-param-reassign
-          else acc += ` col-${key}-${cv}`;
+    return result;
+  }, [xs, sm, md, lg, xl, responsiveUpperBoundBreakpointValue]);
+
+  const getColPortionPercentage = useCallback((col: ColValue) => {
+    const _col = Number(col);
+    if (_col < 0 || _col > 12) return "";
+    const isSecondHalf = Math.min(Math.floor(_col / 6), 1);
+    return ((_col - isSecondHalf * 6) * 8.333333 + isSecondHalf * 50).toFixed(
+      1
+    );
+  }, []);
+
+  const styles = useMemo(
+    () =>
+      Object.entries(columns).reduce<CSSAttribute>((acc, [breakpoint, col]) => {
+        if (col) {
+          const result = {
+            flex: `0 0 ${getColPortionPercentage(col)}%`,
+            maxWidth: `${getColPortionPercentage(col)}%`,
+          };
+          if (breakpoint === "xs") Object.assign(acc, result);
+          Object.assign(
+            acc,
+            responsiveStyles(breakpoint as Breakpoints, result)
+          );
         }
         return acc;
-      },
-      ""
-    );
-
-    return colClassNames;
-  }, [xs, sm, md, lg, xl, _responsiveUpperBoundBreakpoint]);
+      }, {}),
+    [columns, getColPortionPercentage]
+  );
 
   return (
-    <Div className={classNames(columnsClassNames, className)} {...rest}>
+    <Div position="relative" width="100%" px="2" styles={styles} {...rest}>
       {children}
     </Div>
   );

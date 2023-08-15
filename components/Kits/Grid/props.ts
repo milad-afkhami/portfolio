@@ -6,13 +6,9 @@ export interface RowProps extends PropsWithChildren<DivProps> {
 }
 
 /* eslint-disable  @typescript-eslint/ban-types */
-type ColValue = number | (string & {}) | "auto";
+export type ColValue = number | (string & {}) | "auto";
+// export type ColValue = IntRange<1, 13> | (string & {}) | "auto";
 
-export interface ColProps extends DivProps {
-  xs: ColValue;
-  sm?: ColValue;
-  md?: ColValue;
-  lg?: ColValue;
-  xl?: ColValue;
-  responsiveUpperBoundBreakpoint?: ColValue;
-}
+export type ColProps = Partial<
+  Record<Breakpoints | "responsiveUpperBoundBreakpoint", ColValue>
+>;
