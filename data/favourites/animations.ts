@@ -1,31 +1,20 @@
-const favouriteAnimationsData = [
-  "el-dorado",
-  "ratatouille",
-  "chicken-run",
-  "garfield",
-  "beauty-and-the-beast",
-  "up",
-  "the-iron-giant",
-  "madagascar",
-  "toy-story",
-  "kung-fu-panda",
-  "shrek",
-  "robots",
-
-  // "cars",
-  // "inside-out",
-
-  // "finding-nemo",
-  // "coraline",
-
-  // "forrest-gump",
-  // "santoori",
-  // "the-shawshank-redemption",
-  // "lotr",
-  // "star-wars",
-  // "brokeback-mountain",
-  // "call-me-by-your-name",
-  // "Eternal Sunshine Of The Spotless Mind",
+const favouriteAnimationsData: IFavouriteCommonEntity[] = [
+  { slug: "el-dorado", name: "El Dorado" },
+  { slug: "ratatouille", name: "Ratatouille" },
+  { slug: "chicken-run", name: "Chicken Run" },
+  { slug: "garfield", name: "Garfield" },
+  { slug: "beauty-and-the-beast", name: "Beauty And The Beast" },
+  { slug: "up", name: "Up" },
+  { slug: "the-iron-giant", name: "The Iron Giant" },
+  { slug: "madagascar", name: "Madagascar" },
+  { slug: "toy-story", name: "Toy Story" },
+  { slug: "kung-fu-panda", name: "Kung Fu Panda" },
+  { slug: "shrek", name: "Shrek" },
+  { slug: "robots", name: "Robots" },
+  // { slug: "cars", name: "Cars" },
+  // { slug: "inside-out", name: "Inside Out" },
+  // { slug: "finding-nemo", name: "Finding Nemo" },
+  // { slug: "coraline", name: "Coraline" },
 ];
 
 export default favouriteAnimationsData;

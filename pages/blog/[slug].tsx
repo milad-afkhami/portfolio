@@ -81,15 +81,17 @@ const BlogPage: PageComponent<BlogPageProps> = (props) => {
         />
         <div>
           <PageTitle title={title} />
-          <BlogSummary summary={summary} />
-          <BlogMeta
-            category={category}
-            readingTime={readingTime}
-            publishedAt={publishedAt}
-          />
-          <BlogBanner banner={image} title={title} />
-          {/* className=" line-numbers" */}
-          <Markdown source={source} />
+          <Div styles={{ "& > *": { marginBottom: "var(--spacing-4)" } }}>
+            <BlogSummary summary={summary} />
+            <BlogMeta
+              category={category}
+              readingTime={readingTime}
+              publishedAt={publishedAt}
+            />
+            <BlogBanner banner={image} title={title} />
+            {/* className=" line-numbers" */}
+            <Markdown source={source} />
+          </Div>
         </div>
       </Div>
     </>

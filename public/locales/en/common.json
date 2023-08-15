@@ -22,7 +22,13 @@
       "blogs": "Blogs",
       "favourites": "Favourites",
       "favouriteArtists": "Favourite Artists",
-      "favouritePlaylists": "Favourite Playlists"
+      "favouritePlaylists": "Favourite Playlists",
+      "favouriteAnimations": "Favourite Animations",
+      "favouriteAnime": "Favourite Anime",
+      "favouriteBooks": "Favourite Books",
+      "favouriteSeries": "Favourite Series",
+      "favouriteWriters": "Favourite Writers",
+      "favouritePoems": "Favourite Poems"
     },
     "description": {
       "default": "24 y.o. software engineer \nwith a proven ability to analyze, design, develop and maintain large scale software solutions that meet business requirements as well as performance and quality indexes."
@@ -62,7 +68,7 @@
     "category": {
       "styling": "Styling",
       "awareness": "Awareness",
-      "management": "Management",
+      "teamwork": "Teamwork",
       "react": "React",
       "next": "Next.js",
       "roadmap": "Roadmap",
@@ -99,5 +105,15 @@
     "pageNotFound": "Page not found :(",
     "goBack": "Go back",
     "noItemFound": "No Item Found"
+  },
+  "message": {
+    "error": {
+      "connection": "Please check your connection!",
+      "server": "Couldn't reach server",
+      "something": "Something went wrong"
+    },
+    "textCopied": "Copied to clipboard",
+    "codeCopied": "Code copied to clipboard",
+    "comingSoon": "Coming Soon ..."
   }
 }

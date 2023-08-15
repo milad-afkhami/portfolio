@@ -12,6 +12,52 @@
 			1.00
 		</priority>
 	</url>
+	<!-- Root Level -->
+	<url>
+		<loc>
+			https://milad-afkhami.com/projects
+		</loc>
+		<lastmod>
+			2023-06-01
+		</lastmod>
+		<priority>
+			0.90
+		</priority>
+	</url>
+	<url>
+		<loc>
+			https://milad-afkhami.com/about
+		</loc>
+		<lastmod>
+			2023-06-01
+		</lastmod>
+		<priority>
+			0.90
+		</priority>
+	</url>
+	<url>
+		<loc>
+			https://milad-afkhami.com/packages
+		</loc>
+		<lastmod>
+			2023-07-16
+		</lastmod>
+		<priority>
+			0.80
+		</priority>
+	</url>
+	<!-- #region Blogs -->
+	<url>
+		<loc>
+			https://milad-afkhami.com/blog
+		</loc>
+		<lastmod>
+			2023-06-06
+		</lastmod>
+		<priority>
+			0.90
+		</priority>
+	</url>
 	<url>
 		<loc>
 			https://milad-afkhami.com/blog/front-end-learning-roadmap
@@ -31,7 +77,7 @@
 			2023-07-19
 		</lastmod>
 		<priority>
-			0.80
+			0.70
 		</priority>
 	</url>
 	<url>
@@ -64,7 +110,7 @@
 			2023-07-19
 		</lastmod>
 		<priority>
-			0.80
+			0.70
 		</priority>
 	</url>
 	<url>
@@ -75,7 +121,7 @@
 			2023-07-19
 		</lastmod>
 		<priority>
-			0.80
+			0.70
 		</priority>
 	</url>
 	<url>
@@ -86,18 +132,7 @@
 			2023-07-19
 		</lastmod>
 		<priority>
-			0.80
-		</priority>
-	</url>
-	<url>
-		<loc>
-			https://milad-afkhami.com/blog
-		</loc>
-		<lastmod>
-			2023-06-06
-		</lastmod>
-		<priority>
-			0.90
+			0.70
 		</priority>
 	</url>
 	<url>
@@ -108,7 +143,7 @@
 			2023-06-20
 		</lastmod>
 		<priority>
-			0.80
+			0.70
 		</priority>
 	</url>
 	<url>
@@ -124,26 +159,28 @@
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/projects
+			https://milad-afkhami.com/blog/the-ideal-team-player-patrick-lencioni
 		</loc>
 		<lastmod>
-			2023-06-01
+			2023-08-12
 		</lastmod>
 		<priority>
-			0.85
+			0.80
 		</priority>
 	</url>
 	<url>
 		<loc>
-			https://milad-afkhami.com/about
+			https://milad-afkhami.com/blog/five-dysfunctions-of-a-team-patrick-lencioni
 		</loc>
 		<lastmod>
-			2023-06-01
+			2023-08-12
 		</lastmod>
 		<priority>
-			0.90
+			0.80
 		</priority>
 	</url>
+	<!-- #endregion -->
+	<!-- #region Gists -->
 	<url>
 		<loc>
 			https://milad-afkhami.com/gists
@@ -240,7 +277,7 @@
 			2023-06-16
 		</lastmod>
 		<priority>
-			0.60
+			0.50
 		</priority>
 	</url>
 	<url>
@@ -251,7 +288,7 @@
 			2023-06-16
 		</lastmod>
 		<priority>
-			0.60
+			0.50
 		</priority>
 	</url>
 	<url>
@@ -265,6 +302,8 @@
 			0.60
 		</priority>
 	</url>
+	<!-- #endregion -->
+	<!-- #region Favourites -->
 	<url>
 		<loc>
 			https://milad-afkhami.com/favourites
@@ -314,7 +353,7 @@
 			https://milad-afkhami.com/favourites/books
 		</loc>
 		<lastmod>
-			2023-06-13
+			2023-08-12
 		</lastmod>
 		<priority>
 			0.50
@@ -353,15 +392,5 @@
 			0.50
 		</priority>
 	</url>
-	<url>
-		<loc>
-			https://milad-afkhami.com/packages
-		</loc>
-		<lastmod>
-			2023-07-16
-		</lastmod>
-		<priority>
-			0.80
-		</priority>
-	</url>
+	<!-- #endregion -->
 </urlset>

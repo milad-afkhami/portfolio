@@ -1,8 +1,8 @@
 import { styled } from "goober";
 
 const StyledWrapper = styled("div")`
-  font-size: var(--font-size-lg);
-  font-weight: 300;
+  font-size: var(--font-size-md);
+  /* font-weight: 300; */
 
   code {
     font-family: monospace !important;
