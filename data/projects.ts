@@ -1,5 +1,69 @@
 const projectsData: IProject[] = [
   {
+    id: 10,
+    name: "Reval",
+    medias: [
+      { src: "/images/projects/reval/1.jpg", title: "reval.points.1" },
+      { src: "/images/projects/reval/2.jpg", title: "reval.points.1" },
+      { src: "/images/projects/reval/3.jpg", title: "reval.points.1" },
+    ],
+    date: "2023-06",
+    slug: "reval",
+    techs: [
+      {
+        name: "Module Federation",
+        link: "https://webpack.js.org/concepts/module-federation",
+      },
+      { name: "Webpack", link: "https://www.npmjs.com/package/webpack" },
+      {
+        name: "SWC",
+        link: "https://www.npmjs.com/package/@swc/core",
+      },
+      {
+        name: "Material UI",
+        link: "https://www.npmjs.com/package/@mui/material",
+      },
+      {
+        name: "Husky",
+        link: "https://www.npmjs.com/package/husky",
+      },
+    ],
+    points: [
+      "reval.points.1",
+      "reval.points.2",
+      "reval.points.3",
+      "reval.points.4",
+    ],
+  },
+  {
+    id: 9,
+    name: "Toolkit",
+    medias: [
+      { src: "/images/projects/toolkit/1.jpg", title: "toolkit.points.1" },
+      { src: "/images/projects/toolkit/2.jpg" },
+    ],
+    date: "2023-03",
+    slug: "toolkit",
+    techs: [
+      { name: "Rollup", link: "https://www.npmjs.com/package/rollup" },
+      { name: "Storybook", link: "https://www.npmjs.com/package/storybook" },
+      { name: "Jest", link: "https://www.npmjs.com/package/jest" },
+      {
+        name: "Semantic Release",
+        link: "https://www.npmjs.com/package/semantic-release",
+      },
+      {
+        name: "Material UI",
+        link: "https://www.npmjs.com/package/@mui/material",
+      },
+      {
+        name: "Husky",
+        link: "https://www.npmjs.com/package/husky",
+      },
+    ],
+    points: ["toolkit.points.1"],
+  },
+  {
     id: 8,
     name: "Landingator",
     link: [
@@ -55,7 +119,7 @@ const projectsData: IProject[] = [
         link: "https://www.npmjs.com/package/@testing-library/react",
       },
       {
-        name: "husky",
+        name: "Husky",
         link: "https://www.npmjs.com/package/husky",
       },
       {
@@ -131,6 +195,7 @@ const projectsData: IProject[] = [
         link: "https://www.npmjs.com/package/socket.io-client",
       },
       { name: "i18next", link: "https://www.npmjs.com/package/i18next" },
+      { name: "Husky", link: "https://www.npmjs.com/package/husky" },
     ],
     points: [
       "octava.points.1",
@@ -214,6 +279,7 @@ const projectsData: IProject[] = [
         name: "Sass",
         link: "https://sass-lang.com/",
       },
+      { name: "Husky", link: "https://www.npmjs.com/package/husky" },
       { name: "i18next", link: "https://www.npmjs.com/package/i18next" },
     ],
     points: [
