@@ -3,7 +3,7 @@ import Icon from "@kits/Icon";
 import Text from "@kits/Text";
 import type { FC } from "react";
 
-const ProjectDate: FC<Pick<IProject, "date">> = (props) => {
+const ProjectDetailDate: FC<Pick<IProject, "date">> = (props) => {
   const { date } = props;
 
   return (
@@ -20,4 +20,4 @@ const ProjectDate: FC<Pick<IProject, "date">> = (props) => {
   );
 };
 
-export default ProjectDate;
+export default ProjectDetailDate;

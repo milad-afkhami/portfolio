@@ -2,7 +2,7 @@ import { Div } from "style-wiz";
 import Text from "@kits/Text";
 import type { FC } from "react";
 
-const ProjectDescription: FC<Pick<IProject, "slug">> = (props) => {
+const ProjectDetailDescription: FC<Pick<IProject, "slug">> = (props) => {
   const { slug } = props;
 
   return (
@@ -13,4 +13,4 @@ const ProjectDescription: FC<Pick<IProject, "slug">> = (props) => {
   );
 };
 
-export default ProjectDescription;
+export default ProjectDetailDescription;

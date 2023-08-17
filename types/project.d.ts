@@ -8,6 +8,6 @@ interface IProject {
   medias?: { src: string; title?: string }[];
   date: string;
   slug: string;
-  techs: { name: string; link: string }[];
+  techs: string[];
   points?: TreeProps["branches"];
 }

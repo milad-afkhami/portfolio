@@ -6,11 +6,11 @@ import { If, Then } from "@kits/ConditionalRendering";
 import { Fragment, type FC } from "react";
 import type { PropsWithIndex } from "@_types/components";
 
-type ProjectHeadingProps = PropsWithIndex<
+type ProjectDetailHeadingProps = PropsWithIndex<
   Pick<IProject, "logo" | "link" | "name">
 >;
 
-const ProjectHeading: FC<ProjectHeadingProps> = (props) => {
+const ProjectDetailHeading: FC<ProjectDetailHeadingProps> = (props) => {
   const { index, name, logo, link = "" } = props;
 
   return (
@@ -68,4 +68,4 @@ const ProjectHeading: FC<ProjectHeadingProps> = (props) => {
   );
 };
 
-export default ProjectHeading;
+export default ProjectDetailHeading;

@@ -1,5 +1,42 @@
 const projectsData: IProject[] = [
   {
+    id: 10,
+    name: "Reval",
+    medias: [
+      { src: "/images/projects/reval/1.jpg", title: "reval.points.1" },
+      { src: "/images/projects/reval/2.jpg", title: "reval.points.1" },
+      { src: "/images/projects/reval/3.jpg", title: "reval.points.1" },
+    ],
+    date: "2023-06",
+    slug: "reval",
+    techs: ["Module Federation", "Webpack", "SWC", "Material UI", "Husky"],
+    points: [
+      "reval.points.1",
+      "reval.points.2",
+      "reval.points.3",
+      "reval.points.4",
+    ],
+  },
+  {
+    id: 9,
+    name: "Toolkit",
+    medias: [
+      { src: "/images/projects/toolkit/1.jpg", title: "toolkit.points.1" },
+      { src: "/images/projects/toolkit/2.jpg" },
+    ],
+    date: "2023-03",
+    slug: "toolkit",
+    techs: [
+      "Rollup",
+      "Storybook",
+      "Jest",
+      "Semantic Release",
+      "Material UI",
+      "Husky",
+    ],
+    points: ["toolkit.points.1"],
+  },
+  {
     id: 8,
     name: "Landingator",
     link: [
@@ -48,25 +85,13 @@ const projectsData: IProject[] = [
     date: "2022-11",
     slug: "landingator",
     techs: [
-      { name: "Next.js", link: "https://www.npmjs.com/package/next" },
-      { name: "jest", link: "https://www.npmjs.com/package/jest" },
-      {
-        name: "@testing-library/react",
-        link: "https://www.npmjs.com/package/@testing-library/react",
-      },
-      {
-        name: "husky",
-        link: "https://www.npmjs.com/package/husky",
-      },
-      {
-        name: "next-i18next",
-        link: "https://www.npmjs.com/package/next-i18next",
-      },
-      { name: "swr", link: "https://www.npmjs.com/package/swr" },
-      {
-        name: "Goober",
-        link: "https://www.npmjs.com/package/goober",
-      },
+      "Next.js",
+      "Jest",
+      "React Testing Library",
+      "Material UI",
+      "next-i18next",
+      "SWR",
+      "Styled-Components",
     ],
     points: [
       "landingator.points.1",
@@ -120,17 +145,12 @@ const projectsData: IProject[] = [
     date: "2022-12",
     slug: "octava",
     techs: [
-      { name: "Next.js", link: "https://www.npmjs.com/package/next" },
-      { name: "swr", link: "https://www.npmjs.com/package/swr" },
-      {
-        name: "Styled Components",
-        link: "https://www.npmjs.com/package/styled-components",
-      },
-      {
-        name: "socket.io-client",
-        link: "https://www.npmjs.com/package/socket.io-client",
-      },
-      { name: "i18next", link: "https://www.npmjs.com/package/i18next" },
+      "Next.js",
+      "SWR",
+      "Styled-Components",
+      "socket.io-client",
+      "i18next",
+      "Husky",
     ],
     points: [
       "octava.points.1",
@@ -200,21 +220,13 @@ const projectsData: IProject[] = [
     date: "2020-10",
     slug: "uneed",
     techs: [
-      { name: "Next.js", link: "https://www.npmjs.com/package/next" },
-      {
-        name: "Redux Saga",
-        link: "https://www.npmjs.com/package/redux-saga",
-      },
-      { name: "express", link: "https://www.npmjs.com/package/express" },
-      {
-        name: "socket.io-client",
-        link: "https://www.npmjs.com/package/socket.io-client",
-      },
-      {
-        name: "Sass",
-        link: "https://sass-lang.com/",
-      },
-      { name: "i18next", link: "https://www.npmjs.com/package/i18next" },
+      "Next.js",
+      "Redux-Saga",
+      "Express",
+      "socket.io-client",
+      "Sass",
+      "Husky",
+      "i18next",
     ],
     points: [
       "uneed.points.1",
@@ -282,18 +294,7 @@ const projectsData: IProject[] = [
     ],
     date: "2021-05",
     slug: "tarinoo",
-    techs: [
-      { name: "Next.js", link: "https://www.npmjs.com/package/next" },
-      {
-        name: "Redux Toolkit",
-        link: "https://redux-toolkit.js.org/",
-      },
-      {
-        name: "TypeScript",
-        link: "https://www.typescriptlang.org/",
-      },
-      { name: "i18next", link: "https://www.npmjs.com/package/i18next" },
-    ],
+    techs: ["Next.js", "Redux Toolkit", "i18next"],
     points: ["tarinoo.points.1", "tarinoo.points.2"],
   },
   {
@@ -312,19 +313,7 @@ const projectsData: IProject[] = [
     ],
     date: "2022-04",
     slug: "behtarino",
-    techs: [
-      { name: "Next.js", link: "https://www.npmjs.com/package/next" },
-      { name: "jotai", link: "https://www.npmjs.com/package/jotai" },
-      {
-        name: "Maplibre-gl",
-        link: "https://www.npmjs.com/package/maplibre-gl",
-      },
-      { name: "swr", link: "https://www.npmjs.com/package/swr" },
-      {
-        name: "Goober",
-        link: "https://www.npmjs.com/package/goober",
-      },
-    ],
+    techs: ["Next.js", "jotai", "MapLibre GL", "SWR", "Styled-Components"],
     points: [
       "behtarino.points.1",
       "behtarino.points.2",
@@ -367,20 +356,11 @@ const projectsData: IProject[] = [
     date: "2021",
     slug: "bityon",
     techs: [
-      { name: "Next.js", link: "https://www.npmjs.com/package/next" },
-      {
-        name: "Context API",
-        link: "https://reactjs.org/docs/context.html",
-      },
-      {
-        name: "React Hook Form",
-        link: "https://react-hook-form.com/",
-      },
-      {
-        name: "highcharts",
-        link: "https://www.npmjs.com/package/highcharts",
-      },
-      { name: "i18next", link: "https://www.npmjs.com/package/i18next" },
+      "Next.js",
+      "Context API",
+      "React Hook Form",
+      "Highcharts",
+      "i18next",
     ],
     points: [
       {
@@ -413,15 +393,7 @@ const projectsData: IProject[] = [
     ],
     date: "2019-20",
     slug: "biz",
-    techs: [
-      { name: "React", link: "https://www.npmjs.com/package/react" },
-      { name: "Express", link: "https://www.npmjs.com/package/express" },
-      {
-        name: "Styled Components",
-        link: "https://www.npmjs.com/package/styled-components",
-      },
-      { name: "i18next", link: "https://www.npmjs.com/package/i18next" },
-    ],
+    techs: ["Express", "Styled-Components", "i18next"],
     points: [
       {
         title: "biz.points.1",
@@ -444,21 +416,7 @@ const projectsData: IProject[] = [
     ],
     date: "2021",
     slug: "crm",
-    techs: [
-      { name: "React", link: "https://www.npmjs.com/package/react" },
-      {
-        name: "socket.io-client",
-        link: "https://www.npmjs.com/package/socket.io-client",
-      },
-      {
-        name: "React Query",
-        link: "https://www.npmjs.com/package/react-query",
-      },
-      {
-        name: "Styled Components",
-        link: "https://www.npmjs.com/package/styled-components",
-      },
-    ],
+    techs: ["Cypress", "socket.io-client", "React Query", "Styled-Components"],
     points: [
       {
         title: "crm.points.1",
@@ -474,18 +432,7 @@ const projectsData: IProject[] = [
     logo: "/images/projects/etc.jpg",
     date: "2018-present",
     slug: "etc",
-    techs: [
-      { name: "React", link: "https://www.npmjs.com/package/react" },
-      {
-        name: "React-native",
-        link: "https://www.npmjs.com/package/react-native",
-      },
-      { name: "Angular", link: "https://www.npmjs.com/package/@angular/core" },
-      {
-        name: "WordPress",
-        link: "https://wordpress.org/",
-      },
-    ],
+    techs: ["React Native", "Angular", "WordPress"],
   },
 ];
 

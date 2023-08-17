@@ -1,10 +1,10 @@
 import { Div } from "style-wiz";
-import ProjectHeading from "./Heading";
-import ProjectDescription from "./Description";
-// import ProjectDate from "./Date";
-import ProjectTechs from "./Techs";
-import ProjectGallery from "./Gallery";
-import ProjectPoints from "./Points";
+import ProjectDetailHeading from "./Heading";
+import ProjectDetailDescription from "./Description";
+// import ProjectDetailDate from "./Date";
+import ProjectDetailTechs from "./Techs";
+import ProjectDetailGallery from "./Gallery";
+import ProjectDetailPoints from "./Points";
 import type { FC } from "react";
 import type { PropsWithIndex } from "@_types/components";
 
@@ -13,12 +13,12 @@ const ProjectDetail: FC<PropsWithIndex<IProject>> = (props) => {
 
   return (
     <Div mb="6" id={`project-${slug}`}>
-      <ProjectHeading name={name} logo={logo} link={link} index={index} />
-      <ProjectDescription slug={slug} />
-      {/* {date && <ProjectDate date={date} />} */}
-      {medias && <ProjectGallery medias={medias} />}
-      {techs.length ? <ProjectTechs techs={techs} /> : null}
-      {points && <ProjectPoints points={points} />}
+      <ProjectDetailHeading name={name} logo={logo} link={link} index={index} />
+      <ProjectDetailDescription slug={slug} />
+      {/* {date && <ProjectDetailDate date={date} />} */}
+      {medias && <ProjectDetailGallery medias={medias} />}
+      {techs.length ? <ProjectDetailTechs techs={techs} /> : null}
+      {points && <ProjectDetailPoints points={points} />}
     </Div>
   );
 };

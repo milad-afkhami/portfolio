@@ -3,6 +3,27 @@
   "points": "Points",
   "tools": "Tools",
   "gallery": "Gallery",
+  "reval": {
+    "name": "Reval",
+    "shortDescription": "Web application marketplace designed exclusively for SMBs(Small and medium-sized Businesses)",
+    "description": "Web application marketplace designed exclusively for SMBs(Small and medium-sized Businesses), Featuring a Microfrontend architecture with Webpack Module Federation, ensuring enhanced flexibility and performance. The platform facilitates seamless communication between Microfrontends through the implementation of a standard event bus, eliminating the need for complex state management.",
+    "points": {
+      "1": "Using webpack module federation to implement Microfrontend architecture with enhanced flexibility and performance",
+      "2": "Facilitating seamless communication between Microfrontends through the implementation of a standard event bus, eliminating the need for complex state management",
+      "3": "Utilizing SWC to boost extensibility and performance through development and production environments",
+      "4": "Composing comprehensive documentation using storybook, Gitlab Wiki, Markdown, and XMind"
+    }
+  },
+  "toolkit": {
+    "name": "Toolkit",
+    "shortDescription": "Organization front-end infrastructure team",
+    "description": "Three NPM packages encompassing UI Kits, Hooks, and Utils, harnessing the capabilities of NPM packages to elevate frontend development, mitigate inconsistency, and eradicate redundancy and duplication across the organization.",
+    "points": {
+      "1": "Using webpack module federation to implement Microfrontend architecture with enhanced flexibility and performance",
+      "2": "Using React query for in-app server state management",
+      "3": "Using Zustand for in-app UI state management"
+    }
+  },
   "landingator": {
     "name": "Landingator",
     "shortDescription": "Dynamic website builder",
@@ -10,7 +31,7 @@
     "points": {
       "1": "Fast page load with incremental static regeneration ( ISR )",
       "2": "Up-to-date static pages with on-demand revalidation",
-      "3": "Composing comprehensive documentation using storybook, Gitlab Wiki, Confluence, Markdown, and XMind",
+      "3": "Composing comprehensive documentation using storybook, Gitlab Wiki, Markdown, and XMind",
       "4": "Advanced developer experience using bash script for operations like dev, build, test and ...",
       "5": "Build-time generated stylesheets like tailwind, using scripts written in mjs",
       "6": "Considering SEO best practices",

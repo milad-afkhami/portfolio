@@ -4,9 +4,9 @@ import { useTranslation } from "next-i18next";
 import responsiveStyles from "@helpers/responsiveStyles";
 import type { FC } from "react";
 
-type ProjectGalleryAlbumProps = Required<Pick<IProject, "medias">> & {
+interface ProjectGalleryAlbumProps extends Required<Pick<IProject, "medias">> {
   onClickItem: (index: number) => void;
-};
+}
 
 const ProjectGalleryAlbum: FC<ProjectGalleryAlbumProps> = (props) => {
   const { medias, onClickItem } = props;
@@ -49,7 +49,7 @@ const ProjectGalleryAlbum: FC<ProjectGalleryAlbumProps> = (props) => {
           <Image
             src={media.src}
             alt={`${t("app.name")} - ${t("title")}`}
-            title={media.title}
+            title={t(media.title)}
             layout="fill"
             quality={1}
             fit="cover"
