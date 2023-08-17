@@ -3,9 +3,9 @@ import Chips from "@kits/Chips";
 import SectionTitle from "@components/Layout/Title/Section";
 import type { FC } from "react";
 
-type ProjectTechsProps = Pick<IProject, "techs">;
+type ProjectDetailTechsProps = Pick<IProject, "techs">;
 
-const ProjectTechs: FC<ProjectTechsProps> = (props) => {
+const ProjectDetailTechs: FC<ProjectDetailTechsProps> = (props) => {
   const { techs } = props;
 
   return (
@@ -18,4 +18,4 @@ const ProjectTechs: FC<ProjectTechsProps> = (props) => {
   );
 };
 
-export default ProjectTechs;
+export default ProjectDetailTechs;
