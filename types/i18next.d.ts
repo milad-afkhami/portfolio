@@ -31,9 +31,20 @@
 //   "favourites.writers": typeof favouritesWriters;
 // }
 
+type I18NNameSpaces =
+  | "common"
+  | "layout"
+  | "home"
+  | "projects"
+  | "about"
+  | "packages"
+  | "favourites.common"
+  | "favourites.playlists";
+
 declare module "i18next" {
   interface CustomTypeOptions {
     defaultNS: "common";
     // resources: I18nResources;
   }
+  type FlatNamespace = I18NNameSpaces;
 }

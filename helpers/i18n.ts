@@ -1,4 +1,5 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import type { FlatNamespace } from "i18next";
 // import type { SSRConfig } from "next-i18next/dist/types/types";
 
 type SSRConfig = UnPromise<ReturnType<typeof serverSideTranslations>>;
@@ -6,7 +7,7 @@ type SSRConfig = UnPromise<ReturnType<typeof serverSideTranslations>>;
 export default class I18nHelper {
   static async ssrT9n(
     locale?: string,
-    ...namespaces: I18NNameSpaces[]
+    ...namespaces: FlatNamespace[]
   ): Promise<Maybe<SSRConfig>> {
     let t9n;
     if (locale) {

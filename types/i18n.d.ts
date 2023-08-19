@@ -1,13 +1,3 @@
-type I18NNameSpaces =
-  | "common"
-  | "layout"
-  | "home"
-  | "projects"
-  | "about"
-  | "packages"
-  | "favourites.common"
-  | "favourites.playlists";
-
 type Languages = "en"; // | "de" | "fr";
 
 type LanguageConfig = Readonly<{

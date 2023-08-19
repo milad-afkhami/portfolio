@@ -3,12 +3,13 @@ import {
   type TextProps as StyledTextProps,
 } from "style-wiz";
 import { useTranslation } from "next-i18next";
+import type { FlatNamespace } from "i18next";
 import type { HOCFunctionalComponent } from "@_types/components";
 
 export interface TextProps extends StyledTextProps {
   keyPrefix?: string;
   noTranslation?: boolean;
-  ns?: I18NNameSpaces;
+  ns?: FlatNamespace;
 }
 
 const Text: HOCFunctionalComponent<TextProps> = (props) => {
