@@ -1,7 +1,7 @@
 import { Div } from "style-wiz";
 import Head from "@components/SEO/Head";
 import Profile from "@components/Home/Profile";
-import FeaturedPosts from "@components/Home/FeaturedPosts";
+import HomeBlogs from "@components/Home/Blogs";
 import HomeProjects from "@components/Home/Projects";
 import HomeGists from "@components/Home/Gists";
 import Contact from "@components/Contact";
@@ -24,7 +24,7 @@ const HomePage: PageComponent<HomePageProps> = (props) => {
       <Head canonical="/" />
       <Div width="100%" py="3">
         <Profile />
-        <FeaturedPosts posts={blogs} />
+        <HomeBlogs posts={blogs} />
         <HomeProjects />
         <HomeGists items={gists} />
         <Contact />

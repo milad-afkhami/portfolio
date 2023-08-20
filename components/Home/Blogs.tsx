@@ -1,4 +1,6 @@
 import { Div } from "style-wiz";
+import Link from "@kits/Link";
+import Button from "@kits/Button";
 import BlogCards from "@components/Cards/Blog";
 import { useTranslation } from "next-i18next";
 import type { FC } from "react";
@@ -20,10 +22,8 @@ interface FeaturedPostsProps {
   posts: IBlog[];
 }
 
-const FeaturedPosts: FC<FeaturedPostsProps> = (props) => {
+const HomeBlogs: FC<FeaturedPostsProps> = (props) => {
   const { posts } = props;
-
-  const [t] = useTranslation("home");
 
   // const isMediumScreen = useMediaQuery({ minWidth: breakpoints.sm, maxWidth: breakpoints.md });
 
@@ -34,9 +34,12 @@ const FeaturedPosts: FC<FeaturedPostsProps> = (props) => {
 
   return (
     <Div my="4">
-      <BlogCards items={items} title={t("posts.title")} moreLink="/blog" />
+      <BlogCards items={items} headingLevel={2} />
+      <Link href="/blog" width="100%">
+        <Button text="posts.seeMore" ns="home" block variant="outlined" />
+      </Link>
     </Div>
   );
 };
 
-export default FeaturedPosts;
+export default HomeBlogs;
