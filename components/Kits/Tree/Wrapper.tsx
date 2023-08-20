@@ -8,13 +8,9 @@ const TreeWrapper = styled("div")`
   }
   .tree-nav__item details {
     width: fit-content;
-
     overflow: inherit;
-    &.is-expandable {
-    }
   }
-
-  font-size: var(--font-size-md-b);
+  font-size: var(--font-size-md);
   summary {
     cursor: default;
     width: fit-content;
@@ -63,7 +59,6 @@ const TreeWrapper = styled("div")`
     align-items: center;
     text-align: center;
   }
-
   .tree-nav__item-title {
     cursor: default;
     display: block;
