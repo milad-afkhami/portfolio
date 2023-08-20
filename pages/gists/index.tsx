@@ -1,6 +1,5 @@
 import { Div } from "style-wiz";
 import Head from "@components/SEO/Head";
-import PageTitle from "@components/Layout/Title/Page";
 import GistCards from "@components/Cards/Gist";
 import GistServices from "@services/gist";
 import I18nHelper from "@helpers/i18n";
@@ -18,8 +17,7 @@ const GistsPage: PageComponent<GistsPageProps> = (props) => {
     <>
       <Head canonical="/gists" page="gists" />
       <Div width="100%" py="3">
-        <PageTitle title="gists.title" />
-        <GistCards items={gists} />
+        <GistCards items={gists} headingLevel={1} />
       </Div>
     </>
   );

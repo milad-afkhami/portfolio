@@ -1,8 +1,7 @@
 import { Div } from "style-wiz";
 import PageTitle from "@components/Layout/Title/Page";
 import ProjectCard from "./Item";
-import ProjectCardsWrapper from "./Wrapper";
-import ProjectCardsMoreLink from "./MoreLink";
+import responsiveStyles from "@helpers/responsiveStyles";
 import projectsData from "@data/projects";
 import type { FC } from "react";
 
@@ -20,13 +19,24 @@ const ProjectCards: FC = () => {
     <Div my="3">
       <PageTitle title="title" tag="h2" ns="projects" />
       {items.length ? (
-        <ProjectCardsWrapper>
+        <Div
+          grid={["repeat(1, 1fr)", , "4", "4"]}
+          mb="4"
+          styles={{
+            gridAutoFlow: "row",
+            ...responsiveStyles("md", {
+              gridTemplateColumns: "repeat(2, 1fr)",
+            }),
+            ...responsiveStyles("lg", {
+              gridTemplateColumns: "repeat(3, 1fr)",
+            }),
+          }}
+        >
           {items.map((project) => (
             <ProjectCard key={project.id} {...project} />
           ))}
-        </ProjectCardsWrapper>
+        </Div>
       ) : null}
-      <ProjectCardsMoreLink />
     </Div>
   );
 };

@@ -1,33 +1,43 @@
 import { Div } from "style-wiz";
 import BlogCard from "./Item";
 import PageTitle from "@components/Layout/Title/Page";
-import BlogCardsMoreLink from "./MoreLink";
-import BlogCardsWrapper from "./Wrapper";
+import responsiveStyles from "@helpers/responsiveStyles";
 import type { FC } from "react";
 
 interface BlogCardsProps {
   items: IBlog[];
-  title?: string;
-  moreLink?: string;
+  headingLevel?: IntRange<1, 3>;
   // loading: string;
   // loadingCount: string;
   // orientation: string;
 }
 
 const BlogCards: FC<BlogCardsProps> = (props) => {
-  const { items = [], title, moreLink } = props;
+  const { items = [], headingLevel = 2 } = props;
 
   return (
-    <Div my="3">
-      {title && <PageTitle title={title} tag="h2" />}
+    <Div mb="3">
+      <PageTitle title="blog.title" tag={`h${headingLevel}`} />
       {items.length ? (
-        <BlogCardsWrapper>
+        <Div
+          thinScrollbar
+          overflowX="auto"
+          mb="4"
+          grid={["repeat(1, 1fr)", , "4", "4", "row"]}
+          styles={{
+            ...responsiveStyles("md", {
+              gridTemplateColumns: "repeat(2, 1fr)",
+            }),
+            ...responsiveStyles("lg", {
+              gridTemplateColumns: "repeat(3, 1fr)",
+            }),
+          }}
+        >
           {items.map((post) => (
             <BlogCard key={post.slug} {...post} />
           ))}
-        </BlogCardsWrapper>
+        </Div>
       ) : null}
-      {items.length && moreLink ? <BlogCardsMoreLink link={moreLink} /> : null}
     </Div>
   );
 };

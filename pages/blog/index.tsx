@@ -1,6 +1,5 @@
 import { Div } from "style-wiz";
 import Head from "@components/SEO/Head";
-import PageTitle from "@components/Layout/Title/Page";
 import BlogCards from "@components/Cards/Blog";
 import BlogServices from "@services/blog";
 import I18nHelper from "@helpers/i18n";
@@ -18,8 +17,7 @@ const BlogsPage: PageComponent<BlogsPageProps> = (props) => {
     <>
       <Head page="blogs" canonical="/blog" />
       <Div width="100%" py="3">
-        <PageTitle title="blog.title" />
-        <BlogCards items={blogs} />
+        <BlogCards items={blogs} headingLevel={1} />
       </Div>
     </>
   );

@@ -1,7 +1,7 @@
 import { Div } from "style-wiz";
-import PageTitle from "@components/Layout/Title/Page";
+import Link from "@kits/Link";
+import Button from "@kits/Button";
 import GistCards from "@components/Cards/Gist";
-import GistsMoreLink from "./MoreLink";
 import type { FC } from "react";
 
 const homeGists = ["utility-types", "useIntersector", "vscode"];
@@ -22,9 +22,10 @@ const HomeGists: FC<HomeGistsProps> = (props) => {
 
   return (
     <Div my="4">
-      <PageTitle title="gists.title" ns="home" />
-      <GistCards items={_items} />
-      <GistsMoreLink />
+      <GistCards items={_items} headingLevel={2} />
+      <Link href="/gists" width="100%">
+        <Button text="gists.seeMore" ns="home" block variant="outlined" />
+      </Link>
     </Div>
   );
 };
