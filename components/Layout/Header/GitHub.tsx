@@ -10,7 +10,7 @@ const HeaderGithub: FC = () => (
     flex={["center", "center"]}
     href="https://github.com/milad-afkhami/portfolio"
   >
-    <Icon name="github" size="28px" />
+    <Icon name="github" size="h-lg" />
   </Link>
 );
 

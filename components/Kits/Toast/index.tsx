@@ -21,7 +21,7 @@ const Toast: FC<ToastProps> = (props) => {
       case "warning":
         return "warning";
       default:
-        return "info";
+        return "info-outlined";
     }
   }, [type]);
 

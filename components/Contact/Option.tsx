@@ -28,7 +28,7 @@ const ContactOption: FC<ContactOptionProps> = (props) => {
         position="relative"
         mb="3"
       >
-        <Icon name={type} size="2.5rem" />
+        <Icon name={type} size="2.75rem" />
       </Div>
       <Div mb="2">
         <Text color="brand-primary-main" size="lg" bold transform="capitalize">

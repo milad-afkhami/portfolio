@@ -1,8 +1,8 @@
 @font-face {
   font-family: "icomoon";
-  src: url("fonts/icomoon.ttf?3qd467") format("truetype"),
-    url("fonts/icomoon.woff?3qd467") format("woff"),
-    url("fonts/icomoon.svg?3qd467#icomoon") format("svg");
+  src: url("fonts/icomoon.ttf") format("truetype"),
+    url("fonts/icomoon.woff") format("woff"),
+    url("fonts/icomoon.svg#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -24,17 +24,17 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.mili-external-link-icon:before {
-  content: "\e90b";
+.mili-gallery-icon:before {
+  content: "\e916";
 }
-.mili-close-icon:before {
-  content: "\e908";
+.mili-warning-icon:before {
+  content: "\e906";
 }
-.mili-checkmark-outline-icon:before {
-  content: "\e901";
+.mili-info-outlined-icon:before {
+  content: "\e911";
 }
-.mili-education-icon:before {
-  content: "\e905";
+.mili-document-icon:before {
+  content: "\e910";
 }
 .mili-github-icon:before {
   content: "\e907";
@@ -54,29 +54,17 @@
 .mili-clock-icon:before {
   content: "\e90c";
 }
-.mili-time-icon:before {
-  content: "\e90c";
-}
-.mili-history-icon:before {
-  content: "\e90c";
-}
 .mili-list-icon:before {
   content: "\e90d";
 }
 .mili-info-icon:before {
   content: "\e90f";
 }
-.mili-headphones-icon:before {
-  content: "\e913";
-}
 .mili-music-icon:before {
   content: "\e913";
 }
 .mili-song-icon:before {
   content: "\e913";
-}
-.mili-film-icon:before {
-  content: "\e918";
 }
 .mili-show-icon:before {
   content: "\e918";
@@ -90,32 +78,20 @@
 .mili-sun-icon:before {
   content: "\e9d4";
 }
-.mili-download-icon:before {
-  content: "\e904";
+.mili-tools-icon:before {
+  content: "\e90e";
 }
-.mili-copy-outline-icon:before {
-  content: "\e915";
+.mili-close-icon:before {
+  content: "\e908";
+}
+.mili-check-outlined-icon:before {
+  content: "\e901";
+}
+.mili-education-icon:before {
+  content: "\e905";
 }
 .mili-focus-center-icon:before {
   content: "\e91a";
-}
-.mili-timeline-icon:before {
-  content: "\e91c";
-}
-.mili-calendar-icon:before {
-  content: "\e900";
-}
-.mili-gallery-icon:before {
-  content: "\e903";
-}
-.mili-tools-icon:before {
-  content: "\e906";
-}
-.mili-measure-icon:before {
-  content: "\e906";
-}
-.mili-chevron-right-icon:before {
-  content: "\e923";
 }
 .mili-whatsapp-icon:before {
   content: "\e91d";
@@ -136,4 +112,78 @@
 .mili-email-icon:before {
   content: "\e921";
   color: #d14836;
+}
+.mili-external-link-icon:before {
+  content: "\e90b";
+}
+.mili-music-icon:before {
+  content: "\e913";
+}
+.mili-song-icon:before {
+  content: "\e913";
+}
+.mili-show-icon:before {
+  content: "\e918";
+}
+.mili-book-icon:before {
+  content: "\e927";
+}
+.mili-suitcase-icon:before {
+  content: "\e9ae";
+}
+.mili-sun-icon:before {
+  content: "\e9d4";
+}
+.mili-tools-icon:before {
+  content: "\e90e";
+}
+.mili-external-link-icon:before {
+  content: "\e90b";
+}
+.mili-download-icon:before {
+  content: "\e904";
+}
+.mili-copy-outlined-icon:before {
+  content: "\e915";
+}
+.mili-timeline-icon:before {
+  content: "\e91c";
+}
+.mili-whatsapp-icon:before {
+  content: "\e91d";
+  color: #25d366;
+}
+.mili-telegram-icon:before {
+  content: "\e91e";
+  color: #2ca5e0;
+}
+.mili-skype-icon:before {
+  content: "\e91f";
+  color: #00aff0;
+}
+.mili-linkedin-icon:before {
+  content: "\e920";
+  color: #0077b5;
+}
+.mili-email-icon:before {
+  content: "\e921";
+  color: #d14836;
+}
+.mili-external-link-icon:before {
+  content: "\e90b";
+}
+.mili-calendar-icon:before {
+  content: "\e900";
+}
+.mili-timeline-icon:before {
+  content: "\e91c";
+}
+.mili-calendar-icon:before {
+  content: "\e900";
+}
+.mili-chevron-right-icon:before {
+  content: "\e923";
+}
+.mili-chevron-right-icon:before {
+  content: "\e923";
 }

@@ -27,7 +27,7 @@ const HeaderSwitchTheme: FC = () => {
     >
       <If condition={icon}>
         <Then>
-          <Icon name={icon!} size="24px" />
+          <Icon name={icon!} size="h-lg" />
         </Then>
       </If>
     </Div>

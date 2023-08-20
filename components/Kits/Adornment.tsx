@@ -14,7 +14,7 @@ const Adornment: FC<AdornmentProp> = function (props) {
 
   if (!icon) return null;
 
-  const size = "20px" as IconProps["size"];
+  const size = "lg" as IconProps["size"];
 
   if (typeof icon === "string") {
     return (
