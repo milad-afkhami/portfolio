@@ -8,6 +8,7 @@ const favouriteSeriesData: IFavouriteCommonEntity[] = [
     name: "It's Always Sunny in Philadelphia",
   },
   { slug: "louie", name: "Louie" },
+  { slug: "leftovers", name: "Leftovers" },
   { slug: "the-big-bang-theory", name: "The Big Bang Theory" },
   { slug: "family-guy", name: "Family Guy" },
   { slug: "rick-and-morty", name: "Rick And Morty" },
