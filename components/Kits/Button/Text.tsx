@@ -9,7 +9,7 @@ export default function ButtonText(props: Pick<ButtonProps, "text" | "ns">) {
 
   const sharedProps = {
     ns,
-    size: "md",
+    size: "lg",
     userSelect: "none",
   } as TextProps;
 
