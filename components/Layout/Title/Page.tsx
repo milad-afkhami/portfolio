@@ -6,6 +6,8 @@ import type { PageTitleProps } from "./props";
 const PageTitle: FC<PageTitleProps> = (props) => {
   const { title, tag, ns } = props;
 
+  if (!title) return null;
+
   return (
     <Div mb="4">
       <Div
