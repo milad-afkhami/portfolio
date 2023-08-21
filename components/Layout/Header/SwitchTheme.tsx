@@ -24,6 +24,7 @@ const HeaderSwitchTheme: FC = () => {
       flex={["center", "center"]}
       width="2rem"
       onClick={onChangeTheme}
+      role="button"
     >
       <If condition={icon}>
         <Then>

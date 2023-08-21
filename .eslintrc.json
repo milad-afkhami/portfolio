@@ -9,6 +9,7 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/strict-type-checked",
     "plugin:@typescript-eslint/stylistic-type-checked",
+    "plugin:jsx-a11y/strict",
     "airbnb",
     "airbnb/hooks",
     "airbnb-typescript",
@@ -43,5 +44,17 @@
     "@typescript-eslint/no-unsafe-call": "off",
     "@typescript-eslint/no-unsafe-assignment": "off",
     "@typescript-eslint/no-confusing-void-expression": "off"
+  },
+  "settings": {
+    "jsx-a11y": {
+      "components": {
+        "Button": "button",
+        "Link": "a",
+        "Image": "img",
+        "Text": "span",
+        "Div": "div",
+        "Icon": "i"
+      }
+    }
   }
 }

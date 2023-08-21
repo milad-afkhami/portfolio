@@ -9,6 +9,7 @@ const HeaderGithub: FC = () => (
     width="30px"
     flex={["center", "center"]}
     href="https://github.com/milad-afkhami/portfolio"
+    aria-label="github repository"
   >
     <Icon name="github" size="28px" />
   </Link>

@@ -1,9 +1,11 @@
 // @ts-nocheck
 import { useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { Div } from "style-wiz";
 
 // const anime = dynamic(() => import("animejs/lib/anime.es.js"), { ssr: false });
 const ProfileNameSvg = () => {
+  const [t] = useTranslation("home");
   const animeRef = useRef();
 
   useEffect(() => {
@@ -33,6 +35,7 @@ const ProfileNameSvg = () => {
   return (
     <Div
       id="name-animation"
+      title={t("app.name")}
       mb="3"
       onClick={(e) => {
         e.preventDefault();
