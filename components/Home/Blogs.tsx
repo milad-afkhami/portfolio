@@ -2,7 +2,6 @@ import { Div } from "style-wiz";
 import Link from "@kits/Link";
 import Button from "@kits/Button";
 import BlogCards from "@components/Cards/Blog";
-import { useTranslation } from "next-i18next";
 import type { FC } from "react";
 
 const homeBlogs = [
