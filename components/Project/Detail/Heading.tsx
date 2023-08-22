@@ -27,7 +27,6 @@ const ProjectDetailHeading: FC<ProjectDetailHeadingProps> = (props) => {
         <Div mx="2">
           <Text size="h-md" bold as="h2" noTranslation>
             {name}
-            {/* {`${slug}.name`} */}
           </Text>
         </Div>
         <If condition={logo}>

@@ -5,7 +5,6 @@
   "gallery": "Gallery",
   "description": "Description",
   "reval": {
-    "name": "Reval",
     "shortDescription": "Web application marketplace designed exclusively for SMBs(Small and medium-sized Businesses)",
     "description": "Web application marketplace designed exclusively for SMBs(Small and medium-sized Businesses), Featuring a Microfrontend architecture with Webpack Module Federation, ensuring enhanced flexibility and performance. The platform facilitates seamless communication between Microfrontends through the implementation of a standard event bus, eliminating the need for complex state management.",
     "points": {
@@ -16,7 +15,6 @@
     }
   },
   "xsystem-toolkit": {
-    "name": "Toolkit",
     "shortDescription": "Organization front-end infrastructure team",
     "description": "Three NPM packages encompassing UI Kits, Hooks, and Utils, harnessing the capabilities of NPM packages to elevate frontend development, mitigate inconsistency, and eradicate redundancy and duplication across the organization.",
     "points": {
@@ -26,7 +24,6 @@
     }
   },
   "landingator": {
-    "name": "Landingator",
     "shortDescription": "Dynamic website builder",
     "description": "Dynamic website builder with superfast and also up-to-date static pages using on-demand revalidation, comprehensive documentation, and advanced developer experience.",
     "points": {
@@ -42,7 +39,6 @@
     }
   },
   "behtarino": {
-    "name": "Behtarino",
     "shortDescription": "A platform for introducing and reviewing businesses in Iran",
     "description": "With more than 5 million views per month, Behtarino is considered one of the largest(Yelp-ish) platforms for introducing and reviewing businesses in Iran.",
     "points": {
@@ -57,7 +53,6 @@
     }
   },
   "octava": {
-    "name": "Octava",
     "shortDescription": "Fully-featured persian music streaming platform",
     "description": "Fully-featured persian music streaming platform.",
     "points": {
@@ -94,7 +89,6 @@
     }
   },
   "uneed": {
-    "name": "Uneed",
     "shortDescription": "Free advertisement posting platform",
     "description": "A platform for free posting of advertisements and inquiries regarding the purchase and sale of new and used products.",
     "points": {
@@ -106,7 +100,6 @@
     }
   },
   "tarinoo": {
-    "name": "Tarinoo",
     "shortDescription": "Fully customizable store and site builder for SMBs",
     "description": "Another product of uneed infrastructure, Tarinoo is a fully customizable store and site builder that handles end-to-end of B2C and B2B SMBs(Small and Medium-Sized Businesses) digital needs, including inventory and warehouse management, shipping, online payment gateway, CRM(Customer Relationship Management), and etc.",
     "points": {
@@ -115,7 +108,6 @@
     }
   },
   "bityon": {
-    "name": "Bityon",
     "shortDescription": "A secure platform to trade crypto currencies",
     "description": "A secure platform to buy and sell bitcoin and other crypto currencies.",
     "points": {
@@ -129,7 +121,6 @@
     }
   },
   "biz": {
-    "name": "BIZ",
     "shortDescription": "The biggest iranian network marketing company",
     "description": "The biggest iranian network marketing company.",
     "points": {
@@ -142,7 +133,6 @@
     }
   },
   "crm": {
-    "name": "CRM Panel",
     "description": "Customer relationship management panel that provides an all-in-one social media management tool.",
     "points": {
       "1": "Using socket.io for real-time communication with the server",
@@ -153,7 +143,6 @@
     }
   },
   "etc": {
-    "name": "And so forth ...",
     "description": "Projects that I'm not really proud of ( ^_^;)"
   }
 }
