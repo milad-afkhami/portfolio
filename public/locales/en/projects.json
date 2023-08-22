@@ -3,6 +3,7 @@
   "points": "Points",
   "tools": "Tools",
   "gallery": "Gallery",
+  "description": "Description",
   "reval": {
     "name": "Reval",
     "shortDescription": "Web application marketplace designed exclusively for SMBs(Small and medium-sized Businesses)",
