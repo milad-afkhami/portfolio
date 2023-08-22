@@ -19,22 +19,26 @@ const projectsData: IProject[] = [
   },
   {
     id: 9,
-    name: "Toolkit",
+    name: "XSystem Toolkit",
     medias: [
-      { src: "/images/projects/toolkit/1.jpg", title: "toolkit.points.1" },
-      { src: "/images/projects/toolkit/2.jpg" },
+      {
+        src: "/images/projects/xsystem-toolkit/1.jpg",
+        title: "xsystem-toolkit.points.1",
+      },
+      { src: "/images/projects/xsystem-toolkit/2.jpg" },
     ],
     date: "2023-03",
-    slug: "toolkit",
+    slug: "xsystem-toolkit",
     techs: [
       "Rollup",
       "Storybook",
       "Jest",
       "Semantic Release",
+      "TypeDoc",
       "Material UI",
       "Husky",
     ],
-    points: ["toolkit.points.1"],
+    points: ["xsystem-toolkit.points.1"],
   },
   {
     id: 8,
