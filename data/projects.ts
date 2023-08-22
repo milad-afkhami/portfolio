@@ -2,6 +2,7 @@ const projectsData: IProject[] = [
   {
     id: 10,
     name: "Reval",
+    logo: "/images/projects/reval/logo.jpg",
     medias: [
       { src: "/images/projects/reval/1.jpg", title: "reval.points.1" },
       { src: "/images/projects/reval/2.jpg", title: "reval.points.1" },
@@ -20,6 +21,7 @@ const projectsData: IProject[] = [
   {
     id: 9,
     name: "XSystem Toolkit",
+    logo: "/images/projects/xsystem-toolkit/logo.jpg",
     medias: [
       {
         src: "/images/projects/xsystem-toolkit/1.jpg",
