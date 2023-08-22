@@ -27,7 +27,7 @@ const ProjectCards: FC = () => {
             ...responsiveStyles("md", {
               gridTemplateColumns: "repeat(2, 1fr)",
             }),
-            ...responsiveStyles("lg", {
+            ...responsiveStyles("xl", {
               gridTemplateColumns: "repeat(3, 1fr)",
             }),
           }}
