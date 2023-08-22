@@ -22,7 +22,7 @@ const Contact: FC = () => (
       })}
     >
       {contactOptions.map((option) => (
-        <ContactOption key={option.label} {...option} />
+        <ContactOption key={option.value} {...option} />
       ))}
     </Div>
   </div>
