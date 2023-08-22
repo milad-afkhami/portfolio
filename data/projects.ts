@@ -20,17 +20,17 @@ const projectsData: IProject[] = [
   },
   {
     id: 9,
-    name: "XSystem Toolkit",
-    logo: "/images/projects/xsystem-toolkit/logo.jpg",
+    name: "Frontend Toolkit",
+    logo: "/images/projects/idekavan-organization-frontend-toolkit/logo.jpg",
     medias: [
       {
-        src: "/images/projects/xsystem-toolkit/1.jpg",
-        title: "xsystem-toolkit.points.1",
+        src: "/images/projects/idekavan-organization-frontend-toolkit/1.jpg",
+        title: "idekavan-organization-frontend-toolkit.points.1",
       },
-      { src: "/images/projects/xsystem-toolkit/2.jpg" },
+      { src: "/images/projects/idekavan-organization-frontend-toolkit/2.jpg" },
     ],
     date: "2023-03",
-    slug: "xsystem-toolkit",
+    slug: "idekavan-organization-frontend-toolkit",
     techs: [
       "Rollup",
       "Storybook",
@@ -40,7 +40,7 @@ const projectsData: IProject[] = [
       "Material UI",
       "Husky",
     ],
-    points: ["xsystem-toolkit.points.1"],
+    points: ["idekavan-organization-frontend-toolkit.points.1"],
   },
   {
     id: 8,
