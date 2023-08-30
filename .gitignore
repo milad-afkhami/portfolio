@@ -42,8 +42,4 @@ package-lock.json
 *.tsbuildinfo
 next-env.d.ts
 
-public/stylesheets/theme/*.min.css
-
 /cache/
-
-public/stylesheets/style-wiz/*.min.css
