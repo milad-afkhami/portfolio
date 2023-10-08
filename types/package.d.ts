@@ -1,10 +1,9 @@
-interface IPackage {
-  name: string;
-  latestVersion: string;
-  homepage: string;
-  keywords: string[];
-  readmeFilename: string;
-  description: string;
+interface IPackage
+  extends Pick<
+    IPackageDetailed,
+    "name" | "homepage" | "keywords" | "readmeFilename" | "description"
+  > {
+  latestVersion: IPackageDetailed["dist-tags"]["latest"];
 }
 
 interface IPackageDetailed {
