@@ -2,7 +2,6 @@
 import { Div } from "style-wiz";
 import Text from "@kits/Text";
 import IconButton from "@kits/IconButton";
-import __lowerCase from "lodash-es/lowerCase";
 import type { FC } from "react";
 // #endregion
 
@@ -28,8 +27,8 @@ const PackageCard: FC<IPackage> = (props) => {
     >
       <Div flex={["center", "space-between"]} width="100%">
         <div>
-          <Text size="h-sm" bold noTranslation transform="capitalize">
-            {__lowerCase(name)}
+          <Text size="h-sm" bold noTranslation>
+            {name}
           </Text>
         </div>
         <Div display="flex">
