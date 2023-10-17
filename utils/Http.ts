@@ -1,6 +1,7 @@
 import axios, { type AxiosRequestHeaders } from "axios";
 import { apiBaseURL } from "@configs/urls";
 import formData from "@utils/formData";
+import type { Dictionary } from "ts-wiz";
 
 type Method = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
 
@@ -10,7 +11,7 @@ interface FetchOptions {
   method?: Method;
   headers?: AxiosRequestHeaders;
   params?: Dictionary;
-  data?: Dictionary<unknown>;
+  data?: Dictionary;
   type?: "formData" | null;
 }
 

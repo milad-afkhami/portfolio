@@ -3,6 +3,7 @@ import BlogCard from "./Item";
 import PageTitle from "@components/Layout/Title/Page";
 import responsiveStyles from "@helpers/responsiveStyles";
 import type { FC } from "react";
+import type { IntRange } from "ts-wiz";
 
 interface BlogCardsProps {
   items: IBlog[];

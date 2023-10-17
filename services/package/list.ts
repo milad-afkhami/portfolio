@@ -1,6 +1,7 @@
 import Http from "@utils/Http";
 import endpoints from "@constants/endpoints";
 import getPackageDetails from "./details";
+import type { Dictionary } from "ts-wiz";
 
 export default async function getPackagesList() {
   const result = await Http.get<Dictionary<string>>(endpoints.packagesList);

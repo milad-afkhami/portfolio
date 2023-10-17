@@ -1,4 +1,5 @@
 import { useEffect, type MutableRefObject } from "react";
+import type { Nullable } from "ts-wiz";
 
 type ClickOutsideHookHandler = (e: Event) => void;
 

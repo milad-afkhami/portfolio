@@ -3,6 +3,7 @@ import type { FunctionComponent, PropsWithChildren } from "react";
 import type { AppProps as NextAppProps } from "next/app";
 import type { NextPage } from "next";
 import type { MDXRemoteSerializeResult } from "next-mdx-remote";
+import type { Dictionary, UnPromise } from "ts-wiz";
 
 export interface LayoutConfig {
   /**

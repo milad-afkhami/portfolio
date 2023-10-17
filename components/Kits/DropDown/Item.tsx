@@ -2,6 +2,7 @@ import { Div, type DivProps } from "style-wiz";
 import Text from "@kits/Text";
 import Image from "@kits/Image";
 import type { FC } from "react";
+import type { MergeBy } from "ts-wiz";
 
 export type DropDownItemProps = MergeBy<
   DivProps,

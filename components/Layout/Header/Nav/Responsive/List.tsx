@@ -1,12 +1,12 @@
+import { useRef, type FC } from "react";
 import { Div } from "style-wiz";
 import useOnClickOutside from "@hooks/useOnClickOutside";
 import useEventListener from "@hooks/useEventListener";
-import { useRef } from "react";
 import HeaderMenuItem from "../Item";
 import { navItems } from "@configs/layout";
 import __noop from "lodash-es/noop";
+import type { NoneToVoidFunction } from "ts-wiz";
 // import { DownloadResume } from "../../DownloadResume";
-import type { FC } from "react";
 
 interface HeaderResponsiveMenuListProps {
   rendered: boolean;

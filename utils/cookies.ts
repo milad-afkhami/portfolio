@@ -1,6 +1,7 @@
 import { parseCookies, setCookie, destroyCookie } from "nookies";
 import Intervals from "@constants/interval";
 import type { NextPageContext } from "next";
+import type { Nullable } from "ts-wiz";
 
 type GetCookieMethod = (
   name: string,

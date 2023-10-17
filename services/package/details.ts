@@ -1,6 +1,7 @@
 import Http from "@utils/Http";
 import __pick from "lodash-es/pick";
 import endpoints from "@constants/endpoints";
+import type { IPackage, IPackageDetailed } from "@_types/package";
 
 export default async function getPackageDetails(
   name: string
