@@ -3,6 +3,7 @@ import { Div } from "style-wiz";
 import Text from "@kits/Text";
 import IconButton from "@kits/IconButton";
 import type { FC } from "react";
+import type { IPackage } from "@_types/package";
 // #endregion
 
 const PackageCard: FC<IPackage> = (props) => {

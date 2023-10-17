@@ -1,5 +1,6 @@
 import breakpoints from "@constants/stylesheets/breakpoints.json";
 import type { CSSAttribute } from "goober";
+import type { Nullishable } from "ts-wiz";
 
 /**
  * This method helps us in generating responsive stylesheet objects

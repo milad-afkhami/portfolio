@@ -6,6 +6,7 @@ import PackageServices from "@services/package";
 import I18nHelper from "@helpers/i18n";
 import type { PageComponent } from "@_types/components";
 import type { GetStaticProps } from "next";
+import type { IPackage } from "@_types/package";
 
 const PackagesPage: PageComponent<{ packages: IPackage[] }> = (props) => {
   const { packages } = props;

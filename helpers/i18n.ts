@@ -1,5 +1,6 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import type { FlatNamespace } from "i18next";
+import type { Maybe, UnPromise } from "ts-wiz";
 // import type { SSRConfig } from "next-i18next/dist/types/types";
 
 type SSRConfig = UnPromise<ReturnType<typeof serverSideTranslations>>;

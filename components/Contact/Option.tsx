@@ -4,6 +4,7 @@ import Text from "@kits/Text";
 import copyToClipboard from "@utils/copyToClipboard";
 import contactOptions from "@configs/contact";
 import type { FC } from "react";
+import type { ValueOf } from "ts-wiz";
 
 type ContactOptionProps = ValueOf<typeof contactOptions>;
 

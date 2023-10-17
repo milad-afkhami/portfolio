@@ -1,6 +1,7 @@
 import __reduce from "lodash-es/reduce";
+import type { Dictionary } from "ts-wiz";
 
-const formData = (obj: Dictionary<unknown>) =>
+const formData = (obj: Dictionary) =>
   __reduce(
     obj,
     (acc, cv) => {

@@ -3,6 +3,7 @@ import { Div } from "style-wiz";
 import PageTitle from "@components/Layout/Title/Page";
 import PackageCard from "./Item";
 import type { FC } from "react";
+import type { IPackage } from "@_types/package";
 // #endregion
 
 interface PackageCardsProps {

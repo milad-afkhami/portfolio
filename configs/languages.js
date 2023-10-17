@@ -1,7 +1,7 @@
 /** @type {Languages} */
 const defaultLanguage = "en";
 
-/** @type {DynamicDictionary<Languages, LanguageConfig>} */
+/** @type {Record<Languages, LanguageConfig>} */
 const languages = {
   en: {
     id: 1,

@@ -1,6 +1,7 @@
 import { useCallback, type FC } from "react";
 import Text from "@kits/Text";
 import TreeWrapper from "./Wrapper";
+import type { ValueOf } from "ts-wiz";
 
 /** Renders an expandable tree. */
 const Tree: FC<TreeProps> = (props) => {

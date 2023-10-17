@@ -1,6 +1,7 @@
 import Link from "@kits/Link";
 import Text from "@kits/Text";
 import type { FC } from "react";
+import type { INavItem } from "@_types/layout";
 
 const HeaderMenuItem: FC<INavItem> = (props) => {
   const { link, onClick, label } = props;

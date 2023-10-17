@@ -5,6 +5,7 @@ import {
   useRef,
   type MutableRefObject,
 } from "react";
+import type { Nullable } from "ts-wiz";
 
 enum BrowserSyncStorageType {
   Session = "sessionStorage",

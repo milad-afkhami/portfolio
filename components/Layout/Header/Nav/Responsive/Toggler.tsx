@@ -1,6 +1,7 @@
 import { styled } from "goober";
 import __noop from "lodash-es/noop";
 import type { FC, PropsWithChildren } from "react";
+import type { NoneToVoidFunction } from "ts-wiz";
 
 interface MenuTogglerProps {
   open: boolean;

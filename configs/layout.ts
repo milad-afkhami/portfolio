@@ -1,3 +1,5 @@
+import type { INavItem } from "@_types/layout";
+
 const navItems: INavItem[] = [
   { link: "/", label: "home" },
   { link: "/about", label: "about" },

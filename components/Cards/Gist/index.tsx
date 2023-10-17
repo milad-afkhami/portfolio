@@ -3,6 +3,7 @@ import PageTitle from "@components/Layout/Title/Page";
 import GistCard from "./Item";
 import responsiveStyles from "@helpers/responsiveStyles";
 import type { FC } from "react";
+import type { IntRange } from "ts-wiz";
 
 interface GistsProps {
   items: IGist[];

@@ -1,4 +1,6 @@
-interface IPackage
+import type { Dictionary } from "ts-wiz";
+
+export interface IPackage
   extends Pick<
     IPackageDetailed,
     "name" | "homepage" | "keywords" | "readmeFilename" | "description"
@@ -6,7 +8,7 @@ interface IPackage
   latestVersion: IPackageDetailed["dist-tags"]["latest"];
 }
 
-interface IPackageDetailed {
+export interface IPackageDetailed {
   _id: string;
   _rev: string;
   name: string;
