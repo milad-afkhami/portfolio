@@ -77,7 +77,7 @@ const FavouritePlaylist: FC<IFavouritePlaylist> = (props) => {
             </Text>
           </Div>
         </Div>
-        <a href={link} target="_blank">
+        <a href={link} target="_blank" aria-label="Playlist stream link">
           <Button
             variant="outlined"
             text="listenNow"
