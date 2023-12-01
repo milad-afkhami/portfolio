@@ -23,6 +23,7 @@ const PackageCard: FC<IPackage> = (props) => {
       bg="bg-secondary-main"
       position="relative"
       p="3"
+      mb="3"
       flex={["flex-start", "flex-start", "column"]}
       gap="3"
     >
