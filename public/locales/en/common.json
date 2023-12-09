@@ -72,7 +72,8 @@
       "react": "React",
       "next": "Next.js",
       "roadmap": "Roadmap",
-      "documentation": "Documentation"
+      "documentation": "Documentation",
+      "general": "General"
     },
     "notFound": "Blog Not Found!",
     "meta": {

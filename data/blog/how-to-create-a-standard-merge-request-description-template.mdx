@@ -1,0 +1,104 @@
+---
+title: "How to Create a Standard Merge Request Description Template"
+publishedAt: "2023-12"
+image: "/images/blog/merge-request-description-template.jpg"
+readingTime: "8"
+category: "general"
+summary: "Optimize your collaborative software development with a comprehensive guide to creating standard & efficient merge requests."
+---
+
+## Introduction
+
+The merge request process is a critical aspect of collaborative software development. To standardize and streamline this process, it's essential to have a clear and comprehensive merge request description template. In this blog post, we will guide you on how to create and implement a standard merge request description template, ensuring that your team follows a consistent and efficient workflow.
+
+## Setting Up the Default Description Template
+
+The first step is to insert the following code into the default description template settings for merge requests in your repository.
+
+```md
+## Related Issue
+
+Resolves #ISSUE-IDENTIFIER[S]
+
+## Changes
+
+_A summary of changes that this merge request contains. By default, it's a list of its commits._
+
+%{all_commits}
+
+## Checklist
+
+### Code Quality
+
+- [ ] This merge request follows [the standard style guides](LINK_TO_THE_STYLE_GUIDE_DOCUMENTATION).
+- [ ] This merge request follows [the git workflow guidelines](LINK_TO_THE_GIT_WORKFLOW_DOCUMENTATION).
+- [ ] I have reviewed and updated all relevant documentation related to the content of this merge request.
+
+### Git History
+
+- [ ] The commits of this merge request can be squashed, or I have interactively rebased the commits to ensure a clean history.
+- [ ] The commit messages adhere to [the git commit message convention standards](LINK_TO_THE_GIT_COMMIT_MESSAGE_CONVENTION_DOCUMENTATION).
+
+### Metadata
+
+- [ ] I have assigned myself to this merge request and the corresponding issues.
+- [ ] I have assigned the correct reviewer(s) to this merge request.
+- [ ] I have added the suitable label(s) corresponding to this merge request.
+- [ ] If there are other merge requests related or dependent on this one, I have mentioned them in the `dependencies` section.
+- [ ] I have added the **Draft** prefix if I don't want this merge request to be merged yet.
+- [ ] I have added the **WIP** prefix if I don't want this merge request to be reviewed yet, and therefore I haven't added any reviewers or assignees.
+- [ ] I have attached the Figma design or, at the very least, a screenshot (if available) that pictures the intended output of this merge request to the issue details or in [the Additional Notes section](#additional-notes).
+
+### QA
+
+- [ ] All tests have been successfully completed.
+- [ ] The app has been built successfully.
+
+## Additional Notes
+
+...
+```
+
+### Setup Guide
+
+The setup process varies depending on whether you are utilizing GitLab or GitHub. If you are using GitLab, refer to the 'Description templates' documentation, while for GitHub, explore the guidelines in the 'Creating a pull request template for your repository' document.
+
+### Documentations
+
+Feel free to replace `LINK_TO_THE_STYLE_GUIDE_DOCUMENTATION`, `LINK_TO_THE_GIT_WORKFLOW_DOCUMENTATION`, and `LINK_TO_THE_GIT_COMMIT_MESSAGE_CONVENTION_DOCUMENTATION` with the actual URLs.
+
+{/* Don't have those yet? For each one, I have prepared another blog for you: */}
+{/* - How to write style guide documentation? */}
+{/* - How to write git workflow documentation? */}
+{/* - How to write git commit message convention documentation? */}
+
+### Checklist
+
+While submitting a merge request, check all checklist items accurately; otherwise, reviewers won't review/approve/merge your merge request.
+
+### Review The Changes
+
+Review the options whenever you push changes to the merge request.
+
+### Understanding Labels
+
+Labels play a crucial role in organizing work and tracking issues and merge requests. Here are some commonly used labels:
+
+- bug: Indicates a bug fix.
+- critical: Indicates a critical bug fix (hotfix).
+- documentation: Indicates adding or improving documentation.
+- enhancement: Indicates an enhancement to the codebase.
+- feature: Indicates a new feature.
+- refactor: Indicates a refactor or clean-up.
+- test: Indicates a test.
+- help wanted: Indicates a need for guidance.
+- need more info: Indicates that the merge reviewers need more information, and the standards of the current chapter are not provided.
+- duplicate: Indicates that a similar merge request already exists.
+
+### Interactive Rebasing for Clean Git History
+
+A clean git history enhances the readability and maintainability of your project. Learn about interactive rebasing through this informative YouTube video: [Learn how to rewrite Git history]()
+
+## Conclusion
+
+Implementing a standard merge request description template and utilizing labels are crucial steps toward maintaining an organized and efficient development workflow. By following these practices, your team can ensure transparency, collaboration, and high-quality code contributions.
