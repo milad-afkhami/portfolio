@@ -180,6 +180,28 @@
 			0.80
 		</priority>
 	</url>
+	<url>
+		<loc>
+			https://milad-afkhami.com/blog/how-to-create-a-standard-merge-request-description-template
+		</loc>
+		<lastmod>
+			2023-12-14
+		</lastmod>
+		<priority>
+			0.80
+		</priority>
+	</url>
+	<url>
+		<loc>
+			https://milad-afkhami.com/blog/i-bet-you-dont-know-these-sass-features
+		</loc>
+		<lastmod>
+			2023-12-14
+		</lastmod>
+		<priority>
+			0.80
+		</priority>
+	</url>
 	<!-- #endregion -->
 	<!-- #region Gists -->
 	<url>
@@ -207,17 +229,6 @@
 	<url>
 		<loc>
 			https://milad-afkhami.com/gists/isomorphicPortal
-		</loc>
-		<lastmod>
-			2023-06-16
-		</lastmod>
-		<priority>
-			0.60
-		</priority>
-	</url>
-	<url>
-		<loc>
-			https://milad-afkhami.com/gists/sass
 		</loc>
 		<lastmod>
 			2023-06-16

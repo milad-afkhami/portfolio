@@ -1,0 +1,112 @@
+---
+title: "I Bet You Don't Know These Sass Features!"
+publishedAt: "2023-12"
+image: "/images/blog/sass.jpg"
+readingTime: "8"
+category: "styling"
+summary: "Sass has amazing features like loops and if/else that often go unnoticed, although we can make amazing stuff with them in a performant way."
+---
+
+## Introduction
+
+Sass has amazing features that often go unnoticed, although we can make amazing stuff with them in a performant way. Features like `@for` loops, `@while` loops, `@forEach` loop, and conditional rendering using `@if`/`@else` syntax, are Sass flow control at-rules and along with _arrays_/_tuples_ and objects, are there to help us be creative and make stuff in an efficient manner.
+This blog will take you on a step-by-step journey to dynamically generate CSS utility classes using Sass. Even if you're not currently using Sass, this guide might make you have second thoughts!
+
+## CSS Color Utility Classes
+
+Start by defining an object of available colors:
+
+```scss
+$bg-colors: (
+  primary: /* PRIMARY BG COLOR VALUE */,
+  secondary: /* SECONDARY BG COLOR VALUE */,
+  success: /* ASSISTIVE SUCCESS COLOR VALUE */,
+  error: /* ASSISTIVE ERROR COLOR VALUE */,
+  warning: /* ASSISTIVE WARNING COLOR VALUE */,
+  info: /* ASSISTIVE INFO COLOR VALUE */,
+);
+```
+
+and unleashing Sass hidden powers:
+
+```scss
+@each $key, $value in $bg-colors {
+  .bg-#{$key} {
+    background-color: $value;
+  }
+}
+```
+
+This will eventually lead to _.bg-brand_, _.bg-primary_, _.bg-secondary_, _.bg-success_, etc. This intuitive syntax uses [the `@each` at-rule from Sass](https://sass-lang.com/documentation/at-rules/control/each/) similar to JavaScript's _Object.entries_ method, dynamically generates CSS utility classes for background colors, opening up possibilities for other color-related objects like _text-colors_ and _border-colors_.
+
+## CSS Font Utility Classes
+
+Similar to our approach with colors, we can repeat the process for typography and font sizes. All that's required is defining the typography object:
+
+```scss
+$font-sizes: (
+  lg: 0.25rem,
+  md: 0rem,
+  sm: -0.25rem,
+);
+```
+
+and utilizing the Sass powers:
+
+```scss
+@each $size, $value in $font-sizes {
+  .font-#{$size} {
+    font-size: 1rem + $value;
+  }
+}
+```
+
+This will eventually lead to _.font-sm_, _.font-md_, and _.font-lg_. Similar to colors, you can scale the typography object providing flexibility in design.
+
+## CSS Flex Utility Classes
+
+We can even have nested loops in Sass 😯! Given below objects:
+
+```scss
+$flex-align-values: (
+  center: center,
+  end: flex-end,
+  start: flex-start,
+);
+$flex-justify-values: (
+  center: center,
+  end: flex-end,
+  start: flex-start,
+  around: space-around,
+  between: space-between,
+);
+```
+
+Then we can write a nested loop to generate flex utility classes:
+
+```scss
+@each $align, $align-value in $flex-align-values {
+  .flex-#{$align} {
+    display: flex;
+    align-items: $align-value;
+    @each $justify, $justify-value in $flex-justify-values {
+      &-#{$justify} {
+        /* the & sign is for appending to previous result(.flex-#{$align}) */
+        display: flex;
+        align-items: $align-value;
+        justify-content: $justify-value;
+      }
+    }
+  }
+}
+```
+
+This will eventually lead to something like _flex-[center, end, start]_ and _flex-[center, end, start]-[center, end, start, around, between]_. e.g. _flex-center_, _flex-center-center_, _flex-start-between_ etc.
+
+## Other CSS Utility Classes
+
+Empowered by the knowledge gained in this blog, the possibilities extend to generating various other CSS utility classes. From _border_ and _border-radius_ to _position_ and _display_ utility classes, Sass empowers you to simplify your code and enhance your development workflow.
+
+## Conclusion
+
+Utilize the hidden potential of Sass features beyond the basics. With dynamic class generation, you can efficiently manage colors, typography, flex layouts, and more. While the each at-rule was enough for the examples in this blog, you can explore other possibilities with Sass by utilizing [the for at-rule](https://sass-lang.com/documentation/at-rules/control/for/), [the while at-rule](https://sass-lang.com/documentation/at-rules/control/while/), and [the if/else at-rules](https://sass-lang.com/documentation/at-rules/control/if/). Elevate your coding experience and unlock new creative possibilities by diving into the advanced features of Sass.
