@@ -7,7 +7,7 @@ echo -e "${BLUE}Removing next cache started${NO_COLOR}\n" &&
     yarn stylesheets &&
     echo -e "\n${GREEN}Generating build time stylesheets succeeded${NO_COLOR}\n" &&
     echo -e "Running next.js on development mode started${NO_COLOR}\n" &&
-    PORT=4000 NODE_OPTIONS='--inspect' node_modules/next/dist/bin/next dev
+    PORT=4000 NODE_OPTIONS='--inspect' node_modules/.bin/next dev
 
 exit $?
 
