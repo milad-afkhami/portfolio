@@ -202,6 +202,17 @@
 			0.80
 		</priority>
 	</url>
+	<url>
+		<loc>
+			https://milad-afkhami.com/blog/speed-up-your-programming-with-vscode-snippets-and-shortcuts
+		</loc>
+		<lastmod>
+			2023-12-14
+		</lastmod>
+		<priority>
+			0.80
+		</priority>
+	</url>
 	<!-- #endregion -->
 	<!-- #region Gists -->
 	<url>
@@ -251,17 +262,6 @@
 	<url>
 		<loc>
 			https://milad-afkhami.com/gists/useToggle
-		</loc>
-		<lastmod>
-			2023-06-16
-		</lastmod>
-		<priority>
-			0.60
-		</priority>
-	</url>
-	<url>
-		<loc>
-			https://milad-afkhami.com/gists/vscode
 		</loc>
 		<lastmod>
 			2023-06-16

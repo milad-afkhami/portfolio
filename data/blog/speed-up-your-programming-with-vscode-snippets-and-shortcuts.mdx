@@ -1,0 +1,194 @@
+---
+title: "Speed Up Your Programming with VSCode Snippets & Shortcuts"
+publishedAt: "2023-12"
+image: "/images/blog/vscode-snippets-and-shortcuts.jpg"
+readingTime: "10"
+category: "general"
+summary: "In this guide, we'll explore how to configure and leverage VSCode snippets and shortcuts to turbocharge your programming efficiency."
+---
+
+## Introduction
+
+In this guide, we'll explore how to configure and leverage VSCode snippets and shortcuts to turbocharge your programming efficiency.
+
+## Snippets
+
+According to the official Visual Studio Code documentation:
+
+> Code snippets are templates that make it easier to enter repeating code patterns, such as loops or conditional-statements.
+
+### Configure Snippets
+
+To configure snippets, follow these steps:
+
+1. Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (<kbd>⌘</kbd> on Mac) and type "Configure User Snippets."
+2. Select the language you are working with, such as `typescript.json` for `.ts` files or `typescriptreact.json` for `.tsx` files.
+3. Open the selected file and add your snippets to enhance your programming speed.
+
+### Suggested Snippets
+
+These are some of my snippets for `.ts` and `.tsx` files:
+
+#### 1. Log with Yellow Message
+
+```json
+{
+  "console.log with yellow message": {
+    "prefix": ["logYellow"],
+    "body": "console.log(`%c ${message} \\n`, 'color: yellow', data);",
+    "description": "logging yellow message to console"
+  }
+}
+```
+
+With the above snippet, your DX will be like below:
+
+<Div width="min(1000px, 100%)" mh="150px" position="relative" mx="auto" my="4">
+  <Image
+    src="/images/blog/vscode-snippets-and-shortcuts-1.jpg"
+    layout="fill"
+    fit="contain"
+  />
+</Div>
+
+<Div as="figure" flex={["center", "center", "column"]}>
+  <Div width="min(1000px, 100%)" mh="70px" position="relative" mx="auto" my="4">
+    <Image
+      src="/images/blog/vscode-snippets-and-shortcuts-2.jpg"
+      layout="fill"
+      fit="contain"
+    />
+  </Div>
+  <figcaption>
+    The cursor will be selecting the "message" text for you to modify it
+  </figcaption>
+</Div>
+
+#### 2. React Functional Component
+
+```json
+{
+  "React Functional Component": {
+    "prefix": "!func",
+    "body": "// #region imports\nimport { useState, type FC } from \"react\";\nimport { Div, Text } from \"style-wiz\";\n// #endregion\n\ninterface ${1:${TM_FILENAME_BASE}}Props {\n example: any;\n}\n\nconst ${1:${TM_FILENAME_BASE}}: FC<${1:${TM_FILENAME_BASE}}Props> = (props) => {\n const {} = props;\n const [state, setState] = useState(null);\n\n return <Div>${1:${TM_FILENAME_BASE}}</Div>;\n};\n\nexport default ${1:${TM_FILENAME_BASE}};\n",
+    "description": "Creates a React functional component"
+  }
+}
+```
+
+With the above snippet, your DX will be like below:
+
+<Div as="figure" flex={["center", "center", "column"]}>
+  <Div
+    width="min(1000px, 100%)"
+    mh="min(650px, 100vw)"
+    position="relative"
+    mx="auto"
+    my="4"
+  >
+    <Image
+      src="/images/blog/vscode-snippets-and-shortcuts-3.jpg"
+      layout="fill"
+      fit="contain"
+    />
+  </Div>
+  <figcaption>
+    Visual studio code will get the "Home" text from the file name!
+  </figcaption>
+</Div>
+
+[style-wiz](https://www.npmjs.com/package/style-wiz) is one of my packages and the `Div` and `Text` components are my most used components so I've added them here. You can check out [the documentation of style-wiz](https://www.npmjs.com/package/style-wiz) to give it a try or replace it with your most used packages in the snippet.
+
+### 3. Hooks
+
+You may also need to create snippets for your hooks or regular utilities. Take the `useTranslation` hook from [react-i18next](https://www.npmjs.com/package/react-i18next) as an example:
+
+```json
+{
+  "useTranslation hook": {
+    "prefix": ["useTranslation"],
+    "body": "const [t] = useTranslation(\"${ns}\");",
+    "description": "Invokes useTranslation hook and destructures the `t` method from it"
+  }
+}
+```
+
+With the above snippet, your DX will be like below:
+
+<Div as="figure" flex={["center", "center", "column"]}>
+  <Div
+    width="min(1000px, 100%)"
+    mh="100px"
+    position="relative"
+    mx="auto"
+    my="4"
+  >
+    <Image
+      src="/images/blog/vscode-snippets-and-shortcuts-4.jpg"
+      layout="fill"
+      fit="contain"
+    />
+  </Div>
+  <figcaption>
+    Visual studio code will select the "ns" text for you to replace it with the
+    actual i18n namespace
+  </figcaption>
+</Div>
+
+## Shortcuts
+
+Aside from snippets, mastering shortcuts is crucial for optimal performance.
+
+### Predefined Shortcuts
+
+Here are some predefined shortcuts to boost your efficiency:
+
+#### General Shortcuts
+
+- Open Settings: <kbd>ctrl</kbd>+<kbd>,</kbd>
+- Search in files: <kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>f</kbd>
+
+#### Text Editor Shortcuts
+
+- Add selection to next find match: <kbd>ctrl</kbd>+<kbd>d</kbd>
+- Copy line up/down: <kbd>shift</kbd>+<kbd>alt</kbd>+<kbd>⬆</kbd>/<kbd>⬇</kbd>
+- Add cursor above/below: <kbd>ctrl</kbd>+<kbd>alt</kbd>+<kbd>⬆</kbd>/<kbd>⬇</kbd>
+- Move line up/down: <kbd>alt</kbd>+<kbd>⬆</kbd>/<kbd>⬇</kbd>
+- Insert cursor: <kbd>alt</kbd>+<kbd>click</kbd>
+- Insert line below: <kbd>ctrl</kbd>+<kbd>enter</kbd>
+- Insert line above: <kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>enter</kbd>
+- Undo: <kbd>ctrl</kbd>+<kbd>z</kbd>
+- Redo: <kbd>ctrl</kbd>+<kbd>y</kbd> or <kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>z</kbd>
+- Rename Symbol: <kbd>F2</kbd>
+- Format Document: <kbd>shift</kbd>+<kbd>alt</kbd>+<kbd>f</kbd>
+- Go to Definition: <kbd>F12</kbd> or <kbd>ctrl</kbd>+<kbd>click</kbd>
+
+#### File management Shortcuts
+
+- Split editor: <kbd>Ctrl</kbd>+<kbd>\\</kbd>
+- Close All Tabs: <kbd>ctrl</kbd>+<kbd>k</kbd> <kbd>w</kbd>
+- Close file: <kbd>ctrl</kbd>+<kbd>w</kbd>
+- Reopen closed editor: <kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>t</kbd>
+- Go to file: <kbd>ctrl</kbd>+<kbd>p</kbd>
+
+#### Integrated Terminal Shortcuts
+
+- Open terminal: <kbd>ctrl</kbd>+<kbd>\`</kbd>
+- Create new terminal: <kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>`</kbd>
+
+### Configure Custom Shortcuts
+
+Along with predefined shortcuts, you can also define custom shortcuts to set missing shortcuts or override existing ones. For that, hit <kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>p</kbd> and type "Keyboard shortcuts" to open up the **Keyboard Shortcuts Preferences**.
+Search for your preferred action (e.g. "Save All Files") and click on + to set shortcuts. These are some of my own custom shortcuts:
+
+- Save All Files: <kbd>ctrl</kbd>+<kbd>alt</kbd>+<kbd>s</kbd>
+- Switch to Another Branch: <kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>b</kbd>
+- Kill the Active Terminal: <kbd>click</kbd><kbd>k</kbd>+<kbd>click</kbd><kbd>t</kbd>
+
+## Sync Settings with Cloud
+
+You can sync your configurations with your GitHub account in VSCode to prevent losing them by any chance.
+
+## Conclusion
+
+Optimizing your programming workflow involves utilizing powerful tools like snippets and shortcuts in Visual Studio Code. These features enhance your efficiency, making coding a more enjoyable and productive experience.
