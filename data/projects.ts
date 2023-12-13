@@ -20,7 +20,7 @@ const projectsData: IProject[] = [
   },
   {
     id: 9,
-    name: "Frontend Toolkit",
+    name: "Frontend Toolkit(MinimalUI)",
     logo: "/images/projects/idekavan-organization-frontend-toolkit/logo.jpg",
     medias: [
       {
@@ -32,12 +32,12 @@ const projectsData: IProject[] = [
     date: "2023-03",
     slug: "idekavan-organization-frontend-toolkit",
     techs: [
-      "Rollup",
       "Storybook",
+      "Rollup",
       "Jest",
       "Semantic Release",
       "TypeDoc",
-      "Material UI",
+      "style-wiz",
       "Husky",
     ],
     points: ["idekavan-organization-frontend-toolkit.points.1"],
