@@ -228,6 +228,28 @@
 	</url>
 	<url>
 		<loc>
+			https://milad-afkhami.com/gists/if-else-jsx
+		</loc>
+		<lastmod>
+			2023-12-14
+		</lastmod>
+		<priority>
+			0.60
+		</priority>
+	</url>
+	<url>
+		<loc>
+			https://milad-afkhami.com/gists/switch-case-jsx
+		</loc>
+		<lastmod>
+			2023-12-14
+		</lastmod>
+		<priority>
+			0.60
+		</priority>
+	</url>
+	<url>
+		<loc>
 			https://milad-afkhami.com/gists/is-nullish
 		</loc>
 		<lastmod>

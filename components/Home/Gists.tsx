@@ -4,7 +4,7 @@ import Button from "@kits/Button";
 import GistCards from "@components/Cards/Gist";
 import type { FC } from "react";
 
-const homeGists = ["utility-types", "useIntersector", "vscode"];
+const homeGists = ["switch-case-jsx", "if-else-jsx", "useIntersector"];
 
 interface HomeGistsProps {
   items: IGist[];
