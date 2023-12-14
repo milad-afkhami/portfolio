@@ -20,17 +20,17 @@ const projectsData: IProject[] = [
   },
   {
     id: 9,
-    name: "Frontend Toolkit(MinimalUI)",
-    logo: "/images/projects/idekavan-organization-frontend-toolkit/logo.jpg",
+    name: "Minimal UI",
+    logo: "/images/projects/minimal-ui/logo.jpg",
     medias: [
       {
-        src: "/images/projects/idekavan-organization-frontend-toolkit/1.jpg",
-        title: "idekavan-organization-frontend-toolkit.points.1",
+        src: "/images/projects/minimal-ui/1.jpg",
+        title: "minimal-ui.points.1",
       },
-      { src: "/images/projects/idekavan-organization-frontend-toolkit/2.jpg" },
+      { src: "/images/projects/minimal-ui/2.jpg" },
     ],
     date: "2023-03",
-    slug: "idekavan-organization-frontend-toolkit",
+    slug: "minimal-ui",
     techs: [
       "Storybook",
       "Rollup",
@@ -40,7 +40,7 @@ const projectsData: IProject[] = [
       "style-wiz",
       "Husky",
     ],
-    points: ["idekavan-organization-frontend-toolkit.points.1"],
+    points: ["minimal-ui.points.1"],
   },
   {
     id: 8,

@@ -14,7 +14,7 @@
       "4": "Composing comprehensive documentation using storybook, Gitlab Wiki, Markdown, and XMind"
     }
   },
-  "idekavan-organization-frontend-toolkit": {
+  "minimal-ui": {
     "shortDescription": "Idekavan organization's frontend team toolkit(UI kit and shared utilities)",
     "description": "Three NPM packages for Idekavan organization's frontend team toolkit, encompassing UI Kits, Hooks, and Utils, harnessing the capabilities of NPM packages to elevate frontend development, mitigate inconsistency, and eradicate redundancy and duplication across the organization.",
     "points": {
