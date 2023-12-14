@@ -22,13 +22,14 @@ const ProjectCard: FC<Pick<IProject, "logo" | "slug" | "name">> = (props) => {
       bg="bg-secondary-main"
       mw="min(330px, 100%)"
       hoverBg="bg-secondary-hover"
+      gap="3"
     >
       <Div
         position="relative"
         height="100%"
         curve="sm"
         flex={["center", "center"]}
-        mw={`calc(${height}px - 1rem)`}
+        mw={`calc(${height}px - var(--spacing-4))`}
         overflow="hidden"
       >
         <Image
@@ -41,7 +42,7 @@ const ProjectCard: FC<Pick<IProject, "logo" | "slug" | "name">> = (props) => {
           fit="contain"
         />
       </Div>
-      <Div flexPortion="auto" ml="3">
+      <Div flexPortion="auto">
         <Div flex={["flex-start", "flex-start", "column"]} height="100%">
           <Div mb="2" height="1.5rem">
             <Text ns="projects" size="lg" bold transform="uppercase">
