@@ -89,7 +89,8 @@
     "category": {
       "styling": "Design System",
       "hook": "Hook",
-      "util": "Util"
+      "util": "Util",
+      "react": "react"
     }
   },
   "packages": {
