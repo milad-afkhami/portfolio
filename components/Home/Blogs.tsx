@@ -5,16 +5,20 @@ import BlogCards from "@components/Cards/Blog";
 import type { FC } from "react";
 
 const homeBlogs = [
-  "one-on-one",
-  "front-end-learning-roadmap",
   "the-ideal-team-player-patrick-lencioni",
-  "five-dysfunctions-of-a-team-patrick-lencioni",
+  "one-on-one",
   "adr",
-  "data-fetching-pattern-preference",
-  // "rethink-using-redux",
-  // "build-time-data-caching-in-next-js",
-  // "redux-clean-code",
+  "how-to-create-a-standard-merge-request-description-template",
+  "front-end-learning-roadmap",
+  "http-proxy",
+  // "five-dysfunctions-of-a-team-patrick-lencioni",
+  // "speed-up-your-programming-with-vscode-snippets-and-shortcuts",
   // "homophobia",
+  // "build-time-data-caching-in-next-js",
+  // "i-bet-you-dont-know-these-sass-features",
+  // "data-fetching-pattern-preference",
+  // "rethink-using-redux",
+  // "redux-clean-code",
 ];
 
 interface FeaturedPostsProps {
