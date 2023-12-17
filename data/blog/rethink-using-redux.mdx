@@ -1,5 +1,5 @@
 ---
-title: "Why Do You Need to Rethink about Using Redux"
+title: "Why Do You Need To Rethink About Using Redux"
 publishedAt: "2020-11"
 image: "/images/blog/redux-rethink.png"
 readingTime: "15"
@@ -38,7 +38,7 @@ If you use redux to develop your application, even small changes in functionalit
 ### 1.4 Too many dependencies
 
 For a simple next.js application you will need all of these packages:
-[`redux`](https://redux.js.org/), [`react-redux`](https://react-redux.js.org/), [`redux-saga`](https://redux-saga.js.org/) or any other middleware to handle side effects, [`redux-devtools-extension`](https://www.npmjs.com/package/@redux-devtools/extension) for debugging and probably [`next-redux-wrapper`](https://github.com/kirill-konshin/next-redux-wrapper) for next.js applications. It's just an overkill.
+[redux](https://redux.js.org/), [react-redux](https://react-redux.js.org/), [redux-saga](https://redux-saga.js.org/) or any other middleware to handle side effects, [redux-devtools-extension](https://www.npmjs.com/package/@redux-devtools/extension) for debugging and probably [next-redux-wrapper](https://github.com/kirill-konshin/next-redux-wrapper) for next.js applications. It's just an overkill.
 
 ### 1.5 Better alternatives
 
@@ -75,13 +75,15 @@ There are some alternatives to redux. any of them have their downsides and benef
 You probably already know about Context API, on first glance it looks like a great first-party way to handle server state management, but it is not. It wasn't meant to be like that but with a combination to react hooks, we can use it as a global state managing tool.
 The biggest reason it shouldn't be your first option is that it doesn't use smart memoization, even a small change in a part of its state will trigger a rerender for all the subscriptions which causes the entire descendant component tree to rerender unless you memoize those components yourself.
 
-This issue is fixed in redux when we use useSelector to subscribe to a certain slice of a state. but it's still [an ongoing process for react](https://github.com/reactjs/rfcs/pull/119). Until react releases **_`useSelectedContext`_** hook, we can use [use-context-selector](https://www.npmjs.com/package/use-context-selector) library to subscribe to a certain slice of context. and prevent unnecessary re-renders and performance leaks.
+This issue is fixed in redux when we use useSelector to subscribe to a certain slice of a state. but it's still [an ongoing process for react](https://github.com/reactjs/rfcs/pull/119). Until react releases `useSelectedContext` hook, we can use [use-context-selector](https://www.npmjs.com/package/use-context-selector) library to subscribe to a certain slice of context. and prevent unnecessary re-renders and performance leaks.
 
 You can use Context API for handling UI state and server states that don't change frequently but I think it's better to consider other alternatives and leave context for UI states only.
 
 ### 3.2 Jotai, Valtio
 
-Both of them are great alternatives for handling UI state if you have a nice learning appetite. Soon I will write another [blog](/blog) or a [gist](/gists) to share my experience and my way of using those tools.
+Both of them are great alternatives for handling UI state if you have a nice learning appetite.
+
+{/* Soon I will write another [blog](/blog) or a [gist](/gists) to share my experience and my way of using those tools. */}
 
 ### 3.3 SWR | React query
 

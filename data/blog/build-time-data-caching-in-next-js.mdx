@@ -132,13 +132,13 @@ We can create a `build.sh` file and chain all the cache scripts together:
 
 ```
 
-Processes that operate independently of each other can be executed sequentially by using the "&&" operator.
-Conversely, processes that rely on each other should be chained together concurrently using the ";" operator.
+Processes that operate independently of each other can be executed sequentially by using the _&&_ operator.
+Conversely, processes that rely on each other should be chained together concurrently using the _;_ operator.
 
 ### 2.3. Utilizing Cached Responses
 
 Now, let's leverage the generated cache.
-In the above example, we had a "services/layout/detail.ts" file responsible for fetching data from the headless CMS.
+In the above example, we had a `services/layout/detail.ts` file responsible for fetching data from the headless CMS.
 We need to make some changes to it so that if a cache for that API already exists, it returns the cached response:
 
 ```typescript

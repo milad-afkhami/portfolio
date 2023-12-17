@@ -56,7 +56,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 In the root of the redux folder, we have 5 files.
 
-**handleSagaError**
+`handleSagaError`
 This is file is for handling different errors. It contains a generator function:
 
 ```typescript
@@ -86,7 +86,7 @@ export default function* handleSagaError(error, status = "failure") {
 function alert() {}
 ```
 
-**index.js**
+`index.js`:
 This file is for combining and exporting modules so outer modules won't have to now our folder structure to import :
 
 ```typescript
@@ -101,7 +101,7 @@ const SAGA_END = END;
 const APP_HYDRATION = "APP_HYDRATION";
 ```
 
-**reducers.js**
+`reducers.js`
 This file is responsible for bringing all of our reducers together, ready to combine with combineReducer.
 
 ```typescript
@@ -112,7 +112,7 @@ const reducers = {
 };
 ```
 
-**sagas.js**
+`sagas.js`
 This file is responsible for creating our sagas
 Here we don't have many sagas so I only have a root saga, but as the number of your sagas increases, you need to separate them into multiple sagas.
 
@@ -141,7 +141,7 @@ export default function* rootSaga() {
 }
 ```
 
-**store.js**
+`store.js`
 And most important file is store.js which is for configuring our store.
 
 ```typescript
@@ -185,7 +185,7 @@ All `store.js` files are pretty much the same, here we are doing some different 
 - `rootReducer` function separates `HYDRATE` action from others and combines reducers.
 - `bindMiddleware` handles setting up [redux-devtools](https://www.npmjs.com/package/redux-devtools-extension) in development mode.
 - `makeStore` function makes store! it creates a store, runs the rootSaga and if we are on the client-side it dispatches the `APP_HYDRATION` action.
-- `nextReduxWrapper` is a wrapper we'll need in **\_app.js** and all files that their data fetching method needs to access redux
+- `nextReduxWrapper` is a wrapper we'll need in `_app.js` and all files that their data fetching method needs to access redux
 
 ## 5. Creating modules/workers
 
@@ -296,7 +296,7 @@ function createReducer(state = initialState, action, actionTypes) {
 
 ## 6. Usage
 
-In **\_app.js** file, you need to wrap the App component in `nextReduxWrapper.withRedux` like this:
+In `_app.js` file, you need to wrap the App component in `nextReduxWrapper.withRedux` like this:
 
 ```typescript
 export default nextReduxWrapper.withRedux(WrappedApp);
