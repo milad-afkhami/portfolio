@@ -7,5 +7,6 @@ interface IBlog {
   readingTime: string;
   views?: string;
   category: string;
+  subtitle: string;
   summary: string;
 }
