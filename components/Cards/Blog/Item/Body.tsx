@@ -2,15 +2,15 @@ import { Div } from "style-wiz";
 import Text from "@kits/Text";
 import type { FC } from "react";
 
-const BlogCardBody: FC<Pick<IBlog, "title" | "summary">> = (props) => {
-  const { title } = props;
+const BlogCardBody: FC<Pick<IBlog, "title" | "subtitle">> = (props) => {
+  const { title, subtitle } = props;
 
   return (
     <div>
       <Div mb="2" overflow="hidden">
         <Text
           as="p"
-          size="md"
+          size="lg"
           bold
           noTranslation
           maxLines={3}
@@ -19,7 +19,15 @@ const BlogCardBody: FC<Pick<IBlog, "title" | "summary">> = (props) => {
           {title}
         </Text>
       </Div>
-      {/* <div><Text color="text-secondary-main" maxLines="3" overflow="hidden" >{summary}</Text></div> */}
+      <div>
+        <Text
+          color="text-secondary-main"
+          size="md"
+          // maxLines={3} styles={{ overflow: "hidden" }}
+        >
+          {subtitle}
+        </Text>
+      </div>
     </div>
   );
 };

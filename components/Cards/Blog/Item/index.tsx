@@ -14,18 +14,19 @@ const BlogCard: FC<IBlog> = (props) => {
     <Link
       href={`/blog/${slug}`}
       prefetch={false}
-      height="300px"
+      height="400px"
       flex={[, , "column"]}
       curve="sm"
       overflow="hidden"
       bg="bg-secondary-main"
       hoverBg="bg-secondary-hover"
       styles={Object.assign(
-        responsiveStyles("sm", { height: "300px" }),
-        responsiveStyles("lg", { height: "340px" })
+        responsiveStyles("sm", { height: "350px" }),
+        responsiveStyles("md", { height: "450px" }),
+        responsiveStyles("lg", { height: "500px" })
       )}
     >
-      <Div height="100%" flexPortion={5} position="relative">
+      <Div height="100%" flexPortion={1} position="relative">
         {image && (
           <Image
             src={image}
@@ -44,7 +45,7 @@ const BlogCard: FC<IBlog> = (props) => {
         py="2"
         flex={["flex-start", "space-between", "column"]}
         height="100%"
-        flexPortion={3}
+        flexPortion={1}
         styles={{
           ...responsiveStyles("sm", {
             paddingTop: "var(--spacing-3)",
