@@ -1,0 +1,73 @@
+---
+title: "How Husky Git Hooks Enhance Code Quality and Fault Prevention?"
+publishedAt: "2023-7"
+image: "/images/blog/husky.jpg"
+readingTime: "10"
+category: "git"
+subtitle: "Boost code quality with Husky git hooks! Pre-commit formatting, commit message standards, and pre-push checks ensure fault-free, confident shipping."
+---
+
+## Introduction
+
+Git hooks play a crucial role in maintaining code quality and preventing faults throughout the development process. One powerful tool for implementing these hooks is [Husky](https://www.npmjs.com/package/husky), which enables developers to automate various quality checks before and after committing code. In this blog post, we'll explore how to use Husky to implement for essential git hooks: `pre-commit`, `commit-msg`, `prepare-commit-msg`, and `pre-push` to enhance your codebase quality and boost confidence in the shipping process.
+
+## Pre-Commit Hook
+
+The `pre-commit` hook acts as the first line of defense, ensuring that every commit meets certain quality standards before it's added to the repository. In the `.husky` folder, we've implemented a `pre-commit` hook that leverages [pretty-quick](https://npmjs.com/package/pretty-quick) to format staged files automatically.
+
+```bash
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+node_modules/.bin/pretty-quick --staged
+```
+
+This ensures that code formatting is consistent, contributing to a clean and maintainable codebase.
+
+## Commit Message Hook
+
+Once the `pre-commit` hook succeeds, the commit message hook, powered by [@commitlint/cli](https://npmjs.com/package/@commitlint/cli) and [@commitlint/config-conventional](https://npmjs.com/package/@commitlint/config-conventional), checks the commit message itself against a predefined convention.
+
+```bash
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+yarn commitlint --edit "$1"
+```
+
+Standardizing commit messages is crucial for clear communication within the development team and maintaining a meaningful version history. Here we have a basic example but for full assistance in establishing a commit message convention, refer to [the Commit Message Convention blog](/blog/commit-message-convention).
+
+## Pre-Push Hook
+
+The `pre-push` hook runs before the `git push` command, performing a series of checks to ensure the code is in a deployable state. This includes:
+
+- **Test**: Verifying that all tests pass successfully.
+- **Lint**: Ensuring the codebase adheres to clean code rules using tools like ESLint. Numerous ESLint plugins, such as [eslint-config-airbnb](https://www.npmjs.com/package/eslint-config-airbnb) and [typescript-eslint](https://typescript-eslint.io/), contribute to elevating code quality and maintaining consistency.
+- **Build**: Confirming the successful build of the application.
+- **Docs**: Generating automated documents, such as exported APIs using tools like [Typedoc](https://npmjs.com/package/typedoc).
+
+```bash
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+. "$(dirname -- "$0")/common.sh"
+
+yarn test && yarn lint && yarn build && yarn docs
+```
+
+Running these checks before pushing code helps catch issues early, preventing faulty code from reaching the remote repository.
+
+## Prepare-Commit-Message Hook
+
+In many cases, you might find the `prepare-commit-msg` hook unnecessary, but certain tools, like [commitizen](https://www.npmjs.com/package/commitizen) and [@commitlint/prompt](https://www.npmjs.com/package/@commitlint/prompt), rely on its functionality. We'll explore Commitizen in more detail in [the Commit Message Convention blog](/blog/commit-message-convention).
+
+## Bypassing Hooks
+
+While Husky provides a `--no-verify` git flag for bypassing verification, it should be used sparingly and only in critical situations. Common scenarios include addressing a severe production bug or when you are confident that your changes won't impact the checked commands, such as when making documentation-only changes.
+
+## Custom Enhancements
+
+Husky is a flexible tool, allowing developers to tailor hooks to their specific needs. Consider integrating custom checks that align with your project's unique requirements. For instance, you might incorporate security scans, dependency audits, or other domain-specific validations.
+
+## Conclusion
+
+By implementing Husky git hooks efficiently, developers can optimize their workflows and elevate the quality of their codebase. From enforcing formatting consistency to standardizing commit messages and running comprehensive tests and builds, Husky empowers teams to ship confidently and minimize the risk of faults. This will not only contribute in an improved development process but also foster a culture of excellence within your team.
