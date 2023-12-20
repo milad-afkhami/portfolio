@@ -1,0 +1,108 @@
+---
+title: "Creating a Git Commit Message Convention"
+publishedAt: "2023-7"
+image: "/images/blog/commit-message-convention.jpg"
+readingTime: "10"
+category: "git"
+subtitle: "Creating a Clear and structured Git commit messages convention and automatically enforcing it with Commitlint for a clean and informative git history."
+summary: "Explore the power of Git commit conventions; Learn a structured convention, enforce it with Commitlint, and empower your codebase git history with clarity and automation."
+---
+
+## Introduction
+
+A well-structured commit message convention is crucial for an organized git history. In our continuous pursuit of code quality, we've explored the power of Husky git hooks in the ["How Husky Git Hooks enhance Code Quality and Fault Prevention?"](/blog/husky) blog. In this blog post, we'll explore the benefits and importance of implementing a commit message convention, its alignment with Semantic Versioning (SemVer), how to enforce them for a more structured and automated development process.
+
+## Structure
+
+A commit message following the convention is structured as follows:
+
+```txt
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+### 1. Types
+
+Types like `feat`, `fix`, and others provide quick insights into the nature of the changes. Here is a lost of types provided by default using [@commitlint/config-conventional](https://npmjs.com/package/@commitlint/config-conventional):
+
+- **feat**: Commits that introduce a new feature (correlates with MINOR in SemVer).
+- **fix**: Commits that patch a bug in our codebase (correlates with PATCH in SemVer).
+- **refactor**: Commits that rewrite/restructure our code but do not change any behavior.
+  - **perf**: Special refactor commits that improve performance.
+- **style**: Commits that do not affect the meaning (white space, formatting, missing semicolons, etc.).
+- **test**: Commits that add missing tests or correct existing tests.
+- **docs**: Commits that affect documentation only.
+- **build**: Commits that affect build components, build tool, CI pipeline, dependencies, project version, etc.
+- **ci**: Commits that affect operational components, infrastructure, deployment, backup, recovery, etc.
+- **chore**: Miscellaneous commits (modifying .XXXignore, etc.).
+- **revert**: Commits that revert an existing functionality.
+
+### 2. Scopes
+
+A scope, contained within parentheses, may be provided to a commit's type for additional contextual information. It can be empty if the change is global or challenging to assign to a single component. Since scopes are specific to the context if your project they will not be provided for you using conventions and you should define them according to your needs. They can be "components", "utils", "helpers" for example.
+
+Note: Avoid using issue identifiers as scopes, e.g., `feat(shopping cart): add the fabulous button`.
+
+### 3. Description
+
+The description is a mandatory part of the format, providing a short summary of the code changes. Use the imperative, present tense, and avoid capitalizing the first letter or adding a period(`.`) to the end. For example: `feat: remove ticket list endpoint`.
+
+### 4. Body
+
+The body, an optional part of the format, offers additional contextual information about the code changes. It should use the imperative, present tense, and mention issue identifiers and their relations. The body must begin with one blank line after the description.
+
+Example:
+
+```txt
+fix: prevent racing of requests
+
+Introduce a request id and a reference to the latest request. Dismiss
+incoming responses other than from the latest request.
+
+Remove timeouts that were used to mitigate the racing issue but are
+obsolete now.
+```
+
+Use issue refs instead if possible. e.g.:
+
+```txt
+fix: prevent racing of requests
+
+fixes #DEBT-100
+```
+
+### 5. Footer
+
+One or more footers, an optional part of the format, may be provided with one blank line after the body. Each footer must consist of a word token, followed by either a `:space` or `space#` separator, followed by a string value.
+
+An exception is made for BREAKING CHANGE, which may also be used as a token. Breaking changes should start with the word `BREAKING CHANGES:` followed by a space or two newlines. The rest of the commit message is then used for this.
+
+## Enforcing the Convention with Commitlint
+
+To ensure cohecion to the commit message convention, we can leverage Commitlint. Create a `commitlint.config.js` file in your project with the following content:
+
+```js
+module.exports = {
+  extends: ["@commitlint/config-conventional"],
+  rules: {
+    "scope-enum": [
+      2,
+      "always",
+      [
+        // Custom scopes specific to your project context
+        // for example "components", "utils", "helpers", ...
+      ],
+    ],
+  },
+  helpUrl: "https://milad-afkhami.com/blog/commit-message-convention",
+};
+```
+
+This configuration extends `@commitlint/config-conventional`, aligning with widely accepted commit message conventions that we explored.
+
+## Conclusion
+
+Adopting a commit message convention not only improves collaboration and code readability but also sets the stage for automated tooling and integrates with versioning practices. Enforce the convention with Commitlint to ensure consistently high-quality commit messages across your projects. This commitment to clear and structured commit histories contributes to an efficient and reliable development process.

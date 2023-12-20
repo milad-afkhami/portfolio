@@ -213,6 +213,28 @@
 			0.80
 		</priority>
 	</url>
+	<url>
+		<loc>
+			https://milad-afkhami.com/blog/husky
+		</loc>
+		<lastmod>
+			2023-12-19
+		</lastmod>
+		<priority>
+			0.80
+		</priority>
+	</url>
+	<url>
+		<loc>
+			https://milad-afkhami.com/blog/commit-message-convention
+		</loc>
+		<lastmod>
+			2023-12-19
+		</lastmod>
+		<priority>
+			0.80
+		</priority>
+	</url>
 	<!-- #endregion -->
 	<!-- #region Gists -->
 	<url>
