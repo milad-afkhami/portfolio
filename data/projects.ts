@@ -19,6 +19,39 @@ const projectsData: IProject[] = [
     ],
   },
   {
+    id: 10,
+    name: "Reval Back end",
+    logo: "/images/projects/reval/logo.jpg",
+    medias: [
+      {
+        src: "/images/projects/reval-backend/1.jpg",
+        title: "reval-backend.points.2",
+      },
+      {
+        src: "/images/projects/reval-backend/2.jpg",
+        title: "reval-backend.points.3",
+      },
+    ],
+    date: "2023-10",
+    slug: "reval-backend",
+    techs: [
+      "Nest.js",
+      "TypeORM",
+      "PostgreSQL",
+      "RxJS",
+      "Husky",
+      "Jest",
+      "Compodoc",
+    ],
+    points: [
+      "reval-backend.points.1",
+      "reval-backend.points.2",
+      "reval-backend.points.3",
+      "reval-backend.points.4",
+      "reval-backend.points.5",
+    ],
+  },
+  {
     id: 9,
     name: "Minimal UI",
     logo: "/images/projects/minimal-ui/logo.jpg",
