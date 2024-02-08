@@ -1,6 +1,6 @@
 const projectsData: IProject[] = [
   {
-    id: 10,
+    id: 11,
     name: "Reval",
     logo: "/images/projects/reval/logo.jpg",
     medias: [
@@ -10,7 +10,7 @@ const projectsData: IProject[] = [
     ],
     date: "2023-06",
     slug: "reval",
-    techs: ["Module Federation", "Webpack", "SWC", "Material UI", "Husky"],
+    techs: ["Module Federation", "Webpack", "Style-Wiz", "SWC", "Husky"],
     points: [
       "reval.points.1",
       "reval.points.2",
