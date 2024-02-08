@@ -5,6 +5,7 @@ const favouriteAnimationsData: IFavouriteCommonEntity[] = [
   { slug: "garfield", name: "Garfield" },
   { slug: "beauty-and-the-beast", name: "Beauty And The Beast" },
   { slug: "up", name: "Up" },
+  { slug: "sing", name: "Sing" },
   { slug: "the-iron-giant", name: "The Iron Giant" },
   { slug: "madagascar", name: "Madagascar" },
   { slug: "toy-story", name: "Toy Story" },
