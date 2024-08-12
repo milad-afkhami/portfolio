@@ -28,9 +28,7 @@ export default class Document extends NextDocument<Props> {
 
   render() {
     return (
-      <Html
-      // lang="en" dir="ltr"
-      >
+      <Html lang="en" dir="ltr">
         <Head>
           <style
             id="_goober"
