@@ -109,7 +109,8 @@
   },
   "border": {
     "dark": {
-      "main": "#30303166"
+      "main": "#9E9E9E",
+      "hover": "#202223"
     },
     "light": {
       "main": "#ffffff1a",
