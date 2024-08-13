@@ -52,9 +52,101 @@ Now, Go programmers expect that all Go code is formatted according to gofmt, whi
 
 ## 8. How I Like My ESLint Config!
 
-When it comes to setting up coding standards, I have my preferences too! I like to blend different styles to create a configuration that works best for my projects. I prefer a mix of Prettier's strict formatting rules, Typescript-ESlint's [strict-type-checked](https://typescript-eslint.io/users/configs/#strict-type-checked) and [stylistic-type-checked](https://typescript-eslint.io/users/configs/#stylistic-type-checked) rules, along with [Airbnb's style guides](https://github.com/airbnb/javascript) and some of [Vercel's](https://github.com/vercel/style-guide).
+In creating coding standards, I have cultivated a unique approach that integrates different styles to create the right configuration for my projects. My method integrates Prettier's strict formatting rules, Typescript-ESlint's [strict-type-checked](https://typescript-eslint.io/users/configs/#strict-type-checked) and [stylistic-type-checked](https://typescript-eslint.io/users/configs/#stylistic-type-checked) rules, the strict accessibility standards enforced by [JSX A11y](https://www.npmjs.com/package/eslint-plugin-jsx-a11y#supported-rules), supplemented by comprehensive [style guides provided by Airbnb](https://github.com/airbnb/javascript), and some selective recommendations from [Vercel](https://github.com/vercel/style-guide) like Next.js and TSDoc rules. This integration ensures a robust framework that increases code quality, maintainability, and accessibility in all my development efforts.
 
-Using Prettier ensures that my code maintains a consistent look, while TypeScript's ESLint rules help catch potential issues early on. The Airbnb style guide adds a layer of readability and best practices that have been tried and tested in the industry, and Vercel's guide offers a modern touch that aligns well with today's JavaScript ecosystem. This combination not only enhances code quality but also fosters a clean, maintainable, and enjoyable coding experience. It's all about finding that sweet spot where guidelines support productivity without feeling overly restrictive.
+### .prettierrc.json
+
+```json
+{
+  "tabWidth": 2,
+  "printWidth": 120,
+  "endOfLine": "lf",
+  "singleQuote": false,
+  "trailingComma": "all",
+  "plugins": ["prettier-plugin-packagejson"]
+}
+```
+
+### .eslintrc.js
+
+```js
+const { resolve } = require("node:path");
+
+const project = resolve(process.cwd(), "tsconfig.json");
+
+/** @type {import("eslint").Linter.Config} */
+module.exports = {
+  extends: [
+    "eslint:recommended",
+    "prettier",
+    "plugin:@typescript-eslint/strict-type-checked",
+    "plugin:@typescript-eslint/stylistic-type-checked",
+    "plugin:jsx-a11y/strict",
+    "airbnb",
+    "airbnb/hooks",
+    "airbnb-typescript",
+    require.resolve("@vercel/style-guide/eslint/next"),
+    "next/core-web-vitals",
+  ],
+  parser: "@typescript-eslint/parser",
+  globals: { React: true, JSX: true },
+  env: { node: true, browser: true },
+  plugins: ["@typescript-eslint", "turbo"],
+  settings: { "import/resolver": { typescript: { project } } },
+  ignorePatterns: [".*.js", "node_modules/"],
+  rules: {
+    // Overriding some of ESLint's default values
+    "max-lines": [
+      "error",
+      { max: 150, skipBlankLines: true, skipComments: true },
+    ],
+    complexity: ["error", 10],
+
+    "@typescript-eslint/array-type": [
+      "error",
+      { default: "generic", readonly: "generic" },
+    ],
+    "@typescript-eslint/ban-ts-comment": [
+      "error",
+      {
+        "ts-expect-error": "allow-with-description",
+        "ts-ignore": true,
+        "ts-nocheck": true,
+        "ts-check": false,
+        minimumDescriptionLength: 10,
+      },
+    ],
+    "@typescript-eslint/consistent-type-definitions": ["error", "type"],
+    "@typescript-eslint/naming-convention": "warn",
+    "@typescript-eslint/no-use-before-define": "warn",
+    "@typescript-eslint/no-non-null-assertion": "warn",
+    "@typescript-eslint/prefer-nullish-coalescing": "warn",
+
+    "react/prop-types": "off",
+    "react/require-default-props": "off",
+    "react/no-danger": "warn",
+    "react/no-array-index-key": "warn",
+    "react-hooks/exhaustive-deps": "warn",
+    "no-underscore-dangle": "warn",
+    "import/order": "off",
+
+    // disabled formatting rules due to conflicts with Prettier:
+    "@typescript-eslint/quotes": "off",
+    "@typescript-eslint/indent": "off",
+    "@typescript-eslint/comma-dangle": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "react/jsx-closing-tag-location": "off",
+    "max-len": "off",
+    "no-irregular-whitespace": "off",
+    "function-paren-newline": "off",
+    "operator-linebreak": "off",
+    "object-curly-newline": "off",
+    "implicit-arrow-linebreak": "off",
+    "nonblock-statement-body-position": "off",
+  },
+  overrides: [{ files: ["*.js?(x)", "*.ts?(x)"] }],
+};
+```
 
 ## 9. Conclusion: The Value of Shared Rules
 
