@@ -1,0 +1,204 @@
+---
+title: "Why You Need a Service Layer in Your Frontend Application"
+publishedAt: "2024-04"
+image: "/images/blog/service-layer.jpg"
+readingTime: "5"
+category: "general"
+subtitle: "Understanding the importance of a service layer in frontend development is a strategic approach to simplify complexities and enhance user experience."
+summary: "This blog highlights the benefits of using a service layer in frontend applications. The service layer acts as a middleman between the frontend and APIs, improving code structure, scalability, and adaptability to backend changes. It  aligns with SOLID principles and promotes SoC, OCP, and DIP. The blog also gives tips on implementing a service layer with a focus on flexibility and maintainability."
+---
+
+## 1. Introduction
+
+Incorporating a service layer into frontend applications is a strategic architectural decision that addresses several key challenges and enhances overall application quality. This blog explores the reasons behind adopting a service layer, its advantages, and how it mitigates common development hurdles. Additionally, we'll discuss strategies for implementing this layer on top of an abstract HTTP layer, emphasizing flexibility and extensibility without sepending on specific packages like Axios.
+
+## 2. Understanding the Service Layer
+
+A service layer functions as an intermediary between the frontend application and external services, such as APIs. Beyond merely fetching data, it encompasses data transformation, logical adjustments, and potentially enforcing business rules before data reaches the application's core logic or UI components.
+
+## 3. Rationale Behind a Service Layer
+
+### 3.1. Promoting Separation of Concerns
+
+Adhering to the principle of Separation of Concerns (SoC), a service layer organizes code into distinct sections, each focusing on a specific aspect. This separation:
+
+- Clarifies Responsibilities: Clearly separates data fetching and transformation from business logic, improving code readability and maintainability.
+- Facilitates Scalability: Allows for independent growth and modification of individual components without affecting the entire application.
+
+### 3.2. Aligning with SOLID Principles
+
+The service layer naturally aligns with several SOLID principles, notably the Open/Closed Principle (OCP) and Dependency Inversion Principle (DIP):
+
+- Open/Closed Principle (OCP): The service layer is designed to be extensible. new features or adjustments can be added without modifying existing code, fostering extensibility.
+- Dependency Inversion Principle (DIP): By depending on abstractions (the service layer) instead of concrete implementations (direct API calls), both the frontend components and the services themselves become more flexible and easier to test, as dependencies can be swapped or mocked.
+
+### 3.3. Shielding Against Backend Changes
+
+In a dynamic development environment, backend APIs frequently evolve. A service layer insulates the frontend from these changes, serving as a buffer that adapts to modifications in API structure or response formats. This decoupling ensures that frontend applications remain stable and up-to-date with minimal effort.
+
+### 3.4. Comprehensive Transformation Capability
+
+The service layer provides the flexibility to perform any desired transformation on the backend response. This capability is crucial for adapting the data to fit the frontend's requirements precisely, regardless of the original format or structure provided by the backend. Whether it involves data format conversion, data enrichment, or logical adjustments, the service layer acts as a versatile tool for tailoring backend data to enhance the frontend's usability and performance.
+
+## 4. Implementing the Service Layer
+
+To effectively integrate a service layer, consider the following steps:
+
+### 4.1. Establishing an Abstract HTTP Layer
+
+An abstract HTTP layer provides a unified interface for making HTTP requests, enabling the service layer to interact with APIs without being tied to specific HTTP clients like Axios or Fetch API. A sample of the HTTP layer can be like this:
+
+```ts
+import axios, { type AxiosInstance, type AxiosRequestConfig } from "axios";
+import { backendBaseURL } from "@configs/url";
+import type { Dictionary, Maybe } from "ts-wiz";
+
+export type FetchOptions<
+  Params extends Dictionary = Dictionary,
+  Body extends Maybe<Dictionary> = undefined
+> = AxiosRequestConfig<Body> & { params?: Params };
+
+class HttpClient {
+  axiosInstance: AxiosInstance;
+
+  constructor() {
+    this.axiosInstance = axios.create({
+      timeoutErrorMessage:
+        "The client did not produce a request within the time",
+    });
+  }
+
+  get<
+    Data extends Dictionary = Dictionary,
+    Params extends Dictionary = Dictionary
+  >(options: FetchOptions<Params>) {
+    const config = typeof options === "string" ? { url: options } : options;
+
+    return this.request<Data, Params>({ method: "GET", ...config });
+  }
+
+  post<
+    Data extends Dictionary = Dictionary,
+    Params extends Dictionary = Dictionary,
+    Body extends Dictionary = Dictionary
+  >(options: Omit<FetchOptions<Params, Body>, "method"> = {}) {
+    return this.request<Data, Params, Body>({ method: "POST", ...options });
+  }
+
+  patch<
+    Data extends Dictionary = Dictionary,
+    Params extends Dictionary = Dictionary,
+    Body extends Dictionary = Dictionary
+  >(options: Omit<FetchOptions<Params, Body>, "method"> = {}) {
+    return this.request<Data, Params, Body>({ method: "PATCH", ...options });
+  }
+
+  put<
+    Data extends Dictionary = Dictionary,
+    Params extends Dictionary = Dictionary,
+    Body extends Dictionary = Dictionary
+  >(options: Omit<FetchOptions<Params, Body>, "method"> = {}) {
+    return this.request<Data, Params, Body>({ method: "PUT", ...options });
+  }
+
+  delete<
+    Data extends Dictionary = Dictionary,
+    Params extends Dictionary = Dictionary
+  >(options: Omit<FetchOptions<Params>, "method"> = {}) {
+    return this.request<Data, Params>({ method: "DELETE", ...options });
+  }
+
+  async request<
+    Data extends Dictionary = Dictionary,
+    Params extends Dictionary = Dictionary,
+    Body extends Maybe<Dictionary> = undefined
+  >(options: FetchOptions<Params, Body>) {
+    const { baseURL, ...restOptions } = options;
+
+    return this.axiosInstance
+      .request<Data>({ baseURL: baseURL ?? backendBaseURL, restOptions })
+      .then((res) => res.data);
+  }
+}
+
+const Http = new HttpClient();
+
+export default Http;
+```
+
+### 4.2. Constructing the Service Layer
+
+- Interface Definition: Define clear interfaces for the service layer operations, specifying expected inputs and outputs for consistency and predictability.
+- Transformation Logic: Implement necessary data transformations and logical adjustments within the service layer, catering to frontend-specific requirements.
+- Robust Error Handling: Incorporate comprehensive error handling to manage API failures gracefully, preventing issues from escalating within the application.
+- Comprehensive Testing: Ensure thorough testing of the service layer, covering successful operations, error conditions, and edge cases to guarantee reliability.
+
+### 4.3. Emphasizing Extensibility and Flexibility
+
+Building the service layer on top of an abstract HTTP layer ensures that the application remains adaptable to technological shifts or improvements without substantial refactoring. This approach supports continuous development and enhancement of the frontend application, aligning with agile methodologies.
+
+### 4.4. An Implementation Example
+
+So the folder structure should look like this:
+
+- services
+  - auth
+    - index.ts
+    - knock.ts
+    - verifyOtp.ts
+    - refreshToken.ts
+
+the auth/index.ts file contains an object which is for grouping all the services together:
+
+```ts
+import { authKnock, type AuthKnockResult } from "./knock";
+import { authVerifyOtp, type AuthVerifyOtpResult } from "./verify";
+import { authRefreshToken, type AuthRefreshTokenResult } from "./refreshToken";
+
+const AuthServices = {
+  knock: authKnock,
+  verifyOtp: authVerifyOtp,
+  refreshToken: authRefreshToken,
+};
+
+export type AuthServicesResults = {
+  Knock: AuthKnockResult;
+  VerifyOtp: VerifyOtpResult;
+  RefreshToken: RefreshTokenResult;
+};
+
+export default AuthServices;
+```
+
+and for example auth/verifyOtp.ts can look like this:
+
+```ts
+import Http from "@utils/Http";
+
+type Response = { token: string };
+
+export type AuthKnockResult = { value: string };
+
+const ENDPOINT = "/auth/refresh-token";
+
+export default async function authKnock(phone: string): AuthKnockResult {
+  try {
+    const response = await Http.post<Response>({
+      url: ENDPOINT,
+      data: { phone },
+    });
+
+    const result: AuthKnockResult = { value: response.result.token };
+
+    return result;
+  } catch (error) {
+    throw error;
+  }
+}
+```
+
+Ofcourse, you can change the structure of folders and files in order to make them look like the way you prefer them to do.
+
+## 5. Conclusion
+
+Incorporating a service layer into frontend applications offers significant advantages, including improved code organization, adherence to SOLID principles, and resilience against backend changes. By thoughtfully designing and implementing this layer atop an abstract HTTP layer, developers can create applications that are more maintainable, scalable, and capable of adapting to future developments.
