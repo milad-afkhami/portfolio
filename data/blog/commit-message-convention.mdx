@@ -37,6 +37,7 @@ Types like `feat`, `fix`, and others provide quick insights into the nature of t
 - **docs**: Commits that affect documentation only.
 - **build**: Commits that affect build components, build tool, CI pipeline, dependencies, project version, etc.
 - **ci**: Commits that affect operational components, infrastructure, deployment, backup, recovery, etc.
+- **enhancement**: Commits that introduce a new capability to the codebase(utils, hooks, etc.).
 - **chore**: Miscellaneous commits (modifying .XXXignore, etc.).
 - **revert**: Commits that revert an existing functionality.
 
@@ -52,9 +53,17 @@ The description is a mandatory part of the format, providing a short summary of 
 
 ### 4. Body
 
-The body, an optional part of the format, offers additional contextual information about the code changes. It should use the imperative, present tense, and mention issue identifiers and their relations. The body must begin with one blank line after the description.
+The body, an optional part of the format, offers additional contextual information about the code changes. We highly recommend using issue refs if possible. e.g.:
 
-Example:
+```txt
+fix: prevent racing of requests
+
+resolves #DEBT-100
+```
+
+By doing this, you can utilize the power of automatic issue closing in [GitHub](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue) and [GitLab](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically).
+
+But otherwise, the body must begin with one blank line after the description and should use the imperative, present tense. For example:
 
 ```txt
 fix: prevent racing of requests
@@ -64,14 +73,6 @@ incoming responses other than from the latest request.
 
 Remove timeouts that were used to mitigate the racing issue but are
 obsolete now.
-```
-
-Use issue refs instead if possible. e.g.:
-
-```txt
-fix: prevent racing of requests
-
-fixes #DEBT-100
 ```
 
 ### 5. Footer
