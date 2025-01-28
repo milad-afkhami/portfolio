@@ -81,6 +81,8 @@ const FavouritePlaylist: FC<IFavouritePlaylist> = (props) => {
           <Button
             variant="outlined"
             text="listenNow"
+            width="130px"
+            size="lg"
             ns="favourites.playlists"
           />
         </a>

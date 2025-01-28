@@ -12,14 +12,9 @@ const ProjectDetailTechs: FC<ProjectDetailTechsProps> = (props) => {
     <div>
       <SectionTitle icon="tools" title="tools" ns="projects" />
       <Div my="3">
-        {/* <ul style={{ listStyle: "inside", listStyleType: "square" }}>
-          {techs.map((tech) => (
-            <Text key={tech} as="li">
-              {tech}
-            </Text>
-          ))}
-        </ul> */}
-        <Chips items={techs.map((name) => ({ label: name }))} secondary />
+        <Chips
+          items={techs.map((name) => ({ text: name, variant: "outlined" }))}
+        />
       </Div>
     </div>
   );

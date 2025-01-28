@@ -34,10 +34,10 @@ const GistPage: PageComponent<GistPageProps> = (props) => {
       <Head title={title} description={summary} canonical={`/gists/${slug}`} />
       <Div width="100%" py="3">
         <Breadcrumb
-          routes={[
-            { title: t("header.menu.home"), link: "/" },
-            { title: t("header.menu.gists"), link: "/gists" },
-            { title, link: `/gists/${slug}` },
+          items={[
+            { title: t("header.menu.home"), url: "/" },
+            { title: t("header.menu.gists"), url: "/gists" },
+            { title, url: `/gists/${slug}` },
           ]}
         />
         <Div mt="3">

@@ -33,7 +33,6 @@ const BlogCardFooter: FC<BlogCardFooterProps> = (props) => {
           >
             {t("blog.meta.timeToReadValue", { time: readingTime })}
           </Text>
-          {/* <Text mx="2" color="text-secondary-main" size="xsm" translationVariables={{ time: readingTime }}>blog.meta.timeToReadValue</Text> */}
           <Icon name="clock" color="text-secondary-main" size="sm" />
         </Div>
       ) : null}

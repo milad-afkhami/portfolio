@@ -4,8 +4,8 @@ import Icon from "@kits/Icon";
 import { If, Then } from "@kits/ConditionalRendering";
 import { useTheme } from "next-themes";
 import Themes from "@constants/themes";
-import type IconProps from "@kits/Icon/props";
 import type { Maybe } from "ts-wiz";
+import type { IconProps } from "@kits/Icon";
 
 const HeaderSwitchTheme: FC = () => {
   const { theme, setTheme } = useTheme();

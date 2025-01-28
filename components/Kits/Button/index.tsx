@@ -1,40 +1,31 @@
-import { forwardRef } from "react";
-import { Div } from "style-wiz";
-import Adornment from "@kits/Adornment";
-import BaseButton from "./Base";
+import { Button as UiWizButton } from "ui-wiz";
+import { forwardRef, isValidElement } from "react";
 import ButtonText from "./Text";
 import type ButtonProps from "./props";
 
+const getIcon = (icon: ButtonProps["icon"]) => {
+  if (!icon) return undefined;
+  if (typeof icon === "string")
+    return { name: icon, prefix: "mili", suffix: "icon" };
+  if (typeof icon === "object")
+    return { ...icon, prefix: "mili", suffix: "icon" };
+  if (isValidElement(icon)) return icon;
+  return icon;
+};
+
 const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
-  const {
-    text = "",
-    name,
-    loading,
-    disabled,
-    icon,
-    trailingIcon,
-    onClick,
-    children,
-    ns,
-  } = props;
-  // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
-  const notAllowed = disabled || loading;
+  const { name, children, text, ns, icon, trailingIcon, ...rest } = props;
 
   return (
-    <BaseButton
-      {...props}
+    <UiWizButton
+      icon={getIcon(icon)}
+      trailingIcon={getIcon(trailingIcon)}
+      {...rest}
       ref={ref}
-      onClick={!notAllowed ? onClick : undefined}
-      name={name}
-      data-testid="kitButton"
     >
-      <Div height="100%" flex={["center", "center"]} gap="2">
-        <Adornment icon={icon} />
-        <ButtonText text={text} ns={ns} />
-        {children}
-        <Adornment icon={trailingIcon} />
-      </Div>
-    </BaseButton>
+      <ButtonText ns={ns} text={text} />
+      {children}
+    </UiWizButton>
   );
 });
 

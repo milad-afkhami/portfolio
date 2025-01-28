@@ -33,20 +33,20 @@ const PackageCard: FC<IPackage> = (props) => {
             {name}
           </Text>
         </div>
-        <Div display="flex">
+        <Div display="flex" gap="2">
           <a
             target="_blank"
             href={homepage}
             aria-label="Github repository link"
           >
-            <IconButton name="github" size="h-sm" />
+            <IconButton name="github" size="lg" />
           </a>
           <a
             target="_blank"
             href={`https://www.npmjs.com/package/${name}`}
             aria-label="NPM package link"
           >
-            <IconButton name="external-link" size="h-sm" />
+            <IconButton name="external-link" size="lg" />
           </a>
         </Div>
       </Div>

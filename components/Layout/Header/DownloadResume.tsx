@@ -11,6 +11,7 @@ const DownloadResume: FC = () => {
       text={{ content: "header.downloadResume", ns: "layout", size: "lg" }}
       onClick={handleDownloadResume}
       icon="download"
+      size="lg"
     />
   );
 };

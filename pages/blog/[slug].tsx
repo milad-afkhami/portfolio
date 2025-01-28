@@ -73,10 +73,10 @@ const BlogPage: PageComponent<BlogPageProps> = (props) => {
       />
       <Div width="100%" py="3">
         <Breadcrumb
-          routes={[
-            { title: layoutT("header.menu.home"), link: "/" },
-            { title: layoutT("header.menu.blog"), link: "/blog" },
-            { title, link: canonical },
+          items={[
+            { title: layoutT("header.menu.home"), url: "/" },
+            { title: layoutT("header.menu.blog"), url: "/blog" },
+            { title, url: canonical },
           ]}
         />
         <div>

@@ -17,7 +17,7 @@ const Header = () => (
         <HeaderNav />
       </Div>
       <Div width="auto">{/* <Logo /> */}</Div>
-      <Div width="35%" flex={[, "flex-end"]} gap="3">
+      <Div flex={[, "flex-end"]} gap="3">
         <DownloadResume />
         <HeaderGithub />
         <HeaderChangeLanguage />

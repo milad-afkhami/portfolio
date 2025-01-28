@@ -18,11 +18,7 @@ const NotFound: PageComponent = () => (
     >
       <SectionTitle title="error.pageNotFound" />
       <Link href="/">
-        <Button
-          text="error.goBack"
-          variant="outlined"
-          // trailingIcon="chevron-right"
-        />
+        <Button text="error.goBack" variant="outlined" />
       </Link>
     </Div>
   </div>

@@ -2,13 +2,12 @@ import { Div } from "style-wiz";
 import TimelineSection, { type TimelineSectionProps } from "./Section";
 import SectionTitle from "@components/Layout/Title/Section";
 import type { FC } from "react";
-import type IconProps from "@kits/Icon/props";
 import type { TextProps } from "@kits/Text";
 
 export interface TimelineProps {
   title: string;
   ns?: TextProps["ns"];
-  icon?: IconProps["name"];
+  icon?: string;
   sections: Omit<TimelineSectionProps, "isLast">[];
 }
 

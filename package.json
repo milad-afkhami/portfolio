@@ -26,6 +26,7 @@
     "sharp": "^0.32.2",
     "style-wiz": "0.3.9",
     "swr": "^2.2.0",
+    "ui-wiz": "0.1.0-beta.7",
     "use-delayed-render": "^0.0.7"
   },
   "scripts": {

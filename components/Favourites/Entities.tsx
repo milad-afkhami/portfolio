@@ -6,7 +6,6 @@ import FavouriteEntityCard from "@components/Cards/Favourites/Entity";
 import FavouritesHelper from "@helpers/favourites";
 import responsiveStyles from "@helpers/responsiveStyles";
 import type { FC } from "react";
-import type { IconName } from "@kits/Icon/props";
 
 const FavouriteEntities: FC = () => {
   const favouritesLinks = useMemo(() => FavouritesHelper.getLinks(), []);
@@ -17,7 +16,7 @@ const FavouriteEntities: FC = () => {
       {favouritesLinks.map(({ links, group }) => (
         <Div key={group} flex={["flex-start", "flex-start", "column"]} mb="3">
           <SectionTitle
-            icon={group as IconName}
+            icon={group}
             ns="favourites.common"
             title={`group.${group}`}
           />
