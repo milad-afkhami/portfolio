@@ -1,47 +1,98 @@
 {
-  "env": {
-    "browser": true,
-    "es2021": true,
-    "node": true
-  },
   "extends": [
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
+    "prettier",
     "plugin:@typescript-eslint/strict-type-checked",
     "plugin:@typescript-eslint/stylistic-type-checked",
-    "airbnb",
-    "airbnb/hooks",
-    "airbnb-typescript",
-    "prettier",
+    "plugin:jsx-a11y/strict",
+    "plugin:tailwindcss/recommended",
     "next/core-web-vitals"
   ],
-  "overrides": [],
   "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "project": "./tsconfig.json",
-    "ecmaVersion": "latest",
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true
-    }
-  },
+  "parserOptions": { "project": "./tsconfig.json" },
   "plugins": ["@typescript-eslint"],
+  "root": true,
   "rules": {
-    "@typescript-eslint/ban-ts-comment": "off",
-    "quotes": "off",
-    "@typescript-eslint/quotes": "off",
-    "react/function-component-definition": "off",
-    "func-names": "off",
-    "no-sparse-arrays": "off",
-    "no-underscore-dangle": "off",
-    "@typescript-eslint/naming-convention": "off",
-    "import/order": "off",
+    "max-lines": ["error", { "max": 150, "skipBlankLines": true, "skipComments": true }],
+    "complexity": ["error", 10],
+    "@typescript-eslint/require-await": "warn",
+    "@typescript-eslint/no-unsafe-return": "warn",
+    "@typescript-eslint/no-use-before-define": "warn",
+    "@typescript-eslint/no-unsafe-assignment": "warn",
+    "@typescript-eslint/no-non-null-assertion": "warn",
+    "@typescript-eslint/consistent-type-imports": "error",
+    "@typescript-eslint/consistent-type-exports": "error",
+    "@typescript-eslint/no-unnecessary-condition": "warn",
+    "@typescript-eslint/prefer-nullish-coalescing": "warn",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/consistent-indexed-object-style": "error",
+    "@typescript-eslint/consistent-type-definitions": ["error", "type"],
+    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "@typescript-eslint/array-type": ["error", { "default": "generic", "readonly": "generic" }],
+    "@typescript-eslint/no-misused-promises": ["error", { "checksVoidReturn": { "attributes": false } }],
+    "@typescript-eslint/ban-ts-comment": [
+      "error",
+      {
+        "ts-ignore": true,
+        "ts-check": false,
+        "ts-nocheck": true,
+        "minimumDescriptionLength": 10,
+        "ts-expect-error": "allow-with-description"
+      }
+    ],
+    "@typescript-eslint/naming-convention": [
+      "error",
+      { "selector": "typeLike", "format": ["PascalCase"] },
+      { "selector": "objectLiteralProperty", "format": null },
+      { "selector": "parameter", "format": ["camelCase", "PascalCase"], "leadingUnderscore": "allow" },
+      { "selector": "variable", "format": ["camelCase", "PascalCase", "UPPER_CASE"], "leadingUnderscore": "allow" }
+    ],
+    "@typescript-eslint/restrict-template-expressions": [
+      "error",
+      { "allowNumber": true, "allowBoolean": true, "allowAny": false, "allowNullish": true, "allowRegExp": true }
+    ],
+
+    "react/prop-types": "off",
+    "react/no-danger": "warn",
+    "react/no-array-index-key": "warn",
     "react/require-default-props": "off",
-    "react/display-name": "off",
-    "react/jsx-props-no-spreading": "off",
-    "@typescript-eslint/no-non-null-assertion": "off",
-    "@typescript-eslint/no-unsafe-call": "off",
-    "@typescript-eslint/no-unsafe-assignment": "off",
-    "@typescript-eslint/no-confusing-void-expression": "off"
-  }
+    "react-hooks/exhaustive-deps": "warn",
+    "react/jsx-closing-tag-location": "off",
+    "react/jsx-one-expression-per-line": "off",
+
+    "jsx-a11y/lang": "error",
+    "jsx-a11y/prefer-tag-over-role": "warn",
+    "jsx-a11y/anchor-ambiguous-text": "error",
+    "jsx-a11y/no-aria-hidden-on-focusable": "error",
+    "jsx-a11y/control-has-associated-label": "error",
+    "jsx-a11y/label-has-associated-control": "error",
+
+    "import/order": "off",
+    // "import/consistent-type-specifier-style": ["warn", "prefer-top-level"],
+    "import/first": "error",
+    "import/max-dependencies": ["error", { "max": 10, "ignoreTypeImports": true }],
+    "import/newline-after-import": ["error", { "count": 1 }],
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+
+    "max-len": "off",
+    "operator-linebreak": "off",
+    "object-curly-newline": "off",
+    "no-underscore-dangle": "warn",
+    "function-paren-newline": "off",
+    "no-irregular-whitespace": "off",
+    "implicit-arrow-linebreak": "off",
+    "tailwindcss/no-custom-classname": "off",
+    "nonblock-statement-body-position": "off"
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/loading.tsx",
+        "src/app/testimonials/\\[id\\]/page.tsx",
+        "src/components/testimonial/TestimonialCard.tsx",
+        "src/components/favourite/FavouriteEntityCard.tsx"
+      ],
+      "rules": { "react/no-array-index-key": "off", "@typescript-eslint/no-unsafe-assignment": "off" }
+    }
+  ]
 }

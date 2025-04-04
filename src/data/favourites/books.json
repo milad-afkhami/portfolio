@@ -1,0 +1,121 @@
+[
+  {
+    "slug": "the-making-of-a-manager",
+    "title": "The Making of a Manager",
+    "subtitle": "A modern field guide for new managers navigating leadership challenges",
+    "description": "Drawing from her experience at Facebook, Julie Zhuo presents practical advice for new managers facing the transition from individual contributor to team leader. She addresses common challenges like giving feedback, holding effective meetings, and building trust, while providing frameworks for making better decisions. The book combines personal stories with actionable guidance for both first-time and experienced managers.",
+    "cover": "/images/favourites/books/the-making-of-a-manager.jpg",
+    "meta": [
+      { "key": "Author", "value": "Julie Zhuo" },
+      { "key": "Full title", "value": "The Making of a Manager: What to Do When Everyone Looks to You" }
+    ]
+  },
+  {
+    "slug": "five-dysfunctions-of-a-team",
+    "title": "The Five Dysfunctions of a Team",
+    "subtitle": "Understanding and overcoming the barriers to team success",
+    "description": "Through a compelling business fable, Lencioni reveals the five fundamental dysfunctions that can sabotage any team: absence of trust, fear of conflict, lack of commitment, avoidance of accountability, and inattention to results. The story follows a CEO's journey to unite a troubled executive team, offering practical insights and actionable steps for building cohesive, high-performing teams.",
+    "cover": "/images/favourites/books/five-dysfunctions-of-a-team.jpg",
+    "meta": [
+      { "key": "Author", "value": "Patrick Lencioni" },
+      { "key": "Full title", "value": "The Five Dysfunctions of a Team: A Leadership Fable" }
+    ]
+  },
+  {
+    "slug": "the-ideal-team-player",
+    "title": "The Ideal Team Player",
+    "subtitle": "Identifying and developing the core virtues of great team players",
+    "description": "Lencioni identifies three indispensable virtues that make some people better team players than others: humility, hunger, and people smarts. Through another engaging fable, he explores how these qualities manifest in the workplace and provides a framework for identifying, hiring, and developing ideal team players. The book offers practical tools for applying these concepts in any organizational setting.",
+    "cover": "/images/favourites/books/the-ideal-team-player.jpg",
+    "meta": [
+      { "key": "Author", "value": "Patrick Lencioni" },
+      {
+        "key": "Full title",
+        "value": "The Ideal Team Player: How to Recognize and Cultivate The Three Essential Virtues"
+      }
+    ]
+  },
+  {
+    "slug": "nvc",
+    "title": "Nonviolent Communication",
+    "subtitle": "A revolutionary approach to speaking and listening with compassion",
+    "description": "Rosenberg presents a powerful framework for communicating in ways that enable compassionate connection between people. The book outlines the four components of NVC: observations, feelings, needs, and requests, showing how to express ourselves honestly and receive others empathetically. Through practical examples and exercises, readers learn to transform potential conflicts into peaceful dialogues.",
+    "cover": "/images/favourites/books/nvc.jpg",
+    "meta": [
+      { "key": "Author", "value": "Marshall B. Rosenberg" },
+      { "key": "Full title", "value": "Nonviolent Communication: A Language of Life" }
+    ]
+  },
+  {
+    "slug": "how-to-thrive-in-the-virtual-workplace",
+    "title": "How to Thrive in the Virtual Workplace",
+    "subtitle": "A practical guide to mastering remote work dynamics",
+    "description": "Glazer provides a comprehensive roadmap for navigating the challenges and opportunities of remote work. Drawing from extensive experience leading virtual teams, he addresses everything from maintaining productivity and work-life balance to building culture in distributed teams. The book offers practical strategies for both employees and leaders to create successful remote work environments.",
+    "cover": "/images/favourites/books/how-to-thrive-in-the-virtual-workplace.jpg",
+    "meta": [
+      { "key": "Author", "value": "Robert Glazer" },
+      {
+        "key": "Full title",
+        "value": "How to Thrive in the Virtual Workplace: Simple and Effective Tips for Successful, Productive, and Empowered Remote Work"
+      }
+    ]
+  },
+  {
+    "slug": "no-rules-rules",
+    "title": "No Rules Rules",
+    "subtitle": "Inside Netflix's radical approach to business and management",
+    "description": "Netflix CEO Reed Hastings and business professor Erin Meyer reveal the unorthodox culture behind Netflix's success. They explore the principles of freedom and responsibility that drive the company, from unlimited vacation time to radical candor in feedback. The book shows how high performance emerges when you combine talented people with an environment of freedom and intense transparency.",
+    "cover": "/images/favourites/books/no-rules-rules.jpg",
+    "meta": [
+      { "key": "Author", "value": "Reed Hastings and Erin Meyer" },
+      { "key": "Full title", "value": "No Rules Rules: Netflix and the Culture of Reinvention" }
+    ]
+  },
+  {
+    "slug": "the-power-of-habit",
+    "title": "The Power of Habit",
+
+    "subtitle": "Understanding the science behind habit formation and change",
+    "description": "Duhigg explores the scientific discoveries about how habits work and how they can be changed. Through compelling narratives spanning individual lives, successful companies, and social movements, he demonstrates the power of habits in shaping our lives and society. The book provides a framework for understanding how habits can be reformed, using the habit loop of cue, routine, and reward.",
+    "cover": "/images/favourites/books/the-power-of-habit.jpg",
+    "meta": [
+      { "key": "Author", "value": "Charles Duhigg" },
+      { "key": "Full title", "value": "The Power of Habit: Why We Do What We Do in Life and Business" }
+    ]
+  },
+  {
+    "slug": "the-unbearable-lightness-of-being",
+    "title": "The Unbearable Lightness of Being",
+    "subtitle": "A philosophical novel exploring love, fate, and human existence",
+    "description": "Kundera weaves together the lives of four interconnected characters in Soviet-era Czechoslovakia to explore profound questions about life's meaning. Through their relationships and choices, he examines the tension between lightness and weight in human existence. The novel blends political commentary, philosophical reflection, and deeply personal stories about love and identity.",
+    "cover": "/images/favourites/books/the-unbearable-lightness-of-being.jpg",
+    "meta": [{ "key": "Author", "value": "Milan Kundera" }]
+  },
+  {
+    "slug": "the-joy-of-missing-out",
+    "title": "The Joy of Missing Out",
+    "subtitle": "Finding happiness through conscious limitation in a world of endless choices",
+    "description": "Brinkmann challenges the modern culture of constant consumption and FOMO (fear of missing out). He argues that true satisfaction comes not from endless pursuit of experiences and possessions, but from self-restraint and meaningful limitations. The book offers philosophical insights and practical advice for living a more focused and fulfilling life through selective abstinence.",
+    "cover": "/images/favourites/books/the-joy-of-missing-out.jpg",
+    "meta": [
+      { "key": "Author", "value": "Svend Brinkmann" },
+      { "key": "Full title", "value": "The Joy of Missing Out: The Art of Self-Restraint in an Age of Excess" }
+    ]
+  },
+  {
+    "slug": "masnavi",
+    "title": "Masnavi-ye-Ma'navi (The Spiritual Couplets)",
+    "subtitle": "A poetic masterpiece of Sufi spiritual teachings",
+    "description": "Rumi's masterwork consists of six books of poetry that contain spiritual teachings, stories, and mystical insights. Through a collection of nested stories and parables, it explores the journey of the soul toward divine truth and love. The work combines profound spiritual wisdom with practical guidance for daily life, making complex mystical concepts accessible through storytelling.",
+    "cover": "/images/favourites/books/masnavi.jpg",
+    "meta": [{ "key": "Author", "value": "Rumi" }]
+  },
+  {
+    "slug": "golestan",
+    "title": "Gulistan",
+    "subtitle": "A garden of wisdom through stories and poetry",
+    "description": "Saadi's masterpiece combines prose and verse to create a collection of moral lessons and practical wisdom. Through stories, anecdotes, and personal observations, he addresses themes of justice, governance, human behavior, and ethics. The work reflects both the author's extensive travels and deep understanding of human nature, offering timeless insights into life and society.",
+    "cover": "/images/favourites/books/golestan.jpg",
+    "meta": [{ "key": "Author", "value": "Saadi Shirazi" }]
+  }
+]

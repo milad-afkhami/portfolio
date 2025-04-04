@@ -1,0 +1,156 @@
+---
+title: "Code Consistency and Quality with Style Guides and Rules"
+description: "Adapting style guides keeps code clean and consistent, balancing rules with flexibility for tech evolution."
+summary: "Discover how Google approaches coding standards in software development through the insights from Chapter 8 of Software Engineering at Google book. This blog post explores the role of style arbiters, the balance between rules and guidance, and the impact of automated tools in maintaining code quality. Plus, get a personal take on blending various style guides to create an effective ESLint configuration."
+date: "2024-04"
+readingTime: "8 min"
+category: "Development"
+quality: "high"
+coverImage: "/images/blog/style-guide.jpg"
+tags: ["Code Quality", "Style Guide", "ESLint", "Development", "Best Practices", "Google"]
+---
+
+## 1. Introduction
+
+In the fast-paced world of software engineering, having solid coding standards is key to keeping code quality high, ensuring consistency, and allowing for scalability. This blog post is a summarization of Chapter 8 from "Software Engineering at Google" book, which dives into how Google tackles style guides and rules. It showcases a balanced approach that blends guidelines with the flexibility needed for real-world coding.
+
+## 2. The Role of Style Arbiters
+
+At Google, each programming language has its own style guide, overseen by a group of experienced "style arbiters". These arbiters are seasoned engineers who know their stuff and are responsible for making the final calls on the style guide. They discuss the engineering trade-offs of any proposed changes, making sure that adjustments align with the goals of code quality and maintainability.
+
+What's interesting is that decisions are made by consensus rather than a simple vote. This collaborative method encourages in-depth discussions that go beyond personal preferences, leading to decisions grounded in trade-offs and practicalities. This structure helps maintain a high standard of code across Google's massive codebase.
+
+## 3. The Importance of Exceptions
+
+While rules are crucial, Google understands that some situations might need exceptions. When a specific scenario pops up that could benefit from an exemption, the style arbiters are consulted. However, waivers aren't handed out lightly; they have to be backed by solid reasoning, not just personal preference.
+
+For example, in the C++ style guide, there's a rule that macro APIs must have project-specific prefixes to avoid naming collisions in the global namespace. While there are allowances for certain utility macros, requests for exceptions based solely on wanting shorter names or project consistency are usually turned down. This shows Google's commitment to preserving the integrity of the codebase over individual project preferences.
+
+## 4. Guidance vs. Rules
+
+Beyond strict rules, Google also offers a wealth of programming guidance that captures best practices from their engineering experiences. This guidance represents the collective knowledge of Google engineers, documenting insights gained from tackling real-world challenges.
+
+While rules are the "musts" of coding standards, guidance is more like the "shoulds." It addresses common pitfalls and clarifies complex topics, giving engineers valuable resources to navigate the nuances of language usage. Google even creates primers for its primary programming languages, which provide clear explanations of language features, helping new engineers understand how to apply them effectively within Google's unique context.
+
+## 5. Training and Tooling for Compliance
+
+At Google, enforcing coding standards is a team effort that combines thorough training with robust automated tools. They invest significant resources in training programs to help engineers get familiar with the expectations set by the style guides.
+
+A notable approach is the "readability process", where new engineers are mentored through code reviews, helping them develop the habits and patterns needed to align with the style guides. This hands-on training ensures that engineers not only learn the rules but also grasp their practical implications.
+
+On top of social training, Google uses static analysis tools and automated checkers to ensure compliance with coding standards. Tools like clang-tidy for C++ and Error Prone for Java can automatically verify adherence to the style guides, relieving engineers of the burden of memorizing all the rules. By integrating these tools into the development workflow, Google makes it easier for engineers to follow guidelines without adding extra mental load.
+
+## 6. The Impact of Automated Code Formatting
+
+Automated formatting tools play a big role in Google's strategy for keeping code styles consistent. By using tools like gofmt for Go and clang-format for C++, Google has cut down on the time spent discussing formatting during code reviews. When formatting is automated and consistent, it becomes a non-issue, letting engineers focus on the more important aspects of code quality.
+
+Take the Go programming language, for example—it was released with gofmt from the get-go, ensuring that all Go code is uniformly formatted. This not only eliminated debates over code style but also made machine-edited code indistinguishable from human-edited code. Initially, some in the community were resistant to the enforced standard, but over time, many have come to appreciate gofmt as a key reason for their preference for Go.
+
+## 7. A Case Study: gofmt
+
+The introduction of gofmt is a perfect example of how standard formatting can make a difference. Before gofmt, code reviews often turned into back-and-forths about formatting choices, wasting valuable time. By setting a standard format from the start, Google aimed to eliminate those inefficiencies.
+
+Now, Go programmers expect that all Go code is formatted according to gofmt, which has no configuration knobs and behaves consistently across the board. This uniformity fosters familiarity, making it easier for engineers to read and understand unfamiliar code quickly. Plus, thousands of open-source packages now follow Go's formatting standards, making it easier to integrate and work with various tools in the ecosystem.
+
+## 8. How I Like My ESLint Config!
+
+In creating coding standards, I have cultivated a unique approach that integrates different styles to create the right configuration for my projects. My method integrates Prettier's strict formatting rules, Typescript-ESlint's [strict-type-checked](https://typescript-eslint.io/users/configs/#strict-type-checked) and [stylistic-type-checked](https://typescript-eslint.io/users/configs/#stylistic-type-checked) rules, the strict accessibility standards enforced by [JSX A11y](https://www.npmjs.com/package/eslint-plugin-jsx-a11y#supported-rules), supplemented by comprehensive [style guides provided by Airbnb](https://github.com/airbnb/javascript), and some selective recommendations from [Vercel](https://github.com/vercel/style-guide) like Next.js and TSDoc rules. This integration ensures a robust framework that increases code quality, maintainability, and accessibility in all my development efforts.
+
+### .prettierrc.json
+
+```json
+{
+  "tabWidth": 2,
+  "printWidth": 120,
+  "endOfLine": "lf",
+  "singleQuote": false,
+  "trailingComma": "all",
+  "plugins": ["prettier-plugin-packagejson"]
+}
+```
+
+### .eslintrc.js
+
+```js
+const { resolve } = require("node:path");
+
+const project = resolve(process.cwd(), "tsconfig.json");
+
+/** @type {import("eslint").Linter.Config} */
+module.exports = {
+  extends: [
+    "eslint:recommended",
+    "prettier",
+    "plugin:@typescript-eslint/strict-type-checked",
+    "plugin:@typescript-eslint/stylistic-type-checked",
+    "plugin:jsx-a11y/strict",
+    "airbnb",
+    "airbnb/hooks",
+    "airbnb-typescript",
+    require.resolve("@vercel/style-guide/eslint/next"),
+    "next/core-web-vitals",
+  ],
+  parser: "@typescript-eslint/parser",
+  globals: { React: true, JSX: true },
+  env: { node: true, browser: true },
+  plugins: ["@typescript-eslint", "turbo"],
+  settings: { "import/resolver": { typescript: { project } } },
+  ignorePatterns: [".*.js", "node_modules/"],
+  rules: {
+    // Overriding some of ESLint's default values
+    "max-lines": ["error", { max: 150, skipBlankLines: true, skipComments: true }],
+    complexity: ["error", 10],
+
+    "@typescript-eslint/array-type": ["error", { default: "generic", readonly: "generic" }],
+    "@typescript-eslint/ban-ts-comment": [
+      "error",
+      {
+        "ts-expect-error": "allow-with-description",
+        "ts-ignore": true,
+        "ts-nocheck": true,
+        "ts-check": false,
+        minimumDescriptionLength: 10,
+      },
+    ],
+    "@typescript-eslint/consistent-type-definitions": ["error", "type"],
+    "@typescript-eslint/consistent-type-imports": "error",
+    "@typescript-eslint/consistent-type-exports": "error",
+    "@typescript-eslint/consistent-indexed-object-style": "error",
+    "@typescript-eslint/explicit-function-return-type": "warn",
+    "@typescript-eslint/naming-convention": "warn",
+    "@typescript-eslint/no-use-before-define": "warn",
+    "@typescript-eslint/no-non-null-assertion": "warn",
+    "@typescript-eslint/prefer-nullish-coalescing": "warn",
+    "import/no-extraneous-dependencies": ["error", { devDependencies: true }],
+
+    "react/prop-types": "off",
+    "react/require-default-props": "off",
+    "react/no-danger": "warn",
+    "react/no-array-index-key": "warn",
+    "react-hooks/exhaustive-deps": "warn",
+    "no-underscore-dangle": "warn",
+    "import/order": "off",
+
+    // disabled formatting rules due to conflicts with Prettier:
+    "@typescript-eslint/quotes": "off",
+    "@typescript-eslint/indent": "off",
+    "@typescript-eslint/comma-dangle": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "react/jsx-closing-tag-location": "off",
+    "max-len": "off",
+    "no-irregular-whitespace": "off",
+    "function-paren-newline": "off",
+    "operator-linebreak": "off",
+    "object-curly-newline": "off",
+    "implicit-arrow-linebreak": "off",
+    "nonblock-statement-body-position": "off",
+  },
+  overrides: [{ files: ["*.js?(x)", "*.ts?(x)"] }],
+};
+```
+
+## 9. Conclusion: The Value of Shared Rules
+
+Google's approach to style guides and rules highlights a commitment to managing complexity and fostering a maintainable codebase. By focusing on consistency, automated enforcement, and clear guidance, Google creates an environment where engineers can thrive and collaborate effectively.
+
+In the end, having a shared set of rules not only helps with code quality but also contributes to the long-term sustainability of both the codebase and the organization as it continues to grow. As software development evolves, Google's methodology serves as a valuable reference for other organizations looking to establish their own coding standards.

@@ -1,2 +1,7 @@
 User-agent: *
 Sitemap: https://milad-afkhami.com/sitemap.xml
+Disallow: /favourites
+Disallow: /services/*
+Disallow: /resume
+Disallow: /projects/*
+Disallow: /services/*

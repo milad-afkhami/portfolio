@@ -1,49 +1,27 @@
 {
   "compilerOptions": {
-    "target": "es2017",
-    "allowSyntheticDefaultImports": true,
-    "baseUrl": ".",
-    "incremental": true,
-    "moduleResolution": "node",
+    "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
     "paths": {
-      "@api/*": ["./pages/api/*"],
-      "@kits/*": ["./components/Kits/*"],
-      "@components/*": ["./components/*"],
-      "@validators/*": ["./validators/*"],
-      "@utils/*": ["./utils/*"],
-      "@models/*": ["./models/*"],
-      "@services/*": ["./services/*"],
-      "@constants/*": ["./constants/*"],
-      /** @types would cause a problem with types from node_modules see here https://stackoverflow.com/questions/61308006/how-to-correctly-import-custom-types-in-typescript#answer-67892812 */
-      "@_types/*": ["./types/*"],
-      "@stylesheets/*": ["./stylesheets/*"],
-      "@helpers/*": ["./helpers/*"],
-      "@hooks/*": ["./hooks/*"],
-      "@configs/*": ["./configs/*"],
-      "@contexts/*": ["./contexts/*"],
-      "@images": ["./public/images/index"],
-      "@data/*": ["./data/*"],
-      "@pages/*": ["./pages/*"],
-      "@configs": ["./configs/*"]
+      "@/*": ["./src/*"]
     }
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "types/*.d.ts",
-    "**/*.js"
-  ],
-  "exclude": ["node_modules", "out", ".next"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }

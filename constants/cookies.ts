@@ -1,5 +1,0 @@
-export const TOKEN_COOKIE_KEY = "PORTFOLIO_TOKEN";
-
-export const USER_COOKIE_KEY = "PORTFOLIO_USER_ID";
-
-export const LOCALE_COOKIE_KEY = "NEXT_LOCALE";

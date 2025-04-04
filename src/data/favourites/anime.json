@@ -1,0 +1,100 @@
+[
+  {
+    "slug": "avatar-the-last-airbender",
+    "title": "Avatar The Last Airbender",
+    "subtitle": "A young Avatar must master all four elements to restore balance to a world at war",
+    "description": "In a world divided into four nations based on the elements - Water, Earth, Fire, and Air - the Avatar is the only one who can master all four elements and maintain balance. When Aang, the last surviving Airbender and the new Avatar, is discovered frozen in ice after a hundred years, he must quickly master all elements to stop the Fire Nation's war of conquest. Together with his friends Katara, Sokka, and later Toph, Aang embarks on an epic journey of self-discovery and heroism while being pursued by the banished Fire Nation prince Zuko.",
+    "cover": "/images/favourites/anime/avatar-the-last-airbender.jpg"
+  },
+  {
+    "slug": "attack-on-titan",
+    "title": "Attack on Titan",
+    "subtitle": "Humanity fights for survival against giant humanoid Titans within the confines of enormous walls",
+    "description": "For over a century, humanity has lived inside cities surrounded by enormous walls due to the Titans, gigantic humanoid creatures who devour humans seemingly without reason. The story follows Eren Yeager, who vows to retake the world after a Titan brings about the destruction of his hometown and the death of his mother. As he and his friends join the elite Survey Corps, they uncover disturbing truths about their world and the Titans that threaten to change everything they believed in.",
+    "cover": "/images/favourites/anime/attack-on-titan.jpg"
+  },
+  {
+    "slug": "death-note",
+    "title": "Death Note",
+    "subtitle": "A high school student gains the power to kill anyone by writing their name in a supernatural notebook",
+    "description": "Light Yagami, a brilliant high school student, discovers a mysterious notebook that allows him to kill anyone by writing their name while picturing their face. Believing he can create a crime-free utopia, Light begins eliminating criminals under the alias 'Kira', drawing the attention of the enigmatic detective L. What follows is an intense battle of wits between Light and L, as each tries to discover the other's identity while defending their own vision of justice.",
+    "cover": "/images/favourites/anime/death-note.jpg"
+  },
+  {
+    "slug": "fullmetal-alchemist-brotherhood",
+    "title": "Fullmetal Alchemist: Brotherhood",
+    "subtitle": "Two brothers seek the Philosopher's Stone to restore their bodies after a failed alchemical experiment",
+    "description": "Edward and Alphonse Elric, two young alchemist brothers, attempt to resurrect their dead mother using forbidden alchemy, resulting in Ed losing an arm and leg while Al loses his entire body, his soul bound to a suit of armor. As they search for the legendary Philosopher's Stone to restore their bodies, they uncover a nationwide conspiracy that threatens their entire country. Their journey forces them to confront the true nature of alchemy, equivalent exchange, and the price of playing god.",
+    "cover": "/images/favourites/anime/fullmetal-alchemist-brotherhood.jpg"
+  },
+  {
+    "slug": "ghost-in-the-shell",
+    "title": "Ghost in The Shell",
+    "subtitle": "A cyborg law enforcement officer hunts a mysterious hacker in a technologically advanced future",
+    "description": "In a future where human consciousness can be digitized and transferred between bodies, Major Motoko Kusanagi leads Public Security Section 9, an elite cyber-crime unit. While investigating a series of cyber attacks by a mysterious hacker known as the Puppet Master, she begins to question her own humanity and existence. The investigation leads her to confront profound questions about consciousness, identity, and what it truly means to be human in an increasingly artificial world.",
+    "cover": "/images/favourites/anime/ghost-in-the-shell.jpg"
+  },
+  {
+    "slug": "berserk",
+    "title": "Berserk",
+    "subtitle": "A lone mercenary seeks revenge against his former ally who betrayed him and their mercenary band",
+    "description": "Guts, a lone mercenary with a massive sword and a dark past, joins the Band of the Hawk, led by the charismatic and ambitious Griffith. As they rise from mercenaries to nobility, a complex relationship develops between Guts, Griffith, and Casca, the band's female commander. Their world is forever changed when Griffith's ambition leads to a horrific supernatural event known as the Eclipse, transforming a tale of medieval fantasy into a dark story of betrayal, revenge, and the depths of human nature.",
+    "cover": "/images/favourites/anime/berserk.jpg"
+  },
+  {
+    "slug": "a-silent-voice",
+    "title": "A Silent Voice",
+    "subtitle": "A former bully seeks redemption by reconnecting with the deaf girl he tormented in elementary school",
+    "description": "Shoya Ishida, once a cruel elementary school bully, seeks redemption years later by reconnecting with Shoko Nishimiya, the deaf girl he had tormented to the point of her leaving school. Now in high school, he must confront his past actions and their lasting impact on both their lives. As they slowly rebuild their relationship, both must deal with their own guilt, self-hatred, and the complicated web of friendships and misunderstandings that surround them.",
+    "cover": "/images/favourites/anime/a-silent-voice.jpg"
+  },
+  {
+    "slug": "spirited-away",
+    "title": "Spirited Away",
+    "subtitle": "A young girl works in a mysterious spirit world to save her parents who have been transformed into pigs",
+    "description": "Ten-year-old Chihiro enters a mysterious spirit world when her parents are transformed into pigs by a witch named Yubaba. To save her parents and return to the human world, she must work in Yubaba's magical bathhouse, serving the various spirits and gods who visit there. With the help of Haku, a mysterious boy with the ability to transform into a dragon, Chihiro must find the courage and strength to overcome numerous challenges while trying to remember her own name, which Yubaba has stolen.",
+    "cover": "/images/favourites/anime/spirited-away.jpg"
+  },
+  {
+    "slug": "demon-slayer",
+    "title": "Demon Slayer",
+    "subtitle": "A young boy becomes a demon slayer to save his sister and avenge his family",
+    "description": "After his family is slaughtered and his sister Nezuko is turned into a demon, Tanjiro Kamado embarks on a journey to become a demon slayer and find a cure for his sister. He joins the Demon Slayer Corps, an ancient organization dedicated to protecting humanity from demons, while carrying his sister with him. As Tanjiro grows stronger and faces increasingly powerful demons, he discovers the complex history between humans and demons, all while trying to protect his sister's humanity and find the demon responsible for his family's tragedy.",
+    "cover": "/images/favourites/anime/demon-slayer.jpg"
+  },
+  {
+    "slug": "princess-mononoke",
+    "title": "Princess Mononoke",
+    "subtitle": "A cursed prince becomes involved in a struggle between forest gods and resource-hungry humans",
+    "description": "Prince Ashitaka, cursed by a dying demon, travels west to find a cure and becomes entangled in a conflict between the forest gods and Irontown, a mining colony that threatens the forest's existence. He meets San, a human raised by wolves who fights to protect the forest, and Lady Eboshi, the ambitious leader of Irontown who seeks to destroy the forest gods. Ashitaka must find a way to bring balance between human progress and natural preservation while dealing with his deadly curse.",
+    "cover": "/images/favourites/anime/princess-mononoke.jpg"
+  },
+  {
+    "slug": "hunter-x-hunter",
+    "title": "Hunter x Hunter",
+    "subtitle": "A young boy embarks on a journey to become a Hunter and find his father",
+    "description": "Gon Freecss, a young boy living on Whale Island, discovers that his father, who he thought was dead, is actually alive and a legendary Hunter. He decides to follow in his father's footsteps and become a Hunter himself, facing the notoriously difficult Hunter Examination. Along the way, he forms close friendships with other applicants - Kurapika, Leorio, and Killua - each with their own motivations and goals. Together they face increasingly dangerous challenges that test their abilities, friendship, and determination.",
+    "cover": "/images/favourites/anime/hunter-x-hunter.jpg"
+  },
+  {
+    "slug": "steins-gate",
+    "title": "Steins;Gate",
+    "subtitle": "A self-proclaimed mad scientist accidentally invents time travel and faces its devastating consequences",
+    "description": "Rintaro Okabe, a self-proclaimed mad scientist, accidentally discovers a way to send messages to the past using a modified microwave and his phone. As he and his friends experiment with their discovery, they attract the attention of SERN, an organization that has been researching time travel. When their experiments lead to devastating consequences, Okabe must repeatedly travel back in time to prevent tragedy, each attempt bringing new complications and forcing him to choose between saving different loved ones.",
+    "cover": "/images/favourites/anime/steins-gate.jpg"
+  },
+  {
+    "slug": "ponyo",
+    "title": "Ponyo",
+    "subtitle": "A goldfish princess desires to become human after falling in love with a five-year-old boy",
+    "description": "Ponyo, a goldfish princess, encounters a five-year-old boy named Sosuke and decides she wants to become human after falling in love with him. Her decision sets off a series of magical events that threaten to upset the balance between the human and sea worlds. As Ponyo's father, a powerful sorcerer, attempts to bring her back to the ocean, she and Sosuke must prove that their love is strong enough to restore balance to both worlds.",
+    "cover": "/images/favourites/anime/ponyo.jpg"
+  },
+  {
+    "slug": "the-legend-of-korra",
+    "title": "The Legend of Korra",
+    "subtitle": "A headstrong Avatar faces political and spiritual threats in an evolving world",
+    "description": "Set 70 years after Avatar: The Last Airbender, the series follows Korra, the new Avatar, as she masters the elements and faces complex challenges in a rapidly modernizing world. Unlike her predecessor Aang, Korra must navigate political intrigue, social revolution, and spiritual upheaval in Republic City, where benders and non-benders live together. As she grows into her role as the Avatar, Korra must learn that strength alone isn't enough to bring balance to a world that questions the very need for an Avatar.",
+    "cover": "/images/favourites/anime/the-legend-of-korra.jpg"
+  }
+]

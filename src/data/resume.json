@@ -1,0 +1,68 @@
+{
+  "experiences": [
+    {
+      "title": "Senior Frontend Developer",
+      "company": "Tech Company",
+      "period": "2020 - Present",
+      "description": "Leading frontend development team in building scalable web applications using React, Next.js, and TypeScript.",
+      "achievements": [
+        "Implemented micro frontend architecture using Module Federation",
+        "Reduced bundle size by 40% through code splitting and optimization",
+        "Improved application performance by 60%",
+        "Mentored junior developers and conducted code reviews"
+      ],
+      "technologies": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Docker", "AWS"]
+    },
+    {
+      "title": "Frontend Developer",
+      "company": "Web Agency",
+      "period": "2018 - 2020",
+      "description": "Developed responsive and accessible web applications for various clients.",
+      "achievements": [
+        "Built 20+ client websites with modern tech stack",
+        "Achieved 100% accessibility compliance",
+        "Reduced development time by 30% through component library"
+      ],
+      "technologies": ["React", "JavaScript", "Sass", "WordPress", "PHP"]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Science in Computer Science",
+      "institution": "University of Technology",
+      "period": "2014 - 2018",
+      "description": "Focused on software engineering and web development.",
+      "achievements": [
+        "Graduated with First Class Honours",
+        "Led the university's web development club",
+        "Completed internships at leading tech companies"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "category": "Frontend",
+      "items": ["React", "Next.js", "TypeScript", "JavaScript", "HTML5", "CSS3", "Tailwind CSS", "DaisyUI"]
+    },
+    {
+      "category": "Backend",
+      "items": ["Node.js", "Express", "REST APIs", "GraphQL", "MongoDB", "PostgreSQL", "Redis"]
+    },
+    {
+      "category": "DevOps",
+      "items": ["Docker", "Kubernetes", "CI/CD", "Git", "GitHub Actions", "AWS", "Vercel"]
+    },
+    {
+      "category": "Architecture",
+      "items": [
+        "Micro Frontends",
+        "Module Federation",
+        "Design Patterns",
+        "Clean Architecture",
+        "SOLID Principles",
+        "Agile",
+        "Scrum"
+      ]
+    }
+  ]
+}

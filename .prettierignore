@@ -1,9 +1,15 @@
 # Ignore artifacts:
-node_modules
 build
 coverage
 .next
-.vercel
-yarn.lock
+node_modules
+public
+dist
+
+# Ignore all HTML files:
+*.html
+
+# Ignore package files
 package-lock.json
-*.min.*
+yarn.lock
+pnpm-lock.yaml

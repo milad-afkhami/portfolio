@@ -1,0 +1,80 @@
+[
+  {
+    "slug": "web-development",
+    "title": "Web Development Freelancing",
+    "description": "Custom web applications built with modern technologies and best practices and best user experience.",
+    "icon": "FaCode",
+    "features": [
+      "2 months support for bug fixes after delivery",
+      "Performance optimization",
+      "SEO best practices",
+      "Responsive and accessible design",
+      "Secure implementation",
+      "Fully documented code"
+    ],
+    "technologies": ["React", "Next.js", "TypeScript", "Node.js", "Nest.js"],
+    "actions": [{ "label": "View projects", "url": "/projects" }]
+  },
+  {
+    "slug": "frontend-consulting",
+    "title": "Frontend Consulting",
+    "description": "Expert guidance on frontend architecture, performance, and best practices.",
+    "icon": "FaLightbulb",
+    "features": [
+      "Architecture review",
+      "Performance optimization",
+      "Code quality assessment",
+      "Best practices implementation",
+      "Team training"
+    ],
+    "technologies": ["React", "Next.js", "Micro Frontends", "Testing"]
+  },
+  {
+    "slug": "ai-prompt-engineering",
+    "title": "AI Integration & Prompt Engineering",
+    "description": "Accelerate development and enhance applications with AI integration and expert prompt engineering.",
+    "icon": "FaRobot",
+    "features": [
+      "AI integration solutions",
+      "Employee performance optimization by AI features",
+      "Prompt engineering optimization",
+      "AI-powered automation workflows"
+    ],
+    "technologies": ["OpenAI API", "Anthropic Claude", "Cursor IDE", "Vector Databases", "LangChain"]
+  },
+  {
+    "slug": "frontend-mentoring",
+    "title": "Frontend Development Mentoring",
+    "description": "Personalized mentoring program to accelerate your frontend development career from beginner to senior level.",
+    "icon": "FaGraduationCap",
+    "features": [
+      "Customized learning roadmap",
+      "Code review and feedback",
+      "Architecture and system design guidance",
+      "Best practices and patterns coaching",
+      "Career development strategy"
+    ],
+    "technologies": ["HTML/CSS/JS", "React", "TypeScript", "Next.js", "System Design", "Testing"],
+    "prerequisites": ["English B1 level or higher(equivalent to IELTS 5.5)"]
+  },
+  {
+    "slug": "technical-pm-mentoring",
+    "title": "Technical Product Management Mentoring",
+    "description": "Comprehensive technical knowledge base program for product managers and QA specialists to effectively collaborate with engineering teams and make informed technical decisions.",
+    "icon": "FaSitemap",
+    "features": [
+      "Data analysis foundations",
+      "Technical SEO fundamentals",
+      "Monitoring & debugging tools overview",
+      "AI integration & prompt engineering basics",
+      "Network & Cloud fundamentals (HTTP, DNS, CDN)",
+      "etc."
+    ],
+    "technologies": ["Git/GitLab", "SQL", "Docker", "Kubernetes", "Nginx", "Sentry/Grafana", "AI Tools"],
+    "prerequisites": [
+      "English B1 level or higher(equivalent to IELTS 5.5)",
+      "Basic technology understanding",
+      "Product management or QA experience"
+    ]
+  }
+]

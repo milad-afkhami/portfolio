@@ -1,0 +1,93 @@
+[
+  {
+    "slug": "hannibal",
+    "title": "Hannibal",
+    "subtitle": "A brilliant psychiatrist and cannibalistic serial killer forms a complex relationship with the FBI profiler hunting him",
+    "description": "Will Graham, a gifted FBI profiler with the ability to empathize with killers, works with psychiatrist Dr. Hannibal Lecter to solve complex serial murder cases. Unknown to the FBI, Hannibal is himself a sophisticated serial killer who takes a particular interest in manipulating Will's fragile psyche. Their psychological game of cat and mouse evolves into a complex relationship that blurs the lines between hunter and hunted, friend and foe, as they become increasingly entangled in each other's lives.",
+    "cover": "/images/favourites/series/hannibal.jpg"
+  },
+  {
+    "slug": "true-detective",
+    "title": "True Detective",
+    "subtitle": "Two detectives unravel dark conspiracies spanning decades in rural Louisiana",
+    "description": "In 1995, detectives Rust Cohle and Martin Hart investigate a ritualistic murder in Louisiana, uncovering a web of conspiracy and occult references. The narrative shifts between their original investigation and 2012, when the case is reopened and both men must confront their past decisions and demons. As they dig deeper into the case, their personal lives unravel, revealing how the investigation has haunted and changed them over the seventeen-year span.",
+    "cover": "/images/favourites/series/true-detective.jpg"
+  },
+  {
+    "slug": "mind-hunter",
+    "title": "Mind Hunter",
+    "subtitle": "FBI agents pioneer the study of serial killers through groundbreaking interviews",
+    "description": "Set in the late 1970s, FBI agents Holden Ford and Bill Tench work to develop the science of criminal profiling by interviewing imprisoned serial killers. Their controversial methods face resistance within the FBI while they struggle to understand the psychology of the most notorious murderers in history. As they delve deeper into the minds of these killers, the psychological toll of their work begins to affect their personal lives and relationships.",
+    "cover": "/images/favourites/series/mind-hunter.jpg"
+  },
+  {
+    "slug": "the-office",
+    "title": "The Office",
+    "subtitle": "A mockumentary following the everyday lives of employees at a paper company in Scranton",
+    "description": "The series documents the daily operations of Dunder Mifflin Paper Company, led by the well-meaning but often inappropriate regional manager Michael Scott. Through a mix of workplace comedy and character-driven storytelling, it explores the relationships, romances, and rivalries among the eccentric employees. What begins as a satire of office culture evolves into a heartfelt examination of friendship, love, and the family we create at work.",
+    "cover": "/images/favourites/series/the-office.jpg"
+  },
+  {
+    "slug": "its-always-sunny-in-philadelphia",
+    "title": "It's Always Sunny in Philadelphia",
+    "subtitle": "A group of morally bankrupt friends run a failing Irish bar in Philadelphia",
+    "description": "The series follows 'The Gang,' five egocentric friends who run Paddy's Pub, a run-down bar in Philadelphia. Each episode sees them hatching elaborate schemes and conspiracies for personal gain or revenge, inevitably leading to humiliating failures. Through their increasingly outrageous misadventures, the show pushes the boundaries of comedy while satirizing contemporary social issues and the depths of human depravity.",
+    "cover": "/images/favourites/series/its-always-sunny-in-philadelphia.jpg"
+  },
+  {
+    "slug": "louie",
+    "title": "Louie",
+    "subtitle": "A surreal, semi-autobiographical look at a comedian's personal and professional life",
+    "description": "Comedian Louis C.K. stars as a fictionalized version of himself, a divorced father of two navigating life in New York City. Through a series of vignettes that blend comedy with drama, the show explores themes of parenthood, relationships, and the struggles of being a working comedian. The series breaks conventional TV formats, offering a unique mix of stand-up comedy, surreal sequences, and raw, honest storytelling.",
+    "cover": "/images/favourites/series/louie.jpg"
+  },
+  {
+    "slug": "leftovers",
+    "title": "Leftovers",
+    "subtitle": "A world struggles to find meaning after 2% of the global population mysteriously vanishes",
+    "description": "Three years after the sudden disappearance of two percent of the world's population in an event known as the 'Sudden Departure,' the series follows the lives of those left behind in the small town of Mapleton. As different characters cope with their loss and search for answers, new cults emerge and existing belief systems are challenged. The show explores themes of grief, faith, and human resilience in the face of inexplicable events.",
+    "cover": "/images/favourites/series/leftovers.jpg"
+  },
+  {
+    "slug": "the-big-bang-theory",
+    "title": "The Big Bang Theory",
+    "subtitle": "A group of socially awkward scientists navigate life, love, and friendship",
+    "description": "The show centers on four brilliant but socially inept scientists whose lives change when an attractive waitress moves in across the hall. Through their interactions, the series explores the collision between scientific genius and social awkwardness, while celebrating geek culture. Over the seasons, the characters grow and evolve, finding love, advancing their careers, and learning to navigate the complexities of human relationships.",
+    "cover": "/images/favourites/series/the-big-bang-theory.jpg"
+  },
+  {
+    "slug": "family-guy",
+    "title": "Family Guy",
+    "subtitle": "An irreverent animated series following the dysfunctional Griffin family",
+    "description": "The series follows the adventures of the Griffin family, led by the dim-witted but well-meaning patriarch Peter, in the fictional town of Quahog. Through cutaway gags, pop culture references, and controversial humor, the show satirizes American family life and society at large. The series pushes boundaries with its dark humor while maintaining a core focus on family dynamics and relationships.",
+    "cover": "/images/favourites/series/family-guy.jpg"
+  },
+  {
+    "slug": "rick-and-morty",
+    "title": "Rick And Morty",
+    "subtitle": "A cynical genius scientist and his grandson embark on interdimensional adventures",
+    "description": "The series follows the misadventures of alcoholic scientist Rick Sanchez and his good-hearted but easily distressed grandson Morty Smith across infinite dimensions. While Rick's inventions and adventures offer unlimited possibilities, they often have dire consequences for the family and various realities they visit. Beneath its sci-fi comedy exterior, the show explores deep themes of existentialism, family dynamics, and the price of genius.",
+    "cover": "/images/favourites/series/rick-and-morty.jpg"
+  },
+  {
+    "slug": "bojack-horseman",
+    "title": "BoJack Horseman",
+    "subtitle": "A washed-up sitcom star struggles with depression and addiction in Hollywood",
+    "description": "Set in a world where humans and anthropomorphic animals coexist, the series follows BoJack Horseman, a former '90s sitcom star trying to reclaim his relevance in modern-day Hollywood. While attempting to write his memoir and restart his career, BoJack battles depression, addiction, and his self-destructive tendencies. The show masterfully balances sharp satire of Hollywood culture with profound explorations of mental health, trauma, and the search for happiness.",
+    "cover": "/images/favourites/series/bojack-horseman.jpg"
+  },
+  {
+    "slug": "the-untamed",
+    "title": "The Untamed",
+    "subtitle": "Two powerful cultivators navigate politics, magic, and forbidden love in ancient China",
+    "description": "Based on the novel Mo Dao Zu Shi, the series follows Wei Wuxian and Lan Wangji, two cultivators from different clans who investigate a series of mysterious events. Through flashbacks and present-day narratives, it reveals how Wei Wuxian became the feared Yiling Patriarch and his eventual downfall. The story explores themes of justice, redemption, and forbidden love while weaving together elements of mystery, fantasy, and political intrigue in ancient China.",
+    "cover": "/images/favourites/series/the-untamed.jpg"
+  },
+  {
+    "slug": "shameless",
+    "title": "Shameless",
+    "subtitle": "A dysfunctional family struggles to survive on Chicago's South Side",
+    "description": "The series follows the Gallagher family, headed by single father Frank, an alcoholic whose children have learned to take care of themselves. Eldest daughter Fiona takes on the role of primary caregiver to her five younger siblings, each dealing with their own struggles and adventures. Through dark humor and raw storytelling, the show explores themes of poverty, addiction, family loyalty, and the struggle to break cycles of dysfunction.",
+    "cover": "/images/favourites/series/shameless.jpg"
+  }
+]
