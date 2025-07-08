@@ -73,3 +73,12 @@ export type IService = {
   prerequisites?: Array<string>;
   actions?: Array<{ label: string; url: string }>;
 };
+
+export type IPrompt = {
+  slug: string;
+  name: string;
+  description: string;
+  coverImage: string;
+  content: string;
+  hasVariable?: boolean;
+};

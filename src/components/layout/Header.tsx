@@ -13,6 +13,7 @@ const navLinks = [
   { href: "/packages", label: "Packages" },
   { href: "/services", label: "Services" },
   { href: "/favourites", label: "Favourites" },
+  { href: "/prompts", label: "Prompt Library" },
 ];
 
 export default function Header(): JSX.Element {
