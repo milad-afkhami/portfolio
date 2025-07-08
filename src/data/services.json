@@ -1,18 +1,18 @@
 [
   {
     "slug": "web-development",
-    "title": "Web Development Freelancing",
-    "description": "Custom web applications built with modern technologies and best practices and best user experience.",
+    "title": "Full-Stack Freelancing",
+    "description": "Create high-quality frontend and backend applications built with modern technologies, best practices, top performance, and best UI & UX.",
     "icon": "FaCode",
     "features": [
       "2 months support for bug fixes after delivery",
-      "Performance optimization",
       "SEO best practices",
+      "Performance optimization",
       "Responsive and accessible design",
       "Secure implementation",
       "Fully documented code"
     ],
-    "technologies": ["React", "Next.js", "TypeScript", "Node.js", "Nest.js"],
+    "technologies": ["TypeScript", "React", "Next.js", "Node.js", "Nest.js"],
     "actions": [{ "label": "View projects", "url": "/projects" }]
   },
   {
@@ -32,15 +32,18 @@
   {
     "slug": "ai-prompt-engineering",
     "title": "AI Integration & Prompt Engineering",
-    "description": "Accelerate development and enhance applications with AI integration and expert prompt engineering.",
+    "description": "Advanced AI integration and prompt engineering techniques to 10x your productivity.",
     "icon": "FaRobot",
     "features": [
-      "AI integration solutions",
-      "Employee performance optimization by AI features",
-      "Prompt engineering optimization",
-      "AI-powered automation workflows"
+      "Automating repetitive tasks and workflows",
+      "Practically leverage AI tools to boost productivity",
+      "Enhancing decision-making with AI insights",
+      "Prompt engineering optimization"
     ],
-    "technologies": ["OpenAI API", "Anthropic Claude", "Cursor IDE", "Vector Databases", "LangChain"]
+    "prerequisites": [
+      "English B1 level or higher (equivalent to IELTS 5.5)",
+      "Basic understanding of the software development lifecycle"
+    ]
   },
   {
     "slug": "frontend-mentoring",
@@ -60,21 +63,19 @@
   {
     "slug": "technical-pm-mentoring",
     "title": "Technical Product Management Mentoring",
-    "description": "Comprehensive technical knowledge base program for product managers and QA specialists to effectively collaborate with engineering teams and make informed technical decisions.",
+    "description": "Comprehensive technical knowledge base program for product managers to effectively collaborate with engineering teams and make informed technical decisions.",
     "icon": "FaSitemap",
     "features": [
-      "Data analysis foundations",
-      "Technical SEO fundamentals",
-      "Monitoring & debugging tools overview",
-      "AI integration & prompt engineering basics",
       "Network & Cloud fundamentals (HTTP, DNS, CDN)",
-      "etc."
+      "Technical SEO fundamentals (Core web vitals, Meta tags, Sitemap)",
+      "Data analysis foundations (Databases, SQL)",
+      "Monitoring & debugging tools overview",
+      "DevOps basics (CI/CD, Docker)"
     ],
-    "technologies": ["Git/GitLab", "SQL", "Docker", "Kubernetes", "Nginx", "Sentry/Grafana", "AI Tools"],
     "prerequisites": [
-      "English B1 level or higher(equivalent to IELTS 5.5)",
-      "Basic technology understanding",
-      "Product management or QA experience"
+      "English B1 level or higher (equivalent to IELTS 5.5)",
+      "Basic understanding of the software development lifecycle",
+      "Product management or a similar experience"
     ]
   }
 ]

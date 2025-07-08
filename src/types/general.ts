@@ -69,6 +69,7 @@ export type IService = {
   description: string;
   icon: string;
   features: Array<string>;
-  technologies: Array<string>;
+  technologies?: Array<string>;
+  prerequisites?: Array<string>;
   actions?: Array<{ label: string; url: string }>;
 };

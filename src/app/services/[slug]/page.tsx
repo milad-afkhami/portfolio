@@ -1,8 +1,19 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { VscTools } from "react-icons/vsc";
 import { notFound } from "next/navigation";
+import { FaListCheck } from "react-icons/fa6";
 import { getServiceBySlug } from "@/services/service";
-import { FaArrowLeft, FaCode, FaLightbulb, FaRobot, FaGraduationCap, FaSitemap } from "react-icons/fa";
+import {
+  FaArrowLeft,
+  FaCode,
+  FaLightbulb,
+  FaRobot,
+  FaGraduationCap,
+  FaSitemap,
+  FaCheck,
+  FaRegLightbulb,
+} from "react-icons/fa";
 
 type ServicePageProps = {
   params: {
@@ -58,14 +69,16 @@ export default async function ServicePage({ params }: ServicePageProps): Promise
             <Icon className="size-8 text-primary" />
           </div>
           <div>
-            <h1 className="text-4xl font-bold">{service.title}</h1>
-            <p className="text-xl text-base-content/80">{service.description}</p>
+            <h1 className="mb-2 text-3xl font-bold">{service.title}</h1>
+            <p className="text-lg text-base-content/80">{service.description}</p>
           </div>
         </div>
 
         <div className="space-y-4">
-          <h2 className="text-2xl font-bold">Features</h2>
-          <ul className="grid gap-4 sm:grid-cols-2">
+          <h2 className="text-2xl font-bold">
+            <FaRegLightbulb className="inline size-6" /> Features
+          </h2>
+          <ul className="space-y-3">
             {service.features.map((feature) => (
               <li key={feature} className="flex items-center gap-2 text-base-content/80">
                 <span className="size-1.5 rounded-full bg-primary" />
@@ -75,16 +88,36 @@ export default async function ServicePage({ params }: ServicePageProps): Promise
           </ul>
         </div>
 
-        <div className="space-y-4">
-          <h2 className="text-2xl font-bold">Technologies</h2>
-          <div className="flex flex-wrap gap-2">
-            {service.technologies.map((tech) => (
-              <span key={tech} className="rounded-full bg-primary/10 px-3 py-1 text-sm text-primary">
-                {tech}
-              </span>
-            ))}
+        {service.prerequisites?.length ? (
+          <div className="space-y-4">
+            <h2 className="text-2xl font-bold">
+              <FaListCheck className="inline size-6" /> Prerequisites
+            </h2>
+            <ul className="space-y-3">
+              {service.prerequisites.map((prerequisite) => (
+                <li key={prerequisite} className="flex items-center gap-2 text-base-content/80">
+                  <FaCheck className="size-4 text-primary" />
+                  {prerequisite}
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
+        ) : undefined}
+
+        {service.technologies?.length ? (
+          <div className="space-y-4">
+            <h2 className="text-2xl font-bold">
+              <VscTools className="inline size-6" /> Technologies
+            </h2>
+            <div className="flex flex-wrap gap-2">
+              {service.technologies.map((tech) => (
+                <span key={tech} className="rounded-full bg-primary/10 px-3 py-1 text-sm text-primary">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        ) : undefined}
 
         <div className="flex justify-center">
           <Link href="/contact" className="btn btn-primary">

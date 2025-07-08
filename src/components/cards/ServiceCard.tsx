@@ -50,16 +50,18 @@ export default function ServiceCard({ service }: ServiceCardProps): JSX.Element 
             </ul>
           </div>
 
-          <div className="space-y-4">
-            <h3 className="font-semibold text-base-content">Technologies</h3>
-            <div className="flex flex-wrap gap-2">
-              {technologies.map((tech) => (
-                <span key={tech} className="rounded-full bg-primary/10 px-3 py-1 text-sm text-primary">
-                  {tech}
-                </span>
-              ))}
+          {technologies?.length ? (
+            <div className="space-y-4">
+              <h3 className="font-semibold text-base-content">Technologies</h3>
+              <div className="flex flex-wrap gap-2">
+                {technologies.map((tech) => (
+                  <span key={tech} className="rounded-full bg-primary/10 px-3 py-1 text-sm text-primary">
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
+          ) : undefined}
         </Link>
         <div className="flex justify-start gap-4">
           <Link href="/contact" className="btn btn-primary max-w-[50%] flex-1">
