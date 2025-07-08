@@ -1,0 +1,27 @@
+---
+description: Boilerplate for creating a TypeScript type
+globs: 
+alwaysApply: false
+---
+**Type boilerplate**
+
+This example demonstrates how to define clear, well-structured TypeScript types.
+
+```ts
+type UserAvatar = {
+  id: number;
+  url: string;
+};
+
+type IUser = {
+  id: number;
+  createdAt: Date;
+  updatedAt: Date;
+  name: string;
+  username: string;
+  email: string;
+  avatar: UserAvatar;
+};
+
+export default IUser;
+```

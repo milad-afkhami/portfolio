@@ -1,0 +1,17 @@
+---
+description: Boilerplate for creating an enum
+globs: 
+alwaysApply: false
+---
+**Enum Boilerplate**
+
+Use enums to define a fixed set of related constants with meaningful names.
+
+**Example**
+
+```ts
+enum UserRole {
+  Admin = "ADMIN",
+  User = "USER",
+}
+```

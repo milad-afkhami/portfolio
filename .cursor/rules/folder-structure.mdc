@@ -1,0 +1,20 @@
+---
+description: Rules for generating files and directories or navigating
+globs: 
+alwaysApply: false
+---
+**Folder Structure**
+
+This folder structure serves as a guideline for organizing the project's source code in a scalable, maintainable, and domain-oriented manner. Leverage this structure when generating or navigating code.
+
+src/
+├── configs/           # Configuration files
+├── constants/         # Constants and enums
+├── components/        # Components, separated by their domain (e.g. layout, auth, profile, etc.)
+├── data/              # Hardcoded pre-defined data like rarely changing data or mock data
+├── docs/              # Documentation files
+├── hooks/             # Custom hooks
+├── services/          # Service layer files, [services-guildeline.mdc](mdc:.cursor/rules/services-guildeline.mdc)
+├── types/             # Global type definitions
+├── helpers/           # Helper functions [helpers-guideline.mdc](mdc:.cursor/rules/helpers-guideline.mdc)
+└── utils/             # Utility functions.

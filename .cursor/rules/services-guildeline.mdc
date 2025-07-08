@@ -1,0 +1,42 @@
+---
+description: Services and data fetching guideline
+globs: 
+alwaysApply: false
+---
+**Services – Guideline**
+
+A service layer functions as an intermediary between the frontend application and external services, such as APIs. Beyond merely fetching data, it encompasses data transformation(for example snake case to camel case), logical adjustments(changing the data structure to fit the UI needs), and potentially enforcing business rules before data reaches the application's core logic or UI components.
+
+**Example:**
+
+Here is a simple example of a service layer function that fetches data from an API and transforms it to fit the UI needs:
+
+```ts
+import Http from "@utils/http";
+import type { HttpResponse } from "@_types/Http";
+
+type Params = { a: string; b: string };
+
+type UntransformedParams = { c: string; d: string };
+
+type Result = { c: number; d: string };
+
+type UntransformedResult = { a: number; b: string };
+
+export default async function getSomethingDetailsService(params: Params): Promise<Result> {
+  const { a, b } = params;
+
+  const ENDPOINT = `/v1/something/${DYNAMIC_PART}`;
+
+  const response = await Http.get<
+    HttpResponse<UntransformedResult, UntransformedParams>
+  >({
+    url: ENDPOINT,
+    params: { c: a, d: b },
+  });
+
+  return { c: response.data.a, d: response.data.b };
+}
+
+export type { Result as SomethingDetailsServiceResult };
+```

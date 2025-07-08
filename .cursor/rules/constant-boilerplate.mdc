@@ -1,0 +1,18 @@
+---
+description: Boilerplate for creating a constant
+globs: 
+alwaysApply: false
+---
+**Constants Boilerplate**
+
+```ts
+// Storage keys
+export const STORAGE_KEY_ACCESS_TOKEN = "ACCESS_TOKEN";
+
+// Query parameter keys
+export const QUERY_KEY_PAGE = "page";
+
+// DOM element IDs
+export const DOM_ID_SOME_ELEMENT = "some-id";
+
+```

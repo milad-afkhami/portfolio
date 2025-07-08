@@ -1,0 +1,18 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+
+**Tool first**
+
+Ensure that any time you generate or suggest code, you first evaluate if a well-maintained NPM package, framework, or utility library already exists that solves the problem. Prioritize using well-known libraries for common functionalities such as general-purpose JavaScript utilities (e.g., Lodash), UI component frameworks (e.g., DaisyUI), data visualization (e.g., Chart.js, Recharts), form handling (e.g., React Hook Form), state management (e.g., Jotai, Zustand), or any other well-supported solution for generic tasks.
+
+Follow this step-by-step workflow:
+
+1. Analyze whether the requested functionality overlaps with established patterns, standard UI behaviors, or common utilities.
+2. Before proposing any custom implementation, explicitly check if there is an existing, trusted NPM package that can deliver the required functionality effectively.
+3. If a suitable library exists, prefer integrating it, and explain why it is appropriate (e.g., popularity, maintenance, compatibility, community trust).
+4. Only recommend or write custom code if the required functionality is unique, domain-specific, or cannot be adequately handled by integrating existing solutions.
+
+This will keep code smaller, easier to maintain, and more indexable for future code assistance.

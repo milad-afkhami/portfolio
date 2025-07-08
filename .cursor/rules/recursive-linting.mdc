@@ -1,0 +1,6 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+At the end, run "yarn lint" recursively to make sure there are no linting errors.

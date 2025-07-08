@@ -1,0 +1,23 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+**Tech stack**
+
+This project follows a standardized and opinionated front-end stack to ensure consistency, maintainability, and modern best practices across the codebase.
+
+- Yarn@v1.22 – Preferred package manager for dependency management and scripts.
+- Vite – Fast and modern build tool for local development and bundling.
+- TypeScript@5.5 – Statically typed JavaScript for improved code reliability and scalability.
+- Prettier@^3 – Code formatter to enforce consistent styling.
+- ESLint@^8 – Linter for identifying and fixing code quality issues.
+- Tailwind CSS@3 – Utility-first CSS framework for rapid UI development.
+- Daisy-UI@^4 – Tailwind CSS plugin for pre-styled UI components.
+- React.js@^18 – Core UI library for building interactive UIs.
+- React Router@^7 – Declarative routing solution used as the project’s navigation framework.
+- Jotai@^2 – Primitive and flexible state management solution.
+- Lodash – Utility library for common operations.
+- react-icons – Collection of popular icon packs as React components.
+- @hello-pangea/dnd – Drag-and-drop library based on react-beautiful-dnd, used for interactive reordering.
+- react-hook-form@^7 – Lightweight and performant form state management library.

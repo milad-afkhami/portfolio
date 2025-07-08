@@ -1,0 +1,35 @@
+---
+description: Helpers guideline
+globs: 
+alwaysApply: false
+---
+**Helpers – Guideline**
+
+Helpers are used to extract and organize business logic that is **specific to the current project**. Their purpose is to keep components clean and focused by offloading complex or repetitive logic into modular, reusable units.
+
+> ✅ **Use Helpers** to isolate logic that is too domain-specific to belong in a shared utility library but too complex or repetitive to live directly in a component.
+> ❌ **Do not use Helpers** for generic utility functions that could apply across multiple projects—those belong in shared libraries or utils directory.
+
+**Example:**
+
+```ts
+export default class SomethingHelper {
+  // Private instance property
+  private privatePropertyExample;
+
+  // Public instance property
+  public publicPropertyExample;
+
+  // Public static method
+  public static publicMethodExample() {}
+
+  // Private static method
+  private static privateMethodExample() {}
+
+  // Static getter
+  public static get getterMethodExample() {}
+
+  // Static setter
+  public static set setterMethodExample(value) {}
+}
+```
