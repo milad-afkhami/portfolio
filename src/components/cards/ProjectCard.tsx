@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import type { IProject } from "@/types/general";
+import type { IProjectLite } from "@/types/general";
 
 type ProjectCardProps = {
-  project: IProject;
+  project: IProjectLite;
 };
 
 export default function ProjectCard({ project }: ProjectCardProps): JSX.Element {

@@ -15,7 +15,7 @@ type FavouritePageProps = {
 };
 
 export async function generateMetadata({ params }: FavouritePageProps): Promise<Metadata> {
-  const favourite = await getFavouriteBySlug(params.category, params.slug);
+  const favourite = await getFavouriteBySlug(params.slug);
   if (!favourite) notFound();
 
   return {
@@ -36,7 +36,7 @@ const categoryIcons: Record<IFavouriteCategory["slug"], IconType> = {
 
 export default async function FavouritePage({ params }: FavouritePageProps): Promise<JSX.Element> {
   const category = params.category;
-  const favourite = await getFavouriteBySlug(category, params.slug);
+  const favourite = await getFavouriteBySlug(params.slug);
   if (!favourite) notFound();
 
   const Icon = categoryIcons[category];

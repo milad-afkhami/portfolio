@@ -1,14 +1,17 @@
-import type { IconType } from "react-icons";
+import type { Dictionary } from "ts-wiz";
 import type { MDXRemoteSerializeResult } from "next-mdx-remote";
 
-export type IProject = {
+export type IProjectLite = {
   slug: string;
   title: string;
-  description?: string;
   shortDescription: string;
   logo?: string;
-  date: string;
   technologies: Array<string>;
+};
+
+export type IProject = IProjectLite & {
+  description?: string;
+  date: string;
   features?: Array<string>;
   link?: string;
   images?: Array<string>;
@@ -30,29 +33,28 @@ export type IFavouriteCategory = {
   slug: FavouriteCategory;
   title: string;
   description: string;
-  icon: IconType;
   image: string;
 };
 
-export type IBlogMetadata = {
+export type IBlogLite = {
+  slug: string;
   title: string;
   description: string;
-  summary: string;
   date: string;
   readingTime: string;
-  category: string;
   coverImage: string;
-  tags: Array<string>;
   quality: "low" | "medium" | "high";
 };
 
-export type IBlog = IBlogMetadata & {
-  slug: string;
+export type IBlog = IBlogLite & {
+  summary: string;
+  category: string;
+  tags: Array<string>;
   content: MDXRemoteSerializeResult;
 };
 
 export type IPackage = {
-  id: string;
+  id: number;
   name: string;
   description: string;
   version: string;
@@ -74,11 +76,31 @@ export type IService = {
   actions?: Array<{ label: string; url: string }>;
 };
 
-export type IPrompt = {
+export type IPromptLite = {
   slug: string;
   name: string;
   description: string;
   coverImage: string;
+};
+
+export type IPrompt = IPromptLite & {
   content: string;
   hasVariable?: boolean;
+};
+
+export type IHome = {
+  blogs: Array<IBlogLite>;
+  projects: Array<IProjectLite>;
+};
+
+export type IAbout = {
+  coverImage: string;
+  text: MDXRemoteSerializeResult;
+  virtues: Array<{ name: string; description: string }>;
+  skills: Array<{ category: string; items: Array<string> }>;
+};
+
+export type HttpResponse<T> = {
+  data: T;
+  meta: Dictionary;
 };

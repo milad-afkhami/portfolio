@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import type { IBlog } from "@/types/general";
+import type { IBlogLite } from "@/types/general";
 
 type BlogCardProps = {
-  blog: IBlog;
+  blog: IBlogLite;
 };
 
 export default function BlogCard({ blog }: BlogCardProps): JSX.Element {

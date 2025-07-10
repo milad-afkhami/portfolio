@@ -1,27 +1,77 @@
-import fs from "fs";
-import path from "path";
+import HttpClient from "@/utils/http";
 import type { Nullable } from "ts-wiz";
+import { type IBlog } from "@/types/general";
+import { cdnBaseUrl } from "@/configs/general";
 import { serialize } from "next-mdx-remote/serialize";
-import type { IBlog, IBlogMetadata } from "@/types/general";
+import type { HttpResponse, IBlogLite } from "@/types/general";
 
-const BLOGS_PATH = path.join(process.cwd(), "src/data/blogs");
+type Response = {
+  id: number;
+  documentId: string;
+  slug: string;
+  title: string;
+  description: string;
+  summary: string;
+  date: string;
+  readingTime: string;
+  tags: Array<string>;
+  quality: "high" | "medium" | "low";
+  content: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  category: {
+    id: number;
+    documentId: string;
+    name: string;
+    slug: string;
+    description: string | null;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
+  };
+  coverImage: {
+    id: number;
+    caption: string | null;
+    width: number;
+    height: number;
+    hash: string;
+    ext: string;
+    mime: string;
+    size: number;
+    url: string;
+    previewUrl: string | null;
+    provider: string;
+    provider_metadata: string | null;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
+  };
+};
 
 export async function getBlogBySlug(slug: string): Promise<Nullable<IBlog>> {
   try {
-    const filePath = path.join(BLOGS_PATH, `${slug}.mdx`);
-    const source = fs.readFileSync(filePath, "utf8");
-
-    const mdxSource = await serialize(source, {
-      parseFrontmatter: true,
-      mdxOptions: {
-        development: process.env.NODE_ENV === "development",
-      },
+    const response = await HttpClient.get<HttpResponse<Array<Response>>>({
+      url: `/blogs`,
+      params: { populate: "*", "filters[slug]": slug },
     });
 
+    const result = response.data[0];
+
+    const mdxContent = await serialize(result.content);
+
     return {
-      slug,
-      content: mdxSource,
-      ...(mdxSource.frontmatter as IBlogMetadata),
+      slug: result.slug,
+      date: result.date,
+      tags: result.tags,
+      content: mdxContent,
+      title: result.title,
+      summary: result.summary,
+      quality: result.quality,
+      category: result.category.name,
+      description: result.description,
+      readingTime: result.readingTime,
+      coverImage: `${cdnBaseUrl}${result.coverImage.url}`,
     } satisfies IBlog;
   } catch (error) {
     console.error("Error getting blog by slug:", error);
@@ -29,28 +79,33 @@ export async function getBlogBySlug(slug: string): Promise<Nullable<IBlog>> {
   }
 }
 
-export async function getAllBlogs(): Promise<Array<IBlog>> {
+export async function getAllBlogs(): Promise<Array<IBlogLite>> {
   try {
-    const files = fs.readdirSync(BLOGS_PATH);
-    const blogs = await Promise.all(
-      files
-        .filter((file) => file.endsWith(".mdx"))
-        .map(async (file) => {
-          const slug = file.replace(/\.mdx$/, "");
-          const blog = await getBlogBySlug(slug);
-          return blog;
-        }),
-    );
+    const blogs = await HttpClient.get<HttpResponse<Array<Response>>>({
+      url: "/blogs",
+      params: { populate: "*" },
+    });
 
-    return blogs
-      .filter((blog): blog is IBlog => blog !== null)
+    return blogs.data
       .sort((a, b) => {
         return new Date(b.date).getTime() - new Date(a.date).getTime();
       })
       .sort((a, b) => {
         const qualityOrder = { high: 0, medium: 1, low: 2 };
         return qualityOrder[a.quality] - qualityOrder[b.quality];
-      }) satisfies Array<IBlog>;
+      })
+      .map(
+        (blog) =>
+          ({
+            slug: blog.slug,
+            date: blog.date,
+            title: blog.title,
+            description: blog.description,
+            readingTime: blog.readingTime,
+            coverImage: `${cdnBaseUrl}${blog.coverImage.url}`,
+            quality: blog.quality,
+          }) satisfies IBlogLite,
+      );
   } catch (error) {
     console.error("Error getting all blogs:", error);
     return [];

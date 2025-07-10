@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import CardsWrapper from "@/components/cards/Wrapper";
-import { favouritesCategories } from "@/configs/favourites";
+import { getFavouriteCategories } from "@/services/favouriteCategories";
 import FavouriteCategoryCard from "@/components/cards/FavouriteCategoryCard";
 
 export const metadata: Metadata = {
@@ -10,7 +10,9 @@ export const metadata: Metadata = {
   alternates: { canonical: "/favourites" },
 };
 
-export default function FavouritesPage(): JSX.Element {
+export default async function FavouritesPage(): Promise<JSX.Element> {
+  const favouriteCategories = await getFavouriteCategories();
+
   return (
     <div className="space-y-8">
       <div>
@@ -21,7 +23,7 @@ export default function FavouritesPage(): JSX.Element {
       </div>
 
       <CardsWrapper>
-        {favouritesCategories.map((category) => (
+        {favouriteCategories.map((category) => (
           <FavouriteCategoryCard key={category.slug} {...category} />
         ))}
       </CardsWrapper>

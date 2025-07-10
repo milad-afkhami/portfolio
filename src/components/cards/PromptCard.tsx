@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import type { IPrompt } from "@/types/general";
+import type { IPromptLite } from "@/types/general";
 
 type PromptCardProps = {
-  prompt: IPrompt;
+  prompt: IPromptLite;
 };
 
 export default function PromptCard({ prompt }: PromptCardProps): JSX.Element {

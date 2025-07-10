@@ -1,13 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
-import { getAllBlogs } from "@/services/blog";
+import { getHome } from "@/services/home";
 import BlogCard from "@/components/cards/BlogCard";
-import { getAllProjects } from "@/services/project";
 import CardsWrapper from "@/components/cards/Wrapper";
+import { baseUrl, resumeLink } from "@/configs/general";
 import ProjectCard from "@/components/cards/ProjectCard";
 import { FaDownload, FaArrowRight, FaEnvelope, FaChevronDown } from "react-icons/fa";
-import { baseUrl, homeBlogsCount, homeProjectsCount, resumeLink } from "@/configs/general";
 
 export const metadata: Metadata = {
   title: "Milad Afkhami - Senior Frontend Developer",
@@ -25,10 +24,14 @@ export const metadata: Metadata = {
 };
 
 export default async function Home(): Promise<JSX.Element> {
-  const blogs = await getAllBlogs();
-  const projects = await getAllProjects();
-  const topBlogs = blogs.slice(0, homeBlogsCount);
-  const topProjects = projects.slice(0, homeProjectsCount);
+  const home = await getHome();
+
+  if (!home) {
+    return <div>Error loading home</div>;
+  }
+
+  const topBlogs = home.blogs;
+  const topProjects = home.projects;
 
   return (
     <div className="space-y-12">

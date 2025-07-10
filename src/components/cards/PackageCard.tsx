@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { IPackage } from "@/types/general";
 import { FaGithub, FaNpm, FaBook } from "react-icons/fa";
 
@@ -7,7 +6,7 @@ type PackageCardProps = {
 };
 
 export default function PackageCard({ pkg }: PackageCardProps): JSX.Element {
-  const { id, name, description, version, repository, npm, documentation, features, technologies } = pkg;
+  const { name, description, version, repository, npm, documentation, features, technologies } = pkg;
 
   return (
     <article className="group flex flex-col justify-between overflow-hidden rounded-lg border bg-base-100 shadow-sm transition-shadow hover:shadow-md">
@@ -63,9 +62,6 @@ export default function PackageCard({ pkg }: PackageCardProps): JSX.Element {
             <FaBook className="size-5" />
           </a>
         </div>
-        <Link href={`/packages/${id}`} className="btn btn-primary btn-sm">
-          Learn More
-        </Link>
       </div>
     </article>
   );
