@@ -4,8 +4,8 @@ import CardsWrapper from "@/components/cards/Wrapper";
 import PromptCard from "@/components/cards/PromptCard";
 
 export const metadata: Metadata = {
-  title: "Prompts - Milad Afkhami",
-  description: "Explore my open-source prompts and contributions to the web development community.",
+  title: "Prompt Library - Milad Afkhami",
+  description: "Explore awesome things you can do with my open-source prompt library.",
   alternates: { canonical: "/prompts" },
 };
 
