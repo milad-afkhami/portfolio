@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { VscTools } from "react-icons/vsc";
 import { notFound } from "next/navigation";
+import { VscTools } from "react-icons/vsc";
 import { FaListCheck } from "react-icons/fa6";
 import { getServiceBySlug } from "@/services/service";
 import {
@@ -120,7 +120,7 @@ export default async function ServicePage({ params }: ServicePageProps): Promise
         ) : undefined}
 
         <div className="flex justify-center">
-          <Link href="/contact" className="btn btn-primary">
+          <Link href="/contact" className="btn btn-primary btn-lg">
             Contact Me
           </Link>
         </div>

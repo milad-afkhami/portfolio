@@ -31,18 +31,22 @@
   },
   {
     "slug": "ai-prompt-engineering",
-    "title": "AI Integration & Prompt Engineering",
-    "description": "Advanced AI integration and prompt engineering techniques to 10x your productivity.",
+    "title": "Prompt Engineering & AI Integration Workshop",
+    "description": "A hands-on and immediately applicable program where teams and individuals learn advanced AI integration and prompt engineering techniques that save hours every week.",
     "icon": "FaRobot",
     "features": [
-      "Automating repetitive tasks and workflows",
-      "Practically leverage AI tools to boost productivity",
-      "Enhancing decision-making with AI insights",
-      "Prompt engineering optimization"
+      "Prompt engineering techniques and prompt libraries",
+      "Tool-stack guidance and an AI-first mindset",
+      "Pioneer AI-powered working style",
+      "Role-tailored examples for Engineering, Product, Design, Marketing, Data, HR, and more",
+      "A certificate of completion",
+      "Corporate (private) and individual (public) groups",
+      "Remote by default; onsite available on request"
     ],
+    "technologies": ["GPT", "Claude", "Cursor", "Vector DBs", "N8N"],
     "prerequisites": [
-      "English B1 level or higher (equivalent to IELTS 5.5)",
-      "Basic understanding of the software development lifecycle"
+      "English B1 level or higher (IELTS 5+)",
+      "Basic familiarity with technical terms like terminal, API, frontend/backend"
     ]
   },
   {
