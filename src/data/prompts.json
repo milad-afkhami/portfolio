@@ -38,10 +38,10 @@
   },
   {
     "slug": "prompt-enhancer",
-    "name": "Prompt Enhancer (discovery assistance)",
+    "name": "Prompt Enhancer (Discovery Assistance)",
     "description": "Enhance a prompt by asking questions and answering them.",
     "coverImage": "/images/prompts/prompt-enhancer.jpg",
-    "content": "I'll give you a prompt, and your goal will be to improve it by asking me questions. Once I answer the questions, write the new prompt and ask me new questions. Is it OK?"
+    "content": "I'll give you a prompt, and your goal will be to improve it by asking me carefully crafted questions.\n\nWhen you share your questions:\n\n- Include a brief most possible example answer with each question for guide.\n- If the question is multiple choice, list the possible answer choices.\n- Encourage me to repeat each question in response to provide more context, reduce ambiguity, and avoid hallucination or misalignment when matching answers to questions.\n\nOnce I answer the questions, write the new prompt and ask me new questions. Is it OK?"
   },
   {
     "slug": "auto-priming",
