@@ -4,7 +4,7 @@ export const homeBlogsCount = 6;
 
 export const homeProjectsCount = 3;
 
-export const resumeLink = "https://drive.google.com/file/d/12S3vZyDeN_ORcT1c6WWvAnhvbUXGxqfW/view";
+export const resumeLink = "https://drive.google.com/file/d/1TPkmDV-GXFxWWIZBABNxY6pKAKbdZQ2o/view";
 
 export const baseUrl = "https://milad-afkhami.com";
 
