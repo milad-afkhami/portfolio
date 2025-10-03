@@ -30,13 +30,13 @@
     "technologies": ["React", "Next.js", "Micro Frontends", "Testing"]
   },
   {
-    "slug": "ai-prompt-engineering",
-    "title": "Prompt Engineering & AI Integration Workshop",
+    "slug": "ai-fluency",
+    "title": "AI Fluency & AI Integration Workshop",
     "description": "A hands-on and immediately applicable program where teams and individuals learn advanced AI integration and prompt engineering techniques that save hours every week.",
     "icon": "FaRobot",
     "features": [
-      "Prompt engineering techniques and prompt libraries",
       "Tool-stack guidance and an AI-first mindset",
+      "Prompt engineering techniques and prompt libraries",
       "Pioneer AI-powered working style",
       "Role-tailored examples for Engineering, Product, Design, Marketing, Data, HR, and more",
       "A certificate of completion",
