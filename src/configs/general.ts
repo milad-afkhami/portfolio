@@ -8,4 +8,4 @@ export const resumeLink = "https://drive.google.com/file/d/1TPkmDV-GXFxWWIZBABNx
 
 export const baseUrl = "https://milad-afkhami.com";
 
-export const allowedBlogQualitiesForSeo: Array<IBlog["quality"]> = ["high", "medium"];
+export const allowedBlogQualitiesForSeo: Array<IBlog["quality"]> = ["top", "high", "medium"];

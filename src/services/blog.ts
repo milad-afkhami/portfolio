@@ -48,7 +48,7 @@ export async function getAllBlogs(): Promise<Array<IBlog>> {
         return new Date(b.date).getTime() - new Date(a.date).getTime();
       })
       .sort((a, b) => {
-        const qualityOrder = { high: 0, medium: 1, low: 2 };
+        const qualityOrder = { top: 0, high: 1, medium: 2, low: 3 };
         return qualityOrder[a.quality] - qualityOrder[b.quality];
       }) satisfies Array<IBlog>;
   } catch (error) {
