@@ -31,28 +31,34 @@ _A summary of changes that this merge request contains. By default, it's a list 
 
 ## Checklist
 
-### Code Quality
+### Quality & Ownership
 
-- [ ] This merge request follows [the standard style guides](LINK_TO_STYLE_GUIDE_DOCUMENTATION).
-- [ ] This merge request follows [the git workflow guidelines](LINK_TO_GIT_WORKFLOW_DOCUMENTATION).
+- [ ] The total line changes (additions + deletions) do not exceed 1,500 lines (ideally under 1,000).
+- [ ] This merge request follows [the standard style guides](LINK_TO_STYLE_GUIDE_DOCUMENTATION) and [the git workflow guidelines](LINK_TO_GIT_WORKFLOW_DOCUMENTATION).
 - [ ] I have reviewed and updated all relevant documentation related to the content of this merge request.
+- [ ] I have reviewed all diffs and changes in this merge request and confirm there is nothing unintentional or unrelated included, such as:
+    - Leftover console logs
+    - Debugger statements
+    - Commented-out code
+    - Code smell comments
+    - Accidental file addition/deletion
+    - etc.
+- [ ] I take full ownership and responsibility for all code in this merge request, including any AI-generated or externally sourced content.
 
 ### Git History
 
-- [ ] The commits of this merge request can be squashed, or I have interactively rebased the commits to ensure a clean history.
+- [ ] The commits of this merge request can be squashed, or I have [interactively rebased](https://confluence.xsystem.ir/display/ITC/Rebasing) the commits to ensure a clean history.
 - [ ] The commit messages adhere to [the git commit message convention standards](LINK_TO_COMMIT_CONVENTION_DOCUMENTATION).
 
-### Metadata
+### Workflow & Tracking
 
 - [ ] I have assigned myself to this merge request and the corresponding issues.
-- [ ] I have assigned the correct reviewer(s) to this merge request.
-- [ ] I have added the suitable label(s) corresponding to this merge request.
-- [ ] If there are other merge requests related or dependent on this one, I have mentioned them in the `dependencies` section.
-- [ ] I have added the **Draft** prefix if I don't want this merge request to be merged yet.
-- [ ] I have added the **WIP** prefix if I don't want this merge request to be reviewed yet, and therefore I haven't added any reviewers or assignees.
-- [ ] I have attached the Figma design or, at the very least, a screenshot (if available) that pictures the intended output of this merge request to the issue details or in [the Additional Notes section](#additional-notes).
+- [ ] I have assigned the correct reviewer(s) and added the suitable label(s).
+- [ ] I have mentioned any related or dependent merge requests in the `dependencies` section.
+- [ ] I have added the **Draft** prefix (not ready to merge) or **WIP** prefix (not ready for review) if applicable.
+- [ ] I have attached the Figma design or screenshot (if available) to the issue or [Additional Notes section](#additional-notes).
 
-### QA
+### Verification
 
 - [ ] All tests have been successfully completed.
 - [ ] The app has been built successfully.
