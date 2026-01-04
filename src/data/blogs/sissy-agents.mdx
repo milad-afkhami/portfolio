@@ -1,0 +1,278 @@
+---
+title: "Claude Code Review: Meet the Sissies 🧵"
+description: "A practical, opinionated tour of Claude Code’s multi-agent code review system—and why it quietly raises the bar for frontend teams."
+summary: "An opinionated deep dive into Claude Code’s multi-agent review system—how specialized reviewers for accessibility, security, performance, React, TypeScript, and more quietly raise the bar for frontend teams."
+date: "2026-01"
+readingTime: "12 min"
+tags: [code-review, frontend, claude, gitlab, dx]
+category: "Engineering"
+quality: "Evergreen"
+coverImage: "/images/blog/sissy/sissy-squad-bot.jpg"
+---
+
+## Why Another Code Review System?
+
+Code review is where engineering ideals go to either mature—or rot politely.
+
+Most review tools fail in one of two ways:
+
+- they are **too shallow** (“LGTM 👍”), or
+- they are **too noisy**, dumping generic lint wisdom with no sense of project context.
+
+Claude Code’s review commands take a different route:  
+they split responsibility across **specialized, opinionated agents**, each with a sharply defined role, shared standards, and zero tolerance for vague feedback.
+
+Collectively, they’re known (affectionately, and a bit dangerously) as **The Sissies**.
+
+---
+
+## The Big Idea: Specialized Review Agents
+
+Instead of one omniscient reviewer pretending to be good at everything, Claude Code runs **parallel reviewers**, each focused on a single dimension of quality:
+
+- accessibility
+- security
+- performance
+- SEO
+- styling
+- code quality
+- React patterns
+- TypeScript safety
+- git hygiene
+- QA & requirements
+
+Each agent:
+
+- follows the **same commenting contract**
+- uses consistent severity levels
+- posts **actionable GitLab threads**
+- ends with a **summary verdict**
+
+Let’s meet them.
+
+---
+
+## 🦯 Colorblind Sissy — Accessibility
+
+<img src="/images/blog/sissy/colorblind-sissy.jpg" alt="Colorblind Sissy" />
+
+Accessibility reviews are usually an afterthought. This agent treats them as **blocking engineering requirements**.
+
+Focus areas:
+
+- semantic HTML
+- keyboard navigation
+- ARIA correctness (and restraint)
+- WCAG A / AA compliance
+- reduced motion and focus visibility
+
+If something is inaccessible, it’s not “nice to have.”  
+It’s a ❗ **must-fix**.
+
+---
+
+## 🔒 SecuSissy — Security
+
+<img src="/images/blog/sissy/secu-sissy.jpg" alt="SecuSissy" />
+
+This agent assumes attackers are clever, bored, and motivated.
+
+It looks for:
+
+- XSS and unsafe rendering
+- leaked secrets
+- auth and session mistakes
+- insecure client-side logic
+- dependency risk
+
+No fear-mongering. Just calm, precise threat modeling.
+
+---
+
+## ⚡ TurboSissy — Performance
+
+<img src="/images/blog/sissy/turbo-sissy.jpg" alt="TurboSissy" />
+
+Performance reviews are about **what scales badly** before it hurts.
+
+Checks include:
+
+- unnecessary re-renders
+- misuse of `useEffect`, `useMemo`, `useCallback`
+- data fetching waterfalls
+- bundle bloat
+- Core Web Vitals impact
+
+If it slows users or burns CPUs quietly, TurboSissy notices.
+
+---
+
+## 🌐 Canonical Sissy — SEO
+
+<img src="/images/blog/sissy/canonical-sissy.jpg" alt="Canonical Sissy" />
+
+SEO here means **technical crawlability**, not marketing fluff.
+
+This agent checks:
+
+- server-side rendering of content
+- meta tags and canonical URLs
+- heading hierarchy
+- hidden content
+- international & RTL correctness
+
+If Google can’t see it, it doesn’t exist.
+
+---
+
+## 🎨 ChicSissy — Styling & Design Systems
+
+<img src="/images/blog/sissy/chic-sissy.jpg" alt="ChicSissy" />
+
+This is where design systems stop being optional.
+
+Focus:
+
+- Tailwind discipline
+- DaisyUI correctness
+- RTL safety (no left/right crimes)
+- spacing consistency
+- contrast and touch targets
+
+It enforces **visual consistency as engineering hygiene**, not taste.
+
+---
+
+## 🧹 KISS Sissy — Code Quality
+
+<img src="/images/blog/sissy/kiss-sissy.jpg" alt="KISS Sissy" />
+
+Readability is a feature.
+
+This agent hunts:
+
+- bloated functions
+- unclear naming
+- deep nesting
+- DRY violations
+- speculative abstractions
+
+If future-you would sigh reading this code, KISS Sissy already did.
+
+---
+
+## ⚛️ Hooked Sissy — React
+
+<img src="/images/blog/sissy/hooked-sissy.jpg" alt="Hooked Sissy" />
+
+React reviews that actually understand React.
+
+It checks:
+
+- Server vs Client Component boundaries
+- hook correctness
+- state colocation
+- effect misuse
+- component responsibility
+
+No cargo-cult patterns. No unnecessary `use client`.
+
+---
+
+## 📝 Unknown Sissy — TypeScript
+
+<img src="/images/blog/sissy/unknown-sissy.jpg" alt="Unknown Sissy" />
+
+TypeScript isn’t for vibes.
+
+This agent flags:
+
+- `any`
+- unsafe assertions
+- missing null handling
+- sloppy generics
+- bad type boundaries
+
+It pushes toward **type-driven design**, not annotation theater.
+
+---
+
+## 📚 Detached-HEAD Sissy — Git & PR Hygiene
+
+<img src="/images/blog/sissy/detached-head-sissy.jpg" alt="Detached-HEAD Sissy" />
+
+This agent lives in your commit history.
+
+It reviews:
+
+- commit messages
+- branch naming
+- PR size
+- missing Jira references
+- accidental file changes
+
+Clean history is a long-term asset.
+
+---
+
+## ✅ BugSlayer Sissy — QA & Requirements
+
+<img src="/images/blog/sissy/bugslayer-sissy.jpg" alt="BugSlayer Sissy" />
+
+This agent asks the uncomfortable question:
+
+> “Did we actually build what was requested?”
+
+It:
+
+- maps code to Jira requirements
+- finds edge cases
+- generates test checklists
+- flags scope creep
+
+Code can be elegant and still wrong. BugSlayer keeps receipts.
+
+---
+
+## 🎭 Puppet Master — The Orchestrator
+
+<img src="/images/blog/sissy/puppet-master-sissy.jpg" alt="Puppet Master" />
+
+The Puppet Master doesn’t review code.
+
+It:
+
+- parses MR metadata
+- runs architecture discovery
+- spawns enabled agents
+- collects results
+- posts the final verdict
+
+Think of it as **a conductor, not a judge**.
+
+---
+
+## Why This Works
+
+Claude Code’s review system succeeds because it is:
+
+- **opinionated** (standards are explicit)
+- **modular** (agents can be enabled/disabled)
+- **parallel** (fast, focused feedback)
+- **context-aware** (architecture discovery first)
+- **actionable** (every comment suggests a fix)
+
+It doesn’t replace humans.  
+It **raises the floor** so humans can focus on judgment instead of janitorial work.
+
+---
+
+## Closing Thought
+
+Good code review isn’t about catching mistakes.  
+It’s about **teaching the codebase how to stay healthy**.
+
+The Sissies don’t nag.  
+They document expectations—relentlessly.
+
+And that, quietly, is how teams level up.
