@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import remarkGfm from "remark-gfm";
 import type { Nullable } from "ts-wiz";
 import { serialize } from "next-mdx-remote/serialize";
 import type { IBlog, IBlogMetadata } from "@/types/general";
@@ -15,6 +16,7 @@ export async function getBlogBySlug(slug: string): Promise<Nullable<IBlog>> {
       parseFrontmatter: true,
       mdxOptions: {
         development: process.env.NODE_ENV === "development",
+        remarkPlugins: [remarkGfm],
       },
     });
 
