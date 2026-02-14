@@ -1,7 +1,7 @@
 ---
-title: "Claude Code Review: Meet the Sissies 🧵"
+title: "Code Review Agents: Meet the Sissies 💅"
 description: "A practical, opinionated tour of Claude Code’s multi-agent code review system—and why it quietly raises the bar for frontend teams."
-summary: "An opinionated deep dive into Claude Code’s multi-agent review system—how specialized reviewers for accessibility, security, performance, React, TypeScript, and more quietly raise the bar for frontend teams."
+summary: "An opinionated, multi-agent code review system — specialized reviewers for accessibility, security, performance, React, TypeScript, and more that quietly raise the bar for frontend teams."
 date: "2026-01"
 readingTime: "12 min"
 tags: [code-review, frontend, claude, gitlab, dx]
@@ -12,23 +12,20 @@ coverImage: "/images/blog/sissy/sissy-squad-bot-cover.jpg"
 
 ## Why Another Code Review System?
 
-Code review is where engineering ideals go to either mature—or rot politely.
+Code review is where engineering ideals go to either mature — or rot politely.
 
 Most review tools fail in one of two ways:
 
-- they are **too shallow** (“LGTM 👍”), or
-- they are **too noisy**, dumping generic lint wisdom with no sense of project context.
+- They are **too shallow** ("LGTM 👍"), or
+- They are **too noisy**, dumping generic lint wisdom with no sense of project context.
 
-Claude Code’s review commands take a different route:  
-they split responsibility across **specialized, opinionated agents**, each with a sharply defined role, shared standards, and zero tolerance for vague feedback.
-
-Collectively, they’re known (affectionately, and a bit dangerously) as **The Sissies**.
+The Sissy Squad takes a different route: responsibility is split across **specialized, opinionated agents**, each with a sharply defined role, shared standards, and zero tolerance for vague feedback.
 
 ---
 
 ## The Big Idea: Specialized Review Agents
 
-Instead of one omniscient reviewer pretending to be good at everything, Claude Code runs **parallel reviewers**, each focused on a single dimension of quality:
+Instead of one omniscient reviewer pretending to be good at everything, the Sissy Squad runs **parallel reviewers**, each focused on a single dimension of quality.
 
 - accessibility
 - security
@@ -43,10 +40,9 @@ Instead of one omniscient reviewer pretending to be good at everything, Claude C
 
 Each agent:
 
-- follows the **same commenting contract**
-- uses consistent severity levels
-- posts **actionable GitLab threads**
-- ends with a **summary verdict**
+- Follows a **consistent commenting contract** with clear severity levels
+- Posts **actionable, inline review threads** directly in your merge requests
+- Ends with a **summary verdict** so you know exactly where you stand
 
 Let’s meet them.
 
@@ -58,7 +54,7 @@ Let’s meet them.
 
 Accessibility reviews are usually an afterthought. This agent treats them as **blocking engineering requirements**.
 
-Focus areas:
+It covers:
 
 - semantic HTML
 - keyboard navigation
@@ -66,8 +62,7 @@ Focus areas:
 - WCAG A / AA compliance
 - reduced motion and focus visibility
 
-If something is inaccessible, it’s not “nice to have.”  
-It’s a ❗ **must-fix**.
+If something is inaccessible, it’s not "nice to have." It’s a **must-fix**.
 
 ---
 
@@ -134,7 +129,7 @@ This is where design systems stop being optional.
 Focus:
 
 - Tailwind discipline
-- DaisyUI correctness
+- Component library correctness
 - RTL safety (no left/right crimes)
 - spacing consistency
 - contrast and touch targets
@@ -225,7 +220,7 @@ This agent asks the uncomfortable question:
 
 It:
 
-- maps code to Jira requirements
+- maps code to Jira issue requirements
 - finds edge cases
 - generates test checklists
 - flags scope creep
@@ -238,11 +233,11 @@ Code can be elegant and still wrong. BugSlayer keeps receipts.
 
 <Video src="/images/blog/sissy/puppet-master-sissy.mp4" />
 
-The Puppet Master doesn’t review code.
+The Puppet Master doesn’t review code. It coordinates everything.
 
 It:
 
-- parses MR metadata
+- parses merge request metadata
 - runs architecture discovery
 - spawns enabled agents
 - collects results
@@ -254,25 +249,36 @@ Think of it as **a conductor, not a judge**.
 
 ## Why This Works
 
-Claude Code’s review system succeeds because it is:
+The Sissy Squad succeeds because it is:
 
-- **opinionated** (standards are explicit)
-- **modular** (agents can be enabled/disabled)
-- **parallel** (fast, focused feedback)
-- **context-aware** (architecture discovery first)
-- **actionable** (every comment suggests a fix)
+- **Opinionated** — standards are explicit, not guesswork
+- **Modular** — agents can be enabled or disabled per team or project
+- **Parallel** — fast, focused feedback instead of one slow pass
+- **Context-aware** — architecture discovery runs before any review begins
+- **Actionable** — every comment suggests a concrete fix
 
-It doesn’t replace humans.  
-It **raises the floor** so humans can focus on judgment instead of janitorial work.
+It doesn’t replace human reviewers. It **raises the floor** so your team can focus on judgment, architecture, and product thinking — instead of janitorial work.
+
+---
+
+## What You Get
+
+- **10 specialized review agents** covering the full frontend quality spectrum
+- **An orchestrator** that intelligently routes reviews based on your codebase
+- **GitLab integration** with inline threads, severity levels, and summary verdicts
+- **Configurable agent selection** — turn on what matters, turn off what doesn’t
+- **Consistent, teachable standards** your team can learn from over time
 
 ---
 
 ## Closing Thought
 
-Good code review isn’t about catching mistakes.  
-It’s about **teaching the codebase how to stay healthy**.
+Good code review isn’t about catching mistakes. It’s about **teaching the codebase how to stay healthy**.
 
-The Sissies don’t nag.  
-They document expectations—relentlessly.
+The Sissies don’t nag. They document expectations — relentlessly.
 
 And that, quietly, is how teams level up.
+
+---
+
+_Interested in bringing the Sissy Squad to your team? [Get in touch.](/contact)_
