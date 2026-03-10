@@ -2,8 +2,9 @@ import fs from "fs";
 import path from "path";
 import remarkGfm from "remark-gfm";
 import type { Nullable } from "ts-wiz";
-import { serialize } from "next-mdx-remote/serialize";
+import { compileMDX } from "next-mdx-remote/rsc";
 import type { IBlog, IBlogMetadata } from "@/types/general";
+import { mdxComponents } from "@/components/MDXRemote";
 
 const BLOGS_PATH = path.join(process.cwd(), "src/data/blogs");
 
@@ -12,18 +13,21 @@ export async function getBlogBySlug(slug: string): Promise<Nullable<IBlog>> {
     const filePath = path.join(BLOGS_PATH, `${slug}.mdx`);
     const source = fs.readFileSync(filePath, "utf8");
 
-    const mdxSource = await serialize(source, {
-      parseFrontmatter: true,
-      mdxOptions: {
-        development: process.env.NODE_ENV === "development",
-        remarkPlugins: [remarkGfm],
+    const { content, frontmatter } = await compileMDX<IBlogMetadata>({
+      source,
+      options: {
+        parseFrontmatter: true,
+        mdxOptions: {
+          remarkPlugins: [remarkGfm],
+        },
       },
+      components: mdxComponents,
     });
 
     return {
       slug,
-      content: mdxSource,
-      ...(mdxSource.frontmatter as IBlogMetadata),
+      content,
+      ...frontmatter,
     } satisfies IBlog;
   } catch (error) {
     console.error("Error getting blog by slug:", error);

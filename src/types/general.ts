@@ -1,5 +1,5 @@
+import type { ReactElement } from "react";
 import type { IconType } from "react-icons";
-import type { MDXRemoteSerializeResult } from "next-mdx-remote";
 
 export type IProject = {
   slug: string;
@@ -48,7 +48,7 @@ export type IBlogMetadata = {
 
 export type IBlog = IBlogMetadata & {
   slug: string;
-  content: MDXRemoteSerializeResult;
+  content: ReactElement;
 };
 
 export type IPackage = {
