@@ -5,7 +5,7 @@ import ServiceCard from "@/components/cards/ServiceCard";
 
 export const metadata: Metadata = {
   title: "Services - Milad Afkhami",
-  description: "Explore my professional services in web development, frontend consulting, and technical writing.",
+  description: "Explore my professional services in web development, full stack consulting, and technical writing.",
   alternates: { canonical: "/services" },
 };
 

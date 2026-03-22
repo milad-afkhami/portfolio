@@ -1,10 +1,10 @@
 {
   "experiences": [
     {
-      "title": "Senior Frontend Developer",
+      "title": "Senior Full Stack Developer",
       "company": "Tech Company",
       "period": "2020 - Present",
-      "description": "Leading frontend development team in building scalable web applications using React, Next.js, and TypeScript.",
+      "description": "Leading development team in building scalable web applications using React, Next.js, Node.js, and TypeScript.",
       "achievements": [
         "Implemented micro frontend architecture using Module Federation",
         "Reduced bundle size by 40% through code splitting and optimization",
@@ -14,7 +14,7 @@
       "technologies": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Docker", "AWS"]
     },
     {
-      "title": "Frontend Developer",
+      "title": "Full Stack Developer",
       "company": "Web Agency",
       "period": "2018 - 2020",
       "description": "Developed responsive and accessible web applications for various clients.",

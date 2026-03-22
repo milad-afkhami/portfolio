@@ -6,18 +6,18 @@ import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
-  title: "Milad Afkhami - Senior Frontend Developer",
+  title: "Milad Afkhami - Senior Full Stack Developer",
   description:
-    "Senior Frontend Developer with 7+ years of experience, specializing in web development using JavaScript, TypeScript, React, Next.js, and Micro Frontends.",
+    "Senior Full Stack Developer with 7+ years of experience, specializing in web development using JavaScript, TypeScript, React, Next.js, Node.js, and Micro Frontends.",
   openGraph: {
     url: baseUrl,
     locale: "en_US",
     type: "website",
     siteName: "Milad Afkhami's Portfolio",
-    title: "Milad Afkhami - Senior Frontend Developer",
+    title: "Milad Afkhami - Senior Full Stack Developer",
     images: [{ url: "/images/logo-sm.jpg", alt: "Milad Afkhami", width: 192, height: 192, type: "image/jpeg" }],
     description:
-      "Senior Frontend Developer with 7+ years of experience, specializing in web development using JavaScript, TypeScript, React, Next.js, and Micro Frontends.",
+      "Senior Full Stack Developer with 7+ years of experience, specializing in web development using JavaScript, TypeScript, React, Next.js, Node.js, and Micro Frontends.",
   },
 };
 

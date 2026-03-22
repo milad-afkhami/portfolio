@@ -16,7 +16,7 @@ export default function AboutPage(): JSX.Element {
         <div className="space-y-6">
           <h1 className="text-4xl font-bold">About Me</h1>
           <p className="text-lg text-base-content/80">
-            I&apos;m a Senior Frontend Developer with over 7 years of experience in building modern web applications. My
+            I&apos;m a Senior Full Stack Developer with over 7 years of experience in building modern web applications. My
             passion lies in creating performant, accessible, and user-friendly web experiences using cutting-edge
             technologies.
           </p>

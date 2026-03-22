@@ -1,28 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import type { Metadata } from "next";
 import { getAllBlogs } from "@/services/blog";
 import BlogCard from "@/components/cards/BlogCard";
 import { getAllProjects } from "@/services/project";
 import CardsWrapper from "@/components/cards/Wrapper";
 import ProjectCard from "@/components/cards/ProjectCard";
 import { FaDownload, FaArrowRight, FaEnvelope, FaChevronDown } from "react-icons/fa";
-import { baseUrl, homeBlogsCount, homeProjectsCount, resumeLink } from "@/configs/general";
-
-export const metadata: Metadata = {
-  title: "Milad Afkhami - Senior Frontend Developer",
-  description:
-    "Senior Frontend Developer with 7+ years of experience, specializing in web development using JavaScript, TypeScript, React, Next.js, and Micro Frontends.",
-  openGraph: {
-    title: "Milad Afkhami - Senior Frontend Developer",
-    description:
-      "Senior Frontend Developer with 7+ years of experience, specializing in web development using JavaScript, TypeScript, React, Next.js, and Micro Frontends.",
-    url: baseUrl,
-    siteName: "Milad Afkhami's Portfolio",
-    locale: "en_US",
-    type: "website",
-  },
-};
+import { homeBlogsCount, homeProjectsCount, resumeLink } from "@/configs/general";
 
 export default async function Home(): Promise<JSX.Element> {
   const blogs = await getAllBlogs();
@@ -54,7 +38,7 @@ export default async function Home(): Promise<JSX.Element> {
 
         <div className="space-y-4">
           <h1 className="text-4xl font-bold">Milad Afkhami</h1>
-          <p className="text-xl text-base-content/80">Senior Frontend Developer</p>
+          <p className="text-xl text-base-content/80">Senior Full Stack Developer</p>
         </div>
 
         <p className="max-w-2xl text-base-content/70">
