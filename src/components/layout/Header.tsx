@@ -14,6 +14,7 @@ const navLinks = [
   { href: "/services", label: "Services" },
   { href: "/favourites", label: "Favourites" },
   { href: "/prompts", label: "Prompt Library" },
+  { href: "/playground", label: "Playground" },
 ];
 
 export default function Header(): JSX.Element {

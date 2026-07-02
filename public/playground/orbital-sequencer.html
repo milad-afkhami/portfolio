@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Orbital Sequencer</title>
+<style>
+  :root {
+    --bg:#05060a; --panel:rgba(18,20,28,.72); --panel-solid:#12141c;
+    --line:rgba(255,255,255,.08); --line-strong:rgba(255,255,255,.16);
+    --text:#e6e8ef; --dim:#8a8f9e; --faint:#565b6b; --accent:#7cf2c8;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;
+  }
+  * { box-sizing:border-box; }
+  html,body { height:100%; margin:0; }
+  body { background:var(--bg); color:var(--text); font-family:var(--sans); overflow:hidden; -webkit-font-smoothing:antialiased; }
+  #app { display:flex; height:100vh; width:100vw; }
+
+  #stage { position:relative; flex:1 1 auto; min-width:0; overflow:hidden; }
+  #canvas { display:block; width:100%; height:100%; cursor:crosshair; touch-action:none; }
+  .stage-title { position:absolute; top:16px; left:20px; pointer-events:none; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--faint); text-shadow:0 1px 8px rgba(0,0,0,.6); }
+  .hud { position:absolute; top:16px; right:18px; display:flex; gap:14px; align-items:center; font-family:var(--mono); font-size:11px; letter-spacing:.04em; color:var(--dim); pointer-events:none; text-shadow:0 1px 8px rgba(0,0,0,.6); }
+  .hud b { color:var(--text); font-weight:600; } .hud .dot { width:6px; height:6px; border-radius:50%; background:var(--accent); box-shadow:0 0 8px var(--accent); }
+  .starthint { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; pointer-events:none; transition:opacity .5s; }
+  .starthint span { font-size:14px; color:var(--dim); background:rgba(10,12,18,.6); border:1px solid var(--line); border-radius:999px; padding:10px 20px; letter-spacing:.03em; }
+
+  #panel { flex:0 0 336px; width:336px; height:100%; background:var(--panel); backdrop-filter:blur(22px) saturate(1.3); -webkit-backdrop-filter:blur(22px) saturate(1.3); border-right:1px solid var(--line); overflow-y:auto; padding:20px 20px 32px; }
+  #panel::-webkit-scrollbar { width:8px; } #panel::-webkit-scrollbar-thumb { background:var(--line-strong); border-radius:4px; }
+
+  .brand { display:flex; align-items:center; gap:10px; margin-bottom:4px; }
+  .brand .glyph { width:26px; height:26px; border-radius:7px; background:conic-gradient(from 210deg,#7cf2c8,#6ba8ff,#c78bff,#ff8bba,#7cf2c8); box-shadow:0 0 18px -4px #6ba8ff; }
+  .brand h1 { font-size:15px; margin:0; font-weight:650; letter-spacing:.01em; background:linear-gradient(90deg,#e6e8ef,#9fb2ff); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .brand p { margin:0; font-size:10.5px; color:var(--faint); letter-spacing:.03em; } .brandtext { line-height:1.25; }
+
+  .presets { display:flex; flex-wrap:wrap; gap:6px; margin:16px 0 6px; }
+  .chip { font-size:11.5px; color:var(--dim); background:rgba(255,255,255,.04); border:1px solid var(--line); border-radius:999px; padding:5px 11px; cursor:pointer; transition:all .14s; }
+  .chip:hover { color:var(--text); border-color:var(--line-strong); } .chip.active { color:#06110d; background:var(--accent); border-color:transparent; font-weight:600; }
+
+  .section { margin-top:22px; }
+  .section > .stitle { font-size:10px; text-transform:uppercase; letter-spacing:.16em; color:var(--faint); margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .section > .stitle::after { content:""; flex:1; height:1px; background:var(--line); }
+
+  .ctrl { margin-bottom:15px; }
+  .ctrl .row { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:7px; }
+  .ctrl label { font-size:12px; color:var(--text); } .ctrl .val { font-family:var(--mono); font-size:11px; color:var(--accent); }
+
+  input[type=range] { -webkit-appearance:none; appearance:none; width:100%; height:3px; background:var(--line-strong); border-radius:3px; outline:none; cursor:pointer; }
+  input[type=range]::-webkit-slider-thumb { -webkit-appearance:none; appearance:none; width:15px; height:15px; border-radius:50%; background:var(--text); border:2px solid var(--panel-solid); box-shadow:0 0 0 1px var(--line-strong),0 2px 6px rgba(0,0,0,.4); transition:background .15s; }
+  input[type=range]::-webkit-slider-thumb:hover { background:var(--accent); }
+  input[type=range]::-moz-range-thumb { width:13px; height:13px; border-radius:50%; background:var(--text); border:2px solid var(--panel-solid); cursor:pointer; }
+
+  select { width:100%; font-family:var(--sans); font-size:12px; color:var(--text); background:rgba(255,255,255,.04); border:1px solid var(--line); border-radius:9px; padding:8px 10px; cursor:pointer; outline:none; -webkit-appearance:none; appearance:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' stroke='%238a8f9e' fill='none' stroke-width='1.4'/></svg>"); background-repeat:no-repeat; background-position:right 12px center; }
+  select:hover { border-color:var(--line-strong); } .two { display:flex; gap:10px; } .two > div { flex:1; }
+
+  .seg { display:flex; background:rgba(255,255,255,.04); border:1px solid var(--line); border-radius:9px; padding:3px; gap:3px; }
+  .seg button { flex:1; font-family:var(--sans); font-size:11px; color:var(--dim); background:transparent; border:none; border-radius:6px; padding:6px 3px; cursor:pointer; transition:all .13s; text-transform:capitalize; }
+  .seg button.active { background:rgba(255,255,255,.1); color:var(--text); }
+
+  .actions { display:flex; gap:8px; margin-top:20px; }
+  .actions button { flex:1; font-size:12px; color:var(--text); background:rgba(255,255,255,.05); border:1px solid var(--line); border-radius:9px; padding:9px 4px; cursor:pointer; transition:all .14s; }
+  .actions button:hover { background:rgba(255,255,255,.1); border-color:var(--line-strong); }
+
+  .foot { margin-top:20px; font-size:10.5px; color:var(--faint); line-height:1.5; }
+
+  .songs { display:flex; flex-wrap:wrap; gap:6px; }
+  .song { font-size:11.5px; color:#dfe6ff; background:rgba(107,139,255,.10); border:1px solid rgba(107,139,255,.28); border-radius:999px; padding:5px 11px; cursor:pointer; transition:all .14s; }
+  .song:hover { background:rgba(107,139,255,.2); }
+  .song.active { color:#06110d; background:#9fb2ff; border-color:transparent; font-weight:600; }
+  .toggle { display:flex; align-items:center; justify-content:space-between; }
+  .switch { position:relative; width:38px; height:22px; flex:none; }
+  .switch input { opacity:0; width:0; height:0; }
+  .track { position:absolute; inset:0; background:var(--line-strong); border-radius:999px; transition:.18s; }
+  .track::before { content:""; position:absolute; width:16px; height:16px; left:3px; top:3px; background:#fff; border-radius:50%; transition:.18s; }
+  .switch input:checked + .track { background:var(--accent); }
+  .switch input:checked + .track::before { transform:translateX(16px); }
+  .stopsong { width:100%; margin-top:10px; font-size:12px; color:var(--text); background:rgba(255,255,255,.05); border:1px solid var(--line); border-radius:9px; padding:8px; cursor:pointer; }
+  .stopsong:hover { background:rgba(255,255,255,.1); }
+  .songnote { margin-top:10px; font-size:10.5px; color:var(--faint); line-height:1.5; }
+
+  @media (max-width:820px) { #app { flex-direction:column-reverse; } #panel { flex-basis:auto; width:100%; height:48%; border-right:none; border-top:1px solid var(--line); } #stage { height:52%; } }
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="panel">
+    <div class="brand">
+      <div class="glyph"></div>
+      <div class="brandtext"><h1>Orbital Sequencer</h1><p>planets · spokes · polyrhythm</p></div>
+    </div>
+
+    <div class="presets" id="presets"></div>
+
+    <div class="section">
+      <div class="stitle">Motion</div>
+      <div id="motion-ctrls"></div>
+      <div class="ctrl"><div class="row"><label>Orbit timing</label></div><div class="seg" id="mode"></div></div>
+    </div>
+
+    <div class="section">
+      <div class="stitle">Sound</div>
+      <div class="two">
+        <div class="ctrl"><div class="row"><label>Scale</label></div><select id="scale"></select></div>
+        <div class="ctrl"><div class="row"><label>Root</label></div><select id="root"></select></div>
+      </div>
+      <div id="sound-ctrls"></div>
+      <div class="ctrl"><div class="row"><label>Timbre</label></div><div class="seg" id="timbre"></div></div>
+    </div>
+
+    <div class="section">
+      <div class="stitle">Play a song</div>
+      <div class="songs" id="songs"></div>
+      <div class="ctrl toggle" style="margin-top:12px"><label>Fit song to scale/mode</label>
+        <span class="switch"><input type="checkbox" id="fit"><span class="track"></span></span>
+      </div>
+      <button id="stopsong" class="stopsong">◼ Stop song</button>
+      <div class="songnote">Songs play their real notes, transposed by <b>Root</b>. Turn on “Fit to scale” to bend them into the current mode.</div>
+    </div>
+
+    <div class="section">
+      <div class="stitle">Compose</div>
+      <div id="compose-ctrls"></div>
+      <div class="ctrl"><div class="row"><label>Click action</label></div><div class="seg" id="clickmode"></div></div>
+    </div>
+
+    <div class="actions">
+      <button id="scatter">✧ Scatter</button>
+      <button id="clear">✕ Clear</button>
+      <button id="pause">⏸ Pause</button>
+    </div>
+
+    <div class="foot">
+      Click anywhere to drop a planet — its <b>distance from the sun</b> sets both its pitch (snapped to the scale) and its speed. Every time a planet sweeps past a glowing <b>spoke</b>, it rings. Inner orbits run fast, outer ones slow, so the rhythm keeps re-phasing. Add spokes for denser patterns.
+    </div>
+  </div>
+
+  <div id="stage">
+    <canvas id="canvas"></canvas>
+    <div class="stage-title">orbits</div>
+    <div class="hud"><span class="dot"></span><span><b id="pcount">0</b> planets</span><span id="nowplaying">—</span></div>
+    <div class="starthint" id="starthint"><span>▷ click to drop a planet into orbit</span></div>
+  </div>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+const TAU=Math.PI*2;
+
+/* ============================ Theory ============================ */
+const SCALES={ 'Pentatonic Major':[0,2,4,7,9], 'Pentatonic Minor':[0,3,5,7,10], 'Major':[0,2,4,5,7,9,11],
+  'Natural Minor':[0,2,3,5,7,8,10], 'Dorian':[0,2,3,5,7,9,10], 'Lydian':[0,2,4,6,7,9,11] };
+const NOTE_NAMES=['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
+const mtof=m=>440*Math.pow(2,(m-69)/12);
+
+/* ============================ Songs (melodies, transposed by Root) ============================
+   o = semitone offset(s) from the tonic (number, or array for chords). d = duration in beats. */
+const SONG_BASE=60; const N=(o,d)=>({o,d:d||1}); // tonic midi when Root = C
+const SONGS={
+  'Ode to Joy':{tempo:125,notes:(()=>{const c=[4,4,5,7,7,5,4,2,0,0,2,4].map(o=>N(o));const eA=[N(4,1.5),N(2,.5),N(2,2)],eB=[N(2,1.5),N(0,.5),N(0,2)];return[...c,...eA,...c,...eB,...c,...eA,...c,...eB];})()},
+  'Twinkle (Mozart)':{tempo:120,notes:(()=>{const A=[N(0),N(0),N(7),N(7),N(9),N(9),N(7,2),N(5),N(5),N(4),N(4),N(2),N(2),N(0,2)];const B=[N(7),N(7),N(5),N(5),N(4),N(4),N(2,2),N(7),N(7),N(5),N(5),N(4),N(4),N(2,2)];return[...A,...B,...A];})()},
+  'Für Elise':{tempo:132,notes:(()=>{const m=[N(16,.5),N(15,.5),N(16,.5),N(15,.5),N(16,.5),N(11,.5),N(14,.5),N(12,.5),N(9,1)];const a=[N(0,.5),N(4,.5),N(9,.5),N(11,1)],b=[N(4,.5),N(8,.5),N(11,.5),N(12,1)],c=[N(0,.5),N(4,.5),N(9,.5),N(11,.5),N(9,.5),N(8,.5),N(9,2)];return[...m,...a,...b,...m,...a,...c];})()},
+  'Canon in D':{tempo:100,notes:(()=>{const l1=[16,14,12,11,9,7,9,11].map(o=>N(o,2)),l2=[12,11,9,7,5,4,2,0].map(o=>N(o,1)),l3=[2,4,5,7,9,11,12,11].map(o=>N(o,1));return[...l1,...l2,...l1,...l3];})()},
+  'Happy Birthday':{tempo:120,notes:[N(7,.5),N(7,.5),N(9,1),N(7,1),N(12,1),N(11,2),N(7,.5),N(7,.5),N(9,1),N(7,1),N(14,1),N(12,2),N(7,.5),N(7,.5),N(19,1),N(16,1),N(12,1),N(11,1),N(9,1),N(17,.5),N(17,.5),N(16,1),N(12,1),N(14,1),N(12,3)]},
+  'Jingle Bells':{tempo:135,notes:(()=>{const h=[N(4),N(4),N(4,2),N(4),N(4),N(4,2),N(4),N(7),N(0,1.5),N(2,.5),N(4,3)];const g=[N(5),N(5),N(5),N(5),N(5),N(4),N(4),N(4),N(4),N(2),N(2),N(4),N(2,2),N(7,2)];const g2=[N(5),N(5),N(5),N(5),N(5),N(4),N(4),N(4),N(7),N(7),N(5),N(2),N(0,3)];return[...h,...g,...h,...g2];})()},
+  'Amazing Grace':{tempo:88,notes:[N(-5,1),N(0,2),N(4,1),N(0,1),N(4,2),N(2,1),N(0,2),N(-3,1),N(-5,2),N(-5,1),N(0,2),N(4,1),N(0,1),N(4,2),N(7,1),N(7,3),N(9,1),N(7,2),N(4,1),N(0,1),N(4,2),N(2,1),N(0,3),N(7,1),N(4,2),N(0,1),N(4,2),N(2,1),N(0,2),N(-5,1),N(0,3)]},
+  'Gymnopédie (arr.)':{tempo:70,notes:[N([4,-8],1.5),N(5,1.5),N(4,1.5),N(2,1.5),N([0,-12],1.5),N(-1,1.5),N(-3,1.5),N(-5,1.5),N([-3,-10],1.5),N(-1,1.5),N(0,1.5),N(2,1.5),N([4,-8],3),N([2,-10],3),N(7,1.5),N(5,1.5),N(4,1.5),N(2,1.5),N([0,-12],3),N([-5,-12],3)]},
+};
+let player={ notes:[], idx:0, startT:0, total:0, name:null }; let songPlaying=false;
+function audioNow(){ return Audio.ctx?Audio.ctx.currentTime:performance.now()/1000; }
+function snapMidiToScale(m){ const sc=SCALES[state.scale]; const set=new Set(sc.map(n=>((n+state.root)%12+12)%12));
+  if(set.has(((m%12)+12)%12))return m; for(let d=1;d<12;d++){ if(set.has((((m-d)%12)+12)%12))return m-d; if(set.has((((m+d)%12)+12)%12))return m+d; } return m; }
+
+/* ============================ State ============================ */
+const DEFAULTS={ speed:0.55, mode:'kepler', spokes:1, scale:'Pentatonic Major', root:0, octaves:3,
+  timbre:'bell', reverb:0.45, volume:0.7, maxPlanets:24, clickmode:'add', fit:false };
+const state=Object.assign({},DEFAULTS);
+
+const PRESETS={
+  Solar:      {count:5,  scale:'Pentatonic Major', root:0, speed:0.5,  mode:'kepler', spokes:1, octaves:3, timbre:'bell',    reverb:0.5 },
+  Rings:      {count:11, scale:'Major',            root:0, speed:0.5,  mode:'kepler', spokes:2, octaves:3, timbre:'marimba', reverb:0.4 },
+  Pulsar:     {count:8,  scale:'Pentatonic Minor', root:0, speed:1.05, mode:'kepler', spokes:3, octaves:3, timbre:'pluck',   reverb:0.35},
+  Chime:      {count:6,  scale:'Lydian',           root:7, speed:0.4,  mode:'kepler', spokes:1, octaves:3, timbre:'box',     reverb:0.72},
+  Constellation:{count:7,scale:'Dorian',           root:2, speed:0.6,  mode:'equal',  spokes:4, octaves:2, timbre:'bell',    reverb:0.5 },
+};
+
+/* ============================ Audio ============================ */
+const Audio={
+  ctx:null, bus:null, dry:null, wet:null, comp:null, master:null, voices:0,
+  ensure(){
+    if(this.ctx){ if(this.ctx.state==='suspended')this.ctx.resume(); return; }
+    const C=window.AudioContext||window.webkitAudioContext; const ctx=this.ctx=new C();
+    this.comp=ctx.createDynamicsCompressor(); this.comp.threshold.value=-15; this.comp.ratio.value=11; this.comp.attack.value=0.004; this.comp.release.value=0.25;
+    this.master=ctx.createGain(); this.master.gain.value=state.volume;
+    this.bus=ctx.createGain(); this.dry=ctx.createGain(); this.wet=ctx.createGain();
+    this.dry.gain.value=1-state.reverb*0.6; this.wet.gain.value=state.reverb;
+    const rev=ctx.createConvolver(); const len=Math.floor(ctx.sampleRate*2.8), buf=ctx.createBuffer(2,len,ctx.sampleRate);
+    for(let ch=0;ch<2;ch++){ const d=buf.getChannelData(ch); for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/len,2.7); }
+    rev.buffer=buf;
+    this.bus.connect(this.dry); this.dry.connect(this.master);
+    this.bus.connect(rev); rev.connect(this.wet); this.wet.connect(this.master);
+    this.master.connect(this.comp); this.comp.connect(ctx.destination);
+  },
+  setReverb(v){ if(!this.ctx)return; this.wet.gain.value=v; this.dry.gain.value=1-v*0.6; },
+  setVolume(v){ if(!this.ctx)return; this.master.gain.setTargetAtTime(v,this.ctx.currentTime,0.02); },
+  note(freq,vel){
+    const ctx=this.ctx; if(!ctx||this.voices>28)return;
+    const t=ctx.currentTime, amp=Math.min(0.2,0.06+vel*0.14);
+    const g=ctx.createGain(); g.connect(this.bus); g.gain.value=0; const done=()=>{ this.voices--; g.disconnect(); }; this.voices++;
+    const T=state.timbre;
+    if(T==='box'||T==='marimba'){ const dur=T==='box'?1.5:0.55;
+      const o1=ctx.createOscillator(); o1.type='sine'; o1.frequency.value=freq;
+      const o2=ctx.createOscillator(); o2.type='sine'; o2.frequency.value=freq*2; const g2=ctx.createGain(); g2.gain.value=T==='box'?0.28:0.5;
+      o1.connect(g); o2.connect(g2); g2.connect(g); let o3=null;
+      if(T==='marimba'){ o3=ctx.createOscillator(); o3.type='sine'; o3.frequency.value=freq*3.98; const g3=ctx.createGain(); g3.gain.value=0.35; o3.connect(g3); g3.connect(g); }
+      g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(amp,t+0.004); g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
+      o1.start(t); o2.start(t); if(o3)o3.start(t); o1.stop(t+dur+0.02); o2.stop(t+dur+0.02); if(o3)o3.stop(t+dur+0.02); o1.onended=done;
+    } else if(T==='bell'){ const dur=2.4;
+      const car=ctx.createOscillator(); car.type='sine'; car.frequency.value=freq;
+      const mod=ctx.createOscillator(); mod.type='sine'; mod.frequency.value=freq*1.41;
+      const mg=ctx.createGain(); mg.gain.setValueAtTime(freq*2.2,t); mg.gain.exponentialRampToValueAtTime(1,t+dur);
+      mod.connect(mg); mg.connect(car.frequency); car.connect(g);
+      g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(amp*0.9,t+0.005); g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
+      car.start(t); mod.start(t); car.stop(t+dur+0.02); mod.stop(t+dur+0.02); car.onended=done;
+    } else { const dur=0.7;
+      const o1=ctx.createOscillator(); o1.type='sawtooth'; o1.frequency.setValueAtTime(freq*1.01,t); o1.frequency.exponentialRampToValueAtTime(freq,t+0.06);
+      const o2=ctx.createOscillator(); o2.type='triangle'; o2.frequency.value=freq;
+      const lp=ctx.createBiquadFilter(); lp.type='lowpass'; lp.frequency.setValueAtTime(Math.min(9000,freq*10),t); lp.frequency.exponentialRampToValueAtTime(Math.max(500,freq*2),t+0.25);
+      const g2=ctx.createGain(); g2.gain.value=0.5; o1.connect(lp); o2.connect(g2); g2.connect(lp); lp.connect(g);
+      g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(amp,t+0.003); g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
+      o1.start(t); o2.start(t); o1.stop(t+dur+0.02); o2.stop(t+dur+0.02); o1.onended=done;
+    }
+  }
+};
+
+/* ============================ Geometry / mapping ============================ */
+const canvas=$('#canvas'), ctx2=canvas.getContext('2d');
+let W=0,H=0,CX=0,CY=0,DPR=Math.min(window.devicePixelRatio||1,2);
+let minR=30, maxR=200;
+function resize(){ const r=canvas.getBoundingClientRect(); W=r.width; H=r.height; canvas.width=W*DPR; canvas.height=H*DPR; ctx2.setTransform(DPR,0,0,DPR,0,0);
+  CX=W/2; CY=H/2; maxR=Math.min(W,H)/2-34; minR=Math.max(26,maxR*0.12); }
+window.addEventListener('resize',resize);
+
+function noteFromR(r){ const t=Math.max(0,Math.min(1,(maxR-r)/(maxR-minR))); const sc=SCALES[state.scale], steps=sc.length*state.octaves;
+  const idx=Math.max(0,Math.min(steps-1,Math.round(t*(steps-1)))); const semi=sc[idx%sc.length]+12*Math.floor(idx/sc.length);
+  const midi=40+state.root+semi; return { freq:mtof(midi), midi, hue:195+(idx/(steps-1||1))*175 }; }
+function omega(r){ const s=state.speed; if(state.mode==='equal') return s*1.05; if(state.mode==='linear') return s*190/r; return s*2000/Math.pow(r,1.5); }
+
+/* ============================ Planets ============================ */
+let planets=[]; let ripples=[]; let spokeFlash=[];
+function assignNotes(){ for(const p of planets){ const n=noteFromR(p.r); p.freq=n.freq; p.midi=n.midi; p.hue=n.hue; } }
+function baseOffset(){ return -Math.PI/2; }
+function addPlanet(r,angle){ r=Math.max(minR,Math.min(maxR,r)); const n=noteFromR(r);
+  const step=TAU/state.spokes; const k=Math.floor((angle-baseOffset())/step);
+  planets.push({ r, angle, prevK:k, freq:n.freq, midi:n.midi, hue:n.hue, flash:0 });
+  if(planets.length>state.maxPlanets)planets.shift(); }
+function scatter(n){ planets=[]; for(let i=0;i<n;i++){ const r=minR+((i+0.5)/n)*(maxR-minR); addPlanet(r, Math.random()*TAU); } }
+
+/* ============================ Song playback ============================ */
+let songDots=[], sunPulse=0;
+function radiusForMidi(m){ const t=Math.max(0,Math.min(1,(m-46)/40)); return maxR-(maxR-minR)*t; } // high pitch -> inner
+function fireSongNote(ev){
+  const offs=Array.isArray(ev.o)?ev.o:[ev.o]; sunPulse=1;
+  offs.forEach((off,i)=>{ let midi=SONG_BASE+state.root+off; if(state.fit) midi=snapMidiToScale(midi);
+    Audio.note(mtof(midi), 0.7);
+    const rr=radiusForMidi(midi), hue=195+Math.max(0,Math.min(1,(midi-46)/40))*175;
+    songDots.push({ r:rr, angle:baseOffset()+(Math.random()-0.5)*0.3, vel:1.6+Math.random()*1.4, life:1, hue });
+    ripples.push({ x:CX+Math.cos(baseOffset())*rr, y:CY+Math.sin(baseOffset())*rr, r:6, life:1, hue }); if(ripples.length>60)ripples.shift();
+  });
+}
+function playSong(name){ Audio.ensure(); const s=SONGS[name]; if(!s)return; let t=0;
+  player.notes=s.notes.map(n=>{ const dur=(n.d||1)*60/s.tempo; const ev={time:t,o:n.o}; t+=dur; return ev; });
+  player.total=t; player.idx=0; player.startT=audioNow(); player.name=name; songPlaying=true;
+  Object.entries(songChips).forEach(([n,c])=>c.classList.toggle('active',n===name));
+  $('#nowplaying').textContent='♪ '+name;
+}
+function stopSong(){ songPlaying=false; songDots=[]; player.name=null; Object.values(songChips).forEach(c=>c.classList.remove('active')); $('#nowplaying').textContent='—'; }
+
+/* ============================ Step ============================ */
+function step(dt){
+  const off=baseOffset(), step=TAU/state.spokes, now=Audio.ctx?Audio.ctx.currentTime:0;
+  for(const p of planets){
+    p.angle+=omega(p.r)*dt; if(p.angle>1e6)p.angle%=TAU;
+    const k=Math.floor((p.angle-off)/step);
+    if(k!==p.prevK){ const crossings=k-p.prevK; p.prevK=k;
+      if(crossings>0){
+        if(!songPlaying) Audio.note(p.freq, 0.6);
+        p.flash=1; const si=((k%state.spokes)+state.spokes)%state.spokes; spokeFlash[si]=1;
+        const x=CX+Math.cos(p.angle)*p.r, y=CY+Math.sin(p.angle)*p.r;
+        ripples.push({x,y,r:6,life:1,hue:p.hue}); if(ripples.length>60)ripples.shift();
+      }
+    }
+  }
+  for(let i=ripples.length-1;i>=0;i--){ const rp=ripples[i]; rp.r+=90*dt; rp.life-=dt*1.6; if(rp.life<=0)ripples.splice(i,1); }
+  for(let i=0;i<spokeFlash.length;i++) if(spokeFlash[i]>0){ spokeFlash[i]-=dt*3; if(spokeFlash[i]<0)spokeFlash[i]=0; }
+  for(let i=songDots.length-1;i>=0;i--){ const d=songDots[i]; d.angle+=d.vel*dt; d.life-=dt*0.7; if(d.life<=0)songDots.splice(i,1); }
+  if(sunPulse>0){ sunPulse-=dt*2.2; if(sunPulse<0)sunPulse=0; }
+}
+
+/* ============================ Draw ============================ */
+function draw(){
+  ctx2.globalCompositeOperation='source-over'; ctx2.fillStyle='#05060a'; ctx2.fillRect(0,0,W,H);
+  // orbit rings
+  ctx2.lineWidth=1;
+  for(const p of planets){ ctx2.strokeStyle=`hsla(${p.hue},60%,55%,0.10)`; ctx2.beginPath(); ctx2.arc(CX,CY,p.r,0,TAU); ctx2.stroke(); }
+  // spokes
+  const off=baseOffset();
+  for(let i=0;i<state.spokes;i++){ const a=off+i*TAU/state.spokes; const fl=spokeFlash[i]||0;
+    ctx2.strokeStyle=`rgba(255,255,255,${0.08+fl*0.5})`; ctx2.lineWidth=1+fl*2;
+    ctx2.beginPath(); ctx2.moveTo(CX+Math.cos(a)*(minR*0.5),CY+Math.sin(a)*(minR*0.5)); ctx2.lineTo(CX+Math.cos(a)*(maxR+14),CY+Math.sin(a)*(maxR+14)); ctx2.stroke(); }
+  // ripples
+  ctx2.globalCompositeOperation='lighter';
+  for(const rp of ripples){ ctx2.strokeStyle=`hsla(${rp.hue},85%,65%,${rp.life*0.5})`; ctx2.lineWidth=2; ctx2.beginPath(); ctx2.arc(rp.x,rp.y,rp.r,0,TAU); ctx2.stroke(); }
+  // planets + trails
+  for(const p of planets){ const x=CX+Math.cos(p.angle)*p.r, y=CY+Math.sin(p.angle)*p.r;
+    ctx2.strokeStyle=`hsla(${p.hue},85%,65%,0.4)`; ctx2.lineWidth=3; ctx2.beginPath(); ctx2.arc(CX,CY,p.r,p.angle-0.5,p.angle); ctx2.stroke();
+    const pr=5+p.flash*4; const grd=ctx2.createRadialGradient(x,y,0,x,y,pr*3);
+    grd.addColorStop(0,`hsla(${p.hue},90%,${75+p.flash*15}%,1)`); grd.addColorStop(0.4,`hsla(${p.hue},85%,62%,0.7)`); grd.addColorStop(1,'rgba(0,0,0,0)');
+    ctx2.fillStyle=grd; ctx2.beginPath(); ctx2.arc(x,y,pr*3,0,TAU); ctx2.fill();
+    ctx2.fillStyle='#fff'; ctx2.beginPath(); ctx2.arc(x,y,pr*0.6,0,TAU); ctx2.fill();
+    if(p.flash>0){ p.flash-=0.04; if(p.flash<0)p.flash=0; }
+  }
+  // song dots (notes flying out along the orbits)
+  for(const d of songDots){ const x=CX+Math.cos(d.angle)*d.r, y=CY+Math.sin(d.angle)*d.r;
+    ctx2.strokeStyle=`hsla(${d.hue},90%,68%,${d.life*0.5})`; ctx2.lineWidth=3; ctx2.beginPath(); ctx2.arc(CX,CY,d.r,d.angle-0.6,d.angle); ctx2.stroke();
+    const pr=6+d.life*3, grd=ctx2.createRadialGradient(x,y,0,x,y,pr*3.2);
+    grd.addColorStop(0,`hsla(${d.hue},95%,82%,${d.life})`); grd.addColorStop(0.4,`hsla(${d.hue},90%,65%,${d.life*0.7})`); grd.addColorStop(1,'rgba(0,0,0,0)');
+    ctx2.fillStyle=grd; ctx2.beginPath(); ctx2.arc(x,y,pr*3.2,0,TAU); ctx2.fill();
+    ctx2.fillStyle=`rgba(255,255,255,${d.life})`; ctx2.beginPath(); ctx2.arc(x,y,pr*0.55,0,TAU); ctx2.fill(); }
+  // sun (pulses on each song note)
+  const sr=minR*0.9*(1+sunPulse*0.5);
+  const sg=ctx2.createRadialGradient(CX,CY,0,CX,CY,sr); sg.addColorStop(0,`rgba(255,245,220,${0.95})`); sg.addColorStop(0.5,`rgba(255,200,120,${0.5+sunPulse*0.3})`); sg.addColorStop(1,'rgba(0,0,0,0)');
+  ctx2.fillStyle=sg; ctx2.beginPath(); ctx2.arc(CX,CY,sr,0,TAU); ctx2.fill();
+  ctx2.globalCompositeOperation='source-over';
+}
+
+/* ============================ Loop ============================ */
+let last=performance.now(), paused=false;
+function frame(now){ requestAnimationFrame(frame); let dt=(now-last)/1000; last=now; if(dt>0.05)dt=0.05;
+  if(paused){ if(songPlaying) player.startT+=dt; draw(); return; }
+  if(songPlaying){ const el=audioNow()-player.startT;
+    while(player.idx<player.notes.length && player.notes[player.idx].time<=el){ fireSongNote(player.notes[player.idx]); player.idx++; }
+    if(player.idx>=player.notes.length && el>player.total+1.0){ player.startT=audioNow(); player.idx=0; } // loop
+  }
+  step(dt); $('#pcount').textContent=planets.length; draw(); }
+
+/* ============================ Input ============================ */
+function pos(e){ const r=canvas.getBoundingClientRect(); return {x:e.clientX-r.left,y:e.clientY-r.top}; }
+canvas.addEventListener('pointerdown',e=>{ Audio.ensure(); hideHint(); const p=pos(e); const dx=p.x-CX, dy=p.y-CY; const r=Math.hypot(dx,dy), a=Math.atan2(dy,dx);
+  if(state.clickmode==='remove'){ let bi=-1,bd=1e9; planets.forEach((pl,i)=>{ const px=CX+Math.cos(pl.angle)*pl.r, py=CY+Math.sin(pl.angle)*pl.r; const d=Math.hypot(px-p.x,py-p.y); if(d<bd){bd=d;bi=i;} }); if(bi>=0&&bd<28)planets.splice(bi,1); return; }
+  addPlanet(r,a); });
+
+/* ============================ Controls ============================ */
+const MOTION=[ {key:'speed',min:0.15,max:1.6,step:0.05,label:'Speed',fmt:v=>v.toFixed(2)+'×'},
+  {key:'spokes',min:1,max:6,step:1,label:'Trigger spokes',fmt:v=>v} ];
+const SOUND=[ {key:'octaves',min:1,max:4,step:1,label:'Pitch range (octaves)',fmt:v=>v},
+  {key:'reverb',min:0,max:0.9,step:0.05,label:'Reverb',fmt:v=>Math.round(v*100)+'%'},
+  {key:'volume',min:0,max:1,step:0.05,label:'Volume',fmt:v=>Math.round(v*100)+'%'} ];
+const COMPOSE=[ {key:'maxPlanets',min:4,max:48,step:1,label:'Max planets',fmt:v=>v} ];
+const els={sliders:{},vals:{}};
+function buildSliders(list,mount){ list.forEach(c=>{ const w=document.createElement('div'); w.className='ctrl';
+  w.innerHTML='<div class="row"><label>'+c.label+'</label><span class="val"></span></div><input type="range" min="'+c.min+'" max="'+c.max+'" step="'+c.step+'">';
+  const inp=w.querySelector('input'), val=w.querySelector('.val'); inp.value=state[c.key]; val.textContent=c.fmt(state[c.key]);
+  inp.addEventListener('input',()=>{ state[c.key]=parseFloat(inp.value); val.textContent=c.fmt(state[c.key]);
+    if(c.key==='octaves')assignNotes(); if(c.key==='reverb')Audio.setReverb(state.reverb); if(c.key==='volume')Audio.setVolume(state.volume);
+    if(c.key==='spokes'){ spokeFlash=new Array(state.spokes).fill(0); for(const p of planets){ const k=Math.floor((p.angle-baseOffset())/(TAU/state.spokes)); p.prevK=k; } }
+    markCustom(); });
+  els.sliders[c.key]=inp; els.vals[c.key]={el:val,fmt:c.fmt}; mount.appendChild(w); }); }
+buildSliders(MOTION,$('#motion-ctrls')); buildSliders(SOUND,$('#sound-ctrls')); buildSliders(COMPOSE,$('#compose-ctrls'));
+
+const scaleSel=$('#scale'); Object.keys(SCALES).forEach(n=>{ const o=document.createElement('option'); o.value=n; o.textContent=n; scaleSel.appendChild(o); }); scaleSel.value=state.scale;
+scaleSel.addEventListener('change',()=>{ state.scale=scaleSel.value; assignNotes(); markCustom(); });
+const rootSel=$('#root'); NOTE_NAMES.forEach((n,i)=>{ const o=document.createElement('option'); o.value=i; o.textContent=n; rootSel.appendChild(o); }); rootSel.value=state.root;
+rootSel.addEventListener('change',()=>{ state.root=parseInt(rootSel.value); assignNotes(); markCustom(); });
+
+function buildSeg(id,opts,key,labels,onchange){ const m=$('#'+id), map={};
+  opts.forEach((o,i)=>{ const b=document.createElement('button'); b.textContent=labels?labels[i]:o; b.classList.toggle('active',state[key]===o);
+    b.addEventListener('click',()=>{ state[key]=o; Object.values(map).forEach(x=>x.classList.remove('active')); b.classList.add('active'); if(onchange)onchange(); if(key!=='clickmode')markCustom(); });
+    map[o]=b; m.appendChild(b); }); return map; }
+const modeMap=buildSeg('mode',['kepler','equal','linear'],'mode',['Kepler','Equal','Linear']);
+const timbreMap=buildSeg('timbre',['box','marimba','bell','pluck'],'timbre',['Box','Marimba','Bell','Pluck'],()=>Audio.ensure());
+buildSeg('clickmode',['add','remove'],'clickmode',['+ Planet','− Planet']);
+
+const presetMount=$('#presets'), chipEls={};
+Object.keys(PRESETS).forEach(name=>{ const c=document.createElement('div'); c.className='chip'; c.textContent=name; c.addEventListener('click',()=>applyPreset(name)); chipEls[name]=c; presetMount.appendChild(c); });
+function applyPreset(name){ const p=PRESETS[name]; Object.assign(state,p); spokeFlash=new Array(state.spokes).fill(0); syncControls();
+  Audio.ensure(); Audio.setReverb(state.reverb); Audio.setVolume(state.volume); scatter(p.count); hideHint();
+  Object.entries(chipEls).forEach(([n,c])=>c.classList.toggle('active',n===name)); }
+function markCustom(){ Object.values(chipEls).forEach(c=>c.classList.remove('active')); }
+function syncControls(){ Object.keys(els.sliders).forEach(k=>{ if(state[k]!==undefined){ els.sliders[k].value=state[k]; els.vals[k].el.textContent=els.vals[k].fmt(state[k]); }});
+  scaleSel.value=state.scale; rootSel.value=state.root;
+  Object.entries(modeMap).forEach(([o,b])=>b.classList.toggle('active',state.mode===o));
+  Object.entries(timbreMap).forEach(([o,b])=>b.classList.toggle('active',state.timbre===o)); }
+
+// songs
+const songMount=$('#songs'), songChips={};
+Object.keys(SONGS).forEach(name=>{ const c=document.createElement('div'); c.className='song'; c.textContent=name;
+  c.addEventListener('click',()=>{ if(player.name===name){ stopSong(); } else { playSong(name); } }); songChips[name]=c; songMount.appendChild(c); });
+$('#fit').addEventListener('change',e=>{ state.fit=e.target.checked; });
+$('#stopsong').addEventListener('click',stopSong);
+
+$('#scatter').addEventListener('click',()=>{ Audio.ensure(); scatter(Math.max(4,planets.length||6)); markCustom(); });
+$('#clear').addEventListener('click',()=>{ planets=[]; ripples=[]; });
+$('#pause').addEventListener('click',()=>{ paused=!paused; $('#pause').textContent=paused?'▶ Resume':'⏸ Pause'; if(!paused)last=performance.now(); });
+
+let hintGone=false; function hideHint(){ if(hintGone)return; hintGone=true; const h=$('#starthint'); if(h)h.style.opacity='0'; }
+
+/* ============================ Boot ============================ */
+resize(); spokeFlash=new Array(state.spokes).fill(0); applyPreset('Solar'); requestAnimationFrame(frame);
+</script>
+</body>
+</html>

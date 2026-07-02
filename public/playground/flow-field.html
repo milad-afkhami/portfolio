@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flow Field Studio</title>
+<style>
+  :root {
+    --bg: #05060a;
+    --panel: rgba(18, 20, 28, 0.72);
+    --panel-solid: #12141c;
+    --line: rgba(255,255,255,0.08);
+    --line-strong: rgba(255,255,255,0.16);
+    --text: #e6e8ef;
+    --dim: #8a8f9e;
+    --faint: #565b6b;
+    --accent: #7cf2c8;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  #app { display: flex; height: 100vh; width: 100vw; }
+
+  /* ---------- Canvas stage ---------- */
+  #stage {
+    position: relative;
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+  }
+  #canvas { display: block; width: 100%; height: 100%; cursor: crosshair; }
+
+  .hud {
+    position: absolute; top: 16px; right: 18px;
+    display: flex; gap: 14px; align-items: center;
+    font-family: var(--mono); font-size: 11px; letter-spacing: .04em;
+    color: var(--dim); pointer-events: none;
+    text-shadow: 0 1px 8px rgba(0,0,0,.6);
+  }
+  .hud b { color: var(--text); font-weight: 600; }
+  .hud .dot { width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent); }
+
+  .stage-title {
+    position: absolute; top: 16px; left: 20px; pointer-events: none;
+    font-size: 12px; letter-spacing:.18em; text-transform:uppercase;
+    color: var(--faint); text-shadow: 0 1px 8px rgba(0,0,0,.6);
+  }
+  .hint {
+    position:absolute; bottom: 74px; left: 20px; pointer-events:none;
+    font-size: 11px; color: var(--faint); font-family: var(--mono);
+    text-shadow: 0 1px 8px rgba(0,0,0,.7);
+    transition: opacity .6s; letter-spacing:.02em;
+  }
+
+  /* ---------- Control panel ---------- */
+  #panel {
+    flex: 0 0 336px; width: 336px; height: 100%;
+    background: var(--panel);
+    backdrop-filter: blur(22px) saturate(1.3);
+    -webkit-backdrop-filter: blur(22px) saturate(1.3);
+    border-right: 1px solid var(--line);
+    overflow-y: auto; padding: 20px 20px 32px;
+  }
+  #panel::-webkit-scrollbar { width: 8px; }
+  #panel::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 4px; }
+
+  .brand { display:flex; align-items:center; gap:10px; margin-bottom: 4px; }
+  .brand .glyph {
+    width: 26px; height: 26px; border-radius: 7px;
+    background: conic-gradient(from 210deg, #7cf2c8, #6ba8ff, #c78bff, #ff8bba, #7cf2c8);
+    box-shadow: 0 0 18px -4px #6ba8ff;
+  }
+  .brand h1 {
+    font-size: 15px; margin: 0; font-weight: 650; letter-spacing: .01em;
+    background: linear-gradient(90deg,#e6e8ef,#9fb2ff); -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .brand p { margin: 0; font-size: 10.5px; color: var(--faint); letter-spacing:.03em; }
+  .brandtext { line-height: 1.25; }
+
+  .presets { display:flex; flex-wrap:wrap; gap:6px; margin: 16px 0 6px; }
+  .chip {
+    font-size: 11.5px; font-family: var(--sans); color: var(--dim);
+    background: rgba(255,255,255,.04); border: 1px solid var(--line);
+    border-radius: 999px; padding: 5px 11px; cursor: pointer;
+    transition: all .14s;
+  }
+  .chip:hover { color: var(--text); border-color: var(--line-strong); }
+  .chip.active {
+    color: #06110d; background: var(--accent); border-color: transparent; font-weight: 600;
+  }
+
+  .section { margin-top: 22px; }
+  .section > .stitle {
+    font-size: 10px; text-transform: uppercase; letter-spacing: .16em;
+    color: var(--faint); margin-bottom: 12px; display:flex; align-items:center; gap:8px;
+  }
+  .section > .stitle::after { content:""; flex:1; height:1px; background: var(--line); }
+
+  .ctrl { margin-bottom: 15px; }
+  .ctrl .row { display:flex; justify-content:space-between; align-items:baseline; margin-bottom: 7px; }
+  .ctrl label { font-size: 12px; color: var(--text); }
+  .ctrl .val { font-family: var(--mono); font-size: 11px; color: var(--accent); }
+
+  input[type=range] {
+    -webkit-appearance: none; appearance: none; width: 100%; height: 3px;
+    background: var(--line-strong); border-radius: 3px; outline: none; cursor: pointer;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none; appearance: none; width: 15px; height: 15px; border-radius: 50%;
+    background: var(--text); border: 2px solid var(--panel-solid);
+    box-shadow: 0 0 0 1px var(--line-strong), 0 2px 6px rgba(0,0,0,.4); transition: background .15s;
+  }
+  input[type=range]::-webkit-slider-thumb:hover { background: var(--accent); }
+  input[type=range]::-moz-range-thumb {
+    width: 13px; height: 13px; border-radius: 50%; background: var(--text);
+    border: 2px solid var(--panel-solid); cursor: pointer;
+  }
+
+  .seg { display:flex; background: rgba(255,255,255,.04); border:1px solid var(--line); border-radius: 9px; padding: 3px; gap:3px; }
+  .seg button {
+    flex:1; font-family: var(--sans); font-size: 11.5px; color: var(--dim);
+    background: transparent; border: none; border-radius: 6px; padding: 6px 4px; cursor: pointer; transition: all .13s;
+    text-transform: capitalize;
+  }
+  .seg button.active { background: rgba(255,255,255,.1); color: var(--text); }
+
+  .palettes { display:flex; flex-direction:column; gap:7px; }
+  .pal {
+    display:flex; align-items:center; gap:9px; cursor:pointer;
+    border:1px solid var(--line); border-radius: 9px; padding: 6px 8px; transition: border-color .14s;
+  }
+  .pal:hover { border-color: var(--line-strong); }
+  .pal.active { border-color: var(--accent); }
+  .pal .swatch { display:flex; flex:1; height: 16px; border-radius: 4px; overflow:hidden; }
+  .pal .swatch span { flex:1; }
+  .pal .nm { font-size: 11px; color: var(--dim); width: 76px; }
+  .pal.active .nm { color: var(--text); }
+
+  .actions { display:flex; gap:8px; margin-top: 20px; }
+  .actions button {
+    flex:1; font-family: var(--sans); font-size: 12px; color: var(--text);
+    background: rgba(255,255,255,.05); border:1px solid var(--line); border-radius: 9px;
+    padding: 9px 4px; cursor:pointer; transition: all .14s;
+  }
+  .actions button:hover { background: rgba(255,255,255,.1); border-color: var(--line-strong); }
+
+  .foot { margin-top: 20px; font-size: 10.5px; color: var(--faint); line-height: 1.5; }
+
+  @media (max-width: 820px) {
+    #app { flex-direction: column-reverse; }
+    #panel { flex-basis: auto; width: 100%; height: 46%; border-right:none; border-top:1px solid var(--line); }
+    #stage { height: 54%; }
+  }
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="panel">
+    <div class="brand">
+      <div class="glyph"></div>
+      <div class="brandtext">
+        <h1>Flow Field Studio</h1>
+        <p>generative particle backdrops</p>
+      </div>
+    </div>
+
+    <div class="presets" id="presets"></div>
+
+    <div class="section">
+      <div class="stitle">Flow</div>
+      <div id="flow-ctrls"></div>
+    </div>
+
+    <div class="section">
+      <div class="stitle">Look</div>
+      <div id="look-ctrls"></div>
+      <div class="ctrl">
+        <div class="row"><label>Render as</label></div>
+        <div class="seg" data-seg="mode"></div>
+      </div>
+      <div class="ctrl">
+        <div class="row"><label>Backdrop</label></div>
+        <div class="seg" data-seg="bg"></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="stitle">Palette</div>
+      <div class="palettes" id="palettes"></div>
+    </div>
+
+    <div class="actions">
+      <button id="randomize">🎲 Randomize</button>
+      <button id="save">⤓ Save PNG</button>
+      <button id="pause">⏸ Pause</button>
+    </div>
+
+    <div class="foot">
+      Move your cursor over the canvas to push the flow around. Try a preset, then tweak the sliders to make it your own — and save a PNG when you like what you see.
+    </div>
+  </div>
+
+  <div id="stage">
+    <canvas id="canvas"></canvas>
+    <div class="stage-title">live preview</div>
+    <div class="hud"><span class="dot"></span><span><b id="fps">60</b> fps</span><span><b id="pcount">0</b> particles</span></div>
+    <div class="hint" id="hint">↖ dial in a look — try a preset</div>
+  </div>
+</div>
+
+<script>
+/* ============================ Simplex noise (2D) ============================ */
+const Noise = (function () {
+  const grad = [[1,1],[-1,1],[1,-1],[-1,-1],[1,0],[-1,0],[0,1],[0,-1]];
+  const perm = new Uint8Array(512), gx = new Float32Array(512), gy = new Float32Array(512);
+  const p = new Uint8Array(256);
+  for (let i = 0; i < 256; i++) p[i] = i;
+  for (let i = 255; i > 0; i--) { const n = (Math.random() * (i + 1)) | 0; const t = p[i]; p[i] = p[n]; p[n] = t; }
+  for (let i = 0; i < 512; i++) { const v = p[i & 255]; perm[i] = v; gx[i] = grad[v & 7][0]; gy[i] = grad[v & 7][1]; }
+  const F2 = 0.5 * (Math.sqrt(3) - 1), G2 = (3 - Math.sqrt(3)) / 6;
+  return function (xin, yin) {
+    let n0 = 0, n1 = 0, n2 = 0;
+    const s = (xin + yin) * F2;
+    const i = Math.floor(xin + s), j = Math.floor(yin + s);
+    const t = (i + j) * G2;
+    const x0 = xin - (i - t), y0 = yin - (j - t);
+    let i1, j1; if (x0 > y0) { i1 = 1; j1 = 0; } else { i1 = 0; j1 = 1; }
+    const x1 = x0 - i1 + G2, y1 = y0 - j1 + G2;
+    const x2 = x0 - 1 + 2 * G2, y2 = y0 - 1 + 2 * G2;
+    const ii = i & 255, jj = j & 255;
+    let t0 = 0.5 - x0*x0 - y0*y0;
+    if (t0 > 0) { t0 *= t0; const g = (ii + perm[jj]) & 511; n0 = t0*t0*(gx[g]*x0 + gy[g]*y0); }
+    let t1 = 0.5 - x1*x1 - y1*y1;
+    if (t1 > 0) { t1 *= t1; const g = (ii + i1 + perm[(jj + j1) & 511]) & 511; n1 = t1*t1*(gx[g]*x1 + gy[g]*y1); }
+    let t2 = 0.5 - x2*x2 - y2*y2;
+    if (t2 > 0) { t2 *= t2; const g = (ii + 1 + perm[(jj + 1) & 511]) & 511; n2 = t2*t2*(gx[g]*x2 + gy[g]*y2); }
+    return 70 * (n0 + n1 + n2);
+  };
+})();
+
+/* ============================ Palettes ============================ */
+const PALETTES = {
+  Aurora:  { colors: ['#3ef2b0','#2ad1c9','#4f8cff','#9b6bff'], words: 'teal → cyan → blue → violet', tint: '#04110e' },
+  Ember:   { colors: ['#ffd166','#ff8c42','#ff5964','#c1246e'], words: 'gold → orange → coral → magenta', tint: '#160805' },
+  Ocean:   { colors: ['#0fd3ff','#2a7fff','#5f6bff','#eaf6ff'], words: 'cyan → blue → indigo → foam-white', tint: '#030a14' },
+  Neon:    { colors: ['#ff2fd0','#00e5ff','#b6ff2f','#ff2f6d'], words: 'magenta → cyan → lime → hot-pink', tint: '#0c0410' },
+  Sunset:  { colors: ['#ffb56b','#ff6b9d','#c56bff','#6b8bff'], words: 'peach → pink → purple → periwinkle', tint: '#120611' },
+  Mono:    { colors: ['#ffffff','#c8ccd6','#8a8f9e','#e6e8ef'], words: 'ink-on-paper greys', tint: '#08090c' },
+};
+
+/* ============================ State ============================ */
+const DEFAULTS = {
+  count: 900, speed: 1.4, scale: 1.8, curl: 1.6, evolution: 0.14,
+  size: 1.1, glow: 0.35, trail: 0.06,
+  mode: 'lines', bg: 'dark', palette: 'Aurora'
+};
+const state = Object.assign({}, DEFAULTS);
+
+const PRESETS = {
+  Silk:         { count: 1100, speed: 0.9, scale: 1.2, curl: 1.3, evolution: 0.08, size: 0.9, glow: 0.28, trail: 0.03, mode:'lines', bg:'dark',   palette:'Aurora' },
+  Storm:        { count: 1600, speed: 3.0, scale: 3.4, curl: 3.2, evolution: 0.30, size: 0.8, glow: 0.45, trail: 0.14, mode:'lines', bg:'tinted', palette:'Ocean' },
+  Constellation:{ count: 700,  speed: 0.6, scale: 2.2, curl: 1.0, evolution: 0.05, size: 2.6, glow: 0.85, trail: 0.10, mode:'dots',  bg:'dark',   palette:'Neon' },
+  Ink:          { count: 900,  speed: 1.2, scale: 1.6, curl: 2.0, evolution: 0.10, size: 0.7, glow: 0.20, trail: 0.02, mode:'lines', bg:'tinted', palette:'Mono' },
+  Nebula:       { count: 1400, speed: 1.1, scale: 1.0, curl: 1.8, evolution: 0.16, size: 1.4, glow: 0.55, trail: 0.05, mode:'lines', bg:'tinted', palette:'Sunset' },
+  Wildfire:     { count: 1300, speed: 2.2, scale: 2.8, curl: 2.6, evolution: 0.22, size: 1.0, glow: 0.5,  trail: 0.09, mode:'lines', bg:'dark',   palette:'Ember' },
+};
+
+/* ============================ Control definitions ============================ */
+const SLIDERS = {
+  flow: [
+    { key:'count',     label:'Particle count',    min:100, max:2500, step:50,   fmt:v=>v|0 },
+    { key:'speed',     label:'Flow speed',        min:0.2, max:4,    step:0.1,  fmt:v=>v.toFixed(1) },
+    { key:'scale',     label:'Field detail',      min:0.4, max:5,    step:0.1,  fmt:v=>v.toFixed(1) },
+    { key:'curl',      label:'Turbulence',        min:0.5, max:4,    step:0.1,  fmt:v=>v.toFixed(1) },
+    { key:'evolution', label:'Evolution speed',   min:0,   max:0.6,  step:0.01, fmt:v=>v.toFixed(2) },
+  ],
+  look: [
+    { key:'size',  label:'Stroke width', min:0.4,  max:4,   step:0.1,  fmt:v=>v.toFixed(1)+'px' },
+    { key:'glow',  label:'Glow',         min:0.05, max:1,   step:0.05, fmt:v=>Math.round(v*100)+'%' },
+    { key:'trail', label:'Trail fade',   min:0.02, max:0.4, step:0.01, fmt:v=>v.toFixed(2) },
+  ]
+};
+const SEGS = { mode: ['lines','dots'], bg: ['dark','tinted'] };
+
+/* ============================ Build UI ============================ */
+const $ = s => document.querySelector(s);
+const els = { sliders: {}, vals: {}, seg: {}, pal: {}, chip: {} };
+
+function buildSliders(list, mount) {
+  list.forEach(cfg => {
+    const wrap = document.createElement('div'); wrap.className = 'ctrl';
+    wrap.innerHTML =
+      '<div class="row"><label>'+cfg.label+'</label><span class="val"></span></div>' +
+      '<input type="range" min="'+cfg.min+'" max="'+cfg.max+'" step="'+cfg.step+'">';
+    const input = wrap.querySelector('input'); const val = wrap.querySelector('.val');
+    input.value = state[cfg.key]; val.textContent = cfg.fmt(state[cfg.key]);
+    input.addEventListener('input', () => {
+      state[cfg.key] = parseFloat(input.value);
+      val.textContent = cfg.fmt(state[cfg.key]);
+      if (cfg.key === 'count') ensureParticles();
+      markCustom();    });
+    els.sliders[cfg.key] = input; els.vals[cfg.key] = { el: val, fmt: cfg.fmt };
+    mount.appendChild(wrap);
+  });
+}
+buildSliders(SLIDERS.flow, $('#flow-ctrls'));
+buildSliders(SLIDERS.look, $('#look-ctrls'));
+
+Object.keys(SEGS).forEach(key => {
+  const mount = document.querySelector('.seg[data-seg="'+key+'"]');
+  SEGS[key].forEach(opt => {
+    const b = document.createElement('button'); b.textContent = opt;
+    b.classList.toggle('active', state[key] === opt);
+    b.addEventListener('click', () => { state[key] = opt; syncSeg(key); markCustom(); });
+    els.seg[key] = els.seg[key] || {}; els.seg[key][opt] = b;
+    mount.appendChild(b);
+  });
+});
+function syncSeg(key){ Object.entries(els.seg[key]).forEach(([o,b]) => b.classList.toggle('active', state[key]===o)); }
+
+const palMount = $('#palettes');
+Object.entries(PALETTES).forEach(([name, def]) => {
+  const row = document.createElement('div'); row.className = 'pal';
+  row.classList.toggle('active', state.palette === name);
+  row.innerHTML = '<span class="nm">'+name+'</span><span class="swatch">' +
+    def.colors.map(c => '<span style="background:'+c+'"></span>').join('') + '</span>';
+  row.addEventListener('click', () => { state.palette = name; syncPalettes(); markCustom(); });
+  els.pal[name] = row; palMount.appendChild(row);
+});
+function syncPalettes(){ Object.entries(els.pal).forEach(([n,r]) => r.classList.toggle('active', state.palette===n)); }
+
+const presetMount = $('#presets');
+['— Custom —', ...Object.keys(PRESETS)].forEach(name => {
+  if (name === '— Custom —') return; // custom is implicit
+  const c = document.createElement('div'); c.className = 'chip'; c.textContent = name;
+  c.addEventListener('click', () => applyPreset(name));
+  els.chip[name] = c; presetMount.appendChild(c);
+});
+let activePreset = null;
+function applyPreset(name){
+  Object.assign(state, PRESETS[name]);
+  activePreset = name;
+  syncAllControls(); ensureParticles();  Object.entries(els.chip).forEach(([n,c]) => c.classList.toggle('active', n===name));
+  hideHint();
+}
+function markCustom(){ activePreset = null; Object.values(els.chip).forEach(c => c.classList.remove('active')); hideHint(); }
+function syncAllControls(){
+  Object.keys(els.sliders).forEach(k => { els.sliders[k].value = state[k]; els.vals[k].el.textContent = els.vals[k].fmt(state[k]); });
+  Object.keys(SEGS).forEach(syncSeg); syncPalettes();
+}
+
+/* ============================ Canvas + simulation ============================ */
+const canvas = $('#canvas'); const ctx = canvas.getContext('2d');
+let W = 0, H = 0, DPR = Math.min(window.devicePixelRatio || 1, 2);
+let particles = []; let time = 0; let paused = false;
+const mouse = { x: -9999, y: -9999, active: false };
+
+function resize(){
+  const r = canvas.getBoundingClientRect();
+  W = r.width; H = r.height;
+  canvas.width = W * DPR; canvas.height = H * DPR;
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  paintBackground(true);
+}
+window.addEventListener('resize', resize);
+
+function hexToRgb(h){ const n = parseInt(h.slice(1),16); return [n>>16&255, n>>8&255, n&255]; }
+
+function spawn(p){
+  p = p || {};
+  p.x = Math.random() * W; p.y = Math.random() * H;
+  p.px = p.x; p.py = p.y;
+  p.life = 40 + Math.random() * 220;
+  const cols = PALETTES[state.palette].colors;
+  p.color = cols[(Math.random() * cols.length) | 0];
+  return p;
+}
+function ensureParticles(){
+  const target = state.count | 0;
+  if (particles.length < target) { while (particles.length < target) particles.push(spawn({})); }
+  else particles.length = target;
+  // recolor to current palette
+  const cols = PALETTES[state.palette].colors;
+  for (const p of particles) if (!cols.includes(p.color)) p.color = cols[(Math.random()*cols.length)|0];
+  $('#pcount').textContent = particles.length;
+}
+
+function paintBackground(hard){
+  const bg = state.bg === 'tinted' ? PALETTES[state.palette].tint : '#05060a';
+  if (hard){
+    ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = 1;
+    ctx.fillStyle = bg; ctx.fillRect(0,0,W,H);
+  } else {
+    ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = state.trail;
+    ctx.fillStyle = bg; ctx.fillRect(0,0,W,H);
+  }
+}
+
+let last = performance.now(), fpsAcc = 0, fpsN = 0;
+function frame(now){
+  requestAnimationFrame(frame);
+  const dt = Math.min(50, now - last); last = now;
+  if (paused) return;
+  fpsAcc += 1000/dt; fpsN++;
+  if (fpsN >= 20){ $('#fps').textContent = Math.round(fpsAcc/fpsN); fpsAcc = 0; fpsN = 0; }
+
+  time += dt * 0.001 * state.evolution;
+
+  paintBackground(false);
+  ctx.globalCompositeOperation = 'lighter';
+
+  const sc = state.scale * 0.0012;
+  const sp = state.speed;
+  const dots = state.mode === 'dots';
+  ctx.lineWidth = state.size; ctx.lineCap = 'round';
+
+  for (let k = 0; k < particles.length; k++){
+    const p = particles[k];
+    p.px = p.x; p.py = p.y;
+
+    const a = Noise(p.x * sc + time, p.y * sc - time) * Math.PI * state.curl;
+    let vx = Math.cos(a) * sp, vy = Math.sin(a) * sp;
+
+    if (mouse.active){
+      const dx = p.x - mouse.x, dy = p.y - mouse.y;
+      const d2 = dx*dx + dy*dy;
+      if (d2 < 26000){ const f = (1 - d2/26000) * 3.4; const d = Math.sqrt(d2)||1; vx += dx/d*f; vy += dy/d*f; }
+    }
+
+    p.x += vx; p.y += vy; p.life -= 1;
+
+    if (p.x < -20 || p.x > W+20 || p.y < -20 || p.y > H+20 || p.life < 0){ spawn(p); continue; }
+
+    const [r,g,b] = hexToRgb(p.color);
+    if (dots){
+      ctx.globalAlpha = state.glow * 0.9;
+      ctx.fillStyle = 'rgb('+r+','+g+','+b+')';
+      ctx.beginPath(); ctx.arc(p.x, p.y, state.size, 0, 6.2832); ctx.fill();
+    } else {
+      ctx.globalAlpha = state.glow;
+      ctx.strokeStyle = 'rgb('+r+','+g+','+b+')';
+      ctx.beginPath(); ctx.moveTo(p.px, p.py); ctx.lineTo(p.x, p.y); ctx.stroke();
+    }
+  }
+}
+
+/* ---------- Mouse ---------- */
+canvas.addEventListener('pointermove', e => {
+  const r = canvas.getBoundingClientRect();
+  mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; mouse.active = true; hideHint();
+});
+canvas.addEventListener('pointerleave', () => { mouse.active = false; mouse.x = mouse.y = -9999; });
+
+/* ============================ Actions ============================ */
+$('#randomize').addEventListener('click', () => {
+  const rnd = (a,b,s=1)=>Math.round((a+Math.random()*(b-a))/s)*s;
+  state.count = rnd(400,1900,50); state.speed = rnd(0.5,3.2,0.1); state.scale = rnd(0.6,4.2,0.1);
+  state.curl = rnd(0.8,3.6,0.1); state.evolution = rnd(0.02,0.45,0.01); state.size = rnd(0.6,3,0.1);
+  state.glow = rnd(0.2,0.9,0.05); state.trail = rnd(0.02,0.2,0.01);
+  state.mode = Math.random()<0.28 ? 'dots' : 'lines';
+  state.bg = Math.random()<0.5 ? 'dark':'tinted';
+  state.palette = Object.keys(PALETTES)[(Math.random()*6)|0];
+  syncAllControls(); ensureParticles(); markCustom(); paintBackground(true);});
+$('#save').addEventListener('click', () => {
+  const a = document.createElement('a');
+  a.download = 'flowfield-'+state.palette.toLowerCase()+'.png';
+  a.href = canvas.toDataURL('image/png'); a.click();
+});
+$('#pause').addEventListener('click', () => {
+  paused = !paused; $('#pause').textContent = paused ? '▶ Resume' : '⏸ Pause';
+});
+let hintGone = false;
+function hideHint(){ if (hintGone) return; hintGone = true; const h = $('#hint'); if (h) h.style.opacity = '0'; }
+
+/* ============================ Boot ============================ */
+resize(); ensureParticles();applyPreset('Silk');
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>

@@ -1,9 +1,16 @@
 import type { MetadataRoute } from "next";
 import { getAllBlogs } from "@/services/blog";
+import { playgroundExperiments } from "@/configs/playground";
 import { allowedBlogQualitiesForSeo, baseUrl } from "@/configs/general";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const blogs = await getAllBlogs();
+
+  const playgroundRoutes = playgroundExperiments.map((experiment) => ({
+    url: `${baseUrl}/playground/${experiment.slug}`,
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
 
   const blogRoutes = blogs
     .filter((blog) => allowedBlogQualitiesForSeo.includes(blog.quality))
@@ -22,7 +29,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/packages`, changeFrequency: "monthly" as const, priority: 0.8 },
     { url: `${baseUrl}/projects`, changeFrequency: "monthly" as const, priority: 0.8 },
     { url: `${baseUrl}/services`, changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${baseUrl}/playground`, changeFrequency: "monthly" as const, priority: 0.7 },
   ];
 
-  return [...staticRoutes, ...blogRoutes];
+  return [...staticRoutes, ...blogRoutes, ...playgroundRoutes];
 }
