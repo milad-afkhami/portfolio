@@ -48,4 +48,12 @@ export const playgroundExperiments: Array<IPlaygroundExperiment> = [
     tags: ["Web Audio", "Sequencer", "Generative"],
     badge: "🪐",
   },
+  {
+    slug: "dawn-chorus",
+    title: "Dawn Chorus",
+    description:
+      "Grow a woodland of cute birds that sing their own synthesized songs. Feed worms to raise chicks and fill fertility bars, watch the chorus swell at sunrise — and beware the hawk that swoops in to snatch one.",
+    tags: ["Web Audio", "Ecosystem", "Generative"],
+    badge: "🐦",
+  },
 ];

@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dawn Chorus</title>
+<style>
+  :root {
+    --bg:#0a0e18; --panel:rgba(16,20,30,.72); --panel-solid:#12161f;
+    --line:rgba(255,255,255,.08); --line-strong:rgba(255,255,255,.16);
+    --text:#e8eef6; --dim:#93a0b3; --faint:#5a6474; --accent:#8fd6a0;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;
+  }
+  * { box-sizing:border-box; }
+  html,body { height:100%; margin:0; }
+  body { background:var(--bg); color:var(--text); font-family:var(--sans); overflow:hidden; -webkit-font-smoothing:antialiased; }
+  #app { display:flex; height:100vh; width:100vw; }
+
+  #stage { position:relative; flex:1 1 auto; min-width:0; overflow:hidden; }
+  #canvas { display:block; width:100%; height:100%; cursor:pointer; touch-action:none; }
+  .stage-title { position:absolute; top:16px; left:20px; pointer-events:none; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.55); text-shadow:0 1px 8px rgba(0,0,0,.5); }
+  .hud { position:absolute; top:15px; right:18px; display:flex; gap:14px; align-items:center; font-family:var(--mono); font-size:11px; color:rgba(255,255,255,.7); pointer-events:none; text-shadow:0 1px 8px rgba(0,0,0,.55); }
+  .hud b { color:#fff; }
+  .starthint { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; pointer-events:none; transition:opacity .5s; padding:0 30px; }
+  .starthint span { font-size:14px; color:#e8eef6; background:rgba(10,14,24,.66); border:1px solid var(--line); border-radius:14px; padding:12px 20px; letter-spacing:.02em; text-align:center; max-width:500px; line-height:1.55; }
+
+  #panel { flex:0 0 336px; width:336px; height:100%; background:var(--panel); backdrop-filter:blur(22px) saturate(1.2); -webkit-backdrop-filter:blur(22px) saturate(1.2); border-right:1px solid var(--line); overflow-y:auto; padding:20px 20px 32px; }
+  #panel::-webkit-scrollbar { width:8px; } #panel::-webkit-scrollbar-thumb { background:var(--line-strong); border-radius:4px; }
+
+  .brand { display:flex; align-items:center; gap:10px; margin-bottom:4px; }
+  .brand .glyph { width:26px; height:26px; border-radius:7px; background:linear-gradient(150deg,#ffd29e,#8fd6a0,#6fa0d8,#3a4a7a); box-shadow:0 0 18px -4px #8fd6a0; }
+  .brand h1 { font-size:15px; margin:0; font-weight:650; letter-spacing:.01em; background:linear-gradient(90deg,#e8eef6,#8fd6a0); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .brand p { margin:0; font-size:10.5px; color:var(--faint); } .brandtext { line-height:1.25; }
+
+  .presets { display:flex; flex-wrap:wrap; gap:6px; margin:16px 0 6px; }
+  .chip { font-size:11.5px; color:var(--dim); background:rgba(255,255,255,.04); border:1px solid var(--line); border-radius:999px; padding:5px 11px; cursor:pointer; transition:all .14s; }
+  .chip:hover { color:var(--text); border-color:var(--line-strong); } .chip.active { color:#08130c; background:var(--accent); border-color:transparent; font-weight:600; }
+
+  .section { margin-top:22px; }
+  .section > .stitle { font-size:10px; text-transform:uppercase; letter-spacing:.16em; color:var(--faint); margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .section > .stitle::after { content:""; flex:1; height:1px; background:var(--line); }
+
+  .ctrl { margin-bottom:14px; } .ctrl .row { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:7px; }
+  .ctrl label { font-size:12px; color:var(--text); } .ctrl .val { font-family:var(--mono); font-size:11px; color:var(--accent); }
+  input[type=range] { -webkit-appearance:none; appearance:none; width:100%; height:3px; background:var(--line-strong); border-radius:3px; outline:none; cursor:pointer; }
+  input[type=range]::-webkit-slider-thumb { -webkit-appearance:none; appearance:none; width:15px; height:15px; border-radius:50%; background:var(--text); border:2px solid var(--panel-solid); box-shadow:0 0 0 1px var(--line-strong); }
+  input[type=range]::-moz-range-thumb { width:13px; height:13px; border-radius:50%; background:var(--text); border:2px solid var(--panel-solid); }
+
+  .birds { display:flex; flex-wrap:wrap; gap:6px; }
+  .bird { display:flex; align-items:center; gap:7px; font-size:11.5px; color:var(--dim); background:rgba(255,255,255,.04); border:1px solid var(--line); border-radius:999px; padding:5px 11px 5px 8px; cursor:pointer; transition:all .14s; }
+  .bird:hover { color:var(--text); border-color:var(--line-strong); }
+  .bird.active { color:#08130c; background:var(--accent); border-color:transparent; font-weight:600; }
+  .bird .dot { width:12px; height:12px; border-radius:50%; flex:none; box-shadow:inset 0 -3px 0 rgba(0,0,0,.15); }
+
+  .toggle { display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
+  .toggle label { font-size:12px; }
+  .switch { position:relative; width:38px; height:22px; flex:none; }
+  .switch input { opacity:0; width:0; height:0; }
+  .track { position:absolute; inset:0; background:var(--line-strong); border-radius:999px; transition:.18s; }
+  .track::before { content:""; position:absolute; width:16px; height:16px; left:3px; top:3px; background:#fff; border-radius:50%; transition:.18s; }
+  .switch input:checked + .track { background:var(--accent); }
+  .switch input:checked + .track::before { transform:translateX(16px); }
+  .seg { display:flex; background:rgba(255,255,255,.04); border:1px solid var(--line); border-radius:9px; padding:3px; gap:3px; }
+  .seg button { flex:1; font-family:var(--sans); font-size:11px; color:var(--dim); background:transparent; border:none; border-radius:6px; padding:6px 3px; cursor:pointer; transition:all .13s; }
+  .seg button.active { background:rgba(255,255,255,.1); color:var(--text); }
+
+  .actions { display:flex; gap:8px; margin-top:18px; }
+  .actions button { flex:1; font-size:12px; color:var(--text); background:rgba(255,255,255,.05); border:1px solid var(--line); border-radius:9px; padding:9px 4px; cursor:pointer; transition:all .14s; }
+  .actions button:hover { background:rgba(255,255,255,.1); border-color:var(--line-strong); }
+  .foot { margin-top:20px; font-size:10.5px; color:var(--faint); line-height:1.55; }
+  .foot b { color:var(--dim); }
+
+  @media (max-width:820px) { #app { flex-direction:column-reverse; } #panel { flex-basis:auto; width:100%; height:50%; border-right:none; border-top:1px solid var(--line); } #stage { height:50%; } }
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="panel">
+    <div class="brand">
+      <div class="glyph"></div>
+      <div class="brandtext"><h1>Dawn Chorus</h1><p>a garden of singing birds</p></div>
+    </div>
+
+    <div class="presets" id="presets"></div>
+
+    <div class="section">
+      <div class="stitle">Add a bird</div>
+      <div class="birds" id="birds"></div>
+      <div class="ctrl" style="margin-top:12px"><div class="row"><label>Click action</label></div><div class="seg" id="clickmode"></div></div>
+    </div>
+
+    <div class="section">
+      <div class="stitle">Time of day</div>
+      <div class="ctrl"><div class="row"><label id="todlabel">Dawn</label><span class="val" id="todval"></span></div><input type="range" id="tod" min="0" max="1" step="0.001"></div>
+      <div class="toggle"><label>Let time flow</label><span class="switch"><input type="checkbox" id="cycle"><span class="track"></span></span></div>
+      <div id="time-ctrls"></div>
+    </div>
+
+    <div class="section">
+      <div class="stitle">Wildlife</div>
+      <div class="toggle"><label>Hawk visits 🦅</label><span class="switch"><input type="checkbox" id="hawk" checked><span class="track"></span></span></div>
+      <div id="chorus-ctrls"></div>
+      <div class="toggle"><label>Forest ambience (wind)</label><span class="switch"><input type="checkbox" id="wind"><span class="track"></span></span></div>
+    </div>
+
+    <div class="actions">
+      <button id="populate">✦ Populate</button>
+      <button id="clear">✕ Clear</button>
+    </div>
+
+    <div class="foot">
+      Pick a bird, then click a tree to perch it — each has its own <b>synthesized</b> song. Grab a <b>worm</b> from the soil and click a bird to feed it: it dances and its <b>fertility bar</b> fills — full, and it has a chick. Owls eat <b>mice</b>, not worms. Beware the <b>hawk</b> — it swoops in and snatches a bird.
+    </div>
+  </div>
+
+  <div id="stage">
+    <canvas id="canvas"></canvas>
+    <div class="stage-title">the garden</div>
+    <div class="hud"><span id="timeword">—</span><span><b id="birdcount">0</b> birds</span><span id="holdinfo"></span></div>
+    <div class="starthint" id="starthint"><span>🐦 Pick a bird and click a tree to perch it. Grab a 🪱 worm from the soil and click a bird to feed it — it'll dance and, once its fertility bar fills, have a chick. Watch for the 🦅 hawk.</span></div>
+  </div>
+</div>
+
+<script>
+const $=s=>document.querySelector(s);
+const TAU=Math.PI*2, rnd=(a,b)=>a+Math.random()*(b-a), clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+
+/* ============================ Bird species (procedural song) ============================ */
+const SPECIES={
+  robin:    {name:'Robin',    body:'#b5643c', belly:'#e79441', type:'dawn',
+    phrase:()=>{ const ev=[]; let t=0; const n=4+(rnd(0,4)|0); for(let i=0;i<n;i++){ const f=2300+rnd(0,1300); ev.push({t,f0:f,f1:f+rnd(-500,500),dur:0.07+rnd(0,0.08),vib:1,h:2}); t+=0.05+rnd(0,0.08);} return ev; }},
+  sparrow:  {name:'Sparrow',  body:'#8a6a44', belly:'#c9b088', type:'day',
+    phrase:()=>{ const ev=[]; let t=0; const n=3+(rnd(0,4)|0); const f=2500+rnd(0,600); for(let i=0;i<n;i++){ ev.push({t,f0:f+rnd(-100,100),f1:f-400,dur:0.05,vib:0,noise:0.35}); t+=0.09+rnd(0,0.04);} return ev; }},
+  blackbird:{name:'Blackbird',body:'#2c2c33', belly:'#3c3c46', beak:'#f2a51e', type:'dawn',
+    phrase:()=>{ const ev=[]; let t=0; const n=3+(rnd(0,2)|0); let f=2600+rnd(0,300); for(let i=0;i<n;i++){ const f1=f-rnd(400,900); ev.push({t,f0:f,f1:f1,dur:0.18+rnd(0,0.1),vib:0.4,soft:1,h:1}); f=f1+rnd(0,400); t+=0.26+rnd(0,0.14);} return ev; }},
+  wren:     {name:'Wren',     body:'#7a4a2c', belly:'#b58a5a', type:'dawn',
+    phrase:()=>{ const ev=[]; let t=0; const n=14+(rnd(0,10)|0); const fa=3000+rnd(0,400), fb=fa+rnd(300,600); for(let i=0;i<n;i++){ ev.push({t,f0:i%2?fa:fb,f1:i%2?fa:fb,dur:0.03,vib:0}); t+=0.037;} return ev; }},
+  cuckoo:   {name:'Cuckoo',   body:'#6b6b72', belly:'#9a9aa2', type:'dawn',
+    phrase:()=>{ const f=1350+rnd(-80,80); return [{t:0,f0:f,f1:f,dur:0.22,vib:0.2,soft:1,h:1},{t:0.32,f0:f*0.8,f1:f*0.8,dur:0.28,vib:0.2,soft:1,h:1}]; }},
+  dove:     {name:'Dove',     body:'#b7b0a6', belly:'#d8d2c8', type:'day',
+    phrase:()=>{ const f=620+rnd(0,80); return [{t:0,f0:f*0.9,f1:f,dur:0.12,vib:0.3,soft:1,h:1},{t:0.16,f0:f,f1:f*0.85,dur:0.42,vib:0.5,soft:1,h:1}]; }},
+  owl:      {name:'Owl',      body:'#5a4632', belly:'#8a6f4e', type:'night', big:1, eatsMouse:1,
+    phrase:()=>{ const f=340+rnd(0,60); return [{t:0,f0:f,f1:f*0.94,dur:0.42,vib:0.6,soft:1,h:0.5},{t:0.75,f0:f*1.02,f1:f*0.94,dur:0.32,vib:0.5,soft:1,h:0.5},{t:1.12,f0:f*0.98,f1:f*0.9,dur:0.48,vib:0.5,soft:1,h:0.5}]; }},
+};
+const SP_KEYS=Object.keys(SPECIES);
+function gauss(x,c,w){ const d=x-c; return Math.exp(-(d*d)/(2*w*w)); }
+function daylight(tod){ return (1-Math.cos(tod*TAU))/2; }
+function activity(sp,tod){ const day=daylight(tod), night=1-day; const dawn=gauss(tod,0.25,0.075), dusk=gauss(tod,0.75,0.075);
+  if(sp==='night') return Math.min(1.2, Math.pow(night,1.6)*0.9 + gauss(tod,0.0,0.12)*0.3 + gauss(tod,1.0,0.12)*0.3);
+  if(sp==='day')   return day*0.8 + dawn*0.4;
+  return Math.min(1, day*0.35 + dawn*1.0 + dusk*0.5); }
+
+/* ============================ State ============================ */
+const state={ tod:0.24, cycle:false, cycleSpeed:0.02, chorus:0.6, reverb:0.55, volume:0.7, wind:false, place:'robin', clickmode:'add', hawkOn:true };
+const PRESETS={
+  'Spring Dawn':{tod:0.24, chorus:0.75, mix:['robin','robin','blackbird','wren','sparrow','cuckoo','dove']},
+  'Midday':     {tod:0.5,  chorus:0.5,  mix:['sparrow','sparrow','dove','robin','wren']},
+  'Dusk':       {tod:0.75, chorus:0.55, mix:['blackbird','robin','dove','sparrow']},
+  'Moonlit':    {tod:0.0,  chorus:0.5,  mix:['owl','owl','dove']},
+};
+
+/* ============================ Audio ============================ */
+const Audio={
+  ctx:null, master:null, dry:null, wet:null, comp:null, birdBus:null, voices:0, windGain:null, noiseBuf:null,
+  ensure(){ if(this.ctx){ if(this.ctx.state==='suspended')this.ctx.resume(); return; }
+    const C=window.AudioContext||window.webkitAudioContext; const ctx=this.ctx=new C();
+    this.comp=ctx.createDynamicsCompressor(); this.comp.threshold.value=-14; this.comp.ratio.value=10; this.comp.attack.value=0.004; this.comp.release.value=0.3;
+    this.master=ctx.createGain(); this.master.gain.value=state.volume;
+    this.dry=ctx.createGain(); this.wet=ctx.createGain(); this.dry.gain.value=1-state.reverb*0.5; this.wet.gain.value=state.reverb;
+    const rev=ctx.createConvolver(); const len=Math.floor(ctx.sampleRate*2.8), buf=ctx.createBuffer(2,len,ctx.sampleRate);
+    for(let ch=0;ch<2;ch++){ const d=buf.getChannelData(ch); for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/len,2.6); }
+    rev.buffer=buf;
+    this.birdBus=ctx.createGain(); const lp=ctx.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value=7200; lp.Q.value=0.4;
+    this.birdBus.connect(lp); lp.connect(this.dry); lp.connect(rev); rev.connect(this.wet);
+    this.dry.connect(this.master); this.wet.connect(this.master); this.master.connect(this.comp); this.comp.connect(ctx.destination);
+    const nb=ctx.createBuffer(1,ctx.sampleRate*3,ctx.sampleRate); const nd=nb.getChannelData(0); for(let i=0;i<nd.length;i++)nd[i]=Math.random()*2-1; this.noiseBuf=nb;
+    const ns=ctx.createBufferSource(); ns.buffer=nb; ns.loop=true; const nf=ctx.createBiquadFilter(); nf.type='bandpass'; nf.frequency.value=520; nf.Q.value=0.6;
+    this.windGain=ctx.createGain(); this.windGain.gain.value=state.wind?0.05:0;
+    const lfo=ctx.createOscillator(); lfo.type='sine'; lfo.frequency.value=0.08; const lg=ctx.createGain(); lg.gain.value=0.03; lfo.connect(lg); lg.connect(this.windGain.gain);
+    ns.connect(nf); nf.connect(this.windGain); this.windGain.connect(this.master); ns.start(); lfo.start();
+  },
+  setReverb(v){ if(!this.ctx)return; this.wet.gain.value=v; this.dry.gain.value=1-v*0.5; },
+  setVolume(v){ if(!this.ctx)return; this.master.gain.setTargetAtTime(v,this.ctx.currentTime,0.02); },
+  setWind(on){ if(!this.ctx)return; this.windGain.gain.setTargetAtTime(on?0.05:0,this.ctx.currentTime,0.3); },
+  whistle(when,f0,f1,dur,o){ const ctx=this.ctx; if(this.voices>24) return; this.voices++;
+    const osc=ctx.createOscillator(); osc.type=o.soft?'sine':'triangle';
+    osc.frequency.setValueAtTime(Math.max(60,f0),when); osc.frequency.exponentialRampToValueAtTime(Math.max(60,f1),when+dur);
+    const g=ctx.createGain(); const peak=(o.soft?0.16:0.12)*(o.vol||1); const a=o.soft?0.02:0.006;
+    g.gain.setValueAtTime(0.0001,when); g.gain.exponentialRampToValueAtTime(peak,when+a); g.gain.exponentialRampToValueAtTime(0.0001,when+dur);
+    osc.connect(g); g.connect(this.birdBus);
+    if(o.vib){ const lfo=ctx.createOscillator(); lfo.type='sine'; lfo.frequency.value=o.hoot?7:(20+Math.random()*14); const lg=ctx.createGain(); lg.gain.value=f0*0.015*o.vib; lfo.connect(lg); lg.connect(osc.frequency); lfo.start(when); lfo.stop(when+dur+0.02); }
+    if(o.h){ const h=ctx.createOscillator(); h.type='sine'; h.frequency.setValueAtTime(Math.max(60,f0*2),when); h.frequency.exponentialRampToValueAtTime(Math.max(60,f1*2),when+dur); const hg=ctx.createGain(); hg.gain.setValueAtTime(0.0001,when); hg.gain.exponentialRampToValueAtTime(peak*0.18*o.h,when+a); hg.gain.exponentialRampToValueAtTime(0.0001,when+dur); h.connect(hg); hg.connect(this.birdBus); h.start(when); h.stop(when+dur+0.02); }
+    if(o.noise){ const ns=ctx.createBufferSource(); ns.buffer=this.noiseBuf; const bp=ctx.createBiquadFilter(); bp.type='bandpass'; bp.frequency.value=f0; bp.Q.value=6; const ng=ctx.createGain(); ng.gain.setValueAtTime(peak*o.noise,when); ng.gain.exponentialRampToValueAtTime(0.0001,when+0.04); ns.connect(bp); bp.connect(ng); ng.connect(this.birdBus); ns.start(when); ns.stop(when+0.06); }
+    osc.start(when); osc.stop(when+dur+0.03); osc.onended=()=>{ this.voices--; g.disconnect(); };
+  },
+  sing(species){ const ctx=this.ctx; if(!ctx||this.voices>20) return; const evs=SPECIES[species].phrase(); const t0=ctx.currentTime+0.03; for(const ev of evs) this.whistle(t0+ev.t, ev.f0, ev.f1, ev.dur, ev); },
+  happy(){ const ctx=this.ctx; if(!ctx) return; const t0=ctx.currentTime+0.02; let f=2100+rnd(0,300); for(let i=0;i<5;i++){ this.whistle(t0+i*0.075, f, f*1.06, 0.06, {vib:0.5,h:1.5,vol:0.9}); f*=1.14; } },
+  screech(){ const ctx=this.ctx; if(!ctx) return; const t0=ctx.currentTime+0.02; this.whistle(t0,1700,900,0.35,{vib:1.2,noise:0.5,vol:1.2}); this.whistle(t0+0.28,1400,700,0.3,{vib:1,noise:0.4,vol:1.1}); }
+};
+
+/* ============================ Scene / canvas ============================ */
+const canvas=$('#canvas'), ctx2=canvas.getContext('2d');
+let W=0,H=0,DPR=Math.min(window.devicePixelRatio||1,2), horizon=0;
+let stars=[], trees=[], perches=[];
+function resize(){ const r=canvas.getBoundingClientRect(); W=r.width; H=r.height; canvas.width=W*DPR; canvas.height=H*DPR; ctx2.setTransform(DPR,0,0,DPR,0,0);
+  horizon=H*0.76; buildStars(); buildTrees(); }
+window.addEventListener('resize',resize);
+function buildStars(){ stars=[]; for(let i=0;i<90;i++) stars.push({x:Math.random()*W,y:Math.random()*horizon*0.9, r:Math.random()*1.3+0.3, tw:Math.random()*TAU}); }
+
+/* recursive, natural-looking tree */
+function growTree(x,y,ang,len,wid,depth,br,can,per){
+  const x2=x+Math.cos(ang)*len, y2=y+Math.sin(ang)*len;
+  br.push({x1:x,y1:y,x2,y2,w:wid});
+  if(depth<=0 || len<16){ // leaf → canopy cluster + perch
+    const cx=x2,cy=y2, R=len*1.6+16, blobs=[]; const nb=5+(Math.random()*3|0);
+    for(let k=0;k<nb;k++) blobs.push({dx:rnd(-R*0.6,R*0.6),dy:rnd(-R*0.6,R*0.5),r:R*(0.4+Math.random()*0.4)});
+    can.push({x:cx,y:cy,blobs}); per.push({x:cx,y:cy+2}); return;
+  }
+  if(wid<10 && Math.random()<0.5) per.push({x:(x+x2)/2,y:(y+y2)/2-3});
+  const n=depth>3?2:(Math.random()<0.55?2:3);
+  for(let i=0;i<n;i++){ const spread=0.55+Math.random()*0.5; const a=ang - spread/2 + (n>1?i/(n-1):0.5)*spread + rnd(-0.12,0.12);
+    growTree(x2,y2,a,len*(0.7+Math.random()*0.1),wid*0.7,depth-1,br,can,per); }
+}
+function buildTrees(){ trees=[]; perches=[];
+  // back-to-front: {x fraction, scale, depthTint 0..1 (1=far)}
+  const defs=[ {x:0.16,s:0.72,far:0.55},{x:0.84,s:0.66,far:0.65},{x:0.5,s:1.05,far:0},{x:0.33,s:0.82,far:0.2},{x:0.7,s:0.9,far:0.15} ];
+  for(const d of defs){ const br=[],can=[],per=[]; const bx=d.x*W, by=horizon-2; const H0=(H*0.42)*d.s;
+    growTree(bx,by,-Math.PI/2+rnd(-0.06,0.06), H0*0.42, 12*d.s+4, 4, br,can,per);
+    trees.push({br,can,per,far:d.far,bx}); for(const p of per) perches.push(p); }
+}
+
+/* ============================ Sky ============================ */
+const SKY=[ {t:0.0,top:'#0b1026',bot:'#141a3a'},{t:0.18,top:'#3c4a7e',bot:'#f3a97e'},{t:0.30,top:'#6fa0d8',bot:'#ffd9a8'},
+  {t:0.50,top:'#5aa8e8',bot:'#c3e6ff'},{t:0.70,top:'#5a6bb0',bot:'#ffb37a'},{t:0.80,top:'#3a3f78',bot:'#e8825a'},{t:0.90,top:'#151a3a',bot:'#242a55'},{t:1.0,top:'#0b1026',bot:'#141a3a'} ];
+function hx(h){ const n=parseInt(h.slice(1),16); return [n>>16&255,n>>8&255,n&255]; }
+function mix(a,b,f){ return `rgb(${Math.round(a[0]+(b[0]-a[0])*f)},${Math.round(a[1]+(b[1]-a[1])*f)},${Math.round(a[2]+(b[2]-a[2])*f)})`; }
+function skyColors(tod){ let i=0; for(;i<SKY.length-1;i++){ if(tod<SKY[i+1].t)break; } const A=SKY[i],B=SKY[Math.min(SKY.length-1,i+1)]; const f=(tod-A.t)/((B.t-A.t)||1);
+  return { top:mix(hx(A.top),hx(B.top),f), bot:mix(hx(A.bot),hx(B.bot),f) }; }
+
+/* ============================ Entities ============================ */
+let birds=[], notes=[], critters=[], hawk=null, holding=null, mouseX=0, mouseY=0, hawkTimer=25;
+function freePerchNear(x){ // prefer perches with no bird very close
+  let cand=perches.filter(p=>!birds.some(b=>Math.hypot(b.x-p.x,b.y-p.y)<18));
+  if(!cand.length) cand=perches; cand.sort((a,b)=>Math.abs(a.x-x)-Math.abs(b.x-x)); return cand[Math.floor(rnd(0,Math.min(4,cand.length)))]||perches[0]; }
+function addBird(species,x,y,opts){ let best=perches[0],bd=1e9; for(const p of perches){ const d=Math.hypot(p.x-x,p.y-y); if(d<bd){bd=d;best=p;} }
+  const p=best; birds.push({ sp:species, x:p.x, y:p.y, side:p.x<W*0.5?1:-1, sing:0, bob:0, blink:0, nextSing:clock+rnd(0.3,2.5), fly:1, fed:0, baby:!!(opts&&opts.baby), grow:opts&&opts.baby?0:1, dance:0, scared:0, refuse:0 });
+  if(birds.length>26)birds.shift(); Audio.ensure(); }
+
+function spawnCritter(type){ const y=rnd(horizon+16, H-24); critters.push({ type, x:rnd(40,W-40), y, ph:Math.random()*TAU, t:0, state:'up', life:rnd(4,8), vx:type==='mouse'?rnd(30,60)*(Math.random()<0.5?1:-1):0 }); }
+function feedBird(b){ b.dance=1.1; b.sing=1; Audio.happy();
+  if(b.grow<1){ // a chick: food makes it grow up (nothing happens without food)
+    b.grow=clamp(b.grow+0.3,0,1); spawnNotes(b); if(b.grow>=1){ b.baby=false; spawnHearts(b); } return; }
+  b.fed=clamp(b.fed+0.34,0,1); spawnHearts(b);   // a grown bird: food fills its fertility
+  if(b.fed>=1 && birds.length<24){ const p=freePerchNear(b.x); if(p){ birds.push({ sp:b.sp, x:p.x, y:p.y, side:p.x<W*0.5?1:-1, sing:0,bob:0,blink:0,nextSing:clock+rnd(1,3),fly:1,fed:0,baby:true,grow:0,dance:0,scared:0,refuse:0 }); spawnHearts({x:p.x,y:p.y}); } b.fed=0; } }
+function attemptFeed(b){ const ok = holding==='worm' ? !SPECIES[b.sp].eatsMouse : !!SPECIES[b.sp].eatsMouse;
+  if(ok){ feedBird(b); holding=null; updateHold(); } else { b.refuse=0.7; spawnText(b.x,b.y-24,'✗','#ff6b6b'); } }
+function spawnHearts(b){ for(let i=0;i<3;i++) notes.push({x:b.x+rnd(-8,8),y:b.y-14,ph:Math.random()*TAU,life:1.2,col:'#ff7aa2',ch:'❤'}); }
+function spawnText(x,y,ch,col){ notes.push({x,y,ph:0,life:1,col,ch,big:1}); }
+
+/* ============================ Hawk ============================ */
+function launchHawk(){ if(!birds.length) return; const fromLeft=Math.random()<0.5; const target=birds[Math.floor(Math.random()*birds.length)];
+  hawk={ x:fromLeft?-60:W+60, y:rnd(H*0.08,H*0.22), vx:0, vy:0, state:'dive', target, carrying:null, flap:0, dir:fromLeft?1:-1 };
+  Audio.screech(); for(const b of birds) b.scared=1.2; }
+function updateHawk(dt){ if(!hawk) return; hawk.flap+=dt*14;
+  if(hawk.state==='dive'){ const t=hawk.target; if(!t || !birds.includes(t)){ hawk.state='leave'; }
+    else { const dx=t.x-hawk.x, dy=t.y-hawk.y, d=Math.hypot(dx,dy)||1; const sp=520; hawk.x+=dx/d*sp*dt; hawk.y+=dy/d*sp*dt; hawk.dir=dx<0?-1:1;
+      if(d<22){ hawk.carrying=t; const idx=birds.indexOf(t); if(idx>=0)birds.splice(idx,1); hawk.state='leave'; } } }
+  else { // leave
+    hawk.x += (hawk.dir>0?1:-1)*460*dt; hawk.y -= 120*dt; if(hawk.carrying){ hawk.carrying.x=hawk.x; hawk.carrying.y=hawk.y+18; }
+    if(hawk.x< -80 || hawk.x>W+80 || hawk.y<-80){ hawk=null; } }
+}
+
+/* ============================ Loop ============================ */
+let clock=0, last=performance.now();
+function frame(now){ requestAnimationFrame(frame); let dt=(now-last)/1000; last=now; if(dt>0.05)dt=0.05; clock+=dt;
+  if(state.cycle){ state.tod=(state.tod+dt*state.cycleSpeed)%1; $('#tod').value=state.tod; updateTodLabel(); }
+  const day=daylight(state.tod);
+
+  // critters: keep a few worms + a mouse around; update
+  const worms=critters.filter(c=>c.type==='worm').length, mice=critters.filter(c=>c.type==='mouse').length;
+  if(worms<5 && Math.random()<0.02) spawnCritter('worm');
+  if(mice<2 && Math.random()<0.006) spawnCritter('mouse');
+  for(let i=critters.length-1;i>=0;i--){ const c=critters[i]; c.t+=dt; c.ph+=dt*6;
+    if(c.type==='mouse'){ c.x+=c.vx*dt; if(c.x<20||c.x>W-20)c.vx*=-1; }
+    c.life-=dt*0.12; if(c.life<=0){ critters.splice(i,1); } }
+
+  // birds
+  for(const b of birds){ b.sing*=Math.pow(0.06,dt); b.bob*=Math.pow(0.1,dt); if(b.fly>0)b.fly-=dt*1.6; if(b.dance>0)b.dance-=dt; if(b.scared>0)b.scared-=dt; if(b.refuse>0)b.refuse-=dt;
+    b.blink-=dt; if(b.blink<-3 && Math.random()<0.008)b.blink=0.16;
+    if(b.grow>=1 && clock>=b.nextSing){ const a=activity(SPECIES[b.sp].type,state.tod);  // only grown birds sing
+      if(a>0.05 && b.scared<=0 && Audio.ctx && Audio.voices<18){ Audio.sing(b.sp); b.sing=1; b.bob=0.6; spawnNotes(b); }
+      b.nextSing=clock+(1.4+Math.random()*2.6)/(0.22+a*state.chorus*2.6); }
+  }
+  // hawk scheduling
+  if(state.hawkOn && !hawk){ hawkTimer-=dt; if(hawkTimer<=0 && birds.length>=2 && day>0.25){ launchHawk(); hawkTimer=rnd(20,42); } }
+  updateHawk(dt);
+
+  for(let i=notes.length-1;i>=0;i--){ const nt=notes[i]; nt.y-=dt*(nt.ch==='❤'?26:34); nt.x+=Math.sin(nt.y*0.05+nt.ph)*0.3; nt.life-=dt*0.7; if(nt.life<=0)notes.splice(i,1); }
+
+  draw(now);
+  $('#birdcount').textContent=birds.length;
+}
+
+/* ============================ Draw ============================ */
+function draw(now){
+  const tod=state.tod, day=daylight(tod), night=1-day, sc=skyColors(tod);
+  const g=ctx2.createLinearGradient(0,0,0,horizon); g.addColorStop(0,sc.top); g.addColorStop(1,sc.bot); ctx2.fillStyle=g; ctx2.fillRect(0,0,W,horizon);
+  if(night>0.05){ for(const s of stars){ const tw=0.6+0.4*Math.sin(now*0.002+s.tw); ctx2.fillStyle=`rgba(255,255,255,${night*tw*0.9})`; ctx2.beginPath(); ctx2.arc(s.x,s.y,s.r,0,TAU); ctx2.fill(); } }
+  if(tod>0.17 && tod<0.83){ const p=(tod-0.17)/0.66; const sx=W*(0.08+p*0.84), sy=horizon-Math.sin(p*Math.PI)*H*0.62;
+    const glow=ctx2.createRadialGradient(sx,sy,0,sx,sy,90); glow.addColorStop(0,'rgba(255,240,200,0.9)'); glow.addColorStop(1,'rgba(255,220,150,0)'); ctx2.fillStyle=glow; ctx2.beginPath(); ctx2.arc(sx,sy,90,0,TAU); ctx2.fill();
+    ctx2.fillStyle='#fff3cf'; ctx2.beginPath(); ctx2.arc(sx,sy,20,0,TAU); ctx2.fill(); }
+  if(night>0.45){ const mt=(tod+0.5)%1; if(mt>0.17&&mt<0.83){ const p=(mt-0.17)/0.66; const mx=W*(0.08+p*0.84), my=horizon-Math.sin(p*Math.PI)*H*0.6;
+    ctx2.globalAlpha=Math.min(1,(night-0.4)*2.2); const gl=ctx2.createRadialGradient(mx,my,0,mx,my,50); gl.addColorStop(0,'rgba(220,230,255,0.5)'); gl.addColorStop(1,'rgba(220,230,255,0)'); ctx2.fillStyle=gl; ctx2.beginPath(); ctx2.arc(mx,my,50,0,TAU); ctx2.fill();
+    ctx2.fillStyle='#e8eeff'; ctx2.beginPath(); ctx2.arc(mx,my,15,0,TAU); ctx2.fill(); ctx2.fillStyle=sc.top; ctx2.beginPath(); ctx2.arc(mx-6,my-4,13,0,TAU); ctx2.fill(); ctx2.globalAlpha=1; } }
+
+  // trees back-to-front
+  for(const tr of trees) drawTree(tr, day, night);
+
+  // soil
+  const soilTop=mix(hx('#3a2a1c'),hx('#20160e'),night), soilBot=mix(hx('#1c130b'),hx('#0d0906'),night);
+  const sg=ctx2.createLinearGradient(0,horizon,0,H); sg.addColorStop(0,soilTop); sg.addColorStop(1,soilBot); ctx2.fillStyle=sg;
+  ctx2.beginPath(); ctx2.moveTo(0,horizon); ctx2.quadraticCurveTo(W*0.5,horizon-14,W,horizon); ctx2.lineTo(W,H); ctx2.lineTo(0,H); ctx2.fill();
+  // grass line
+  ctx2.strokeStyle=mix(hx('#4a7a3a'),hx('#1a2e1e'),night); ctx2.lineWidth=3; ctx2.beginPath(); ctx2.moveTo(0,horizon); ctx2.quadraticCurveTo(W*0.5,horizon-14,W,horizon); ctx2.stroke();
+
+  // critters (worms / mice)
+  for(const c of critters) drawCritter(c,now);
+
+  // birds
+  for(const b of birds){ drawBird(b, now); drawFedBar(b); }
+  // hawk (on top)
+  if(hawk) drawHawk(hawk);
+  // floating notes/hearts
+  for(const nt of notes){ ctx2.globalAlpha=Math.max(0,nt.life); ctx2.fillStyle=nt.col; ctx2.font=(nt.big?'700 22px':'700 15px')+' var(--sans),sans-serif'; ctx2.textAlign='center'; ctx2.fillText(nt.ch, nt.x, nt.y); }
+  ctx2.globalAlpha=1; ctx2.textAlign='left';
+  // held food follows cursor
+  if(holding) drawFood(holding, mouseX, mouseY, true);
+}
+
+function drawTree(tr, day, night){ ctx2.save();
+  const tint=tr.far; // far trees fade toward sky
+  const barkR=Math.round((40*(0.5+day*0.4))*(1-tint)+ 60*tint), barkG=Math.round((28*(0.5+day*0.4))*(1-tint)+70*tint), barkB=Math.round((18*(0.5+day*0.4))*(1-tint)+90*tint);
+  ctx2.strokeStyle=`rgb(${barkR},${barkG},${barkB})`; ctx2.lineCap='round';
+  for(const b of tr.br){ ctx2.lineWidth=Math.max(1.5,b.w*(1-tint*0.3)); ctx2.beginPath(); ctx2.moveTo(b.x1,b.y1); ctx2.lineTo(b.x2,b.y2); ctx2.stroke(); }
+  // canopy
+  const cr=Math.round((60+day*70)*(1-tint)+120*tint), cg=Math.round((120+day*80)*(1-tint)+150*tint), cb=Math.round((60+day*40)*(1-tint)+130*tint);
+  for(const c of tr.can){ ctx2.fillStyle=`rgba(${cr},${cg},${cb},${(0.55+day*0.3)*(1-tint*0.4)})`;
+    for(const bl of c.blobs){ ctx2.beginPath(); ctx2.arc(c.x+bl.dx, c.y+bl.dy, bl.r, 0, TAU); ctx2.fill(); } }
+  ctx2.restore();
+}
+
+function drawBird(b,now){ const sp=SPECIES[b.sp]; const R=(sp.big?15:11)*(0.42+b.grow*0.58); const s=b.side; const t=now*0.001;
+  let hop=-b.bob*4 - (b.fly>0? b.fly*b.fly*30:0); let rot=0;
+  if(b.dance>0){ hop-=Math.abs(Math.sin(t*16))*10; rot=Math.sin(t*22)*0.4; }
+  if(b.scared>0){ hop-=Math.abs(Math.sin(t*30))*3; }
+  const wingUp = b.sing>0.2 || b.fly>0 || b.dance>0 || b.scared>0;
+  ctx2.save(); ctx2.translate(b.x, b.y+hop); ctx2.rotate(rot); ctx2.scale(s,1);
+  ctx2.fillStyle=sp.body; ctx2.beginPath(); ctx2.moveTo(-R*0.7,0); ctx2.lineTo(-R*1.7,-R*0.4); ctx2.lineTo(-R*1.5,R*0.3); ctx2.closePath(); ctx2.fill();
+  ctx2.fillStyle=sp.belly; ctx2.beginPath(); ctx2.ellipse(0,0,R,R*1.15,0,0,TAU); ctx2.fill();
+  ctx2.fillStyle=sp.body; ctx2.beginPath(); ctx2.ellipse(-R*0.15,-R*0.2,R*0.95,R*0.95,0,Math.PI*1.15,Math.PI*0.15,true); ctx2.fill();
+  ctx2.fillStyle=sp.body; ctx2.beginPath(); ctx2.ellipse(-R*0.1, wingUp?-R*0.2:0, R*0.7, R*0.45, wingUp?-0.5:0.2, 0,TAU); ctx2.fill();
+  ctx2.fillStyle=sp.body; ctx2.beginPath(); ctx2.arc(R*0.55,-R*0.85, R*(sp.big?0.85:0.7), 0,TAU); ctx2.fill();
+  if(sp.big){ ctx2.beginPath(); ctx2.moveTo(R*0.2,-R*1.5); ctx2.lineTo(R*0.4,-R*1.05); ctx2.lineTo(R*0.05,-R*1.1); ctx2.closePath(); ctx2.moveTo(R*0.95,-R*1.5); ctx2.lineTo(R*0.75,-R*1.05); ctx2.lineTo(R*1.1,-R*1.1); ctx2.closePath(); ctx2.fill(); }
+  ctx2.fillStyle=sp.beak||'#f2a51e'; const open=(b.sing>0.3||b.dance>0)?R*0.28:0;
+  ctx2.beginPath(); ctx2.moveTo(R*1.15,-R*0.9); ctx2.lineTo(R*1.55,-R*0.85-open*0.5); ctx2.lineTo(R*1.15,-R*0.75+open); ctx2.closePath(); ctx2.fill();
+  const er=sp.big?R*0.34:R*0.16, ex=R*0.72, ey=-R*1.0;
+  if(sp.big){ ctx2.fillStyle='#fff'; ctx2.beginPath(); ctx2.arc(ex-R*0.25,ey,er,0,TAU); ctx2.arc(ex+R*0.35,ey,er,0,TAU); ctx2.fill(); }
+  if(b.blink>0){ ctx2.strokeStyle='#1a120c'; ctx2.lineWidth=2; ctx2.beginPath(); ctx2.moveTo(ex-er,ey); ctx2.lineTo(ex+er,ey); ctx2.stroke(); if(sp.big){ ctx2.beginPath(); ctx2.moveTo(ex+R*0.35-er,ey); ctx2.lineTo(ex+R*0.35+er,ey); ctx2.stroke(); } }
+  else { ctx2.fillStyle='#15100c'; ctx2.beginPath(); ctx2.arc(ex,ey,er*(sp.big?0.6:1),0,TAU); if(sp.big)ctx2.arc(ex+R*0.35,ey,er*0.6,0,TAU); ctx2.fill();
+    ctx2.fillStyle='rgba(255,255,255,0.8)'; ctx2.beginPath(); ctx2.arc(ex+er*0.3,ey-er*0.3,er*0.25,0,TAU); ctx2.fill(); }
+  ctx2.restore();
+  if(b.refuse>0){ ctx2.globalAlpha=b.refuse; ctx2.fillStyle='#ff6b6b'; ctx2.font='700 16px var(--sans)'; ctx2.textAlign='center'; ctx2.fillText('✗',b.x,b.y-R*2-6); ctx2.globalAlpha=1; ctx2.textAlign='left'; }
+}
+function drawFedBar(b){ const w=20, x=b.x-w/2, y=b.y-(SPECIES[b.sp].big?30:24)*(0.6+b.grow*0.4);
+  ctx2.fillStyle='rgba(0,0,0,0.35)'; ctx2.fillRect(x,y,w,4);
+  if(b.grow<1){ ctx2.fillStyle='#ffcf5c'; ctx2.fillRect(x,y,w*b.grow,4); }        // chick: growth (needs worms)
+  else { ctx2.fillStyle=b.fed>=1?'#ff7aa2':'#8fd6a0'; ctx2.fillRect(x,y,w*b.fed,4); } // adult: fertility
+  ctx2.strokeStyle='rgba(255,255,255,0.2)'; ctx2.lineWidth=1; ctx2.strokeRect(x,y,w,4); }
+
+function drawCritter(c,now){ const grab = mouseX>c.x-24&&mouseX<c.x+24&&mouseY>c.y-16&&mouseY<c.y+16 && !holding;
+  if(c.type==='worm'){ const wig=Math.sin(c.ph)*3; ctx2.strokeStyle=grab?'#ff9ab0':'#e08aa0'; ctx2.lineCap='round'; ctx2.lineWidth=5;
+    ctx2.beginPath(); for(let i=0;i<=6;i++){ const px=c.x-9+i*3, py=c.y - Math.sin(c.ph+i*0.6)*3 - 2; i?ctx2.lineTo(px,py):ctx2.moveTo(px,py); } ctx2.stroke();
+    // little dirt mound
+    ctx2.fillStyle='rgba(0,0,0,0.2)'; ctx2.beginPath(); ctx2.ellipse(c.x,c.y+6,11,3,0,0,TAU); ctx2.fill();
+  } else { // mouse
+    ctx2.save(); ctx2.translate(c.x,c.y); ctx2.scale(c.vx<0?-1:1,1);
+    ctx2.strokeStyle='#9a8f88'; ctx2.lineWidth=1.5; ctx2.beginPath(); ctx2.moveTo(-7,0); ctx2.quadraticCurveTo(-15,-2,-14,4); ctx2.stroke(); // tail
+    ctx2.fillStyle=grab?'#c9beb6':'#a89e96'; ctx2.beginPath(); ctx2.ellipse(0,0,8,5,0,0,TAU); ctx2.fill();
+    ctx2.beginPath(); ctx2.arc(7,-1,4,0,TAU); ctx2.fill(); // head
+    ctx2.beginPath(); ctx2.arc(5,-5,2.4,0,TAU); ctx2.fill(); // ear
+    ctx2.fillStyle='#221a16'; ctx2.beginPath(); ctx2.arc(9,-2,1,0,TAU); ctx2.fill(); ctx2.restore();
+  }
+  if(grab){ ctx2.fillStyle='rgba(255,255,255,0.85)'; ctx2.font='10px var(--sans)'; ctx2.textAlign='center'; ctx2.fillText('grab', c.x, c.y-14); ctx2.textAlign='left'; }
+}
+function drawFood(type,x,y){ if(type==='worm'){ ctx2.strokeStyle='#e08aa0'; ctx2.lineCap='round'; ctx2.lineWidth=5; ctx2.beginPath(); for(let i=0;i<=6;i++){ const px=x-9+i*3, py=y-Math.sin(i*0.7)*3; i?ctx2.lineTo(px,py):ctx2.moveTo(px,py); } ctx2.stroke(); }
+  else { ctx2.fillStyle='#a89e96'; ctx2.beginPath(); ctx2.ellipse(x,y,8,5,0,0,TAU); ctx2.fill(); ctx2.beginPath(); ctx2.arc(x+7,y-1,4,0,TAU); ctx2.fill(); } }
+
+function drawHawk(h){ const R=26; const s=h.dir>0?1:-1; const flap=Math.sin(h.flap)*0.5;
+  ctx2.save(); ctx2.translate(h.x,h.y); ctx2.scale(s,1);
+  ctx2.fillStyle='#3a2c20';
+  // wings (big triangles that flap)
+  ctx2.beginPath(); ctx2.moveTo(0,-2); ctx2.lineTo(-R*1.8, -R*0.9 - flap*R); ctx2.lineTo(-R*0.6, R*0.2); ctx2.closePath(); ctx2.fill();
+  ctx2.beginPath(); ctx2.moveTo(0,-2); ctx2.lineTo(R*1.8, -R*0.9 - flap*R); ctx2.lineTo(R*0.6, R*0.2); ctx2.closePath(); ctx2.fill();
+  // body + tail
+  ctx2.fillStyle='#4a3826'; ctx2.beginPath(); ctx2.ellipse(0,0,R*0.5,R*0.75,0,0,TAU); ctx2.fill();
+  ctx2.beginPath(); ctx2.moveTo(-R*0.3,R*0.5); ctx2.lineTo(0,R*1.4); ctx2.lineTo(R*0.3,R*0.5); ctx2.closePath(); ctx2.fill();
+  // head + hooked beak
+  ctx2.fillStyle='#54402c'; ctx2.beginPath(); ctx2.arc(0,-R*0.8,R*0.4,0,TAU); ctx2.fill();
+  ctx2.fillStyle='#e8c24a'; ctx2.beginPath(); ctx2.moveTo(R*0.2,-R*0.9); ctx2.lineTo(R*0.6,-R*0.75); ctx2.lineTo(R*0.2,-R*0.6); ctx2.closePath(); ctx2.fill();
+  ctx2.fillStyle='#ffcf3a'; ctx2.beginPath(); ctx2.arc(R*0.12,-R*0.9,R*0.1,0,TAU); ctx2.fill();
+  ctx2.restore();
+  if(h.carrying){ const b=h.carrying; drawBird(Object.assign({},b,{x:h.x,y:h.y+18,fly:0,dance:0,scared:1,bob:0,sing:0,blink:-1,grow:b.grow||1})); }
+}
+
+function spawnNotes(b){ const sp=SPECIES[b.sp]; const n=1+(Math.random()*2|0); for(let i=0;i<n;i++) notes.push({x:b.x+rnd(6,18),y:b.y-14,ph:Math.random()*TAU,life:1,col:sp.belly,ch:Math.random()<0.5?'♪':'♫'}); }
+
+/* ============================ Input ============================ */
+function pos(e){ const r=canvas.getBoundingClientRect(); return {x:e.clientX-r.left,y:e.clientY-r.top}; }
+canvas.addEventListener('pointermove',e=>{ const p=pos(e); mouseX=p.x; mouseY=p.y; });
+canvas.addEventListener('pointerdown',e=>{ Audio.ensure(); hideHint(); const p=pos(e); mouseX=p.x; mouseY=p.y;
+  if(holding){ let bi=-1,bd=1e9; birds.forEach((b,i)=>{ const d=Math.hypot(b.x-p.x,b.y-p.y); if(d<bd){bd=d;bi=i;} }); if(bi>=0&&bd<46){ attemptFeed(birds[bi]); } else { holding=null; updateHold(); } return; }
+  if(p.y>horizon-4){ // soil → grab a critter
+    let ci=-1,cd=1e9; critters.forEach((c,i)=>{ const d=Math.hypot(c.x-p.x,c.y-p.y); if(d<cd){cd=d;ci=i;} }); if(ci>=0&&cd<34){ holding=critters[ci].type; critters.splice(ci,1); updateHold(); } return; }
+  if(state.clickmode==='remove'){ let bi=-1,bd=1e9; birds.forEach((b,i)=>{ const d=Math.hypot(b.x-p.x,b.y-p.y); if(d<bd){bd=d;bi=i;} }); if(bi>=0&&bd<40)birds.splice(bi,1); return; }
+  addBird(state.place, p.x, p.y); });
+function updateHold(){ $('#holdinfo').textContent = holding? ('holding '+(holding==='worm'?'🪱 worm':'🐭 mouse')) : ''; }
+
+/* ============================ Controls ============================ */
+const TIMEC=[ {key:'cycleSpeed',min:0.005,max:0.08,step:0.005,label:'Flow speed',fmt:v=>v.toFixed(3)} ];
+const CHOR=[ {key:'chorus',min:0.1,max:1,step:0.05,label:'Liveliness',fmt:v=>Math.round(v*100)+'%'},
+  {key:'reverb',min:0,max:0.9,step:0.05,label:'Reverb (depth)',fmt:v=>Math.round(v*100)+'%'},
+  {key:'volume',min:0,max:1,step:0.05,label:'Volume',fmt:v=>Math.round(v*100)+'%'} ];
+const els={sliders:{},vals:{}};
+function buildSliders(list,mount){ list.forEach(c=>{ const w=document.createElement('div'); w.className='ctrl';
+  w.innerHTML='<div class="row"><label>'+c.label+'</label><span class="val"></span></div><input type="range" min="'+c.min+'" max="'+c.max+'" step="'+c.step+'">';
+  const inp=w.querySelector('input'), val=w.querySelector('.val'); inp.value=state[c.key]; val.textContent=c.fmt(state[c.key]);
+  inp.addEventListener('input',()=>{ state[c.key]=parseFloat(inp.value); val.textContent=c.fmt(state[c.key]); if(c.key==='reverb')Audio.setReverb(state.reverb); if(c.key==='volume')Audio.setVolume(state.volume); markCustom(); });
+  els.sliders[c.key]=inp; els.vals[c.key]={el:val,fmt:c.fmt}; mount.appendChild(w); }); }
+buildSliders(TIMEC,$('#time-ctrls')); buildSliders(CHOR,$('#chorus-ctrls'));
+
+const todS=$('#tod'); todS.value=state.tod;
+todS.addEventListener('input',()=>{ state.tod=parseFloat(todS.value); state.cycle=false; $('#cycle').checked=false; updateTodLabel(); });
+function todWord(t){ if(t<0.13||t>=0.9)return 'Night'; if(t<0.33)return 'Dawn'; if(t<0.6)return 'Day'; if(t<0.78)return 'Dusk'; return 'Evening'; }
+function updateTodLabel(){ const w=todWord(state.tod); $('#todlabel').textContent=w; $('#todval').textContent=(state.tod*24|0).toString().padStart(2,'0')+':'+(((state.tod*24)%1*60)|0).toString().padStart(2,'0'); $('#timeword').textContent=w; }
+
+$('#cycle').addEventListener('change',e=>{ state.cycle=e.target.checked; });
+$('#wind').addEventListener('change',e=>{ state.wind=e.target.checked; Audio.setWind(state.wind); });
+$('#hawk').addEventListener('change',e=>{ state.hawkOn=e.target.checked; if(state.hawkOn)hawkTimer=rnd(12,25); });
+
+const birdMount=$('#birds'), birdBtns={};
+SP_KEYS.forEach(k=>{ const sp=SPECIES[k]; const b=document.createElement('div'); b.className='bird'+(state.place===k?' active':''); b.innerHTML='<span class="dot" style="background:'+sp.body+'"></span>'+sp.name;
+  b.addEventListener('click',()=>{ state.place=k; Object.values(birdBtns).forEach(x=>x.classList.remove('active')); b.classList.add('active'); });
+  birdBtns[k]=b; birdMount.appendChild(b); });
+
+function buildSeg(id,opts,key,labels){ const m=$('#'+id), map={};
+  opts.forEach((o,i)=>{ const bt=document.createElement('button'); bt.textContent=labels?labels[i]:o; bt.classList.toggle('active',state[key]===o);
+    bt.addEventListener('click',()=>{ state[key]=o; Object.values(map).forEach(x=>x.classList.remove('active')); bt.classList.add('active'); }); map[o]=bt; m.appendChild(bt); }); return map; }
+buildSeg('clickmode',['add','remove'],'clickmode',['Add bird','Remove']);
+
+const presetMount=$('#presets'), chipEls={};
+Object.keys(PRESETS).forEach(name=>{ const c=document.createElement('div'); c.className='chip'; c.textContent=name; c.addEventListener('click',()=>applyPreset(name)); chipEls[name]=c; presetMount.appendChild(c); });
+function applyPreset(name){ const p=PRESETS[name]; state.tod=p.tod; state.chorus=p.chorus; todS.value=state.tod; els.sliders.chorus.value=p.chorus; els.vals.chorus.el.textContent=Math.round(p.chorus*100)+'%'; updateTodLabel();
+  Audio.ensure(); birds=[]; p.mix.forEach((sp,i)=>{ const pp=perches[(i*3+1)%perches.length]||perches[0]; addBird(sp, pp.x, pp.y); }); hideHint();
+  Object.entries(chipEls).forEach(([n,c])=>c.classList.toggle('active',n===name)); }
+function markCustom(){ Object.values(chipEls).forEach(c=>c.classList.remove('active')); }
+
+$('#populate').addEventListener('click',()=>{ Audio.ensure(); const pool=state.tod<0.13||state.tod>0.85? ['owl','owl','dove']: ['robin','blackbird','wren','sparrow','dove','cuckoo','robin'];
+  const n=5+(Math.random()*3|0); for(let i=0;i<n;i++){ const sp=pool[i%pool.length]; const pp=perches[(i*2+1)%perches.length]||perches[0]; addBird(sp,pp.x,pp.y); } hideHint(); });
+$('#clear').addEventListener('click',()=>{ birds=[]; });
+
+let hintGone=false; function hideHint(){ if(hintGone)return; hintGone=true; const h=$('#starthint'); if(h)h.style.opacity='0'; }
+
+/* ============================ Boot ============================ */
+resize(); updateTodLabel(); requestAnimationFrame(frame);
+</script>
+</body>
+</html>
