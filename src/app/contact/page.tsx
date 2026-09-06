@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { email, linkedin, phone, telegram, whatsapp, zoom } from "@/configs/contact";
 import { FaEnvelope, FaLinkedinIn, FaPhone, FaTelegram, FaVideo, FaWhatsappSquare } from "react-icons/fa";
+import ScheduleCall from "@/components/contact/ScheduleCall";
 
 export const metadata: Metadata = {
   title: "Contact - Milad Afkhami",
@@ -18,8 +19,11 @@ export default function ContactPage(): JSX.Element {
         </p>
       </div>
 
+      <ScheduleCall />
+
       <div className="grid">
         <div className="w-full space-y-8">
+          <h2 className="text-2xl font-bold">Other ways to reach me</h2>
           <div className="grid gap-4 space-y-6 md:grid-cols-2">
             <div className="flex items-center gap-4">
               <div className="flex size-12 items-center justify-center rounded-lg bg-primary/10">
