@@ -1,0 +1,107 @@
+---
+title: "Make Your Coding Agent Lazier About Complexity"
+description: "A working implementation can still do too much. Give simplicity its own review, keep the requirements fixed, and ask which responsibilities can disappear."
+summary: "I want coding agents to avoid speculative layers and unnecessary implementation. That means challenging the design after it works, judging deletion by what it removes from future changes, and preserving every meaningful constraint."
+date: "2026-10-26"
+readingTime: "7 min"
+category: "AI Engineering"
+quality: "medium"
+coverImage: "/images/blog/make-your-coding-agent-lazier-about-complexity-cover.jpg"
+tags: ["AI Engineering", "Coding Agents", "Software Design", "Code Review", "Simplicity"]
+---
+
+I want a coding agent that is reluctant to create another layer.
+
+It should need a reason to introduce a registry, a configuration language, or a new background service. “We might need this later” should start a discussion about a requirement, rather than end one about a design.
+
+That is what I mean by making the agent lazy. I want it to avoid work the system does not need, including work that would be easy to generate.
+
+A solution can satisfy every current test and still make the next change unnecessarily difficult. Correctness earns it a place in the discussion. It does not settle whether the shape is proportionate to the problem.
+
+## 1. Hold the behavior fixed before asking for less
+
+Consider a hypothetical application where workspace administrators download a CSV of their members. This is an invented example, including the designs below.
+
+The requirement is bounded: export the current workspace's members, in the agreed column order, with correct CSV escaping. Only an authorized administrator can use it. The export must respect an existing response-size limit and leave the established download behavior intact.
+
+An agent proposes a general export framework. It introduces an exporter interface, a registry keyed by resource type, pluggable serializers, a configuration object for columns, and an asynchronous job abstraction. The only registered resource is members. The only serializer is CSV.
+
+There are legitimate reasons to build those things. None has yet been established by this task.
+
+Suppose the implementation works. The authorization check holds, the right rows appear, and the tests pass. A review limited to defects can reasonably report no defect in the requested behavior. I would still ask whether we have built five extension points to serve one operation.
+
+The alternative must meet the same requirements. Removing authorization would make the code shorter and the product wrong. Removing escaping would be equally unacceptable. Simplification starts by preserving those obligations, so we can examine the machinery around them honestly.
+
+## 2. Ask what a layer is buying
+
+I would trace the export from the download request to the returned file. For each intermediate part, I want to know which decision it owns or which duplication it removes.
+
+A CSV encoder has a clear job: represent values correctly in the required format. An existing workspace-members query may already own access to the relevant records. The route can connect those established responsibilities without becoming a general export platform.
+
+By comparison, a registry with one entry may only move a direct call into another file. An interface with one implementation may describe a choice that the application never makes. The job abstraction may introduce pending, completed, and failed states even though this bounded operation fits the existing synchronous path.
+
+Those are questions to investigate, rather than automatic deletion rules. A single implementation can still sit behind a useful boundary. A job may be necessary because the real export is large, a request can time out, or another system already depends on durable completion. The surrounding application matters.
+
+For our hypothetical, assume the size limit is enforced, the existing request path is suitable, and no other caller needs the framework. I would prefer a small export operation using the established query and CSV encoder. The registry and serializer selection can disappear. The asynchronous lifecycle has no requirement to serve.
+
+The useful difference is visible in the work a maintainer must understand:
+
+| Change to the export        | General framework                                  | Bounded operation                 |
+| --------------------------- | -------------------------------------------------- | --------------------------------- |
+| Add an agreed column        | Trace column configuration and serializer behavior | Adjust the member-row mapping     |
+| Investigate missing members | Follow resource resolution and query delegation    | Inspect the established query     |
+| Explain completion          | Account for the job lifecycle                      | Account for the existing response |
+
+This table describes our invented designs. A real framework might improve those paths. The review should establish what this particular one does.
+
+## 3. Give simplicity its own pass
+
+“Review this code” leaves room for different interpretations. One reviewer might focus on authorization, another on edge cases, and another on consistency with nearby modules. All are useful. None necessarily asks whether an entire concept should exist.
+
+I would make that question explicit after the behavioral requirements are understood:
+
+> Which parts could we remove while preserving the requirements, existing contracts, and necessary checks?
+
+The answer should name a concrete alternative. “This seems overengineered” is an opinion the implementer cannot do much with. “The registry has one entry, no external callers, and no required runtime selection; call the member export directly” supplies a claim that can be checked.
+
+I would then inspect the proposed deletion against surrounding code. Is the registry public? Does another integration select it dynamically? Are the apparent extension points required by an established project boundary? Simplicity review needs that context just as correctness review does.
+
+The implementing agent can perform an initial pass. A separate reviewer may offer another perspective when the change warrants the cost. I would judge either review by the source and reasoning behind its conclusions, without assuming that fresh context guarantees better taste.
+
+Nor would I require every pass to find a deletion. Sometimes the first design already fits.
+
+## 4. Count responsibilities before counting lines
+
+The shortest patch is not necessarily the simplest system.
+
+Suppose the export needs CSV encoding and another feature already uses a well-maintained encoder. Reimplementing it inline could reduce imports while increasing the number of places that own escaping behavior. I would keep the shared implementation.
+
+Similarly, combining authorization, record selection, mapping, and encoding into one dense expression might remove lines without making the operation easier to inspect. A named helper can clarify a responsibility even when it is called only once.
+
+My concern is the amount of reasoning required to make a safe change. How many independent rules must the maintainer keep aligned? How many states can the operation enter? Where does a failure become visible? Which concepts exist only because the implementation imagined a larger product?
+
+Line count can reveal a surprising amount of machinery. It cannot decide those questions by itself.
+
+For the member export, I would accept a few clear functions over one compressed block. I would also prefer deleting an unused lifecycle over merely making its classes smaller. The first choice improves expression. The second removes an obligation from the system.
+
+## 5. Make future flexibility pay rent
+
+“We will probably add PDF exports” is a forecast. It may be a good forecast. I still want to distinguish it from an approved requirement.
+
+If PDF support is already scheduled and shares a known contract with CSV, a small boundary may save real rework. If nobody knows the layout, data scope, or delivery method, today's serializer interface might encode the wrong common ground.
+
+I would ask what evidence makes the abstraction useful now and how difficult it would be to add later. Extracting an interface from two understood implementations may be straightforward. Migrating a public interface after callers depend on it may be expensive. Those are different situations.
+
+This gives the agent a better instruction than “never abstract.” Reuse established boundaries. Create a new one when the current task or a concrete dependency needs it. Explain speculative structure before adding it.
+
+I want the default to favor the sufficient design, with reasons available for an exception.
+
+## 6. Verify the smaller design against the same promise
+
+For our imaginary export, a simplification is ready to assess only after the original obligations are checked again: authorized access, workspace isolation, correct fields and escaping, size handling, and the download contract.
+
+Existing behavioral checks should survive where they express those promises. Tests coupled to a deleted registry may need to move to the boundary that users or callers actually rely on. That change deserves scrutiny: a green suite is unconvincing if we quietly removed the assertions that mattered.
+
+The review should also say what became easier to understand. Here, the operation no longer has resource selection or a job lifecycle. A maintainer can follow the request through the query, row mapping, and encoder. That is a concrete design argument, even without a claimed productivity percentage.
+
+I am happy for an agent to work hard on finding that smaller solution. The laziness I want belongs in the result: fewer unnecessary concepts for everyone who touches it next.

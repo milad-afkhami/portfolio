@@ -1,0 +1,150 @@
+---
+title: "I Want an Agent That Challenges My Premise"
+description: "A coding agent should examine consequential assumptions before implementing them. Useful pushback needs evidence, proportion, and the ability to agree and proceed."
+summary: "My global agent instructions ask for independent judgment: check the framing of substantive requests, surface the strongest material issue early, and avoid manufacturing objections to straightforward work."
+date: "2026-10-26"
+readingTime: "8 min + reference"
+category: "AI Engineering"
+quality: "medium"
+coverImage: "/images/blog/i-want-an-agent-that-challenges-my-premise-cover.jpg"
+tags: ["AI Engineering", "Coding Agents", "Decision Making", "Agent Instructions"]
+---
+
+An agent can carry out a bad idea extremely competently.
+
+It can produce a careful plan, follow the repository conventions, write plausible tests, and explain the implementation clearly. If the original request rests on a false assumption, all that competence may move the project in the wrong direction.
+
+That is why my global agent instructions include a section called **Independent Judgment**. I want a thinking partner that checks the substance of what I am asking, including the parts I present as already settled.
+
+This requires more than deleting flattering phrases. An agent can stop saying “great idea” and still accept every premise I give it. The useful change is in what it examines before acting.
+
+## 1. The exact instruction I use
+
+**[Get the Independent Judgment instruction](/downloads/agent-workflows/independent-judgment.md)** · [Download the full workflow collection](/downloads/agent-workflows/agent-workflows.zip)
+
+This is the complete section from my shared agent instructions, including the qualification about straightforward work:
+
+```text
+## Independent Judgment
+
+Be direct, not sycophantic. If I'm wrong or overlooking something, say so plainly — don't soften it with filler praise. Push back when warranted. If you agree, make it clear you've actually evaluated the claim rather than defaulting to yes. If my request is ambiguous and the answer would differ significantly depending on interpretation, ask before assuming. I want a thinking partner, not a yes-man.
+
+On substantive claims, proposals, plans, diagnoses, recommendations, and decisions, test my framing before accepting it for factual errors, missing constraints, unsupported assumptions, and important tradeoffs. Surface the strongest material issue plainly and early, with your reason. Do not manufacture objections or apply this as a ritual to straightforward execution.
+```
+
+Add this section to the shared or project instruction file your agent reads. It is a standing collaboration instruction, rather than a skill that needs a separate activation command. Keep the project's actual goals, constraints, and authorization alongside it. The instruction asks the agent to examine the framing; it does not grant it permission to replace your goal or act beyond the task.
+
+For a single conversation, you can also paste the section before a substantive request. The caching example below illustrates the behavior I want it to produce; it is not a claim that this paragraph reliably fixes model agreement.
+
+## 2. A request can contain an unearned conclusion
+
+Imagine I give an agent this hypothetical task:
+
+> The dashboard is slow because the database cannot keep up. Add a caching layer.
+
+There are several things packed into those two sentences. The dashboard is slow. The database is the cause. A cache is an appropriate response. The added infrastructure is worth maintaining.
+
+Perhaps all of them are true. But the request itself does not establish them.
+
+An agreeable agent might immediately propose a cache, an invalidation strategy, new configuration, and deployment steps. It could make excellent decisions inside a problem definition that nobody checked.
+
+I want it to notice that the diagnosis and the intervention are still claims. Before building around them, it should find out what supports them.
+
+### 2.1. Surface the issue before investing in the plan
+
+A useful initial response might be:
+
+> We have not established that database latency is the bottleneck. I’ll inspect the available request timings and the dashboard’s data path first; that will tell us whether a cache addresses the delay.
+
+This names the strongest material issue, gives a reason, and identifies a concrete next action. It does not turn the task into a lecture on every possible disadvantage of caching.
+
+If the agent has access to the relevant code and observations, it should examine them. If evidence is missing, it should say what it can establish and what remains uncertain. It should not invent a diagnosis to justify either agreement or disagreement.
+
+The distinction matters because an unsupported objection is no better grounded than an unsupported endorsement.
+
+### 2.2. Preserve the goal while examining the proposed mechanism
+
+The goal is a faster dashboard. The cache is my proposed way to get there.
+
+An agent should be able to question that mechanism while continuing useful work toward the goal. Suppose, in this hypothetical, the available trace shows a quick database query followed by a slow response from an external service. Adding a database cache would leave the main delay in place. The agent should explain that finding and propose an intervention at the observed bottleneck.
+
+It should also respect scope. Discovering an unrelated architectural preference is not permission to redesign the application. A recommendation that changes cost, commitments, or user-visible behavior may need a decision before implementation.
+
+Independent judgment needs both initiative and an understanding of what has actually been authorized.
+
+## 3. I ask it to check four things
+
+The instruction asks the agent to test substantive framing for **factual errors, missing constraints, unsupported assumptions, and important tradeoffs**.
+
+These categories help me describe the kind of attention I want. They are not four mandatory paragraphs to produce on every turn.
+
+| What to check           | What it could reveal in the cache example                                             |
+| ----------------------- | ------------------------------------------------------------------------------------- |
+| Factual errors          | The query identified as slow is not on the dashboard’s request path.                  |
+| Missing constraints     | Different users must never receive each other’s cached data.                          |
+| Unsupported assumptions | Database time has been blamed without an observation separating it from other delays. |
+| Important tradeoffs     | A freshness requirement may rule out the proposed cache lifetime.                     |
+
+These are possible findings in an imaginary case, not claims about a particular system. Their value is that each could materially change what we should build.
+
+I would rather hear one well-supported issue early than a long list of theoretical concerns. The strongest issue should be visible before the proposed implementation makes the choice feel inevitable.
+
+The same habit applies outside coding. A plan might assume that a deadline is flexible. A recommendation might ignore the person who will maintain the result. A diagnosis might treat correlation as a demonstrated cause. Polished execution does not repair the missing reasoning.
+
+## 4. Agreement is a valid result of evaluation
+
+There is an obvious way to make this instruction irritating: reward disagreement until the agent finds an objection to everything.
+
+I explicitly tell it not to manufacture objections or apply this as a ritual to straightforward execution.
+
+Return to the hypothetical dashboard. This time, suppose I provide the relevant trace, show that repeated identical reads dominate the request, and state the acceptable freshness window. The proposed design already accounts for user-specific data and invalidation.
+
+The agent can check those details and agree. A useful response could be:
+
+> The trace supports targeting these repeated reads, and the proposed freshness window fits the requirement. I’ll implement the bounded cache and verify isolation and invalidation.
+
+That is enough. It should proceed with the authorized task.
+
+It does not need to prove its independence by suggesting a different database or listing every possible cache failure. It needs to evaluate the relevant claim and act on the result.
+
+### 4.1. Directness should make the reason easier to see
+
+I also ask for direct language. If an assumption is unsupported, say so. If I have overlooked a constraint, name it.
+
+Softening a material issue with filler praise can bury the thing I need to understand. Hostility would bury it differently. The useful response connects a claim, its evidence, and the consequence for the task.
+
+“This will fail” is too strong when the agent only has a suspicion. “The current plan does not account for this requirement” is a defensible statement when the requirement is visible and the plan omits it.
+
+I want precision in the objection, including its uncertainty.
+
+## 5. Clarify when the answer changes the work
+
+Some uncertainty requires a question. Suppose “make the dashboard current” could mean updating when the user refreshes, updating every minute, or reflecting each event immediately. Those interpretations lead to materially different behavior and potentially different designs.
+
+If the repository or existing requirements do not settle it, the agent should ask before committing to an interpretation.
+
+Other choices are routine. Naming a private helper consistently with nearby code usually does not need my attention. Neither does reading a relevant file or checking a result the agent just produced.
+
+The point of independent judgment is to improve decisions, not transfer every small decision back to me.
+
+A useful sequence is:
+
+1. Identify the assumption that could materially change the result.
+2. Examine the evidence already available.
+3. Continue independent work that does not depend on an unresolved answer.
+4. Ask a focused question when a consequential gap remains.
+5. Carry out the authorized next step once the framing is sound enough.
+
+The amount of analysis should fit the consequence. Changing a label should not trigger a formal debate. Adding persistent infrastructure deserves more examination.
+
+## 6. Judge the collaboration by what it catches
+
+An instruction expresses a preference. It does not establish that an agent will follow it reliably or that we now have independent, unbiased judgment.
+
+The agent may share my blind spots. It may overlook the important issue and confidently object to something minor. I still need to evaluate its reasons.
+
+I would assess the instruction through actual exchanges: Did it identify a consequential assumption? Did it inspect available evidence? Did the objection change the decision for a defensible reason? Could it agree and proceed when the request held up? Did it avoid slowing ordinary work with ceremonial skepticism?
+
+Those observations would be more useful than counting disagreements.
+
+I want the agent to help me make a better decision before it helps me implement that decision faster. Sometimes that means saying, plainly, that my premise does not hold. Sometimes it means checking it, finding that it does, and getting on with the work.

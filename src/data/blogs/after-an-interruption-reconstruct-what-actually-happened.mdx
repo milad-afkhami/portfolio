@@ -1,0 +1,184 @@
+---
+title: "After an Interruption, Reconstruct What Actually Happened"
+description: "An interrupted agent needs to inspect files, tool results, jobs, and external state before choosing what to repeat or finish."
+summary: "My interruption-recovery protocol starts by reconstructing what landed, then names the exact next action and finishes against the original request. A missing response is insufficient evidence that an action failed."
+date: "2026-10-26"
+readingTime: "7 min + reference"
+category: "AI Engineering"
+quality: "medium"
+coverImage: "/images/blog/after-an-interruption-reconstruct-what-actually-happened-cover.jpg"
+tags: ["AI Engineering", "Coding Agents", "Developer Tools", "Verification", "Workflow"]
+---
+
+An agent says it is about to create a record. The response cuts off. You return and ask it to continue.
+
+Should it create the record?
+
+The conversation alone may not answer that. The request could have failed before reaching the service. It could have succeeded while the response was lost. The operation could still be running.
+
+Repeating it feels like a way to be certain something happens. Depending on the operation, that can create the very mistake we need to avoid.
+
+I want interruption recovery to begin with an observation: **what actually happened while the conversation stopped?** My `resume-after-interruption` skill makes that question explicit. It reconstructs the task, identifies the unfinished action, and continues from evidence. The interesting part is the gap between an intention in chat and a change in the world.
+
+## 1. Get the prompt
+
+[Download the complete recovery prompt](/downloads/agent-workflows/resume-after-interruption/SKILL.md). The file is the full `resume-after-interruption` skill, including its invocation gate, recovery steps, and completion requirements.
+
+With the skill available to your agent, invoke it explicitly in the interrupted task's conversation:
+
+```text
+$resume-after-interruption
+```
+
+That instruction activates the protocol; an ordinary “continue” does not. The agent still needs the relevant task context and tools to inspect what happened. The prompt cannot supply an unavailable service record or reconstruct history it cannot access.
+
+<details>
+<summary>Read and copy the complete recovery prompt</summary>
+
+```text
+---
+name: resume-after-interruption
+description: Use when the user directly invokes $resume-after-interruption as an instruction. Do not trigger from mentions, quotations, questions, negations, interruptions, or ordinary requests to resume or continue.
+---
+
+# Resume after interruption
+
+## Invocation gate
+
+Apply this skill only when the user uses `$resume-after-interruption` as a direct instruction to activate it. Merely containing the name does not count. Mentions, quotations, questions about the skill, and negations are not invocations. An interrupted response, unfinished work, or an ordinary request to resume, continue, pick up, or finish does not invoke it.
+
+| User message | Invoke? |
+|---|---|
+| `$resume-after-interruption` | Yes |
+| `Use $resume-after-interruption to finish this task` | Yes |
+| `Continue the previous task` | No |
+| A new message after an interrupted turn | No |
+| `What does $resume-after-interruption do?` | No |
+| `Do not use $resume-after-interruption` | No |
+
+**Common mistake:** Treating an interruption or a mention of the skill as an invocation. Only a direct user instruction to activate it is a trigger.
+
+A response cut off mid-work is unfinished by default. Do not assert completion without proving it.
+
+## Contract
+
+Reconstruct → name the exact resume point → finish every remaining part → claim completion only with evidence.
+
+## 1. Reconstruct
+
+- Re-read the original request, the last response, and the last tool results. Identify the exact stopping point and every remaining requirement.
+- Check whether the last action landed. Inspect relevant files, `git status`, diffs, recent commits, or external state before acting so work is neither skipped nor repeated.
+- Inspect task state and background jobs: plans, TODO or status documents, processes, servers, and commands that may still be running.
+- Use the original request as the completion checklist; interruption does not shrink its scope.
+
+Do not read or write `MEMORY.md` or anything in a `memory/` directory.
+
+If the state remains genuinely ambiguous after inspection, ask one specific question instead of guessing or declaring completion.
+
+## 2. Name the resume point
+
+Give a concrete one- or two-line update: what landed, what was in progress, and what remains. Example: `Did A and B; was mid-C; D and E remain.`
+
+## 3. Continue
+
+Do the next unfinished action immediately. Do not restart, re-plan, or re-summarize. Preserve established decisions, values, and file locations; re-read them instead of asking again. Finish every remaining part, not only the last visible action.
+
+## 4. Completion gate
+
+For every part of the original request, cite fresh proof such as a passing command, inspected output, diff, commit, or file location. No evidence for a requirement means the task is not complete; keep working.
+
+Treat these thoughts as warnings to inspect reality and continue: `looks already done`, `nothing seems remaining`, `let me just summarize`, `start over to be safe`, `re-run everything`, or `ask what I was doing`.
+```
+
+</details>
+
+## 2. The stopping point has more than one location
+
+Imagine a hypothetical task in a disposable project. An agent must update an export format, run the relevant checks, generate a preview, and create one draft review item in a test service. Nothing should be published.
+
+The conversation ends just after the agent issues the request to create that draft.
+
+Several things now have separate states. The local edits may exist. A preview process may still be running. The service may have accepted the draft. The agent may never have received its identifier.
+
+“The agent was creating a draft” describes the intention. It does not establish the result.
+
+A useful reconstruction would inspect the relevant local files and diff, the last available tool result, the preview process or output, and the test service's records. Each observation answers a different question.
+
+| Evidence                                   | What it can establish              |
+| ------------------------------------------ | ---------------------------------- |
+| Current file and diff                      | Which local edits exist now        |
+| Completed check result tied to those edits | What was verified for that version |
+| Process or job status                      | Whether work is still running      |
+| Service record and identifier              | Whether the remote draft exists    |
+| Original request                           | Which obligations remain           |
+
+A generated file does not prove its contents are correct. A successful check from before the final edit does not verify the final edit. A request log without an acknowledged result may establish only that an attempt was made.
+
+That is the level of precision recovery needs.
+
+## 3. Recover the action before deciding to repeat it
+
+In the imaginary test service, suppose a read-only query finds the draft with the expected task marker, contents, and creation time. The agent can record its identifier and inspect it. Creating another draft would add work without satisfying a missing requirement.
+
+Suppose the query instead finds no matching record. That still needs interpretation. Is the operation asynchronous? Is the query looking in the correct workspace? Does the service expose a job status or a request identifier? Is the lookup authoritative enough to support another attempt?
+
+I would follow those observations before repeating a mutation. “I cannot see it yet” and “it did not happen” are different conclusions.
+
+### 3.1. Missing evidence is a real state
+
+Sometimes the available tools cannot settle the question. The response is gone, the service has no suitable lookup, and a duplicate would matter.
+
+At that point, the agent should preserve the ambiguity and ask one focused question. It should explain exactly what cannot be established and what decision depends on it. A confident guess does not repair an incomplete record.
+
+This protocol cannot manufacture observability. A service that provides operation identifiers, searchable task markers, or retry-safe requests gives recovery better options. Whether those mechanisms exist must be checked for the actual system.
+
+The skill itself adds none of them. It is a behavioral procedure, not a transaction journal or rollback mechanism.
+
+### 3.2. Background work needs its own inspection
+
+The preview job is a separate question from the draft creation. If it is still running, starting another process may waste resources or interfere with the first. If it finished, its output needs inspection. If it failed, the failure needs diagnosis.
+
+A process identifier in an old message is a useful lead. The current process and job state establish whether that lead is still valid. A familiar server port might now belong to another process.
+
+Recovery should therefore preserve useful work without assuming every old resource remains alive.
+
+## 4. Rebuild the whole request, then name the next action
+
+The last visible tool call has a strong claim on attention. It is also an incomplete definition of the task.
+
+Our hypothetical request included the export change, checks, preview, and one draft review item. Resolving whether the draft exists does not settle the preview. Nor does it excuse a check that never ran.
+
+My recovery skill explicitly returns to the original requirements. An interruption does not shrink them to whatever happened to be visible at the end.
+
+After inspection, I want a brief update that makes continuation reviewable. For this invented task, it might report that the export edits and draft item exist, the format checks passed for the current diff, and the preview job completed but its output remains uninspected. The next action is to inspect that output, followed by checking the draft's contents.
+
+That is enough orientation. The agent should then do the next unfinished action.
+
+I do not want another planning ceremony that reopens settled choices, or a recap that ends before work resumes. Existing decisions and file locations remain part of the task unless new evidence requires changing them.
+
+## 5. Use a recovery protocol deliberately
+
+`resume-after-interruption` is manually invoked. An ordinary request to continue does not activate that named workflow, and a question about the skill is not an invocation.
+
+That boundary matters because a tool description can otherwise become permission to run a ceremony whenever a conversation looks unfinished. I want explicit control over the protocol while keeping the underlying habit useful: look at state before making assumptions about state.
+
+Once invoked, its contract is straightforward:
+
+1. Reconstruct the original requirements and the actual stopping point.
+2. Inspect whether the last action landed and whether related work is still running.
+3. Name what is finished, what remains, and the concrete next action.
+4. Continue the remaining work and support completion with evidence.
+
+The amount of inspection should follow the consequence of being wrong. A local text edit may need a file read and a diff. A request that can create duplicate records needs a suitable service-side observation. Reading every project document again would often obscure the question we are trying to answer.
+
+Likewise, “fresh proof” should mean evidence that supports the current claim. It does not mean blindly rerunning every operation. A current inspection can establish that a prior mutation landed; repeating the mutation is not verification.
+
+## 6. Judge recovery by what it preserves and finishes
+
+A reasonable way to evaluate this protocol would be a controlled task with known interruption points. Stop before a write, after a write whose response is unavailable, and while a background job runs. Keep the expected requirements outside the agent's recovery narrative.
+
+Then inspect the result. Did the agent preserve completed work? Did it duplicate a mutation? Did it abandon a requirement that appeared earlier? Did it distinguish a running job from a failed one? Could each completion claim be connected to the relevant output?
+
+Those observations would tell us something useful about the trial. A polished recovery summary would not be enough. I am describing the procedure and a way to assess it here, rather than reporting a measured success rate.
+
+The practical change I want is small but consequential: when the conversation breaks, the agent should treat the world as something to inspect. It should recover the task from what is true, name the unfinished action, and finish it. The missing sentence can wait; the uncertain mutation cannot.

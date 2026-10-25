@@ -1,0 +1,271 @@
+---
+title: "Stop Fixing Every Agent Mistake With Another Rule"
+description: "Before adding another prohibition, identify the instruction that enabled the failure and check what your proposed correction does to other cases."
+summary: "My systematic-thinking skill makes instruction maintenance a diagnosis-and-proposal task. It asks for evidence, realistic alternatives, and an exact proposed diff, with the application decision left to the user."
+date: "2026-10-26"
+readingTime: "8 min + reference"
+category: "AI Engineering"
+quality: "medium"
+coverImage: "/images/blog/stop-fixing-every-agent-mistake-with-another-rule-cover.jpg"
+tags: ["AI Engineering", "Prompt Design", "Agent Workflows", "Instructions", "Critical Thinking"]
+---
+
+An agent makes a mistake. I tell it never to do that again. It adds a sentence to the instructions.
+
+The next failure gets another sentence. Eventually the file contains precise warnings about many individual outputs, but its original goals and overlapping rules remain largely unexamined.
+
+I do not consider that a satisfactory maintenance strategy.
+
+A prohibition may be the right correction. But it should come after understanding what enabled the failure, which useful behavior the existing instruction protects, and what the correction would do elsewhere.
+
+My **systematic-thinking** skill is built around that requirement. It is a manually invoked procedure for diagnosing and proposing changes to prompts, skills, plans, writing, processes, and configuration. It excludes code debugging. Its job is to make a recommendation inspectable before the user decides what to apply.
+
+The important part is the pause between noticing the bad output and editing the instruction.
+
+## 1. Get the prompt and use it
+
+**[Download the complete systematic-thinking SKILL.md](/downloads/agent-workflows/systematic-thinking/SKILL.md)** · [Download the workflow collection ZIP](/downloads/agent-workflows/agent-workflows.zip)
+
+The download and expandable reference contain the complete prompt, including its diagnostic steps, conditional checks, worked example, and output contract. The essay develops one example; it is not a shortened replacement for the procedure. You can read the argument before opening the reference.
+
+If your agent supports local skills, register the downloaded file as **systematic-thinking** through its normal installation process, then invoke the skill explicitly with the material to examine. For a single task without installation, paste the complete body—from `# Systematic Thinking` through the end—into the conversation, followed by your request and the relevant original instructions and outputs. Supplying the actual failing material matters: a complaint alone may not establish the cause.
+
+For example, after installing the skill or supplying its complete body:
+
+```text
+Run systematic-thinking on the original prompt and failing answer below.
+Diagnose why the answer repeatedly apologizes, compare a narrow edit
+with other realistic corrections, and check effects on ordinary answers,
+uncertain facts, and genuine mistakes. Recommend an exact proposed diff.
+Do not apply changes; I will decide after reviewing the proposal.
+
+[Attach or paste the complete original prompt and failing answer here.]
+```
+
+The task request preserves the procedure's diagnose-and-propose contract. The full source remains available to inspect and adapt deliberately.
+
+<details>
+<summary>Read and copy the complete systematic-thinking prompt</summary>
+
+````text
+---
+name: systematic-thinking
+description: Manually invoked (/systematic-thinking) when the user asks me to fix, improve, ideate on, or find a solution for a prompt, skill, instruction, plan, or piece of writing — so I diagnose the real cause and stress-test side effects instead of patching the symptom. Not for code bugs.
+disable-model-invocation: true
+---
+
+# Systematic Thinking
+
+## Overview
+
+When the user says "make A never happen again," my reflex is to **add a line** — "never do A" — to the prompt or skill. That fixes the one instance, bloats the text, ignores why A happened, and often breaks other cases. Ten such patches and the skill is unmaintainable, and each patch spawns the next.
+
+**Core principle:** *Diagnose the real cause and stress-test the fix's side effects before changing anything.* Don't patch the symptom, and don't release snakes to kill the rats.
+
+This skill is a **procedure I run visibly**. I present the diagnosis and my recommendation; **the user decides** what to apply.
+
+**Scope:** prompts, skills, instructions, plans, writing, process, config. **Not code bugs** — those are out of scope here by the user's choice.
+
+## The Gate
+
+```
+NO CHANGE PROPOSED UNTIL I HAVE NAMED THE ROOT CAUSE
+   AND TRACED WHAT THE CHANGE DOES TO THE OTHER CASES
+```
+
+Stating the fix before naming the cause is a violation of this skill. If I catch myself writing "I'll just add…", I stop and return to step 2.
+
+## Procedure
+
+I run these in order. Steps 2, 4, and 5 are the core and near-always apply. Steps marked *(conditional)* run only when their predicate is true — I skip them out loud, I don't pad.
+
+**1. Frame the ask precisely.**
+Separate the **specific symptom** (the one output/behavior that triggered this) from the **general class** the user actually wants changed. Quote the exact instruction or output in play. State which mode I'm in: *fixing* (something misbehaved) or *ideating* (see Ideation Mode below).
+
+**2. Find the root cause — evidence-linked five whys.**
+Chain "why did this happen?" from the proximate fault toward the systemic root, in the prompt/plan/writing itself.
+- **Localize first.** Name the specific trigger: which instruction or section produced it, and which input/situation set it off. If you can't localize, gather more of the actual output/context before chaining.
+- **Cite evidence at each link.** Ground every "why" in something concrete — the exact wording, the offending output, a conflicting line elsewhere, a missing case. If the next why has no evidence, stop and go find it; don't speculate.
+- **Rule out alternatives.** For each proposed cause, name the other things that could produce the same symptom and say why the evidence points here, not there.
+- **Branch, don't tunnel.** If more than one cause is independently plausible, keep every evidenced pathway as a set rather than forcing a single root.
+- **Counterfactual test — per branch and for the set.** Ask "Would removing this cause actually block the failure?", then "Would removing the whole retained set block it?" Keep only causes that pass their own test.
+- **Stop criteria.** Stop a branch only when its cause is evidenced, within my control to change, and *recurrence-preventing* — not blame. If a why bottoms out at "the model just did X," that is not a root; ask **why the prompt allowed or invited X**.
+- **Name the countermeasure at the root**, framed as *removing the enabling condition*, not just patching the visible symptom.
+- **Guard:** for a genuine one-line defect with no systemic enabler, skip the full chain — say so, and a minimal addition may be the right fix (see "Adding a line is sometimes correct"). Don't invent depth without data, and don't end at blame.
+
+**3. Chesterton's Fence — before I touch any existing line.**
+For every instruction I'm about to remove or change, I state **why it is there**. Load-bearing lines were usually added after a past failure. I do not delete or weaken a line whose purpose I can't explain — I find out first.
+
+**4. Generate options, subtraction first.**
+Pause the add-reflex. In one line, state the goal and the addition I'm tempted to make — then set it aside until I've done the subtraction pass.
+- **Subtraction question first:** what could be **removed, tightened, or edited** to reach the goal with *less* surface area? A conflicting line removed usually beats a new line added.
+- **Catalog candidates with evidence, not taste:** conflicting, redundant, over-broad, unused, or actively harmful instructions — and say why each qualifies.
+- **Irreversibility guard:** classify each removal as easy- vs. hard-to-restore; identify what depends on the line; **refuse to delete an unproven "mystery" line or a load-bearing control** just to cut size — stage or flag it instead (Chesterton's Fence, enforced at the edit).
+- **Produce at least two options** — typically (a) edit/remove the conflicting or root-cause line, (b) add a targeted line, (c) restructure — and prefer removing the safest high-value candidate first, checking nothing needed broke.
+- **Preference, not a rule:** prefer the smallest change that dissolves the cause. Adding a line is allowed and sometimes correct — it is just not the default I reach for without this pass. **If I add, I record why removal/edit wouldn't do it.**
+
+**5. Second-order check — "and then what?".**
+State the change and its intended **first-order effect**, then trace at least two further orders across the **other** inputs and cases, not just the failing one.
+- **For each downstream link, note:** what the effect is, who/what responds (other input types, other instructions, the reader), rough **probability** (high/med/low), **timing** (this reply / next time / only at scale), and whether it **feeds back** into the original problem (reinforcing or counteracting). A fix that invites the next patch is a *reinforcing* loop — flag it.
+- **Check the known backfire modes:** does the change **over-trigger** on cases it shouldn't, cause **refusals or brusqueness**, add **bloat**, or **conflict** with an existing line?
+- **Scale test:** what if this rule fires on *every* input, not just this one? Mark harms that appear only under repetition.
+- **Prune and decide:** drop speculative links that don't change the choice (keep probability + timing on the ones you keep — no far-fetched chains). Where second-order harm exceeds first-order gain, **revise the change or attach a guard.** This is the anti-snake step.
+
+**6. *(conditional)* Systems view.**
+Run only if the problem **recurs despite past fixes** or **spans several instructions/skills that interact** — otherwise skip.
+- **Map the interacting pieces** and how they feed each other; note **reinforcing loops** (each patch spawning the next) and **delays** (a change whose bad effect only shows up later).
+- **Name the archetype if one fits** (only with recurrence evidence): *Fixes That Fail* — a quick fix with a delayed worse side effect; *Shifting the Burden* — a workaround that starves the real fix. If none fits, keep the plain map.
+- **Separate the proximate symptom from the structural driver** — the wrong goal, a missing piece of information, or two rules pulling against each other.
+- **Rank interventions by leverage, then side effects:** changing the *goal/framing* beats changing a *rule*, which beats a *wording/parameter tweak*. Pick the **highest feasible-leverage single intervention** instead of another local patch, and name the signal you'll watch to confirm it worked.
+
+**7. *(conditional)* Pre-mortem.**
+Run before committing a change that is **costly to reverse or broad in blast radius** (e.g., editing a shared skill or a system prompt); skip small, cheaply reversible edits.
+- **Past-tense frame:** "It's later; the change shipped and made things *worse*. What happened?" Explaining an already-happened failure beats predicting one.
+- **Sweep failure reasons broadly before filtering** — wording, interaction with other rules, wrong assumptions, the cases I didn't test. Second pass: **"what did this change most need to be true that wasn't?"**
+- **Prioritize** the top few concrete failure paths by likelihood × impact; drop generic ones that don't bind to *this* change.
+- **Invert each into a guard:** name the enabling condition, then the concrete check or wording that would have prevented it, and fold it into the change itself. A pre-mortem that changes nothing is theater.
+
+**8. Present for decision.**
+I output a visible diagnosis (see Output Contract) with my recommended option and the exact diff, then let the user choose. I do not silently apply the change.
+
+## Output Contract
+
+When I finish, I present, in this order:
+
+1. **Symptom vs. class** — the specific trigger and the general behavior being targeted.
+2. **Root cause** — one or two sentences, evidence-linked (from step 2).
+3. **Chesterton notes** — why each touched line exists (if any lines are edited/removed).
+4. **Options** — add vs. remove/edit vs. restructure, briefly weighed.
+5. **Second-order findings** — what my chosen change does to the other cases.
+6. **Recommendation + exact change** — my preferred option, why, and the precise diff.
+7. **My preference stated plainly**, so the user can compare it to their own instinct — then they decide.
+
+## Adding a Line Is Sometimes Correct
+
+This is a discipline, not a dogma. When the root-cause step shows the cause is a **genuine gap** — the instruction for this case simply doesn't exist and no existing line conflicts — the right fix is to add one clear line. The discipline is only that I **add after diagnosis, not as the reflex before it**.
+
+## Ideation Mode
+
+When invoked to ideate or find a solution (not fix a defect):
+- Step 2 becomes **clarify the real goal and constraints** rather than trace a fault (the five-whys questions still help surface hidden assumptions).
+- Steps 4, 5, and 7 apply to candidate ideas: prefer the simplest option, trace second-order effects, pre-mortem the leading candidate.
+- For **fully greenfield** work with no existing artifact to improve, prefer **`superpowers:brainstorming`** — this skill is sharpest on *corrective and evaluative* thinking.
+
+## Red Flags — STOP and Return to the Gate
+
+- "I'll just add 'never do X'." / "Quick line to handle this case."
+- Proposing a fix before I can state the root cause in one sentence.
+- Fixing only the one failing instance and calling it done.
+- Adding a line without a subtraction pass (step 4).
+- Editing or deleting an existing line without saying why it was there (step 3).
+- Treating thoroughness as a reason to skip the second-order check — that check is the point.
+
+**All of these mean: stop, name the cause, trace the consequences.**
+
+## Worked Example
+
+**User:** "You apologized three times in that reply. Stop apologizing so much — fix it in your prompt."
+
+- **Symptom vs. class:** the specific triple-apology vs. "over-hedging in general."
+- **Root cause (five whys):** Why 3 apologies? → The reply hedged every uncertain claim. → Why? → An existing line says "acknowledge when you might be wrong." → The apologies are that line over-firing, not a missing "don't apologize" line.
+- **Chesterton:** that line exists to prevent overconfident wrong answers — load-bearing, don't delete.
+- **Options (subtraction first):** (a) *tighten* the existing line to "acknowledge uncertainty once, briefly" — edits the cause; (b) *add* "never apologize" — the reflex; (c) restructure hedging guidance.
+- **Second-order:** option (b) "never apologize" over-triggers — it kills genuine error acknowledgment and reads as brusque when the user is actually owed an apology. Option (a) fixes the class without that harm.
+- **Recommendation:** (a). Smaller diff, dissolves the cause, no snake released. Here I'd *edit*, not add.
+````
+
+</details>
+
+## 2. A bad output is evidence, not a complete diagnosis
+
+Consider a hypothetical assistant prompt containing these two instructions:
+
+> Be direct and concise. Acknowledge whenever you might be wrong so the reader knows you are being careful.
+
+Now imagine an ordinary answer with three apologies, each attached to a minor uncertainty. The user objects to the repetitive apologizing.
+
+The tempting repair is “Never apologize.” It appears to address the exact complaint. But the prompt still tells the assistant to acknowledge every possible error, and the new prohibition also applies when the assistant makes a real mistake.
+
+Before proposing that ban, I would separate the **symptom** from the **behavior class**. The symptom is three apologies in one answer. The broader issue may be repetitive uncertainty signaling. Those are related, but a correction aimed only at the word “sorry” could leave the same clutter expressed in different language.
+
+I would inspect the actual prompt, input, and answer. Is the broad uncertainty instruction present? Did the output attach an acknowledgment to each uncertain claim? Is another instruction demanding an apology? Did the user explicitly ask for unusually cautious language?
+
+Without those details, “the uncertainty rule caused it” is only a candidate explanation.
+
+### 2.1. Stop the causal story where the evidence stops
+
+The skill asks for evidence-linked causes and counterfactual checks: would removing this cause actually block the failure? If several instruction paths plausibly produce it, keep those branches visible.
+
+That is a useful discipline, but it does not grant access to a model's hidden reasoning. I can identify wording that invites a behavior and compare outputs after a controlled revision. I cannot prove an internal cause merely by writing a convincing chain of whys.
+
+In this invented example, the broad “whenever” instruction is the first candidate to investigate. The mismatch is visible in the text: an instruction to be concise coexists with an unbounded demand to signal possible error. That is enough to justify a targeted proposal. It is not evidence that every repetitive apology has the same cause.
+
+## 3. Find out what the existing rule protects
+
+I would keep the purpose of the uncertainty instruction: prevent the assistant from presenting an uncertain claim as settled fact.
+
+Deleting it because the output was irritating could remove useful caution. Keeping it untouched and adding “never apologize” could create another conflict. The maintenance problem is to preserve the purpose while narrowing the behavior that overreaches.
+
+This is why systematic-thinking requires an explanation of each existing line being changed. Some instructions exist because of a past failure that is absent from the current example. If I cannot establish a line's purpose, I should investigate or flag it rather than casually delete it.
+
+For this hypothetical prompt, I would compare three interventions:
+
+| Intervention                       | What it addresses                      | Main concern                                                  |
+| ---------------------------------- | -------------------------------------- | ------------------------------------------------------------- |
+| Add “Never apologize”              | The visible wording                    | Suppresses appropriate acknowledgment of real mistakes        |
+| Narrow the uncertainty instruction | The broad trigger for repeated caveats | May still require guidance for several distinct uncertainties |
+| Reorganize all communication rules | Wider conflicts and duplication        | Creates unnecessary scope if this is a local defect           |
+
+My preference would be the narrow edit. It acts on the wording that invites repeated uncertainty signaling and preserves the original reason for the rule.
+
+Subtraction is a starting question, not an obligation to delete. If there is a genuine missing case and no conflicting instruction, adding one clear line may be the smallest responsible change. A shorter file is not automatically a better file.
+
+## 4. Make the correction survive other cases
+
+The proposed repair needs to work beyond the answer that annoyed the user.
+
+Suppose “never apologize” produces a cleaner ordinary reply. Later, the assistant gives an incorrect command and the user points out the error. The same rule now discourages a brief, warranted apology. If that leads to a new “apologize for serious errors” exception, we have started another repair cycle without resolving the original scope problem.
+
+That is the kind of downstream effect I want to trace. The first change affects an immediate output; repeated application shapes other interactions; another correction may then add complexity back into the instructions.
+
+These are plausible consequences to examine, not results from an experiment I ran.
+
+For our hypothetical prompt, I would use materially different cases:
+
+1. **An ordinary answer:** no meaningful uncertainty and no error. Look for unnecessary caveats or apologies.
+2. **One uncertain fact:** the answer should identify the uncertainty specifically without repeating it throughout the reply.
+3. **Several independent uncertainties:** check that brevity does not erase distinctions the reader needs.
+4. **A real assistant mistake:** the correction should clearly acknowledge the error, provide the accurate information, and apologize briefly when warranted.
+
+I would also check whether the revised answer remains useful. Avoiding apologies by becoming evasive would fail the goal just as clearly as avoiding them by sounding dismissive.
+
+For a small, local instruction change, that case analysis may be enough to prepare a proposal. A shared prompt used across many workflows deserves a broader review and a pre-mortem: assume the change caused harm, identify concrete paths to that outcome, and add checks that address them. The amount of analysis should follow the consequences of being wrong.
+
+## 5. End with a recommendation the user can inspect
+
+Systematic-thinking has a specific contract: present the diagnosis, alternatives, side effects, recommendation, and exact proposed change. **The user decides what to apply.** It does not quietly edit the prompt after describing its preferred option.
+
+For this invented case, my proposed diff would be:
+
+```diff
+ Be direct and concise.
+-Acknowledge whenever you might be wrong so the reader knows you are being careful.
++State material uncertainty briefly and specifically; avoid repeating the same caveat.
++When you make a meaningful mistake, acknowledge it clearly and apologize briefly when warranted.
+```
+
+The new wording separates uncertainty from error acknowledgment. It also shows why counting lines is the wrong measure: the proposal has more lines, but a narrower trigger and clearer behavior for two different cases.
+
+I would accompany it with the evidence that made the broad uncertainty line suspect, the alternatives considered, and the cases that still need checking. If the actual output did not support that diagnosis, I would not present this diff as the fix.
+
+This is a recommendation, not a successful repair report. Running the cases after the user accepts the change would provide additional evidence. The skill's written reasoning alone cannot establish that the revised prompt works reliably.
+
+## 6. Maintain the instruction system instead of its list of complaints
+
+Recurring failures deserve a look at how instructions interact. Perhaps a demand for constant reassurance conflicts with concision. Perhaps several skills each add their own completion ceremony. Perhaps the instructions are fine and the relevant output was never available for review.
+
+Those situations need different interventions. A more detailed prohibition can feel decisive while leaving the actual problem untouched.
+
+I want instruction changes to explain what they protect, which failure they address, and how they behave outside the triggering example. I also want the proposed diff small enough to assess without losing its purpose.
+
+Sometimes the answer is a new rule. Sometimes it is a narrower existing rule, a removed conflict, or a clearer goal. The habit worth keeping is to establish that reason before adding the next sentence.

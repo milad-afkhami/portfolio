@@ -1,0 +1,109 @@
+---
+title: "AI Can Write Your Tests. What Makes Them Worth Trusting?"
+description: "A useful generated test can expose a consequential mistake. Start from the promise, justify the expected result, and inspect which failures the evidence reaches."
+summary: "I want AI-written tests to carry meaningful confidence as well as high coverage. That requires expectations grounded outside the implementation, scenarios chosen from real risks, and evidence from the product where lower-level tests stop."
+date: "2026-10-26"
+readingTime: "7 min"
+category: "AI Engineering"
+quality: "medium"
+coverImage: "/images/blog/ai-can-write-your-tests-what-makes-them-worth-trusting-cover.jpg"
+tags: ["AI Engineering", "Testing", "Coding Agents", "Software Quality", "Verification"]
+---
+
+A test can look independent while borrowing the implementation's mistake.
+
+The agent writes a condition, writes another condition to calculate the expected result, and reports that they agree. We now have two copies of an assumption and a green check beside them.
+
+I want a more demanding question for every test I accept: **what consequential mistake could this test expose?**
+
+That question should lead to more meaningful scenarios, clearer assertions, and better coverage. It should not become an excuse to test little because a few cases feel reassuring. My target is thorough coverage that carries confidence, with enough understanding to explain why the tests deserve it.
+
+## 1. Start outside the implementation
+
+Imagine a hypothetical workspace invitation feature. All behavior and failures in this example are invented.
+
+The product promise is explicit: the named recipient can accept an invitation strictly before its expiry time. At the expiry time it is invalid. Acceptance adds membership only to the invitation's workspace and consumes the invitation once. A rejected attempt must leave membership unchanged.
+
+Suppose an agent implements the time check as “current time is less than or equal to expiry.” It then writes a test that calculates whether acceptance should succeed using the same comparison.
+
+At the exact expiry time, both calculations say yes. The test can agree perfectly with incorrect behavior.
+
+I would derive the expected result from the promise instead. For an invitation expiring at 12:00:00 UTC, an attempt at exactly 12:00:00 UTC must be rejected. That expected rejection is a fixed fact of this hypothetical requirement. It does not depend on inspecting the implementation's operator.
+
+This separation gives us a useful disagreement: the requirement says reject; the implementation says accept. A test asserting the required rejection would expose this particular defect, provided it reaches the real time check.
+
+If the expiry rule were unspecified, inventing a confident assertion would merely hide a product question inside the suite. I would resolve that ambiguity first.
+
+## 2. Enumerate the ways the promise could fail
+
+One correct boundary case does not establish that invitations work. The rule contains time, identity, state, and workspace boundaries. Each creates different ways to be wrong.
+
+For our invented feature, I would consider at least these scenarios:
+
+| Scenario                                         | Expected result                               | Risk examined                |
+| ------------------------------------------------ | --------------------------------------------- | ---------------------------- |
+| Named recipient, just before expiry              | Membership added to the invited workspace     | Valid acceptance is possible |
+| Attempt exactly at expiry                        | Rejected; no membership added                 | Deadline equality            |
+| Attempt after expiry                             | Rejected; no membership added                 | Expired access               |
+| A different signed-in person uses the invitation | Rejected; no membership added                 | Recipient authorization      |
+| Recipient supplies another workspace identifier  | No membership in that workspace               | Workspace isolation          |
+| Malformed or unknown invitation                  | Defined error; no membership added            | Input and lookup failure     |
+| Invitation accepted again                        | No duplicate membership or second consumption | Repeated use and state       |
+
+This is a starting set for the example, not a universal invitation checklist. Revocation, concurrent attempts, persistence failures, or other behavior may add consequential scenarios in a real design. The requirement and actual boundaries determine that work.
+
+The table also helps reveal shallow assertions. Checking only an error message misses the possibility that the service rejects the request after already creating membership. Where the promise includes “no change,” I want evidence about the relevant stored state.
+
+Checking authorization only through a hidden button is similarly insufficient. The server boundary that accepts the request must enforce the rule. A caller can reach that boundary without following our intended screen.
+
+## 3. Control uncertainty without replacing the behavior
+
+A deadline test needs a known time. I would supply a fixed clock to the decision logic rather than wait for a real deadline to pass.
+
+That makes “exactly at expiry” an explicit input. It also makes the result repeatable without relying on how quickly the test runner reaches an assertion.
+
+The same reasoning applies to other dependencies. A controlled response from an external service can let a test examine a specific error path. A deterministic identifier source can make the resulting record inspectable.
+
+But the substitute must leave the behavior under examination intact. If the invitation service is replaced by a fake that always returns “accepted,” a screen test can check how the screen handles success. It cannot establish the service's expiry or authorization rule.
+
+I would describe that limit precisely. Fakes are useful when they isolate a responsibility. They become misleading when the completion report quietly credits them with proving the behavior they replaced.
+
+For a claim about persisted membership, I would use a check that actually reaches the relevant persistence boundary. The appropriate setup depends on the application. The principle is stable: the evidence must exercise the thing the claim concerns.
+
+## 4. Make a failing result answerable
+
+I value a failing test because it forces a disagreement into view. I do not assume the implementation is automatically the wrong side.
+
+In the invitation example, an equality test might fail because the implementation permits acceptance too late. It might also fail because the test supplied a different timestamp than intended, or because its setup used an already-consumed invitation.
+
+I would inspect the inputs, the requirement, the actual result, and the exercised path before changing either side. Updating an expected value just to make the suite green destroys the useful disagreement. Changing correct code to satisfy a mistaken expectation does the same damage elsewhere.
+
+When practical, I also want to see that a test rejects the relevant broken behavior. For the equality case, deliberately allowing equality should make the required rejection assertion fail. That is an illustrative check we could perform, not a test run reported here.
+
+Such a check supports a bounded claim: this test detects this defect. It does not establish that every important defect has a corresponding test. Scenario selection remains part of the reasoning.
+
+## 5. Read coverage as evidence with a boundary
+
+High line coverage can tell me that a suite reaches substantial portions of the implementation. I still need to ask what happened there and what the assertions would reject.
+
+The faulty expiry test might execute the exact line containing the wrong comparison. Reaching it does not establish that the expected result is justified.
+
+I would therefore inspect coverage alongside the meaningful scenarios. Which error branches remain untested? Are denial and isolation actually asserted? Does repeated acceptance preserve the intended state? Are the happy-path values checked precisely enough to catch a wrong workspace?
+
+The answer to a weak suite is stronger tests and missing scenarios. Deleting a coverage target does not repair an assertion that copies the implementation.
+
+I also want maintainable tests. A hundred variations that all assert the same shallow success can obscure the one missing boundary case. Organization should make distinct promises and failure paths easy to find, so adding coverage improves our ability to assess the system.
+
+## 6. Keep the product claim larger than the unit claim
+
+Now suppose the invitation decision logic is correct and its tests are meaningful. The real page still renders the Accept button permanently disabled because its loading state never clears.
+
+The lower-level tests have not contradicted themselves. They never exercised that rendered interaction.
+
+For this feature, I would also drive the actual acceptance flow: sign in as the intended recipient, open the invitation, interact with the rendered control, inspect the result, and confirm the resulting membership. A passing service test cannot stand in for evidence that the button works.
+
+That flow has limits too. One successful click does not exercise the entire time and authorization matrix. The focused checks and the real application flow answer different questions. I want both where the promises require them.
+
+Design critique adds another question: is the invitation system needlessly complicated? Tests can enforce an architectural rule that is explicitly encoded, but passing behavioral tests cannot by themselves establish that every abstraction earns its place.
+
+I want acceptance reports to preserve these distinctions. Tell me which behaviors were checked, what the actual results were, and which product claims remain unverified. “The agent wrote tests” says who produced an artifact. Trust depends on what that artifact can reveal.

@@ -1,0 +1,517 @@
+---
+title: "Why Agents Lose the Thread After Compaction—and How I Prepare for It"
+description: "Prepare current project records, verified implementation state, and an explicit handoff before a long agent conversation is compacted."
+summary: "A useful continuation needs the corrections, decisions, evidence, and unfinished obligations that a short summary can omit. My wrapup chain saves the durable changes, commits and pushes the session, then writes a working handoff with an exact resume point."
+date: "2026-10-26"
+readingTime: "7 min + reference"
+category: "AI Engineering"
+quality: "medium"
+coverImage: "/images/blog/why-agents-lose-the-thread-after-compaction-and-how-i-prepare-for-it-cover.jpg"
+tags: ["AI Engineering", "Context Engineering", "Coding Agents", "Documentation", "Workflow"]
+---
+
+The dangerous continuation is the one that sounds almost right.
+
+The agent remembers that we are building an importer. It knows the parser is finished and duplicate handling comes next. It resumes confidently, using a rule we corrected halfway through the conversation.
+
+The project still looks familiar. One missing correction changes the implementation.
+
+Compaction involves selecting what survives. Anthropic's [context-engineering cookbook](https://platform.claude.com/cookbook/tool-use-context-engineering-context-engineering-tools) describes conversation compaction as lossy summarization and warns that aggressive compression can drop context whose importance appears later. That is a useful explanation for why a good overview may still be insufficient for continuation. It does not establish how often a particular agent loses a particular fact.
+
+My response is to prepare the work before the conversation is compacted. I want the next run to recover the current task from project records, implementation evidence, and a coherent handoff. My `wrapup` chain coordinates that preparation. It does not replace the platform's compactor.
+
+## 1. Get the complete workflow
+
+[Download the complete workflow bundle](/downloads/agent-workflows/agent-workflows.zip), with relative paths preserved. The small [wrapup prompt](/downloads/agent-workflows/wrapup/SKILL.md) coordinates other files; **it is not self-contained**. Keep its sibling skills and the report helper together:
+
+```text
+wrapup/SKILL.md
+  1. Read and follow ../save-context-for-compact/SKILL.md
+  2. Commit this session's changes and push
+  3. Read and follow ../comprehensive-report/SKILL.md
+       Uses comprehensive-report/scripts/write_handoff.py
+```
+
+The individual downloads are [save-context-for-compact](/downloads/agent-workflows/save-context-for-compact/SKILL.md), [comprehensive-report](/downloads/agent-workflows/comprehensive-report/SKILL.md), and its [write_handoff.py helper](/downloads/agent-workflows/comprehensive-report/scripts/write_handoff.py). Extract the bundle without flattening its directories so the relative references still resolve.
+
+With the skills available to your agent, explicitly invoke the whole chain:
+
+```text
+/wrapup
+```
+
+This requests all three steps, including the commit and push. The persistence step by itself only updates project records. Neither invocation replaces the platform's conversation compaction; this workflow prepares the material a continuation will need.
+
+<details>
+<summary>Read and copy the complete wrapup prompt</summary>
+
+```text
+---
+name: wrapup
+description: >-
+  Manual invocation ONLY — run this exclusively when the user explicitly invokes `/wrapup`
+  or asks by name to "run the wrapup skill". Do NOT auto-trigger it, and do NOT infer it from
+  the user merely mentioning saving context, committing, pushing, compacting, wrapping up,
+  checkpointing, or writing a report. A session wrap-up chain that, in this exact order,
+  (1) runs the save-context-for-compact skill, (2) commits this session's changes and pushes,
+  (3) runs the comprehensive-report skill.
+---
+
+# Wrapup
+
+Do these in order. Finish each before starting the next.
+
+1. Read the sibling [`save-context-for-compact`](../save-context-for-compact/SKILL.md) skill and follow it. Do not do this step from memory.
+2. Commit this session's changes and push.
+3. Read the sibling [`comprehensive-report`](../comprehensive-report/SKILL.md) skill and follow it. Do not do this step from memory. Use its detailed, comprehensive default and complete its coverage check; the user does not need to ask for extra detail. Cover all substantive work in the live thread, including relevant earlier decisions and unfinished work, not just the commit/push result. Completing step 1 does not reduce the detail required here.
+```
+
+</details>
+
+<details>
+<summary>Read and copy the complete save-context-for-compact prompt</summary>
+
+```text
+---
+name: save-context-for-compact
+description: >-
+  Do not invoke this on your own. Use it only when the user explicitly invokes
+  `save-context-for-compact` by name, asks to run it, or as the first step of the
+  explicitly invoked wrapup skill. Never infer it from mentions of saving context, checkpointing,
+  persisting knowledge, compacting, or wrapping up. When invoked, persist the
+  conversation's durable knowledge into the current project's own docs so it
+  survives /compact. Do not read a transcript or suggest a compaction boundary.
+---
+
+# Save context for compact
+
+## Why this exists
+
+Long sessions accumulate knowledge that lives only in the chat: decisions and
+the reasoning behind them, values and identifiers you looked up, tasks you
+finished, tasks still pending, questions you're waiting on, and corrections the
+user made. When the conversation is compacted (or a new session starts), a
+summary keeps the gist but loses specifics — exact numbers, the *why* behind a
+choice, the half-finished task, the thing that was decided and then reversed.
+
+The job of this skill is to move that durable knowledge **out of the transcript
+and into the project's own files**, so the work survives compaction.
+
+## Scope: persistence only
+
+The user is about to run `/compact`, which compacts the conversation as a whole.
+There is no boundary to pick, so there is nothing to recommend and no reason to
+read the transcript tail. Your job starts and ends with getting the durable
+knowledge into the docs — do that well and stop. If what the user actually wants
+is a "Summarize up to here" boundary recommendation, that's a different job from
+this one: say so and let them decide, rather than improvising a boundary mid-run.
+
+Never read or write `MEMORY.md`, and never use a memory directory as a checkpoint
+destination. Persist only into the current project's ordinary documentation.
+
+## The one principle: delta, not dump
+
+Do **not** re-summarize the whole conversation into a file. That produces bloated,
+duplicated, drifting docs. Instead capture the **delta** — the things that are
+true in the conversation but *not yet written down anywhere* — and fix anything
+in the docs the conversation has since made stale. A good checkpoint is small:
+it adds what's missing and corrects what's wrong.
+
+## Workflow
+
+### 1. Decide what's worth keeping
+
+Sweep the conversation for durable knowledge across these categories — they're a
+checklist so no kind of knowledge gets forgotten:
+
+- **Decisions** — what was chosen, and *why* (the rationale is the part a summary
+  most often drops and the part hardest to reconstruct later).
+- **Facts & data** — values, IDs, numbers, file paths, names, dates, config that
+  were established or looked up.
+- **Constraints & requirements** — deadlines, limits, rules the work must respect.
+- **Tasks** — done, in progress, and explicitly pending / next.
+- **Open questions** — unknowns, things to confirm, blockers waiting on someone.
+- **Corrections & supersessions** — "X was wrong, it's actually Y"; "we dropped
+  approach A for B." These are high value *and* dangerous: the old version often
+  still sits in a doc and must be updated or removed, not just appended to.
+- **User preferences & conventions** — how the user wants things done, naming,
+  style, tools — anything that should shape future work.
+- **Discrepancies** — inconsistencies you noticed between sources/files that
+  aren't resolved yet.
+
+Skip the ephemeral: transient chatter, intermediate states already superseded,
+and anything the reader could re-derive trivially from the code or files.
+
+### 2. Find where knowledge already lives
+
+Adapt to the repository — don't impose a filename. Look at what's already there
+and use it:
+
+- Living-state docs: `STATUS.md`, `HANDOFF.md`, `NOTES.md`, `TODO.md`, a
+  `docs/` folder, a plan/roadmap file, a `CHANGELOG.md`.
+- Orientation docs: `README.md`, `CLAUDE.md` / `AGENTS.md`, an `INDEX`.
+
+Identify the natural home for each piece of the delta (a decision may belong in
+the plan; a looked-up value in a data/reference doc; a next-step in the task
+list). If the project has a clear "read this first" doc, keep it current.
+
+If **no** suitable place exists, create one handoff doc — named and placed to fit
+the repo's conventions (e.g. `STATUS.md` at root, or `docs/HANDOFF.md` if the
+project keeps docs in `docs/`). Tell the user what you created and why.
+
+### 3. Write the delta
+
+For each item: is it already captured accurately? Then skip it. Missing? Add it
+in its natural home. Present in the docs but now **stale/superseded**? Update or
+delete the old version in place — don't leave both the old and new sitting there
+contradicting each other.
+
+Rules that keep the docs trustworthy:
+
+- **Verify before you write.** Don't record a file path, value, or decision
+  without confirming it's still current — a checkpoint that enshrines a stale
+  claim is worse than no checkpoint. If you're unsure, check, or mark it clearly
+  as unconfirmed.
+- **One fact, one place.** Duplication is how docs drift. Cross-reference instead
+  of copying.
+- **Absolute dates.** Convert "today", "tomorrow", "last week" to real dates so
+  they still mean something after time passes.
+- **Dense and scannable.** Short lines, status markers, grouped by category. This
+  is a working handoff, not prose.
+- **Leave immutable files alone.** Never edit verbatim transcriptions, generated
+  files, vendored code, or anything the repo marks as not-to-be-edited.
+
+### 4. Never commit
+
+Write the files and stop there. Do **not** run git, do **not** stage, do **not**
+offer to commit — many repos aren't even git repositories, and committing is the
+user's call, not this skill's. If the user wants a commit, they'll ask.
+
+### 5. Second pass (do not skip)
+
+Re-read the conversation once more with fresh eyes, asking two questions:
+
+1. **What did I miss?** A decision buried in the middle, a value mentioned once, a
+   task quietly dropped, a preference stated in passing.
+2. **What did I just write that contradicts another file?** New content that
+   conflicts with an existing doc, or two docs that now disagree.
+
+This pass reliably catches things the first pass doesn't — a decision that
+silently obsoleted an older file, a date that two documents now report
+differently. Fix what it finds. When there's a genuine unresolved contradiction
+you can't settle, surface it explicitly as an open question rather than papering
+over it.
+
+### 6. Report back
+
+Tell the user, briefly:
+- **What was captured and where** (which files got what).
+- **Anything flagged** — open questions, unresolved discrepancies, things you
+  marked unconfirmed.
+- A one-line all-clear to run `/compact`.
+
+**Report the substance, not the process.** The user knows which command they ran,
+so explaining what this skill is — that it only persists, that it doesn't pick a
+boundary and why — tells them nothing they didn't already know. The same goes for
+announcing non-actions: "nothing was committed" reports the absence of a thing
+nobody asked for. Both are dead weight, and they show up in every single run. Say
+what landed in the files and what still needs attention; that's the whole report.
+
+**If the delta is empty, say so and stop.** Sometimes everything is already
+captured — a checkpoint ran recently, or the session just didn't produce durable
+knowledge. That's a success, not an invitation to pad: name what you verified in
+a line or two and finish. Manufacturing a fuller report to look busy is exactly
+the bloat the delta principle exists to prevent.
+
+Keep it short — the value is in the files, not in a long recap.
+```
+
+</details>
+
+<details>
+<summary>Read and copy the complete comprehensive-report prompt</summary>
+
+```text
+---
+name: comprehensive-report
+description: >-
+  Do NOT invoke this on your own. It may run in EXACTLY two situations and no
+  others: (1) the user explicitly types /comprehensive-report or asks by name to
+  "run the comprehensive-report skill", or (2) as step 3 of the /wrapup chain
+  (invoked by the wrapup skill). In every other case do nothing — never
+  auto-trigger it because the user asks for a report, summary, status, progress,
+  recap, or handoff, or mentions compacting, summarizing, or wrapping up; answer
+  normally and let the user decide whether to invoke it. When it does run, it
+  produces an in-chat report (progress + current state + next steps) focused on
+  the live working thread so a fresh context can resume after a compact, ending
+  with a "WE SHOULD RESUME HERE:" anchor. In-chat reply plus a temporary file
+  containing the same report beneath a post-compaction note; for persistence
+  into project docs use save-context-for-compact.
+---
+
+# Comprehensive Report
+
+Reply **directly in the chat** (also save a verbatim copy in a temporary file). Write a working handoff, not an
+executive summary: assume the next assistant has this report but not the conversation.
+It should be able to tell what happened, why, what is true now, and exactly where to
+resume. Do not rely on project docs or a previous wrapup step to supply missing context.
+
+**Detailed and comprehensive is the default**, both when invoked directly and through
+`/wrapup`; the user does not need to request extra detail. Prefer preserving relevant
+context over brevity. A general preference for concise replies must not reduce this
+handoff to a status summary. Follow an explicit request to shorten this particular
+report, while still preserving the information needed to resume safely.
+
+## Prepare for coverage
+
+Before drafting, review the available conversation, including any supplied compaction
+summary, and build an internal inventory of the substantive workstreams, user requests
+and corrections, decisions and their reasons, artifacts, verification, and unresolved
+or parked work. Cover earlier relevant work as well as the latest action. Do not scope
+the report only to the last exchange, the final implementation, or the files committed.
+
+Use that inventory to draft the report below. Preserve conclusions from investigation
+and discussion even when they produced no code. Carry forward still-relevant context
+from before an earlier compaction when it is available. If context or evidence is
+missing, name the gap and how to recover it; do not invent details or imply that the
+report covers unavailable history.
+
+For a substantial thread, use this structure and include only sections with relevant
+content:
+
+## Live thread — where we are right now
+
+Lead with the latest substantive action and its result. State whether work is complete,
+in progress, blocked, or awaiting a user decision. Name any half-finished action or
+verification. If `/wrapup` invoked this report, include the commit/push result and the
+working-tree state, distinguishing unrelated changes from this thread's work.
+
+## Objective and constraints
+
+State the user's intended outcome, agreed scope, and what counts as done. Preserve
+task-specific preferences, constraints, and corrections that affect how work should
+continue, including changes to the original request.
+
+## Progress — what happened and why
+
+Cover each meaningful workstream with the outcome, the decision or correction that led
+to it, and the concrete artifact or environment affected. Include alternatives that
+were explicitly rejected or deferred when their rationale matters for future work.
+For each workstream, make its status clear: completed, partial, blocked, or parked.
+Retain failed approaches and their causes when forgetting them would lead to repeated
+work; summarize their lesson rather than replaying every attempt.
+
+## Current state — evidence and details to keep
+
+Give the exact identifiers a future assistant would need: relevant file paths, branches,
+commits, MRs/PRs, deployments, issue links, configuration values, or commands. Report
+verification with the actual checks and results, and distinguish observed facts from
+assumptions. Preserve non-obvious gotchas, user corrections, and conventions that would
+prevent repeated mistakes. Include relevant failures, checks not yet run, and limits
+of successful checks. Omit secrets and repetitive raw output; retain exact details
+whose absence would force the next assistant to repeat investigation or ask the user.
+
+## Documents to read before resuming
+
+Classify the documents mentioned in the report by their role in continuing the work:
+
+- **Required reading — read in full before resuming work:** list the current plan
+  and progress/status documents for the active work, plus any specification or
+  decision document whose requirements govern the next action. Give each document's
+  exact path or URL, why it is required, and the reading order when it matters.
+- **Reference material — consult when needed:** list lookup guides, background
+  material, historical or superseded plans, and other documents mentioned only to
+  show where information lives. Explain when each is useful; mentioning a document
+  does not by itself make it required reading.
+
+Include an explicit instruction to read every required document in full before
+resuming substantive work; excerpts, search hits, and this report's summary do not
+replace that reading. This requirement applies to the listed documents, not
+recursively to every link inside them. If a required document cannot be read, surface
+the gap before taking an action that depends on it. Identify required reading from
+the actual task and current documents, not filenames alone. If none is required,
+say so without inventing documents or turning reference material into prerequisites.
+
+## Next steps
+
+List required actions in order, with the first action concrete enough to perform.
+Separate optional or explicitly parked work from required work. Identify any dependency
+or decision waiting on the user. If nothing is pending, say so; do not invent a task.
+
+Scale the detail to the work, not to a word quota. A multi-step project needs more than
+a few status sentences; a tiny completed task does not need padded headings. Before
+sending, check the draft against the coverage inventory: every substantive item must
+be represented, or deliberately omitted because it no longer affects continuation.
+Check especially for earlier workstreams, user corrections, decision rationale,
+unfinished actions, and parked requests. Then check whether a reader with no transcript
+can locate the work, understand the decisions and verification, and take the next action
+without asking for a recap. Fill omissions before delivering; links to files or project
+docs supplement the report, but do not replace the relevant explanation in it.
+
+End with a single anchor line addressed to your future self:
+
+`WE SHOULD RESUME HERE: <the exact next action, or "Nothing pending; await a new task" if complete>`
+
+## Deliver the report
+
+Draft the complete report once, including the anchor line. Pass that exact text on
+stdin to [`scripts/write_handoff.py`](scripts/write_handoff.py), using a quoted
+here-document or another method that does not expand shell syntax in the report.
+The script creates a private, uniquely named file under `/tmp`. It contains a
+short note addressed to the agent after compaction, followed by the report text
+unchanged. The note instructs the next agent to read the report's required documents
+in full before resuming substantive work, while consulting reference material only
+as needed. Read it back and check that its report portion matches the draft.
+Fix any mismatch before presenting a path.
+
+In the user-facing reply, show the **entire report first**, then give the file's
+absolute path. The user will compact the chat and provide that path to the agent
+later; do not compact the chat or load the file into another conversation yourself.
+```
+
+</details>
+
+<details>
+<summary>Read and copy the complete handoff helper</summary>
+
+```python
+#!/usr/bin/env python3
+"""Wrap a comprehensive report for manual use after chat compaction."""
+
+import os
+import sys
+import tempfile
+
+
+PREAMBLE = (
+    "# After compaction\n\n"
+    "This chat was compacted. The compacted history is already in your context. "
+    "Below is the verbatim comprehensive report produced before compaction. "
+    "Use both to recover the live thread, decisions and rationale, verified state, "
+    "remaining work, and exact resume point. Follow any newer user instructions "
+    "if they differ from the report.\n\n"
+    "Before resuming substantive work, read in full every document listed under "
+    "Required reading in the report, including the current plan and progress/status "
+    "documents when applicable. Follow the stated reading order. Do not substitute "
+    "the report's summaries, excerpts, or search hits for reading those documents. "
+    "Consult Reference material only when needed; this instruction does not require "
+    "following every link inside a required document. If a required document cannot "
+    "be read, surface that gap before taking an action that depends on it.\n\n"
+    "# Comprehensive report (verbatim)\n\n"
+)
+
+
+def main() -> int:
+    report = sys.stdin.read()
+    if not report.strip():
+        print("Refusing to save an empty report", file=sys.stderr)
+        return 1
+
+    descriptor, path = tempfile.mkstemp(
+        prefix="comprehensive-report-", suffix=".md", dir="/tmp"
+    )
+    with os.fdopen(descriptor, "w", encoding="utf-8", newline="") as output:
+        output.write(PREAMBLE)
+        output.write(report)
+
+    print(path)
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
+```
+
+</details>
+
+## 2. Preserve the correction that changes the next decision
+
+Consider a hypothetical catalogue importer for two suppliers. Both can use the same SKU for different products. During planning, we establish that product identity is the combination of supplier and SKU.
+
+An early proposal used SKU alone. We rejected it because it would merge unrelated products. Later, the parser was implemented, but reconciliation remains unfinished. The existing export columns must also remain compatible with a downstream consumer.
+
+A summary saying “parser complete; implement duplicate handling” loses several consequential facts:
+
+- SKU is unique only within a supplier.
+- The global-SKU approach was rejected for a specific reason.
+- Reconciliation is pending, even though parsing is done.
+- Export compatibility remains a requirement.
+
+These details have different destinations. Product identity belongs in the maintained import contract. The unfinished reconciliation belongs in the current work record. The handoff needs enough of both to explain the next action.
+
+I would prioritize information according to how its loss could change the work. A long discussion about variable names can disappear. A corrected identity rule needs to survive.
+
+## 3. Save the missing delta in the project's own records
+
+The first step of my wrapup chain is `save-context-for-compact`. Its central rule is to save the delta: knowledge established in the conversation that is missing or stale in the project's ordinary documentation.
+
+That distinction keeps preparation from becoming a transcript dump.
+
+For the imaginary importer, I would expect the agent to inspect the existing contract, decision notes, and current task record. If the supplier-scoped identity rule is already correct, copying it elsewhere adds little. If the contract still says SKU alone, the old statement needs correction in place.
+
+Appending “actually, use supplier plus SKU” at the end of another document leaves the next reader to resolve a contradiction we already settled.
+
+### 3.1. Keep the reason beside the decision
+
+The fact that we rejected global SKU matching matters because a future implementation may rediscover that apparently simpler option.
+
+A useful record would explain the collision case and point to the relevant behavior check. It would also preserve the downstream export contract. That gives the next run a way to evaluate a proposed simplification rather than treating every recorded preference as permanent law.
+
+The checkpoint should verify paths, values, and claimed status before recording them. “Reconciliation implemented” is unsafe if only the parser exists. An exact filename that was renamed earlier is a broken reading path.
+
+### 3.2. Read for omissions and contradictions again
+
+The persistence step requires a second pass. The agent revisits the available conversation for missing decisions, corrections, unfinished tasks, and inconsistencies with the files it just updated.
+
+In this example, that pass might catch the export compatibility obligation. It was not part of the identity debate, but it still constrains the next edit.
+
+I want that coverage without retaining every intermediate state. Once an old approach has been superseded, preserve the reason it matters and correct the authoritative record. Do not keep several competing versions of current status for the sake of completeness.
+
+## 4. Commit the implementation without mistaking it for a handoff
+
+After the documentation step finishes, `wrapup` commits the session's changes and pushes them. The order is explicit: save the durable knowledge, commit and push, then produce the report.
+
+A commit gives the continuation an implementation state it can inspect. The push result says whether that state reached the intended remote. Neither proves deployment or records every unfinished obligation.
+
+For our hypothetical importer, the parser and the corrected contract might be committed while reconciliation remains pending. That is a legitimate checkpoint if it is described accurately and the repository's requirements for such a commit are satisfied.
+
+The next agent still needs to know what the parser checks covered, what they did not cover, and which piece of work remains. A commit message saying “improve importer” cannot supply that account by itself.
+
+The chain is also not atomic. If the push fails, the local commit and remote state differ. A report must preserve that discrepancy. If report generation is interrupted, a commit does not prove the handoff was delivered.
+
+Each step produces something useful; its result needs to remain distinct from the result of the whole chain.
+
+## 5. Write a handoff someone can work from
+
+The final step is `comprehensive-report`. It covers the relevant live thread, including earlier decisions and unfinished work, rather than summarizing only the latest commit.
+
+Its purpose is practical: the next assistant should understand the outcome, constraints, rationale, observed state, and next action without asking me to retell the session.
+
+For the importer, I would expect a report to distinguish:
+
+| Item               | What the continuation needs                                              |
+| ------------------ | ------------------------------------------------------------------------ |
+| Finished work      | Parser behavior and its actual verification                              |
+| Binding correction | Identity uses supplier and SKU; global matching merges distinct products |
+| Unfinished work    | Reconciliation has not been implemented                                  |
+| Preserved contract | Existing export columns remain compatible                                |
+| Required reading   | Current work record and governing import contract                        |
+| First action       | Inspect the parser's output and implement supplier-scoped reconciliation |
+
+The report appears in chat and is saved verbatim beneath a short continuation note in a temporary file. It ends with an exact resume anchor. That copy gives the user a concrete artifact to provide after compaction; it is not automatic cross-session retrieval.
+
+Required reading also needs a boundary. The current contract and active work record should be read in full before dependent work. Historical discussions can remain reference material. Turning every link into mandatory reading would make the handoff harder to use.
+
+## 6. Check what the continuation retained
+
+A detailed report can still be wrong. It can omit the correction, misstate a check, or point to a file that has changed since it was written.
+
+After compaction, I want the agent to read the required records and compare the handoff with the actual files, diff, commit, and relevant external state. Preparation makes this reconstruction easier to start; it does not eliminate it.
+
+For a bounded trial, I would keep a separate list of the importer's facts and obligations before compacting. Then I would inspect the continuation: did it use supplier-scoped identity, preserve the export columns, recognize that reconciliation was unfinished, and continue from the implemented parser?
+
+Those are observable outcomes. Merely asking whether the agent “remembers the project” accepts an answer at the wrong level of detail. I would also check whether it repeated a rejected approach because the reason had vanished.
+
+There is a cost to preparing all this. A short, completed task may need very little beyond its normal project records. A long thread with corrections and unfinished work deserves more care. The aim is a usable account of the decisions the next action depends on.
+
+I want to compact a conversation without making the next run reconstruct our agreements from hints. Before that boundary, I can leave current records, a verifiable implementation state, and a handoff that says exactly where work should resume. The next agent still has to check them—and then continue.

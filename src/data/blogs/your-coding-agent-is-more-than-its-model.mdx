@@ -1,0 +1,117 @@
+---
+title: "Your Coding Agent Is More Than Its Model"
+description: "Judge a coding agent by the whole system that turns intent into checked work: its tools, context, interface, and communication as well as its model."
+summary: "A strong model is one part of a useful coding agent. I want to evaluate what the complete working system can inspect, change, verify, and explain—and how much effort it takes me to supervise it."
+date: "2026-10-26"
+readingTime: "7 min"
+category: "AI Engineering"
+quality: "medium"
+coverImage: "/images/blog/your-coding-agent-is-more-than-its-model-cover.jpg"
+tags: ["AI Engineering", "Coding Agents", "Developer Experience", "Agent Tools", "Engineering Communication"]
+---
+
+When someone asks which coding agent is best, the conversation often becomes a comparison of models. Which one reasons better? Which writes better code? Which gets stuck less often?
+
+Those questions matter. They do not describe the whole tool I work with.
+
+I also need to know whether the agent can inspect the right files, run the application, read a failed check, preserve my work, and explain what remains uncertain. I need an interface that lets me follow its decisions without becoming its full-time operator.
+
+**I would choose the system that helps me deliver and assess a change, even if another system produces a more impressive answer in a chat window.**
+
+That is how I think about the harness: the machinery around the model that makes an engineering workflow possible. Calling it a wrapper understates what I need it to do.
+
+## 1. Start with the work the system must complete
+
+Consider a hypothetical expense application. A user changes the date range, exports a report, and receives a CSV containing records outside the selected period.
+
+The task is to make the export honor the selected dates. The existing download format and authorization rules must remain intact.
+
+An agent could produce a plausible date-filtering function after reading that description. But the bug might sit between the screen and the request, where the selected dates never reach the export endpoint. Or the endpoint might filter against a timestamp in a different timezone.
+
+A useful system needs a path from the symptom to the relevant evidence. It should be able to inspect the screen, follow the request, examine server behavior, reproduce the problem, make a bounded change, and check the result.
+
+If I must manually carry every file and error message between the agent and the project, I am doing part of that coordination myself. A brilliant suggestion may still leave me with an expensive workflow.
+
+That does not prove that more tools always produce better work. It gives me a concrete question: **which parts of this task can the agent actually carry through, and where does the workflow hand the burden back to me?**
+
+## 2. Tools matter through the feedback they make possible
+
+For this imaginary defect, file access helps the agent discover where the export request originates. A command runner can exercise the relevant server checks. A browser connection can reveal whether the selected range reaches the request and whether the downloaded result matches the visible selection.
+
+Those capabilities have different purposes. A browser is useful here because the behavior crosses an interface boundary. It would add little to a task confined to a pure parsing function with a good local reproduction.
+
+I want tool access to match the task rather than become a feature-count contest.
+
+### 2.1. Observe the loop after a failure
+
+Suppose a check fails after the first edit. Does the system give the agent readable output? Can it inspect the actual failure, distinguish a broken expectation from a broken implementation, and rerun the affected check?
+
+A tool named “run tests” tells me less than watching that loop.
+
+The same applies to a long-running command. The system needs some way to retain the result and resume the work. An agent that starts a check and loses its output has not closed the loop merely because it invoked the right command.
+
+I would also inspect how it handles scope. The agent should preserve unrelated changes, keep the export format stable, and avoid widening access just to make a check pass. Capable execution needs boundaries as well as reach.
+
+### 2.2. Distinguish unavailable evidence from ignored evidence
+
+If the agent misses the client-side request, I want to know why. Was the browser inaccessible? Was the relevant code difficult to discover? Did the agent have the evidence and overlook it?
+
+Those are different problems. Replacing the model might help with the last one. It cannot, by itself, grant a tool permission that the environment withholds.
+
+Conversely, a better interface will not rescue a reasoning failure simply by displaying it attractively. The point of examining the whole system is to identify the actual limitation before choosing a remedy.
+
+## 3. Context must reach the decision where it matters
+
+Our hypothetical expense application defines report dates in the organization's timezone. That fact could change the correct fix.
+
+I care whether the agent discovers and applies it before changing the filter. The fact existing somewhere in the repository is insufficient. Loading a large document is also insufficient if the resulting implementation still uses the wrong clock.
+
+For this comparison, I would give each system the same maintained project entry point and the same task. Then I would watch whether its reading and search workflow reaches the export contract, the timezone rule, and the relevant checks.
+
+This is a practical context question: can the working system connect the constraint to the change? It includes retrieval, readable tool output, the files in scope, and the agent's own judgment about what to investigate.
+
+I would record where I had to intervene. “I pointed it to the export contract” is useful evidence. Quietly supplying that correction and later calling the run autonomous would obscure the cost I am trying to compare.
+
+## 4. The interface changes who can supervise effectively
+
+I do not think every useful agent needs to live in a terminal. I also do not think a graphical interface automatically makes the work easier.
+
+For someone comfortable with commands, a terminal can put searches, diffs, checks, and task output close together. For someone evaluating the expense report as a product owner, a visible application preview and a clear list of changed behavior may be a better starting point.
+
+The underlying model could be identical while those people have very different experiences.
+
+| What I need to understand        | Useful interface support                            |
+| -------------------------------- | --------------------------------------------------- |
+| Why the export is wrong          | Traceable observations and readable findings        |
+| What the agent changed           | A navigable diff connected to the task              |
+| Whether the result works         | Accessible check output and the running application |
+| Whether intervention is required | Visible working state and a specific request        |
+| What I am about to approve       | A concrete artifact and its remaining limits        |
+
+A hybrid interface can serve several of those needs. The important test is whether the intended user can find the evidence and make the required decision.
+
+I would reject a comparison that assumes terminal fluency is universal. I would also reject one that hides every technical detail from an engineer who needs to investigate a failure. Good presentation gives the right person a useful entry point and a path deeper.
+
+## 5. Communication belongs in the evaluation
+
+Suppose the export now works. The agent finishes with: “Fixed date filtering. All tests pass.”
+
+That leaves me asking which behavior changed, what “all” covers, and whether the browser flow was exercised.
+
+A better handoff would say that the screen now sends the selected range, that the server interprets it using the organization's timezone, and that the download format is unchanged. It would identify the checks performed and distinguish a local observation from anything still unverified.
+
+That is useful engineering output. It lets me assess the change and gives the next person somewhere to begin.
+
+I would evaluate PR descriptions, commits, and handoffs alongside the code. Can the agent explain the concrete problem and resulting behavior? Does it preserve uncertainty without drowning the reader in narration? Can it tell me a command failed instead of summarizing the intended outcome as success?
+
+Writing quality affects how much investigation I must repeat before accepting the work. I want concise communication that carries evidence, rather than either an enthusiastic paragraph or a transcript of every tool call.
+
+## 6. Compare complete runs before choosing a winner
+
+For a practical trial, I would use a disposable copy of the expense application with a known defect and a written acceptance condition.
+
+I would keep the starting state, task, and authorization comparable, while recording meaningful differences in tool access or setup. Then I would compare the resulting changes, checks, interventions, and handoffs. A single run would be an initial observation; I would repeat the comparison on materially different work before treating it as a stable preference.
+
+The model remains part of that evaluation. A system that repeatedly misreads the contract has a serious limitation even when its tools work perfectly. But a model label alone cannot tell me how a product manages context, exposes evidence, or returns control to the user.
+
+My choice would follow the work I actually delegate. I want an agent that can find the relevant facts, use its access well, verify the result, and communicate enough for me to own the decision. That is the product I am choosing.
