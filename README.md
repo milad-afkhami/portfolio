@@ -73,6 +73,11 @@ flowchart TD
 Mermaid loads on demand in the browser. Ordinary code fences retain their copy button; a diagram that fails to
 render leaves readable source instead of breaking the article. The renderer uses Mermaid's strict security mode.
 
+The default drawing style is `handDrawn`. Light pages use Warm paper with the portfolio's peach primary
+(`#f6be89`); dark pages use Warm charcoal with the same peach accent. Diagrams follow an explicit page theme or
+its resolved color scheme, using the system preference when the page has not fixed a scheme. Shared settings live
+in `src/configs/mermaid.ts`. Palette (`theme`) and drawing style (`look`) are separate Mermaid options.
+
 Number article headings explicitly: `## 1. Main section`, `### 1.1. Subsection`, and so on. Choose formatting for its
 meaning: ordered lists for steps, tables for comparisons, and code blocks for useful code or prompts. Use task-list
 checkboxes only when readers actually need a checklist, rather than using them as decoration. Prefer Mermaid for
