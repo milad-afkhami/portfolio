@@ -1,0 +1,131 @@
+---
+title: "Let a Fresh Agent Review the Decision Maker’s Work"
+description: "Give a fresh reviewer the requirements, artifacts, and evidence before the builder’s rationale. Keep useful context and make disagreement answerable."
+summary: "I want a reviewer to form its own assessment of the work before inheriting the explanation that produced it. A fresh thread can help structure that review, but agreement still needs evidence."
+date: "2026-10-25"
+readingTime: "7 min"
+category: "AI Engineering"
+quality: "medium"
+coverImage: "/images/blog/let-a-fresh-agent-review-the-decision-makers-work-cover.jpg"
+tags: ["AI Engineering", "Code Review", "Software Engineering", "Agents", "Decision Making"]
+---
+
+“Review this implementation. We chose this approach because it is simpler, fits our traffic, and already passes the tests.”
+
+That request includes the verdict I want the reviewer to examine. Before the reviewer has inspected the requirement, I have supplied a reason to accept the result.
+
+The explanation may be completely sound. I still want the reviewer to reach it through the work itself.
+
+When I ask a fresh agent to review a consequential change, I would give it the task, constraints, relevant source, delivered artifact, and verification evidence first. I would introduce the builder’s rationale after it has formed an initial assessment.
+
+The decision under review might be mine. If I approved the plan, a reviewer that questions only whether the agent followed it leaves my most important contribution unexamined.
+
+## 1. Let the reviewer examine the decision
+
+There are at least two useful review questions: did the implementation follow the plan, and does the plan satisfy the requirement?
+
+Those can produce different answers. An agent can faithfully implement a weak plan. Tests can accurately establish behavior that falls short of what the product needs. A completion report can explain every local choice while leaving the original constraint unanswered.
+
+I want the reviewer to be allowed to say, “The implementation matches your decision, and your decision is the problem.”
+
+That requires access to the original requirement. If the reviewer receives only the builder’s summary, the decision maker has effectively edited the question before asking for another opinion.
+
+My preference is to delay the persuasive explanation, while keeping the facts necessary to judge the work. The reviewer should know what success means before learning why someone believes it was achieved.
+
+## 2. Give it context worth keeping
+
+A fresh reviewer should not have to rediscover the project from nothing.
+
+Existing interfaces, deployment limits, compatibility requirements, and explicit product decisions may explain why a seemingly attractive alternative is unsuitable. Withholding those facts creates avoidable objections and more work for the person receiving the review.
+
+I would prepare a short handoff with four parts:
+
+1. **The requirement.** What must happen, what must never happen, and what remains undecided.
+2. **The relevant project context.** Existing contracts, applicable conventions, operational constraints, and where their authoritative sources live.
+3. **The artifact.** The exact plan, diff, or implementation being reviewed, with access to surrounding code where necessary.
+4. **The evidence.** Checks performed, actual results, and known omissions. A success summary alone is insufficient.
+
+I would leave the builder’s argument for later: why this design was selected, which alternatives were rejected, and why the remaining uncertainty was considered acceptable.
+
+Some facts need their status preserved. “We expect low traffic” is an assumption unless supported. “We accept occasional overselling” would be a product decision requiring authority. Neither should quietly replace a stated promise that overselling must never happen.
+
+The aim is to let the reviewer inspect those relationships without first adopting the builder’s account of them.
+
+## 3. A checkout example makes the difference visible
+
+Imagine a hypothetical checkout feature for limited-stock products. The requirement is explicit: confirmed orders must never exceed the stock available for sale.
+
+An agent implements a straightforward flow: read the remaining stock, reject the order if the item is sold out, otherwise confirm the order and reduce the stock. It adds tests for an available item and a sold-out item. Both pass.
+
+The builder’s explanation might emphasize that the interface disables repeated clicks and that the service expects modest traffic. Those details may be relevant elsewhere. They do not establish the stock constraint.
+
+### 3.1. Start with the promise
+
+A reviewer looking at the requirement and code could investigate this possible ordering:
+
+1. One unit remains.
+2. Request A reads one available unit.
+3. Request B also reads one available unit.
+4. A confirms an order and reduces stock.
+5. B confirms another and reduces stock.
+
+In this invented implementation, assume there is no additional mechanism preventing that sequence. Two orders are confirmed for one unit even though each request saw available stock.
+
+That is a concrete concern the builder can answer. Perhaps the surrounding code has a protection the reviewer missed. Perhaps the proposed ordering is possible and needs a fix. The review should identify the relevant path and evidence needed to distinguish those cases.
+
+### 3.2. Let the rationale answer the concern
+
+Now introduce the builder’s explanation and ask targeted questions. Does an existing shared inventory mechanism reserve stock? Was simultaneous ordering checked? What evidence supports the claim that every confirmed order has stock reserved for it?
+
+If a protection exists, inspect it. If the requirement is ambiguous, resolve it with the decision maker. If the failure is real, repair the implementation and check the affected behavior.
+
+## 4. Fresh context and a different model are separate choices
+
+Starting a new thread with the same model changes the conversation supplied to it. Choosing another model changes the model as well. I would treat these as two separate decisions.
+
+A fresh thread is useful for arranging what the reviewer sees first. It does not guarantee a different interpretation. The same model can repeat the same mistake; another model can share it too. A new conversation does not make errors statistically independent.
+
+The review setup matters either way. Give two reviewers the same leading summary and both may spend their attention checking the explanation’s details instead of questioning its premise. Give a reviewer too little project context and it may object to a constraint that was already settled for a good reason.
+
+I would choose a capable reviewer with the access and tools the task requires, then control the handoff deliberately. Model diversity may be worth trying, but it cannot substitute for requirements, source inspection, or verification.
+
+## 5. Make disagreement useful
+
+I do not want to instruct a reviewer to find a fixed number of problems. That gives it a reason to manufacture objections when the work is sound.
+
+For a bounded change, I would use a request like this:
+
+```text
+Review the supplied work against
+the original task and constraints.
+
+Inspect the artifact and evidence
+before reading the builder's rationale.
+
+For each material concern, identify:
+- The requirement at risk.
+- The relevant source or behavior.
+- A plausible failure or mismatch.
+- Evidence needed to resolve it.
+
+Separate findings from questions.
+Do not invent missing requirements.
+Report material review limits.
+No finding quota is required.
+```
+
+After the first assessment, the builder should be able to clarify missing context and challenge a mistaken finding. I want an exchange grounded in evidence, with enough separation to preserve the initial assessment.
+
+For the checkout example, “concurrency might be an issue” is a starting question. The two-request ordering, tied to a code path and the stock requirement, is much more useful. A proposed fix still needs verification; a convincing reviewer can be wrong too.
+
+I would also keep the review attached to a specific artifact. If the builder changes that artifact, the relevant finding needs another check. An approval of yesterday’s implementation cannot establish that today’s revision resolves it.
+
+## 6. Agreement is an input to acceptance
+
+A second agent saying “looks good” does not answer what it inspected. I want to know which requirements it examined, what evidence supported its conclusion, and what it could not check.
+
+For a consequential change, I would resolve material findings, verify the corrections, and make the acceptance decision with the remaining limits visible. For a small, low-risk edit, a separate reviewer may cost more attention than the change warrants.
+
+The purpose of fresh context is to reduce inherited framing. It is a review design goal, with no promise of unbiased judgment or measured performance gains.
+
+I want the reviewer to have enough information to understand the work and enough distance to question my decision. Then I want its conclusions tested with the same care I expect for the builder’s.

@@ -1,0 +1,113 @@
+---
+title: "Your Coding Standards May Be Solving Yesterday’s Problem"
+description: "Agent-led development is a reason to reconsider conventions that police personal taste. Keep the rules that protect behavior, contracts, and future change."
+summary: "I want coding standards to earn their place by the cost they prevent. That means relaxing arbitrary prescriptions, automating cosmetic consistency, and keeping the constraints that help humans and agents change a system safely."
+date: "2026-10-25"
+readingTime: "7 min"
+category: "AI Engineering"
+quality: "medium"
+coverImage: "/images/blog/your-coding-standards-may-be-solving-yesterdays-problem-cover.jpg"
+tags: ["AI Engineering", "Coding Standards", "Software Engineering", "Coding Agents", "Maintainability"]
+---
+
+A coding standard is a decision about what deserves attention.
+
+Every time I ask an agent to rearrange constants, change a private function’s signature, or rewrite an idiom, I am saying that this difference matters enough to spend effort correcting it. Sometimes it does. Sometimes I just prefer writing code that way.
+
+I want to be more demanding about the distinction.
+
+When agents do much of the implementation, conventions built around my manual-writing preferences deserve another look. A rule can be familiar, precise, and consistently enforced while protecting very little. I would rather remove that rule than keep making an agent satisfy it.
+
+The useful question is what cost the convention prevents now—and whether the way we enforce it is worth that protection.
+
+## 1. A rule needs a reason beyond familiarity
+
+Some standards protect properties of the system. Preserve a public interface. Enforce authorization at the boundary. Keep a change isolated enough that it can be understood and reversed.
+
+Others coordinate work. Consistent formatting can keep reviews from turning into arguments about indentation. A familiar directory structure can help the next person find the relevant code.
+
+Then there are preferences I may have mistaken for requirements: every constant must sit at the top of its file, every internal helper must use an options object, or a particular construct must never appear because I dislike reading it.
+
+Those preferences can have a reason in a particular codebase. Constant placement might separate configuration from implementation. An argument convention might prevent confusion between several similar values. The problem is enforcing the prescription after losing the reason.
+
+I would ask one concrete question before keeping it: **what becomes harder, less reliable, or more expensive if we allow an exception?**
+
+If the answer is only that I would have typed it differently, that is weak justification for another round of rework.
+
+## 2. Consider a correct change with the wrong handwriting
+
+Imagine a hypothetical task: add a retry limit to a small internal utility. The limit applies only inside that utility, and the new behavior is checked at the boundary where callers use it.
+
+An agent puts a named constant beside the code that uses it and gives a new private helper two arguments. Both arguments have clear, distinct meanings.
+
+The project instructions demand that all constants appear at the top of the file and every helper receive a single options object.
+
+The agent has violated those instructions. Whether the instructions deserve to exist is a separate question.
+
+### 2.1. Look for the protected constraint
+
+Before requesting a rewrite, I would check whether the constant is configurable, shared, or part of a convention that tooling depends on. I would also check whether the helper is actually private, whether the arguments are easy to confuse, and whether nearby code gives the next maintainer a consistent pattern to follow.
+
+Those details can change the answer. Moving configuration may make it harder to discover. Changing an exported function’s signature can break callers. A superficially cosmetic choice may carry a real contract.
+
+But suppose none of those concerns applies. The constant is local, the helper has no external callers, and the implementation is straightforward. Rewriting both solely to satisfy my preferred arrangement buys very little.
+
+I would propose narrowing the blanket rules and document the agreed change before the next agent task. The current instructions still apply until we change them. The revised rules would keep the meaningful obligations: clear values, understandable calls, stable external behavior, and appropriate checks.
+
+### 2.2. Account for the correction itself
+
+A style correction has consequences too. It creates another diff to inspect and another chance to change something accidentally. Repeated corrections also occupy the instructions and conversation surrounding the task.
+
+I would rather use that attention to check the retry behavior.
+
+For shared formatting, I would usually let the project’s existing formatter handle consistency. That still does not justify reformatting unrelated files in a feature change.
+
+## 3. Clean code has more than one reader
+
+It would be convenient to conclude that readability matters less because agents will read the code. I do not accept that conclusion.
+
+A human may need to investigate an incident, challenge a design, or take over a task after the agent reaches a dead end. That person needs a system they can navigate and understand. So does the next agent.
+
+What deserves reconsideration is the assumption that code should optimize exclusively for how I enjoy writing it.
+
+### 3.1. Make the important relationships visible
+
+I want names that distinguish concepts, boundaries that contain changes, and behavior whose dependencies are reasonably easy to trace. I would prefer one authoritative rule over several nearly identical copies that can drift apart.
+
+Those choices give a reader somewhere to start. A module whose responsibilities are coherent is easier to reason about than one requiring unrelated files to explain every operation. That is a design goal for human and AI readers; it is not a claim that a particular layout guarantees agent success.
+
+A constant’s location may contribute to that clarity. It may also be irrelevant. “Clean” needs to describe the relationship we are preserving, rather than end the discussion.
+
+### 3.2. Language taste is a separate judgment
+
+The same distinction applies when choosing a language or idiom. My enjoyment of writing it is one consideration. Runtime constraints, ecosystem fit, existing code, and the team’s ability to maintain it are others.
+
+A language I find visually awkward could still be appropriate for an agent-assisted project. A language I love could still be the wrong fit.
+
+That does not establish which language an agent uses most reliably. I would need a relevant comparison before claiming an advantage. Nor would I introduce an unfamiliar language merely because an agent can generate it. Somebody still needs to evaluate the result and maintain the system.
+
+## 4. Audit one rule without rewriting the whole playbook
+
+I would start with a convention that repeatedly causes correction. Not an authorization requirement or a compatibility promise: a narrow prescription whose value is uncertain.
+
+Then I would work through it in this order:
+
+1. **Name the cost it prevents.** Identify a plausible mistake, coordination problem, or maintenance burden. If nobody can explain the reason, record that uncertainty.
+2. **Check the actual dependencies.** Look for callers, tooling, team expectations, and operational constraints that make the rule consequential.
+3. **Choose the lightest useful enforcement.** Keep a hard requirement when necessary. Use existing tooling for mechanical consistency. Prefer a guideline or removal when exceptions carry little cost.
+4. **Try the change on bounded work.** Preserve the meaningful requirements and inspect the resulting diff. Do not combine the experiment with a broad cleanup.
+5. **Evaluate what happened.** Check whether the feared problem appeared and whether review became harder. Use recorded time or correction counts if available; do not manufacture a productivity gain from a cleaner-looking instruction file.
+
+The outcome might be keeping the rule with a better explanation. It might be narrowing it to exported interfaces. It might be deleting it.
+
+Deletion should be a real possibility. An audit that always preserves every prescription is not reconsidering the tradeoff.
+
+## 5. Give the attention back to engineering
+
+My standard for agent-written code should include the people who will own it and the agents that may change it next. It should protect users, preserve contracts, and make consequential behavior understandable.
+
+It should also allow an implementation to differ from the one I would have typed.
+
+I want to spend my attention on whether a design fits, whether a boundary holds, and whether the evidence supports accepting the change. Insisting on my preferred constant placement can feel like exercising the same judgment. Sometimes it is simply habit.
+
+The next time an agent delivers a correct change in an unfamiliar shape, I would pause before correcting it. I would identify what the correction protects. If there is no useful answer, I would change the standard.

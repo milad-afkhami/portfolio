@@ -1,0 +1,128 @@
+---
+title: "Your AI Agent Joins the Project From Scratch. Document for That."
+description: "Make project purpose, boundaries, decisions, and current state discoverable so a fresh coding run can work from the right constraints."
+summary: "A capable agent can understand the language and still miss why your project works the way it does. I want a short entry point, maintained project records, and evidence that connects those records to the code."
+date: "2026-10-25"
+readingTime: "7 min"
+category: "AI Engineering"
+quality: "medium"
+coverImage: "/images/blog/your-ai-agent-joins-the-project-from-scratch-document-for-that-cover.jpg"
+tags: ["AI Engineering", "Documentation", "Architecture", "Developer Experience", "Coding Agents"]
+---
+
+Your agent may know the framework better than you do. It still needs to discover why this application works the way it does.
+
+Why does a cancellation go through a service instead of updating a status directly? Which timezone defines the deadline? Was the unfinished refund integration postponed deliberately, or simply forgotten?
+
+Those answers might be obvious to someone who has worked on the project for months. They might also exist only in a conversation that the next run will never see.
+
+When I say an agent joins from scratch, I mean project-specific context. The model brings training, and its tools may retrieve code and earlier records. It is not an untrained developer. But general knowledge cannot supply an agreement that nobody made discoverable.
+
+As I delegate more implementation, I want the repository to explain those agreements without requiring me to reconstruct them in every chat.
+
+## 1. Give the project a front door
+
+Imagine a hypothetical booking application. Customers can cancel appointments, and a cancellation may trigger a refund. Every example below belongs to this invented system.
+
+An agent asked to adjust the cancellation screen can search for the button and follow its handler. That is a reasonable start. It should also find that the deadline uses the venue's timezone and that the cancellation service owns the transition that can trigger a refund.
+
+I would put those facts behind a short, obvious project entry point. A README can serve that purpose, with agent instructions linking to it where appropriate. I care more about a reliable reading path than a particular filename.
+
+The entry point should explain the product's purpose, identify its major boundaries, and link to the relevant contracts, decisions, and checks. It should also point to current work when there is unfinished work to resume.
+
+For our imaginary application, a small layout could be:
+
+```text
+README.md
+  Purpose, boundaries, reading paths
+AGENTS.md
+  How to work in this repository
+docs/decisions/
+  Choices and their rationale
+docs/current-work.md
+  Active work and exact next action
+src/bookings/README.md
+  Booking rules and verification
+```
+
+This is a proposed layout, not a directory structure every project needs. A small application might cover the same ground in two files. Adding a documentation hierarchy should solve a discovery problem, not create another project to maintain.
+
+## 2. Explain the rule that the code cannot explain alone
+
+Code shows what happens. It does not always establish whether that behavior was intended, accidental, or a temporary compromise.
+
+Suppose the booking application refuses a cancellation exactly at the deadline. Reading the comparison tells the agent what the implementation does. A documented contract should say whether equality is intended to be allowed, which clock applies, and where that behavior is checked.
+
+Likewise, “use the cancellation service” is more useful when it includes a reason: that service owns the state change and coordinates the refund request. Someone changing the screen then has a reason to inspect the service before taking a shortcut.
+
+I would document the constraints that could materially change an implementation:
+
+1. **Purpose:** what outcome the feature serves, including deliberate limits on scope.
+2. **Boundaries:** which component owns a decision or side effect.
+3. **Contracts:** what callers can rely on and which conditions must hold.
+4. **Rationale:** why a non-obvious choice exists and when to reconsider it.
+5. **Verification:** where to check the claimed behavior and which commands run those checks.
+
+The last item matters. “We always preserve booking history” is a promise in prose. A link to the relevant code and a scenario that exercises cancellation gives the next run a way to investigate whether the promise holds.
+
+I would keep that detail near the booking subsystem and link to it from the entry point. Duplicating the same rule across five documents gives us five places to forget during the next change.
+
+## 3. Keep stable knowledge separate from unfinished work
+
+The venue-timezone rule belongs in the project's durable documentation. “The timezone fix is implemented but has not been verified” belongs in a current-state record.
+
+Mix them together and yesterday's task status starts looking like a permanent instruction.
+
+I would distinguish four kinds of information: project facts, current progress, instructions for using tools, and reference material. A design discussion can remain useful as a reference without becoming the current specification. A command for running checks should point to the maintained script rather than reproduce a second version of its internals.
+
+For the hypothetical cancellation change, a checkpoint could say:
+
+```text
+Goal: use the venue timezone.
+Changed: cancellation deadline logic.
+Verified: ordinary same-day case.
+Open: deadline equality is unverified.
+Next: add the exact-deadline case,
+then run the booking checks linked
+from src/bookings/README.md.
+```
+
+That is an illustrative record, not a report of checks I ran. It gives a fresh run a starting point and an unresolved obligation. “Continue the timezone work” gives it neither.
+
+Before continuing, the agent still needs to inspect the actual files, diff, and check results. A checkpoint can be wrong about whether the last edit landed. A conversation summary can omit a correction. I want the record to help reconstruct reality rather than become a substitute for looking at it.
+
+## 4. Make detail retrievable instead of loading everything
+
+The repository can contain more useful information than one task needs in its prompt.
+
+For a cancellation-screen change, I would start with the project entry point, the booking contract, and the active task. If the change reaches refunds, follow the refund boundary. An unrelated import migration can stay out of the working context.
+
+Anthropic's [context-engineering guidance](https://www.anthropic.com/research/effective-context-engineering-for-ai-agents) describes retaining lightweight references and retrieving relevant detail as work proceeds. It also identifies a tradeoff: exploration takes time and needs good guidance. A discoverable reading path gives that exploration a useful starting point.
+
+Some constraints deserve to be visible immediately. A project-wide restriction on destructive operations should not depend on an agent happening to open a subsystem document. Other information can wait until the task reaches it.
+
+I would choose what to load initially according to the consequence of missing it. Keep the entry point short enough to navigate, but explicit enough that the agent knows which deeper facts it must retrieve.
+
+## 5. Documentation cannot rescue every boundary
+
+Suppose our imaginary application changes cancellation state in several handlers, sends refunds from two places, and computes the deadline separately in the interface and API.
+
+A document can describe that arrangement. It can warn the agent to inspect every path. The next cancellation change still has to reconcile all of them.
+
+If one service owns the transition, the interface consumes its result, and the deadline rule has a clear owner, the reading path becomes easier to explain. There is a smaller, meaningful area to investigate before changing behavior.
+
+That is why I connect documentation to architecture. I would question a design whose documentation repeatedly says, “Also remember these unrelated places.” Sometimes the necessary work is consolidating a rule or clarifying an interface, followed by documenting the resulting boundary.
+
+The goal is a project whose parts can be understood together. A longer instruction file cannot indefinitely compensate for scattered ownership.
+
+## 6. Treat the documentation as a claim to check
+
+Now suppose the booking document names an old verification command, while the package script has changed. A fresh agent following it has found stale information.
+
+I want it to report the discrepancy, establish the canonical check from the current repository, and correct the maintained entry point. Quietly working around the broken instruction leaves the same obstacle for the next run.
+
+For a first improvement, I would choose one bounded change and ask a fresh run to identify its purpose, relevant contracts, verification path, and next action. Then I would inspect what it missed. Was the fact absent, difficult to find, contradicted, or ignored? Those require different fixes.
+
+I would judge an initial trial by those observed misunderstandings and the resulting edits. The useful question is whether the next run can find and apply the facts this change actually needs.
+
+What I want is straightforward: the important reasons for the system should survive beyond the conversation that produced it. When the next run arrives, it should have a clear place to start, a path to the details, and a way to check what it reads.
