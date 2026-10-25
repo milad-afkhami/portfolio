@@ -1,6 +1,7 @@
-import React, { type ReactElement } from "react";
 import CodeBlock from "@/components/CodeBlock";
 import Image, { type ImageProps } from "next/image";
+import MermaidDiagram from "@/components/MermaidDiagram";
+import React, { isValidElement, type PropsWithChildren, type ReactElement } from "react";
 
 type VideoProps = {
   src: string;
@@ -12,6 +13,19 @@ function Video({ src }: VideoProps): JSX.Element {
       <video src={src} autoPlay loop muted playsInline className="mx-auto my-0 w-full overflow-hidden rounded-md" />
     </div>
   );
+}
+
+function MarkdownPre(props: PropsWithChildren<{ className?: string }>): JSX.Element {
+  const child = props.children;
+  if (
+    isValidElement<{ className?: string; children?: React.ReactNode }>(child) &&
+    child.props.className?.split(/\s+/).includes("language-mermaid") &&
+    typeof child.props.children === "string"
+  ) {
+    return <MermaidDiagram chart={child.props.children} />;
+  }
+
+  return <CodeBlock {...props} />;
 }
 
 export const mdxComponents = {
@@ -28,7 +42,7 @@ export const mdxComponents = {
       />
     </div>
   ),
-  pre: CodeBlock,
+  pre: MarkdownPre,
 };
 
 type Props = {
@@ -36,9 +50,5 @@ type Props = {
 };
 
 export default function MDXRemote({ content }: Props): JSX.Element {
-  return (
-    <div className="prose prose-lg max-w-none [&_table]:block [&_table]:overflow-x-auto">
-      {content}
-    </div>
-  );
+  return <div className="prose prose-lg max-w-none [&_table]:block [&_table]:overflow-x-auto">{content}</div>;
 }

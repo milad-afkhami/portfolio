@@ -56,6 +56,28 @@ A modern portfolio website built with Next.js, TypeScript, and Tailwind CSS.
 - Automated code formatting and linting
 - Conventional commit messages
 
+## Writing blog posts
+
+Posts live in `src/data/blogs` as MDX with frontmatter. Use standard fenced Mermaid blocks for diagrams:
+
+````md
+```mermaid
+flowchart TD
+    plan[Review the plan] --> implement[Agent implements]
+    implement --> verify[Verify the result]
+    verify --> learn[Learn and revise]
+    learn -.-> plan
+```
+````
+
+Mermaid loads on demand in the browser. Ordinary code fences retain their copy button; a diagram that fails to
+render leaves readable source instead of breaking the article. The renderer uses Mermaid's strict security mode.
+
+Number article headings explicitly: `## 1. Main section`, `### 1.1. Subsection`, and so on. Choose formatting for its
+meaning: ordered lists for steps, tables for comparisons, and code blocks for useful code or prompts. Use task-list
+checkboxes only when readers actually need a checklist, rather than using them as decoration. Prefer Mermaid for
+diagrams it can express; use illustrations for concepts that need an image.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.txt](LICENSE.txt) file for details.
