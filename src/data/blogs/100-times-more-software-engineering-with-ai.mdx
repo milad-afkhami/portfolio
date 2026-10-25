@@ -3,10 +3,10 @@ title: "I’ve Done 100× More Software Engineering in Two Years With AI Than in
 description: "AI moved my work from repetitive implementation toward plan review, architecture decisions, and learning new systems as I build."
 summary: "I spend less time translating decisions into code and more time making the decisions themselves. That has changed how much engineering I get to do—and what I need to learn."
 date: "2026-10-25"
-readingTime: "6 min"
+readingTime: "8 min"
 category: "AI Engineering"
 quality: "medium"
-coverImage: "/images/blog/100-times-more-software-engineering-with-ai.png"
+coverImage: "/images/blog/100-times-more-software-engineering-with-ai.jpg"
 tags: ["AI Engineering", "Software Engineering", "Claude Code", "Codex", "Architecture"]
 ---
 
@@ -16,7 +16,11 @@ The change is in what fills my day. I review plans. I make architecture decision
 
 I still work hard. I just get to spend much more of that effort on the parts of engineering that interest me.
 
+> The biggest change in my day is how much time I can spend making engineering decisions—and learning enough to make better ones.
+
 ## The implementation used to take most of the room
+
+### Familiar work still consumes attention
 
 You can know what needs to happen and still spend a substantial part of your day making it happen.
 
@@ -30,13 +34,33 @@ With a capable coding agent, I can hand over much more of that execution. I can 
 
 The interesting question becomes what I do with the attention that frees up.
 
+### Where that attention goes now
+
+Here is the division of work I am aiming for. The boundaries move with the task, but the distinction is useful:
+
+| Work                | What I can delegate                                           | Where I want to spend my attention                         |
+| ------------------- | ------------------------------------------------------------- | ---------------------------------------------------------- |
+| A form or interface | Repetitive markup, styling, and wiring                        | Behavior, accessibility, and whether it solves the problem |
+| An API integration  | Mapping payloads, adding handlers, connecting existing pieces | Contracts, failure behavior, and data ownership            |
+| A new feature       | Implementing an agreed plan and exploring alternatives        | Scope, architecture, and unnecessary complexity            |
+| An unfamiliar tool  | Setting up a bounded experiment                               | Understanding its assumptions and deciding whether it fits |
+| Verification        | Running checks and collecting evidence                        | Whether the checks establish the behavior we actually need |
+
 ## Plan review is engineering work
+
+### The notification feature that could become five projects
 
 Imagine adding notifications to an application. This is a hypothetical example, but it captures the shift well.
 
 An agent proposes a background worker, a queue, retry logic, a preferences table, and several abstractions for future notification channels. It can produce a lot of the implementation quickly.
 
-Before it starts, there are decisions worth making. Does this application need a separate worker yet? What happens if delivery succeeds but the acknowledgement is lost? Which notifications must survive a restart? Should a delivery failure affect the action that triggered it? Are we building for a real requirement or a future we have merely imagined?
+Before it starts, there are decisions worth making:
+
+- **Scope:** does this application need a separate worker yet, or would a simpler design meet the requirement?
+- **Duplicate delivery:** what happens if delivery succeeds but the acknowledgement is lost?
+- **Durability:** which notifications must survive a restart?
+- **Failure boundaries:** should a delivery failure affect the action that triggered it?
+- **Complexity:** are we building for a real requirement or a future we have merely imagined?
 
 I want to spend my effort reviewing that plan. I want to understand its failure modes and decide which complexity the application has earned.
 
@@ -44,9 +68,49 @@ Once the direction is sound, writing another handler or adapting a payload is a 
 
 Sometimes the most useful decision will be to reject half the proposed architecture. Other times it will be to insist on a constraint the agent overlooked. Both are engineering, even when the resulting diff is mostly generated.
 
+<figure>
+  <Image
+    src="/images/blog/ai-engineering-work-loop.svg"
+    alt="An illustrative engineering loop: a human reviews the plan, an agent implements it, the result is verified, and learning feeds back into the next plan."
+    width={720}
+    height={940}
+    sizes="(max-width: 640px) 100vw, 576px"
+    className="mx-auto h-auto w-full max-w-xl rounded-lg"
+  />
+  <figcaption>
+    An illustrative working loop: implementation is delegated, while decisions and learning stay connected to the
+    result.
+  </figcaption>
+</figure>
+
+### A prompt that makes the review concrete
+
+For that hypothetical feature, a useful request could look like this:
+
+```text
+Before implementing notifications,
+propose the smallest design that
+meets the current requirements.
+
+Explain:
+- Where the work runs, and why.
+- Failure, retry, duplicate handling.
+- Changes to data and interfaces.
+- Checks for user-visible behavior.
+
+List assumptions and open decisions.
+Add no future channels or services
+without a current requirement.
+Wait for plan review before coding.
+```
+
+This gives me something specific to inspect before there is a large diff. I can challenge the assumptions, choose a simpler boundary, or ask for evidence about a failure case.
+
 ## Building has become part of how I learn
 
 This is the part I find most exciting: I learn as I go.
+
+### Get a working experiment in front of me
 
 A new architecture or unfamiliar tool used to come with a substantial implementation cost before I could meaningfully explore it. There was setup to understand, syntax to learn, integrations to connect, and enough code to write before the tradeoffs became tangible.
 
@@ -56,11 +120,22 @@ Consider another hypothetical example: a small service needs asynchronous work. 
 
 The implementation gives the concepts something concrete to attach to. I can change a condition and inspect the consequence. I can compare two designs while the problem is still fresh in my head.
 
+For the background-job example, the experiment could be deliberately small:
+
+1. **Implement one job.** Keep the surrounding feature out of the experiment.
+2. **Interrupt it halfway through.** Observe what the system actually retains.
+3. **Run it again.** Check whether duplicate execution creates a second side effect.
+4. **Inspect the explanation and the code.** Identify which mechanism produced the observed behavior.
+
+### An explanation is something to check
+
 Of course, a plausible explanation from an agent is not enough to establish that I understand the system. I still need to inspect the implementation, consult the relevant documentation, and check behavior. An agent can confidently make the same wrong assumption in both its code and its explanation.
 
 But I get to reach those questions sooner. More of my learning happens around a system I can examine and change, instead of waiting until I have finished all the supporting code.
 
 ## The new bottleneck is often my judgment
+
+### Spend review effort on consequential constraints
 
 In this way of working, implementation can move ahead faster than I can make good decisions about it.
 
@@ -72,6 +147,8 @@ Is this a public contract we need to preserve? Is it a security boundary? Will t
 
 I care much more about the first set of questions. Cosmetic consistency can often be handled by tooling. The decisions that change behavior, risk, and the cost of future work deserve my attention.
 
+### More decisions still take energy
+
 That does not make the work effortless. Reviewing plans, weighing alternatives, and learning an unfamiliar system all require concentration. Removing slow implementation does not remove the thinking that surrounds it. Sometimes it gives me more thinking to do in the same day.
 
 ## I still own the result
@@ -79,6 +156,8 @@ That does not make the work effortless. Reviewing plans, weighing alternatives, 
 Delegating implementation does not give me someone else to blame for it.
 
 If I accept an architecture, merge a change, or release a feature, I am responsible for the decisions I made and the evidence I accepted. “Claude wrote it” or “Codex did that part” describes how the code was produced. It does not explain why it was safe to ship.
+
+> “The agent wrote it” tells me how the code was produced. I still need to know why we accepted it.
 
 I do not need to personally type every line to contribute engineering judgment. I do need a way to establish that the important requirements hold. Depending on the change, that can involve reviewing the design, examining consequential code paths, running tests, exercising the actual product, or asking a fresh reviewer to challenge the result.
 
@@ -88,13 +167,17 @@ The useful shift is having more room for that work because I am doing less repet
 
 I want to become better at reviewing a plan before it turns into a large diff. Better at recognizing when a familiar architecture is unnecessary. Better at understanding an unfamiliar tool well enough to evaluate the agent’s use of it. Better at stating the constraints that actually protect the system.
 
-For someone trying this way of working, I would start with a bounded feature:
+### Try it on one bounded feature
 
-1. Ask for a plan before the implementation. Review its assumptions, boundaries, and failure behavior.
-2. Delegate a complete piece of execution, with a clear outcome and a way to check it.
-3. Use the saved implementation effort to investigate one important design choice or unfamiliar concept.
-4. Check the result against the original requirement, including the real behavior the user reaches.
-5. Notice where your attention went. More generated code is less interesting than a better decision you now had time to make.
+For someone trying this way of working, I would start with this checklist:
+
+- [ ] Ask for a plan before the implementation. Review its assumptions, boundaries, and failure behavior.
+- [ ] Delegate a complete piece of execution, with a clear outcome and a way to check it.
+- [ ] Use the saved implementation effort to investigate one important design choice or unfamiliar concept.
+- [ ] Check the result against the original requirement, including the real behavior the user reaches.
+- [ ] Notice where your attention went. More generated code is less interesting than a better decision you now had time to make.
+
+### Keep the experience; change how you use it
 
 I spent my first six years building useful things and learning the craft. Those years are part of why I can evaluate plans and make architecture decisions now.
 
