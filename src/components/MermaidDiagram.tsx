@@ -2,8 +2,7 @@
 
 import CodeBlock from "@/components/CodeBlock";
 import { useEffect, useId, useState } from "react";
-import usePageDarkMode from "@/hooks/usePageDarkMode";
-import { getMermaidConfig, mermaidPalettes } from "@/configs/mermaid";
+import { getMermaidConfig, mermaidPalette } from "@/configs/mermaid";
 
 type Props = {
   chart: string;
@@ -11,8 +10,6 @@ type Props = {
 
 export default function MermaidDiagram({ chart }: Props): JSX.Element {
   const id = `mermaid-${useId().replace(/[^a-zA-Z0-9_-]/g, "")}`;
-  const dark = usePageDarkMode();
-  const palette = mermaidPalettes[dark ? "dark" : "light"];
   const [svg, setSvg] = useState("");
   const [failed, setFailed] = useState(false);
 
@@ -26,9 +23,9 @@ export default function MermaidDiagram({ chart }: Props): JSX.Element {
         const { default: mermaid } = await import("mermaid");
         if (!active) return;
 
-        mermaid.initialize(getMermaidConfig(dark));
+        mermaid.initialize(getMermaidConfig());
 
-        const result = await mermaid.render(`${id}-${dark ? "dark" : "light"}`, chart);
+        const result = await mermaid.render(id, chart);
         // Cleanup can change this flag while the render promise is pending.
         // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
         if (active) setSvg(result.svg);
@@ -41,7 +38,7 @@ export default function MermaidDiagram({ chart }: Props): JSX.Element {
     return () => {
       active = false;
     };
-  }, [chart, id, dark]);
+  }, [chart, id]);
 
   if (!svg) {
     return (
@@ -59,8 +56,8 @@ export default function MermaidDiagram({ chart }: Props): JSX.Element {
   return (
     <div
       className="not-prose my-8 overflow-x-auto rounded-lg border p-4 [&_svg]:mx-auto [&_svg]:h-auto"
-      data-mermaid-scheme={dark ? "dark" : "light"}
-      style={{ backgroundColor: palette.background, borderColor: palette.border }}
+      data-mermaid-theme="warm-paper"
+      style={{ backgroundColor: mermaidPalette.background, borderColor: mermaidPalette.border }}
       // Mermaid's strict mode sanitizes labels and disables diagram click actions.
       // eslint-disable-next-line react/no-danger
       dangerouslySetInnerHTML={{ __html: svg }}
