@@ -58,6 +58,9 @@ A modern portfolio website built with Next.js, TypeScript, and Tailwind CSS.
 
 ## Writing blog posts
 
+Read [the blog writing guide](docs/blog-writing-guide.md) before authoring or revising an article. It collects
+the topic-selection, tone, length, diagram, prompt-library, asset and review rules.
+
 Posts live in `src/data/blogs` as MDX with frontmatter. Use standard fenced Mermaid blocks for diagrams:
 
 ````md
