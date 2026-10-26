@@ -1,0 +1,57 @@
+---
+title: "Getting an Agent to Compare Its Options"
+description: "Listing alternatives is easy. A useful recommendation explains how each option fits the problem before choosing one."
+summary: "My weigh-options-and-decide prompt asks an agent to compare real alternatives across the considerations that matter before recommending a choice. A small settings example shows what that comparison should reveal."
+date: "2026-10-26"
+readingTime: "3 min"
+category: "AI Engineering"
+quality: "medium"
+coverImage: "/images/blog/a-decision-is-more-than-another-menu-cover.jpg"
+tags: ["AI Engineering", "Decision Making", "Agent Workflows", "Engineering Judgment", "Prompts"]
+---
+
+“Here are three options. I recommend the second.”
+
+An answer like that can look considered even when the recommendation feels like a guess. The agent has named some alternatives, but it hasn't explained how they compare on the things that matter for this problem.
+
+That's the habit my **weigh-options-and-decide** prompt addresses. It asks for the comparison before the recommendation: establish the goal, examine the real alternatives, and explain what each gains and gives up. Choosing comes after that work.
+
+## 1. Give the comparison something to turn on
+
+Take a hypothetical application that needs to remember a sidebar's width. The width must survive a page refresh, but it doesn't need to follow the user between devices. The application already has a browser-preference helper and an account-preference service.
+
+The agent could keep the value in component state, use the browser helper, or save it through the account service. A useful comparison would look like this:
+
+| Option                     | Survives a refresh?  | Where the change belongs                    | Main cost in this example                  |
+| -------------------------- | -------------------- | ------------------------------------------- | ------------------------------------------ |
+| Component state            | No                   | Sidebar component                           | Fails a requirement                        |
+| Existing browser helper    | Yes, in that browser | Sidebar and its existing preference adapter | No cross-device synchronization            |
+| Account-preference service | Yes, across devices  | Sidebar plus the account service            | Adds a service dependency for this setting |
+
+These are the stated properties of the invented application. In real work, the agent needs to inspect whether the helpers actually behave that way.
+
+Here, the browser helper fits. Component state fails the refresh requirement. The account service supplies synchronization the task doesn't need, while making the setting depend on another service.
+
+Now change one requirement: the width should follow the account between devices. The same comparison points toward the account service. The recommendation changes because the requirement changed, not because one approach is always better.
+
+That is the useful part of the exercise. The answer reveals what the choice depends on.
+
+## 2. Compare the relevant aspects, then choose
+
+The full prompt also asks the agent to question a familiar default, consider alternatives nobody has mentioned, and include a combination or doing nothing when either makes sense. It doesn't require a giant matrix for every decision.
+
+For the sidebar, refresh behavior and synchronization settle most of the choice. A decision about a shared database might instead depend on compatibility, query patterns, or the cost of changing existing callers. Applying the same checklist mechanically would bury those differences.
+
+Nor does assigning “maintainability: 8/10” make the comparison more convincing. A concrete explanation of which callers change is easier to assess than an unexplained score.
+
+This resembles a process reminder such as “think step by step,” with a specific job attached: compare the candidates using the actual constraints before naming a favorite. It isn't a guarantee of a better answer. A comparison built on a false assumption can still produce a confident recommendation, so its important claims need checking.
+
+## 3. Use the prompt at a real decision
+
+The [Prompt Library page](/prompts/weigh-options-and-decide) has the complete prompt to read or copy, plus the skill download. Once it's available to the agent, a short request can supply the task:
+
+> Use weigh-options-and-decide to choose how this sidebar should remember its width. It must survive a refresh; cross-device sync isn't needed. Inspect the existing browser and account preference helpers.
+
+The prompt also tells the agent to carry out the chosen next step when that's part of the authorized task. That follow-through is useful, but the reason for this prompt is the comparison that earns the recommendation.
+
+A good answer leaves the deciding factor visible. If a requirement or project fact turns out to be wrong, there's a clear place to reconsider the choice.

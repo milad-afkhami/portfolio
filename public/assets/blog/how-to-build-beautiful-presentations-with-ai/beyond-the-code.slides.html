@@ -1,0 +1,162 @@
+<script type="application/json" id="deck-config">
+{
+  "title": "Beyond the Code: How Agents Finish a Job",
+  "lang": "en",
+  "fonts": { "body": "lexend", "display": "lora" },
+  "footer": "Beyond the code",
+  "tailwind": false
+}
+</script>
+
+<style>
+:root {
+  --deck-bg: #fbfcff;
+  --deck-fg: #18313a;
+  --deck-muted: #49646c;
+  --deck-accent: #6966d9;
+  --deck-accent-2: #f26653;
+  --deck-surface: #e2eef0;
+  --deck-line: #acbfc5;
+  --deck-letterbox: #18313a;
+  --deck-pad-x: 72px;
+  --deck-pad-y: 60px;
+}
+.slide { font-size: 26px; line-height: 1.5; }
+.slide h1, .slide h2, .slide h3 { letter-spacing: -.035em; }
+.slide h2 { font-size: 57px; line-height: 1.14; margin: 0; max-width: 1090px; font-weight: 600; }
+.slide p { max-width: 1050px; }
+.slide .talk-title { font-size: 100px; line-height: 1.02; font-weight: 500; }
+.slide .talk-position { position: absolute; }
+.slide .talk-sub { font-size: 30px; line-height: 1.45; }
+.slide .talk-caption { font-size: 20px; line-height: 1.45; }
+.slide .talk-label { font-size: 22px; line-height: 1.4; font-weight: 400; }
+.slide .talk-dark { color: #18313a; }
+.slide .talk-muted { color: var(--deck-muted); }
+.slide .talk-serif { font-family: var(--deck-font-display); }
+.slide .talk-petrol { color: #103c46; }
+.slide .talk-light { color: #fbfcff; }
+.slide.talk-night {
+  background: #103c46; color: #fbfcff;
+  --deck-muted: #c4dce0; --deck-accent: #c3c1ff; --deck-line: #6a8a92;
+}
+.slide.talk-mist { background: #e2eef0; }
+.slide.talk-coral { background: #f26653; --deck-muted: #18313a; --deck-line: #b94738; }
+.slide.talk-iris { background: #6966d9; color: #fbfcff; --deck-muted: #eeedff; }
+.slide .talk-rule { border-top: 1px solid var(--deck-line); }
+.slide .talk-booking {
+  width: 480px; padding: 18px 26px; border-left: 6px solid #6966d9;
+  background: #fbfcff; font-size: 23px;
+}
+.slide .talk-time { font-family: var(--deck-font-display); font-size: 62px; line-height: 1.2; }
+.slide .talk-rule-row { display: grid; grid-template-columns: 440px 1fr; gap: 48px; padding: 26px 0; border-top: 1px solid #acbfc5; }
+.slide .talk-rule-row b { font-weight: 500; font-size: 30px; }
+.slide .talk-rule-row p { font-size: 25px; color: #49646c; }
+.slide .talk-diagram text { font-family: var(--deck-font-body); }
+.slide .talk-check-list { margin: 30px 0 0; padding: 0; list-style: none; }
+.slide .talk-check-list li { padding: 14px 0; border-bottom: 1px solid #acbfc5; font-size: 25px; }
+.slide .talk-ui {
+  background: #fbfcff; border: 2px solid #103c46; border-radius: 22px;
+  padding: 32px; box-shadow: 14px 14px 0 #b5d0d6;
+}
+.slide .talk-ui-field { margin-top: 24px; padding: 16px 20px; border: 1px solid #acbfc5; font-size: 25px; }
+.slide .talk-ui-button { display: inline-block; margin-top: 24px; padding: 16px 24px; background: #103c46; color: #fbfcff; font-size: 23px; }
+.slide .talk-handoff { display: grid; grid-template-columns: 220px 1fr; gap: 36px; padding: 29px 0; border-top: 1px solid #acbfc5; }
+.slide .talk-handoff p { font-size: 28px; }
+.slide .talk-handoff span { font-size: 23px; color: #49646c; }
+.slide .talk-focus-line { font-size: 42px; line-height: 1.3; }
+</style>
+
+<section class="slide talk-night" data-no-number>
+  <h1 class="talk-title talk-position" style="left:72px;top:160px;width:730px;">Beyond<br>the code.</h1>
+  <p class="talk-sub talk-position" style="left:76px;top:420px;width:650px;">How agents finish a job</p>
+  <svg class="talk-position" style="left:820px;top:170px;" width="340" height="350" viewBox="0 0 340 350" aria-hidden="true">
+    <path d="M45 35 V145 Q45 190 90 190 H230 Q280 190 280 240 V315" fill="none" stroke="#b3d0d6" stroke-width="4"/>
+    <circle cx="45" cy="35" r="19" fill="#103c46" stroke="#fbfcff" stroke-width="4"/>
+    <circle cx="280" cy="315" r="19" fill="#103c46" stroke="#f26653" stroke-width="4"/>
+    <path d="M45 35 V145 Q45 190 90 190 H150" fill="none" stroke="#f26653" stroke-width="8"/>
+    <circle cx="150" cy="190" r="8" fill="#f26653"/>
+  </svg>
+  <p class="talk-caption talk-position" style="left:76px;top:608px;width:760px;color:#c4dce0;">A short talk for developers delegating a complete change</p>
+  <aside class="notes"><p>This talk follows one hypothetical booking change. The question is what must happen after code has been written before someone can assess the finished job. No customer incident or productivity measurement is presented.</p></aside>
+</section>
+
+<section class="slide talk-mist">
+  <h2>The request is small.<br>The promise isn't.</h2>
+  <p class="talk-serif talk-position" style="left:72px;top:255px;width:440px;font-size:43px;line-height:1.3;">“Let a customer move a booking.”</p>
+  <div class="talk-position" style="left:635px;top:245px;width:500px;">
+    <div class="talk-booking"><span class="talk-label">Original appointment</span><div class="talk-time">10:00</div></div>
+    <div class="talk-booking" style="margin-top:22px;border-left-color:#f26653;"><span class="talk-label">Chosen destination</span><div class="talk-time">14:00</div></div>
+  </div>
+  <p class="talk-position" style="left:72px;top:570px;width:1050px;font-size:28px;">Changing the time must not lose the booking.</p>
+  <aside class="notes"><p>Our invented customer already has a booking. Moving it is a state change, not just a calendar selection. The destination can become unavailable, and a failed move must preserve the original appointment.</p></aside>
+</section>
+
+<section class="slide">
+  <h2>First, define what<br>must survive.</h2>
+  <div class="talk-position" style="left:72px;top:250px;width:1136px;">
+    <div class="talk-rule-row fragment"><b>Keep the old slot</b><p>Release it only when the move succeeds.</p></div>
+    <div class="talk-rule-row fragment"><b>Use the booking service</b><p>Keep access and state changes together.</p></div>
+    <div class="talk-rule-row fragment"><b>Notify after success</b><p>A refused move must not send a confirmation.</p></div>
+  </div>
+  <aside class="notes"><p>These are the assumptions of this example. Real projects need their actual booking and payment contracts. Set the rules before asking the agent to design the flow, so implementation doesn't silently choose the product behavior.</p></aside>
+</section>
+
+<section class="slide talk-night">
+  <h2>The screen doesn't<br>own the booking.</h2>
+  <svg class="talk-position talk-diagram" style="left:72px;top:220px;" width="1136" height="325" viewBox="0 0 1136 325" role="img" aria-label="Customer goes through the screen and booking service to the calendar. A taken destination returns a refusal while preserving the original booking.">
+    <defs><marker id="path-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#c3c1ff"/></marker><marker id="return-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#f26653"/></marker></defs>
+    <g fill="none" stroke="#c3c1ff" stroke-width="3" marker-end="url(#path-arrow)"><path d="M238 110H292"/><path d="M528 110H582"/><path d="M818 110H872"/></g>
+    <g fill="#103c46" stroke="#8bb1bb" stroke-width="2"><rect x="8" y="52" width="230" height="116" rx="14"/><rect x="298" y="52" width="230" height="116" rx="14"/><rect x="588" y="52" width="230" height="116" rx="14"/><rect x="878" y="52" width="230" height="116" rx="14"/></g>
+    <g fill="#fbfcff" font-size="25" text-anchor="middle"><text x="123" y="120">Customer</text><text x="413" y="105">Booking</text><text x="413" y="140">screen</text><text x="703" y="105">Booking</text><text x="703" y="140">service</text><text x="993" y="120">Calendar</text></g>
+    <path d="M993 168V230Q993 250 973 250H723Q703 250 703 230V174" fill="none" stroke="#f26653" stroke-width="3" marker-end="url(#return-arrow)"/>
+    <text x="840" y="300" fill="#fbfcff" font-size="24" text-anchor="middle">Taken? Preserve the old slot.</text>
+    <text x="123" y="220" fill="#c4dce0" font-size="21" text-anchor="middle">Choose</text><text x="413" y="220" fill="#c4dce0" font-size="21" text-anchor="middle">Request</text>
+  </svg>
+  <p class="talk-position talk-sub" style="left:72px;top:570px;width:1050px;">Put the transition in the service that owns it.</p>
+  <aside class="notes"><p>The diagram makes the boundary explicit. The form submits the requested move. The booking service enforces access and coordinates the calendar transition; it must not release the old slot on a failed reservation. The exact atomic mechanism belongs to the real system, not this diagram.</p></aside>
+</section>
+
+<section class="slide talk-mist">
+  <h2>Check the service.<br>Then use the screen.</h2>
+  <div class="talk-position" style="left:72px;top:248px;width:470px;">
+    <p class="talk-label">Service checks</p>
+    <ul class="talk-check-list"><li>The complete interval is available.</li><li>A taken destination is refused.</li><li>Another customer can't move it.</li></ul>
+  </div>
+  <div class="talk-position talk-ui" style="left:670px;top:236px;width:465px;">
+    <p class="talk-label">Example customer journey</p>
+    <div class="talk-ui-field">New appointment: 14:00</div>
+    <span class="talk-ui-button">Confirm move</span>
+    <p class="talk-caption" style="margin-top:22px;">Use the actual control.<br>Inspect the saved result.</p>
+  </div>
+  <aside class="notes"><p>These are proposed checks for the invented feature, not test results. Service tests and a rendered customer flow answer different questions. Follow the real control through confirmation and inspect the stored booking rather than infer success from a button click.</p></aside>
+</section>
+
+<section class="slide talk-coral">
+  <h2 style="font-size:84px;max-width:1100px;">14:00 is gone.</h2>
+  <p class="talk-focus-line talk-position" style="left:72px;top:210px;width:1040px;">The customer still has 10:00.</p>
+  <svg class="talk-position talk-diagram" style="left:72px;top:330px;" width="1080" height="165" viewBox="0 0 1080 165" role="img" aria-label="The original10:00 booking remains; the destination14:00 is unavailable.">
+    <path d="M60 66H990" stroke="#18313a" stroke-width="3" fill="none"/>
+    <circle cx="140" cy="66" r="20" fill="#18313a"/><circle cx="900" cy="66" r="20" fill="#f26653" stroke="#18313a" stroke-width="3"/>
+    <path d="M880 46L920 86M920 46L880 86" stroke="#18313a" stroke-width="4"/>
+    <g fill="#18313a" text-anchor="middle"><text x="140" y="122" font-size="28">10:00 preserved</text><text x="900" y="122" font-size="28">14:00 unavailable</text></g>
+  </svg>
+  <p class="talk-position" style="left:72px;top:552px;width:1090px;font-size:29px;">Refuse the move. Keep the booking. Offer another time.</p>
+  <aside class="notes"><p>Another customer may reserve the destination after it was displayed. Refusal is the correct result in that case. This failure path is part of finishing the feature, not an optional edge to revisit after the happy path looks polished.</p></aside>
+</section>
+
+<section class="slide">
+  <h2>Make the handoff<br>answer a decision.</h2>
+  <div class="talk-position" style="left:72px;top:250px;width:1136px;">
+    <div class="talk-handoff"><span>Change</span><p>Confirmation rechecks the destination.</p></div>
+    <div class="talk-handoff"><span>Evidence</span><p>Attach the run for a taken slot.</p></div>
+    <div class="talk-handoff"><span>Still open</span><p>Deployment is outside this assignment.</p></div>
+  </div>
+  <aside class="notes"><p>This is the shape of an example handoff, not a report that those application checks ran. A real handoff should identify the actual change, connect observed evidence to its version, and state the remaining decision. The reader can then assess readiness without rebuilding the conversation.</p></aside>
+</section>
+
+<section class="slide talk-iris" data-no-number>
+  <h2 class="talk-position" style="left:72px;top:105px;font-size:100px;line-height:1.04;font-weight:500;">Finish<br>the promise.</h2>
+  <p class="talk-sub talk-position" style="left:78px;top:370px;width:800px;">Leave working behavior<br>and the evidence to judge it.</p>
+  <svg class="talk-position" style="left:78px;top:530px;" width="1080" height="95" viewBox="0 0 1080 95" aria-hidden="true"><path d="M20 48H1030" fill="none" stroke="#eeedff" stroke-width="4"/><circle cx="20" cy="48" r="15" fill="#6966d9" stroke="#fbfcff" stroke-width="4"/><circle cx="1030" cy="48" r="21" fill="#fbfcff"/></svg>
+  <aside class="notes"><p>The agent's task is finished when it has reached the agreed outcome and left enough evidence to judge the result. That can include a visible remaining release decision if release was not part of the authorization. Keep the task's actual scope intact.</p></aside>
+</section>

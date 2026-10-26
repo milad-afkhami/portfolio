@@ -7,7 +7,7 @@ type PromptCardProps = {
 };
 
 export default function PromptCard({ prompt }: PromptCardProps): JSX.Element {
-  const { slug, name, description, coverImage } = prompt;
+  const { slug, name, description, coverImage, kind } = prompt;
 
   return (
     <Link
@@ -16,6 +16,9 @@ export default function PromptCard({ prompt }: PromptCardProps): JSX.Element {
     >
       <Image src={coverImage} alt={name} width={300} height={200} className="h-52 w-full object-cover" />
       <div className="space-y-4 p-6">
+        {kind && (
+          <p className="text-sm text-base-content/60">{kind === "skill" ? "Agent skill" : "Standing instructions"}</p>
+        )}
         <h2 className="text-xl font-bold text-base-content">{name}</h2>
         <p className="text-base-content/70">{description}</p>
       </div>

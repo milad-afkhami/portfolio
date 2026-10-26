@@ -30,6 +30,8 @@ During outlining, ask whether a diagram would make a relationship, sequence, dec
 
 Choose the format for the explanation: flowcharts for decisions/processes, sequence diagrams for interactions, state diagrams for changing states, mind maps for a useful hierarchy, and other supported Mermaid formats when appropriate. Avoid turning every explanation into the same flowchart. Diagrams should add understanding rather than repeat an adjacent list.
 
+Choose a visual readers can understand without learning diagram notation. A short series of steps often needs only a few labeled boxes; a simple contrast may be clearer as a table. Avoid sequence-diagram lifelines, self-calls and alternative frames when they make an ordinary workflow harder to read. Keep sequence diagrams for interactions where that detail helps the explanation.
+
 Use standard `mermaid` fences with the existing hand-drawn Warm paper renderer and peach `#f6be89`. Preserve its single palette. Inspect labels and the actual rendering at desktop and mobile widths; source syntax alone is insufficient.
 
 Continue to number article H2 and H3 headings. Use lists, tables, code and emphasis for meaning, not to meet a formatting quota.

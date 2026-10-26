@@ -1,0 +1,57 @@
+---
+title: "What Is Experience Worth When AI Can Write the Code?"
+description: "When an agent handles implementation, experience still shapes the questions you ask, the mistakes you notice, and the work you can judge."
+summary: "An agent can write code in a language you barely know. Understanding what the program should do, where it can fail, and how to check it remains useful. A contact importer makes that distinction concrete."
+date: "2026-10-26"
+readingTime: "4 min"
+category: "AI Engineering"
+quality: "medium"
+coverImage: "/images/blog/what-is-experience-worth-when-ai-can-write-the-code-cover.jpg"
+tags: ["AI Engineering", "Engineering Judgment", "Learning", "Coding Agents", "Career Development"]
+---
+
+An agent builds a contact importer. The screen looks right, valid rows import, and the tests pass. Then a customer imports an email address that already exists in another customer's workspace.
+
+Should those become one contact or two?
+
+In this hypothetical application, they must remain separate. Someone who notices that requirement before implementation has contributed something important, even if they never type the code that enforces it.
+
+That is one answer to what engineering experience is worth when an agent writes the implementation. Experience can change what gets built and which mistakes survive review. The number of lines typed doesn't capture that contribution.
+
+## 1. Knowing what to ask still matters
+
+“Import the contacts” leaves a surprising amount undecided. Which fields are optional? What happens to an invalid row? Does importing the same file twice create duplicates? Can one customer affect another customer's records?
+
+An experienced engineer may recognize these questions because they've worked with identity, retries, validation, or access control before. They can turn a vague request into behavior worth checking.
+
+But that knowledge doesn't belong exclusively to programmers. A support specialist might know that customers often have no family name. A product expert might know why two records with the same email must remain separate. Their understanding can catch a mistake that a technically strong implementation would otherwise preserve.
+
+The valuable part is recognizing the relevant rule. A job title or a long career doesn't establish that someone has recognized it in this particular task.
+
+Experience can also steer the work badly. A reviewer might insist on a favorite abstraction because it worked in a previous project. The agent can implement that preference perfectly while making this importer harder to understand. Familiarity supplies ideas; the current problem still decides whether they fit.
+
+## 2. Asking for correct behavior and checking it are different skills
+
+You can ask an agent for separate customer records without knowing the implementation language. You can also import the same email into two test workspaces and see whether both retain a contact.
+
+That checks a useful case. It doesn't show that every route through the application respects the same separation.
+
+Reading the implementation adds another view. Where does the workspace identifier come from? Does the server check it, or trust whatever the caller supplies? Does the duplicate lookup include the workspace, or search globally by email?
+
+These questions connect the visible result to how the program actually works. General engineering knowledge helps identify them, while language and framework knowledge help answer them. An agent's explanation can help with unfamiliar code, but the explanation needs checking against the source.
+
+This is where delegating typing and giving up understanding part ways. You don't need to reproduce every line yourself. You do need enough understanding, or access to someone with it, to judge the claims you're accepting.
+
+The required depth depends on the work. A disposable text formatter and a shared service handling customer records deserve different levels of scrutiny. Being able to request either one doesn't automatically make you qualified to accept both.
+
+## 3. Delegation changes what is worth learning
+
+In my work, agents handle much of the implementation while I review plans, make architecture decisions, and learn as I go. That makes gaps in understanding more specific. A question about how one imported row reaches storage gives an unfamiliar language feature a purpose.
+
+Learning can follow that question. Understanding the validation, identity lookup, and write explains more than memorizing syntax disconnected from a task. Syntax still matters when it helps read or change the program; it hasn't become irrelevant because an agent can produce it.
+
+An experienced programmer who avoids looking at code still brings their background to the task. They choose examples, recognize suspicious behavior, and understand concepts learned earlier. Hiding the implementation doesn't turn that person into a beginner or show how a beginner would perform.
+
+Nor does an agent-written importer settle what will happen to engineering jobs. It gives us a smaller, more useful question: which part of the result can this person understand and check?
+
+For the contact importer, experience earns its place when someone notices the workspace rule, follows it through the code, and catches a lookup that would merge the wrong records. The agent may have written the whole feature. That judgment still changed the outcome.

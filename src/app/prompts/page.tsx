@@ -17,8 +17,8 @@ export default async function PromptsPage(): Promise<JSX.Element> {
       <div className="space-y-4">
         <h1 className="text-4xl font-bold">Prompt Library</h1>
         <p className="text-xl text-base-content/80">
-          Discover powerful AI prompts for product management, content creation, career development, and more. Each
-          prompt is carefully crafted to deliver professional-grade results across various domains.
+          Prompts, agent skills and standing instructions from my work. Read the complete instructions, try a short
+          example, or download a skill with the files it needs. The linked articles explain the ideas in practice.
         </p>
       </div>
 

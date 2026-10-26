@@ -81,4 +81,10 @@ export type IPrompt = {
   coverImage: string;
   content: string;
   hasVariable?: boolean;
+  kind?: "skill" | "instructions";
+  usage?: Array<string>;
+  example?: string;
+  sourceNote?: string;
+  downloads?: Array<{ label: string; url: string }>;
+  relatedArticles?: Array<{ title: string; url: string }>;
 };

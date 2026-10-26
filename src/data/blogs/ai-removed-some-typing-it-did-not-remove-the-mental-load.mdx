@@ -1,0 +1,47 @@
+---
+title: "AI Removed Some Typing. It Did Not Remove the Mental Load."
+description: "Delegating implementation can leave the human work concentrated in review, uncertain decisions, and repeated requests for attention."
+summary: "Less typing doesn't necessarily mean less effort. Agent work can compress the time between difficult decisions, while uncertainty about the task and uncertainty about the answer create different problems."
+date: "2026-10-26"
+readingTime: "3 min"
+category: "AI Engineering"
+quality: "medium"
+coverImage: "/images/blog/ai-removed-some-typing-it-did-not-remove-the-mental-load-cover.jpg"
+tags: ["AI Engineering", "Agent Supervision", "Developer Workflow", "Research", "Decision Making"]
+---
+
+The agent has finished the code. You're still trying to decide whether it's right.
+
+A result can take little typing from you and a great deal of thought. Reading the changes, resolving an ambiguous requirement, and working out whether the tests checked the right thing are all part of the job.
+
+Much of my work with agents sits here: reviewing plans, making architecture decisions, and learning while they handle implementation. Moving the typing elsewhere leaves those responsibilities with me. It can also shorten the gaps between them.
+
+## 1. Less execution can mean more concentrated decisions
+
+Suppose an agent builds a search screen. It returns a working interface and passing tests, but the order of the results exposes a question nobody settled: should an exact name match come first, or should recent activity matter more?
+
+That needs a product decision. Once it's settled, another question follows: do the implementation and tests reflect it? A test that copied the code's sorting rule may pass without answering whether that rule serves the intended search.
+
+Those are different kinds of effort. One is deciding what the program should do; the other is establishing what it actually does. An agent can help with both, but a confident proposal doesn't remove the need to judge it.
+
+Now suppose several threads return together. The human part of the workflow can become a succession of these decisions, with less manual work between them. A count of completed agent tasks won't show how much attention each result needed.
+
+Waiting doesn't settle the question either. Watching a job, checking several threads, and stepping away are different activities. A period with no typing may still involve constant monitoring.
+
+## 2. Uncertainty has more than one source
+
+“I'm not sure what to ask for” is different from “I'm not sure I can trust this answer.” In the search example, the first calls for clarifying the ranking rule. The second calls for inspecting the result. Writing a longer prompt isn't automatically a solution to either.
+
+Yang and colleagues' [Fatigued by uncertainties](https://www.sciencedirect.com/science/article/pii/S0268401225001422) examines this distinction. Its abstract reports data from 832 GenAI users, associating uncertainty about prompts with emotional fatigue and uncertainty about responses with cognitive fatigue. Both forms of fatigue were associated with lower willingness to provide feedback.
+
+I read the available publisher abstract and preview, including a survey-method snippet; the full paper wasn't obtained. These findings describe associations in that study, not evidence that coding agents cause burnout. Feedback willingness also isn't the same as measured feedback behavior.
+
+The distinction is useful without stretching the paper further. When work becomes difficult, identifying the unanswered question tells us more than treating every problem as a general need to “prompt better.”
+
+## 3. Fast output can change the pace around it
+
+An agent can produce another proposal while a teammate is still investigating an older compatibility rule. That speed can make the human reply feel slow, even when the investigation is exactly what the task needs.
+
+A quick answer and a resolved question are different things. Generating more alternatives won't recover an agreement that only the teammate knows. Nor does another plausible explanation establish what an existing customer depends on.
+
+Typing was only one part of software development. When agents take on more of it, the remaining effort becomes easier to overlook precisely because there's less visible activity at the keyboard. Reviewing a plan, learning an unfamiliar mechanism, and rejecting a convincing but wrong answer are still work.
