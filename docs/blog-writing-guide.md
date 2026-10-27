@@ -12,6 +12,8 @@ Preserve rejected topics in the research catalogue for history, but remove their
 
 These are knowledge-sharing blog posts, not instructions to an employee or policy documents for an agent. Start with the useful idea, a concrete example, or a real problem. Explain how it works and why it matters.
 
+A project article should explain the useful capability and show the result. It is not the project's operating manual. Include implementation details only when they help the reader understand that idea. For Heimdall, the point is giving an incident investigator a head start through gathered context; command permissions, report parsing and delivery internals belong in project documentation. A supplied screenshot can demonstrate the output without proving details that are redacted.
+
 Use first person for an actual author experience or a meaningful personal view. Do not repeat “I want,” “I would,” or “I expect” as the frame for every paragraph. Avoid manufacturing personal stories to make prose sound human. Keep hypothetical examples clearly hypothetical without repeating the same disclaimer throughout the post.
 
 Prefer names the reader understands: “example request,” “example comparison,” “what the program should do,” and “what the check showed.” Do not dress these up as “bounded invocation,” “illustrative decision record,” or other internal process terms. Keep necessary technical terms and explain them when they matter.
@@ -21,6 +23,8 @@ Keep the article's real point in view. For `weigh-options-and-decide`, that poin
 ## Use the length the idea needs
 
 There is no target word count or minimum number of sections. Develop the point completely, then stop. Remove repeated caveats, repeated conclusions, generic advice and side topics that do not help the reader understand the main idea. Some articles need a detailed walkthrough; others are complete in a few clear sections.
+
+Make abstract barriers concrete before discussing how AI changes them. For team structure, name the old constraint, the arrangement it supported, and what can now change: expensive prototypes, separate implementation skills, or domain knowledge passed through several handoffs. Prefer one clear example over several paragraphs repeating the claim.
 
 Keep citations and meaningful evidence limits when trimming. Do not turn an association into a causal claim or a proposed method into a completed experiment. A single well-placed qualification is usually better than repeating it in every section.
 

@@ -1,0 +1,55 @@
+---
+title: "Is Your Team Still Organized Around Expensive Code?"
+description: "Separate mockups, specialist implementation and repeated handoffs made sense under particular constraints. Coding agents give teams a reason to reconsider those boundaries."
+summary: "A designer can build a working flow, a domain expert can test an exception, and an engineer can cover a wider implementation. Which team boundaries still earn their cost when agents change who can build?"
+date: "2026-10-26"
+readingTime: "4 min"
+category: "AI Engineering"
+quality: "medium"
+coverImage: "/images/blog/is-your-team-still-organized-around-expensive-code-cover.jpg"
+tags: ["AI Engineering", "Team Design", "Software Engineering", "Product Development", "Coding Agents"]
+---
+
+Giving every developer an agent can leave the organization around them untouched. A product request still travels through design, frontend, backend and testing, with another handoff whenever something changes.
+
+Some of those divisions exist because building software was expensive and required separate implementation skills. When agents make a task cheaper to build, the reason for keeping the same division deserves another look.
+
+## 1. Which old barriers are getting smaller?
+
+Consider a team where a product person writes requirements, a designer makes screens, frontend and backend developers implement them separately, and QA sees the assembled feature near the end. That arrangement can address several real constraints:
+
+**Trying an idea in code was expensive.** A designer could explore several mockups before asking developers to spend weeks on implementation. If a working prototype can now be produced quickly, the designer may be able to test the interaction directly and discard it cheaply.
+
+**Different people knew different implementation stacks.** A frontend developer needed a backend colleague to add a field or endpoint before finishing a flow. An engineer working with an agent may now be able to make a small change across both, while involving a specialist where the system demands it.
+
+**Domain knowledge had to be translated into technical instructions.** A support specialist knew the exceptions but couldn't try them in the product without several people turning the explanation into code. With an agent and a suitable test environment, that specialist may be able to demonstrate the behavior themselves.
+
+These are task-specific possibilities. Agents don't automatically understand users, make good design decisions, or remove every need for specialist knowledge. But a team should be able to explain why each boundary remains useful, rather than preserve it because that's how the work used to be possible.
+
+## 2. A handoff that could change
+
+Take a hypothetical support application. A supervisor needs to move unresolved tickets to the next shift, except tickets waiting on an external reply should stay with their current owner.
+
+In the separated workflow, the specialist describes the rule, a designer represents it on a screen, and developers interpret the screen. The missed exception may only become obvious when the specialist finally tries the result.
+
+An alternative is a small group working around the same running version. The specialist and agent explore selection and reassignment. A designer checks whether the interaction is understandable and accessible. An engineer establishes how it fits the application's existing permission and history rules.
+
+The specialist can try the exception immediately. The designer reviews actual behavior. The engineer helps the work enter the shared system correctly. These responsibilities can overlap in one person; they don't require three sequential queues.
+
+The proposed change is concrete: remove repeated translation and waiting between people who could examine the same working result.
+
+## 3. Keep the boundaries that protect the product
+
+Suppose the prototype changes ticket ownership directly, bypassing the application's existing assignment service. It looks right but skips permission checks and transfer history. Faster implementation doesn't make that acceptable.
+
+DHH describes a related problem at Basecamp: designers' agent-built changes looked individually plausible but collectively damaged the architecture and required repair. That is his team's reported experience, not a rule that designers shouldn't build. It shows why direct building needs an early connection to the surrounding system. [Publisher transcript](https://lexfridman.com/dhh-2-transcript/)
+
+Understanding users, maintaining shared architecture and accepting a release remain responsibilities. The question is whether each requires a separate role and handoff on this task.
+
+## 4. Team size follows the work
+
+Skepticism about large programmer teams predates today's agents. DHH describes that longstanding small-company preference in the same interview. It's an organizational view, not a measured rule that smaller always wins. [Publisher transcript](https://lexfridman.com/dhh-2-transcript/)
+
+Adding someone who only passes a requirement onward increases coordination. Adding someone who catches a missing constraint can prevent a bad release. Headcount alone doesn't tell us which happened.
+
+A useful first experiment is one feature built through a more direct loop. Did the important exception surface earlier? Which waits disappeared? Did design or integration quality suffer? Those answers provide a reason to change the team structure, beyond simply buying everyone an agent license.
