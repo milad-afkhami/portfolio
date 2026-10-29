@@ -24,7 +24,7 @@ Read, copy or download the instructions in the [Prompt Library](/prompts/browser
 
 ## 1. Get the source and operating prompt
 
-The [public repository](https://github.com/milad-afkhami/chrome-bridge-extension) contains the implementation. [Download the source snapshot](/downloads/agent-workflows/chrome-bridge-source.zip) for the version discussed here, commit [b590381](https://github.com/milad-afkhami/chrome-bridge-extension/commit/b5903818749d7899121007621ba94691f4049123), or inspect its components directly:
+Get the source code from the [public repository](https://github.com/milad-afkhami/chrome-bridge-extension). The version discussed here is commit [b590381](https://github.com/milad-afkhami/chrome-bridge-extension/commit/b5903818749d7899121007621ba94691f4049123). Inspect its components directly:
 
 - [MCP server: server/index.js](https://github.com/milad-afkhami/chrome-bridge-extension/blob/b5903818749d7899121007621ba94691f4049123/server/index.js) — tool definitions and connection routing.
 - [Extension worker: extension/background.js](https://github.com/milad-afkhami/chrome-bridge-extension/blob/b5903818749d7899121007621ba94691f4049123/extension/background.js) — page actions, observations, and debugger paths.
@@ -32,7 +32,7 @@ The [public repository](https://github.com/milad-afkhami/chrome-bridge-extension
 
 The [installation guide](https://github.com/milad-afkhami/chrome-bridge-extension/blob/b5903818749d7899121007621ba94691f4049123/README.md#install) gives client-specific registration commands. The minimal setup is:
 
-1. Extract the source or clone the repository, then run `npm install` inside its `server` directory.
+1. Clone the repository, then run `npm install` inside its `server` directory.
 2. Configure your MCP client to launch `node` with the absolute path to `server/index.js`, using stdio transport.
 3. In Chrome's extensions page, enable Developer mode, choose Load unpacked, and select the repository's `extension` directory.
 4. Restart the agent client, check the extension popup's connection status, and use the bridge's `ping` tool before a task.

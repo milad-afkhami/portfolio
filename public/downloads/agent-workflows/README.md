@@ -1,6 +1,6 @@
 # Agent workflow source pack
 
-Source snapshot accompanying Milad Afkhami's AI engineering articles, 2026-10-26.
+Source snapshot accompanying Milad Afkhami's AI engineering articles, 2026-10-26. Independent Judgment updated from the global instructions on 2026-10-29.
 
 ## Contents
 
@@ -22,6 +22,6 @@ Wrapup is a multi-file chain. Install wrapup, save-context-for-compact and compr
 
 Independent Judgment is a standing instruction section, not a manually invoked skill. Add that section to the instruction file your agent reads for the relevant project or shared scope.
 
-Chrome Bridge is separate software. Its repository and installation guide are at https://github.com/milad-afkhami/chrome-bridge-extension . The source archive linked in the browser article contains the complete tracked repository snapshot at the stated commit, with no installed dependencies, credentials or browser session data. Node.js and npm are needed for its server; load its extension folder through Chrome's Load unpacked flow and register server/index.js as a local stdio MCP server using your client's supported configuration.
+Chrome Bridge is separate software. Its repository and installation guide are at https://github.com/milad-afkhami/chrome-bridge-extension . Get the source code from that repository; the browser article links to the commit discussed there. Node.js and npm are needed for its server; load its extension folder through Chrome's Load unpacked flow and register server/index.js as a local stdio MCP server using your client's supported configuration.
 
 These snapshots expose the actual prompts behind the essays, including their original wording. They are not claims of measured reliability. The article demonstrations remain hypothetical. No global instruction file or installed skill has been changed by preparing this pack.
