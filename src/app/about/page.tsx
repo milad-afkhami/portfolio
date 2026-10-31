@@ -1,7 +1,13 @@
+import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
+import localFont from "next/font/local";
+import styles from "./redesign.module.css";
+import { resumeLink } from "@/configs/general";
 import { experiences, skills } from "@/configs/about";
-import { FaComments, FaHandshake, FaUsers } from "react-icons/fa";
+import { FaArrowRight, FaDownload } from "react-icons/fa";
+
+const portfolioFont = localFont({ src: "./fonts/Figtree.ttf", display: "swap" });
 
 export const metadata: Metadata = {
   title: "About - Milad Afkhami",
@@ -9,62 +15,108 @@ export const metadata: Metadata = {
   alternates: { canonical: "/about" },
 };
 
+const principles = [
+  {
+    title: "Work as a team",
+    text: "Humility, a hunger for growth, and emotional intelligence shape how I contribute to a team.",
+  },
+  {
+    title: "Build trust",
+    text: "I value honest conversations, healthy debate, and accountability for the work we share.",
+  },
+  {
+    title: "Keep communication clear",
+    text: "I give and welcome constructive feedback, and make room for people to ask questions.",
+  },
+];
+
 export default function AboutPage(): JSX.Element {
   return (
-    <div className="space-y-16">
-      <div className="grid gap-8 md:grid-cols-2">
-        <div className="space-y-6">
-          <h1 className="text-4xl font-bold">About Me</h1>
-          <p className="text-lg text-base-content/80">
-            I&apos;m a Senior Full Stack Developer with over 7 years of experience in building modern web applications. My
-            passion lies in creating performant, accessible, and user-friendly web experiences using cutting-edge
-            technologies.
+    <div className={`${styles.page} ${portfolioFont.className}`}>
+      <section className={styles.hero} aria-labelledby="about-title">
+        <div>
+          <h1 id="about-title">
+            I&apos;m Milad.
+            <br />I build for people.
+          </h1>
+          <p className={styles.role}>Senior Full Stack Developer</p>
+          <p className={styles.intro}>
+            I&apos;m a developer with over 7 years of experience building web applications, from the interfaces people
+            use to the systems behind them.
           </p>
-          <p className="text-lg text-base-content/80">
-            I specialize in React, Next.js, TypeScript, and Micro Frontends architecture. I&apos;m constantly learning
-            and exploring new technologies to stay at the forefront of web development.
+          <p className={styles.intro}>
+            I specialize in React, Next.js, TypeScript, and micro frontend architecture. I care about performance,
+            accessibility, and making complex things easier to use. There&apos;s always more to learn.
           </p>
+          <div className={styles.actions}>
+            <Link href="/projects" className={styles.button}>
+              View my projects <FaArrowRight aria-hidden="true" />
+            </Link>
+            <a href={resumeLink} target="_blank" rel="noopener noreferrer" className={styles.textLink}>
+              <FaDownload aria-hidden="true" /> Download resume
+            </a>
+          </div>
         </div>
-        <div className="relative aspect-square overflow-hidden rounded-lg">
-          <Image src="/images/avatar.jpg" alt="Milad Afkhami" fill objectFit="cover" />
+        <figure className={styles.portrait}>
+          <div className={styles.portraitImage}>
+            <Image src="/images/avatar.jpg" alt="Milad Afkhami" fill priority sizes="(max-width: 767px) 90vw, 40vw" />
+          </div>
+          <figcaption className={styles.caption}>
+            <strong>Milad Afkhami</strong>
+            <span>Developer &amp; teammate</span>
+          </figcaption>
+        </figure>
+      </section>
+      <section className={`${styles.section} ${styles.sectionGrid}`} aria-labelledby="experience-title">
+        <div className={styles.sectionLead}>
+          <h2 id="experience-title">Experience that shapes my work.</h2>
+          <p>My experience across product teams, platforms, and the full web stack.</p>
         </div>
-      </div>
-
-      <div className="space-y-8">
-        <h2 className="text-3xl font-bold">Experience</h2>
-        <div className="space-y-8">
-          {experiences.map((experience) => (
-            <div key={experience.id} className="space-y-4">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h3 className="text-xl font-bold">{experience.title}</h3>
-                  <p className="text-base-content/80">{experience.company}</p>
-                </div>
-                <span className="text-sm text-base-content/70">{experience.period}</span>
-              </div>
-              <ul className="space-y-2">
-                {experience.achievements.map((achievement, index) => (
-                  <li key={index} className="flex items-center gap-2 text-base-content/80">
-                    <span className="size-1.5 rounded-full bg-primary" />
-                    {achievement}
+        <div>
+          {experiences.map((experience, index) => (
+            <article key={experience.id} className={styles.experience}>
+              <p className={styles.period}>{experience.period}</p>
+              <h3>{experience.title}</h3>
+              <p className={styles.company}>
+                {experience.company} / {experience.location}
+                {index === 0 && <span className={styles.current}>Current role</span>}
+              </p>
+              <ul className={styles.achievements}>
+                <li>{experience.achievements[0]}</li>
+              </ul>
+              {experience.achievements.length > 1 && (
+                <details className={styles.details}>
+                  <summary>More about my work at {experience.company}</summary>
+                  <ul className={styles.achievements}>
+                    {experience.achievements.slice(1).map((achievement) => (
+                      <li key={achievement}>{achievement}</li>
+                    ))}
+                  </ul>
+                </details>
+              )}
+              <ul className={styles.tags} aria-label={`Technologies at ${experience.company}`}>
+                {experience.technologies.map((tech) => (
+                  <li key={tech} className={styles.tag}>
+                    {tech}
                   </li>
                 ))}
               </ul>
-            </div>
+            </article>
           ))}
         </div>
-      </div>
-
-      <div className="space-y-8">
-        <h2 className="text-3xl font-bold">Skills</h2>
-        <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
+      </section>
+      <section className={`${styles.section} ${styles.sectionGrid}`} aria-labelledby="skills-title">
+        <div className={styles.sectionLead}>
+          <h2 id="skills-title">What I work with.</h2>
+          <p>The languages and tools I bring to a project.</p>
+        </div>
+        <div>
           {skills.map((skill) => (
-            <div key={skill.id} className="space-y-4">
-              <h3 className="text-xl font-bold">{skill.category}</h3>
-              <ul className="space-y-2">
+            <div key={skill.id} className={styles.skillGroup}>
+              <h3>{skill.category}</h3>
+              <ul className={styles.tags}>
                 {skill.items.map((item) => (
-                  <li key={item.id} className="flex items-center gap-2 text-base-content/80">
-                    <span className="size-1.5 rounded-full bg-primary" />
+                  <li key={item.id} className={styles.tag}>
                     {item.text}
                   </li>
                 ))}
@@ -72,39 +124,27 @@ export default function AboutPage(): JSX.Element {
             </div>
           ))}
         </div>
-      </div>
-
-      <div className="grid gap-8 sm:grid-cols-3">
-        <div className="card bg-base-100 shadow-xl">
-          <div className="card-body">
-            <FaUsers className="size-8 text-primary" />
-            <h3 className="card-title">Team Player</h3>
-            <p className="text-base-content/80">
-              Demonstrating humility, hunger for growth, and emotional intelligence to contribute effectively in teams.
-            </p>
-          </div>
+      </section>
+      <section className={styles.section} aria-labelledby="team-title">
+        <h2 id="team-title">Good software is a team effort.</h2>
+        <div className={styles.principles}>
+          {principles.map((principle) => (
+            <div key={principle.title}>
+              <h3>{principle.title}</h3>
+              <p>{principle.text}</p>
+            </div>
+          ))}
         </div>
-        <div className="card bg-base-100 shadow-xl">
-          <div className="card-body">
-            <FaHandshake className="size-8 text-primary" />
-            <h3 className="card-title">Trust Building</h3>
-            <p className="text-base-content/80">
-              Building trust through vulnerability, encouraging healthy debates, and maintaining accountability in team
-              settings.
-            </p>
-          </div>
+      </section>
+      <section className={styles.cta} aria-labelledby="contact-title">
+        <div>
+          <h2 id="contact-title">Have something in mind?</h2>
+          <p>Let&apos;s talk about what you&apos;re building.</p>
         </div>
-        <div className="card bg-base-100 shadow-xl">
-          <div className="card-body">
-            <FaComments className="size-8 text-primary" />
-            <h3 className="card-title">Communication</h3>
-            <p className="text-base-content/80">
-              Providing and receiving constructive feedback while maintaining clear and effective communication with
-              team members.
-            </p>
-          </div>
-        </div>
-      </div>
+        <Link href="/contact" className={styles.button}>
+          Get in touch <FaArrowRight aria-hidden="true" />
+        </Link>
+      </section>
     </div>
   );
 }
