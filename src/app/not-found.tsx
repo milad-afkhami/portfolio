@@ -1,18 +1,21 @@
 import Link from "next/link";
-import { FaHome } from "react-icons/fa";
 
-export default function NotFound() {
+export default function NotFound(): JSX.Element {
   return (
-    <div className="flex min-h-[60vh] animate-fade-in-down flex-col items-center justify-center space-y-8 text-center">
-      <h1 className="text-6xl font-bold">404</h1>
-      <h2 className="text-2xl font-semibold">Page Not Found</h2>
-      <p className="max-w-md text-base-content/70">Let&apos;s get you back on track.</p>
-      <Link href="/">
-        <button className="btn btn-primary btn-lg items-center gap-2">
-          <FaHome className="size-6" />
-          Go to Home
-        </button>
-      </Link>
+    <div className="empty-page">
+      <h1>That page isn&apos;t here.</h1>
+      <p>
+        The address may have changed, or the page may no longer exist. You can find my projects, articles, and more from
+        the home page.
+      </p>
+      <div className="flex flex-wrap gap-4">
+        <Link href="/" className="btn btn-primary">
+          Back to Home
+        </Link>
+        <Link href="/projects" className="btn btn-outline">
+          Explore projects
+        </Link>
+      </div>
     </div>
   );
 }

@@ -1,29 +1,23 @@
 import Link from "next/link";
 import Image from "next/image";
+import { FaArrowRight } from "react-icons/fa";
+import styles from "./collections.module.css";
 import type { IPrompt } from "@/types/general";
 
-type PromptCardProps = {
-  prompt: IPrompt;
-};
-
-export default function PromptCard({ prompt }: PromptCardProps): JSX.Element {
+export default function PromptCard({ prompt }: { prompt: IPrompt }): JSX.Element {
   const { slug, name, description, coverImage, kind } = prompt;
-
   return (
-    <Link
-      href={`/prompts/${slug}`}
-      className="group flex flex-col justify-between overflow-hidden rounded-lg border bg-base-100 shadow-sm transition-shadow hover:shadow-md"
-    >
-      <Image src={coverImage} alt={name} width={300} height={200} className="h-52 w-full object-cover" />
-      <div className="space-y-4 p-6">
-        {kind && (
-          <p className="text-sm text-base-content/60">{kind === "skill" ? "Agent skill" : "Standing instructions"}</p>
-        )}
-        <h2 className="text-xl font-bold text-base-content">{name}</h2>
-        <p className="text-base-content/70">{description}</p>
+    <Link href={`/prompts/${slug}`} className={`${styles.link} ${styles.prompt}`}>
+      <div className={styles.image}>
+        <Image src={coverImage} alt="" fill sizes="150px" />
       </div>
-      <div className="flex items-center justify-end border-t bg-base-200 p-3">
-        <div className="btn btn-primary btn-sm">View</div>
+      <div className={styles.body}>
+        <h2>{name}</h2>
+        {kind && <div className={styles.kind}>{kind === "skill" ? "Agent skill" : "Standing instructions"}</div>}
+        <p>{description}</p>
+        <span className={styles.action}>
+          Read instructions <FaArrowRight aria-hidden="true" />
+        </span>
       </div>
     </Link>
   );

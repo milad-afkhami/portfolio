@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { FaArrowLeft } from "react-icons/fa";
 import { playgroundExperiments } from "@/configs/playground";
 
@@ -39,12 +39,10 @@ export default function PlaygroundExperimentPage({ params }: PageProps): JSX.Ele
         href="/playground"
         aria-label="Back to Playground"
         title="Back to Playground"
-        className="group absolute left-3 top-3 z-10 inline-flex h-9 items-center gap-2 rounded-full bg-black/40 px-2.5 text-sm text-white/90 ring-1 ring-white/10 backdrop-blur-sm transition-all hover:bg-black/70 hover:text-white"
+        className="group absolute left-3 top-3 z-10 inline-flex min-h-11 items-center gap-2 rounded-full bg-black/40 px-2.5 text-sm text-white/90 ring-1 ring-white/10 backdrop-blur-sm transition-all hover:bg-black/70 hover:text-white"
       >
         <FaArrowLeft className="size-3.5 shrink-0" />
-        <span className="max-w-0 overflow-hidden whitespace-nowrap opacity-0 transition-all duration-200 group-hover:max-w-28 group-hover:pr-1 group-hover:opacity-100">
-          Playground
-        </span>
+        <span className="whitespace-nowrap">Playground</span>
       </Link>
       <iframe
         src={`/playground/${experiment.slug}.html`}

@@ -42,7 +42,7 @@ export default async function FavouritePage({ params }: FavouritePageProps): Pro
   const Icon = categoryIcons[category];
 
   return (
-    <div className="space-y-8">
+    <div className="detail-page space-y-8">
       <Link
         href={`/favourites/${category}`}
         className="inline-flex items-center gap-2 text-base-content/80 hover:text-primary"
@@ -53,13 +53,13 @@ export default async function FavouritePage({ params }: FavouritePageProps): Pro
         </div>
       </Link>
 
-      <div className="grid gap-8 lg:grid-cols-2">
-        <div className="relative aspect-[3/4] overflow-hidden rounded-lg">
+      <div className="favourite-detail">
+        <div className="favourite-cover">
           <Image
             src={favourite.cover}
             alt={favourite.title}
             fill
-            objectFit="cover"
+            className="object-contain"
             sizes="(max-width: 768px) 100vw, 50vw"
           />
         </div>
@@ -67,7 +67,6 @@ export default async function FavouritePage({ params }: FavouritePageProps): Pro
         <div className="space-y-6">
           <div>
             <div className="flex items-center gap-3">
-              <Icon className="size-10 text-primary" />
               <h1 className="text-4xl font-bold">{favourite.title}</h1>
             </div>
             <p className="mt-2 text-lg text-base-content/80">{favourite.description}</p>
@@ -82,11 +81,8 @@ export default async function FavouritePage({ params }: FavouritePageProps): Pro
             ))}
             {favourite.link && (
               <div>
-                <a href={favourite.link} target="_blank" rel="noopener noreferrer">
-                  <button className="btn btn-link btn-sm">
-                    Visit Site
-                    <FaExternalLinkAlt className="size-4" />
-                  </button>
+                <a href={favourite.link} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                  Visit site <FaExternalLinkAlt aria-hidden="true" />
                 </a>
               </div>
             )}

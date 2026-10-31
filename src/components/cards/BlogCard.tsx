@@ -1,34 +1,21 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { IBlog } from "@/types/general";
+import styles from "./collections.module.css";
 
-type BlogCardProps = {
-  blog: IBlog;
-};
-
-export default function BlogCard({ blog }: BlogCardProps): JSX.Element {
+export default function BlogCard({ blog }: { blog: IBlog }): JSX.Element {
   const { slug, title, description, date, readingTime, coverImage } = blog;
-
   return (
-    <article className="group overflow-hidden rounded-lg border bg-base-100 shadow-sm transition-shadow hover:shadow-md">
-      <Link href={`/blog/${slug}`} className="block h-full" aria-labelledby={`blog-card-${slug}`}>
-        <div className="relative aspect-video overflow-hidden">
-          <Image
-            src={coverImage}
-            alt={title}
-            fill
-            objectFit="cover"
-            className="transition-transform duration-300 group-hover:scale-105"
-          />
+    <article className={styles.card}>
+      <Link href={`/blog/${slug}`} className={styles.link} aria-labelledby={`blog-card-${slug}-title`}>
+        <div className={styles.image}>
+          <Image src={coverImage} alt="" fill sizes="(max-width: 767px) 90vw, 45vw" />
         </div>
-        <div className="space-y-2 p-4">
-          <h2 className="text-xl font-bold text-base-content" id={`blog-card-${slug}-title`}>
-            {title}
-          </h2>
-          <p className="text-base-content/70">{description}</p>
-          <div className="flex items-center gap-4 text-sm text-base-content/70">
-            <time>{date}</time>
-            <span aria-hidden="true">•</span>
+        <div className={styles.body}>
+          <h2 id={`blog-card-${slug}-title`}>{title}</h2>
+          <p>{description}</p>
+          <div className={styles.meta}>
+            <time dateTime={date}>{date}</time>
             <span>{readingTime} to read</span>
           </div>
         </div>

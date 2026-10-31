@@ -1,153 +1,125 @@
 "use client";
 
 import Image from "next/image";
-import type { RefObject } from "react";
-import type { Nullable } from "ts-wiz";
-import useOnClickOutside from "@/hooks/useOnClickOutside";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaChevronLeft, FaChevronRight, FaTimes } from "react-icons/fa";
 
-type ImageGalleryProps = {
-  images: Array<string>;
-  title: string;
-};
-
-type ImageGalleryItem = Nullable<number>;
-
-function useImageGallery(
-  images: Array<string>,
-): [ImageGalleryItem, (image: ImageGalleryItem) => void, RefObject<HTMLDialogElement>] {
-  const [selectedImage, setSelectedImage] = useState<ImageGalleryItem>(null);
-
-  const imageGalleryRef = useRef<HTMLDialogElement>(null);
-
-  useOnClickOutside(imageGalleryRef, () => {
-    setSelectedImage(null);
-  });
-
-  const handleKeyDown = useCallback(
-    (e: KeyboardEvent) => {
-      if (selectedImage === null) return;
-
-      if (e.key === "Escape") {
-        setSelectedImage(null);
-      } else if (e.key === "ArrowLeft" && selectedImage !== 0) {
-        setSelectedImage((prev) => (prev === 0 ? images.length - 1 : (prev ?? 0) - 1));
-      } else if (e.key === "ArrowRight" && selectedImage !== images.length - 1) {
-        setSelectedImage((prev) => (prev === images.length - 1 ? 0 : (prev ?? 0) + 1));
-      }
-    },
-    [selectedImage, images.length],
-  );
-
-  useEffect(() => {
-    window.addEventListener("keydown", handleKeyDown);
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [handleKeyDown]);
-
-  return [selectedImage, setSelectedImage, imageGalleryRef];
-}
-
-function ActionButton({
-  children,
-  onClick,
-  label,
-  className,
-}: {
-  children: React.ReactNode;
-  onClick: VoidFunction;
-  label: string;
-  className?: string;
-}): JSX.Element {
-  return (
-    <button
-      className={`absolute rounded-full bg-base-content/60 p-2 text-white transition-all hover:scale-110 hover:bg-base-content/80 ${className}`}
-      onClick={onClick}
-      aria-label={label}
-    >
-      {children}
-    </button>
-  );
-}
+type ImageGalleryProps = { images: Array<string>; title: string };
 
 export default function ImageGallery({ images, title }: ImageGalleryProps): JSX.Element {
-  const [selectedImage, setSelectedImage, imageGalleryRef] = useImageGallery(images);
-
+  const [selected, setSelected] = useState<number | null>(null);
+  const dialog = useRef<HTMLDialogElement>(null);
+  const opener = useRef<HTMLButtonElement | null>(null);
+  useEffect(() => {
+    if (selected !== null && !dialog.current?.open) dialog.current?.showModal();
+    if (selected === null && dialog.current?.open) dialog.current.close();
+  }, [selected]);
+  useEffect(() => {
+    const modal = dialog.current;
+    const outside = (event: MouseEvent) => {
+      if (!modal?.open || event.target !== modal) return;
+      const r = modal.getBoundingClientRect();
+      if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom)
+        modal.close();
+    };
+    const keys = (event: KeyboardEvent) => {
+      if (!modal?.open) return;
+      if (event.key === "ArrowLeft") setSelected((value) => Math.max(0, (value ?? 0) - 1));
+      if (event.key === "ArrowRight") setSelected((value) => Math.min(images.length - 1, (value ?? 0) + 1));
+    };
+    modal?.addEventListener("click", outside);
+    window.addEventListener("keydown", keys);
+    return () => {
+      modal?.removeEventListener("click", outside);
+      window.removeEventListener("keydown", keys);
+    };
+  }, [images.length]);
+  useEffect(() => {
+    if (selected === null) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previous;
+    };
+  }, [selected]);
+  const close = () => {
+    dialog.current?.close();
+    setSelected(null);
+    opener.current?.focus();
+  };
   return (
     <div>
-      <div className="grid gap-4 sm:grid-cols-2">
-        {images.map((image, index) => (
+      <div className="gallery-grid">
+        {images.map((src, index) => (
           <button
-            key={image}
+            key={src}
             type="button"
-            className="relative aspect-video cursor-pointer overflow-hidden rounded-lg transition-transform hover:scale-[1.02]"
-            onClick={() => {
-              setSelectedImage(index);
+            className="gallery-thumb"
+            onClick={(event) => {
+              opener.current = event.currentTarget;
+              setSelected(index);
             }}
             aria-label={`View ${title} screenshot ${index + 1}`}
           >
-            <Image src={image} alt={`${title} screenshot ${index + 1}`} fill className="object-cover" />
+            <Image src={src} alt={`${title} screenshot ${index + 1}`} fill sizes="(max-width:640px) 90vw,45vw" />
           </button>
         ))}
       </div>
-      {selectedImage !== null && (
-        <div className="fixed inset-0 z-50 flex size-full items-center justify-center bg-black/80 backdrop-blur-sm">
-          <dialog
-            open
-            className="relative h-[90vh] w-[90vw] rounded-lg bg-transparent"
-            aria-label="Image gallery"
-            ref={imageGalleryRef}
+      <dialog
+        ref={dialog}
+        className="gallery-dialog"
+        aria-label={`${title} image gallery`}
+        onCancel={(event) => {
+          event.preventDefault();
+          close();
+        }}
+        onClose={() => {
+          if (!dialog.current?.open) {
+            setSelected(null);
+            opener.current?.focus();
+          }
+        }}
+      >
+        {selected !== null && (
+          <Image
+            src={images[selected] ?? ""}
+            alt={`${title} screenshot ${selected + 1}`}
+            fill
+            sizes="94vw"
+            loading="eager"
+          />
+        )}
+        <div className="gallery-controls">
+          <p className="gallery-count" aria-live="polite">
+            {selected === null ? 0 : selected + 1} / {images.length}
+          </p>
+          <button type="button" className="gallery-close" onClick={close} aria-label="Close gallery">
+            <FaTimes aria-hidden="true" />
+          </button>
+          <button
+            type="button"
+            className="gallery-prev"
+            disabled={selected === 0}
+            onClick={() => {
+              setSelected((value) => Math.max(0, (value ?? 0) - 1));
+            }}
+            aria-label="Previous image"
           >
-            <Image
-              src={images[selectedImage]}
-              alt={`${title} screenshot ${selectedImage + 1}`}
-              fill
-              objectFit="contain"
-              className="size-full rounded-lg"
-            />
-
-            <ActionButton
-              onClick={() => {
-                setSelectedImage(null);
-              }}
-              label="Close gallery"
-              className="right-4 top-4"
-            >
-              <FaTimes className="size-5" />
-            </ActionButton>
-
-            {selectedImage !== 0 && (
-              <ActionButton
-                onClick={() => {
-                  setSelectedImage(selectedImage - 1);
-                }}
-                label="Previous image"
-                className="left-4 top-1/2 -translate-y-1/2"
-              >
-                <FaChevronLeft className="size-5" />
-              </ActionButton>
-            )}
-
-            {selectedImage !== images.length - 1 && (
-              <ActionButton
-                onClick={() => {
-                  setSelectedImage(selectedImage + 1);
-                }}
-                label="Next image"
-                className="right-4 top-1/2 -translate-y-1/2"
-              >
-                <FaChevronRight className="size-5" />
-              </ActionButton>
-            )}
-
-            <div className="absolute bottom-4 left-4 rounded-full bg-base-content/60 px-3 py-1 text-sm text-white">
-              {selectedImage + 1} / {images.length}
-            </div>
-          </dialog>
+            <FaChevronLeft aria-hidden="true" />
+          </button>
+          <button
+            type="button"
+            className="gallery-next"
+            disabled={selected === images.length - 1}
+            onClick={() => {
+              setSelected((value) => Math.min(images.length - 1, (value ?? 0) + 1));
+            }}
+            aria-label="Next image"
+          >
+            <FaChevronRight aria-hidden="true" />
+          </button>
         </div>
-      )}
+      </dialog>
     </div>
   );
 }

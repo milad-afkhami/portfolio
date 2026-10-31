@@ -1,101 +1,53 @@
 import type { Metadata } from "next";
 import { email, linkedin, phone, telegram, whatsapp, zoom } from "@/configs/contact";
-import { FaEnvelope, FaLinkedinIn, FaPhone, FaTelegram, FaVideo, FaWhatsappSquare } from "react-icons/fa";
+import { FaArrowRight, FaLinkedinIn, FaPhone, FaTelegram, FaVideo, FaWhatsapp } from "react-icons/fa";
 
 export const metadata: Metadata = {
   title: "Contact - Milad Afkhami",
   description: "Get in touch with me for collaboration, questions, or just to say hello!",
   alternates: { canonical: "/contact" },
 };
-
+const channels = [
+  { title: "LinkedIn", label: "Connect on LinkedIn", href: linkedin, icon: FaLinkedinIn },
+  { title: "Telegram", label: "Message on Telegram", href: telegram, icon: FaTelegram },
+  { title: "WhatsApp", label: "Message on WhatsApp", href: whatsapp, icon: FaWhatsapp },
+  { title: "Phone", label: phone, href: `tel:${phone}`, icon: FaPhone },
+  { title: "Zoom", label: "Open Zoom meeting", href: zoom, icon: FaVideo },
+];
 export default function ContactPage(): JSX.Element {
   return (
-    <div className="space-y-16">
-      <div className="space-y-4">
-        <h1 className="text-4xl font-bold">Contact</h1>
-        <p className="text-xl text-base-content/80">
-          Have a question or want to work together? I&apos;d love to hear from you!
-        </p>
-      </div>
-
-      <div className="grid">
-        <div className="w-full space-y-8">
-          <div className="grid gap-4 space-y-6 md:grid-cols-2">
-            <div className="flex items-center gap-4">
-              <div className="flex size-12 items-center justify-center rounded-lg bg-primary/10">
-                <FaEnvelope className="size-6 text-primary" />
-              </div>
-              <div>
-                <h3 className="font-semibold">Email</h3>
-                <a href={`mailto:${email}`} target="_blank" className="text-base-content/80 hover:text-primary">
-                  {email}
-                </a>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-4">
-              <div className="flex size-12 items-center justify-center rounded-lg bg-primary/10">
-                <FaLinkedinIn className="size-6 text-primary" />
-              </div>
-              <div>
-                <h3 className="font-semibold">LinkedIn</h3>
-                <a href={linkedin} target="_blank" className="text-base-content/80 hover:text-primary">
-                  {linkedin}
-                </a>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-4">
-              <div className="flex size-12 items-center justify-center rounded-lg bg-primary/10">
-                <FaTelegram className="size-6 text-primary" />
-              </div>
-              <div>
-                <h3 className="font-semibold">Telegram</h3>
-                <a href={telegram} target="_blank" className="text-base-content/80 hover:text-primary">
-                  {telegram}
-                </a>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-4">
-              <div className="flex size-12 items-center justify-center rounded-lg bg-primary/10">
-                <FaWhatsappSquare className="size-6 text-primary" />
-              </div>
-              <div>
-                <h3 className="font-semibold">WhatsApp</h3>
-                <a href={whatsapp} target="_blank" className="text-base-content/80 hover:text-primary">
-                  {whatsapp}
-                </a>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-4">
-              <div className="flex size-12 items-center justify-center rounded-lg bg-primary/10">
-                <FaPhone className="size-6 text-primary" />
-              </div>
-              <div>
-                <h3 className="font-semibold">Phone</h3>
-                <a href={`tel:${phone}`} target="_blank" className="text-base-content/80 hover:text-primary">
-                  {phone}
-                </a>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-4">
-              <div className="flex size-12 items-center justify-center rounded-lg bg-primary/10">
-                <FaVideo className="size-6 text-primary" />
-              </div>
-              <div>
-                <a href={zoom} target="_blank" className="hover:text-primary">
-                  <h3 className="font-semibold">Zoom</h3>
-                </a>
-              </div>
-            </div>
-          </div>
+    <div>
+      <header className="page-heading">
+        <h1>
+          Let&apos;s make
+          <br />
+          something useful.
+        </h1>
+        <p>Have a project, a technical question, or an idea to explore? Here&apos;s where to find me.</p>
+      </header>
+      <section className="contact-email" aria-labelledby="email-title">
+        <h2 id="email-title">Start with an email.</h2>
+        <p>Tell me what you&apos;re working on and how I can help.</p>
+        <a href={`mailto:${email}`} className="contact-email-link">
+          {email}
+          <FaArrowRight aria-hidden="true" />
+        </a>
+      </section>
+      <section className="contact-channels" aria-labelledby="channels-title">
+        <h2 id="channels-title">Or find me here.</h2>
+        <div>
+          {channels.map(({ title, label, href, icon: Icon }) => (
+            <a key={title} href={href} target="_blank" rel="noopener noreferrer" className="contact-channel">
+              <Icon aria-hidden="true" />
+              <span>
+                <strong>{title}</strong>
+                <span>{label}</span>
+              </span>
+              <FaArrowRight aria-hidden="true" />
+            </a>
+          ))}
         </div>
-
-        {/* <ContactForm /> */}
-      </div>
+      </section>
     </div>
   );
 }

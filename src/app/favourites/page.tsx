@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import CardsWrapper from "@/components/cards/Wrapper";
 import { favouritesCategories } from "@/configs/favourites";
+import CollectionIntro from "@/components/cards/CollectionIntro";
 import FavouriteCategoryCard from "@/components/cards/FavouriteCategoryCard";
 
 export const metadata: Metadata = {
@@ -12,13 +13,10 @@ export const metadata: Metadata = {
 
 export default function FavouritesPage(): JSX.Element {
   return (
-    <div className="space-y-8">
-      <div>
-        <h1 className="text-4xl font-bold">Favourites</h1>
-        <p className="mt-2 text-lg text-base-content/80">
-          A collection of my favourite books, playlists, animations, series, anime, and poems.
-        </p>
-      </div>
+    <div>
+      <CollectionIntro title="Favourites">
+        A collection of my favourite books, playlists, animations, series, and anime.
+      </CollectionIntro>
 
       <CardsWrapper>
         {favouritesCategories.map((category) => (

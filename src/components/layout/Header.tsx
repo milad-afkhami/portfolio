@@ -1,86 +1,121 @@
 "use client";
 
 import Link from "next/link";
-import useToggle from "@/hooks/useToggle";
+import { usePathname } from "next/navigation";
 import { resumeLink } from "@/configs/general";
-import { FaDownload, FaEnvelope, FaHamburger } from "react-icons/fa";
+import { useEffect, useRef, useState } from "react";
+import { FaBars, FaDownload, FaTimes } from "react-icons/fa";
 
-const navLinks = [
+const links = [
   { href: "/", label: "Home" },
-  { href: "/blog", label: "Blog" },
   { href: "/projects", label: "Projects" },
   { href: "/about", label: "About" },
+  { href: "/blog", label: "Blog" },
   { href: "/packages", label: "Packages" },
   { href: "/services", label: "Services" },
-  { href: "/favourites", label: "Favourites" },
   { href: "/prompts", label: "Prompt Library" },
   { href: "/playground", label: "Playground" },
+  { href: "/favourites", label: "Favourites" },
 ];
 
 export default function Header(): JSX.Element {
-  const [isMenuOpen, toggleMenu] = useToggle(false);
-
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+  const header = useRef<HTMLElement>(null);
+  const toggle = useRef<HTMLButtonElement>(null);
+  const current = (href: string) => (href === "/" ? pathname === href : pathname.startsWith(href));
+  useEffect(() => {
+    const close = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && open) {
+        setOpen(false);
+        toggle.current?.focus();
+      }
+    };
+    const outside = (event: PointerEvent) => {
+      if (event.target instanceof Node && !header.current?.contains(event.target)) setOpen(false);
+    };
+    document.addEventListener("keydown", close);
+    document.addEventListener("pointerdown", outside);
+    return () => {
+      document.removeEventListener("keydown", close);
+      document.removeEventListener("pointerdown", outside);
+    };
+  }, [open]);
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
   return (
-    <header className="sticky top-0 z-50 border-b bg-base-100/80 backdrop-blur-sm">
-      <div className="container flex h-[var(--header-height)] items-center justify-between">
-        <nav className="flex items-center">
-          <div className="lg:hidden">
-            <div className="dropdown dropdown-right">
-              <button
-                type="button"
-                className="btn btn-ghost btn-sm"
-                onClick={toggleMenu}
-                aria-label="Navigation menu toggle button"
-                aria-expanded={isMenuOpen}
-              >
-                <FaHamburger className="size-5" />
-              </button>
-              <ul
-                className={`menu dropdown-content w-52 rounded-box bg-base-100 p-2 shadow-lg ${
-                  isMenuOpen ? "block" : "hidden"
-                }`}
-              >
-                {navLinks.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-base-content/80 transition-colors hover:text-primary"
-                      onClick={toggleMenu}
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <div className="hidden space-x-6 lg:flex">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-base-content/80 transition-colors hover:text-primary"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
+    <header ref={header} className="site-header">
+      <div className="header-inner container">
+        <Link
+          href="/"
+          className="wordmark"
+          aria-label="Milad Afkhami home"
+          onClick={() => {
+            setOpen(false);
+          }}
+        >
+          milad<span>.</span>
+        </Link>
+        <nav className="desktop-nav" aria-label="Main navigation">
+          {links.slice(0, 4).map((link) => (
+            <Link key={link.href} href={link.href} aria-current={current(link.href) ? "page" : undefined}>
+              {link.label}
+            </Link>
+          ))}
         </nav>
-
-        <div className="flex items-center space-x-4">
-          <a href={resumeLink} target="_blank" rel="noopener noreferrer">
-            <button className="btn btn-secondary btn-sm" aria-label="Download resume">
-              <FaDownload className="size-4" />
-              <span className="hidden sm:inline">Resume</span>
-            </button>
+        <div className="header-actions">
+          <a href={resumeLink} target="_blank" rel="noopener noreferrer" className="resume-action">
+            <FaDownload aria-hidden="true" />
+            <span>Resume</span>
           </a>
-          <Link href="/contact" className="btn btn-ghost btn-sm" aria-label="Contact page link">
-            <FaEnvelope className="size-4" />
-            <span className="hidden sm:inline">Contact</span>
+          <Link
+            href="/contact"
+            className="header-contact btn btn-primary"
+            aria-current={current("/contact") ? "page" : undefined}
+          >
+            Let&apos;s talk
           </Link>
+          <button
+            ref={toggle}
+            type="button"
+            className="menu-toggle"
+            aria-controls="site-menu"
+            aria-expanded={open}
+            onClick={() => {
+              setOpen(!open);
+            }}
+          >
+            {open ? <FaTimes aria-hidden="true" /> : <FaBars aria-hidden="true" />}
+            <span>{open ? "Close" : "Explore"}</span>
+          </button>
         </div>
       </div>
+      <nav id="site-menu" hidden={!open} className="site-menu container" aria-label="All pages">
+        <div className="menu-grid">
+          {links.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              aria-current={current(link.href) ? "page" : undefined}
+              onClick={() => {
+                setOpen(false);
+              }}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <Link
+            href="/contact"
+            onClick={() => {
+              setOpen(false);
+            }}
+            aria-current={current("/contact") ? "page" : undefined}
+          >
+            Contact
+          </Link>
+        </div>
+      </nav>
     </header>
   );
 }

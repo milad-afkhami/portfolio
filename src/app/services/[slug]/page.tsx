@@ -1,32 +1,12 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { VscTools } from "react-icons/vsc";
-import { FaListCheck } from "react-icons/fa6";
 import { getServiceBySlug } from "@/services/service";
-import {
-  FaArrowLeft,
-  FaCode,
-  FaLightbulb,
-  FaRobot,
-  FaGraduationCap,
-  FaSitemap,
-  FaCheck,
-  FaRegLightbulb,
-} from "react-icons/fa";
 
 type ServicePageProps = {
   params: {
     slug: string;
   };
-};
-
-const iconMap = {
-  FaCode,
-  FaLightbulb,
-  FaRobot,
-  FaGraduationCap,
-  FaSitemap,
 };
 
 export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
@@ -54,77 +34,50 @@ export default async function ServicePage({ params }: ServicePageProps): Promise
     notFound();
   }
 
-  const Icon = iconMap[service.icon as keyof typeof iconMap];
-
   return (
-    <div className="space-y-8">
-      <Link href="/services" className="inline-flex items-center gap-2 text-base-content/80 hover:text-base-content">
-        <FaArrowLeft />
+    <article className="detail-page space-y-8">
+      <Link href="/services" className="back-link">
         Back to Services
       </Link>
-
-      <div className="space-y-6">
-        <div className="flex items-center gap-4">
-          <div className="flex size-16 items-center justify-center rounded-lg bg-primary/10">
-            <Icon className="size-8 text-primary" />
-          </div>
-          <div>
-            <h1 className="mb-2 text-3xl font-bold">{service.title}</h1>
-            <p className="text-lg text-base-content/80">{service.description}</p>
-          </div>
-        </div>
-
-        <div className="space-y-4">
-          <h2 className="text-2xl font-bold">
-            <FaRegLightbulb className="inline size-6" /> Features
-          </h2>
-          <ul className="space-y-3">
-            {service.features.map((feature) => (
-              <li key={feature} className="flex items-center gap-2 text-base-content/80">
-                <span className="size-1.5 rounded-full bg-primary" />
-                {feature}
-              </li>
+      <header className="detail-header">
+        <h1>{service.title}</h1>
+        <p>{service.description}</p>
+      </header>
+      <section className="space-y-5">
+        <h2>What we can work on</h2>
+        <ul className="list-disc space-y-3 pl-5 text-[#526879]">
+          {service.features.map((feature) => (
+            <li key={feature}>{feature}</li>
+          ))}
+        </ul>
+      </section>
+      {service.prerequisites?.length ? (
+        <section className="space-y-5">
+          <h2>Before we start</h2>
+          <ul className="list-disc space-y-3 pl-5 text-[#526879]">
+            {service.prerequisites.map((item) => (
+              <li key={item}>{item}</li>
             ))}
           </ul>
-        </div>
-
-        {service.prerequisites?.length ? (
-          <div className="space-y-4">
-            <h2 className="text-2xl font-bold">
-              <FaListCheck className="inline size-6" /> Prerequisites
-            </h2>
-            <ul className="space-y-3">
-              {service.prerequisites.map((prerequisite) => (
-                <li key={prerequisite} className="flex items-center gap-2 text-base-content/80">
-                  <FaCheck className="size-4 text-primary" />
-                  {prerequisite}
-                </li>
-              ))}
-            </ul>
+        </section>
+      ) : null}
+      {service.technologies?.length ? (
+        <section className="space-y-5">
+          <h2>Technologies</h2>
+          <div className="detail-tags">
+            {service.technologies.map((tech) => (
+              <span key={tech}>{tech}</span>
+            ))}
           </div>
-        ) : undefined}
-
-        {service.technologies?.length ? (
-          <div className="space-y-4">
-            <h2 className="text-2xl font-bold">
-              <VscTools className="inline size-6" /> Technologies
-            </h2>
-            <div className="flex flex-wrap gap-2">
-              {service.technologies.map((tech) => (
-                <span key={tech} className="rounded-full bg-primary/10 px-3 py-1 text-sm text-primary">
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-        ) : undefined}
-
-        <div className="flex justify-center">
-          <Link href="/contact" className="btn btn-primary btn-lg">
-            Contact Me
-          </Link>
-        </div>
-      </div>
-    </div>
+        </section>
+      ) : null}
+      <section className="space-y-4">
+        <h2>Tell me about your project.</h2>
+        <p>Share what you need and where you are in the process.</p>
+        <Link href="/contact" className="btn btn-primary">
+          Discuss {service.title}
+        </Link>
+      </section>
+    </article>
   );
 }

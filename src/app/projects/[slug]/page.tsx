@@ -38,12 +38,17 @@ export default async function ProjectPage({ params }: ProjectPageProps): Promise
 
   const { title, description, shortDescription, logo, technologies, features, link, images } = project;
 
+  const projectLinks: Array<string> = Array.isArray(link) ? (link as Array<string>) : link ? [link] : [];
+
   return (
-    <article className="mx-auto max-w-4xl space-y-8">
+    <article className="detail-page space-y-8">
+      <Link href="/projects" className="back-link">
+        Back to Projects
+      </Link>
       <div className="flex items-center gap-4">
         {logo && (
           <div className="relative size-16 min-w-16 overflow-hidden rounded-lg">
-            <Image src={logo} alt={`${title} logo`} fill objectFit="contain" />
+            <Image src={logo} alt={`${title} logo`} fill className="object-contain" />
           </div>
         )}
         <div>
@@ -51,15 +56,13 @@ export default async function ProjectPage({ params }: ProjectPageProps): Promise
         </div>
       </div>
 
-      <p className="text-xl text-base-content/80">{description ?? shortDescription}</p>
+      <p className="max-w-prose text-xl text-[#526879]">{description ?? shortDescription}</p>
 
       {images?.length && <ImageGallery images={images} title={title} />}
 
-      <div className="flex flex-wrap gap-2">
+      <div className="detail-tags">
         {technologies.map((tech) => (
-          <span key={tech} className="rounded-full bg-primary/10 px-3 py-1 text-sm text-primary">
-            {tech}
-          </span>
+          <span key={tech}>{tech}</span>
         ))}
       </div>
 
@@ -68,8 +71,8 @@ export default async function ProjectPage({ params }: ProjectPageProps): Promise
           <h2 className="text-2xl font-bold">Features</h2>
           <ul className="space-y-2">
             {features.map((feature) => (
-              <li key={feature} className="flex items-center gap-2 text-base-content/80">
-                <span className="size-1.5 rounded-full bg-primary" />
+              <li key={feature} className="flex items-start gap-3 text-[#526879]">
+                <span className="mt-3 size-1.5 shrink-0 rounded-full bg-[#7d9fc2]" />
                 {feature}
               </li>
             ))}
@@ -77,11 +80,15 @@ export default async function ProjectPage({ params }: ProjectPageProps): Promise
         </div>
       )}
 
-      {link && (
-        <div className="flex justify-center">
-          <Link href={link} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-            View Project
-          </Link>
+      {projectLinks.length > 0 && (
+        <div className="flex flex-wrap gap-4">
+          {projectLinks
+            .filter((url) => /^https?:\/\//.test(url))
+            .map((url) => (
+              <a key={url} href={url} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                Visit {new URL(url).hostname}
+              </a>
+            ))}
         </div>
       )}
     </article>

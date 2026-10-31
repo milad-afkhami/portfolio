@@ -1,85 +1,55 @@
-"use client";
-
 import Link from "next/link";
-import { FaGithub, FaLinkedin, FaTwitter, FaArrowUp } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 
-const sitemapLinks = [
-  {
-    title: "Pages",
-    links: [
-      { href: "/", label: "Home" },
-      { href: "/blog", label: "Blog" },
-      { href: "/projects", label: "Projects" },
-      { href: "/about", label: "About" },
-      { href: "/packages", label: "Packages" },
-      { href: "/services", label: "Services" },
-      { href: "/favourites", label: "Favourites" },
-      { href: "/contact", label: "Contact" },
-    ],
-  },
-];
-
-const socialLinks = [
-  { href: "https://github.com/miladafkhami", label: "GitHub", icon: FaGithub },
-  { href: "https://linkedin.com/in/miladafkhami", label: "LinkedIn", icon: FaLinkedin },
-  { href: "https://twitter.com/miladafkhami", label: "Twitter", icon: FaTwitter },
+const links = [
+  ["/projects", "Projects"],
+  ["/about", "About"],
+  ["/blog", "Blog"],
+  ["/packages", "Packages"],
+  ["/services", "Services"],
+  ["/prompts", "Prompt Library"],
+  ["/playground", "Playground"],
+  ["/favourites", "Favourites"],
 ];
 
 export default function Footer(): JSX.Element {
-  const scrollToTop = (): void => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   return (
-    <footer className="border-t bg-base-200">
-      <div className="container py-12">
-        <div className="mb-8 flex items-center justify-between">
-          <div className="text-2xl font-bold text-primary">MA</div>
-          <button onClick={scrollToTop} className="btn btn-circle btn-ghost btn-sm" aria-label="Scroll to top">
-            <FaArrowUp className="size-4" />
-          </button>
-        </div>
-
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {sitemapLinks.map((section) => (
-            <div key={section.title}>
-              <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider">{section.title}</h3>
-              <ul className="grid grid-cols-2 gap-3">
-                {section.links.map((link) => (
-                  <li key={link.href}>
-                    <Link href={link.href} className="text-base-content/80 hover:text-primary">
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-
+    <footer className="site-footer">
+      <div className="container">
+        <div className="footer-top">
           <div>
-            <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider">Connect</h3>
-            <div className="flex space-x-4">
-              {socialLinks.map((link) => {
-                const Icon = link.icon;
-                return (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-base-content/80 hover:text-primary"
-                    aria-label={link.label}
-                  >
-                    <Icon className="size-5" />
-                  </a>
-                );
-              })}
-            </div>
+            <Link href="/" className="wordmark">
+              milad<span>.</span>
+            </Link>
+            <p>Thoughtful code. Useful experiences.</p>
+            <Link href="/contact" className="action-link">
+              Get in touch
+            </Link>
           </div>
+          <nav aria-label="Footer navigation" className="footer-links">
+            {links.map(([href, label]) => (
+              <Link key={href} href={href}>
+                {label}
+              </Link>
+            ))}
+          </nav>
         </div>
-
-        <div className="mt-12 text-center text-sm text-base-content/70">
-          © {new Date().getFullYear()} Milad Afkhami. All rights reserved.
+        <div className="footer-bottom">
+          <p>© {new Date().getFullYear()} Milad Afkhami</p>
+          <div className="social-links">
+            <a href="https://github.com/miladafkhami" target="_blank" rel="noopener noreferrer">
+              <FaGithub aria-hidden="true" /> GitHub
+            </a>
+            <a href="https://linkedin.com/in/miladafkhami" target="_blank" rel="noopener noreferrer">
+              <FaLinkedin aria-hidden="true" /> LinkedIn
+            </a>
+            <a href="https://twitter.com/miladafkhami" target="_blank" rel="noopener noreferrer">
+              <FaTwitter aria-hidden="true" /> Twitter
+            </a>
+          </div>
+          <a href="#main-content" className="action-link">
+            Back to top
+          </a>
         </div>
       </div>
     </footer>

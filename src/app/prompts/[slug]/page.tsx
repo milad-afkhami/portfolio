@@ -40,17 +40,16 @@ export default async function PromptPage({ params }: PromptPageProps): Promise<J
   const { name, description, coverImage, content, hasVariable, kind, usage, sourceNote, relatedArticles } = prompt;
 
   return (
-    <article className="mx-auto max-w-3xl space-y-8">
+    <article className="reading-page space-y-8">
+      <Link href="/prompts" className="back-link">
+        Back to Prompt Library
+      </Link>
       <div className="space-y-4">
         <h1 className="text-4xl font-bold">{name}</h1>
         <p className="text-xl text-base-content/80">{description}</p>
         {kind && (
           <p className="text-sm text-base-content/60">{kind === "skill" ? "Agent skill" : "Standing instructions"}</p>
         )}
-      </div>
-
-      <div className="relative aspect-video overflow-hidden rounded-lg">
-        <Image src={coverImage} alt={name} fill objectFit="cover" priority />
       </div>
 
       <PromptUsage prompt={prompt} />
@@ -78,6 +77,10 @@ export default async function PromptPage({ params }: PromptPageProps): Promise<J
           </ol>
         </section>
       )}
+
+      <div className="relative aspect-video overflow-hidden rounded-lg">
+        <Image src={coverImage} alt={name} fill className="object-cover" sizes="(max-width:767px) 90vw,800px" />
+      </div>
 
       {relatedArticles && (
         <section className="space-y-4 border-t pt-6" aria-labelledby="prompt-articles">

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { getAllBlogs } from "@/services/blog";
 import BlogCard from "@/components/cards/BlogCard";
 import CardsWrapper from "@/components/cards/Wrapper";
+import CollectionEmpty from "@/components/cards/CollectionEmpty";
+import CollectionIntro from "@/components/cards/CollectionIntro";
 
 export const metadata: Metadata = {
   title: "Blog - Milad Afkhami",
@@ -13,11 +15,9 @@ export default async function BlogPage(): Promise<JSX.Element> {
   const blogs = await getAllBlogs();
 
   return (
-    <div className="space-y-8">
-      <div className="space-y-4">
-        <h1 className="text-4xl font-bold">Blog</h1>
-        <p className="text-xl text-base-content/80">Thoughts, tutorials, and insights about web development.</p>
-      </div>
+    <div>
+      <CollectionIntro title="Blog">Thoughts, tutorials, and insights about web development.</CollectionIntro>
+      {blogs.length === 0 && <CollectionEmpty />}
 
       <CardsWrapper>
         {blogs.map((blog) => (

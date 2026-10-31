@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import CardsWrapper from "@/components/cards/Wrapper";
 import { playgroundExperiments } from "@/configs/playground";
 import PlaygroundCard from "@/components/cards/PlaygroundCard";
+import CollectionIntro from "@/components/cards/CollectionIntro";
 
 export const metadata: Metadata = {
   title: "Playground - Milad Afkhami",
@@ -12,14 +13,11 @@ export const metadata: Metadata = {
 
 export default function PlaygroundPage(): JSX.Element {
   return (
-    <div className="space-y-8">
-      <div className="space-y-4">
-        <h1 className="text-4xl font-bold">Playground</h1>
-        <p className="text-xl text-base-content/80">
-          Interactive experiments and generative toys — small, self-contained things I build for fun. Pick one and play
-          with it.
-        </p>
-      </div>
+    <div>
+      <CollectionIntro title="Playground">
+        Interactive experiments and generative toys — small, self-contained things I build for fun. Pick one and play
+        with it.
+      </CollectionIntro>
 
       <CardsWrapper>
         {playgroundExperiments.map((experiment) => (

@@ -1,40 +1,28 @@
 import Link from "next/link";
 import Image from "next/image";
+import styles from "./collections.module.css";
 import type { IFavourite, IFavouriteCategory } from "@/types/general";
 
-type FavouriteEntityCardProps = {
-  category: IFavouriteCategory["slug"];
-  favourite: IFavourite;
-};
+type Props = { category: IFavouriteCategory["slug"]; favourite: IFavourite };
 
-export default function FavouriteEntityCard({ category, favourite }: FavouriteEntityCardProps): JSX.Element {
+export default function FavouriteEntityCard({ category, favourite }: Props): JSX.Element {
   const { slug, title, subtitle, cover, meta } = favourite;
-
   return (
-    <Link href={`/favourites/${category}/${slug}`} className="group block">
-      <article className="overflow-hidden rounded-lg border bg-base-100 shadow-sm transition-shadow hover:shadow-md">
-        <div className="relative aspect-[3/4] overflow-hidden">
-          <Image
-            src={cover}
-            alt={title}
-            fill
-            objectFit="cover"
-            className="transition-transform duration-300 group-hover:scale-105"
-          />
+    <article className={styles.card}>
+      <Link href={`/favourites/${category}/${slug}`} className={styles.link}>
+        <div className={styles.bookImage}>
+          <Image src={cover} alt="" fill sizes="(max-width: 767px) 90vw, 45vw" />
         </div>
-        <div className="p-6">
-          <h2 className="mb-2 text-xl font-bold text-base-content">{title}</h2>
-          <p className="mb-4 text-base-content/70">{subtitle}</p>
-
-          <div className="space-y-2">
-            {meta?.map((item) => (
-              <p key={item.key} className="text-sm text-base-content/70">
-                <span className="font-medium">{item.key}:</span> {item.value}
-              </p>
-            ))}
-          </div>
+        <div className={styles.body}>
+          <h2>{title}</h2>
+          {subtitle && <p>{subtitle}</p>}
+          {meta?.map((item) => (
+            <p key={item.key}>
+              <strong>{item.key}:</strong> {item.value}
+            </p>
+          ))}
         </div>
-      </article>
-    </Link>
+      </Link>
+    </article>
   );
 }

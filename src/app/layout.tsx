@@ -1,8 +1,11 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import { baseUrl } from "@/configs/general";
-import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import Header from "@/components/layout/Header";
+
+const siteFont = localFont({ src: "./about/fonts/Figtree.ttf", display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -24,10 +27,15 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }): JSX.Element {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-base-100 font-sans">
+      <body className={`${siteFont.className} min-h-screen bg-base-100`}>
         <div className="flex min-h-screen flex-col">
           <Header />
-          <main className="container flex-1 py-8">{children}</main>
+          <a href="#main-content" className="skip-link">
+            Skip to content
+          </a>
+          <main id="main-content" tabIndex={-1} className="container flex-1 py-8">
+            {children}
+          </main>
           <Footer />
         </div>
       </body>

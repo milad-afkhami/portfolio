@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -59,28 +60,36 @@ export default async function BlogPage({ params }: BlogPageProps): Promise<JSX.E
   const { title, description, summary, date, readingTime, category, coverImage, tags, content } = blog;
 
   return (
-    <article className="mx-auto max-w-3xl space-y-8">
-      <div className="space-y-4">
-        <div className="flex items-center gap-4 text-sm text-base-content/70">
+    <article className="reading-page space-y-8">
+      <Link href="/blog" className="back-link">
+        Back to Blog
+      </Link>
+      <header>
+        <h1>{title}</h1>
+        <p>{summary || description}</p>
+        <div className="reading-meta">
           <span>{date}</span>
           <span>•</span>
           <span>{readingTime}</span>
           <span>•</span>
           <span>{category}</span>
         </div>
-        <h1 className="text-4xl font-bold">{title}</h1>
-        <p className="text-xl text-base-content/80">{summary || description}</p>
-      </div>
+      </header>
 
       <div className="relative aspect-video overflow-hidden rounded-lg">
-        <Image src={coverImage} alt={title} fill objectFit="cover" priority />
+        <Image
+          src={coverImage}
+          alt={title}
+          fill
+          className="object-cover"
+          sizes="(max-width:767px) 90vw,800px"
+          priority
+        />
       </div>
 
-      <div className="flex flex-wrap gap-2">
+      <div className="detail-tags">
         {tags.map((tag) => (
-          <span key={tag} className="rounded-full bg-primary/10 px-3 py-1 text-sm text-primary">
-            {tag}
-          </span>
+          <span key={tag}>{tag}</span>
         ))}
       </div>
 

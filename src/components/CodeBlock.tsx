@@ -1,50 +1,45 @@
 "use client";
 
-import type { Nullable } from "ts-wiz";
 import { FaClipboard, FaClipboardCheck } from "react-icons/fa";
 import { useEffect, useRef, useState, type PropsWithChildren } from "react";
 
-type Props = PropsWithChildren<{
-  className?: string;
-}>;
+type Props = PropsWithChildren<{ className?: string }>;
 
-export default function CodeBlock({ children, className }: Props) {
-  const [copied, setCopied] = useState(false);
+export default function CodeBlock({ children, className }: Props): JSX.Element {
+  const [status, setStatus] = useState("");
   const codeRef = useRef<HTMLPreElement>(null);
-  const toRef = useRef<Nullable<NodeJS.Timeout>>(null);
-
-  const copyToClipboard = async () => {
-    if (codeRef.current) {
-      try {
-        await navigator.clipboard.writeText(codeRef.current.innerText);
-        setCopied(true);
-        toRef.current = setTimeout(() => {
-          setCopied(false);
-        }, 2000);
-      } catch (err) {
-        console.error("Failed to copy text: ", err);
-      }
+  const generation = useRef(0);
+  useEffect(() => {
+    setStatus("");
+    return () => {
+      generation.current += 1;
+    };
+  }, [children]);
+  const copy = async () => {
+    const current = ++generation.current;
+    try {
+      await navigator.clipboard.writeText(codeRef.current?.innerText ?? "");
+      if (current === generation.current) setStatus("Copied to clipboard");
+    } catch {
+      if (current === generation.current) setStatus("Copy failed. Select and copy the text below.");
     }
   };
-
-  useEffect(() => {
-    return () => {
-      if (toRef.current) clearTimeout(toRef.current);
-    };
-  }, []);
-
   return (
-    <div className="group relative">
+    <div className="code-panel">
+      <div className="code-toolbar">
+        <output className="code-feedback">{status}</output>
+        <button type="button" onClick={copy} aria-label="Copy code block">
+          {status === "Copied to clipboard" ? (
+            <FaClipboardCheck aria-hidden="true" />
+          ) : (
+            <FaClipboard aria-hidden="true" />
+          )}
+          Copy
+        </button>
+      </div>
       <pre ref={codeRef} className={className}>
         {children}
       </pre>
-      <button
-        onClick={copyToClipboard}
-        className="btn btn-neutral btn-sm absolute right-2 top-2 opacity-0 transition-opacity duration-200 group-hover:opacity-100"
-        aria-label="Copy code block"
-      >
-        {copied ? <FaClipboardCheck className="size-4" /> : <FaClipboard className="size-4" />}
-      </button>
     </div>
   );
 }
