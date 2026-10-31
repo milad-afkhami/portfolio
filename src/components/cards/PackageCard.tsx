@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { IPackage } from "@/types/general";
 import { FaGithub, FaNpm, FaBook } from "react-icons/fa";
 
@@ -6,14 +7,14 @@ type PackageCardProps = {
 };
 
 export default function PackageCard({ pkg }: PackageCardProps): JSX.Element {
-  const { name, description, version, repository, npm, documentation, features, technologies } = pkg;
+  const { name, description, version, repository, npm, documentation, skill, features, technologies } = pkg;
 
   return (
     <article className="group flex flex-col justify-between overflow-hidden rounded-lg border bg-base-100 shadow-sm transition-shadow hover:shadow-md">
       <div className="p-6">
         <div className="mb-4">
           <h2 className="text-xl font-bold text-base-content">{name}</h2>
-          <p className="text-sm text-base-content/70">v{version}</p>
+          {version && <p className="text-sm text-base-content/70">v{version}</p>}
         </div>
         <p className="mb-4 text-base-content/70">{description}</p>
         <div className="mb-4 flex flex-wrap gap-2">
@@ -32,7 +33,7 @@ export default function PackageCard({ pkg }: PackageCardProps): JSX.Element {
           ))}
         </ul>
       </div>
-      <div className="flex items-center justify-between border-t bg-base-200 p-4">
+      <div className="flex flex-wrap items-center justify-between gap-4 border-t bg-base-200 p-4">
         <div className="flex gap-4">
           <a
             href={repository}
@@ -43,15 +44,17 @@ export default function PackageCard({ pkg }: PackageCardProps): JSX.Element {
           >
             <FaGithub className="size-5" />
           </a>
-          <a
-            href={npm}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-base-content/70 hover:text-primary"
-            aria-label="View on npm"
-          >
-            <FaNpm className="size-5" />
-          </a>
+          {npm && (
+            <a
+              href={npm}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-base-content/70 hover:text-primary"
+              aria-label="View on npm"
+            >
+              <FaNpm className="size-5" />
+            </a>
+          )}
           <a
             href={documentation}
             target="_blank"
@@ -62,6 +65,14 @@ export default function PackageCard({ pkg }: PackageCardProps): JSX.Element {
             <FaBook className="size-5" />
           </a>
         </div>
+        {skill && (
+          <Link
+            href={skill.url}
+            className="text-sm text-base-content underline underline-offset-4 hover:text-base-content/80"
+          >
+            {skill.name} skill
+          </Link>
+        )}
       </div>
     </article>
   );

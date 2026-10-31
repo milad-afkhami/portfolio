@@ -55,10 +55,11 @@ export type IPackage = {
   id: string;
   name: string;
   description: string;
-  version: string;
+  version?: string;
   repository: string;
-  npm: string;
+  npm?: string;
   documentation: string;
+  skill?: { name: string; url: string };
   features: Array<string>;
   technologies: Array<string>;
 };
