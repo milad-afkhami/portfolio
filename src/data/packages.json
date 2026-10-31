@@ -1,5 +1,22 @@
 [
   {
+    "id": "chrome-bridge-extension",
+    "name": "Chrome Bridge",
+    "description": "A Chrome extension and local MCP server that let Claude Code and Codex work in your existing browser session. Read pages, interact with tabs, and run JavaScript using your current logins. Pair it with the browser-use skill for operating guidance.",
+    "repository": "https://github.com/milad-afkhami/chrome-bridge-extension",
+    "documentation": "https://github.com/milad-afkhami/chrome-bridge-extension#readme",
+    "skill": {
+      "name": "browser-use",
+      "url": "/prompts/browser-use"
+    },
+    "features": [
+      "Existing Chrome session and logins",
+      "Explicit tab targeting",
+      "Page reading, interaction, and screenshots"
+    ],
+    "technologies": ["Chrome Extension", "MCP", "JavaScript", "Node.js"]
+  },
+  {
     "id": "style-wiz",
     "name": "style-wiz",
     "description": "Powerful CSS-in-JS and build-time stylesheets tool designed to simplify CSS-in-JS Developer experience and streamline the process of generating minified CSS files at build-time tailored for your needs.",
@@ -50,22 +67,5 @@
       "Customizable components"
     ],
     "technologies": ["React", "Design System", "UI Kit", "Styled Components"]
-  },
-  {
-    "id": "chrome-bridge-extension",
-    "name": "Chrome Bridge",
-    "description": "A Chrome extension and local MCP server that let Claude Code and Codex work in your existing browser session. Read pages, interact with tabs, and run JavaScript using your current logins. Pair it with the browser-use skill for operating guidance.",
-    "repository": "https://github.com/milad-afkhami/chrome-bridge-extension",
-    "documentation": "https://github.com/milad-afkhami/chrome-bridge-extension#readme",
-    "skill": {
-      "name": "browser-use",
-      "url": "/prompts/browser-use"
-    },
-    "features": [
-      "Existing Chrome session and logins",
-      "Explicit tab targeting",
-      "Page reading, interaction, and screenshots"
-    ],
-    "technologies": ["Chrome Extension", "MCP", "JavaScript", "Node.js"]
   }
 ]
