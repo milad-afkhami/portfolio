@@ -1,0 +1,6 @@
+interface:
+  display_name: "Portfolio Blog"
+  short_description: "Create, preview, and release portfolio blogs"
+  default_prompt: "Use $portfolio-blog to turn this idea or source into a reviewed portfolio blog."
+policy:
+  allow_implicit_invocation: false
