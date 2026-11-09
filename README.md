@@ -2,7 +2,7 @@
 
 A modern portfolio website built with Next.js, TypeScript, and Tailwind CSS.
 
-For agent and contributor context, start with [AGENTS.md](AGENTS.md) and the relevant skills under [.agents/skills/](.agents/skills/).
+For agent and contributor context, start with [AGENTS.md](AGENTS.md) and the [project-conventions skill](.agents/skills/project-conventions/SKILL.md).
 
 ## Technologies Used
 

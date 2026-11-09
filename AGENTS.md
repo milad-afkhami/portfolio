@@ -2,8 +2,7 @@
 
 This repository contains Milad Afkhami's public portfolio, built with Next.js App Router,
 React, TypeScript, Tailwind CSS, DaisyUI, and MDX. Start with [README.md](README.md) for the
-project purpose, boundaries, structure, and common commands. Use the relevant project skills under
-[`.agents/skills/`](.agents/skills/) for code-specific conventions.
+project purpose, boundaries, structure, and common commands. Use the [project-conventions skill](.agents/skills/project-conventions/SKILL.md) for code-specific conventions.
 
 ## Working rules
 
