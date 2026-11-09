@@ -2,9 +2,8 @@
 
 This repository contains Milad Afkhami's public portfolio, built with Next.js App Router,
 React, TypeScript, Tailwind CSS, DaisyUI, and MDX. Start with [README.md](README.md) for the
-project purpose, boundaries, structure, and common commands. Use [docs/current-work.md](docs/current-work.md)
-for the current checkpoint, and [docs/decisions/](docs/decisions/) for decisions that explain
-non-obvious constraints.
+project purpose, boundaries, structure, and common commands. Use the [project-conventions skill](.agents/skills/project-conventions/SKILL.md)
+for code-specific conventions.
 
 ## Working rules
 
@@ -60,8 +59,6 @@ explicitly authorized action.
 
 ## Documentation maintenance
 
-Keep stable project facts, rationale, and contracts separate from unfinished work. When a change
-introduces or alters a non-obvious boundary, update the nearest durable document and link it from
-`README.md` or this file. Update `docs/current-work.md` with the exact goal, changed files or
-behavior, verification evidence, open questions, and next action. Treat these records as claims to
-check against the code and package scripts, not as a substitute for inspecting them.
+Keep stable project facts, rationale, and contracts in the nearest maintained project document.
+Link durable documentation from `README.md` or this file, and check claims against the code and
+package scripts rather than treating prose as a substitute for inspection.
