@@ -8,5 +8,6 @@
 - **Verified:** The instructions match the current Next.js package scripts and `src/` layout.
 - **Verified:** `npm run lint` and `npm run build` pass; both report only pre-existing warnings in
   `src/app/about/page.tsx` and `src/components/cards/TestimonialCard.tsx`.
-- **Open:** Merge the reviewed branch into `main`.
-- **Next:** Merge this branch into `main`, then verify the resulting branch and working tree.
+- **Verified:** The reviewed branch was merged into `main` as `2d59670`.
+- **Open:** None for this migration.
+- **Next:** Start the next task from `README.md`, `AGENTS.md`, and this checkpoint.
