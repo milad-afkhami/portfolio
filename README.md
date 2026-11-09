@@ -2,6 +2,8 @@
 
 A modern portfolio website built with Next.js, TypeScript, and Tailwind CSS.
 
+For agent and contributor context, start with [AGENTS.md](AGENTS.md), then review the [current work checkpoint](docs/current-work.md) and [architecture decisions](docs/decisions/).
+
 ## Technologies Used
 
 - TypeScript (Strictly typed)
@@ -29,19 +31,19 @@ A modern portfolio website built with Next.js, TypeScript, and Tailwind CSS.
 
 ## Project Structure
 
-- `app/`: Next.js app directory
-- `components/`: React components
-- `configs/`: Configuration files
-- `constants/`: Constants
-- `containers/`: Container components
-- `data/`: Data files
-- `docs/`: Documentation files
-- `helpers/`: Helper functions
-- `hooks/`: Custom hooks
+- `src/app/`: Next.js App Router routes
+- `src/components/`: React components
+- `src/configs/`: Configuration files
+- `src/constants/`: Constants
+- `src/containers/`: Container components
+- `src/data/`: Data files
+- `docs/`: Repository documentation and decisions
+- `src/helpers/`: Project-specific helper functions
+- `src/hooks/`: Custom hooks
 - `public/`: Public assets
-- `services/`: Service files
-- `types/`: Type definitions
-- `utils/`: Utility functions
+- `src/services/`: Service files
+- `src/types/`: Type definitions
+- `src/utils/`: Generic utility functions
 
 ## Features
 
