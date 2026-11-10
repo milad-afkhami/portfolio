@@ -44,6 +44,7 @@ export type IBlogMetadata = {
   coverImage: string;
   tags: Array<string>;
   quality: "low" | "medium" | "high" | "top";
+  priority?: "low" | "medium" | "high" | "top";
 };
 
 export type IBlog = IBlogMetadata & {
