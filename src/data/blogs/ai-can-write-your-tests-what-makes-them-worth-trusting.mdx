@@ -1,6 +1,6 @@
 ---
 title: "AI Can Write Your Tests. Can You Trust What They Check?"
-description: "A useful generated test can expose a consequential mistake. Start from the promise, justify the expected result, and inspect which failures the evidence reaches."
+description: "The testing-philosophy skill helps you judge AI-written tests by the mistakes they can catch. See how that works through a workspace invitation example."
 summary: "I want AI-written tests to carry meaningful confidence as well as high coverage. That requires expectations grounded outside the implementation, scenarios chosen from real risks, and evidence from the product where lower-level tests stop."
 date: "2026-10-26"
 readingTime: "7 min"
@@ -8,7 +8,7 @@ category: "AI Engineering"
 quality: "medium"
 priority: "high"
 coverImage: "/images/blog/ai-can-write-your-tests-what-makes-them-worth-trusting-cover.jpg"
-tags: ["AI Engineering", "Testing", "Coding Agents", "Software Quality", "Verification"]
+tags: ["AI Engineering", "Testing", "Coding Agents", "Software Quality", "Verification", "Agent Skills"]
 ---
 
 A test can look independent while borrowing the implementation's mistake.
@@ -18,6 +18,8 @@ The agent writes a condition, writes another condition to calculate the expected
 I want a more demanding question for every test I accept: **what consequential mistake could this test expose?**
 
 That question should lead to more meaningful scenarios, clearer assertions, and better coverage. It should not become an excuse to test little because a few cases feel reassuring. My target is thorough coverage that carries confidence, with enough understanding to explain why the tests deserve it.
+
+I put that standard into the [testing-philosophy skill](/prompts/testing-philosophy) so a coding agent can apply it when planning, writing, or reviewing tests. Here's what it looks like for a workspace invitation.
 
 ## 1. Start outside the implementation
 
@@ -108,3 +110,9 @@ That flow has limits too. One successful click does not exercise the entire time
 Design critique adds another question: is the invitation system needlessly complicated? Tests can enforce an architectural rule that is explicitly encoded, but passing behavioral tests cannot by themselves establish that every abstraction earns its place.
 
 I want acceptance reports to preserve these distinctions. Tell me which behaviors were checked, what the actual results were, and which product claims remain unverified. “The agent wrote tests” says who produced an artifact. Trust depends on what that artifact can reveal.
+
+## 7. Use the skill on a test review
+
+Start with a feature whose tests already pass. Give your agent the requirements and point it to the tests. Ask it to identify a promised behavior that could break while the suite stays green. For the invitation example, a useful finding would be that the expiry test never makes an attempt at the exact deadline. That gives you a specific case to add and a reason it matters.
+
+The [Testing Philosophy page in the Prompt Library](/prompts/testing-philosophy) has the full instructions, an example request, and a download you can install in your agent.
