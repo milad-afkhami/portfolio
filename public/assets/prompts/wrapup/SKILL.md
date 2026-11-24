@@ -1,10 +1,7 @@
 ---
 name: wrapup
 description: >-
-  Manual invocation ONLY — run this exclusively when the user explicitly invokes `/wrapup`
-  or asks by name to "run the wrapup skill". Do NOT auto-trigger it, and do NOT infer it from
-  the user merely mentioning saving context, committing, pushing, compacting, wrapping up,
-  checkpointing, or writing a report. A session wrap-up chain that, in this exact order,
+  A session wrap-up chain that, in this exact order,
   (1) runs the save-context-for-compact skill, (2) commits this session's changes and pushes,
   (3) runs the comprehensive-report skill.
 ---

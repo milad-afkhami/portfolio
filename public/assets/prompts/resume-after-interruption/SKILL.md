@@ -1,24 +1,9 @@
 ---
 name: resume-after-interruption
-description: Use when the user directly invokes $resume-after-interruption as an instruction. Do not trigger from mentions, quotations, questions, negations, interruptions, or ordinary requests to resume or continue.
+description: Reconstruct and finish interrupted work from its exact stopping point.
 ---
 
 # Resume after interruption
-
-## Invocation gate
-
-Apply this skill only when the user uses `$resume-after-interruption` as a direct instruction to activate it. Merely containing the name does not count. Mentions, quotations, questions about the skill, and negations are not invocations. An interrupted response, unfinished work, or an ordinary request to resume, continue, pick up, or finish does not invoke it.
-
-| User message | Invoke? |
-|---|---|
-| `$resume-after-interruption` | Yes |
-| `Use $resume-after-interruption to finish this task` | Yes |
-| `Continue the previous task` | No |
-| A new message after an interrupted turn | No |
-| `What does $resume-after-interruption do?` | No |
-| `Do not use $resume-after-interruption` | No |
-
-**Common mistake:** Treating an interruption or a mention of the skill as an invocation. Only a direct user instruction to activate it is a trigger.
 
 A response cut off mid-work is unfinished by default. Do not assert completion without proving it.
 
