@@ -1,7 +1,6 @@
 ---
 name: systematic-thinking
-description: Manually invoked (/systematic-thinking) when the user asks me to fix, improve, ideate on, or find a solution for a prompt, skill, instruction, plan, or piece of writing — so I diagnose the real cause and stress-test side effects instead of patching the symptom. Not for code bugs.
-disable-model-invocation: true
+description: Diagnose and improve prompts, skills, instructions, plans, or writing by tracing root causes and stress-testing side effects. Not for code bugs.
 ---
 
 # Systematic Thinking

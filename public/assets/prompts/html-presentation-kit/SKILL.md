@@ -4,11 +4,8 @@ description: >-
   Build an HTML slide presentation (English LTR or Persian RTL) from a small
   source file. A bundled engine supplies keyboard shortcuts, fragments,
   overview, presenter view, fit-to-window scaling, embedded fonts and icons, Tailwind,
-  and print CSS that exports one slide per 16:9 PDF page. Manual invocation
-  only: use when the user explicitly invokes /html-presentation-kit or
-  $html-presentation-kit, or asks by name to use the presentation kit. Do not
-  auto-trigger it just because someone mentions slides or a talk.
-disable-model-invocation: true
+  and print CSS that exports one slide per 16:9 PDF page. Can publish a checked
+  deck to free GitHub Pages and return a verified public link.
 ---
 
 # HTML Presentation Kit
@@ -51,9 +48,11 @@ Paths below are relative to this skill's directory. Resolve it once (for example
 
    If a browser tool is available (Playwright, chrome-bridge), also exercise the live deck once: arrows, fragments, `O`, `?`. Some tools block `file://`; serve the folder with `python3 -m http.server` if so.
 
-7. **Hand over** the `.html` and `.pdf` paths. Tell the user the presenting keys in one line (`?` shows them all, `S` opens presenter view) and that Ctrl+P in Chrome prints the same one-page-per-slide PDF.
+7. **Publish when a public link is requested or already authorized.** Read [publishing.md](publishing.md) and run the bundled publisher after visual review. It uploads a separate copy with speaker notes and HTML comments removed to a dedicated public GitHub Pages repository. It leaves the local HTML and PDF intact. Publishing is part of completing a public-link request; do not stop at local files or claim a pending deployment is live. A normal build remains local, and invoking this skill alone does not authorize publishing confidential material.
 
-When the user asks for changes, edit the `.slides.html` source and rebuild. Never edit the generated `.html`: the next build overwrites it.
+8. **Hand over** the `.html` and `.pdf` paths, plus the verified public URL when publishing. Mention that the public copy omits speaker notes; `S` in the local HTML retains them. Tell the user the presenting keys in one line (`?` shows them all, `S` opens presenter view) and that Ctrl+P in Chrome prints the same one-page-per-slide PDF.
+
+When the user asks for changes, edit the `.slides.html` source and rebuild. Never edit the generated `.html`: the next build overwrites it. For an authorized update to a published deck, republish to its existing slug with `--replace`, then verify the same URL again.
 
 ## Rules that keep decks from breaking
 

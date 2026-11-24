@@ -1,11 +1,7 @@
 ---
 name: autohelm
 description: >-
-  Manual-invocation-only autonomous "finish the job while I'm away" mode. Run this ONLY when the
-  user explicitly invokes it by name — as /autohelm, or by directly asking to "run autohelm" /
-  "turn on autohelm". Do NOT auto-trigger it: phrases like "keep going", "don't stop for me",
-  "finish while I sleep/cook", "just decide", or "run with it" must NOT activate it on their own,
-  because the user wants to choose when this mode is on. Once explicitly invoked, it makes Claude
+  Autonomous "finish the job while I'm away" mode. Once active, it makes Claude
   work continuously to completion without pausing to ask clarifying questions, present
   recommendation menus, ask permission for read-only or low-risk/reversible actions, or report
   non-blocking "dead-ends"; Claude decides trade-offs itself, logs each decision, and stops only
@@ -13,9 +9,6 @@ description: >-
 ---
 
 # Autohelm
-
-**Activation:** manual only. This skill runs when the user explicitly turns it on by name. Do not
-infer it from a task merely sounding autonomous — if they haven't named it, don't apply it.
 
 Once it's on: the user has left the keyboard (or wants to). Your job is to **finish the task**,
 not to produce a to-do list of things you *could* do next. They would rather come back to

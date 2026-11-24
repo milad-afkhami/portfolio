@@ -1,7 +1,6 @@
 ---
 name: weigh-options-and-decide
-description: Manually invoked (/weigh-options-and-decide) at a decision fork so I compare the real options across the perspectives that matter, surface the tradeoffs, correct for my own bias, then commit to the best option (or a hybrid) and carry it out — instead of anchoring on a first pick or handing the choice back. Explicit invocation only; when invoked I decide and then execute the choice in the same turn, I do not stop at presenting the analysis or wait for approval.
-disable-model-invocation: true
+description: Compare real options at a decision fork, surface tradeoffs, correct for bias, commit to the best option or hybrid, and carry it out in the same turn.
 ---
 
 # Weigh Options and Decide
@@ -17,8 +16,8 @@ are even laid out; the second stalls the work.
 name the tradeoffs, correct for my bias — and only then commit.* No verdict before the analysis;
 no menu handed back after it.
 
-**Activation:** manual only — and invoking it is consent to *act*, not just to analyze. The
-deliverable is the chosen option **carried out**, never the write-up of how I chose it. So I decide
+**Operating rule:** invoking it is consent to *act*, not just to analyze. The deliverable is the
+chosen option **carried out**, never the write-up of how I chose it. So I decide
 *and then do the thing*: pick the best option (or a sensible combination) and immediately execute
 it in the same turn — run the command, make the edit, take the next step of the task — without
 pausing for approval. Presenting the analysis and the pick is **not** completion; stopping there is
